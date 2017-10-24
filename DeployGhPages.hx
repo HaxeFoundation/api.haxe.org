@@ -42,10 +42,14 @@ class DeployGhPages {
         runCommand("git", ["config", "--local", "user.name", username]);
         runCommand("git", ["config", "--local", "user.email", email]);
         runCommand("git", ["remote", "add", "local", root]);
+        runCommand("git", ["remote", "add", "remote", remote]);
         runCommand("git", ["fetch", "local"]);
         runCommand("git", ["checkout", "--orphan", branch]);
         if (commandOutput("git", ["ls-remote", "--heads", "local", branch]).trim() != "") {
             runCommand("git", ["reset", "--soft", 'local/${branch}']);
+        }
+        if (commandOutput("git", ["ls-remote", "--heads", "remote", branch]).trim() != "") {
+            runCommand("git", ["reset", "--soft", 'remote/${branch}']);
         }
         runCommand("git", ["add", "--all"]);
         runCommand("git", ["commit", "--allow-empty", "--quiet", "-m", 'deploy for ${sha}']);
