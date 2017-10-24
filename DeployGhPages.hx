@@ -48,7 +48,7 @@ class DeployGhPages {
             runCommand("git", ["reset", "--soft", 'local/${branch}']);
         }
         runCommand("git", ["add", "--all"]);
-        runCommand("git", ["commit", "--allow-empty", "-m", 'deploy for ${sha}']);
+        runCommand("git", ["commit", "--allow-empty", "--quiet", "-m", 'deploy for ${sha}']);
         runCommand("git", ["push", "local", branch]);
 
         if (remote == null) {
