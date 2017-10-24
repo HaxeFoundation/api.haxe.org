@@ -19,8 +19,16 @@ class Gen {
         var d = new Deferred();
         var http = new Http(url);
         http.addHeader("User-Agent", "api.haxe.org generator");
+        switch (getEnv("GH_TOKEN")) {
+            case null:
+                //pass
+            case token:
+                http.addHeader("Authorization", 'Basic ${token}');
+        }
         http.onData = d.resolve;
-        http.onError = d.throwError;
+        http.onError = function(err){
+            d.throwError(err + "\n" + http.responseData);
+        }
         http.request(false);
         return d.promise();
     }
