@@ -43,7 +43,7 @@ class DeployGhPages {
         runCommand("git", ["config", "--local", "user.email", email]);
         runCommand("git", ["remote", "add", "local", root]);
         runCommand("git", ["remote", "add", "remote", remote]);
-        runCommand("git", ["fetch", "local"]);
+        runCommand("git", ["fetch", "--all"]);
         runCommand("git", ["checkout", "--orphan", branch]);
         if (commandOutput("git", ["ls-remote", "--heads", "local", branch]).trim() != "") {
             runCommand("git", ["reset", "--soft", 'local/${branch}']);
