@@ -12,6 +12,7 @@ class DeployGhPages {
         }
     }
     static function runCommand(cmd:String, args:Array<String>):Void {
+        println('run: $cmd $args');
         switch(command(cmd, args)) {
             case 0:
                 //pass
@@ -30,7 +31,7 @@ class DeployGhPages {
     }
     static function main():Void {
         var root = getCwd();
-        var sha = commandOutput("git", ["rev-parse", "HEAD"]);
+        var sha = commandOutput("git", ["rev-parse", "HEAD"]).trim();
         var folder = env("GHP_FOLDER", "html");
         var remote = env("GHP_REMOTE", null); // should be in the form of https://token@github.com/account/repo.git
         var branch = env("GHP_BRANCH", "gh-pages");
@@ -47,7 +48,7 @@ class DeployGhPages {
             runCommand("git", ["reset", "--soft", 'local/${branch}']);
         }
         runCommand("git", ["add", "--all"]);
-        runCommand("git", ["commit", "-m", 'deploy for ${sha}']);
+        runCommand("git", ["commit", "--allow-empty", "-m", 'deploy for ${sha}']);
         runCommand("git", ["push", "local", branch]);
 
         if (remote == null) {
