@@ -84,7 +84,7 @@ class Gen {
 
             if (version == latestVersion) {
                 for (item in readDirectory(outDir)) {
-                    runCommand("ln", ["-s",
+                    runCommand("cp", ["-rf",
                         absolutePath(Path.join([outDir, item])),
                         absolutePath(Path.join([htmlDir, item])),
                     ]);
