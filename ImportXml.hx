@@ -21,7 +21,7 @@ class ImportXml {
 
         // replace the "xml/$branch" folder
         var targetDir = Path.join(["xml", docInfo.branch]);
-        runCommand("rm", ["-rf", targetDir]);
+        deleteRecursive(targetDir);
         createDirectory(targetDir);
         for (item in readDirectory(xmlPath)) {
             copy(Path.join([xmlPath, item]), Path.join([targetDir, item]));

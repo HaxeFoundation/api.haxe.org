@@ -53,7 +53,7 @@ class Gen {
         versionInfo:Array<Version>,
         latestVersion:String
     ):Void {
-        runCommand("rm", ["-rf", htmlDir]);
+        deleteRecursive(htmlDir);
         createDirectory(htmlDir);
         for (item in readDirectory(xmlDir)) {
             var path = Path.join([xmlDir, item]);
@@ -76,25 +76,29 @@ class Gen {
                     outDir = Path.join([htmlDir, versionedPath(version)]);
             };
             createDirectory(outDir);
-            runCommand("haxelib", [
-                "run", "dox",
+            runCommand("haxe", [
+                "--cwd", "libs/dox",
+                "-lib", "hxtemplo",
+                "-lib", "hxparse",
+                "-lib", "hxargs",
+                "-lib", "markdown",
+                "-cp", "src",
+                "-dce", "no",
+                "--run", "dox.Dox",
+                "-theme", "haxe_api",
                 "--title", 'Haxe $version API',
-                "-o", outDir,
+                "-D", "website", "https://haxe.org/",
                 "-D", "version", version_long,
                 "-D", "source-path", 'https://github.com/HaxeFoundation/haxe/blob/${gitRef}/std/',
-                "-i", path,
+                "-i", absolutePath(path),
+                "-o", absolutePath(outDir),
                 "-ex", "microsoft",
                 "-ex", "javax",
                 "-ex", "cs.internal",
             ]);
 
             if (version == latestVersion) {
-                for (item in readDirectory(outDir)) {
-                    runCommand("cp", ["-rf",
-                        absolutePath(Path.join([outDir, item])),
-                        absolutePath(Path.join([htmlDir, item])),
-                    ]);
-                }
+                copyRecursive(outDir, htmlDir);
             }
         }
     }
