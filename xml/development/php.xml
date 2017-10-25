@@ -708,7 +708,6 @@
 				<x path="Int"/>
 				<x path="Float"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Retrieve Unix timestamp value from Date components. Takes same argument sequence as the Date constructor.</haxe_doc>
 		</makeUtc>
 		<haxe_doc>The DateTools class contains some extra functionalities for handling `Date`
@@ -1247,6 +1246,7 @@
 			<haxe_doc>@see http://php.net/manual/en/reserved.constants.php</haxe_doc>
 		</PHP_OS>
 		<PHP_SAPI public="1" static="1"><c path="String"/></PHP_SAPI>
+		<PHP_BINARY public="1" static="1"><c path="String"/></PHP_BINARY>
 		<PHP_EOL public="1" static="1"><c path="String"/></PHP_EOL>
 		<PHP_INT_MAX public="1" static="1"><x path="Int"/></PHP_INT_MAX>
 		<PHP_INT_MIN public="1" static="1"><x path="Int"/></PHP_INT_MIN>
@@ -1541,6 +1541,25 @@
 		<GLOB_BRACE public="1" static="1"><x path="Int"/></GLOB_BRACE>
 		<GLOB_ONLYDIR public="1" static="1"><x path="Int"/></GLOB_ONLYDIR>
 		<GLOB_ERR public="1" static="1"><x path="Int"/></GLOB_ERR>
+		<FORCE_GZIP public="1" static="1">
+			<x path="Int"/>
+			<haxe_doc>@see http://php.net/manual/en/zlib.constants.php</haxe_doc>
+		</FORCE_GZIP>
+		<FORCE_DEFLATE public="1" static="1"><x path="Int"/></FORCE_DEFLATE>
+		<ZLIB_ENCODING_RAW public="1" static="1"><x path="Int"/></ZLIB_ENCODING_RAW>
+		<ZLIB_ENCODING_DEFLATE public="1" static="1"><x path="Int"/></ZLIB_ENCODING_DEFLATE>
+		<ZLIB_ENCODING_GZIP public="1" static="1"><x path="Int"/></ZLIB_ENCODING_GZIP>
+		<ZLIB_FILTERED public="1" static="1"><x path="Int"/></ZLIB_FILTERED>
+		<ZLIB_HUFFMAN_ONLY public="1" static="1"><x path="Int"/></ZLIB_HUFFMAN_ONLY>
+		<ZLIB_FIXED public="1" static="1"><x path="Int"/></ZLIB_FIXED>
+		<ZLIB_RLE public="1" static="1"><x path="Int"/></ZLIB_RLE>
+		<ZLIB_DEFAULT_STRATEGY public="1" static="1"><x path="Int"/></ZLIB_DEFAULT_STRATEGY>
+		<ZLIB_BLOCK public="1" static="1"><x path="Int"/></ZLIB_BLOCK>
+		<ZLIB_NO_FLUSH public="1" static="1"><x path="Int"/></ZLIB_NO_FLUSH>
+		<ZLIB_PARTIAL_FLUSH public="1" static="1"><x path="Int"/></ZLIB_PARTIAL_FLUSH>
+		<ZLIB_SYNC_FLUSH public="1" static="1"><x path="Int"/></ZLIB_SYNC_FLUSH>
+		<ZLIB_FULL_FLUSH public="1" static="1"><x path="Int"/></ZLIB_FULL_FLUSH>
+		<ZLIB_FINISH public="1" static="1"><x path="Int"/></ZLIB_FINISH>
 		<haxe_doc>This class contains externs for native PHP constants defined in global namespace.
 	For native PHP functions in global namespace see `php.Global`.</haxe_doc>
 		<meta><m n=":phpGlobal"/></meta>
@@ -2800,52 +2819,165 @@
 		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="php.Syntax" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/Syntax.hx" extern="1">
-		<binop public="1" set="method" static="1">
-			<f a="left:operator:right">
-				<d/>
+		<code public="1" set="method" static="1">
+			<f a="php:args">
 				<c path="String"/>
-				<d/>
+				<x path="haxe.extern.Rest"><d/></x>
 				<d/>
 			</f>
-			<haxe_doc>This method allows one to force specified binary operation for `left` and `right` values.
-        `operator` must be a constant string like "+" or "==".</haxe_doc>
-		</binop>
-		<int public="1" set="method" static="1">
+			<haxe_doc>Embeds plain php code.
+        `php` should be a string literal with php code.
+        It can contain placeholders like `{0}`, `{1}` which will be replaced with corresponding arguments from `args`.
+        E.g.:
+        ```
+        Syntax.code("var_dump({0}, {1})", a, b);
+        ```
+        will generate
+        ```
+        var_dump($a, $b);
+        ```</haxe_doc>
+		</code>
+		<codeDeref public="1" set="method" static="1">
+			<f a="php:args">
+				<c path="String"/>
+				<x path="haxe.extern.Rest"><d/></x>
+				<d/>
+			</f>
+			<haxe_doc>The same as `code()`, but adds dereferencing
+        when required to workaround "cannot use temporary expression in write context" php error.</haxe_doc>
+		</codeDeref>
+		<spaceship public="1" get="inline" set="null" line="37" static="1">
+			<f a="left:right">
+				<d/>
+				<d/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc><![CDATA[Generates `$left <=> $right`]]></haxe_doc>
+		</spaceship>
+		<coalesce public="1" params="T" get="inline" set="null" line="44" static="1">
+			<f a="left:right">
+				<c path="coalesce.T"/>
+				<c path="coalesce.T"/>
+				<c path="coalesce.T"/>
+			</f>
+			<haxe_doc>Generates `$left ?? $right`</haxe_doc>
+		</coalesce>
+		<concat public="1" get="inline" set="null" line="51" static="1">
+			<f a="left:right">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Generates `$left . $right`</haxe_doc>
+		</concat>
+		<equal public="1" get="inline" set="null" line="58" static="1">
+			<f a="left:right">
+				<d/>
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Generates `$left == $right`</haxe_doc>
+		</equal>
+		<strictEqual public="1" get="inline" set="null" line="65" static="1">
+			<f a="left:right">
+				<d/>
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Generates `$left === $right`</haxe_doc>
+		</strictEqual>
+		<notEqual public="1" get="inline" set="null" line="72" static="1">
+			<f a="left:right">
+				<d/>
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Generates `$left != $right`</haxe_doc>
+		</notEqual>
+		<strictNotEqual public="1" get="inline" set="null" line="79" static="1">
+			<f a="left:right">
+				<d/>
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Generates `$left !== $right`</haxe_doc>
+		</strictNotEqual>
+		<add public="1" params="T" get="inline" set="null" line="86" static="1">
+			<f a="left:right">
+				<c path="add.T"/>
+				<c path="add.T"/>
+				<c path="add.T"/>
+			</f>
+			<haxe_doc>Generates `$left + $right` for numbers.</haxe_doc>
+		</add>
+		<union public="1" get="inline" set="null" line="93" static="1">
+			<f a="left:right">
+				<x path="php.NativeArray"/>
+				<x path="php.NativeArray"/>
+				<x path="php.NativeArray"/>
+			</f>
+			<haxe_doc>Generates `$left + $right` for php arrays.</haxe_doc>
+		</union>
+		<exp public="1" params="T" get="inline" set="null" line="100" static="1">
+			<f a="left:right">
+				<c path="exp.T"/>
+				<c path="exp.T"/>
+				<c path="exp.T"/>
+			</f>
+			<haxe_doc>Generates `$left ** $right`</haxe_doc>
+		</exp>
+		<shortTernary public="1" params="T" get="inline" set="null" line="107" static="1">
+			<f a="left:right">
+				<c path="shortTernary.T"/>
+				<c path="shortTernary.T"/>
+				<c path="shortTernary.T"/>
+			</f>
+			<haxe_doc>Generates `$left ?: $right`</haxe_doc>
+		</shortTernary>
+		<xor public="1" get="inline" set="null" line="114" static="1">
+			<f a="left:right">
+				<x path="Bool"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Generates `$left xor $right`</haxe_doc>
+		</xor>
+		<int public="1" get="inline" set="null" line="121" static="1">
 			<f a="value">
 				<d/>
 				<x path="Int"/>
 			</f>
 			<haxe_doc>Generates `(int)$value`</haxe_doc>
 		</int>
-		<float public="1" set="method" static="1">
+		<float public="1" get="inline" set="null" line="128" static="1">
 			<f a="value">
 				<d/>
 				<x path="Float"/>
 			</f>
 			<haxe_doc>Generates `(float)$value`</haxe_doc>
 		</float>
-		<string public="1" set="method" static="1">
+		<string public="1" get="inline" set="null" line="135" static="1">
 			<f a="value">
 				<d/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Generates `(string)$value`</haxe_doc>
 		</string>
-		<bool public="1" set="method" static="1">
+		<bool public="1" get="inline" set="null" line="142" static="1">
 			<f a="value">
 				<d/>
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>Generates `(bool)$value`</haxe_doc>
 		</bool>
-		<object public="1" set="method" static="1">
+		<object public="1" get="inline" set="null" line="149" static="1">
 			<f a="value">
 				<d/>
-				<d/>
+				<c path="php.StdClass"/>
 			</f>
 			<haxe_doc>Generates `(object)$value`</haxe_doc>
 		</object>
-		<array public="1" set="method" static="1">
+		<array public="1" get="inline" set="null" line="156" static="1">
 			<f a="value">
 				<d/>
 				<x path="php.NativeArray"/>
@@ -2858,9 +2990,9 @@
 				<x path="haxe.extern.AsVar"><x path="Class"><c path="instanceof.C"/></x></x>
 				<x path="Bool"/>
 			</f>
-			<haxe_doc>Ggenerates `$value instanceof $phpClassName`.
-        Haxe generates `Std.is(value, Type)` calls to `$value instanceof Type` automatically where possible.
-        `type` only accepts direct class names. That means `Type.resolveClass('MyClass')` is not allowed, but `MyClass` is.</haxe_doc>
+			<haxe_doc>Generates `$value instanceof $phpClassName`.
+        Haxe generates `Std.is(value, Type)` calls as `$value instanceof Type` automatically where possible.
+        So you may need this only if you have a `Class` stored in a variable.</haxe_doc>
 		</instanceof>
 		<foreach public="1" params="TCollection:TKey:TValue" set="method" static="1">
 			<f a="collection:body">
@@ -2964,6 +3096,23 @@
         [$arg1, $arg2, $arg3]
         ```</haxe_doc>
 		</arrayDecl>
+		<assocDecl public="1" params="T" set="method" static="1">
+			<f a="arg">
+				<c path="assocDecl.T"/>
+				<x path="php.NativeAssocArray"><d/></x>
+			</f>
+			<haxe_doc><![CDATA[```
+        Syntax.assocDecl({field1:'first', field2:2}});
+        ```
+        Generates native associative array declaration:
+        ```
+        ["field1" => "first", "field2" => 2];
+        ```
+        This method is not recursive.
+        Accepts object declarations only.
+        That means you can't pass an object stored in a variable to this method like `Syntax.assocDecl(someVar)`.
+        Use `php.Lib.associativeArrayOfObject(someVar)` instead.]]></haxe_doc>
+		</assocDecl>
 		<keepVar public="1" set="method" static="1">
 			<f a="localVar">
 				<d/>
@@ -2971,7 +3120,7 @@
 			</f>
 			<haxe_doc>Don't let compiler to optimize away local var passed to this method.</haxe_doc>
 		</keepVar>
-		<splat public="1" set="method" static="1">
+		<splat public="1" get="inline" set="null" line="248" static="1">
 			<f a="args">
 				<x path="haxe.extern.EitherType">
 					<x path="php.NativeArray"/>
@@ -5009,6 +5158,19 @@
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.mktime.php</haxe_doc>
 		</mktime>
+		<gmmktime public="1" set="method" static="1">
+			<f a="?hour:?minute:?second:?month:?day:?year:?is_dst">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.gmmktime.php</haxe_doc>
+		</gmmktime>
 		<date public="1" set="method" static="1">
 			<f a="format:?timestamp">
 				<c path="String"/>
@@ -5196,6 +5358,29 @@
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.include-once.php</haxe_doc>
 		</include_once>
+		<gzcompress public="1" set="method" static="1">
+			<f a="data:?level:?encoding">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.gzcompress.php</haxe_doc>
+		</gzcompress>
+		<gzuncompress public="1" set="method" static="1">
+			<f a="data:?length">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.gzuncompress.php</haxe_doc>
+		</gzuncompress>
 		<haxe_doc>This class contains externs for native PHP functions defined in global namespace.
 	For native PHP constants in global namespace see `php.Const`.</haxe_doc>
 		<meta><m n=":phpGlobal"/></meta>
@@ -9419,7 +9604,6 @@
 				<d/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Serializes `v`.
 
 		All haxe-defined values and objects with the exception of functions can
@@ -10458,7 +10642,7 @@
 	</class>
 	<class path="haxe.io._BytesData.Container" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/_std/haxe/io/BytesData.hx" private="1" module="haxe.io.BytesData">
 		<s public="1"><x path="php.NativeString"/></s>
-		<new public="1" get="inline" set="null" line="30"><f a="s">
+		<new public="1" get="inline" set="null" line="32"><f a="s">
 	<x path="php.NativeString"/>
 	<x path="Void"/>
 </f></new>
@@ -13608,11 +13792,11 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</length>
-	<alloc public="1" get="inline" set="null" line="37" static="1"><f a="length">
+	<alloc public="1" get="inline" set="null" line="39" static="1"><f a="length">
 	<x path="Int"/>
 	<x path="haxe.io._BytesData.BytesDataAbstract"/>
 </f></alloc>
-	<get public="1" get="inline" set="null" line="42" static="1">
+	<get public="1" get="inline" set="null" line="44" static="1">
 		<f a="this:pos">
 			<c path="haxe.io._BytesData.Container"/>
 			<x path="Int"/>
@@ -13623,7 +13807,7 @@
 			<m n=":arrayAccess"/>
 		</meta>
 	</get>
-	<set public="1" get="inline" set="null" line="47" static="1">
+	<set public="1" get="inline" set="null" line="49" static="1">
 		<f a="this:index:val">
 			<c path="haxe.io._BytesData.Container"/>
 			<x path="Int"/>
@@ -13635,7 +13819,7 @@
 			<m n=":arrayAccess"/>
 		</meta>
 	</set>
-	<compare public="1" get="inline" set="null" line="51" static="1">
+	<compare public="1" get="inline" set="null" line="53" static="1">
 		<f a="this:other">
 			<c path="haxe.io._BytesData.Container"/>
 			<x path="haxe.io._BytesData.BytesDataAbstract"/>
@@ -13643,7 +13827,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</compare>
-	<getString public="1" get="inline" set="null" line="55" static="1">
+	<getString public="1" get="inline" set="null" line="57" static="1">
 		<f a="this:pos:len">
 			<c path="haxe.io._BytesData.Container"/>
 			<x path="Int"/>
@@ -13652,7 +13836,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</getString>
-	<sub public="1" get="inline" set="null" line="59" static="1">
+	<sub public="1" get="inline" set="null" line="61" static="1">
 		<f a="this:pos:len">
 			<c path="haxe.io._BytesData.Container"/>
 			<x path="Int"/>
@@ -13661,7 +13845,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</sub>
-	<blit public="1" get="inline" set="null" line="63" static="1">
+	<blit public="1" get="inline" set="null" line="65" static="1">
 		<f a="this:pos:src:srcpos:len">
 			<c path="haxe.io._BytesData.Container"/>
 			<x path="Int"/>
@@ -13672,21 +13856,21 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</blit>
-	<get_length get="inline" set="null" line="67" static="1">
+	<get_length get="inline" set="null" line="69" static="1">
 		<f a="this">
 			<c path="haxe.io._BytesData.Container"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_length>
-	<fromNativeString get="inline" set="null" line="72" static="1">
+	<fromNativeString get="inline" set="null" line="74" static="1">
 		<f a="s">
 			<x path="php.NativeString"/>
 			<x path="haxe.io._BytesData.BytesDataAbstract"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromNativeString>
-	<toNativeString public="1" get="inline" set="null" line="77" static="1">
+	<toNativeString public="1" get="inline" set="null" line="79" static="1">
 		<f a="this">
 			<c path="haxe.io._BytesData.Container"/>
 			<x path="php.NativeString"/>
@@ -13696,14 +13880,14 @@
 			<m n=":to"/>
 		</meta>
 	</toNativeString>
-	<fromString get="inline" set="null" line="82" static="1">
+	<fromString get="inline" set="null" line="84" static="1">
 		<f a="s">
 			<c path="String"/>
 			<x path="haxe.io._BytesData.BytesDataAbstract"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromString>
-	<toString public="1" get="inline" set="null" line="87" static="1">
+	<toString public="1" get="inline" set="null" line="89" static="1">
 		<f a="this">
 			<c path="haxe.io._BytesData.Container"/>
 			<c path="String"/>
@@ -13721,11 +13905,11 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</length>
-		<alloc public="1" get="inline" set="null" line="37" static="1"><f a="length">
+		<alloc public="1" get="inline" set="null" line="39" static="1"><f a="length">
 	<x path="Int"/>
 	<x path="haxe.io._BytesData.BytesDataAbstract"/>
 </f></alloc>
-		<get public="1" get="inline" set="null" line="42" static="1">
+		<get public="1" get="inline" set="null" line="44" static="1">
 			<f a="this:pos">
 				<c path="haxe.io._BytesData.Container"/>
 				<x path="Int"/>
@@ -13736,7 +13920,7 @@
 				<m n=":arrayAccess"/>
 			</meta>
 		</get>
-		<set public="1" get="inline" set="null" line="47" static="1">
+		<set public="1" get="inline" set="null" line="49" static="1">
 			<f a="this:index:val">
 				<c path="haxe.io._BytesData.Container"/>
 				<x path="Int"/>
@@ -13748,7 +13932,7 @@
 				<m n=":arrayAccess"/>
 			</meta>
 		</set>
-		<compare public="1" get="inline" set="null" line="51" static="1">
+		<compare public="1" get="inline" set="null" line="53" static="1">
 			<f a="this:other">
 				<c path="haxe.io._BytesData.Container"/>
 				<x path="haxe.io._BytesData.BytesDataAbstract"/>
@@ -13756,7 +13940,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</compare>
-		<getString public="1" get="inline" set="null" line="55" static="1">
+		<getString public="1" get="inline" set="null" line="57" static="1">
 			<f a="this:pos:len">
 				<c path="haxe.io._BytesData.Container"/>
 				<x path="Int"/>
@@ -13765,7 +13949,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</getString>
-		<sub public="1" get="inline" set="null" line="59" static="1">
+		<sub public="1" get="inline" set="null" line="61" static="1">
 			<f a="this:pos:len">
 				<c path="haxe.io._BytesData.Container"/>
 				<x path="Int"/>
@@ -13774,7 +13958,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</sub>
-		<blit public="1" get="inline" set="null" line="63" static="1">
+		<blit public="1" get="inline" set="null" line="65" static="1">
 			<f a="this:pos:src:srcpos:len">
 				<c path="haxe.io._BytesData.Container"/>
 				<x path="Int"/>
@@ -13785,21 +13969,21 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</blit>
-		<get_length get="inline" set="null" line="67" static="1">
+		<get_length get="inline" set="null" line="69" static="1">
 			<f a="this">
 				<c path="haxe.io._BytesData.Container"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_length>
-		<fromNativeString get="inline" set="null" line="72" static="1">
+		<fromNativeString get="inline" set="null" line="74" static="1">
 			<f a="s">
 				<x path="php.NativeString"/>
 				<x path="haxe.io._BytesData.BytesDataAbstract"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromNativeString>
-		<toNativeString public="1" get="inline" set="null" line="77" static="1">
+		<toNativeString public="1" get="inline" set="null" line="79" static="1">
 			<f a="this">
 				<c path="haxe.io._BytesData.Container"/>
 				<x path="php.NativeString"/>
@@ -13809,14 +13993,14 @@
 				<m n=":to"/>
 			</meta>
 		</toNativeString>
-		<fromString get="inline" set="null" line="82" static="1">
+		<fromString get="inline" set="null" line="84" static="1">
 			<f a="s">
 				<c path="String"/>
 				<x path="haxe.io._BytesData.BytesDataAbstract"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromString>
-		<toString public="1" get="inline" set="null" line="87" static="1">
+		<toString public="1" get="inline" set="null" line="89" static="1">
 			<f a="this">
 				<c path="haxe.io._BytesData.Container"/>
 				<c path="String"/>
@@ -20606,14 +20790,11 @@
 	```]]></haxe_doc>
 	</class>
 	<class path="haxe.zip.Compress" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/_std/haxe/zip/Compress.hx">
-		<run public="1" set="method" line="51" static="1">
-			<f a="s:level">
-				<c path="haxe.io.Bytes"/>
-				<x path="Int"/>
-				<c path="haxe.io.Bytes"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</run>
+		<run public="1" set="method" line="51" static="1"><f a="s:level">
+	<c path="haxe.io.Bytes"/>
+	<x path="Int"/>
+	<c path="haxe.io.Bytes"/>
+</f></run>
 		<level><x path="Int"/></level>
 		<execute public="1" set="method" line="33"><f a="src:srcPos:dst:dstPos">
 	<c path="haxe.io.Bytes"/>
@@ -20888,14 +21069,11 @@
 	<x path="Void"/>
 </f></compress></class>
 	<class path="haxe.zip.Uncompress" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/_std/haxe/zip/Uncompress.hx">
-		<run public="1" set="method" line="40" static="1">
-			<f a="src:?bufsize">
-				<c path="haxe.io.Bytes"/>
-				<x path="Int"/>
-				<c path="haxe.io.Bytes"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</run>
+		<run public="1" set="method" line="40" static="1"><f a="src:?bufsize">
+	<c path="haxe.io.Bytes"/>
+	<x path="Int"/>
+	<c path="haxe.io.Bytes"/>
+</f></run>
 		<execute public="1" set="method" line="30"><f a="src:srcPos:dst:dstPos">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
@@ -21084,7 +21262,6 @@
 		</meta>
 		<getPrefix public="1" get="inline" set="null" line="73" static="1">
 			<f a=""><c path="String"/></f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Returns root namespace based on a value of `--php-prefix` compiler flag.
 		Returns empty string if no `--php-prefix` provided.</haxe_doc>
 		</getPrefix>
@@ -22578,74 +22755,47 @@
 			<x path="php.NativeAssocArray"><d/></x>
 			<haxe_doc>@see http://php.net/manual/en/reserved.variables.globals.php</haxe_doc>
 		</GLOBALS>
-		<get_GLOBALS get="inline" set="null" line="10" static="1">
-			<f a=""><x path="php.NativeAssocArray"><d/></x></f>
-			<meta><m n=":has_untyped"/></meta>
-		</get_GLOBALS>
+		<get_GLOBALS get="inline" set="null" line="8" static="1"><f a=""><x path="php.NativeAssocArray"><d/></x></f></get_GLOBALS>
 		<_SERVER public="1" get="accessor" set="null" static="1">
 			<x path="php.NativeAssocArray"><d/></x>
 			<haxe_doc>@see http://php.net/manual/en/reserved.variables.server.php</haxe_doc>
 		</_SERVER>
-		<get__SERVER get="inline" set="null" line="16" static="1">
-			<f a=""><x path="php.NativeAssocArray"><d/></x></f>
-			<meta><m n=":has_untyped"/></meta>
-		</get__SERVER>
+		<get__SERVER get="inline" set="null" line="14" static="1"><f a=""><x path="php.NativeAssocArray"><d/></x></f></get__SERVER>
 		<_GET public="1" get="accessor" set="null" static="1">
 			<x path="php.NativeAssocArray"><d/></x>
 			<haxe_doc>@see http://php.net/manual/en/reserved.variables.get.php</haxe_doc>
 		</_GET>
-		<get__GET get="inline" set="null" line="22" static="1">
-			<f a=""><x path="php.NativeAssocArray"><d/></x></f>
-			<meta><m n=":has_untyped"/></meta>
-		</get__GET>
+		<get__GET get="inline" set="null" line="20" static="1"><f a=""><x path="php.NativeAssocArray"><d/></x></f></get__GET>
 		<_POST public="1" get="accessor" set="null" static="1">
 			<x path="php.NativeAssocArray"><d/></x>
 			<haxe_doc>@see http://php.net/manual/en/reserved.variables.post.php</haxe_doc>
 		</_POST>
-		<get__POST get="inline" set="null" line="28" static="1">
-			<f a=""><x path="php.NativeAssocArray"><d/></x></f>
-			<meta><m n=":has_untyped"/></meta>
-		</get__POST>
+		<get__POST get="inline" set="null" line="26" static="1"><f a=""><x path="php.NativeAssocArray"><d/></x></f></get__POST>
 		<_FILES public="1" get="accessor" set="null" static="1">
 			<x path="php.NativeAssocArray"><d/></x>
 			<haxe_doc>@see http://php.net/manual/en/reserved.variables.files.php</haxe_doc>
 		</_FILES>
-		<get__FILES get="inline" set="null" line="34" static="1">
-			<f a=""><x path="php.NativeAssocArray"><d/></x></f>
-			<meta><m n=":has_untyped"/></meta>
-		</get__FILES>
+		<get__FILES get="inline" set="null" line="32" static="1"><f a=""><x path="php.NativeAssocArray"><d/></x></f></get__FILES>
 		<_COOKIE public="1" get="accessor" set="null" static="1">
 			<x path="php.NativeAssocArray"><d/></x>
 			<haxe_doc>@see http://php.net/manual/en/reserved.variables.cookie.php</haxe_doc>
 		</_COOKIE>
-		<get__COOKIE get="inline" set="null" line="40" static="1">
-			<f a=""><x path="php.NativeAssocArray"><d/></x></f>
-			<meta><m n=":has_untyped"/></meta>
-		</get__COOKIE>
+		<get__COOKIE get="inline" set="null" line="38" static="1"><f a=""><x path="php.NativeAssocArray"><d/></x></f></get__COOKIE>
 		<_SESSION public="1" get="accessor" set="null" static="1">
 			<x path="php.NativeAssocArray"><d/></x>
 			<haxe_doc>@see http://php.net/manual/en/reserved.variables.session.php</haxe_doc>
 		</_SESSION>
-		<get__SESSION get="inline" set="null" line="46" static="1">
-			<f a=""><x path="php.NativeAssocArray"><d/></x></f>
-			<meta><m n=":has_untyped"/></meta>
-		</get__SESSION>
+		<get__SESSION get="inline" set="null" line="44" static="1"><f a=""><x path="php.NativeAssocArray"><d/></x></f></get__SESSION>
 		<_REQUEST public="1" get="accessor" set="null" static="1">
 			<x path="php.NativeAssocArray"><d/></x>
 			<haxe_doc>@see http://php.net/manual/en/reserved.variables.request.php</haxe_doc>
 		</_REQUEST>
-		<get__REQUEST get="inline" set="null" line="52" static="1">
-			<f a=""><x path="php.NativeAssocArray"><d/></x></f>
-			<meta><m n=":has_untyped"/></meta>
-		</get__REQUEST>
+		<get__REQUEST get="inline" set="null" line="50" static="1"><f a=""><x path="php.NativeAssocArray"><d/></x></f></get__REQUEST>
 		<_ENV public="1" get="accessor" set="null" static="1">
 			<x path="php.NativeAssocArray"><d/></x>
 			<haxe_doc>@see http://php.net/manual/en/reserved.variables.env.php</haxe_doc>
 		</_ENV>
-		<get__ENV get="inline" set="null" line="58" static="1">
-			<f a=""><x path="php.NativeAssocArray"><d/></x></f>
-			<meta><m n=":has_untyped"/></meta>
-		</get__ENV>
+		<get__ENV get="inline" set="null" line="56" static="1"><f a=""><x path="php.NativeAssocArray"><d/></x></f></get__ENV>
 	</class>
 	<class path="php.Traversable" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/Traversable.hx" extern="1" interface="1">
 		<haxe_doc>@see http://php.net/manual/en/class.traversable.php</haxe_doc>
