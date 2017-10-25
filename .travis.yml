@@ -5,14 +5,9 @@ sudo: false
 
 install:
   - haxelib install all --always
-  - haxelib git hxparse https://github.com/Simn/hxparse master src
-  - haxelib git hxtemplo https://github.com/Simn/hxtemplo
-  - haxelib git hxargs https://github.com/Simn/hxargs
-  - haxelib git markdown https://github.com/dpeek/haxe-markdown master src
-  - haxelib git dox https://github.com/dpeek/dox
+  - haxelib dev dox libs/dox
   - haxelib list
 
 script:
   - haxe gen.hxml && neko Gen.n
   - haxe --run DeployGhPages
-
