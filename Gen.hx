@@ -4,16 +4,13 @@ import sys.io.File.*;
 import haxe.io.Path;
 import Sys.*;
 import promhx.*;
+import Utils.*;
 using Lambda;
 
 typedef Version = {
     name:String,
     tag_name:String,
     prerelease:Bool,
-}
-
-typedef DocInfo = {
-    commit: String,
 }
 
 class Gen {
@@ -46,15 +43,6 @@ class Gen {
     static function getLatestVersion():Promise<String> {
         return requestUrl("https://api.github.com/repos/HaxeFoundation/haxe/releases/latest")
             .then(function(r) return Json.parse(r).name);
-    }
-
-    static function runCommand(cmd:String, args:Array<String>):Void {
-        switch(command(cmd, args)) {
-            case 0:
-                //pass
-            case exitCode:
-                exit(exitCode);
-        }
     }
 
     static function versionedPath(version:String):String {
