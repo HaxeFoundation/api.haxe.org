@@ -1,5 +1,6 @@
 import haxe.*;
 import sys.FileSystem.*;
+import sys.io.File.*;
 import haxe.io.Path;
 import Sys.*;
 import promhx.*;
@@ -9,6 +10,10 @@ typedef Version = {
     name:String,
     tag_name:String,
     prerelease:Bool,
+}
+
+typedef DocInfo = {
+    commit: String,
 }
 
 class Gen {
@@ -68,11 +73,16 @@ class Gen {
                 continue;
 
             var version = item;
+            var version_long = version;
             var outDir, gitRef;
             switch(versionInfo.find(function(v) return v.name == version)) {
-                case null: // it is not a release, but `branch@commit`
-                    gitRef = version.substr(0, version.indexOf("@"));
+                case null: // it is not a release, but a branch
+                    gitRef = version;
                     outDir = Path.join([htmlDir, versionedPath(gitRef)]);
+                    try {
+                        var info:DocInfo = Json.parse(getContent(Path.join([path, "info.json"])));
+                        version_long = '${version} @ ${info.commit.substr(0, 7)}';
+                    } catch (e:Dynamic) {}
                 case v:
                     gitRef = v.tag_name;
                     outDir = Path.join([htmlDir, versionedPath(version)]);
@@ -82,7 +92,7 @@ class Gen {
                 "run", "dox",
                 "--title", 'Haxe $version API',
                 "-o", outDir,
-                "-D", "version", version,
+                "-D", "version", version_long,
                 "-D", "source-path", 'https://github.com/HaxeFoundation/haxe/blob/${gitRef}/std/',
                 "-i", path,
                 "-ex", "microsoft",
