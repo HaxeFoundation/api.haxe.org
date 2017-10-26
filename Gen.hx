@@ -5,6 +5,7 @@ import haxe.io.Path;
 import Sys.*;
 import promhx.*;
 import Utils.*;
+import Config.*;
 using Lambda;
 
 typedef Version = {
@@ -101,6 +102,9 @@ class Gen {
                 copyRecursive(outDir, htmlDir);
             }
         }
+
+        if (cname != null)
+            saveContent(Path.join([htmlDir, "CNAME"]), cname);
     }
 
     static function main():Void {
