@@ -64,19 +64,20 @@ class Gen {
 
             var version = item;
             var version_long = version;
-            var outDir, gitRef;
+            var versionDir, gitRef;
             switch(versionInfo.find(function(v) return v.name == version)) {
                 case null: // it is not a release, but a branch
                     gitRef = version;
-                    outDir = Path.join([htmlDir, versionedPath(gitRef)]);
+                    versionDir = versionedPath(gitRef);
                     try {
                         var info:DocInfo = Json.parse(getContent(Path.join([path, "info.json"])));
                         version_long = '${version} @ ${info.commit.substr(0, 7)}';
                     } catch (e:Dynamic) {}
                 case v:
                     gitRef = v.tag_name;
-                    outDir = Path.join([htmlDir, versionedPath(version)]);
+                    versionDir = versionedPath(version);
             };
+            var outDir = Path.join([htmlDir, versionDir]);
             createDirectory(outDir);
             var args = [
                 "--cwd", "libs/dox",
@@ -98,15 +99,23 @@ class Gen {
                 "-ex", "javax",
                 "-ex", "cs.internal",
             ];
-            if (hostname != null) {
+            if (origin != null) {
                 args = args.concat([
-                    "-D", "hostname", hostname,
+                    "-D", "origin", Path.join([origin, versionDir]),
                 ]);
             }
             runCommand("haxe", args);
 
             if (version == latestVersion) {
-                copyRecursive(outDir, htmlDir);
+                var args = args.concat([
+                    "-o", absolutePath(htmlDir),
+                ]);
+                if (origin != null) {
+                    args = args.concat([
+                        "-D", "origin", origin,
+                    ]);
+                }
+                runCommand("haxe", args);
             }
         }
 
