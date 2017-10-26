@@ -78,7 +78,7 @@ class Gen {
                     outDir = Path.join([htmlDir, versionedPath(version)]);
             };
             createDirectory(outDir);
-            runCommand("haxe", [
+            var args = [
                 "--cwd", "libs/dox",
                 "-lib", "hxtemplo",
                 "-lib", "hxparse",
@@ -97,7 +97,13 @@ class Gen {
                 "-ex", "microsoft",
                 "-ex", "javax",
                 "-ex", "cs.internal",
-            ]);
+            ];
+            if (hostname != null) {
+                args = args.concat([
+                    "-D", "hostname", hostname,
+                ]);
+            }
+            runCommand("haxe", args);
 
             if (version == latestVersion) {
                 copyRecursive(outDir, htmlDir);
