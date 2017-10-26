@@ -17,6 +17,7 @@ typedef Version = {
 class Gen {
     inline static var htmlDir = "html";
     inline static var xmlDir = "xml";
+    inline static var themeDir = "theme";
 
     static function requestUrl(url:String):Promise<String> {
         var d = new Deferred();
@@ -86,7 +87,7 @@ class Gen {
                 "-cp", "src",
                 "-dce", "no",
                 "--run", "dox.Dox",
-                "-theme", "haxe_api",
+                "-theme", absolutePath(themeDir),
                 "--title", 'Haxe $version API',
                 "-D", "website", "https://haxe.org/",
                 "-D", "version", version_long,
