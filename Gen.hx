@@ -6,9 +6,10 @@ import Sys.*;
 import promhx.*;
 import Utils.*;
 import Config.*;
+import thx.semver.*;
 using Lambda;
 
-typedef Version = {
+typedef GhVersion = {
     name:String,
     tag_name:String,
     prerelease:Bool,
@@ -37,14 +38,24 @@ class Gen {
         return d.promise();
     }
 
-    static function getVersionInfo():Promise<Array<Version>> {
+    static function getVersionInfo():Promise<Array<GhVersion>> {
         return requestUrl("https://api.github.com/repos/HaxeFoundation/haxe/releases")
             .then(Json.parse);
     }
 
-    static function getLatestVersion():Promise<String> {
-        return requestUrl("https://api.github.com/repos/HaxeFoundation/haxe/releases/latest")
-            .then(function(r) return Json.parse(r).name);
+    static function getLatestVersion(ghVerions:Array<GhVersion>):String {
+        var v = [for (v in ghVerions) if (!v.prerelease) v.name];
+        v.sort(function(v0, v1) {
+            var v0:Version = v0;
+            var v1:Version = v1;
+            return if (v0 == v1)
+                0;
+            else if (v0 < v1)
+                1;
+            else
+                -1;
+        });
+        return v[0];
     }
 
     static function versionedPath(version:String):String {
@@ -52,9 +63,9 @@ class Gen {
     }
 
     static function generateHTML(
-        versionInfo:Array<Version>,
-        latestVersion:String
+        versionInfo:Array<GhVersion>
     ):Void {
+        var latestVersion = getLatestVersion(versionInfo);
         deleteRecursive(htmlDir);
         createDirectory(htmlDir);
         for (item in readDirectory(xmlDir)) {
@@ -124,12 +135,8 @@ class Gen {
     }
 
     static function main():Void {
-        var versionInfo, latestVersion;
-        Promise.whenAll([
-            getVersionInfo().then(function(v) {versionInfo = v; return null;}),
-            getLatestVersion().then(function(v) {latestVersion = v; return null;})
-        ]).then(function(_){
-            generateHTML(versionInfo, latestVersion);
+        getVersionInfo().then(function(versionInfo){
+            generateHTML(versionInfo);
         });
     }
 }
