@@ -22323,6 +22323,27 @@
 </f></copy2>
 		<meta><m n=":pythonImport"><e>"shutil"</e></m></meta>
 	</class>
+	<class path="python.lib.Ssl" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/lib/Ssl.hx" extern="1">
+		<create_default_context public="1" set="method" static="1"><f a="purpose">
+	<c path="String"/>
+	<c path="python.lib.ssl.SSLContext"/>
+</f></create_default_context>
+		<OP_NO_TLSv1 public="1" static="1">
+			<x path="Int"/>
+			<haxe_doc>Prevents a TLSv1 connection. This option is only applicable in conjunction
+		with PROTOCOL_TLS. It prevents the peers from choosing TLSv1 as the
+		protocol version.</haxe_doc>
+		</OP_NO_TLSv1>
+		<OP_NO_TLSv1_1 public="1" static="1">
+			<x path="Int"/>
+			<haxe_doc>Prevents a TLSv1.1 connection. This option is only applicable in conjunction
+		with PROTOCOL_TLS. It prevents the peers from choosing TLSv1.1 as the
+		protocol version. Available only with openssl version 1.0.1+.
+
+		since python 3.4</haxe_doc>
+		</OP_NO_TLSv1_1>
+		<meta><m n=":pythonImport"><e>"ssl"</e></m></meta>
+	</class>
 	<class path="python.lib.StartupInfo" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/lib/Subprocess.hx" module="python.lib.Subprocess" extern="1">
 		<dwFlags public="1"><x path="Int"/></dwFlags>
 		<wShowWindow public="1"><x path="Int"/></wShowWindow>
@@ -23580,6 +23601,39 @@
 		<_GLOBAL_DEFAULT_TIMEOUT public="1" static="1"><x path="Int"/></_GLOBAL_DEFAULT_TIMEOUT>
 		<meta><m n=":pythonImport"><e>"socket"</e></m></meta>
 	</class>
+	<class path="python.lib.ssl.Purpose" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/lib/ssl/Purpose.hx" extern="1">
+		<SERVER_AUTH public="1" static="1"><c path="String"/></SERVER_AUTH>
+		<CLIENT_AUTH public="1" static="1"><c path="String"/></CLIENT_AUTH>
+		<meta><m n=":pythonImport">
+	<e>"ssl"</e>
+	<e>"Purpose"</e>
+</m></meta>
+	</class>
+	<class path="python.lib.ssl.SSLContext" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/lib/ssl/SSLContext.hx" extern="1">
+		<wrap_socket public="1" set="method">
+			<f a="s:?server_side:?do_handshake_on_connect:?suppress_ragged_eofs:?server_hostname" v=":false:true:true:null">
+				<c path="python.lib.net.Socket"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+				<c path="String"/>
+				<c path="python.lib.ssl.SSLSocket"/>
+			</f>
+			<meta><m n=":value"><e>{ server_hostname : null, suppress_ragged_eofs : true, do_handshake_on_connect : true, server_side : false }</e></m></meta>
+		</wrap_socket>
+		<options public="1"><x path="Int"/></options>
+		<meta><m n=":pythonImport">
+	<e>"ssl"</e>
+	<e>"SSLContext"</e>
+</m></meta>
+	</class>
+	<class path="python.lib.ssl.SSLSocket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/lib/ssl/SSLSocket.hx" extern="1">
+		<extends path="python.lib.net.Socket"/>
+		<meta><m n=":pythonImport">
+	<e>"ssl"</e>
+	<e>"SSLSocket"</e>
+</m></meta>
+	</class>
 	<typedef path="python.lib.subprocess.PopenOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/lib/subprocess/Popen.hx" module="python.lib.subprocess.Popen"><a>
 	<universal_newlines>
 		<x path="Null"><x path="Bool"/></x>
@@ -23886,6 +23940,159 @@
 		<getroot public="1" set="method"><f a=""><c path="python.lib.xml.etree.Element"/></f></getroot>
 		<meta><m n=":pythonImport"><e>"xml.etree.ElementTree"</e></m></meta>
 	</class>
+	<class path="sys.net.Socket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/_std/sys/net/Socket.hx">
+		<select public="1" set="method" line="265" static="1">
+			<f a="read:write:others:?timeout">
+				<c path="Array"><c path="sys.net.Socket"/></c>
+				<c path="Array"><c path="sys.net.Socket"/></c>
+				<c path="Array"><c path="sys.net.Socket"/></c>
+				<x path="Float"/>
+				<a>
+					<write><c path="Array"><c path="sys.net.Socket"/></c></write>
+					<read><c path="Array"><c path="sys.net.Socket"/></c></read>
+					<others><c path="Array"><c path="sys.net.Socket"/></c></others>
+				</a>
+			</f>
+			<haxe_doc>Wait until one of the sockets groups is ready for the given operation :
+        - `read` contains sockets on which we want to wait for available data to be read,
+        - `write` contains sockets on which we want to wait until we are allowed to write some data to their output buffers,
+        - `others` contains sockets on which we want to wait for exceptional conditions.
+        - `select` will block until one of the condition is met, in which case it will return the sockets for which the condition was true.
+        In case a `timeout` (in seconds) is specified, select might wait at worse until the timeout expires.</haxe_doc>
+		</select>
+		<__s><t path="python.lib.net._Socket.PSocket"/></__s>
+		<input public="1" set="null">
+			<c path="haxe.io.Input"/>
+			<haxe_doc>The stream on which you can read available data. By default the stream is blocking until the requested data is available,
+        use `setBlocking(false)` or `setTimeout` to prevent infinite waiting.</haxe_doc>
+		</input>
+		<output public="1" set="null">
+			<c path="haxe.io.Output"/>
+			<haxe_doc>The stream on which you can send data. Please note that in case the output buffer you will block while writing the data, use [setBlocking(false)] or [setTimeout] to prevent that.</haxe_doc>
+		</output>
+		<custom public="1">
+			<d/>
+			<haxe_doc>A custom value that can be associated with the socket. Can be used to retrieve your custom infos after a `select`.
+    *</haxe_doc>
+		</custom>
+		<__initSocket set="method" line="139"><f a=""><x path="Void"/></f></__initSocket>
+		<__init set="method" line="143"><f a=""><x path="Void"/></f></__init>
+		<close public="1" set="method" line="152">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Closes the socket : make sure to properly close all your sockets or you will crash when you run out of file descriptors.</haxe_doc>
+		</close>
+		<read public="1" set="method" line="159">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Read the whole data available on the socket.</haxe_doc>
+		</read>
+		<write public="1" set="method" line="166">
+			<f a="content">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Write the whole data to the socket output.</haxe_doc>
+		</write>
+		<connect public="1" set="method" line="173">
+			<f a="host:port">
+				<c path="sys.net.Host"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Connect to the given server host/port. Throw an exception in case we couldn't successfully connect.</haxe_doc>
+		</connect>
+		<listen public="1" set="method" line="182">
+			<f a="connections">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Allow the socket to listen for incoming questions. The parameter tells how many pending connections we can have until they get refused. Use `accept()` to accept incoming connections.</haxe_doc>
+		</listen>
+		<shutdown public="1" set="method" line="189">
+			<f a="read:write">
+				<x path="Bool"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Shutdown the socket, either for reading or writing.</haxe_doc>
+		</shutdown>
+		<bind public="1" set="method" line="195">
+			<f a="host:port">
+				<c path="sys.net.Host"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Bind the socket to the given host/port so it can afterwards listen for connections there.</haxe_doc>
+		</bind>
+		<accept public="1" set="method" line="204">
+			<f a=""><c path="sys.net.Socket"/></f>
+			<haxe_doc>Accept a new connected client. This will return a connected socket on which you can read/write some data.</haxe_doc>
+		</accept>
+		<peer public="1" set="method" line="216">
+			<f a=""><a>
+	<port><x path="Int"/></port>
+	<host><c path="sys.net.Host"/></host>
+</a></f>
+			<haxe_doc>Return the information about the other side of a connected socket.</haxe_doc>
+		</peer>
+		<host public="1" set="method" line="224">
+			<f a=""><a>
+	<port><x path="Int"/></port>
+	<host><c path="sys.net.Host"/></host>
+</a></f>
+			<haxe_doc>Return the information about our side of a connected socket.</haxe_doc>
+		</host>
+		<setTimeout public="1" set="method" line="232">
+			<f a="timeout">
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Gives a timeout after which blocking socket operations (such as reading and writing) will abort and throw an exception.</haxe_doc>
+		</setTimeout>
+		<waitForRead public="1" set="method" line="239">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Block until some data is available for read on the socket.</haxe_doc>
+		</waitForRead>
+		<setBlocking public="1" set="method" line="246">
+			<f a="b">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Change the blocking mode of the socket. A blocking socket is the default behavior. A non-blocking socket will abort blocking operations immediately by throwing a haxe.io.Error.Blocked value.</haxe_doc>
+		</setBlocking>
+		<setFastSend public="1" set="method" line="253">
+			<f a="b">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Allows the socket to immediately send the data when written to its output : this will cause less ping but might increase the number of packets / data size, especially when doing a lot of small writes.</haxe_doc>
+		</setFastSend>
+		<fileno set="method" line="255">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":keep"/></meta>
+		</fileno>
+		<new public="1" set="method" line="136">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a new unconnected socket.</haxe_doc>
+		</new>
+		<haxe_doc>A TCP socket class : allow you to both connect to a given server and exchange messages or start your own server and wait for connections.</haxe_doc>
+		<meta><m n=":coreApi"/></meta>
+	</class>
+	<class path="python.net.SslSocket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/net/SslSocket.hx">
+		<extends path="sys.net.Socket"/>
+		<hostName><c path="String"/></hostName>
+		<__initSocket set="method" line="12" override="1"><f a=""><x path="Void"/></f></__initSocket>
+		<connect public="1" set="method" line="24" override="1"><f a="host:port">
+	<c path="sys.net.Host"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></connect>
+		<bind public="1" set="method" line="28" override="1"><f a="host:port">
+	<c path="sys.net.Host"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></bind>
+		<new public="1" set="method" line="8"><f a=""><x path="Void"/></f></new>
+	</class>
 	<typedef path="sys.FileStat" params="" file="/home/travis/build/HaxeFoundation/haxe/std/sys/FileStat.hx">
 		<a>
 			<uid>
@@ -23948,7 +24155,7 @@
 			</a>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</PROXY>
-		<requestUrl public="1" set="method" line="445" static="1">
+		<requestUrl public="1" set="method" line="447" static="1">
 			<f a="url">
 				<c path="String"/>
 				<c path="String"/>
@@ -24012,12 +24219,12 @@
 	<c path="String"/>
 	<x path="Void"/>
 </f></customRequest>
-		<readHttpResponse set="method" line="238"><f a="api:sock">
+		<readHttpResponse set="method" line="240"><f a="api:sock">
 	<c path="haxe.io.Output"/>
 	<c path="sys.net.Socket"/>
 	<x path="Void"/>
 </f></readHttpResponse>
-		<readChunk set="method" line="380"><f a="chunk_re:api:buf:len">
+		<readChunk set="method" line="382"><f a="chunk_re:api:buf:len">
 	<c path="EReg"/>
 	<c path="haxe.io.Output"/>
 	<c path="haxe.io.Bytes"/>
@@ -24473,144 +24680,6 @@
 	<t path="python.lib.net._Socket.PSocket"/>
 	<x path="Void"/>
 </f></new>
-	</class>
-	<class path="sys.net.Socket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/_std/sys/net/Socket.hx">
-		<select public="1" set="method" line="261" static="1">
-			<f a="read:write:others:?timeout">
-				<c path="Array"><c path="sys.net.Socket"/></c>
-				<c path="Array"><c path="sys.net.Socket"/></c>
-				<c path="Array"><c path="sys.net.Socket"/></c>
-				<x path="Float"/>
-				<a>
-					<write><c path="Array"><c path="sys.net.Socket"/></c></write>
-					<read><c path="Array"><c path="sys.net.Socket"/></c></read>
-					<others><c path="Array"><c path="sys.net.Socket"/></c></others>
-				</a>
-			</f>
-			<haxe_doc>Wait until one of the sockets groups is ready for the given operation :
-        - `read` contains sockets on which we want to wait for available data to be read,
-        - `write` contains sockets on which we want to wait until we are allowed to write some data to their output buffers,
-        - `others` contains sockets on which we want to wait for exceptional conditions.
-        - `select` will block until one of the condition is met, in which case it will return the sockets for which the condition was true.
-        In case a `timeout` (in seconds) is specified, select might wait at worse until the timeout expires.</haxe_doc>
-		</select>
-		<__s><t path="python.lib.net._Socket.PSocket"/></__s>
-		<input public="1" set="null">
-			<c path="haxe.io.Input"/>
-			<haxe_doc>The stream on which you can read available data. By default the stream is blocking until the requested data is available,
-        use `setBlocking(false)` or `setTimeout` to prevent infinite waiting.</haxe_doc>
-		</input>
-		<output public="1" set="null">
-			<c path="haxe.io.Output"/>
-			<haxe_doc>The stream on which you can send data. Please note that in case the output buffer you will block while writing the data, use [setBlocking(false)] or [setTimeout] to prevent that.</haxe_doc>
-		</output>
-		<custom public="1">
-			<d/>
-			<haxe_doc>A custom value that can be associated with the socket. Can be used to retrieve your custom infos after a `select`.
-    *</haxe_doc>
-		</custom>
-		<__init set="method" line="139"><f a=""><x path="Void"/></f></__init>
-		<close public="1" set="method" line="148">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Closes the socket : make sure to properly close all your sockets or you will crash when you run out of file descriptors.</haxe_doc>
-		</close>
-		<read public="1" set="method" line="155">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>Read the whole data available on the socket.</haxe_doc>
-		</read>
-		<write public="1" set="method" line="162">
-			<f a="content">
-				<c path="String"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Write the whole data to the socket output.</haxe_doc>
-		</write>
-		<connect public="1" set="method" line="169">
-			<f a="host:port">
-				<c path="sys.net.Host"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Connect to the given server host/port. Throw an exception in case we couldn't successfully connect.</haxe_doc>
-		</connect>
-		<listen public="1" set="method" line="178">
-			<f a="connections">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Allow the socket to listen for incoming questions. The parameter tells how many pending connections we can have until they get refused. Use `accept()` to accept incoming connections.</haxe_doc>
-		</listen>
-		<shutdown public="1" set="method" line="185">
-			<f a="read:write">
-				<x path="Bool"/>
-				<x path="Bool"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Shutdown the socket, either for reading or writing.</haxe_doc>
-		</shutdown>
-		<bind public="1" set="method" line="191">
-			<f a="host:port">
-				<c path="sys.net.Host"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Bind the socket to the given host/port so it can afterwards listen for connections there.</haxe_doc>
-		</bind>
-		<accept public="1" set="method" line="200">
-			<f a=""><c path="sys.net.Socket"/></f>
-			<haxe_doc>Accept a new connected client. This will return a connected socket on which you can read/write some data.</haxe_doc>
-		</accept>
-		<peer public="1" set="method" line="212">
-			<f a=""><a>
-	<port><x path="Int"/></port>
-	<host><c path="sys.net.Host"/></host>
-</a></f>
-			<haxe_doc>Return the information about the other side of a connected socket.</haxe_doc>
-		</peer>
-		<host public="1" set="method" line="220">
-			<f a=""><a>
-	<port><x path="Int"/></port>
-	<host><c path="sys.net.Host"/></host>
-</a></f>
-			<haxe_doc>Return the information about our side of a connected socket.</haxe_doc>
-		</host>
-		<setTimeout public="1" set="method" line="228">
-			<f a="timeout">
-				<x path="Float"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Gives a timeout after which blocking socket operations (such as reading and writing) will abort and throw an exception.</haxe_doc>
-		</setTimeout>
-		<waitForRead public="1" set="method" line="235">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Block until some data is available for read on the socket.</haxe_doc>
-		</waitForRead>
-		<setBlocking public="1" set="method" line="242">
-			<f a="b">
-				<x path="Bool"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Change the blocking mode of the socket. A blocking socket is the default behavior. A non-blocking socket will abort blocking operations immediately by throwing a haxe.io.Error.Blocked value.</haxe_doc>
-		</setBlocking>
-		<setFastSend public="1" set="method" line="249">
-			<f a="b">
-				<x path="Bool"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Allows the socket to immediately send the data when written to its output : this will cause less ping but might increase the number of packets / data size, especially when doing a lot of small writes.</haxe_doc>
-		</setFastSend>
-		<fileno set="method" line="251">
-			<f a=""><x path="Int"/></f>
-			<meta><m n=":keep"/></meta>
-		</fileno>
-		<new public="1" set="method" line="136">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Creates a new unconnected socket.</haxe_doc>
-		</new>
-		<haxe_doc>A TCP socket class : allow you to both connect to a given server and exchange messages or start your own server and wait for connections.</haxe_doc>
-		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="sys.net.UdpSocket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/sys/net/UdpSocket.hx">
 		<extends path="sys.net.Socket"/>
