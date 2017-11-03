@@ -22329,10 +22329,13 @@
 		<meta><m n=":pythonImport"><e>"shutil"</e></m></meta>
 	</class>
 	<class path="python.lib.Ssl" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/lib/Ssl.hx" extern="1">
-		<create_default_context public="1" set="method" static="1"><f a="purpose">
-	<c path="String"/>
-	<c path="python.lib.ssl.SSLContext"/>
-</f></create_default_context>
+		<create_default_context public="1" static="1">
+			<f a="purpose">
+				<c path="String"/>
+				<c path="python.lib.ssl.SSLContext"/>
+			</f>
+			<meta><m n=":require"><e><![CDATA[python_version >= 3.4]]></e></m></meta>
+		</create_default_context>
 		<OP_NO_TLSv1 public="1" static="1">
 			<x path="Int"/>
 			<haxe_doc>Prevents a TLSv1 connection. This option is only applicable in conjunction
@@ -22341,12 +22344,22 @@
 		</OP_NO_TLSv1>
 		<OP_NO_TLSv1_1 public="1" static="1">
 			<x path="Int"/>
+			<meta><m n=":require"><e><![CDATA[python_version >= 3.4]]></e></m></meta>
 			<haxe_doc>Prevents a TLSv1.1 connection. This option is only applicable in conjunction
 		with PROTOCOL_TLS. It prevents the peers from choosing TLSv1.1 as the
 		protocol version. Available only with openssl version 1.0.1+.
 
 		since python 3.4</haxe_doc>
 		</OP_NO_TLSv1_1>
+		<OP_NO_SSLv3 public="1" static="1"><x path="Int"/></OP_NO_SSLv3>
+		<OP_NO_SSLv2 public="1" static="1"><x path="Int"/></OP_NO_SSLv2>
+		<OP_NO_COMPRESSION public="1" static="1"><x path="Int"/></OP_NO_COMPRESSION>
+		<PROTOCOL_SSLv23 public="1" static="1"><c path="String"/></PROTOCOL_SSLv23>
+		<PROTOCOL_TLS public="1" static="1">
+			<c path="String"/>
+			<meta><m n=":require"><e><![CDATA[python_version >= 3.6]]></e></m></meta>
+		</PROTOCOL_TLS>
+		<CERT_REQUIRED public="1" static="1"><x path="Int"/></CERT_REQUIRED>
 		<meta><m n=":pythonImport"><e>"ssl"</e></m></meta>
 	</class>
 	<class path="python.lib.StartupInfo" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/lib/Subprocess.hx" module="python.lib.Subprocess" extern="1">
@@ -23609,10 +23622,13 @@
 	<class path="python.lib.ssl.Purpose" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/lib/ssl/Purpose.hx" extern="1">
 		<SERVER_AUTH public="1" static="1"><c path="String"/></SERVER_AUTH>
 		<CLIENT_AUTH public="1" static="1"><c path="String"/></CLIENT_AUTH>
-		<meta><m n=":pythonImport">
-	<e>"ssl"</e>
-	<e>"Purpose"</e>
-</m></meta>
+		<meta>
+			<m n=":require"><e><![CDATA[python_version >= 3.4]]></e></m>
+			<m n=":pythonImport">
+				<e>"ssl"</e>
+				<e>"Purpose"</e>
+			</m>
+		</meta>
 	</class>
 	<class path="python.lib.ssl.SSLContext" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/lib/ssl/SSLContext.hx" extern="1">
 		<wrap_socket public="1" set="method">
@@ -23627,11 +23643,41 @@
 			<meta><m n=":value"><e>{ server_hostname : null, suppress_ragged_eofs : true, do_handshake_on_connect : true, server_side : false }</e></m></meta>
 		</wrap_socket>
 		<options public="1"><x path="Int"/></options>
+		<check_hostname public="1">
+			<x path="Bool"/>
+			<meta><m n=":require"><e><![CDATA[python_version >= 3.4]]></e></m></meta>
+		</check_hostname>
+		<verify_mode public="1"><x path="Int"/></verify_mode>
+		<load_verify_locations public="1" set="method">
+			<f a="?cafile:?capath:?cadata" v="null:null:null">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ cadata : null, capath : null, cafile : null }</e></m></meta>
+		</load_verify_locations>
+		<set_default_verify_paths public="1" set="method"><f a=""><x path="Void"/></f></set_default_verify_paths>
+		<load_default_certs public="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":require"><e><![CDATA[python_version >= 3.4]]></e></m></meta>
+		</load_default_certs>
+		<new public="1" set="method"><f a="protocol">
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
 		<meta><m n=":pythonImport">
 	<e>"ssl"</e>
 	<e>"SSLContext"</e>
 </m></meta>
 	</class>
+	<class path="python.lib.ssl.SSLSession" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/lib/ssl/SSLSession.hx" extern="1"><meta>
+	<m n=":require"><e><![CDATA[python_version >= 3.6]]></e></m>
+	<m n=":pythonImport">
+		<e>"ssl"</e>
+		<e>"SSLSession"</e>
+	</m>
+</meta></class>
 	<class path="python.lib.ssl.SSLSocket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/lib/ssl/SSLSocket.hx" extern="1">
 		<extends path="python.lib.net.Socket"/>
 		<meta><m n=":pythonImport">
@@ -24086,12 +24132,12 @@
 		<extends path="sys.net.Socket"/>
 		<hostName><c path="String"/></hostName>
 		<__initSocket set="method" line="12" override="1"><f a=""><x path="Void"/></f></__initSocket>
-		<connect public="1" set="method" line="24" override="1"><f a="host:port">
+		<connect public="1" set="method" line="35" override="1"><f a="host:port">
 	<c path="sys.net.Host"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></connect>
-		<bind public="1" set="method" line="28" override="1"><f a="host:port">
+		<bind public="1" set="method" line="39" override="1"><f a="host:port">
 	<c path="sys.net.Host"/>
 	<x path="Int"/>
 	<x path="Void"/>
