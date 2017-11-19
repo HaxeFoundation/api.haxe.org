@@ -18284,6 +18284,14 @@
 		</new>
 		<meta><m n=":native"><e>"Function"</e></m></meta>
 	</class>
+	<typedef path="js.JsIterator" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/js/JsIterator.hx"><a><next set="method"><f a=""><t path="js.JsIteratorStep"><c path="js.JsIterator.T"/></t></f></next></a></typedef>
+	<typedef path="js.JsIteratorStep" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/js/JsIterator.hx" module="js.JsIterator"><a>
+	<value>
+		<x path="Null"><c path="js.JsIteratorStep.T"/></x>
+		<meta><m n=":optional"/></meta>
+	</value>
+	<done><x path="Bool"/></done>
+</a></typedef>
 	<class path="js.Lib" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/Lib.hx">
 		<debug public="1" get="inline" set="null" line="33" static="1">
 			<f a=""><x path="Void"/></f>
@@ -18434,8 +18442,70 @@
 	<x path="Any"/>
 	<x path="Void"/>
 </f></forEach>
-		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
+		<keys public="1" set="method"><f a=""><t path="js.JsIterator"><c path="js.Map.K"/></t></f></keys>
+		<values public="1" set="method"><f a=""><t path="js.JsIterator"><c path="js.Map.V"/></t></f></values>
+		<entries public="1" set="method"><f a=""><t path="js.JsIterator"><x path="js.MapEntry">
+	<c path="js.Map.K"/>
+	<c path="js.Map.V"/>
+</x></t></f></entries>
+		<new public="1" set="method"><f a="?iterable">
+	<x path="Any"/>
+	<x path="Void"/>
+</f></new>
 		<meta><m n=":native"><e>"Map"</e></m></meta>
+	</class>
+	<abstract path="js.MapEntry" params="K:V" file="/home/travis/build/HaxeFoundation/haxe/std/js/Map.hx" module="js.Map">
+		<this><c path="Array"><x path="Any"/></c></this>
+		<impl><class path="js._Map.MapEntry_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/Map.hx" private="1" module="js.Map">
+	<key public="1" get="accessor" set="null" static="1">
+		<c path="js.MapEntry.K"/>
+		<meta><m n=":impl"/></meta>
+	</key>
+	<value public="1" get="accessor" set="null" static="1">
+		<c path="js.MapEntry.V"/>
+		<meta><m n=":impl"/></meta>
+	</value>
+	<get_key get="inline" set="null" line="42" static="1">
+		<f a="this">
+			<c path="Array"><x path="Any"/></c>
+			<c path="js.MapEntry.K"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_key>
+	<get_value get="inline" set="null" line="43" static="1">
+		<f a="this">
+			<c path="Array"><x path="Any"/></c>
+			<c path="js.MapEntry.V"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_value>
+	<meta><m n=":final"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js._Map.MapEntry_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/Map.hx" private="1" module="js.Map">
+		<key public="1" get="accessor" set="null" static="1">
+			<c path="js.MapEntry.K"/>
+			<meta><m n=":impl"/></meta>
+		</key>
+		<value public="1" get="accessor" set="null" static="1">
+			<c path="js.MapEntry.V"/>
+			<meta><m n=":impl"/></meta>
+		</value>
+		<get_key get="inline" set="null" line="42" static="1">
+			<f a="this">
+				<c path="Array"><x path="Any"/></c>
+				<c path="js.MapEntry.K"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_key>
+		<get_value get="inline" set="null" line="43" static="1">
+			<f a="this">
+				<c path="Array"><x path="Any"/></c>
+				<c path="js.MapEntry.V"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_value>
+		<meta><m n=":final"/></meta>
 	</class>
 	<class path="js.Object" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/Object.hx" extern="1">
 		<assign public="1" params="T" set="method" static="1"><f a="target:sources">
@@ -18715,7 +18785,16 @@
 	<x path="Any"/>
 	<x path="Void"/>
 </f></forEach>
-		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
+		<keys public="1" set="method"><f a=""><t path="js.JsIterator"><c path="js.Set.T"/></t></f></keys>
+		<values public="1" set="method"><f a=""><t path="js.JsIterator"><c path="js.Set.T"/></t></f></values>
+		<entries public="1" set="method"><f a=""><t path="js.JsIterator"><x path="js.MapEntry">
+	<c path="js.Set.T"/>
+	<c path="js.Set.T"/>
+</x></t></f></entries>
+		<new public="1" set="method"><f a="?iterable">
+	<x path="Any"/>
+	<x path="Void"/>
+</f></new>
 		<meta><m n=":native"><e>"Set"</e></m></meta>
 	</class>
 	<class path="js.Symbol" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/Symbol.hx" extern="1">
