@@ -13,6 +13,12 @@ install:
   - haxelib list
 
 script:
-  - haxe gen.hxml &&
-    neko Gen.n &&
-    haxe --run DeployGhPages
+  - haxe gen.hxml
+  - neko Gen.n
+
+deploy:
+  provider: script
+  script: haxe --run DeployGhPages
+  on:
+    branch: master
+  skip_cleanup: true
