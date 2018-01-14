@@ -24707,30 +24707,52 @@
 			<m n=":keepInit"/>
 		</meta>
 	</class>
-	<class path="sys.net.UdpSocket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/sys/net/UdpSocket.hx">
+	<class path="sys.net.UdpSocket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/net/UdpSocket.hx">
 		<extends path="sys.net.Socket"/>
-		<sendTo public="1" set="method" line="37">
-			<f a="buf:pos:len:addr">
-				<c path="haxe.io.Bytes"/>
+		<socket_send_to set="method" line="68" static="1">
+			<f a="s:bytes:len:host:port">
+				<e path="sys.net.SocketHandle"/>
+				<x path="hl.Bytes"/>
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="sys.net.Address"/>
+				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<haxe_doc>Sends data to the specified target host/port address.</haxe_doc>
-		</sendTo>
-		<readFrom public="1" set="method" line="44">
-			<f a="buf:pos:len:addr">
-				<c path="haxe.io.Bytes"/>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"socket_send_to"</e>
+</m></meta>
+		</socket_send_to>
+		<socket_recv_from set="method" line="70" static="1">
+			<f a="s:bytes:len:host:port">
+				<e path="sys.net.SocketHandle"/>
+				<x path="hl.Bytes"/>
 				<x path="Int"/>
-				<x path="Int"/>
-				<c path="sys.net.Address"/>
+				<x path="hl.Ref"><x path="Int"/></x>
+				<x path="hl.Ref"><x path="Int"/></x>
 				<x path="Int"/>
 			</f>
-			<haxe_doc>Reads data from any incoming address and store the receiver address into the address parameter.</haxe_doc>
-		</readFrom>
-		<new public="1" set="method" line="29"><f a=""><x path="Void"/></f></new>
-		<haxe_doc>A UDP socket class</haxe_doc>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"socket_recv_from"</e>
+</m></meta>
+		</socket_recv_from>
+		<init set="method" line="32" override="1"><f a=""><x path="Void"/></f></init>
+		<sendTo public="1" set="method" line="37"><f a="buf:pos:len:addr">
+	<c path="haxe.io.Bytes"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<c path="sys.net.Address"/>
+	<x path="Int"/>
+</f></sendTo>
+		<readFrom public="1" set="method" line="49"><f a="buf:pos:len:addr">
+	<c path="haxe.io.Bytes"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<c path="sys.net.Address"/>
+	<x path="Int"/>
+</f></readFrom>
+		<new public="1" set="method" line="28"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="sys.ssl.Certificate" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Certificate.hx">
 		<loadFile public="1" set="method" line="19" static="1"><f a="file">
