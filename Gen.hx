@@ -24,11 +24,12 @@ class Gen {
         var d = new Deferred();
         var http = new Http(url);
         http.addHeader("User-Agent", "api.haxe.org generator");
-        switch (getEnv("GH_TOKEN")) {
+        switch (getEnv("GH_BASICAUTH")) { // GH_BASICAUTH should be in the form of "username:token"
             case null:
                 //pass
             case token:
-                http.addHeader("Authorization", 'Basic ${token}');
+                var encoded = haxe.crypto.Base64.encode(haxe.io.Bytes.ofString(token),true);
+                http.addHeader("Authorization", 'Basic ${encoded}');
         }
         http.onData = d.resolve;
         http.onError = function(err){
