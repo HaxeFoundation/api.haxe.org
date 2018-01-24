@@ -21873,15 +21873,44 @@
 			<m n=":enum"/>
 		</meta>
 	</class>
+	<typedef path="hl.FileOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/UI.hx" module="hl.UI"><a>
+	<window>
+		<x path="Null"><c path="hl.Window"/></x>
+		<meta><m n=":optional"/></meta>
+	</window>
+	<title>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</title>
+	<filters>
+		<x path="Null"><c path="Array"><a>
+	<name><c path="String"/></name>
+	<exts><c path="Array"><c path="String"/></c></exts>
+</a></c></x>
+		<meta><m n=":optional"/></meta>
+	</filters>
+	<filterIndex>
+		<x path="Null"><x path="Int"/></x>
+		<meta><m n=":optional"/></meta>
+	</filterIndex>
+	<fileName>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</fileName>
+	<directory>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</directory>
+</a></typedef>
 	<class path="hl.UI" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/UI.hx">
-		<init set="method" line="145" static="1">
+		<init set="method" line="154" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":hlNative">
 	<e>"ui"</e>
 	<e>"ui_init"</e>
 </m></meta>
 		</init>
-		<_dialog set="method" line="152" static="1">
+		<_dialog set="method" line="161" static="1">
 			<f a="title:text:flags">
 				<x path="hl.Bytes"/>
 				<x path="hl.Bytes"/>
@@ -21893,13 +21922,13 @@
 	<e>"ui_dialog"</e>
 </m></meta>
 		</_dialog>
-		<dialog public="1" set="method" line="156" static="1"><f a="title:text:flags">
+		<dialog public="1" set="method" line="165" static="1"><f a="title:text:flags">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="haxe.EnumFlags"><e path="hl.DialogFlags"/></x>
 	<x path="Void"/>
 </f></dialog>
-		<loop public="1" set="method" line="161" static="1">
+		<loop public="1" set="method" line="170" static="1">
 			<f a="blocking">
 				<x path="Bool"/>
 				<x path="hl.LoopResult"/>
@@ -21909,20 +21938,44 @@
 	<e>"ui_loop"</e>
 </m></meta>
 		</loop>
-		<stopLoop public="1" set="method" line="166" static="1">
+		<stopLoop public="1" set="method" line="175" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":hlNative">
 	<e>"ui"</e>
 	<e>"ui_stop_loop"</e>
 </m></meta>
 		</stopLoop>
-		<closeConsole public="1" set="method" line="170" static="1">
+		<closeConsole public="1" set="method" line="179" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":hlNative">
 	<e>"ui"</e>
 	<e>"ui_close_console"</e>
 </m></meta>
 		</closeConsole>
+		<loadFile public="1" set="method" line="182" static="1"><f a="opts">
+	<t path="hl.FileOptions"/>
+	<x path="Null"><c path="String"/></x>
+</f></loadFile>
+		<saveFile public="1" set="method" line="186" static="1"><f a="opts">
+	<t path="hl.FileOptions"/>
+	<x path="Null"><c path="String"/></x>
+</f></saveFile>
+		<chooseFile set="method" line="190" static="1"><f a="save:opts">
+	<x path="Bool"/>
+	<t path="hl.FileOptions"/>
+	<x path="Null"><c path="String"/></x>
+</f></chooseFile>
+		<_chooseFile set="method" line="216" static="1">
+			<f a="forSave:obj">
+				<x path="Bool"/>
+				<d/>
+				<x path="hl.Bytes"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"ui"</e>
+	<e>"ui_choose_file"</e>
+</m></meta>
+		</_chooseFile>
 		<haxe_doc>These are the bindings for the HL `ui.hdll` library, which contains some low level system access.</haxe_doc>
 	</class>
 	<abstract path="hl.UI16" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/UI16.hx">
