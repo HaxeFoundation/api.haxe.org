@@ -11629,7 +11629,7 @@
 		</meta>
 	</class>
 	<class path="cs.internal._Null.Nullable" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/cs/internal/Null.hx" private="1" module="cs.internal.Null">
-		<ofDynamic public="1" params="D" set="method" line="78" static="1">
+		<ofDynamic public="1" params="D" set="method" line="82" static="1">
 			<f a="obj">
 				<d/>
 				<c path="cs.internal._Null.Nullable"><c path="ofDynamic.D"/></c>
@@ -11644,8 +11644,8 @@
 			<x path="Bool"/>
 			<meta><m n=":readOnly"/></meta>
 		</hasValue>
-		<toDynamic public="1" set="method" line="83"><f a=""><d/></f></toDynamic>
-		<new public="1" set="method" line="59">
+		<toDynamic public="1" set="method" line="87"><f a=""><d/></f></toDynamic>
+		<new public="1" set="method" line="63">
 			<f a="v:hasValue">
 				<c path="cs.internal._Null.Nullable.T"/>
 				<x path="Bool"/>
@@ -11655,7 +11655,7 @@
 		</new>
 		<meta>
 			<m n=":nativeGen"/>
-			<m n=":classCode"><e><![CDATA["//This function is here to be used with Reflection, when the haxe.lang.Null type is known\n\t\tpublic static haxe.lang.Null<T> _ofDynamic(object obj) {\n\t\t\tif (obj == null) {\n\t\t\t\treturn new haxe.lang.Null<T>(default(T), false);\n\t\t\t} else if (typeof(T).Equals(typeof(double))) {\n\t\t\t\treturn new haxe.lang.Null<T>((T) (object) haxe.lang.Runtime.toDouble(obj), true);\n\t\t\t} else if (typeof(T).Equals(typeof(int))) {\n\t\t\t\treturn new haxe.lang.Null<T>((T) (object) haxe.lang.Runtime.toInt(obj), true);\n\t\t\t} else {\n\t\t\t\treturn new haxe.lang.Null<T>((T) obj, true);\n\t\t\t}\n\t\t}\n\n\t\tpublic static implicit operator haxe.lang.Null<T>(T val) {\n\t\t\treturn new haxe.lang.Null<T>(val, true);\n\t\t}\n\n\t\tpublic static implicit operator Null<T>(__NoValue__ noValue) {\n\t\t\treturn new haxe.lang.Null<T>(default(T), false);\n\t\t}\n\n\t\tpublic sealed class __NoValue__ {\n\t\t\tprivate __NoValue__() {}\n\t\t}\n\n"]]></e></m>
+			<m n=":classCode"><e><![CDATA["//This function is here to be used with Reflection, when the haxe.lang.Null type is known\n\t\tpublic static haxe.lang.Null<T> _ofDynamic(object obj) {\n\t\t\tif (obj == null) {\n\t\t\t\treturn new haxe.lang.Null<T>(default(T), false);\n\t\t\t} else if (typeof(T).Equals(typeof(double))) {\n\t\t\t\treturn new haxe.lang.Null<T>((T) (object) haxe.lang.Runtime.toDouble(obj), true);\n\t\t\t} else if (typeof(T).Equals(typeof(int))) {\n\t\t\t\treturn new haxe.lang.Null<T>((T) (object) haxe.lang.Runtime.toInt(obj), true);\n\t\t\t} else {\n\t\t\t\treturn new haxe.lang.Null<T>((T) obj, true);\n\t\t\t}\n\t\t}\n\n\t\tpublic static implicit operator haxe.lang.Null<T>(T val) {\n\t\t\treturn new haxe.lang.Null<T>(val, true);\n\t\t}\n\n\t\tpublic static implicit operator Null<T>(__NoValue__ noValue) {\n\t\t\treturn new haxe.lang.Null<T>(default(T), false);\n\t\t}\n\n\t\tpublic sealed class __NoValue__ {\n\t\t\tprivate __NoValue__() {}\n\t\t}\n\n\t\toverride public string ToString() {\n\t\t\tif (!hasValue) return \"null\";\n\t\t\telse return value.ToString();\n\t\t}\n"]]></e></m>
 			<m n=":keep"/>
 			<m n=":struct"/>
 			<m n=":nativeGen"/>
