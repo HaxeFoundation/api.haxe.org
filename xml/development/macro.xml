@@ -6401,9 +6401,14 @@ The total amount of memory allocated by the program since it was started is (in 
 		<f><f a=""><x path="Void"/></f></f>
 		<prev><c path="haxe.MainEvent"/></prev>
 		<next><c path="haxe.MainEvent"/></next>
+		<isBlocking public="1" expr="true">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>true</e></m></meta>
+			<haxe_doc>Tells if the event can lock the process from exiting (default:true)</haxe_doc>
+		</isBlocking>
 		<nextRun public="1" set="null"><x path="Float"/></nextRun>
 		<priority public="1" set="null"><x path="Int"/></priority>
-		<delay public="1" set="method" line="22">
+		<delay public="1" set="method" line="26">
 			<f a="t">
 				<x path="Null"><x path="Float"/></x>
 				<x path="Void"/>
@@ -6411,37 +6416,37 @@ The total amount of memory allocated by the program since it was started is (in 
 			<haxe_doc>Delay the execution of the event for the given time, in seconds.
 		If t is null, the event will be run at tick() time.</haxe_doc>
 		</delay>
-		<call public="1" get="inline" set="null" line="29">
+		<call public="1" get="inline" set="null" line="33">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Call the event. Will do nothing if the event has been stopped.</haxe_doc>
 		</call>
-		<stop public="1" set="method" line="36">
+		<stop public="1" set="method" line="40">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Stop the event from firing anymore.</haxe_doc>
 		</stop>
-		<new set="method" line="12"><f a="f:p">
+		<new set="method" line="16"><f a="f:p">
 	<f a=""><x path="Void"/></f>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></new>
 	</class>
 	<class path="haxe.MainLoop" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/MainLoop.hx">
-		<pending expr="null" line="53" static="1">
+		<pending expr="null" line="57" static="1">
 			<c path="haxe.MainEvent"/>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</pending>
 		<threadCount public="1" get="accessor" set="null" static="1"><x path="Int"/></threadCount>
-		<get_threadCount get="inline" set="null" line="57" static="1"><f a=""><x path="Int"/></f></get_threadCount>
-		<hasEvents public="1" get="inline" set="null" line="59" static="1"><f a=""><x path="Bool"/></f></hasEvents>
-		<addThread public="1" set="method" line="63" static="1"><f a="f">
+		<get_threadCount get="inline" set="null" line="61" static="1"><f a=""><x path="Int"/></f></get_threadCount>
+		<hasEvents public="1" set="method" line="63" static="1"><f a=""><x path="Bool"/></f></hasEvents>
+		<addThread public="1" set="method" line="73" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></addThread>
-		<runInMainThread public="1" set="method" line="67" static="1"><f a="f">
+		<runInMainThread public="1" set="method" line="77" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runInMainThread>
-		<add public="1" set="method" line="74" static="1">
+		<add public="1" set="method" line="84" static="1">
 			<f a="f:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -6450,8 +6455,8 @@ The total amount of memory allocated by the program since it was started is (in 
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a pending event to be run into the main loop.</haxe_doc>
 		</add>
-		<sortEvents set="method" line="85" static="1"><f a=""><x path="Void"/></f></sortEvents>
-		<tick set="method" line="146" static="1">
+		<sortEvents set="method" line="95" static="1"><f a=""><x path="Void"/></f></sortEvents>
+		<tick set="method" line="156" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Run the pending events. Return the time for next event.</haxe_doc>
 		</tick>
