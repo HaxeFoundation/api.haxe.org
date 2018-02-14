@@ -23371,11 +23371,11 @@
 	</class>
 	<class path="hl.uv.Tcp" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/uv/Tcp.hx">
 		<extends path="hl.uv.Stream"/>
-		<tcp_init_wrap set="method" line="27" static="1"><f a="loop">
+		<tcp_init_wrap set="method" line="31" static="1"><f a="loop">
 	<x path="hl.uv.Loop"/>
 	<t path="hl.uv.HandleData"/>
 </f></tcp_init_wrap>
-		<tcp_connect_wrap set="method" line="31" static="1"><f a="h:host:port:onConnected">
+		<tcp_connect_wrap set="method" line="35" static="1"><f a="h:host:port:onConnected">
 	<t path="hl.uv.HandleData"/>
 	<x path="Int"/>
 	<x path="Int"/>
@@ -23385,16 +23385,21 @@
 	</f>
 	<t path="hl.uv.HandleData"/>
 </f></tcp_connect_wrap>
-		<tcp_bind_wrap set="method" line="35" static="1"><f a="h:host:port">
+		<tcp_bind_wrap set="method" line="39" static="1"><f a="h:host:port">
 	<t path="hl.uv.HandleData"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Bool"/>
 </f></tcp_bind_wrap>
-		<tcp_accept_wrap set="method" line="39" static="1"><f a="h">
+		<tcp_accept_wrap set="method" line="43" static="1"><f a="h">
 	<t path="hl.uv.HandleData"/>
 	<t path="hl.uv.HandleData"/>
 </f></tcp_accept_wrap>
+		<tcp_nodelay_wrap set="method" line="47" static="1"><f a="h:b">
+	<t path="hl.uv.HandleData"/>
+	<x path="Bool"/>
+	<x path="Void"/>
+</f></tcp_nodelay_wrap>
 		<connect public="1" set="method" line="11"><f a="host:port:onConnected">
 	<c path="sys.net.Host"/>
 	<x path="Int"/>
@@ -23410,6 +23415,10 @@
 	<x path="Void"/>
 </f></bind>
 		<accept public="1" set="method" line="21"><f a=""><c path="hl.uv.Stream"/></f></accept>
+		<noDelay public="1" set="method" line="27"><f a="b">
+	<x path="Bool"/>
+	<x path="Void"/>
+</f></noDelay>
 		<new public="1" set="method" line="6"><f a="?loop">
 	<x path="hl.uv.Loop"/>
 	<x path="Void"/>
