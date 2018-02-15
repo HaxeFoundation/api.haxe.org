@@ -3005,6 +3005,19 @@
         So you may need this only if you have a `Class` stored in a variable.</haxe_doc>
 </instanceof></overloads>
 		</instanceof>
+		<nativeClassName public="1" params="T" set="method" static="1">
+			<f a="cls">
+				<x path="haxe.extern.EitherType">
+					<x path="Class"><c path="nativeClassName.T"/></x>
+					<x path="Enum"><c path="nativeClassName.T"/></x>
+				</x>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Generates PHP class name for a provided Haxe class.
+        ```
+        trace(Syntax.nativeClassName(php.Web)); // outputs: php\Web
+        ```</haxe_doc>
+		</nativeClassName>
 		<foreach public="1" params="TCollection:TKey:TValue" set="method" static="1">
 			<f a="collection:body">
 				<c path="foreach.TCollection"/>
@@ -3131,7 +3144,7 @@
 			</f>
 			<haxe_doc>Don't let compiler to optimize away local var passed to this method.</haxe_doc>
 		</keepVar>
-		<splat public="1" get="inline" set="null" line="249" static="1">
+		<splat public="1" get="inline" set="null" line="257" static="1">
 			<f a="args">
 				<x path="haxe.extern.EitherType">
 					<x path="php.NativeArray"/>
@@ -5702,7 +5715,7 @@
 		In particular, default values of constructor arguments are not
 		guaranteed to be taken into account.</haxe_doc>
 		</createInstance>
-		<createEmptyInstance public="1" params="T" set="method" line="116" static="1">
+		<createEmptyInstance public="1" params="T" set="method" line="114" static="1">
 			<f a="cl">
 				<x path="Class"><c path="createEmptyInstance.T"/></x>
 				<c path="createEmptyInstance.T"/>
@@ -5713,7 +5726,7 @@
 
 		If `cl` is null, the result is unspecified.</haxe_doc>
 		</createEmptyInstance>
-		<createEnum public="1" params="T" set="method" line="127" static="1">
+		<createEnum public="1" params="T" set="method" line="122" static="1">
 			<f a="e:constr:?params">
 				<x path="Enum"><c path="createEnum.T"/></x>
 				<c path="String"/>
@@ -5728,7 +5741,7 @@
 		expected number of constructor arguments, or if any argument has an
 		invalid type, the result is unspecified.</haxe_doc>
 		</createEnum>
-		<createEnumIndex public="1" params="T" set="method" line="150" static="1">
+		<createEnumIndex public="1" params="T" set="method" line="144" static="1">
 			<f a="e:index:?params">
 				<x path="Enum"><c path="createEnumIndex.T"/></x>
 				<x path="Int"/>
@@ -5746,7 +5759,7 @@
 		expected number of constructor arguments, or if any argument has an
 		invalid type, the result is unspecified.</haxe_doc>
 		</createEnumIndex>
-		<getInstanceFields public="1" set="method" line="175" static="1">
+		<getInstanceFields public="1" set="method" line="168" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
 				<c path="Array"><c path="String"/></c>
@@ -5763,7 +5776,7 @@
 
 		(As3) This method only returns instance fields that are public.</haxe_doc>
 		</getInstanceFields>
-		<getClassFields public="1" set="method" line="218" static="1">
+		<getClassFields public="1" set="method" line="208" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
 				<c path="Array"><c path="String"/></c>
@@ -5778,7 +5791,7 @@
 
 		(As3) This method only returns class fields that are public.</haxe_doc>
 		</getClassFields>
-		<getEnumConstructs public="1" set="method" line="251" static="1">
+		<getEnumConstructs public="1" set="method" line="240" static="1">
 			<f a="e">
 				<x path="Enum"><d/></x>
 				<c path="Array"><c path="String"/></c>
@@ -5791,7 +5804,7 @@
 
 		If `e` is null, the result is unspecified.</haxe_doc>
 		</getEnumConstructs>
-		<typeof public="1" set="method" line="256" static="1">
+		<typeof public="1" set="method" line="245" static="1">
 			<f a="v">
 				<d/>
 				<e path="ValueType"/>
@@ -5802,7 +5815,7 @@
 		per platform. Assumptions regarding this should be minimized to avoid
 		surprises.</haxe_doc>
 		</typeof>
-		<enumEq public="1" params="T" set="method" line="277" static="1">
+		<enumEq public="1" params="T" set="method" line="266" static="1">
 			<f a="a:b">
 				<c path="enumEq.T"/>
 				<c path="enumEq.T"/>
@@ -5816,7 +5829,7 @@
 
 		If `a` or `b` are null, the result is unspecified.</haxe_doc>
 		</enumEq>
-		<enumConstructor public="1" set="method" line="314" static="1">
+		<enumConstructor public="1" set="method" line="303" static="1">
 			<f a="e">
 				<x path="EnumValue"/>
 				<c path="String"/>
@@ -5828,7 +5841,7 @@
 
 		If `e` is null, the result is unspecified.</haxe_doc>
 		</enumConstructor>
-		<enumParameters public="1" get="inline" set="null" line="318" static="1">
+		<enumParameters public="1" get="inline" set="null" line="307" static="1">
 			<f a="e">
 				<x path="EnumValue"/>
 				<c path="Array"><d/></c>
@@ -5843,7 +5856,7 @@
 
 		If `e` is null, the result is unspecified.</haxe_doc>
 		</enumParameters>
-		<enumIndex public="1" get="inline" set="null" line="322" static="1">
+		<enumIndex public="1" get="inline" set="null" line="311" static="1">
 			<f a="e">
 				<x path="EnumValue"/>
 				<x path="Int"/>
@@ -5856,7 +5869,7 @@
 
 		If `e` is null, the result is unspecified.</haxe_doc>
 		</enumIndex>
-		<allEnums public="1" params="T" set="method" line="326" static="1">
+		<allEnums public="1" params="T" set="method" line="315" static="1">
 			<f a="e">
 				<x path="Enum"><c path="allEnums.T"/></x>
 				<c path="Array"><c path="allEnums.T"/></c>
@@ -5873,18 +5886,7 @@
 
 		If `e` is null, the result is unspecified.</haxe_doc>
 		</allEnums>
-		<getPhpName set="method" line="348" static="1">
-			<f a="type">
-				<x path="haxe.extern.EitherType">
-					<x path="Class"><d/></x>
-					<x path="Enum"><d/></x>
-				</x>
-				<x path="Null"><c path="String"/></x>
-			</f>
-			<haxe_doc>Get corresponding PHP name for specified `type`.
-		Returns `null` if `type` does not exist.</haxe_doc>
-		</getPhpName>
-		<isServiceFieldName get="inline" set="null" line="357" static="1">
+		<isServiceFieldName get="inline" set="null" line="335" static="1">
 			<f a="name">
 				<c path="String"/>
 				<x path="Bool"/>
