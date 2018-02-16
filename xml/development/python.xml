@@ -3275,13 +3275,28 @@
 			</f>
 			<meta><m n=":noUsing"/></meta>
 		</importAs>
+		<construct public="1" params="T" set="method" static="1">
+			<f a="cls:args">
+				<x path="Class"><c path="construct.T"/></x>
+				<x path="haxe.extern.Rest"><d/></x>
+				<c path="construct.T"/>
+			</f>
+			<overloads><construct public="1" set="method"><f a="className:args">
+	<c path="String"/>
+	<x path="haxe.extern.Rest"><d/></x>
+	<d/>
+</f></construct></overloads>
+		</construct>
 		<newInstance public="1" set="method" static="1">
 			<f a="c:params">
 				<d/>
 				<d/>
 				<d/>
 			</f>
-			<meta><m n=":noUsing"/></meta>
+			<meta>
+				<m n=":noUsing"/>
+				<m n=":deprecated"><e>"python.Syntax.newInstance() is deprecated. Use python.Syntax.construct() instead."</e></m>
+			</meta>
 		</newInstance>
 		<_newInstance public="1" set="method" static="1"><f a="c:args">
 	<d/>
@@ -3320,13 +3335,21 @@
 			</f>
 			<meta><m n=":noUsing"/></meta>
 		</assign>
+		<code public="1" set="method" static="1"><f a="code:args">
+	<c path="String"/>
+	<x path="haxe.extern.Rest"><d/></x>
+	<d/>
+</f></code>
 		<pythonCode public="1" set="method" static="1">
 			<f a="b:rest">
 				<c path="String"/>
 				<d/>
 				<d/>
 			</f>
-			<meta><m n=":noUsing"/></meta>
+			<meta>
+				<m n=":noUsing"/>
+				<m n=":deprecated"><e>"python.Syntax.pythonCode() is deprecated. Use python.Syntax.code() instead."</e></m>
+			</meta>
 		</pythonCode>
 		<_pythonCode public="1" params="T" set="method" static="1">
 			<f a="b:args">
@@ -5962,13 +5985,10 @@
 		</f>
 		<haxe_doc>Compare `a` and `b` in unsigned mode.</haxe_doc>
 	</ucompare>
-	<clamp get="inline" set="null" line="238" static="1">
-		<f a="x">
-			<x path="Int"/>
-			<x path="Int"/>
-		</f>
-		<meta><m n=":has_untyped"/></meta>
-	</clamp>
+	<clamp get="inline" set="null" line="238" static="1"><f a="x">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></clamp>
 	<meta><m n=":final"/></meta>
 </class></impl>
 	</abstract>
@@ -6186,13 +6206,10 @@
 			</f>
 			<haxe_doc>Compare `a` and `b` in unsigned mode.</haxe_doc>
 		</ucompare>
-		<clamp get="inline" set="null" line="238" static="1">
-			<f a="x">
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</clamp>
+		<clamp get="inline" set="null" line="238" static="1"><f a="x">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></clamp>
 		<meta><m n=":final"/></meta>
 	</class>
 	<abstract path="haxe.Int64" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/Int64.hx">
@@ -8775,16 +8792,13 @@
 	<x path="Int"/>
 	<x path="Void"/>
 </f></set>
-		<blit public="1" set="method" line="75">
-			<f a="pos:src:srcpos:len">
-				<x path="Int"/>
-				<c path="haxe.io.Bytes"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</blit>
+		<blit public="1" set="method" line="75"><f a="pos:src:srcpos:len">
+	<x path="Int"/>
+	<c path="haxe.io.Bytes"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></blit>
 		<fill public="1" set="method" line="108"><f a="pos:len:value">
 	<x path="Int"/>
 	<x path="Int"/>
@@ -8882,14 +8896,11 @@
 			</f>
 			<haxe_doc>Store the 64 bit integer at given position (in low endian encoding).</haxe_doc>
 		</setInt64>
-		<getString public="1" set="method" line="349">
-			<f a="pos:len">
-				<x path="Int"/>
-				<x path="Int"/>
-				<c path="String"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</getString>
+		<getString public="1" set="method" line="349"><f a="pos:len">
+	<x path="Int"/>
+	<x path="Int"/>
+	<c path="String"/>
+</f></getString>
 		<readString public="1" get="inline" set="null" line="406">
 			<f a="pos:len">
 				<x path="Int"/>
@@ -10930,10 +10941,7 @@
 			<x path="Int"/>
 			<x path="haxe.ds.Vector"><c path="haxe.ds.Vector.T"/></x>
 		</f>
-		<meta>
-			<m n=":has_untyped"/>
-			<m n=":impl"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Creates a new Vector of length `length`.
 
 		Initially `this` Vector contains `length` neutral elements:
@@ -11124,10 +11132,7 @@
 				<x path="Int"/>
 				<x path="haxe.ds.Vector"><c path="haxe.ds.Vector.T"/></x>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":impl"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Creates a new Vector of length `length`.
 
 		Initially `this` Vector contains `length` neutral elements:
@@ -19287,22 +19292,16 @@
 			<c path="python.Set"><c path="String"/></c>
 			<meta><m n=":value"><e>new Set(["and", "del", "from", "not", "with", "as", "elif", "global", "or", "yield", "assert", "else", "if", "pass", "None", "break", "except", "import", "raise", "True", "class", "exec", "in", "return", "False", "continue", "finally", "is", "try", "def", "for", "lambda", "while"])</e></m></meta>
 		</keywords>
-		<arrayJoin params="T" get="inline" set="null" line="50" static="1">
-			<f a="x:sep">
-				<c path="Array"><c path="arrayJoin.T"/></c>
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</arrayJoin>
-		<safeJoin get="inline" set="null" line="54" static="1">
-			<f a="x:sep">
-				<c path="Array"><c path="String"/></c>
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</safeJoin>
+		<arrayJoin params="T" get="inline" set="null" line="50" static="1"><f a="x:sep">
+	<c path="Array"><c path="arrayJoin.T"/></c>
+	<c path="String"/>
+	<c path="String"/>
+</f></arrayJoin>
+		<safeJoin get="inline" set="null" line="54" static="1"><f a="x:sep">
+	<c path="Array"><c path="String"/></c>
+	<c path="String"/>
+	<c path="String"/>
+</f></safeJoin>
 		<isPyBool get="inline" set="null" line="58" static="1"><f a="o">
 	<d/>
 	<x path="Bool"/>
@@ -24722,10 +24721,7 @@
 	<class path="sys.net._Socket.SocketInput" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/_std/sys/net/Socket.hx" private="1" module="sys.net.Socket">
 		<extends path="haxe.io.Input"/>
 		<__s><t path="python.lib.socket._Socket.PSocket"/></__s>
-		<readByte public="1" set="method" line="42" override="1">
-			<f a=""><x path="Int"/></f>
-			<meta><m n=":has_untyped"/></meta>
-		</readByte>
+		<readByte public="1" set="method" line="42" override="1"><f a=""><x path="Int"/></f></readByte>
 		<readBytes public="1" set="method" line="54" override="1"><f a="buf:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
@@ -24741,22 +24737,16 @@
 	<class path="sys.net._Socket.SocketOutput" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/_std/sys/net/Socket.hx" private="1" module="sys.net.Socket">
 		<extends path="haxe.io.Output"/>
 		<__s><t path="python.lib.socket._Socket.PSocket"/></__s>
-		<writeByte public="1" set="method" line="85" override="1">
-			<f a="c">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</writeByte>
-		<writeBytes public="1" set="method" line="93" override="1">
-			<f a="buf:pos:len">
-				<c path="haxe.io.Bytes"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</writeBytes>
+		<writeByte public="1" set="method" line="85" override="1"><f a="c">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></writeByte>
+		<writeBytes public="1" set="method" line="93" override="1"><f a="buf:pos:len">
+	<c path="haxe.io.Bytes"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></writeBytes>
 		<close public="1" set="method" line="104" override="1"><f a=""><x path="Void"/></f></close>
 		<new public="1" set="method" line="81"><f a="s">
 	<t path="python.lib.socket._Socket.PSocket"/>

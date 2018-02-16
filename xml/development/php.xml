@@ -2821,7 +2821,7 @@
 	</class>
 	<class path="php.Syntax" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/Syntax.hx" extern="1">
 		<code public="1" set="method" static="1">
-			<f a="php:args">
+			<f a="code:args">
 				<c path="String"/>
 				<x path="haxe.extern.Rest"><d/></x>
 				<d/>
@@ -2839,7 +2839,7 @@
         ```</haxe_doc>
 		</code>
 		<codeDeref public="1" set="method" static="1">
-			<f a="php:args">
+			<f a="code:args">
 				<c path="String"/>
 				<x path="haxe.extern.Rest"><d/></x>
 				<d/>
@@ -2927,7 +2927,15 @@
 			</f>
 			<haxe_doc>Generates `$left ** $right`</haxe_doc>
 		</exp>
-		<shortTernary public="1" params="T" get="inline" set="null" line="107" static="1">
+		<mod public="1" get="inline" set="null" line="107" static="1">
+			<f a="left:right">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Generates `$left % $right`</haxe_doc>
+		</mod>
+		<shortTernary public="1" params="T" get="inline" set="null" line="114" static="1">
 			<f a="left:right">
 				<c path="shortTernary.T"/>
 				<c path="shortTernary.T"/>
@@ -2935,7 +2943,7 @@
 			</f>
 			<haxe_doc>Generates `$left ?: $right`</haxe_doc>
 		</shortTernary>
-		<xor public="1" get="inline" set="null" line="114" static="1">
+		<xor public="1" get="inline" set="null" line="121" static="1">
 			<f a="left:right">
 				<x path="Bool"/>
 				<x path="Bool"/>
@@ -2943,42 +2951,42 @@
 			</f>
 			<haxe_doc>Generates `$left xor $right`</haxe_doc>
 		</xor>
-		<int public="1" get="inline" set="null" line="121" static="1">
+		<int public="1" get="inline" set="null" line="128" static="1">
 			<f a="value">
 				<d/>
 				<x path="Int"/>
 			</f>
 			<haxe_doc>Generates `(int)$value`</haxe_doc>
 		</int>
-		<float public="1" get="inline" set="null" line="128" static="1">
+		<float public="1" get="inline" set="null" line="135" static="1">
 			<f a="value">
 				<d/>
 				<x path="Float"/>
 			</f>
 			<haxe_doc>Generates `(float)$value`</haxe_doc>
 		</float>
-		<string public="1" get="inline" set="null" line="135" static="1">
+		<string public="1" get="inline" set="null" line="142" static="1">
 			<f a="value">
 				<d/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Generates `(string)$value`</haxe_doc>
 		</string>
-		<bool public="1" get="inline" set="null" line="142" static="1">
+		<bool public="1" get="inline" set="null" line="149" static="1">
 			<f a="value">
 				<d/>
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>Generates `(bool)$value`</haxe_doc>
 		</bool>
-		<object public="1" get="inline" set="null" line="149" static="1">
+		<object public="1" get="inline" set="null" line="156" static="1">
 			<f a="value">
 				<d/>
 				<c path="php.StdClass"/>
 			</f>
 			<haxe_doc>Generates `(object)$value`</haxe_doc>
 		</object>
-		<array public="1" get="inline" set="null" line="156" static="1">
+		<array public="1" get="inline" set="null" line="163" static="1">
 			<f a="value">
 				<d/>
 				<x path="php.NativeArray"/>
@@ -3038,20 +3046,37 @@
         }
         ```]]></haxe_doc>
 		</foreach>
-		<construct public="1" set="method" static="1">
-			<f a="className:args">
-				<x path="haxe.extern.AsVar"><c path="String"/></x>
+		<construct public="1" params="T" set="method" static="1">
+			<f a="cls:args">
+				<x path="haxe.extern.AsVar"><x path="Class"><c path="construct.T"/></x></x>
 				<x path="haxe.extern.Rest"><d/></x>
-				<d/>
+				<c path="construct.T"/>
 			</f>
 			<haxe_doc>Generates `new $className($arg1, ...$argN)`</haxe_doc>
+			<overloads><construct public="1" set="method">
+	<f a="className:args">
+		<x path="haxe.extern.AsVar"><c path="String"/></x>
+		<x path="haxe.extern.Rest"><d/></x>
+		<d/>
+	</f>
+	<haxe_doc>Generates `new $className($arg1, ...$argN)`</haxe_doc>
+</construct></overloads>
 		</construct>
+		<field public="1" params="T" set="method" static="1">
+			<f a="object:fieldName">
+				<x path="haxe.extern.AsVar"><c path="field.T"/></x>
+				<x path="haxe.extern.AsVar"><c path="String"/></x>
+				<d/>
+			</f>
+			<haxe_doc>Generates instance field access for reading on `object`</haxe_doc>
+		</field>
 		<getField public="1" params="T" set="method" static="1">
 			<f a="object:fieldName">
 				<x path="haxe.extern.AsVar"><c path="getField.T"/></x>
 				<x path="haxe.extern.AsVar"><c path="String"/></x>
 				<d/>
 			</f>
+			<meta><m n=":deprecated"><e>"php.Syntax.getFiled() is deprecated. Use php.Syntax.field() instead."</e></m></meta>
 			<haxe_doc>Generates instance field access for reading on `object`</haxe_doc>
 		</getField>
 		<setField public="1" params="T" set="method" static="1">
@@ -3144,7 +3169,7 @@
 			</f>
 			<haxe_doc>Don't let compiler to optimize away local var passed to this method.</haxe_doc>
 		</keepVar>
-		<splat public="1" get="inline" set="null" line="257" static="1">
+		<splat public="1" get="inline" set="null" line="271" static="1">
 			<f a="args">
 				<x path="haxe.extern.EitherType">
 					<x path="php.NativeArray"/>
