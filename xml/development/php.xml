@@ -114,7 +114,7 @@
 			<x path="Int"/>
 			<c path="Array.T"/>
 		</implements>
-		<wrap params="T" set="method" line="210" static="1"><f a="arr">
+		<wrap params="T" set="method" line="212" static="1"><f a="arr">
 	<x path="php.NativeIndexedArray"><c path="wrap.T"/></x>
 	<c path="Array"><c path="wrap.T"/></c>
 </f></wrap>
@@ -429,7 +429,7 @@
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</offsetSet>
-		<offsetUnset set="method" line="203">
+		<offsetUnset set="method" line="205">
 			<f a="offset">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -453,9 +453,9 @@
 	<class path="_Array.ArrayIterator" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/php/_std/Array.hx" private="1" module="Array">
 		<idx><x path="Int"/></idx>
 		<arr><c path="Array"><c path="_Array.ArrayIterator.T"/></c></arr>
-		<hasNext public="1" get="inline" set="null" line="227"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" get="inline" set="null" line="231"><f a=""><c path="_Array.ArrayIterator.T"/></f></next>
-		<__get set="method" line="237">
+		<hasNext public="1" get="inline" set="null" line="229"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="233"><f a=""><c path="_Array.ArrayIterator.T"/></f></next>
+		<__get set="method" line="239">
 			<f a="method">
 				<c path="String"/>
 				<x path="Null"><c path="php._Boot.HxClosure"/></x>
@@ -465,7 +465,7 @@
 				<m n=":phpMagic"/>
 			</meta>
 		</__get>
-		<new public="1" get="inline" set="null" line="222"><f a="arr">
+		<new public="1" get="inline" set="null" line="224"><f a="arr">
 	<c path="Array"><c path="_Array.ArrayIterator.T"/></c>
 	<x path="Void"/>
 </f></new>
@@ -2153,7 +2153,8 @@
 		Leading 0s that are not part of the 0x/0X hexadecimal notation are ignored, which means octal
 		notation is not supported.
 
-		If the input cannot be recognized, the result is `null`.</haxe_doc>
+		If `x` is null, the result is unspecified.
+		If `x` cannot be parsed as integer, the result is `null`.</haxe_doc>
 		</parseInt>
 		<parseFloat public="1" set="method" line="67" static="1">
 			<f a="x">
@@ -2820,7 +2821,7 @@
 	</class>
 	<class path="php.Syntax" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/Syntax.hx" extern="1">
 		<code public="1" set="method" static="1">
-			<f a="php:args">
+			<f a="code:args">
 				<c path="String"/>
 				<x path="haxe.extern.Rest"><d/></x>
 				<d/>
@@ -2838,7 +2839,7 @@
         ```</haxe_doc>
 		</code>
 		<codeDeref public="1" set="method" static="1">
-			<f a="php:args">
+			<f a="code:args">
 				<c path="String"/>
 				<x path="haxe.extern.Rest"><d/></x>
 				<d/>
@@ -2926,7 +2927,15 @@
 			</f>
 			<haxe_doc>Generates `$left ** $right`</haxe_doc>
 		</exp>
-		<shortTernary public="1" params="T" get="inline" set="null" line="107" static="1">
+		<mod public="1" get="inline" set="null" line="107" static="1">
+			<f a="left:right">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Generates `$left % $right`</haxe_doc>
+		</mod>
+		<shortTernary public="1" params="T" get="inline" set="null" line="114" static="1">
 			<f a="left:right">
 				<c path="shortTernary.T"/>
 				<c path="shortTernary.T"/>
@@ -2934,7 +2943,7 @@
 			</f>
 			<haxe_doc>Generates `$left ?: $right`</haxe_doc>
 		</shortTernary>
-		<xor public="1" get="inline" set="null" line="114" static="1">
+		<xor public="1" get="inline" set="null" line="121" static="1">
 			<f a="left:right">
 				<x path="Bool"/>
 				<x path="Bool"/>
@@ -2942,42 +2951,42 @@
 			</f>
 			<haxe_doc>Generates `$left xor $right`</haxe_doc>
 		</xor>
-		<int public="1" get="inline" set="null" line="121" static="1">
+		<int public="1" get="inline" set="null" line="128" static="1">
 			<f a="value">
 				<d/>
 				<x path="Int"/>
 			</f>
 			<haxe_doc>Generates `(int)$value`</haxe_doc>
 		</int>
-		<float public="1" get="inline" set="null" line="128" static="1">
+		<float public="1" get="inline" set="null" line="135" static="1">
 			<f a="value">
 				<d/>
 				<x path="Float"/>
 			</f>
 			<haxe_doc>Generates `(float)$value`</haxe_doc>
 		</float>
-		<string public="1" get="inline" set="null" line="135" static="1">
+		<string public="1" get="inline" set="null" line="142" static="1">
 			<f a="value">
 				<d/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Generates `(string)$value`</haxe_doc>
 		</string>
-		<bool public="1" get="inline" set="null" line="142" static="1">
+		<bool public="1" get="inline" set="null" line="149" static="1">
 			<f a="value">
 				<d/>
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>Generates `(bool)$value`</haxe_doc>
 		</bool>
-		<object public="1" get="inline" set="null" line="149" static="1">
+		<object public="1" get="inline" set="null" line="156" static="1">
 			<f a="value">
 				<d/>
 				<c path="php.StdClass"/>
 			</f>
 			<haxe_doc>Generates `(object)$value`</haxe_doc>
 		</object>
-		<array public="1" get="inline" set="null" line="156" static="1">
+		<array public="1" get="inline" set="null" line="163" static="1">
 			<f a="value">
 				<d/>
 				<x path="php.NativeArray"/>
@@ -2993,7 +3002,30 @@
 			<haxe_doc>Generates `$value instanceof $phpClassName`.
         Haxe generates `Std.is(value, Type)` calls as `$value instanceof Type` automatically where possible.
         So you may need this only if you have a `Class` stored in a variable.</haxe_doc>
+			<overloads><instanceof public="1" set="method">
+	<f a="value:phpClassName">
+		<x path="haxe.extern.AsVar"><d/></x>
+		<x path="haxe.extern.AsVar"><c path="String"/></x>
+		<x path="Bool"/>
+	</f>
+	<haxe_doc>Generates `$value instanceof $phpClassName`.
+        Haxe generates `Std.is(value, Type)` calls as `$value instanceof Type` automatically where possible.
+        So you may need this only if you have a `Class` stored in a variable.</haxe_doc>
+</instanceof></overloads>
 		</instanceof>
+		<nativeClassName public="1" params="T" set="method" static="1">
+			<f a="cls">
+				<x path="haxe.extern.EitherType">
+					<x path="Class"><c path="nativeClassName.T"/></x>
+					<x path="Enum"><c path="nativeClassName.T"/></x>
+				</x>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Generates PHP class name for a provided Haxe class.
+        ```
+        trace(Syntax.nativeClassName(php.Web)); // outputs: php\Web
+        ```</haxe_doc>
+		</nativeClassName>
 		<foreach public="1" params="TCollection:TKey:TValue" set="method" static="1">
 			<f a="collection:body">
 				<c path="foreach.TCollection"/>
@@ -3014,20 +3046,37 @@
         }
         ```]]></haxe_doc>
 		</foreach>
-		<construct public="1" set="method" static="1">
-			<f a="className:args">
-				<x path="haxe.extern.AsVar"><c path="String"/></x>
+		<construct public="1" params="T" set="method" static="1">
+			<f a="cls:args">
+				<x path="haxe.extern.AsVar"><x path="Class"><c path="construct.T"/></x></x>
 				<x path="haxe.extern.Rest"><d/></x>
-				<d/>
+				<c path="construct.T"/>
 			</f>
 			<haxe_doc>Generates `new $className($arg1, ...$argN)`</haxe_doc>
+			<overloads><construct public="1" set="method">
+	<f a="className:args">
+		<x path="haxe.extern.AsVar"><c path="String"/></x>
+		<x path="haxe.extern.Rest"><d/></x>
+		<d/>
+	</f>
+	<haxe_doc>Generates `new $className($arg1, ...$argN)`</haxe_doc>
+</construct></overloads>
 		</construct>
+		<field public="1" params="T" set="method" static="1">
+			<f a="object:fieldName">
+				<x path="haxe.extern.AsVar"><c path="field.T"/></x>
+				<x path="haxe.extern.AsVar"><c path="String"/></x>
+				<d/>
+			</f>
+			<haxe_doc>Generates instance field access for reading on `object`</haxe_doc>
+		</field>
 		<getField public="1" params="T" set="method" static="1">
 			<f a="object:fieldName">
 				<x path="haxe.extern.AsVar"><c path="getField.T"/></x>
 				<x path="haxe.extern.AsVar"><c path="String"/></x>
 				<d/>
 			</f>
+			<meta><m n=":deprecated"><e>"php.Syntax.getFiled() is deprecated. Use php.Syntax.field() instead."</e></m></meta>
 			<haxe_doc>Generates instance field access for reading on `object`</haxe_doc>
 		</getField>
 		<setField public="1" params="T" set="method" static="1">
@@ -3120,7 +3169,7 @@
 			</f>
 			<haxe_doc>Don't let compiler to optimize away local var passed to this method.</haxe_doc>
 		</keepVar>
-		<splat public="1" get="inline" set="null" line="248" static="1">
+		<splat public="1" get="inline" set="null" line="271" static="1">
 			<f a="args">
 				<x path="haxe.extern.EitherType">
 					<x path="php.NativeArray"/>
@@ -3565,6 +3614,15 @@
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.array-fill.php</haxe_doc>
 		</array_fill>
+		<array_pad public="1" set="method" static="1">
+			<f a="array:size:value">
+				<x path="php.NativeArray"/>
+				<x path="Int"/>
+				<d/>
+				<x path="php.NativeArray"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.array-pad.php</haxe_doc>
+		</array_pad>
 		<in_array public="1" set="method" static="1">
 			<f a="needle:haystack:?strict" v="::false">
 				<d/>
@@ -5691,7 +5749,7 @@
 		In particular, default values of constructor arguments are not
 		guaranteed to be taken into account.</haxe_doc>
 		</createInstance>
-		<createEmptyInstance public="1" params="T" set="method" line="116" static="1">
+		<createEmptyInstance public="1" params="T" set="method" line="114" static="1">
 			<f a="cl">
 				<x path="Class"><c path="createEmptyInstance.T"/></x>
 				<c path="createEmptyInstance.T"/>
@@ -5702,7 +5760,7 @@
 
 		If `cl` is null, the result is unspecified.</haxe_doc>
 		</createEmptyInstance>
-		<createEnum public="1" params="T" set="method" line="127" static="1">
+		<createEnum public="1" params="T" set="method" line="122" static="1">
 			<f a="e:constr:?params">
 				<x path="Enum"><c path="createEnum.T"/></x>
 				<c path="String"/>
@@ -5717,7 +5775,7 @@
 		expected number of constructor arguments, or if any argument has an
 		invalid type, the result is unspecified.</haxe_doc>
 		</createEnum>
-		<createEnumIndex public="1" params="T" set="method" line="150" static="1">
+		<createEnumIndex public="1" params="T" set="method" line="144" static="1">
 			<f a="e:index:?params">
 				<x path="Enum"><c path="createEnumIndex.T"/></x>
 				<x path="Int"/>
@@ -5735,7 +5793,7 @@
 		expected number of constructor arguments, or if any argument has an
 		invalid type, the result is unspecified.</haxe_doc>
 		</createEnumIndex>
-		<getInstanceFields public="1" set="method" line="175" static="1">
+		<getInstanceFields public="1" set="method" line="168" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
 				<c path="Array"><c path="String"/></c>
@@ -5752,7 +5810,7 @@
 
 		(As3) This method only returns instance fields that are public.</haxe_doc>
 		</getInstanceFields>
-		<getClassFields public="1" set="method" line="218" static="1">
+		<getClassFields public="1" set="method" line="208" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
 				<c path="Array"><c path="String"/></c>
@@ -5767,7 +5825,7 @@
 
 		(As3) This method only returns class fields that are public.</haxe_doc>
 		</getClassFields>
-		<getEnumConstructs public="1" set="method" line="251" static="1">
+		<getEnumConstructs public="1" set="method" line="240" static="1">
 			<f a="e">
 				<x path="Enum"><d/></x>
 				<c path="Array"><c path="String"/></c>
@@ -5780,7 +5838,7 @@
 
 		If `e` is null, the result is unspecified.</haxe_doc>
 		</getEnumConstructs>
-		<typeof public="1" set="method" line="256" static="1">
+		<typeof public="1" set="method" line="245" static="1">
 			<f a="v">
 				<d/>
 				<e path="ValueType"/>
@@ -5791,7 +5849,7 @@
 		per platform. Assumptions regarding this should be minimized to avoid
 		surprises.</haxe_doc>
 		</typeof>
-		<enumEq public="1" params="T" set="method" line="277" static="1">
+		<enumEq public="1" params="T" set="method" line="266" static="1">
 			<f a="a:b">
 				<c path="enumEq.T"/>
 				<c path="enumEq.T"/>
@@ -5805,7 +5863,7 @@
 
 		If `a` or `b` are null, the result is unspecified.</haxe_doc>
 		</enumEq>
-		<enumConstructor public="1" set="method" line="314" static="1">
+		<enumConstructor public="1" set="method" line="303" static="1">
 			<f a="e">
 				<x path="EnumValue"/>
 				<c path="String"/>
@@ -5817,7 +5875,7 @@
 
 		If `e` is null, the result is unspecified.</haxe_doc>
 		</enumConstructor>
-		<enumParameters public="1" get="inline" set="null" line="318" static="1">
+		<enumParameters public="1" get="inline" set="null" line="307" static="1">
 			<f a="e">
 				<x path="EnumValue"/>
 				<c path="Array"><d/></c>
@@ -5832,7 +5890,7 @@
 
 		If `e` is null, the result is unspecified.</haxe_doc>
 		</enumParameters>
-		<enumIndex public="1" get="inline" set="null" line="322" static="1">
+		<enumIndex public="1" get="inline" set="null" line="311" static="1">
 			<f a="e">
 				<x path="EnumValue"/>
 				<x path="Int"/>
@@ -5845,7 +5903,7 @@
 
 		If `e` is null, the result is unspecified.</haxe_doc>
 		</enumIndex>
-		<allEnums public="1" params="T" set="method" line="326" static="1">
+		<allEnums public="1" params="T" set="method" line="315" static="1">
 			<f a="e">
 				<x path="Enum"><c path="allEnums.T"/></x>
 				<c path="Array"><c path="allEnums.T"/></c>
@@ -5862,18 +5920,7 @@
 
 		If `e` is null, the result is unspecified.</haxe_doc>
 		</allEnums>
-		<getPhpName set="method" line="348" static="1">
-			<f a="type">
-				<x path="haxe.extern.EitherType">
-					<x path="Class"><d/></x>
-					<x path="Enum"><d/></x>
-				</x>
-				<x path="Null"><c path="String"/></x>
-			</f>
-			<haxe_doc>Get corresponding PHP name for specified `type`.
-		Returns `null` if `type` does not exist.</haxe_doc>
-		</getPhpName>
-		<isServiceFieldName get="inline" set="null" line="357" static="1">
+		<isServiceFieldName get="inline" set="null" line="335" static="1">
 			<f a="name">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -9417,9 +9464,14 @@
 		<f><f a=""><x path="Void"/></f></f>
 		<prev><c path="haxe.MainEvent"/></prev>
 		<next><c path="haxe.MainEvent"/></next>
+		<isBlocking public="1" expr="true">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>true</e></m></meta>
+			<haxe_doc>Tells if the event can lock the process from exiting (default:true)</haxe_doc>
+		</isBlocking>
 		<nextRun public="1" set="null"><x path="Float"/></nextRun>
 		<priority public="1" set="null"><x path="Int"/></priority>
-		<delay public="1" set="method" line="22">
+		<delay public="1" set="method" line="26">
 			<f a="t">
 				<x path="Null"><x path="Float"/></x>
 				<x path="Void"/>
@@ -9427,37 +9479,37 @@
 			<haxe_doc>Delay the execution of the event for the given time, in seconds.
 		If t is null, the event will be run at tick() time.</haxe_doc>
 		</delay>
-		<call public="1" get="inline" set="null" line="29">
+		<call public="1" get="inline" set="null" line="33">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Call the event. Will do nothing if the event has been stopped.</haxe_doc>
 		</call>
-		<stop public="1" set="method" line="36">
+		<stop public="1" set="method" line="40">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Stop the event from firing anymore.</haxe_doc>
 		</stop>
-		<new set="method" line="12"><f a="f:p">
+		<new set="method" line="16"><f a="f:p">
 	<f a=""><x path="Void"/></f>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></new>
 	</class>
 	<class path="haxe.MainLoop" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/MainLoop.hx">
-		<pending expr="null" line="53" static="1">
+		<pending expr="null" line="57" static="1">
 			<c path="haxe.MainEvent"/>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</pending>
 		<threadCount public="1" get="accessor" set="null" static="1"><x path="Int"/></threadCount>
-		<get_threadCount get="inline" set="null" line="57" static="1"><f a=""><x path="Int"/></f></get_threadCount>
-		<hasEvents public="1" get="inline" set="null" line="59" static="1"><f a=""><x path="Bool"/></f></hasEvents>
-		<addThread public="1" set="method" line="63" static="1"><f a="f">
+		<get_threadCount get="inline" set="null" line="61" static="1"><f a=""><x path="Int"/></f></get_threadCount>
+		<hasEvents public="1" set="method" line="63" static="1"><f a=""><x path="Bool"/></f></hasEvents>
+		<addThread public="1" set="method" line="73" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></addThread>
-		<runInMainThread public="1" set="method" line="67" static="1"><f a="f">
+		<runInMainThread public="1" set="method" line="77" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runInMainThread>
-		<add public="1" set="method" line="74" static="1">
+		<add public="1" set="method" line="84" static="1">
 			<f a="f:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -9466,8 +9518,8 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a pending event to be run into the main loop.</haxe_doc>
 		</add>
-		<sortEvents set="method" line="85" static="1"><f a=""><x path="Void"/></f></sortEvents>
-		<tick set="method" line="146" static="1">
+		<sortEvents set="method" line="95" static="1"><f a=""><x path="Void"/></f></sortEvents>
+		<tick set="method" line="156" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Run the pending events. Return the time for next event.</haxe_doc>
 		</tick>
@@ -9673,7 +9725,7 @@
 	or may not work for instances of external/native classes.
 
 	The specification of the serialization format can be found here:
-	<https://haxe.org/manual/serialization/format>]]></haxe_doc>
+	<https://haxe.org/manual/std-serialization-format.html>]]></haxe_doc>
 	</class>
 	<enum path="haxe._Template.TemplateExpr" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/Template.hx" private="1" module="haxe.Template">
 		<OpVar a="v"><c path="String"/></OpVar>
@@ -13196,34 +13248,38 @@
 	<d/>
 	<x path="Void"/>
 </f></write>
-		<addChar get="inline" set="null" line="140">
+		<addChar get="inline" set="null" line="136">
 			<f a="c">
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":extern"/></meta>
 		</addChar>
-		<add get="inline" set="null" line="148">
+		<add get="inline" set="null" line="144">
 			<f a="v">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":extern"/></meta>
 		</add>
-		<objString get="inline" set="null" line="163"><f a="v">
+		<classString set="method" line="153"><f a="v">
+	<d/>
+	<x path="Void"/>
+</f></classString>
+		<objString get="inline" set="null" line="157"><f a="v">
 	<d/>
 	<x path="Void"/>
 </f></objString>
-		<fieldsString set="method" line="167"><f a="v:fields">
+		<fieldsString set="method" line="161"><f a="v:fields">
 	<d/>
 	<c path="Array"><c path="String"/></c>
 	<x path="Void"/>
 </f></fieldsString>
-		<quote set="method" line="193"><f a="s">
+		<quote set="method" line="187"><f a="s">
 	<c path="String"/>
 	<x path="Void"/>
 </f></quote>
-		<quoteUtf8 set="method" line="225"><f a="s">
+		<quoteUtf8 set="method" line="219"><f a="s">
 	<c path="String"/>
 	<x path="Void"/>
 </f></quoteUtf8>
@@ -18266,12 +18322,16 @@
 
 		If `t` is null, an internal exception is thrown.</haxe_doc>
 		</toComplexType>
-		<toTypePath set="method" line="149" static="1"><f a="baseType:params">
+		<toTypeParam set="method" line="149" static="1"><f a="type">
+	<e path="haxe.macro.Type"/>
+	<e path="haxe.macro.TypeParam"/>
+</f></toTypeParam>
+		<toTypePath set="method" line="156" static="1"><f a="baseType:params">
 	<t path="haxe.macro.BaseType"/>
 	<c path="Array"><e path="haxe.macro.Type"/></c>
 	<t path="haxe.macro.TypePath"/>
 </f></toTypePath>
-		<findField public="1" set="method" line="371" static="1">
+		<findField public="1" set="method" line="378" static="1">
 			<f a="c:name:?isStatic" v="::false">
 				<t path="haxe.macro.ClassType"/>
 				<c path="String"/>
@@ -21091,12 +21151,12 @@
 	<x path="Void"/>
 </f></compress></class>
 	<class path="haxe.zip.Uncompress" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/_std/haxe/zip/Uncompress.hx">
-		<run public="1" set="method" line="40" static="1"><f a="src:?bufsize">
+		<run public="1" set="method" line="47" static="1"><f a="src:?bufsize">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<c path="haxe.io.Bytes"/>
 </f></run>
-		<execute public="1" set="method" line="30"><f a="src:srcPos:dst:dstPos">
+		<execute public="1" set="method" line="29"><f a="src:srcPos:dst:dstPos">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<c path="haxe.io.Bytes"/>
@@ -21107,11 +21167,11 @@
 		<done><x path="Bool"/></done>
 	</a>
 </f></execute>
-		<setFlushMode public="1" set="method" line="34"><f a="f">
+		<setFlushMode public="1" set="method" line="41"><f a="f">
 	<e path="haxe.zip.FlushMode"/>
 	<x path="Void"/>
 </f></setFlushMode>
-		<close public="1" set="method" line="37"><f a=""><x path="Void"/></f></close>
+		<close public="1" set="method" line="44"><f a=""><x path="Void"/></f></close>
 		<new public="1" set="method" line="26"><f a="?windowBits">
 	<x path="Int"/>
 	<x path="Void"/>
@@ -21284,8 +21344,8 @@
 		</meta>
 		<getPrefix public="1" set="method" line="73" static="1">
 			<f a=""><c path="String"/></f>
-			<haxe_doc>Returns root namespace based on a value of `--php-prefix` compiler flag.
-		Returns empty string if no `--php-prefix` provided.</haxe_doc>
+			<haxe_doc>Returns root namespace based on a value of `-D php-prefix=value` compiler flag.
+		Returns empty string if no `-D php-prefix=value` provided.</haxe_doc>
 		</getPrefix>
 		<registerGetters public="1" set="method" line="80" static="1">
 			<f a="phpClassName:list">
@@ -24935,7 +24995,22 @@
 			<haxe_doc>Similar to `sys.io.File.write`, but appends to the file if it exists
 		instead of overwriting its contents.</haxe_doc>
 		</append>
-		<copy public="1" set="method" line="59" static="1">
+		<update public="1" set="method" line="59" static="1">
+			<f a="path:?binary" v=":true">
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="sys.io.FileOutput"/>
+			</f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":value"><e>{ binary : true }</e></m>
+			</meta>
+			<haxe_doc>Similar to `sys.io.File.append`. While `append` can only seek or write
+		starting from the end of the file's previous contents, `update` can
+		seek to any position, so the file's previous contents can be
+		selectively overwritten.</haxe_doc>
+		</update>
+		<copy public="1" set="method" line="63" static="1">
 			<f a="srcPath:dstPath">
 				<c path="String"/>
 				<c path="String"/>

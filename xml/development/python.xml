@@ -2081,7 +2081,8 @@
 		Leading 0s that are not part of the 0x/0X hexadecimal notation are ignored, which means octal
 		notation is not supported.
 
-		If the input cannot be recognized, the result is `null`.</haxe_doc>
+		If `x` is null, the result is unspecified.
+		If `x` cannot be parsed as integer, the result is `null`.</haxe_doc>
 		</parseInt>
 		<shortenPossibleNumber set="method" line="175" static="1"><f a="x">
 	<c path="String"/>
@@ -3274,13 +3275,28 @@
 			</f>
 			<meta><m n=":noUsing"/></meta>
 		</importAs>
+		<construct public="1" params="T" set="method" static="1">
+			<f a="cls:args">
+				<x path="Class"><c path="construct.T"/></x>
+				<x path="haxe.extern.Rest"><d/></x>
+				<c path="construct.T"/>
+			</f>
+			<overloads><construct public="1" set="method"><f a="className:args">
+	<c path="String"/>
+	<x path="haxe.extern.Rest"><d/></x>
+	<d/>
+</f></construct></overloads>
+		</construct>
 		<newInstance public="1" set="method" static="1">
 			<f a="c:params">
 				<d/>
 				<d/>
 				<d/>
 			</f>
-			<meta><m n=":noUsing"/></meta>
+			<meta>
+				<m n=":noUsing"/>
+				<m n=":deprecated"><e>"python.Syntax.newInstance() is deprecated. Use python.Syntax.construct() instead."</e></m>
+			</meta>
 		</newInstance>
 		<_newInstance public="1" set="method" static="1"><f a="c:args">
 	<d/>
@@ -3319,13 +3335,21 @@
 			</f>
 			<meta><m n=":noUsing"/></meta>
 		</assign>
+		<code public="1" set="method" static="1"><f a="code:args">
+	<c path="String"/>
+	<x path="haxe.extern.Rest"><d/></x>
+	<d/>
+</f></code>
 		<pythonCode public="1" set="method" static="1">
 			<f a="b:rest">
 				<c path="String"/>
 				<d/>
 				<d/>
 			</f>
-			<meta><m n=":noUsing"/></meta>
+			<meta>
+				<m n=":noUsing"/>
+				<m n=":deprecated"><e>"python.Syntax.pythonCode() is deprecated. Use python.Syntax.code() instead."</e></m>
+			</meta>
 		</pythonCode>
 		<_pythonCode public="1" params="T" set="method" static="1">
 			<f a="b:args">
@@ -5961,13 +5985,10 @@
 		</f>
 		<haxe_doc>Compare `a` and `b` in unsigned mode.</haxe_doc>
 	</ucompare>
-	<clamp get="inline" set="null" line="238" static="1">
-		<f a="x">
-			<x path="Int"/>
-			<x path="Int"/>
-		</f>
-		<meta><m n=":has_untyped"/></meta>
-	</clamp>
+	<clamp get="inline" set="null" line="238" static="1"><f a="x">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></clamp>
 	<meta><m n=":final"/></meta>
 </class></impl>
 	</abstract>
@@ -6185,13 +6206,10 @@
 			</f>
 			<haxe_doc>Compare `a` and `b` in unsigned mode.</haxe_doc>
 		</ucompare>
-		<clamp get="inline" set="null" line="238" static="1">
-			<f a="x">
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</clamp>
+		<clamp get="inline" set="null" line="238" static="1"><f a="x">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></clamp>
 		<meta><m n=":final"/></meta>
 	</class>
 	<abstract path="haxe.Int64" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/Int64.hx">
@@ -7366,9 +7384,14 @@
 		<f><f a=""><x path="Void"/></f></f>
 		<prev><c path="haxe.MainEvent"/></prev>
 		<next><c path="haxe.MainEvent"/></next>
+		<isBlocking public="1" expr="true">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>true</e></m></meta>
+			<haxe_doc>Tells if the event can lock the process from exiting (default:true)</haxe_doc>
+		</isBlocking>
 		<nextRun public="1" set="null"><x path="Float"/></nextRun>
 		<priority public="1" set="null"><x path="Int"/></priority>
-		<delay public="1" set="method" line="22">
+		<delay public="1" set="method" line="26">
 			<f a="t">
 				<x path="Null"><x path="Float"/></x>
 				<x path="Void"/>
@@ -7376,37 +7399,37 @@
 			<haxe_doc>Delay the execution of the event for the given time, in seconds.
 		If t is null, the event will be run at tick() time.</haxe_doc>
 		</delay>
-		<call public="1" get="inline" set="null" line="29">
+		<call public="1" get="inline" set="null" line="33">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Call the event. Will do nothing if the event has been stopped.</haxe_doc>
 		</call>
-		<stop public="1" set="method" line="36">
+		<stop public="1" set="method" line="40">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Stop the event from firing anymore.</haxe_doc>
 		</stop>
-		<new set="method" line="12"><f a="f:p">
+		<new set="method" line="16"><f a="f:p">
 	<f a=""><x path="Void"/></f>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></new>
 	</class>
 	<class path="haxe.MainLoop" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/MainLoop.hx">
-		<pending expr="null" line="53" static="1">
+		<pending expr="null" line="57" static="1">
 			<c path="haxe.MainEvent"/>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</pending>
 		<threadCount public="1" get="accessor" set="null" static="1"><x path="Int"/></threadCount>
-		<get_threadCount get="inline" set="null" line="57" static="1"><f a=""><x path="Int"/></f></get_threadCount>
-		<hasEvents public="1" get="inline" set="null" line="59" static="1"><f a=""><x path="Bool"/></f></hasEvents>
-		<addThread public="1" set="method" line="63" static="1"><f a="f">
+		<get_threadCount get="inline" set="null" line="61" static="1"><f a=""><x path="Int"/></f></get_threadCount>
+		<hasEvents public="1" set="method" line="63" static="1"><f a=""><x path="Bool"/></f></hasEvents>
+		<addThread public="1" set="method" line="73" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></addThread>
-		<runInMainThread public="1" set="method" line="67" static="1"><f a="f">
+		<runInMainThread public="1" set="method" line="77" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runInMainThread>
-		<add public="1" set="method" line="74" static="1">
+		<add public="1" set="method" line="84" static="1">
 			<f a="f:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -7415,8 +7438,8 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a pending event to be run into the main loop.</haxe_doc>
 		</add>
-		<sortEvents set="method" line="85" static="1"><f a=""><x path="Void"/></f></sortEvents>
-		<tick set="method" line="146" static="1">
+		<sortEvents set="method" line="95" static="1"><f a=""><x path="Void"/></f></sortEvents>
+		<tick set="method" line="156" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Run the pending events. Return the time for next event.</haxe_doc>
 		</tick>
@@ -7620,7 +7643,7 @@
 	or may not work for instances of external/native classes.
 
 	The specification of the serialization format can be found here:
-	<https://haxe.org/manual/serialization/format>]]></haxe_doc>
+	<https://haxe.org/manual/std-serialization-format.html>]]></haxe_doc>
 	</class>
 	<enum path="haxe._Template.TemplateExpr" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/Template.hx" private="1" module="haxe.Template">
 		<OpVar a="v"><c path="String"/></OpVar>
@@ -8769,16 +8792,13 @@
 	<x path="Int"/>
 	<x path="Void"/>
 </f></set>
-		<blit public="1" set="method" line="75">
-			<f a="pos:src:srcpos:len">
-				<x path="Int"/>
-				<c path="haxe.io.Bytes"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</blit>
+		<blit public="1" set="method" line="75"><f a="pos:src:srcpos:len">
+	<x path="Int"/>
+	<c path="haxe.io.Bytes"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></blit>
 		<fill public="1" set="method" line="108"><f a="pos:len:value">
 	<x path="Int"/>
 	<x path="Int"/>
@@ -8876,14 +8896,11 @@
 			</f>
 			<haxe_doc>Store the 64 bit integer at given position (in low endian encoding).</haxe_doc>
 		</setInt64>
-		<getString public="1" set="method" line="349">
-			<f a="pos:len">
-				<x path="Int"/>
-				<x path="Int"/>
-				<c path="String"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</getString>
+		<getString public="1" set="method" line="349"><f a="pos:len">
+	<x path="Int"/>
+	<x path="Int"/>
+	<c path="String"/>
+</f></getString>
 		<readString public="1" get="inline" set="null" line="406">
 			<f a="pos:len">
 				<x path="Int"/>
@@ -10924,10 +10941,7 @@
 			<x path="Int"/>
 			<x path="haxe.ds.Vector"><c path="haxe.ds.Vector.T"/></x>
 		</f>
-		<meta>
-			<m n=":has_untyped"/>
-			<m n=":impl"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Creates a new Vector of length `length`.
 
 		Initially `this` Vector contains `length` neutral elements:
@@ -11118,10 +11132,7 @@
 				<x path="Int"/>
 				<x path="haxe.ds.Vector"><c path="haxe.ds.Vector.T"/></x>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":impl"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Creates a new Vector of length `length`.
 
 		Initially `this` Vector contains `length` neutral elements:
@@ -11495,30 +11506,34 @@
 	<d/>
 	<x path="Void"/>
 </f></write>
-		<addChar get="inline" set="null" line="140">
+		<addChar get="inline" set="null" line="136">
 			<f a="c">
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":extern"/></meta>
 		</addChar>
-		<add get="inline" set="null" line="148">
+		<add get="inline" set="null" line="144">
 			<f a="v">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":extern"/></meta>
 		</add>
-		<objString get="inline" set="null" line="163"><f a="v">
+		<classString set="method" line="153"><f a="v">
+	<d/>
+	<x path="Void"/>
+</f></classString>
+		<objString get="inline" set="null" line="157"><f a="v">
 	<d/>
 	<x path="Void"/>
 </f></objString>
-		<fieldsString set="method" line="167"><f a="v:fields">
+		<fieldsString set="method" line="161"><f a="v:fields">
 	<d/>
 	<c path="Array"><c path="String"/></c>
 	<x path="Void"/>
 </f></fieldsString>
-		<quote set="method" line="193"><f a="s">
+		<quote set="method" line="187"><f a="s">
 	<c path="String"/>
 	<x path="Void"/>
 </f></quote>
@@ -16329,12 +16344,16 @@
 
 		If `t` is null, an internal exception is thrown.</haxe_doc>
 		</toComplexType>
-		<toTypePath set="method" line="149" static="1"><f a="baseType:params">
+		<toTypeParam set="method" line="149" static="1"><f a="type">
+	<e path="haxe.macro.Type"/>
+	<e path="haxe.macro.TypeParam"/>
+</f></toTypeParam>
+		<toTypePath set="method" line="156" static="1"><f a="baseType:params">
 	<t path="haxe.macro.BaseType"/>
 	<c path="Array"><e path="haxe.macro.Type"/></c>
 	<t path="haxe.macro.TypePath"/>
 </f></toTypePath>
-		<findField public="1" set="method" line="371" static="1">
+		<findField public="1" set="method" line="378" static="1">
 			<f a="c:name:?isStatic" v="::false">
 				<t path="haxe.macro.ClassType"/>
 				<c path="String"/>
@@ -19277,22 +19296,16 @@
 			<c path="python.Set"><c path="String"/></c>
 			<meta><m n=":value"><e>new Set(["and", "del", "from", "not", "with", "as", "elif", "global", "or", "yield", "assert", "else", "if", "pass", "None", "break", "except", "import", "raise", "True", "class", "exec", "in", "return", "False", "continue", "finally", "is", "try", "def", "for", "lambda", "while"])</e></m></meta>
 		</keywords>
-		<arrayJoin params="T" get="inline" set="null" line="50" static="1">
-			<f a="x:sep">
-				<c path="Array"><c path="arrayJoin.T"/></c>
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</arrayJoin>
-		<safeJoin get="inline" set="null" line="54" static="1">
-			<f a="x:sep">
-				<c path="Array"><c path="String"/></c>
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</safeJoin>
+		<arrayJoin params="T" get="inline" set="null" line="50" static="1"><f a="x:sep">
+	<c path="Array"><c path="arrayJoin.T"/></c>
+	<c path="String"/>
+	<c path="String"/>
+</f></arrayJoin>
+		<safeJoin get="inline" set="null" line="54" static="1"><f a="x:sep">
+	<c path="Array"><c path="String"/></c>
+	<c path="String"/>
+	<c path="String"/>
+</f></safeJoin>
 		<isPyBool get="inline" set="null" line="58" static="1"><f a="o">
 	<d/>
 	<x path="Bool"/>
@@ -24489,7 +24502,19 @@
 			<haxe_doc>Similar to `sys.io.File.write`, but appends to the file if it exists
 		instead of overwriting its contents.</haxe_doc>
 		</append>
-		<copy public="1" set="method" line="80" static="1">
+		<update public="1" set="method" line="80" static="1">
+			<f a="path:?binary" v=":true">
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="sys.io.FileOutput"/>
+			</f>
+			<meta><m n=":value"><e>{ binary : true }</e></m></meta>
+			<haxe_doc>Similar to `sys.io.File.append`. While `append` can only seek or write
+		starting from the end of the file's previous contents, `update` can
+		seek to any position, so the file's previous contents can be
+		selectively overwritten.</haxe_doc>
+		</update>
+		<copy public="1" set="method" line="87" static="1">
 			<f a="srcPath:dstPath">
 				<c path="String"/>
 				<c path="String"/>
@@ -24712,10 +24737,7 @@
 	<class path="sys.net._Socket.SocketInput" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/_std/sys/net/Socket.hx" private="1" module="sys.net.Socket">
 		<extends path="haxe.io.Input"/>
 		<__s><t path="python.lib.socket._Socket.PSocket"/></__s>
-		<readByte public="1" set="method" line="42" override="1">
-			<f a=""><x path="Int"/></f>
-			<meta><m n=":has_untyped"/></meta>
-		</readByte>
+		<readByte public="1" set="method" line="42" override="1"><f a=""><x path="Int"/></f></readByte>
 		<readBytes public="1" set="method" line="54" override="1"><f a="buf:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
@@ -24731,22 +24753,16 @@
 	<class path="sys.net._Socket.SocketOutput" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/_std/sys/net/Socket.hx" private="1" module="sys.net.Socket">
 		<extends path="haxe.io.Output"/>
 		<__s><t path="python.lib.socket._Socket.PSocket"/></__s>
-		<writeByte public="1" set="method" line="85" override="1">
-			<f a="c">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</writeByte>
-		<writeBytes public="1" set="method" line="93" override="1">
-			<f a="buf:pos:len">
-				<c path="haxe.io.Bytes"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</writeBytes>
+		<writeByte public="1" set="method" line="85" override="1"><f a="c">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></writeByte>
+		<writeBytes public="1" set="method" line="93" override="1"><f a="buf:pos:len">
+	<c path="haxe.io.Bytes"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></writeBytes>
 		<close public="1" set="method" line="104" override="1"><f a=""><x path="Void"/></f></close>
 		<new public="1" set="method" line="81"><f a="s">
 	<t path="python.lib.socket._Socket.PSocket"/>
