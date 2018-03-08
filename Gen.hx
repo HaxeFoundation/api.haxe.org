@@ -104,6 +104,7 @@ class Gen {
                 "--title", 'Haxe $version API',
                 "-D", "website", "https://haxe.org/",
                 "-D", "version", version_long,
+                "-D", "googleAnalytics", "UA-30943311-2",
                 "-D", "source-path", 'https://github.com/HaxeFoundation/haxe/blob/${gitRef}/std/',
                 "-i", absolutePath(path),
                 "-o", absolutePath(outDir),
