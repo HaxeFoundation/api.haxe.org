@@ -599,7 +599,6 @@
 				<c path="String"/>
 				<c path="String"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Format the date `d` according to the format `f`. The format is
 		compatible with the `strftime` standard format, except that there is no
 		support in Flash and JS for day and months names (due to lack of proper
@@ -5237,6 +5236,21 @@
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.date.php</haxe_doc>
 		</date>
+		<time public="1" set="method" static="1">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>@see http://php.net/manual/en/function.time.php</haxe_doc>
+		</time>
+		<strftime public="1" set="method" static="1">
+			<f a="format:?timestamp">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.strftime.php</haxe_doc>
+		</strftime>
 		<strtotime public="1" set="method" static="1">
 			<f a="time:?now">
 				<c path="String"/>
@@ -24605,13 +24619,10 @@
 	<x path="Int"/>
 	<x path="Bool"/>
 </f></readChunk>
-		<new public="1" set="method" line="37">
-			<f a="url">
-				<c path="String"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</new>
+		<new public="1" set="method" line="37"><f a="url">
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
 	</class>
 	<class path="sys.db.Connection" params="" file="/home/travis/build/HaxeFoundation/haxe/std/sys/db/Connection.hx" interface="1">
 		<request public="1" set="method"><f a="s">
