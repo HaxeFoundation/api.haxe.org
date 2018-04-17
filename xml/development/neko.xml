@@ -522,20 +522,36 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</filter>
-		<__get set="method" line="290"><f a="pos">
+		<resize public="1" set="method" line="287">
+			<f a="len">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Set the length of the Array.
+
+		If `len` is shorter than the array's current size, the last
+		`length - len` elements will be removed. If `len` is longer, the Array
+		will be extended, with new elements set to a target-specific default
+		value:
+
+		- always null on dynamic targets
+		- 0, 0.0 or false for Int, Float and Bool respectively on static targets
+		- null for other types on static targets</haxe_doc>
+		</resize>
+		<__get set="method" line="301"><f a="pos">
 	<x path="Int"/>
 	<c path="Array.T"/>
 </f></__get>
-		<__set set="method" line="294"><f a="pos:v">
+		<__set set="method" line="305"><f a="pos:v">
 	<x path="Int"/>
 	<c path="Array.T"/>
 	<c path="Array.T"/>
 </f></__set>
-		<__grow set="method" line="315"><f a="l">
+		<__grow set="method" line="326"><f a="l">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></__grow>
-		<__neko set="method" line="330"><f a=""><c path="neko.NativeArray"><c path="Array.T"/></c></f></__neko>
+		<__neko set="method" line="341"><f a=""><c path="neko.NativeArray"><c path="Array.T"/></c></f></__neko>
 		<new public="1" set="method" line="27">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new Array.</haxe_doc>

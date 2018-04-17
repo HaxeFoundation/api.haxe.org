@@ -396,6 +396,23 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</filter>
+		<resize public="1" set="method">
+			<f a="len">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+			<haxe_doc>Set the length of the Array.
+
+		If `len` is shorter than the array's current size, the last
+		`length - len` elements will be removed. If `len` is longer, the Array
+		will be extended, with new elements set to a target-specific default
+		value:
+
+		- always null on dynamic targets
+		- 0, 0.0 or false for Int, Float and Bool respectively on static targets
+		- null for other types on static targets</haxe_doc>
+		</resize>
 		<new public="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
@@ -8414,6 +8431,10 @@
 	</f>
 	<x path="cpp.VirtualArray"/>
 </f></filter>
+		<resize public="1" set="method"><f a="len">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></resize>
 		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
 		<meta>
 			<m n=":native"><e>"cpp::VirtualArray"</e></m>
@@ -8425,7 +8446,7 @@
 		<this><c path="cpp.NativeVirtualArray"/></this>
 		<to><icast field="toArray"><c path="Array"><c path="toArray.T"/></c></icast></to>
 		<impl><class path="cpp._VirtualArray.VirtualArray_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/VirtualArray.hx" private="1" module="cpp.VirtualArray">
-	<fromArray public="1" params="T" get="inline" set="null" line="34" static="1">
+	<fromArray public="1" params="T" get="inline" set="null" line="35" static="1">
 		<f a="a">
 			<c path="Array"><c path="fromArray.T"/></c>
 			<x path="cpp.VirtualArray"/>
@@ -8436,7 +8457,7 @@
 			<m n=":extern"/>
 		</meta>
 	</fromArray>
-	<toArray public="1" params="T" get="inline" set="null" line="36" static="1">
+	<toArray public="1" params="T" get="inline" set="null" line="37" static="1">
 		<f a="this">
 			<c path="cpp.NativeVirtualArray"/>
 			<c path="Array"><c path="toArray.T"/></c>
@@ -8448,11 +8469,11 @@
 			<m n=":extern"/>
 		</meta>
 	</toArray>
-	<_new public="1" get="inline" set="null" line="43" static="1">
+	<_new public="1" get="inline" set="null" line="44" static="1">
 		<f a=""><x path="cpp.VirtualArray"/></f>
 		<meta><m n=":impl"/></meta>
 	</_new>
-	<get get="inline" set="null" line="45" static="1">
+	<get get="inline" set="null" line="46" static="1">
 		<f a="this:idx">
 			<c path="cpp.NativeVirtualArray"/>
 			<x path="Int"/>
@@ -8465,7 +8486,7 @@
 			<m n=":arrayAccess"/>
 		</meta>
 	</get>
-	<set params="T" get="inline" set="null" line="48" static="1">
+	<set params="T" get="inline" set="null" line="49" static="1">
 		<f a="this:pos:value">
 			<c path="cpp.NativeVirtualArray"/>
 			<x path="Int"/>
@@ -8483,7 +8504,7 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</length>
-	<get_length public="1" get="inline" set="null" line="52" static="1">
+	<get_length public="1" get="inline" set="null" line="53" static="1">
 		<f a="this">
 			<c path="cpp.NativeVirtualArray"/>
 			<x path="Int"/>
@@ -8493,7 +8514,7 @@
 			<m n=":extern"/>
 		</meta>
 	</get_length>
-	<concat public="1" get="inline" set="null" line="57" static="1">
+	<concat public="1" get="inline" set="null" line="58" static="1">
 		<f a="this:a">
 			<c path="cpp.NativeVirtualArray"/>
 			<x path="cpp.VirtualArray"/>
@@ -8504,7 +8525,7 @@
 			<m n=":extern"/>
 		</meta>
 	</concat>
-	<join public="1" get="inline" set="null" line="58" static="1">
+	<join public="1" get="inline" set="null" line="59" static="1">
 		<f a="this:sep">
 			<c path="cpp.NativeVirtualArray"/>
 			<c path="String"/>
@@ -8515,7 +8536,7 @@
 			<m n=":extern"/>
 		</meta>
 	</join>
-	<pop public="1" get="inline" set="null" line="59" static="1">
+	<pop public="1" get="inline" set="null" line="60" static="1">
 		<f a="this">
 			<c path="cpp.NativeVirtualArray"/>
 			<d/>
@@ -8525,7 +8546,7 @@
 			<m n=":extern"/>
 		</meta>
 	</pop>
-	<push public="1" get="inline" set="null" line="60" static="1">
+	<push public="1" get="inline" set="null" line="61" static="1">
 		<f a="this:x">
 			<c path="cpp.NativeVirtualArray"/>
 			<d/>
@@ -8536,7 +8557,7 @@
 			<m n=":extern"/>
 		</meta>
 	</push>
-	<reverse public="1" get="inline" set="null" line="61" static="1">
+	<reverse public="1" get="inline" set="null" line="62" static="1">
 		<f a="this">
 			<c path="cpp.NativeVirtualArray"/>
 			<x path="Void"/>
@@ -8546,7 +8567,7 @@
 			<m n=":extern"/>
 		</meta>
 	</reverse>
-	<shift public="1" get="inline" set="null" line="62" static="1">
+	<shift public="1" get="inline" set="null" line="63" static="1">
 		<f a="this">
 			<c path="cpp.NativeVirtualArray"/>
 			<d/>
@@ -8556,7 +8577,7 @@
 			<m n=":extern"/>
 		</meta>
 	</shift>
-	<slice public="1" get="inline" set="null" line="63" static="1">
+	<slice public="1" get="inline" set="null" line="64" static="1">
 		<f a="this:pos:?end">
 			<c path="cpp.NativeVirtualArray"/>
 			<x path="Int"/>
@@ -8568,7 +8589,7 @@
 			<m n=":extern"/>
 		</meta>
 	</slice>
-	<sort public="1" get="inline" set="null" line="64" static="1">
+	<sort public="1" get="inline" set="null" line="65" static="1">
 		<f a="this:f">
 			<c path="cpp.NativeVirtualArray"/>
 			<f a=":">
@@ -8583,7 +8604,7 @@
 			<m n=":extern"/>
 		</meta>
 	</sort>
-	<splice public="1" get="inline" set="null" line="65" static="1">
+	<splice public="1" get="inline" set="null" line="66" static="1">
 		<f a="this:pos:len">
 			<c path="cpp.NativeVirtualArray"/>
 			<x path="Int"/>
@@ -8595,7 +8616,7 @@
 			<m n=":extern"/>
 		</meta>
 	</splice>
-	<unshift public="1" get="inline" set="null" line="66" static="1">
+	<unshift public="1" get="inline" set="null" line="67" static="1">
 		<f a="this:x">
 			<c path="cpp.NativeVirtualArray"/>
 			<d/>
@@ -8606,7 +8627,7 @@
 			<m n=":extern"/>
 		</meta>
 	</unshift>
-	<insert public="1" get="inline" set="null" line="67" static="1">
+	<insert public="1" get="inline" set="null" line="68" static="1">
 		<f a="this:pos:x">
 			<c path="cpp.NativeVirtualArray"/>
 			<x path="Int"/>
@@ -8618,7 +8639,7 @@
 			<m n=":extern"/>
 		</meta>
 	</insert>
-	<remove public="1" get="inline" set="null" line="68" static="1">
+	<remove public="1" get="inline" set="null" line="69" static="1">
 		<f a="this:x">
 			<c path="cpp.NativeVirtualArray"/>
 			<d/>
@@ -8629,7 +8650,7 @@
 			<m n=":extern"/>
 		</meta>
 	</remove>
-	<indexOf public="1" get="inline" set="null" line="69" static="1">
+	<indexOf public="1" get="inline" set="null" line="70" static="1">
 		<f a="this:x:?fromIndex">
 			<c path="cpp.NativeVirtualArray"/>
 			<d/>
@@ -8641,7 +8662,7 @@
 			<m n=":extern"/>
 		</meta>
 	</indexOf>
-	<lastIndexOf public="1" get="inline" set="null" line="70" static="1">
+	<lastIndexOf public="1" get="inline" set="null" line="71" static="1">
 		<f a="this:x:?fromIndex">
 			<c path="cpp.NativeVirtualArray"/>
 			<d/>
@@ -8653,7 +8674,7 @@
 			<m n=":extern"/>
 		</meta>
 	</lastIndexOf>
-	<copy public="1" get="inline" set="null" line="71" static="1">
+	<copy public="1" get="inline" set="null" line="72" static="1">
 		<f a="this">
 			<c path="cpp.NativeVirtualArray"/>
 			<x path="cpp.VirtualArray"/>
@@ -8663,7 +8684,7 @@
 			<m n=":extern"/>
 		</meta>
 	</copy>
-	<iterator public="1" get="inline" set="null" line="72" static="1">
+	<iterator public="1" get="inline" set="null" line="73" static="1">
 		<f a="this">
 			<c path="cpp.NativeVirtualArray"/>
 			<t path="Iterator"><d/></t>
@@ -8673,7 +8694,7 @@
 			<m n=":extern"/>
 		</meta>
 	</iterator>
-	<map public="1" params="S" get="inline" set="null" line="73" static="1">
+	<map public="1" params="S" get="inline" set="null" line="74" static="1">
 		<f a="this:f">
 			<c path="cpp.NativeVirtualArray"/>
 			<f a="">
@@ -8687,7 +8708,7 @@
 			<m n=":extern"/>
 		</meta>
 	</map>
-	<filter public="1" get="inline" set="null" line="74" static="1">
+	<filter public="1" get="inline" set="null" line="75" static="1">
 		<f a="this:f">
 			<c path="cpp.NativeVirtualArray"/>
 			<f a="">
@@ -8701,11 +8722,22 @@
 			<m n=":extern"/>
 		</meta>
 	</filter>
+	<resize public="1" get="inline" set="null" line="76" static="1">
+		<f a="this:len">
+			<c path="cpp.NativeVirtualArray"/>
+			<x path="Int"/>
+			<x path="Void"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":extern"/>
+		</meta>
+	</resize>
 	<meta><m n=":final"/></meta>
 </class></impl>
 	</abstract>
 	<class path="cpp._VirtualArray.VirtualArray_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/VirtualArray.hx" private="1" module="cpp.VirtualArray">
-		<fromArray public="1" params="T" get="inline" set="null" line="34" static="1">
+		<fromArray public="1" params="T" get="inline" set="null" line="35" static="1">
 			<f a="a">
 				<c path="Array"><c path="fromArray.T"/></c>
 				<x path="cpp.VirtualArray"/>
@@ -8716,7 +8748,7 @@
 				<m n=":extern"/>
 			</meta>
 		</fromArray>
-		<toArray public="1" params="T" get="inline" set="null" line="36" static="1">
+		<toArray public="1" params="T" get="inline" set="null" line="37" static="1">
 			<f a="this">
 				<c path="cpp.NativeVirtualArray"/>
 				<c path="Array"><c path="toArray.T"/></c>
@@ -8728,11 +8760,11 @@
 				<m n=":extern"/>
 			</meta>
 		</toArray>
-		<_new public="1" get="inline" set="null" line="43" static="1">
+		<_new public="1" get="inline" set="null" line="44" static="1">
 			<f a=""><x path="cpp.VirtualArray"/></f>
 			<meta><m n=":impl"/></meta>
 		</_new>
-		<get get="inline" set="null" line="45" static="1">
+		<get get="inline" set="null" line="46" static="1">
 			<f a="this:idx">
 				<c path="cpp.NativeVirtualArray"/>
 				<x path="Int"/>
@@ -8745,7 +8777,7 @@
 				<m n=":arrayAccess"/>
 			</meta>
 		</get>
-		<set params="T" get="inline" set="null" line="48" static="1">
+		<set params="T" get="inline" set="null" line="49" static="1">
 			<f a="this:pos:value">
 				<c path="cpp.NativeVirtualArray"/>
 				<x path="Int"/>
@@ -8763,7 +8795,7 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</length>
-		<get_length public="1" get="inline" set="null" line="52" static="1">
+		<get_length public="1" get="inline" set="null" line="53" static="1">
 			<f a="this">
 				<c path="cpp.NativeVirtualArray"/>
 				<x path="Int"/>
@@ -8773,7 +8805,7 @@
 				<m n=":extern"/>
 			</meta>
 		</get_length>
-		<concat public="1" get="inline" set="null" line="57" static="1">
+		<concat public="1" get="inline" set="null" line="58" static="1">
 			<f a="this:a">
 				<c path="cpp.NativeVirtualArray"/>
 				<x path="cpp.VirtualArray"/>
@@ -8784,7 +8816,7 @@
 				<m n=":extern"/>
 			</meta>
 		</concat>
-		<join public="1" get="inline" set="null" line="58" static="1">
+		<join public="1" get="inline" set="null" line="59" static="1">
 			<f a="this:sep">
 				<c path="cpp.NativeVirtualArray"/>
 				<c path="String"/>
@@ -8795,7 +8827,7 @@
 				<m n=":extern"/>
 			</meta>
 		</join>
-		<pop public="1" get="inline" set="null" line="59" static="1">
+		<pop public="1" get="inline" set="null" line="60" static="1">
 			<f a="this">
 				<c path="cpp.NativeVirtualArray"/>
 				<d/>
@@ -8805,7 +8837,7 @@
 				<m n=":extern"/>
 			</meta>
 		</pop>
-		<push public="1" get="inline" set="null" line="60" static="1">
+		<push public="1" get="inline" set="null" line="61" static="1">
 			<f a="this:x">
 				<c path="cpp.NativeVirtualArray"/>
 				<d/>
@@ -8816,7 +8848,7 @@
 				<m n=":extern"/>
 			</meta>
 		</push>
-		<reverse public="1" get="inline" set="null" line="61" static="1">
+		<reverse public="1" get="inline" set="null" line="62" static="1">
 			<f a="this">
 				<c path="cpp.NativeVirtualArray"/>
 				<x path="Void"/>
@@ -8826,7 +8858,7 @@
 				<m n=":extern"/>
 			</meta>
 		</reverse>
-		<shift public="1" get="inline" set="null" line="62" static="1">
+		<shift public="1" get="inline" set="null" line="63" static="1">
 			<f a="this">
 				<c path="cpp.NativeVirtualArray"/>
 				<d/>
@@ -8836,7 +8868,7 @@
 				<m n=":extern"/>
 			</meta>
 		</shift>
-		<slice public="1" get="inline" set="null" line="63" static="1">
+		<slice public="1" get="inline" set="null" line="64" static="1">
 			<f a="this:pos:?end">
 				<c path="cpp.NativeVirtualArray"/>
 				<x path="Int"/>
@@ -8848,7 +8880,7 @@
 				<m n=":extern"/>
 			</meta>
 		</slice>
-		<sort public="1" get="inline" set="null" line="64" static="1">
+		<sort public="1" get="inline" set="null" line="65" static="1">
 			<f a="this:f">
 				<c path="cpp.NativeVirtualArray"/>
 				<f a=":">
@@ -8863,7 +8895,7 @@
 				<m n=":extern"/>
 			</meta>
 		</sort>
-		<splice public="1" get="inline" set="null" line="65" static="1">
+		<splice public="1" get="inline" set="null" line="66" static="1">
 			<f a="this:pos:len">
 				<c path="cpp.NativeVirtualArray"/>
 				<x path="Int"/>
@@ -8875,7 +8907,7 @@
 				<m n=":extern"/>
 			</meta>
 		</splice>
-		<unshift public="1" get="inline" set="null" line="66" static="1">
+		<unshift public="1" get="inline" set="null" line="67" static="1">
 			<f a="this:x">
 				<c path="cpp.NativeVirtualArray"/>
 				<d/>
@@ -8886,7 +8918,7 @@
 				<m n=":extern"/>
 			</meta>
 		</unshift>
-		<insert public="1" get="inline" set="null" line="67" static="1">
+		<insert public="1" get="inline" set="null" line="68" static="1">
 			<f a="this:pos:x">
 				<c path="cpp.NativeVirtualArray"/>
 				<x path="Int"/>
@@ -8898,7 +8930,7 @@
 				<m n=":extern"/>
 			</meta>
 		</insert>
-		<remove public="1" get="inline" set="null" line="68" static="1">
+		<remove public="1" get="inline" set="null" line="69" static="1">
 			<f a="this:x">
 				<c path="cpp.NativeVirtualArray"/>
 				<d/>
@@ -8909,7 +8941,7 @@
 				<m n=":extern"/>
 			</meta>
 		</remove>
-		<indexOf public="1" get="inline" set="null" line="69" static="1">
+		<indexOf public="1" get="inline" set="null" line="70" static="1">
 			<f a="this:x:?fromIndex">
 				<c path="cpp.NativeVirtualArray"/>
 				<d/>
@@ -8921,7 +8953,7 @@
 				<m n=":extern"/>
 			</meta>
 		</indexOf>
-		<lastIndexOf public="1" get="inline" set="null" line="70" static="1">
+		<lastIndexOf public="1" get="inline" set="null" line="71" static="1">
 			<f a="this:x:?fromIndex">
 				<c path="cpp.NativeVirtualArray"/>
 				<d/>
@@ -8933,7 +8965,7 @@
 				<m n=":extern"/>
 			</meta>
 		</lastIndexOf>
-		<copy public="1" get="inline" set="null" line="71" static="1">
+		<copy public="1" get="inline" set="null" line="72" static="1">
 			<f a="this">
 				<c path="cpp.NativeVirtualArray"/>
 				<x path="cpp.VirtualArray"/>
@@ -8943,7 +8975,7 @@
 				<m n=":extern"/>
 			</meta>
 		</copy>
-		<iterator public="1" get="inline" set="null" line="72" static="1">
+		<iterator public="1" get="inline" set="null" line="73" static="1">
 			<f a="this">
 				<c path="cpp.NativeVirtualArray"/>
 				<t path="Iterator"><d/></t>
@@ -8953,7 +8985,7 @@
 				<m n=":extern"/>
 			</meta>
 		</iterator>
-		<map public="1" params="S" get="inline" set="null" line="73" static="1">
+		<map public="1" params="S" get="inline" set="null" line="74" static="1">
 			<f a="this:f">
 				<c path="cpp.NativeVirtualArray"/>
 				<f a="">
@@ -8967,7 +8999,7 @@
 				<m n=":extern"/>
 			</meta>
 		</map>
-		<filter public="1" get="inline" set="null" line="74" static="1">
+		<filter public="1" get="inline" set="null" line="75" static="1">
 			<f a="this:f">
 				<c path="cpp.NativeVirtualArray"/>
 				<f a="">
@@ -8981,6 +9013,17 @@
 				<m n=":extern"/>
 			</meta>
 		</filter>
+		<resize public="1" get="inline" set="null" line="76" static="1">
+			<f a="this:len">
+				<c path="cpp.NativeVirtualArray"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":extern"/>
+			</meta>
+		</resize>
 		<meta><m n=":final"/></meta>
 	</class>
 	<class path="cpp.Void" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/Void.hx" extern="1"><meta><m n=":native"><e>"void"</e></m></meta></class>

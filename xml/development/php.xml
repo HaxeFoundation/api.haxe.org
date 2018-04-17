@@ -114,7 +114,7 @@
 			<x path="Int"/>
 			<c path="Array.T"/>
 		</implements>
-		<wrap params="T" set="method" line="212" static="1"><f a="arr">
+		<wrap params="T" set="method" line="221" static="1"><f a="arr">
 	<x path="php.NativeIndexedArray"><c path="wrap.T"/></x>
 	<c path="Array"><c path="wrap.T"/></c>
 </f></wrap>
@@ -407,21 +407,37 @@
 		use `Std.string()` to get a String representation that is consistent
 		across platforms.</haxe_doc>
 		</toString>
-		<offsetExists set="method" line="180">
+		<resize public="1" set="method" line="179">
+			<f a="len">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Set the length of the Array.
+
+		If `len` is shorter than the array's current size, the last
+		`length - len` elements will be removed. If `len` is longer, the Array
+		will be extended, with new elements set to a target-specific default
+		value:
+
+		- always null on dynamic targets
+		- 0, 0.0 or false for Int, Float and Bool respectively on static targets
+		- null for other types on static targets</haxe_doc>
+		</resize>
+		<offsetExists set="method" line="189">
 			<f a="offset">
 				<x path="Int"/>
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</offsetExists>
-		<offsetGet set="method" line="185">
+		<offsetGet set="method" line="194">
 			<f a="offset">
 				<x path="Int"/>
 				<t path="php.Ref"><c path="Array.T"/></t>
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</offsetGet>
-		<offsetSet set="method" line="194">
+		<offsetSet set="method" line="203">
 			<f a="offset:value">
 				<x path="Int"/>
 				<c path="Array.T"/>
@@ -429,7 +445,7 @@
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</offsetSet>
-		<offsetUnset set="method" line="205">
+		<offsetUnset set="method" line="214">
 			<f a="offset">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -453,9 +469,9 @@
 	<class path="_Array.ArrayIterator" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/php/_std/Array.hx" private="1" module="Array">
 		<idx><x path="Int"/></idx>
 		<arr><c path="Array"><c path="_Array.ArrayIterator.T"/></c></arr>
-		<hasNext public="1" get="inline" set="null" line="229"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" get="inline" set="null" line="233"><f a=""><c path="_Array.ArrayIterator.T"/></f></next>
-		<__get set="method" line="239">
+		<hasNext public="1" get="inline" set="null" line="238"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="242"><f a=""><c path="_Array.ArrayIterator.T"/></f></next>
+		<__get set="method" line="248">
 			<f a="method">
 				<c path="String"/>
 				<x path="Null"><c path="php._Boot.HxClosure"/></x>
@@ -465,7 +481,7 @@
 				<m n=":phpMagic"/>
 			</meta>
 		</__get>
-		<new public="1" get="inline" set="null" line="224"><f a="arr">
+		<new public="1" get="inline" set="null" line="233"><f a="arr">
 	<c path="Array"><c path="_Array.ArrayIterator.T"/></c>
 	<x path="Void"/>
 </f></new>

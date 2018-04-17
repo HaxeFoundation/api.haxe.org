@@ -383,14 +383,30 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</filter>
-		<_get get="inline" set="null" line="115">
+		<resize public="1" get="inline" set="null" line="115">
+			<f a="len">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Set the length of the Array.
+
+		If `len` is shorter than the array's current size, the last
+		`length - len` elements will be removed. If `len` is longer, the Array
+		will be extended, with new elements set to a target-specific default
+		value:
+
+		- always null on dynamic targets
+		- 0, 0.0 or false for Int, Float and Bool respectively on static targets
+		- null for other types on static targets</haxe_doc>
+		</resize>
+		<_get get="inline" set="null" line="119">
 			<f a="idx">
 				<x path="Int"/>
 				<c path="Array.T"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</_get>
-		<_set get="inline" set="null" line="120">
+		<_set get="inline" set="null" line="124">
 			<f a="idx:val">
 				<x path="Int"/>
 				<c path="Array.T"/>
@@ -398,14 +414,14 @@
 			</f>
 			<meta><m n=":keep"/></meta>
 		</_set>
-		<unsafeGet get="inline" set="null" line="125">
+		<unsafeGet get="inline" set="null" line="129">
 			<f a="idx">
 				<x path="Int"/>
 				<c path="Array.T"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</unsafeGet>
-		<unsafeSet get="inline" set="null" line="130">
+		<unsafeSet get="inline" set="null" line="134">
 			<f a="idx:val">
 				<x path="Int"/>
 				<c path="Array.T"/>
@@ -20632,6 +20648,11 @@
 	<c path="unsafeSet.T"/>
 	<c path="unsafeSet.T"/>
 </f></unsafeSet>
+		<resize public="1" params="T" get="inline" set="null" line="185" static="1"><f a="x:len">
+	<c path="Array"><c path="resize.T"/></c>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></resize>
 		<meta><m n=":allow"><e>Array</e></m></meta>
 	</class>
 	<class path="python.internal.EnumImpl" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/internal/EnumImpl.hx">
