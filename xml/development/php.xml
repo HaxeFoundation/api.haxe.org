@@ -114,7 +114,7 @@
 			<x path="Int"/>
 			<c path="Array.T"/>
 		</implements>
-		<wrap params="T" set="method" line="212" static="1"><f a="arr">
+		<wrap params="T" set="method" line="221" static="1"><f a="arr">
 	<x path="php.NativeIndexedArray"><c path="wrap.T"/></x>
 	<c path="Array"><c path="wrap.T"/></c>
 </f></wrap>
@@ -407,21 +407,37 @@
 		use `Std.string()` to get a String representation that is consistent
 		across platforms.</haxe_doc>
 		</toString>
-		<offsetExists set="method" line="180">
+		<resize public="1" set="method" line="179">
+			<f a="len">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Set the length of the Array.
+
+		If `len` is shorter than the array's current size, the last
+		`length - len` elements will be removed. If `len` is longer, the Array
+		will be extended, with new elements set to a target-specific default
+		value:
+
+		- always null on dynamic targets
+		- 0, 0.0 or false for Int, Float and Bool respectively on static targets
+		- null for other types on static targets</haxe_doc>
+		</resize>
+		<offsetExists set="method" line="189">
 			<f a="offset">
 				<x path="Int"/>
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</offsetExists>
-		<offsetGet set="method" line="185">
+		<offsetGet set="method" line="194">
 			<f a="offset">
 				<x path="Int"/>
 				<t path="php.Ref"><c path="Array.T"/></t>
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</offsetGet>
-		<offsetSet set="method" line="194">
+		<offsetSet set="method" line="203">
 			<f a="offset:value">
 				<x path="Int"/>
 				<c path="Array.T"/>
@@ -429,7 +445,7 @@
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</offsetSet>
-		<offsetUnset set="method" line="205">
+		<offsetUnset set="method" line="214">
 			<f a="offset">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -453,9 +469,9 @@
 	<class path="_Array.ArrayIterator" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/php/_std/Array.hx" private="1" module="Array">
 		<idx><x path="Int"/></idx>
 		<arr><c path="Array"><c path="_Array.ArrayIterator.T"/></c></arr>
-		<hasNext public="1" get="inline" set="null" line="229"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" get="inline" set="null" line="233"><f a=""><c path="_Array.ArrayIterator.T"/></f></next>
-		<__get set="method" line="239">
+		<hasNext public="1" get="inline" set="null" line="238"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="242"><f a=""><c path="_Array.ArrayIterator.T"/></f></next>
+		<__get set="method" line="248">
 			<f a="method">
 				<c path="String"/>
 				<x path="Null"><c path="php._Boot.HxClosure"/></x>
@@ -465,7 +481,7 @@
 				<m n=":phpMagic"/>
 			</meta>
 		</__get>
-		<new public="1" get="inline" set="null" line="224"><f a="arr">
+		<new public="1" get="inline" set="null" line="233"><f a="arr">
 	<c path="Array"><c path="_Array.ArrayIterator.T"/></c>
 	<x path="Void"/>
 </f></new>
@@ -599,7 +615,6 @@
 				<c path="String"/>
 				<c path="String"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Format the date `d` according to the format `f`. The format is
 		compatible with the `strftime` standard format, except that there is no
 		support in Flash and JS for day and months names (due to lack of proper
@@ -2071,7 +2086,7 @@
 		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="Std" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/_std/Std.hx">
-		<is public="1" get="inline" set="null" line="32" static="1">
+		<is public="1" get="inline" set="null" line="31" static="1">
 			<f a="v:t">
 				<d/>
 				<d/>
@@ -2079,7 +2094,7 @@
 			</f>
 			<haxe_doc>Tells if a value `v` is of the type `t`. Returns `false` if `v` or `t` are null.</haxe_doc>
 		</is>
-		<instance public="1" params="T:S" get="inline" set="null" line="36" static="1">
+		<instance public="1" params="T:S" get="inline" set="null" line="35" static="1">
 			<f a="value:c">
 				<c path="instance.T"/>
 				<x path="Class"><c path="instance.S"/></x>
@@ -2100,7 +2115,7 @@
 		If `value` is null, the result is null. If `c` is null, the result is
 		unspecified.</haxe_doc>
 		</instance>
-		<string public="1" set="method" line="40" static="1">
+		<string public="1" set="method" line="39" static="1">
 			<f a="s">
 				<d/>
 				<c path="String"/>
@@ -2122,7 +2137,7 @@
 
 		If s is null, "null" is returned.</haxe_doc>
 		</string>
-		<int public="1" get="inline" set="null" line="44" static="1">
+		<int public="1" get="inline" set="null" line="43" static="1">
 			<f a="x">
 				<x path="Float"/>
 				<x path="Int"/>
@@ -2131,7 +2146,7 @@
 
 		If `x` is outside of the signed Int32 range, or is `NaN`, `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`, the result is unspecified.</haxe_doc>
 		</int>
-		<parseInt public="1" set="method" line="48" static="1">
+		<parseInt public="1" set="method" line="47" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Null"><x path="Int"/></x>
@@ -2156,7 +2171,7 @@
 		If `x` is null, the result is unspecified.
 		If `x` cannot be parsed as integer, the result is `null`.</haxe_doc>
 		</parseInt>
-		<parseFloat public="1" set="method" line="67" static="1">
+		<parseFloat public="1" set="method" line="66" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Float"/>
@@ -2168,7 +2183,7 @@
 
 		Additionally, decimal notation may contain a single `.` to denote the start of the fractions.</haxe_doc>
 		</parseFloat>
-		<random public="1" get="inline" set="null" line="86" static="1">
+		<random public="1" get="inline" set="null" line="85" static="1">
 			<f a="x">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -2177,15 +2192,12 @@
 
 		If `x <= 1`, the result is always 0.]]></haxe_doc>
 		</random>
-		<isDigitCode get="inline" set="null" line="90" static="1"><f a="charCode">
+		<isDigitCode get="inline" set="null" line="89" static="1"><f a="charCode">
 	<x path="Null"><x path="Int"/></x>
 	<x path="Bool"/>
 </f></isDigitCode>
 		<haxe_doc>The Std class provides standard methods for manipulating basic types.</haxe_doc>
-		<meta>
-			<m n=":keep"/>
-			<m n=":coreApi"/>
-		</meta>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<abstract path="Void" params="" file="/home/travis/build/HaxeFoundation/haxe/std/StdTypes.hx" module="StdTypes">
 		<this><x path="Void"/></this>
@@ -5240,6 +5252,21 @@
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.date.php</haxe_doc>
 		</date>
+		<time public="1" set="method" static="1">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>@see http://php.net/manual/en/function.time.php</haxe_doc>
+		</time>
+		<strftime public="1" set="method" static="1">
+			<f a="format:?timestamp">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.strftime.php</haxe_doc>
+		</strftime>
 		<strtotime public="1" set="method" static="1">
 			<f a="time:?now">
 				<c path="String"/>
@@ -5471,25 +5498,25 @@
 			</f>
 			<haxe_doc>Print any value on the standard output.</haxe_doc>
 		</print>
-		<println public="1" set="method" line="35" static="1">
+		<println public="1" get="inline" set="null" line="35" static="1">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Print any value on the standard output, followed by a newline.</haxe_doc>
 		</println>
-		<args public="1" set="method" line="40" static="1">
+		<args public="1" set="method" line="39" static="1">
 			<f a=""><c path="Array"><c path="String"/></c></f>
 			<haxe_doc>Returns all the arguments that were passed by the command line.</haxe_doc>
 		</args>
-		<getEnv public="1" set="method" line="48" static="1">
+		<getEnv public="1" set="method" line="47" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Returns the value of the given environment variable.</haxe_doc>
 		</getEnv>
-		<putEnv public="1" set="method" line="53" static="1">
+		<putEnv public="1" set="method" line="52" static="1">
 			<f a="s:v">
 				<c path="String"/>
 				<c path="String"/>
@@ -5497,14 +5524,14 @@
 			</f>
 			<haxe_doc>Set the value of the given environment variable.</haxe_doc>
 		</putEnv>
-		<sleep public="1" get="inline" set="null" line="58" static="1">
+		<sleep public="1" get="inline" set="null" line="57" static="1">
 			<f a="seconds">
 				<x path="Float"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Suspend the current execution for the given time (in seconds).</haxe_doc>
 		</sleep>
-		<setTimeLocale public="1" get="inline" set="null" line="62" static="1">
+		<setTimeLocale public="1" get="inline" set="null" line="61" static="1">
 			<f a="loc">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -5512,23 +5539,23 @@
 			<haxe_doc>Change the current time locale, which will affect `DateTools.format` date formating.
 		Returns true if the locale was successfully changed</haxe_doc>
 		</setTimeLocale>
-		<getCwd public="1" set="method" line="66" static="1">
+		<getCwd public="1" set="method" line="65" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Get the current working directory (usually the one in which the program was started)</haxe_doc>
 		</getCwd>
-		<setCwd public="1" get="inline" set="null" line="73" static="1">
+		<setCwd public="1" get="inline" set="null" line="72" static="1">
 			<f a="s">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Change the current working directory.</haxe_doc>
 		</setCwd>
-		<systemName public="1" set="method" line="77" static="1">
+		<systemName public="1" set="method" line="76" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the name of the system you are running on. For instance :
 			"Windows", "Linux", "BSD" and "Mac" depending on your desktop OS.</haxe_doc>
 		</systemName>
-		<command public="1" set="method" line="83" static="1">
+		<command public="1" set="method" line="82" static="1">
 			<f a="cmd:?args">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -5547,56 +5574,56 @@
 
 		Read the `sys.io.Process` api for a more complete way to start background processes.</haxe_doc>
 		</command>
-		<exit public="1" get="inline" set="null" line="100" static="1">
+		<exit public="1" get="inline" set="null" line="99" static="1">
 			<f a="code">
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Exit the current process with the given error code.</haxe_doc>
 		</exit>
-		<time public="1" get="inline" set="null" line="104" static="1">
+		<time public="1" get="inline" set="null" line="103" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Gives the most precise timestamp value (in seconds).</haxe_doc>
 		</time>
-		<cpuTime public="1" set="method" line="108" static="1">
+		<cpuTime public="1" set="method" line="107" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Gives the most precise timestamp value (in seconds) but only account for the actual time spent running on the CPU for the current thread/process.</haxe_doc>
 		</cpuTime>
-		<executablePath public="1" get="inline" set="null" line="112" static="1">
+		<executablePath public="1" get="inline" set="null" line="111" static="1">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":deprecated"><e>"Use programPath instead"</e></m></meta>
 			<haxe_doc>Returns the path to the current executable that we are running.</haxe_doc>
 		</executablePath>
-		<_programPath expr="sys.FileSystem.fullPath(SuperGlobal._SERVER[&quot;SCRIPT_FILENAME&quot;])" line="117" static="1">
+		<_programPath expr="sys.FileSystem.fullPath(SuperGlobal._SERVER[&quot;SCRIPT_FILENAME&quot;])" line="116" static="1">
 			<c path="String"/>
 			<meta><m n=":value"><e>sys.FileSystem.fullPath(SuperGlobal._SERVER["SCRIPT_FILENAME"])</e></m></meta>
 		</_programPath>
-		<programPath public="1" set="method" line="118" static="1">
+		<programPath public="1" set="method" line="117" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the absolute path to the current program file that we are running.
 		Concretely, for an executable binary, it returns the path to the binary.
 		For a script (e.g. a PHP file), it returns the path to the script.</haxe_doc>
 		</programPath>
-		<environment public="1" set="method" line="122" static="1">
+		<environment public="1" set="method" line="121" static="1">
 			<f a=""><t path="Map">
 	<c path="String"/>
 	<c path="String"/>
 </t></f>
 			<haxe_doc>Returns all environment variables.</haxe_doc>
 		</environment>
-		<stdin public="1" set="method" line="130" static="1">
+		<stdin public="1" set="method" line="129" static="1">
 			<f a=""><c path="haxe.io.Input"/></f>
 			<haxe_doc>Returns the process standard input, from which you can read what user enters. Usually it will block until the user send a full input line. See `getChar` for an alternative.</haxe_doc>
 		</stdin>
-		<stdout public="1" set="method" line="135" static="1">
+		<stdout public="1" set="method" line="134" static="1">
 			<f a=""><c path="haxe.io.Output"/></f>
 			<haxe_doc>Returns the process standard output on which you can write.</haxe_doc>
 		</stdout>
-		<stderr public="1" set="method" line="140" static="1">
+		<stderr public="1" set="method" line="139" static="1">
 			<f a=""><c path="haxe.io.Output"/></f>
 			<haxe_doc>Returns the process standard error on which you can write.</haxe_doc>
 		</stderr>
-		<getChar public="1" set="method" line="145" static="1">
+		<getChar public="1" set="method" line="144" static="1">
 			<f a="echo">
 				<x path="Bool"/>
 				<x path="Int"/>
@@ -7174,8 +7201,9 @@
 		<this><d/></this>
 		<haxe_doc><![CDATA[This type unifies with any instance of classes that have a constructor
 	which
-		* is public and
-		* unifies with the type used for type parameter `T`.
+
+	  * is public and
+	  * unifies with the type used for type parameter `T`.
 
 	If a type parameter A is assigned to a type parameter B which is constrained
 	to `Constructible<T>`, A must be explicitly constrained to
@@ -9494,10 +9522,7 @@
 </f></new>
 	</class>
 	<class path="haxe.MainLoop" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/MainLoop.hx">
-		<pending expr="null" line="57" static="1">
-			<c path="haxe.MainEvent"/>
-			<meta><m n=":value"><e>null</e></m></meta>
-		</pending>
+		<pending static="1"><c path="haxe.MainEvent"/></pending>
 		<threadCount public="1" get="accessor" set="null" static="1"><x path="Int"/></threadCount>
 		<get_threadCount get="inline" set="null" line="61" static="1"><f a=""><x path="Int"/></f></get_threadCount>
 		<hasEvents public="1" set="method" line="63" static="1"><f a=""><x path="Bool"/></f></hasEvents>
@@ -16270,7 +16295,7 @@
 				<haxe_doc>The value expressions of the case.</haxe_doc>
 			</values>
 			<guard>
-				<x path="Null"><x path="Null"><t path="haxe.macro.Expr"/></x></x>
+				<x path="Null"><t path="haxe.macro.Expr"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>The optional guard expressions of the case, if available.</haxe_doc>
 			</guard>
@@ -16531,7 +16556,7 @@
 	<typedef path="haxe.macro.TypePath" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
 		<a>
 			<sub>
-				<x path="Null"><x path="Null"><c path="String"/></x></x>
+				<x path="Null"><c path="String"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>Sub is set on module sub-type access:
 		`pack.Module.Type` has name = Module, sub = Type, if available.</haxe_doc>
@@ -16616,7 +16641,7 @@
 	<typedef path="haxe.macro.FunctionArg" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
 		<a>
 			<value>
-				<x path="Null"><x path="Null"><t path="haxe.macro.Expr"/></x></x>
+				<x path="Null"><t path="haxe.macro.Expr"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>The optional value of the function argument, if available.</haxe_doc>
 			</value>
@@ -16683,7 +16708,7 @@
 				<haxe_doc>The kind of the field.</haxe_doc>
 			</kind>
 			<doc>
-				<x path="Null"><x path="Null"><c path="String"/></x></x>
+				<x path="Null"><c path="String"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>The documentation of the field, if available. If the field has no
 		documentation, the value is `null`.</haxe_doc>
@@ -16776,7 +16801,7 @@
 				<haxe_doc>The fields of the type definition.</haxe_doc>
 			</fields>
 			<doc>
-				<x path="Null"><x path="Null"><c path="String"/></x></x>
+				<x path="Null"><c path="String"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>The documentation of the type, if available. If the type has no
 		documentation, the value is `null`.</haxe_doc>
@@ -18360,9 +18385,9 @@
 	<e path="haxe.macro.TypedExprDef"/>
 	<e path="haxe.macro.Type"/>
 	<a>
-		<t><e path="haxe.macro.Type"/></t>
+		<t><x path="Null"><e path="haxe.macro.Type"/></x></t>
 		<pos><t path="haxe.macro.Position"/></pos>
-		<expr><e path="haxe.macro.TypedExprDef"/></expr>
+		<expr><x path="Null"><e path="haxe.macro.TypedExprDef"/></x></expr>
 	</a>
 </f></with>
 		<map public="1" set="method" line="48" static="1">
@@ -20916,7 +20941,7 @@
 	<fileSize><x path="Int"/></fileSize>
 	<fileName><c path="String"/></fileName>
 	<extraFields>
-		<x path="Null"><x path="Null"><c path="haxe.ds.List"><e path="haxe.zip.ExtraField"/></c></x></x>
+		<x path="Null"><c path="haxe.ds.List"><e path="haxe.zip.ExtraField"/></c></x>
 		<meta><m n=":optional"/></meta>
 	</extraFields>
 	<dataSize><x path="Int"/></dataSize>
@@ -24607,13 +24632,10 @@
 	<x path="Int"/>
 	<x path="Bool"/>
 </f></readChunk>
-		<new public="1" set="method" line="37">
-			<f a="url">
-				<c path="String"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</new>
+		<new public="1" set="method" line="37"><f a="url">
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
 	</class>
 	<class path="sys.db.Connection" params="" file="/home/travis/build/HaxeFoundation/haxe/std/sys/db/Connection.hx" interface="1">
 		<request public="1" set="method"><f a="s">
@@ -25010,7 +25032,7 @@
 		seek to any position, so the file's previous contents can be
 		selectively overwritten.</haxe_doc>
 		</update>
-		<copy public="1" set="method" line="63" static="1">
+		<copy public="1" set="method" line="66" static="1">
 			<f a="srcPath:dstPath">
 				<c path="String"/>
 				<c path="String"/>

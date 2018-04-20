@@ -522,20 +522,36 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</filter>
-		<__get set="method" line="290"><f a="pos">
+		<resize public="1" set="method" line="287">
+			<f a="len">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Set the length of the Array.
+
+		If `len` is shorter than the array's current size, the last
+		`length - len` elements will be removed. If `len` is longer, the Array
+		will be extended, with new elements set to a target-specific default
+		value:
+
+		- always null on dynamic targets
+		- 0, 0.0 or false for Int, Float and Bool respectively on static targets
+		- null for other types on static targets</haxe_doc>
+		</resize>
+		<__get set="method" line="301"><f a="pos">
 	<x path="Int"/>
 	<c path="Array.T"/>
 </f></__get>
-		<__set set="method" line="294"><f a="pos:v">
+		<__set set="method" line="305"><f a="pos:v">
 	<x path="Int"/>
 	<c path="Array.T"/>
 	<c path="Array.T"/>
 </f></__set>
-		<__grow set="method" line="315"><f a="l">
+		<__grow set="method" line="326"><f a="l">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></__grow>
-		<__neko set="method" line="330"><f a=""><c path="neko.NativeArray"><c path="Array.T"/></c></f></__neko>
+		<__neko set="method" line="341"><f a=""><c path="neko.NativeArray"><c path="Array.T"/></c></f></__neko>
 		<new public="1" set="method" line="27">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new Array.</haxe_doc>
@@ -5185,8 +5201,9 @@
 		<this><d/></this>
 		<haxe_doc><![CDATA[This type unifies with any instance of classes that have a constructor
 	which
-		* is public and
-		* unifies with the type used for type parameter `T`.
+
+	  * is public and
+	  * unifies with the type used for type parameter `T`.
 
 	If a type parameter A is assigned to a type parameter B which is constrained
 	to `Constructible<T>`, A must be explicitly constrained to
@@ -7326,10 +7343,7 @@
 </f></new>
 	</class>
 	<class path="haxe.MainLoop" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/MainLoop.hx">
-		<pending expr="null" line="57" static="1">
-			<c path="haxe.MainEvent"/>
-			<meta><m n=":value"><e>null</e></m></meta>
-		</pending>
+		<pending static="1"><c path="haxe.MainEvent"/></pending>
 		<threadCount public="1" get="accessor" set="null" static="1"><x path="Int"/></threadCount>
 		<get_threadCount get="inline" set="null" line="61" static="1"><f a=""><x path="Int"/></f></get_threadCount>
 		<hasEvents public="1" set="method" line="63" static="1"><f a=""><x path="Bool"/></f></hasEvents>
@@ -15211,7 +15225,7 @@
 				<haxe_doc>The value expressions of the case.</haxe_doc>
 			</values>
 			<guard>
-				<x path="Null"><x path="Null"><t path="haxe.macro.Expr"/></x></x>
+				<x path="Null"><t path="haxe.macro.Expr"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>The optional guard expressions of the case, if available.</haxe_doc>
 			</guard>
@@ -15472,7 +15486,7 @@
 	<typedef path="haxe.macro.TypePath" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
 		<a>
 			<sub>
-				<x path="Null"><x path="Null"><c path="String"/></x></x>
+				<x path="Null"><c path="String"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>Sub is set on module sub-type access:
 		`pack.Module.Type` has name = Module, sub = Type, if available.</haxe_doc>
@@ -15557,7 +15571,7 @@
 	<typedef path="haxe.macro.FunctionArg" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
 		<a>
 			<value>
-				<x path="Null"><x path="Null"><t path="haxe.macro.Expr"/></x></x>
+				<x path="Null"><t path="haxe.macro.Expr"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>The optional value of the function argument, if available.</haxe_doc>
 			</value>
@@ -15624,7 +15638,7 @@
 				<haxe_doc>The kind of the field.</haxe_doc>
 			</kind>
 			<doc>
-				<x path="Null"><x path="Null"><c path="String"/></x></x>
+				<x path="Null"><c path="String"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>The documentation of the field, if available. If the field has no
 		documentation, the value is `null`.</haxe_doc>
@@ -15717,7 +15731,7 @@
 				<haxe_doc>The fields of the type definition.</haxe_doc>
 			</fields>
 			<doc>
-				<x path="Null"><x path="Null"><c path="String"/></x></x>
+				<x path="Null"><c path="String"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>The documentation of the type, if available. If the type has no
 		documentation, the value is `null`.</haxe_doc>
@@ -17301,9 +17315,9 @@
 	<e path="haxe.macro.TypedExprDef"/>
 	<e path="haxe.macro.Type"/>
 	<a>
-		<t><e path="haxe.macro.Type"/></t>
+		<t><x path="Null"><e path="haxe.macro.Type"/></x></t>
 		<pos><t path="haxe.macro.Position"/></pos>
-		<expr><e path="haxe.macro.TypedExprDef"/></expr>
+		<expr><x path="Null"><e path="haxe.macro.TypedExprDef"/></x></expr>
 	</a>
 </f></with>
 		<map public="1" set="method" line="48" static="1">
@@ -19908,7 +19922,7 @@
 	<fileSize><x path="Int"/></fileSize>
 	<fileName><c path="String"/></fileName>
 	<extraFields>
-		<x path="Null"><x path="Null"><c path="haxe.ds.List"><e path="haxe.zip.ExtraField"/></c></x></x>
+		<x path="Null"><c path="haxe.ds.List"><e path="haxe.zip.ExtraField"/></c></x>
 		<meta><m n=":optional"/></meta>
 	</extraFields>
 	<dataSize><x path="Int"/></dataSize>
@@ -22331,7 +22345,7 @@
 		seek to any position, so the file's previous contents can be
 		selectively overwritten.</haxe_doc>
 		</update>
-		<copy public="1" set="method" line="65" static="1">
+		<copy public="1" set="method" line="68" static="1">
 			<f a="srcPath:dstPath">
 				<c path="String"/>
 				<c path="String"/>
@@ -22347,14 +22361,14 @@
 
 		If `srcPath` or `dstPath` are null, the result is unspecified.</haxe_doc>
 		</copy>
-		<file_contents expr="neko.Lib.load(&quot;std&quot;, &quot;file_contents&quot;, 1)" line="73" static="1">
+		<file_contents expr="neko.Lib.load(&quot;std&quot;, &quot;file_contents&quot;, 1)" line="76" static="1">
 			<f a="">
 				<unknown/>
 				<c path="String"/>
 			</f>
 			<meta><m n=":value"><e>neko.Lib.load("std", "file_contents", 1)</e></m></meta>
 		</file_contents>
-		<file_open expr="neko.Lib.load(&quot;std&quot;, &quot;file_open&quot;, 2)" line="74" static="1">
+		<file_open expr="neko.Lib.load(&quot;std&quot;, &quot;file_open&quot;, 2)" line="77" static="1">
 			<f a=":">
 				<unknown/>
 				<unknown/>

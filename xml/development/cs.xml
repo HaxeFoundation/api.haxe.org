@@ -198,20 +198,24 @@
 </f></filter>
 		<copy public="1" set="method" line="417"><f a=""><c path="Array"><c path="Array.T"/></c></f></copy>
 		<iterator public="1" get="inline" set="null" line="426"><f a=""><t path="Iterator"><c path="Array.T"/></t></f></iterator>
-		<__get set="method" line="431"><f a="idx">
+		<resize public="1" set="method" line="431"><f a="len">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></resize>
+		<__get set="method" line="447"><f a="idx">
 	<x path="Int"/>
 	<c path="Array.T"/>
 </f></__get>
-		<__set set="method" line="436"><f a="idx:v">
+		<__set set="method" line="452"><f a="idx:v">
 	<x path="Int"/>
 	<c path="Array.T"/>
 	<c path="Array.T"/>
 </f></__set>
-		<__unsafe_get get="inline" set="null" line="456"><f a="idx">
+		<__unsafe_get get="inline" set="null" line="472"><f a="idx">
 	<x path="Int"/>
 	<c path="Array.T"/>
 </f></__unsafe_get>
-		<__unsafe_set get="inline" set="null" line="461"><f a="idx:val">
+		<__unsafe_set get="inline" set="null" line="477"><f a="idx:val">
 	<x path="Int"/>
 	<c path="Array.T"/>
 	<c path="Array.T"/>
@@ -236,9 +240,9 @@
 		<arr><c path="Array"><c path="_Array.ArrayIterator.T"/></c></arr>
 		<len><x path="Int"/></len>
 		<i><x path="Int"/></i>
-		<hasNext public="1" get="inline" set="null" line="481"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" get="inline" set="null" line="482"><f a=""><c path="_Array.ArrayIterator.T"/></f></next>
-		<new public="1" get="inline" set="null" line="474"><f a="a">
+		<hasNext public="1" get="inline" set="null" line="497"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="498"><f a=""><c path="_Array.ArrayIterator.T"/></f></next>
+		<new public="1" get="inline" set="null" line="490"><f a="a">
 	<c path="Array"><c path="_Array.ArrayIterator.T"/></c>
 	<x path="Void"/>
 </f></new>
@@ -72809,8 +72813,9 @@
 		<this><d/></this>
 		<haxe_doc><![CDATA[This type unifies with any instance of classes that have a constructor
 	which
-		* is public and
-		* unifies with the type used for type parameter `T`.
+
+	  * is public and
+	  * unifies with the type used for type parameter `T`.
 
 	If a type parameter A is assigned to a type parameter B which is constrained
 	to `Constructible<T>`, A must be explicitly constrained to
@@ -74913,10 +74918,7 @@
 		<meta><m n=":hxGen"/></meta>
 	</class>
 	<class path="haxe.MainLoop" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/MainLoop.hx">
-		<pending expr="null" line="57" static="1">
-			<c path="haxe.MainEvent"/>
-			<meta><m n=":value"><e>null</e></m></meta>
-		</pending>
+		<pending static="1"><c path="haxe.MainEvent"/></pending>
 		<threadCount public="1" get="accessor" set="null" static="1"><x path="Int"/></threadCount>
 		<get_threadCount get="inline" set="null" line="61" static="1"><f a=""><x path="Int"/></f></get_threadCount>
 		<hasEvents public="1" set="method" line="63" static="1"><f a=""><x path="Bool"/></f></hasEvents>
@@ -82168,7 +82170,7 @@
 				<haxe_doc>The value expressions of the case.</haxe_doc>
 			</values>
 			<guard>
-				<x path="Null"><x path="Null"><t path="haxe.macro.Expr"/></x></x>
+				<x path="Null"><t path="haxe.macro.Expr"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>The optional guard expressions of the case, if available.</haxe_doc>
 			</guard>
@@ -82438,7 +82440,7 @@
 	<typedef path="haxe.macro.TypePath" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
 		<a>
 			<sub>
-				<x path="Null"><x path="Null"><c path="String"/></x></x>
+				<x path="Null"><c path="String"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>Sub is set on module sub-type access:
 		`pack.Module.Type` has name = Module, sub = Type, if available.</haxe_doc>
@@ -82527,7 +82529,7 @@
 	<typedef path="haxe.macro.FunctionArg" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
 		<a>
 			<value>
-				<x path="Null"><x path="Null"><t path="haxe.macro.Expr"/></x></x>
+				<x path="Null"><t path="haxe.macro.Expr"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>The optional value of the function argument, if available.</haxe_doc>
 			</value>
@@ -82597,7 +82599,7 @@
 				<haxe_doc>The kind of the field.</haxe_doc>
 			</kind>
 			<doc>
-				<x path="Null"><x path="Null"><c path="String"/></x></x>
+				<x path="Null"><c path="String"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>The documentation of the field, if available. If the field has no
 		documentation, the value is `null`.</haxe_doc>
@@ -82695,7 +82697,7 @@
 				<haxe_doc>The fields of the type definition.</haxe_doc>
 			</fields>
 			<doc>
-				<x path="Null"><x path="Null"><c path="String"/></x></x>
+				<x path="Null"><c path="String"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>The documentation of the type, if available. If the type has no
 		documentation, the value is `null`.</haxe_doc>
@@ -84341,9 +84343,9 @@
 	<e path="haxe.macro.TypedExprDef"/>
 	<e path="haxe.macro.Type"/>
 	<a>
-		<t><e path="haxe.macro.Type"/></t>
+		<t><x path="Null"><e path="haxe.macro.Type"/></x></t>
 		<pos><t path="haxe.macro.Position"/></pos>
-		<expr><e path="haxe.macro.TypedExprDef"/></expr>
+		<expr><x path="Null"><e path="haxe.macro.TypedExprDef"/></x></expr>
 	</a>
 </f></with>
 		<map public="1" set="method" line="48" static="1">
@@ -86957,7 +86959,7 @@
 			<fileSize><x path="Int"/></fileSize>
 			<fileName><c path="String"/></fileName>
 			<extraFields>
-				<x path="Null"><x path="Null"><c path="haxe.ds.List"><e path="haxe.zip.ExtraField"/></c></x></x>
+				<x path="Null"><c path="haxe.ds.List"><e path="haxe.zip.ExtraField"/></c></x>
 				<meta><m n=":optional"/></meta>
 			</extraFields>
 			<dataSize><x path="Int"/></dataSize>
