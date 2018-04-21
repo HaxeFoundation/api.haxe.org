@@ -1403,7 +1403,7 @@
 		<STREAM_CLIENT_PERSISTENT public="1" static="1"><x path="Int"/></STREAM_CLIENT_PERSISTENT>
 		<SOCK_STREAM public="1" static="1">
 			<x path="Int"/>
-			<haxe_doc>@see http://php.net/manual/en/function.socket-create.php</haxe_doc>
+			<haxe_doc>@see http://php.net/manual/en/sockets.constants.php</haxe_doc>
 		</SOCK_STREAM>
 		<SOCK_DGRAM public="1" static="1"><x path="Int"/></SOCK_DGRAM>
 		<SOCK_SEQPACKET public="1" static="1"><x path="Int"/></SOCK_SEQPACKET>
@@ -1412,6 +1412,9 @@
 		<AF_INET public="1" static="1"><x path="Int"/></AF_INET>
 		<AF_INET6 public="1" static="1"><x path="Int"/></AF_INET6>
 		<AF_UNIX public="1" static="1"><x path="Int"/></AF_UNIX>
+		<SOL_TCP public="1" static="1"><x path="Int"/></SOL_TCP>
+		<TCP_NODELAY public="1" static="1"><x path="Int"/></TCP_NODELAY>
+		<PHP_BINARY_READ public="1" static="1"><x path="Int"/></PHP_BINARY_READ>
 		<JSON_ERROR_NONE public="1" static="1">
 			<x path="Int"/>
 			<haxe_doc>@see http://php.net/manual/en/json.constants.php</haxe_doc>
@@ -5102,6 +5105,169 @@
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.stream-socket-get-name.php</haxe_doc>
 		</stream_socket_get_name>
+		<socket_create public="1" set="method" static="1">
+			<f a="domain:type:protocol">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="php.Resource"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.socket-create.php</haxe_doc>
+		</socket_create>
+		<socket_connect public="1" set="method" static="1">
+			<f a="stream:host:port">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.socket-connect.php</haxe_doc>
+		</socket_connect>
+		<socket_listen public="1" set="method" static="1">
+			<f a="stream:connections">
+				<x path="php.Resource"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.socket-listen.php</haxe_doc>
+		</socket_listen>
+		<socket_shutdown public="1" set="method" static="1">
+			<f a="stream:rw">
+				<x path="php.Resource"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.socket-shutdown.php</haxe_doc>
+		</socket_shutdown>
+		<socket_bind public="1" set="method" static="1">
+			<f a="stream:host:port">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.socket-bind.php</haxe_doc>
+		</socket_bind>
+		<socket_accept public="1" set="method" static="1">
+			<f a="stream">
+				<x path="php.Resource"/>
+				<x path="haxe.extern.EitherType">
+					<x path="php.Resource"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.socket-accept.php</haxe_doc>
+		</socket_accept>
+		<socket_getpeername public="1" set="method" static="1">
+			<f a="stream:host:port">
+				<x path="php.Resource"/>
+				<t path="php.Ref"><c path="String"/></t>
+				<t path="php.Ref"><x path="Int"/></t>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.socket-getpeername.php</haxe_doc>
+		</socket_getpeername>
+		<socket_getsockname public="1" set="method" static="1">
+			<f a="stream:host:port">
+				<x path="php.Resource"/>
+				<t path="php.Ref"><c path="String"/></t>
+				<t path="php.Ref"><x path="Int"/></t>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.socket-getsockname.php</haxe_doc>
+		</socket_getsockname>
+		<socket_set_block public="1" set="method" static="1">
+			<f a="stream">
+				<x path="php.Resource"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.socket-set-block.php</haxe_doc>
+		</socket_set_block>
+		<socket_set_nonblock public="1" set="method" static="1">
+			<f a="stream">
+				<x path="php.Resource"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.socket-set-nonblock.php</haxe_doc>
+		</socket_set_nonblock>
+		<socket_set_option public="1" set="method" static="1">
+			<f a="stream:level:option:val">
+				<x path="php.Resource"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.socket-set-option.php</haxe_doc>
+		</socket_set_option>
+		<socket_select public="1" set="method" static="1">
+			<f a="read:write:other:?tv_sec:?tv_usec" v=":::0:0">
+				<x path="php.NativeIndexedArray"><x path="php.Resource"/></x>
+				<x path="php.NativeIndexedArray"><x path="php.Resource"/></x>
+				<x path="php.NativeIndexedArray"><x path="php.Resource"/></x>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<x path="Bool"/>
+					<x path="Int"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ tv_usec : 0, tv_sec : 0 }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.socket-select.php</haxe_doc>
+		</socket_select>
+		<socket_read public="1" set="method" static="1">
+			<f a="resource:length:?type" v="::Const.PHP_BINARY_READ">
+				<x path="php.Resource"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<x path="Bool"/>
+					<c path="String"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ type : Const.PHP_BINARY_READ }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.socket-read.php</haxe_doc>
+		</socket_read>
+		<socket_write public="1" set="method" static="1">
+			<f a="resource:buffer:?len" v="::0">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<x path="Bool"/>
+					<x path="Int"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ len : 0 }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.socket-write.php</haxe_doc>
+		</socket_write>
+		<socket_import_stream public="1" set="method" static="1">
+			<f a="resource">
+				<x path="php.Resource"/>
+				<x path="haxe.extern.EitherType">
+					<x path="Bool"/>
+					<x path="php.Resource"/>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.socket-import-stream.php</haxe_doc>
+		</socket_import_stream>
+		<socket_export_stream public="1" set="method" static="1">
+			<f a="resource">
+				<x path="php.Resource"/>
+				<x path="haxe.extern.EitherType">
+					<x path="Bool"/>
+					<x path="php.Resource"/>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.socket-export-stream.php</haxe_doc>
+		</socket_export_stream>
+		<socket_close public="1" set="method" static="1">
+			<f a="resource">
+				<x path="php.Resource"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.socket-close.php</haxe_doc>
+		</socket_close>
 		<ini_get public="1" set="method" static="1">
 			<f a="var_name">
 				<c path="String"/>
@@ -16075,7 +16241,7 @@
 		<to><icast><c path="String"/></icast></to>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1">
-	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="441" static="1">
+	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="457" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "top"</e></m>
@@ -16084,7 +16250,7 @@
 		</meta>
 		<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 	</Top>
-	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="447" static="1">
+	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="463" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "closure"</e></m>
@@ -16095,7 +16261,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 	</Closure>
-	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="451" static="1">
+	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="467" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "inline"</e></m>
@@ -16111,7 +16277,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1">
-		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="441" static="1">
+		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="457" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "top"</e></m>
@@ -16120,7 +16286,7 @@
 			</meta>
 			<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 		</Top>
-		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="447" static="1">
+		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="463" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "closure"</e></m>
@@ -16131,7 +16297,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 		</Closure>
-		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="451" static="1">
+		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="467" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "inline"</e></m>
@@ -23921,21 +24087,13 @@
 		<meta><m n=":native"><e>"SQLite3Stmt"</e></m></meta>
 	</class>
 	<class path="sys.net.Socket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/_std/sys/net/Socket.hx">
-		<checkError set="method" line="155" static="1"><f a="r:code:msg">
+		<checkError set="method" line="144" static="1"><f a="r:code:msg">
 	<x path="Bool"/>
 	<x path="Int"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></checkError>
-		<getType set="method" line="160" static="1"><f a="isUdp">
-	<x path="Bool"/>
-	<x path="Int"/>
-</f></getType>
-		<getProtocol set="method" line="164" static="1"><f a="protocol">
-	<c path="String"/>
-	<x path="Int"/>
-</f></getProtocol>
-		<select public="1" set="method" line="168" static="1">
+		<select public="1" set="method" line="149" static="1">
 			<f a="read:write:others:?timeout">
 				<c path="Array"><c path="sys.net.Socket"/></c>
 				<c path="Array"><c path="sys.net.Socket"/></c>
@@ -23955,7 +24113,7 @@
 		In case a `timeout` (in seconds) is specified, select might wait at worse until the timeout expires.</haxe_doc>
 		</select>
 		<__s><x path="php.Resource"/></__s>
-		<protocol><c path="String"/></protocol>
+		<stream><x path="php.Resource"/></stream>
 		<input public="1" set="null">
 			<c path="haxe.io.Input"/>
 			<haxe_doc>The stream on which you can read available data. By default the stream is blocking until the requested data is available,
@@ -23970,23 +24128,25 @@
 			<haxe_doc>A custom value that can be associated with the socket. Can be used to retrieve your custom infos after a `select`.
 	*</haxe_doc>
 		</custom>
-		<assignHandler set="method" line="45"><f a=""><x path="Void"/></f></assignHandler>
-		<close public="1" set="method" line="50">
+		<protocol><c path="String"/></protocol>
+		<initSocket set="method" line="48"><f a=""><x path="Void"/></f></initSocket>
+		<assignHandler set="method" line="52"><f a=""><x path="Void"/></f></assignHandler>
+		<close public="1" set="method" line="58">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Closes the socket : make sure to properly close all your sockets or you will crash when you run out of file descriptors.</haxe_doc>
 		</close>
-		<read public="1" set="method" line="58">
+		<read public="1" set="method" line="66">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Read the whole data available on the socket.</haxe_doc>
 		</read>
-		<write public="1" set="method" line="64">
+		<write public="1" set="method" line="72">
 			<f a="content">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Write the whole data to the socket output.</haxe_doc>
 		</write>
-		<connect public="1" set="method" line="68">
+		<connect public="1" set="method" line="76">
 			<f a="host:port">
 				<c path="sys.net.Host"/>
 				<x path="Int"/>
@@ -23994,14 +24154,14 @@
 			</f>
 			<haxe_doc>Connect to the given server host/port. Throw an exception in case we couldn't successfully connect.</haxe_doc>
 		</connect>
-		<listen public="1" set="method" line="77">
+		<listen public="1" set="method" line="82">
 			<f a="connections">
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Allow the socket to listen for incoming questions. The parameter tells how many pending connections we can have until they get refused. Use `accept()` to accept incoming connections.</haxe_doc>
 		</listen>
-		<shutdown public="1" set="method" line="85">
+		<shutdown public="1" set="method" line="88">
 			<f a="read:write">
 				<x path="Bool"/>
 				<x path="Bool"/>
@@ -24009,7 +24169,7 @@
 			</f>
 			<haxe_doc>Shutdown the socket, either for reading or writing.</haxe_doc>
 		</shutdown>
-		<bind public="1" set="method" line="91">
+		<bind public="1" set="method" line="94">
 			<f a="host:port">
 				<c path="sys.net.Host"/>
 				<x path="Int"/>
@@ -24017,65 +24177,129 @@
 			</f>
 			<haxe_doc>Bind the socket to the given host/port so it can afterwards listen for connections there.</haxe_doc>
 		</bind>
-		<accept public="1" set="method" line="105">
+		<accept public="1" set="method" line="99">
 			<f a=""><c path="sys.net.Socket"/></f>
 			<haxe_doc>Accept a new connected client. This will return a connected socket on which you can read/write some data.</haxe_doc>
 		</accept>
-		<hpOfString set="method" line="114"><f a="s">
-	<c path="String"/>
-	<a>
-		<port><x path="Int"/></port>
-		<host><c path="sys.net.Host"/></host>
-	</a>
-</f></hpOfString>
-		<peer public="1" set="method" line="123">
+		<peer public="1" set="method" line="109">
 			<f a=""><a>
 	<port><x path="Int"/></port>
 	<host><c path="sys.net.Host"/></host>
 </a></f>
 			<haxe_doc>Return the information about the other side of a connected socket.</haxe_doc>
 		</peer>
-		<host public="1" set="method" line="129">
+		<host public="1" set="method" line="116">
 			<f a=""><a>
 	<port><x path="Int"/></port>
 	<host><c path="sys.net.Host"/></host>
 </a></f>
 			<haxe_doc>Return the information about our side of a connected socket.</haxe_doc>
 		</host>
-		<setTimeout public="1" set="method" line="135">
+		<setTimeout public="1" set="method" line="123">
 			<f a="timeout">
 				<x path="Float"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Gives a timeout after which blocking socket operations (such as reading and writing) will abort and throw an exception.</haxe_doc>
 		</setTimeout>
-		<setBlocking public="1" set="method" line="142">
+		<setBlocking public="1" set="method" line="130">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Change the blocking mode of the socket. A blocking socket is the default behavior. A non-blocking socket will abort blocking operations immediately by throwing a haxe.io.Error.Blocked value.</haxe_doc>
 		</setBlocking>
-		<setFastSend public="1" set="method" line="147">
+		<setFastSend public="1" set="method" line="135">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Allows the socket to immediately send the data when written to its output : this will cause less ping but might increase the number of packets / data size, especially when doing a lot of small writes.</haxe_doc>
 		</setFastSend>
-		<waitForRead public="1" set="method" line="151">
+		<waitForRead public="1" set="method" line="140">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Block until some data is available for read on the socket.</haxe_doc>
 		</waitForRead>
-		<new public="1" set="method" line="39">
+		<new public="1" set="method" line="41">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new unconnected socket.</haxe_doc>
 		</new>
 		<haxe_doc>A TCP socket class : allow you to both connect to a given server and exchange messages or start your own server and wait for connections.</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
-	<class path="php.net.SslSocket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/net/SslSocket.hx">
+	<class path="php.net.Socket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/net/Socket.hx">
 		<extends path="sys.net.Socket"/>
+		<getType set="method" line="127" static="1"><f a="isUdp">
+	<x path="Bool"/>
+	<x path="Int"/>
+</f></getType>
+		<getProtocol set="method" line="131" static="1"><f a="protocol">
+	<c path="String"/>
+	<x path="Int"/>
+</f></getProtocol>
+		<select public="1" set="method" line="135" static="1"><f a="read:write:others:?timeout">
+	<c path="Array"><c path="php.net.Socket"/></c>
+	<c path="Array"><c path="php.net.Socket"/></c>
+	<c path="Array"><c path="php.net.Socket"/></c>
+	<x path="Float"/>
+	<a>
+		<write><c path="Array"><c path="php.net.Socket"/></c></write>
+		<read><c path="Array"><c path="php.net.Socket"/></c></read>
+		<others><c path="Array"><c path="php.net.Socket"/></c></others>
+	</a>
+</f></select>
+		<checkError get="inline" set="null" line="141" static="1"><f a="r:code:msg">
+	<x path="Bool"/>
+	<x path="Int"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></checkError>
+		<assignHandler set="method" line="38" override="1"><f a=""><x path="Void"/></f></assignHandler>
+		<close public="1" set="method" line="43" override="1"><f a=""><x path="Void"/></f></close>
+		<read public="1" set="method" line="51" override="1"><f a=""><c path="String"/></f></read>
+		<write public="1" set="method" line="57" override="1"><f a="content">
+	<c path="String"/>
+	<x path="Void"/>
+</f></write>
+		<connect public="1" set="method" line="61" override="1"><f a="host:port">
+	<c path="sys.net.Host"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></connect>
+		<listen public="1" set="method" line="70" override="1"><f a="connections">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></listen>
+		<shutdown public="1" set="method" line="78" override="1"><f a="read:write">
+	<x path="Bool"/>
+	<x path="Bool"/>
+	<x path="Void"/>
+</f></shutdown>
+		<bind public="1" set="method" line="84" override="1"><f a="host:port">
+	<c path="sys.net.Host"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></bind>
+		<accept public="1" set="method" line="98" override="1"><f a=""><c path="php.net.Socket"/></f></accept>
+		<hpOfString set="method" line="107"><f a="s">
+	<c path="String"/>
+	<a>
+		<port><x path="Int"/></port>
+		<host><c path="sys.net.Host"/></host>
+	</a>
+</f></hpOfString>
+		<peer public="1" set="method" line="116" override="1"><f a=""><a>
+	<port><x path="Int"/></port>
+	<host><c path="sys.net.Host"/></host>
+</a></f></peer>
+		<host public="1" set="method" line="122" override="1"><f a=""><a>
+	<port><x path="Int"/></port>
+	<host><c path="sys.net.Host"/></host>
+</a></f></host>
+		<new public="1" set="method" line="33"><f a=""><x path="Void"/></f></new>
+	</class>
+	<class path="php.net.SslSocket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/net/SslSocket.hx">
+		<extends path="php.net.Socket"/>
 		<new public="1" set="method" line="26"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="php.reflection.Reflector" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/reflection/Reflector.hx" extern="1" interface="1">

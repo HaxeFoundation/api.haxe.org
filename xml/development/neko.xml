@@ -14309,7 +14309,7 @@
 			</f>
 			<haxe_doc>Adds an argument to be passed to the native compiler (e.g. `-javac-arg` for Java).</haxe_doc>
 		</addNativeArg>
-		<include public="1" set="method" line="183" static="1">
+		<include public="1" set="method" line="184" static="1">
 			<f a="pack:?rec:?ignore:?classPaths:?strict" v=":true:::false">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -14330,18 +14330,19 @@
 
 		@param rec If true, recursively adds all sub-packages.
 		@param ignore Array of module names to ignore for inclusion.
+		       You can use `module*` with a * at the end for Wildcard matching
 		@param classPaths An alternative array of paths (directory names) to use to search for modules to include.
 		       Note that if you pass this argument, only the specified paths will be used for inclusion.
 		@param strict If true and given package wasn't found in any of class paths, fail with an error.</haxe_doc>
 		</include>
-		<excludeBaseType set="method" line="232" static="1">
+		<excludeBaseType set="method" line="248" static="1">
 			<f a="baseType">
 				<t path="haxe.macro.BaseType"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Exclude a class or an enum without changing it to `@:nativeGen`.</haxe_doc>
 		</excludeBaseType>
-		<exclude public="1" set="method" line="248" static="1">
+		<exclude public="1" set="method" line="264" static="1">
 			<f a="pack:?rec" v=":true">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -14353,21 +14354,21 @@
 
 		@param rec If true, recursively excludes all sub-packages.</haxe_doc>
 		</exclude>
-		<excludeFile public="1" set="method" line="271" static="1">
+		<excludeFile public="1" set="method" line="287" static="1">
 			<f a="fileName">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Exclude classes and enums listed in an extern file (one per line) from being generated.</haxe_doc>
 		</excludeFile>
-		<patchTypes public="1" set="method" line="298" static="1">
+		<patchTypes public="1" set="method" line="314" static="1">
 			<f a="file">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Load a type patch file that can modify the field types within declared classes and enums.</haxe_doc>
 		</patchTypes>
-		<keep public="1" set="method" line="362" static="1">
+		<keep public="1" set="method" line="378" static="1">
 			<f a="?path:?paths:?recursive" v="::true">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -14390,7 +14391,7 @@
 		@param paths An Array of package, module or sub-type dot paths to keep.
 		@param recursive If true, recurses into sub-packages for package paths.</haxe_doc>
 		</keep>
-		<addGlobalMetadata public="1" set="method" line="386" static="1">
+		<addGlobalMetadata public="1" set="method" line="402" static="1">
 			<f a="pathFilter:meta:?recursive:?toTypes:?toFields" v="::true:true:false">
 				<c path="String"/>
 				<c path="String"/>
@@ -14413,7 +14414,7 @@
 		This operation has no effect if the type has already been loaded, e.g.
 		through `Context.getType`.</haxe_doc>
 		</addGlobalMetadata>
-		<setCustomJSGenerator public="1" set="method" line="397" static="1">
+		<setCustomJSGenerator public="1" set="method" line="413" static="1">
 			<f a="callb">
 				<f a="">
 					<t path="haxe.macro.JSGenApi"/>
@@ -14423,7 +14424,7 @@
 			</f>
 			<haxe_doc>Change the default JS output by using a custom generator callback</haxe_doc>
 		</setCustomJSGenerator>
-		<load get="inline" set="null" line="404" static="1"><f a="f:nargs">
+		<load get="inline" set="null" line="420" static="1"><f a="f:nargs">
 	<c path="String"/>
 	<x path="Int"/>
 	<d/>
@@ -14436,7 +14437,7 @@
 		<to><icast><c path="String"/></icast></to>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1">
-	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="441" static="1">
+	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="457" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "top"</e></m>
@@ -14445,7 +14446,7 @@
 		</meta>
 		<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 	</Top>
-	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="447" static="1">
+	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="463" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "closure"</e></m>
@@ -14456,7 +14457,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 	</Closure>
-	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="451" static="1">
+	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="467" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "inline"</e></m>
@@ -14472,7 +14473,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1">
-		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="441" static="1">
+		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="457" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "top"</e></m>
@@ -14481,7 +14482,7 @@
 			</meta>
 			<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 		</Top>
-		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="447" static="1">
+		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="463" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "closure"</e></m>
@@ -14492,7 +14493,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 		</Closure>
-		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="451" static="1">
+		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="467" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "inline"</e></m>
