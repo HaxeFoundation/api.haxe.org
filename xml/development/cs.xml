@@ -23,7 +23,6 @@
 		<meta>
 			<m n=":impl"/>
 			<m n=":noCompletion"/>
-			<m n=":extern"/>
 			<m n=":to"/>
 		</meta>
 	</__promote>
@@ -34,7 +33,6 @@
 		</f>
 		<meta>
 			<m n=":noCompletion"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</__cast>
@@ -46,7 +44,6 @@
 		<meta>
 			<m n=":impl"/>
 			<m n=":noCompletion"/>
-			<m n=":extern"/>
 		</meta>
 	</toString>
 	<meta>
@@ -64,7 +61,6 @@
 			<meta>
 				<m n=":impl"/>
 				<m n=":noCompletion"/>
-				<m n=":extern"/>
 				<m n=":to"/>
 			</meta>
 		</__promote>
@@ -75,7 +71,6 @@
 			</f>
 			<meta>
 				<m n=":noCompletion"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</__cast>
@@ -87,7 +82,6 @@
 			<meta>
 				<m n=":impl"/>
 				<m n=":noCompletion"/>
-				<m n=":extern"/>
 			</meta>
 		</toString>
 		<meta>
@@ -3902,7 +3896,6 @@
 				<x path="Class"><c path="instance.S"/></x>
 				<c path="instance.S"/>
 			</f>
-			<meta><m n=":extern"/></meta>
 			<haxe_doc>Checks if object `value` is an instance of class `c`.
 
 		Compiles only if the class specified by `c` can be assigned to the type
@@ -6172,13 +6165,9 @@
 			<x path="Int"/>
 			<haxe_doc>Alias to array's `Length` property. Returns the size of the array</haxe_doc>
 		</length>
-		<get_length get="inline" set="null" line="51">
-			<f a=""><x path="Int"/></f>
-			<meta><m n=":extern"/></meta>
-		</get_length>
+		<get_length get="inline" set="null" line="51"><f a=""><x path="Int"/></f></get_length>
 		<iterator public="1" get="inline" set="null" line="58">
 			<f a=""><c path="cs._NativeArray.NativeArrayIterator"><c path="cs.NativeArray.T"/></c></f>
-			<meta><m n=":extern"/></meta>
 			<haxe_doc>Returns an iterator so it's possible to use `for` with C#'s `NativeArray`</haxe_doc>
 		</iterator>
 		<new public="1" set="method">
@@ -7707,10 +7696,7 @@
 			<x path="Null"><c path="cs.Flags.T"/></x>
 			<x path="cs.Flags"><c path="cs.Flags.T"/></x>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Creates a new `Flags` type with an optional initial value. If no initial value was specified,
 		the default enum value for an empty flags attribute is specified</haxe_doc>
 	</_new>
@@ -7723,7 +7709,6 @@
 		<meta>
 			<m n=":impl"/>
 			<m n=":op"><e>A | B</e></m>
-			<m n=":extern"/>
 		</meta>
 		<haxe_doc>Accessible through the bitwise OR operator (`|`). Returns a new `Flags` type with the flags
 		passed at `flags` added to it.</haxe_doc>
@@ -7737,7 +7722,6 @@
 		<meta>
 			<m n=":impl"/>
 			<m n=":op"><e><![CDATA[A & B]]></e></m>
-			<m n=":extern"/>
 		</meta>
 		<haxe_doc><![CDATA[Accessible through the bitwise AND operator (`&`). Returns a new `Flags` type with
 		the flags that are set on both `this` and `flags`]]></haxe_doc>
@@ -7751,7 +7735,6 @@
 		<meta>
 			<m n=":impl"/>
 			<m n=":op"><e>A ^ B</e></m>
-			<m n=":extern"/>
 		</meta>
 		<haxe_doc>Accessible through the bitwise XOR operator (`^`).</haxe_doc>
 	</bitXor>
@@ -7763,7 +7746,6 @@
 		<meta>
 			<m n=":impl"/>
 			<m n=":op"><e>~A</e></m>
-			<m n=":extern"/>
 		</meta>
 		<haxe_doc>Accesible through the bitwise negation operator (`~`). Returns a new `Flags` type
 		with all unset flags as set - but the ones that are set already.</haxe_doc>
@@ -7774,10 +7756,7 @@
 			<x path="cs.Flags"><c path="cs.Flags.T"/></x>
 			<x path="cs.Flags"><c path="cs.Flags.T"/></x>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Returns a new `Flags` type with all flags set by `flags` unset</haxe_doc>
 	</remove>
 	<has public="1" get="inline" set="null" line="90" static="1">
@@ -7786,10 +7765,7 @@
 			<c path="cs.Flags.T"/>
 			<x path="Bool"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Returns whether `flag` is present on `this` type</haxe_doc>
 	</has>
 	<hasAny public="1" get="inline" set="null" line="98" static="1">
@@ -7798,10 +7774,7 @@
 			<x path="cs.Flags"><c path="cs.Flags.T"/></x>
 			<x path="Bool"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Returns whether `this` type has any flag set by `flags` also set</haxe_doc>
 	</hasAny>
 	<hasAll public="1" get="inline" set="null" line="106" static="1">
@@ -7810,10 +7783,7 @@
 			<x path="cs.Flags"><c path="cs.Flags.T"/></x>
 			<x path="Bool"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Returns whether `this` type has all flags set by `flags` also set</haxe_doc>
 	</hasAll>
 	<underlying get="inline" set="null" line="111" static="1">
@@ -7821,10 +7791,7 @@
 			<c path="cs.Flags.T"/>
 			<x path="cs._Flags.EnumUnderlying"><c path="cs.Flags.T"/></x>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</underlying>
 	<meta>
 		<m n=":hxGen"/>
@@ -7838,10 +7805,7 @@
 				<x path="Null"><c path="cs.Flags.T"/></x>
 				<x path="cs.Flags"><c path="cs.Flags.T"/></x>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Creates a new `Flags` type with an optional initial value. If no initial value was specified,
 		the default enum value for an empty flags attribute is specified</haxe_doc>
 		</_new>
@@ -7854,7 +7818,6 @@
 			<meta>
 				<m n=":impl"/>
 				<m n=":op"><e>A | B</e></m>
-				<m n=":extern"/>
 			</meta>
 			<haxe_doc>Accessible through the bitwise OR operator (`|`). Returns a new `Flags` type with the flags
 		passed at `flags` added to it.</haxe_doc>
@@ -7868,7 +7831,6 @@
 			<meta>
 				<m n=":impl"/>
 				<m n=":op"><e><![CDATA[A & B]]></e></m>
-				<m n=":extern"/>
 			</meta>
 			<haxe_doc><![CDATA[Accessible through the bitwise AND operator (`&`). Returns a new `Flags` type with
 		the flags that are set on both `this` and `flags`]]></haxe_doc>
@@ -7882,7 +7844,6 @@
 			<meta>
 				<m n=":impl"/>
 				<m n=":op"><e>A ^ B</e></m>
-				<m n=":extern"/>
 			</meta>
 			<haxe_doc>Accessible through the bitwise XOR operator (`^`).</haxe_doc>
 		</bitXor>
@@ -7894,7 +7855,6 @@
 			<meta>
 				<m n=":impl"/>
 				<m n=":op"><e>~A</e></m>
-				<m n=":extern"/>
 			</meta>
 			<haxe_doc>Accesible through the bitwise negation operator (`~`). Returns a new `Flags` type
 		with all unset flags as set - but the ones that are set already.</haxe_doc>
@@ -7905,10 +7865,7 @@
 				<x path="cs.Flags"><c path="cs.Flags.T"/></x>
 				<x path="cs.Flags"><c path="cs.Flags.T"/></x>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Returns a new `Flags` type with all flags set by `flags` unset</haxe_doc>
 		</remove>
 		<has public="1" get="inline" set="null" line="90" static="1">
@@ -7917,10 +7874,7 @@
 				<c path="cs.Flags.T"/>
 				<x path="Bool"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Returns whether `flag` is present on `this` type</haxe_doc>
 		</has>
 		<hasAny public="1" get="inline" set="null" line="98" static="1">
@@ -7929,10 +7883,7 @@
 				<x path="cs.Flags"><c path="cs.Flags.T"/></x>
 				<x path="Bool"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Returns whether `this` type has any flag set by `flags` also set</haxe_doc>
 		</hasAny>
 		<hasAll public="1" get="inline" set="null" line="106" static="1">
@@ -7941,10 +7892,7 @@
 				<x path="cs.Flags"><c path="cs.Flags.T"/></x>
 				<x path="Bool"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Returns whether `this` type has all flags set by `flags` also set</haxe_doc>
 		</hasAll>
 		<underlying get="inline" set="null" line="111" static="1">
@@ -7952,10 +7900,7 @@
 				<c path="cs.Flags.T"/>
 				<x path="cs._Flags.EnumUnderlying"><c path="cs.Flags.T"/></x>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</underlying>
 		<meta>
 			<m n=":hxGen"/>
@@ -8086,7 +8031,6 @@
 				<x path="Bool"/>
 				<c path="cs.NativeArray"><c path="nativeArray.T"/></c>
 			</f>
-			<meta><m n=":extern"/></meta>
 			<haxe_doc>Returns a native array from the supplied Array. This native array is unsafe to be written on,
 		as it may or may not be linked to the actual Array implementation.
 
@@ -8106,10 +8050,7 @@
 				<x path="Class"><c path="as.T"/></x>
 				<c path="as.T"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Provides support for the "as" keyword in C#.
 		If the object is not of the supplied type "T", it will return null instead of rasing an exception.
 
@@ -8187,10 +8128,7 @@
 				<d/>
 				<x path="Void"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Rethrow an exception. This is useful when manually filtering an exception in order
 		to keep the previous exception stack.</haxe_doc>
 		</rethrow>
@@ -8199,10 +8137,7 @@
 				<c path="checked.V"/>
 				<x path="Void"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Creates a "checked" block, which throws exceptions for overflows.
 
 		Usage:
@@ -8221,10 +8156,7 @@
 				<c path="lock.V"/>
 				<x path="Void"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Ensures that one thread does not enter a critical section of code while another thread
 		is in the critical section. If another thread attempts to enter a locked code, it
 		will wait, block, until the object is released.
@@ -8236,10 +8168,7 @@
 				<c path="fixed.V"/>
 				<x path="Void"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Marks its parameters as fixed objects inside the defined block.
 		The first variable declarations that use cs.Lib.pointerOfArray() will be the fixed definitions.
 		Usage:
@@ -8259,10 +8188,7 @@
 				<c path="unsafe.V"/>
 				<x path="Void"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Marks the contained block as an unsafe block, meaning that it can contain unsafe code.
 		Usage:
 			cs.Lib.unsafe({
@@ -8276,10 +8202,7 @@
 				<c path="addressOf.T"/>
 				<x path="cs.Pointer"><c path="addressOf.T"/></x>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc><![CDATA[Gets the pointer to the address of current local. Equivalent to the "&" operator in C#
 		Usage:
 			var x:Int = 0;
@@ -8297,10 +8220,7 @@
 				<x path="cs.Pointer"><c path="valueOf.T"/></x>
 				<c path="valueOf.T"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Gets the value of the pointer address.
 		Usage:
 			var x:Int = 0;
@@ -8319,10 +8239,7 @@
 				<c path="cs.NativeArray"><c path="pointerOfArray.T"/></c>
 				<x path="cs.Pointer"><c path="pointerOfArray.T"/></x>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc><![CDATA[Transforms a managed native array into a Pointer. Must be inside a fixed statement
 		Usage:
 			var x:cs.NativeArray<Int> = new cs.NativeArray(1);
@@ -8343,10 +8260,7 @@
 				<x path="Class"><d/></x>
 				<x path="Int"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Returns the byte size of the given struct. Only works with structs and basic types.</haxe_doc>
 		</sizeof>
 		<haxe_doc>Platform-specific C# Library. Provides some platform-specific functions for the C# target,
@@ -8732,10 +8646,7 @@
 			<x path="cs.Pointer"><c path="cs.Pointer.T"/></x>
 			<x path="cs.PointerAccess"><c path="cs.Pointer.T"/></x>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</get_acc>
 	<add public="1" get="inline" set="null" line="91" static="1">
 		<f a="this:i">
@@ -9123,10 +9034,7 @@
 				<x path="cs.Pointer"><c path="cs.Pointer.T"/></x>
 				<x path="cs.PointerAccess"><c path="cs.Pointer.T"/></x>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</get_acc>
 		<add public="1" get="inline" set="null" line="91" static="1">
 			<f a="this:i">
@@ -14212,7 +14120,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" params="T0" get="inline" set="null" line="1" static="1">
@@ -14225,7 +14132,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -14234,10 +14140,7 @@
 			<c path="cs.system.Delegate_Action_1"><c path="cs.system.Action_1.T0"/></c>
 			<c path="cs.system.Delegate_Action_1"><c path="cs.system.Action_1.T0"/></c>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" params="T0" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -14245,10 +14148,7 @@
 			<x path="cs.system.Action_1"><c path="Add.T0"/></x>
 			<x path="cs.system.Action_1"><c path="Add.T0"/></x>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" params="T0" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -14256,10 +14156,7 @@
 			<x path="cs.system.Action_1"><c path="Remove.T0"/></x>
 			<x path="cs.system.Action_1"><c path="Remove.T0"/></x>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -14279,7 +14176,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" params="T0" get="inline" set="null" line="1" static="1">
@@ -14292,7 +14188,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -14301,10 +14196,7 @@
 				<c path="cs.system.Delegate_Action_1"><c path="cs.system.Action_1.T0"/></c>
 				<c path="cs.system.Delegate_Action_1"><c path="cs.system.Action_1.T0"/></c>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" params="T0" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -14312,10 +14204,7 @@
 				<x path="cs.system.Action_1"><c path="Add.T0"/></x>
 				<x path="cs.system.Action_1"><c path="Add.T0"/></x>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" params="T0" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -14323,10 +14212,7 @@
 				<x path="cs.system.Action_1"><c path="Remove.T0"/></x>
 				<x path="cs.system.Action_1"><c path="Remove.T0"/></x>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -16680,7 +16566,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -16693,7 +16578,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -16702,10 +16586,7 @@
 			<c path="cs.system.Delegate_AppDomainInitializer"/>
 			<c path="cs.system.Delegate_AppDomainInitializer"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -16713,10 +16594,7 @@
 			<x path="cs.system.AppDomainInitializer"/>
 			<x path="cs.system.AppDomainInitializer"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -16724,10 +16602,7 @@
 			<x path="cs.system.AppDomainInitializer"/>
 			<x path="cs.system.AppDomainInitializer"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -16747,7 +16622,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -16760,7 +16634,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -16769,10 +16642,7 @@
 				<c path="cs.system.Delegate_AppDomainInitializer"/>
 				<c path="cs.system.Delegate_AppDomainInitializer"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -16780,10 +16650,7 @@
 				<x path="cs.system.AppDomainInitializer"/>
 				<x path="cs.system.AppDomainInitializer"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -16791,10 +16658,7 @@
 				<x path="cs.system.AppDomainInitializer"/>
 				<x path="cs.system.AppDomainInitializer"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -17763,7 +17627,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -17777,7 +17640,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -17786,10 +17648,7 @@
 			<c path="cs.system.Array_Delegate_Swapper"/>
 			<c path="cs.system.Array_Delegate_Swapper"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -17797,10 +17656,7 @@
 			<x path="cs.system.Array_Swapper"/>
 			<x path="cs.system.Array_Swapper"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -17808,10 +17664,7 @@
 			<x path="cs.system.Array_Swapper"/>
 			<x path="cs.system.Array_Swapper"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -17832,7 +17685,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -17846,7 +17698,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -17855,10 +17706,7 @@
 				<c path="cs.system.Array_Delegate_Swapper"/>
 				<c path="cs.system.Array_Delegate_Swapper"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -17866,10 +17714,7 @@
 				<x path="cs.system.Array_Swapper"/>
 				<x path="cs.system.Array_Swapper"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -17877,10 +17722,7 @@
 				<x path="cs.system.Array_Swapper"/>
 				<x path="cs.system.Array_Swapper"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -18165,7 +18007,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -18179,7 +18020,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -18188,10 +18028,7 @@
 			<c path="cs.system.Delegate_AssemblyLoadEventHandler"/>
 			<c path="cs.system.Delegate_AssemblyLoadEventHandler"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -18199,10 +18036,7 @@
 			<x path="cs.system.AssemblyLoadEventHandler"/>
 			<x path="cs.system.AssemblyLoadEventHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -18210,10 +18044,7 @@
 			<x path="cs.system.AssemblyLoadEventHandler"/>
 			<x path="cs.system.AssemblyLoadEventHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -18234,7 +18065,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -18248,7 +18078,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -18257,10 +18086,7 @@
 				<c path="cs.system.Delegate_AssemblyLoadEventHandler"/>
 				<c path="cs.system.Delegate_AssemblyLoadEventHandler"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -18268,10 +18094,7 @@
 				<x path="cs.system.AssemblyLoadEventHandler"/>
 				<x path="cs.system.AssemblyLoadEventHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -18279,10 +18102,7 @@
 				<x path="cs.system.AssemblyLoadEventHandler"/>
 				<x path="cs.system.AssemblyLoadEventHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -18366,7 +18186,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -18379,7 +18198,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -18388,10 +18206,7 @@
 			<c path="cs.system.Delegate_AsyncCallback"/>
 			<c path="cs.system.Delegate_AsyncCallback"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -18399,10 +18214,7 @@
 			<x path="cs.system.AsyncCallback"/>
 			<x path="cs.system.AsyncCallback"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -18410,10 +18222,7 @@
 			<x path="cs.system.AsyncCallback"/>
 			<x path="cs.system.AsyncCallback"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -18433,7 +18242,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -18446,7 +18254,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -18455,10 +18262,7 @@
 				<c path="cs.system.Delegate_AsyncCallback"/>
 				<c path="cs.system.Delegate_AsyncCallback"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -18466,10 +18270,7 @@
 				<x path="cs.system.AsyncCallback"/>
 				<x path="cs.system.AsyncCallback"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -18477,10 +18278,7 @@
 				<x path="cs.system.AsyncCallback"/>
 				<x path="cs.system.AsyncCallback"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -18899,7 +18697,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" params="T0" get="inline" set="null" line="1" static="1">
@@ -18913,7 +18710,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -18922,10 +18718,7 @@
 			<c path="cs.system.Delegate_Comparison_1"><c path="cs.system.Comparison_1.T0"/></c>
 			<c path="cs.system.Delegate_Comparison_1"><c path="cs.system.Comparison_1.T0"/></c>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" params="T0" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -18933,10 +18726,7 @@
 			<x path="cs.system.Comparison_1"><c path="Add.T0"/></x>
 			<x path="cs.system.Comparison_1"><c path="Add.T0"/></x>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" params="T0" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -18944,10 +18734,7 @@
 			<x path="cs.system.Comparison_1"><c path="Remove.T0"/></x>
 			<x path="cs.system.Comparison_1"><c path="Remove.T0"/></x>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -18968,7 +18755,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" params="T0" get="inline" set="null" line="1" static="1">
@@ -18982,7 +18768,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -18991,10 +18776,7 @@
 				<c path="cs.system.Delegate_Comparison_1"><c path="cs.system.Comparison_1.T0"/></c>
 				<c path="cs.system.Delegate_Comparison_1"><c path="cs.system.Comparison_1.T0"/></c>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" params="T0" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -19002,10 +18784,7 @@
 				<x path="cs.system.Comparison_1"><c path="Add.T0"/></x>
 				<x path="cs.system.Comparison_1"><c path="Add.T0"/></x>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" params="T0" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -19013,10 +18792,7 @@
 				<x path="cs.system.Comparison_1"><c path="Remove.T0"/></x>
 				<x path="cs.system.Comparison_1"><c path="Remove.T0"/></x>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -19090,7 +18866,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -19100,7 +18875,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -19109,10 +18883,7 @@
 			<c path="cs.system.Console_Delegate_InternalCancelHandler"/>
 			<c path="cs.system.Console_Delegate_InternalCancelHandler"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -19120,10 +18891,7 @@
 			<x path="cs.system.Console_InternalCancelHandler"/>
 			<x path="cs.system.Console_InternalCancelHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -19131,10 +18899,7 @@
 			<x path="cs.system.Console_InternalCancelHandler"/>
 			<x path="cs.system.Console_InternalCancelHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -19151,7 +18916,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -19161,7 +18925,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -19170,10 +18933,7 @@
 				<c path="cs.system.Console_Delegate_InternalCancelHandler"/>
 				<c path="cs.system.Console_Delegate_InternalCancelHandler"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -19181,10 +18941,7 @@
 				<x path="cs.system.Console_InternalCancelHandler"/>
 				<x path="cs.system.Console_InternalCancelHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -19192,10 +18949,7 @@
 				<x path="cs.system.Console_InternalCancelHandler"/>
 				<x path="cs.system.Console_InternalCancelHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -19279,7 +19033,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -19292,7 +19045,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -19301,10 +19053,7 @@
 			<c path="cs.system.Console_WindowsConsole_Delegate_WindowsCancelHandler"/>
 			<c path="cs.system.Console_WindowsConsole_Delegate_WindowsCancelHandler"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -19312,10 +19061,7 @@
 			<x path="cs.system.Console_WindowsConsole_WindowsCancelHandler"/>
 			<x path="cs.system.Console_WindowsConsole_WindowsCancelHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -19323,10 +19069,7 @@
 			<x path="cs.system.Console_WindowsConsole_WindowsCancelHandler"/>
 			<x path="cs.system.Console_WindowsConsole_WindowsCancelHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -19346,7 +19089,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -19359,7 +19101,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -19368,10 +19109,7 @@
 				<c path="cs.system.Console_WindowsConsole_Delegate_WindowsCancelHandler"/>
 				<c path="cs.system.Console_WindowsConsole_Delegate_WindowsCancelHandler"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -19379,10 +19117,7 @@
 				<x path="cs.system.Console_WindowsConsole_WindowsCancelHandler"/>
 				<x path="cs.system.Console_WindowsConsole_WindowsCancelHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -19390,10 +19125,7 @@
 				<x path="cs.system.Console_WindowsConsole_WindowsCancelHandler"/>
 				<x path="cs.system.Console_WindowsConsole_WindowsCancelHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -20569,7 +20301,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -20583,7 +20314,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -20592,10 +20322,7 @@
 			<c path="cs.system.Delegate_ConsoleCancelEventHandler"/>
 			<c path="cs.system.Delegate_ConsoleCancelEventHandler"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -20603,10 +20330,7 @@
 			<x path="cs.system.ConsoleCancelEventHandler"/>
 			<x path="cs.system.ConsoleCancelEventHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -20614,10 +20338,7 @@
 			<x path="cs.system.ConsoleCancelEventHandler"/>
 			<x path="cs.system.ConsoleCancelEventHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -20638,7 +20359,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -20652,7 +20372,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -20661,10 +20380,7 @@
 				<c path="cs.system.Delegate_ConsoleCancelEventHandler"/>
 				<c path="cs.system.Delegate_ConsoleCancelEventHandler"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -20672,10 +20388,7 @@
 				<x path="cs.system.ConsoleCancelEventHandler"/>
 				<x path="cs.system.ConsoleCancelEventHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -20683,10 +20396,7 @@
 				<x path="cs.system.ConsoleCancelEventHandler"/>
 				<x path="cs.system.ConsoleCancelEventHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -21080,7 +20790,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" params="T0:T1" get="inline" set="null" line="1" static="1">
@@ -21096,7 +20805,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -21111,10 +20819,7 @@
 				<c path="cs.system.Converter_2.T1"/>
 			</c>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" params="T0:T1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -21131,10 +20836,7 @@
 				<c path="Add.T1"/>
 			</x>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" params="T0:T1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -21151,10 +20853,7 @@
 				<c path="Remove.T1"/>
 			</x>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -21177,7 +20876,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" params="T0:T1" get="inline" set="null" line="1" static="1">
@@ -21193,7 +20891,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -21208,10 +20905,7 @@
 					<c path="cs.system.Converter_2.T1"/>
 				</c>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" params="T0:T1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -21228,10 +20922,7 @@
 					<c path="Add.T1"/>
 				</x>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" params="T0:T1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -21248,10 +20939,7 @@
 					<c path="Remove.T1"/>
 				</x>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -21325,7 +21013,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -21335,7 +21022,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -21344,10 +21030,7 @@
 			<c path="cs.system.Delegate_CrossAppDomainDelegate"/>
 			<c path="cs.system.Delegate_CrossAppDomainDelegate"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -21355,10 +21038,7 @@
 			<x path="cs.system.CrossAppDomainDelegate"/>
 			<x path="cs.system.CrossAppDomainDelegate"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -21366,10 +21046,7 @@
 			<x path="cs.system.CrossAppDomainDelegate"/>
 			<x path="cs.system.CrossAppDomainDelegate"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -21386,7 +21063,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -21396,7 +21072,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -21405,10 +21080,7 @@
 				<c path="cs.system.Delegate_CrossAppDomainDelegate"/>
 				<c path="cs.system.Delegate_CrossAppDomainDelegate"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -21416,10 +21088,7 @@
 				<x path="cs.system.CrossAppDomainDelegate"/>
 				<x path="cs.system.CrossAppDomainDelegate"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -21427,10 +21096,7 @@
 				<x path="cs.system.CrossAppDomainDelegate"/>
 				<x path="cs.system.CrossAppDomainDelegate"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -23001,7 +22667,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -23015,7 +22680,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -23024,10 +22688,7 @@
 			<c path="cs.system.Delegate_EventHandler"/>
 			<c path="cs.system.Delegate_EventHandler"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -23035,10 +22696,7 @@
 			<x path="cs.system.EventHandler"/>
 			<x path="cs.system.EventHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -23046,10 +22704,7 @@
 			<x path="cs.system.EventHandler"/>
 			<x path="cs.system.EventHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -23070,7 +22725,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -23084,7 +22738,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -23093,10 +22746,7 @@
 				<c path="cs.system.Delegate_EventHandler"/>
 				<c path="cs.system.Delegate_EventHandler"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -23104,10 +22754,7 @@
 				<x path="cs.system.EventHandler"/>
 				<x path="cs.system.EventHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -23115,10 +22762,7 @@
 				<x path="cs.system.EventHandler"/>
 				<x path="cs.system.EventHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -23206,7 +22850,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" params="T0" get="inline" set="null" line="1" static="1">
@@ -23220,7 +22863,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -23229,10 +22871,7 @@
 			<c path="cs.system.Delegate_EventHandler_1"><c path="cs.system.EventHandler_1.T0"/></c>
 			<c path="cs.system.Delegate_EventHandler_1"><c path="cs.system.EventHandler_1.T0"/></c>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" params="T0" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -23240,10 +22879,7 @@
 			<x path="cs.system.EventHandler_1"><c path="Add.T0"/></x>
 			<x path="cs.system.EventHandler_1"><c path="Add.T0"/></x>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" params="T0" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -23251,10 +22887,7 @@
 			<x path="cs.system.EventHandler_1"><c path="Remove.T0"/></x>
 			<x path="cs.system.EventHandler_1"><c path="Remove.T0"/></x>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -23275,7 +22908,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" params="T0" get="inline" set="null" line="1" static="1">
@@ -23289,7 +22921,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -23298,10 +22929,7 @@
 				<c path="cs.system.Delegate_EventHandler_1"><c path="cs.system.EventHandler_1.T0"/></c>
 				<c path="cs.system.Delegate_EventHandler_1"><c path="cs.system.EventHandler_1.T0"/></c>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" params="T0" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -23309,10 +22937,7 @@
 				<x path="cs.system.EventHandler_1"><c path="Add.T0"/></x>
 				<x path="cs.system.EventHandler_1"><c path="Add.T0"/></x>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" params="T0" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -23320,10 +22945,7 @@
 				<x path="cs.system.EventHandler_1"><c path="Remove.T0"/></x>
 				<x path="cs.system.EventHandler_1"><c path="Remove.T0"/></x>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -24611,7 +24233,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" params="T0" get="inline" set="null" line="1" static="1">
@@ -24624,7 +24245,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -24633,10 +24253,7 @@
 			<c path="cs.system.Delegate_Predicate_1"><c path="cs.system.Predicate_1.T0"/></c>
 			<c path="cs.system.Delegate_Predicate_1"><c path="cs.system.Predicate_1.T0"/></c>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" params="T0" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -24644,10 +24261,7 @@
 			<x path="cs.system.Predicate_1"><c path="Add.T0"/></x>
 			<x path="cs.system.Predicate_1"><c path="Add.T0"/></x>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" params="T0" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -24655,10 +24269,7 @@
 			<x path="cs.system.Predicate_1"><c path="Remove.T0"/></x>
 			<x path="cs.system.Predicate_1"><c path="Remove.T0"/></x>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -24678,7 +24289,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" params="T0" get="inline" set="null" line="1" static="1">
@@ -24691,7 +24301,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -24700,10 +24309,7 @@
 				<c path="cs.system.Delegate_Predicate_1"><c path="cs.system.Predicate_1.T0"/></c>
 				<c path="cs.system.Delegate_Predicate_1"><c path="cs.system.Predicate_1.T0"/></c>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" params="T0" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -24711,10 +24317,7 @@
 				<x path="cs.system.Predicate_1"><c path="Add.T0"/></x>
 				<x path="cs.system.Predicate_1"><c path="Add.T0"/></x>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" params="T0" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -24722,10 +24325,7 @@
 				<x path="cs.system.Predicate_1"><c path="Remove.T0"/></x>
 				<x path="cs.system.Predicate_1"><c path="Remove.T0"/></x>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -24840,7 +24440,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -24854,7 +24453,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -24863,10 +24461,7 @@
 			<c path="cs.system.Delegate_ResolveEventHandler"/>
 			<c path="cs.system.Delegate_ResolveEventHandler"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -24874,10 +24469,7 @@
 			<x path="cs.system.ResolveEventHandler"/>
 			<x path="cs.system.ResolveEventHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -24885,10 +24477,7 @@
 			<x path="cs.system.ResolveEventHandler"/>
 			<x path="cs.system.ResolveEventHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -24909,7 +24498,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -24923,7 +24511,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -24932,10 +24519,7 @@
 				<c path="cs.system.Delegate_ResolveEventHandler"/>
 				<c path="cs.system.Delegate_ResolveEventHandler"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -24943,10 +24527,7 @@
 				<x path="cs.system.ResolveEventHandler"/>
 				<x path="cs.system.ResolveEventHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -24954,10 +24535,7 @@
 				<x path="cs.system.ResolveEventHandler"/>
 				<x path="cs.system.ResolveEventHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -28648,7 +28226,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -28662,7 +28239,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -28671,10 +28247,7 @@
 			<c path="cs.system.Delegate_UnhandledExceptionEventHandler"/>
 			<c path="cs.system.Delegate_UnhandledExceptionEventHandler"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -28682,10 +28255,7 @@
 			<x path="cs.system.UnhandledExceptionEventHandler"/>
 			<x path="cs.system.UnhandledExceptionEventHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -28693,10 +28263,7 @@
 			<x path="cs.system.UnhandledExceptionEventHandler"/>
 			<x path="cs.system.UnhandledExceptionEventHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -28717,7 +28284,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -28731,7 +28297,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -28740,10 +28305,7 @@
 				<c path="cs.system.Delegate_UnhandledExceptionEventHandler"/>
 				<c path="cs.system.Delegate_UnhandledExceptionEventHandler"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -28751,10 +28313,7 @@
 				<x path="cs.system.UnhandledExceptionEventHandler"/>
 				<x path="cs.system.UnhandledExceptionEventHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -28762,10 +28321,7 @@
 				<x path="cs.system.UnhandledExceptionEventHandler"/>
 				<x path="cs.system.UnhandledExceptionEventHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -34094,7 +33650,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -34108,7 +33663,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -34117,10 +33671,7 @@
 			<c path="cs.system.diagnostics.Delegate_DataReceivedEventHandler"/>
 			<c path="cs.system.diagnostics.Delegate_DataReceivedEventHandler"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -34128,10 +33679,7 @@
 			<x path="cs.system.diagnostics.DataReceivedEventHandler"/>
 			<x path="cs.system.diagnostics.DataReceivedEventHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -34139,10 +33687,7 @@
 			<x path="cs.system.diagnostics.DataReceivedEventHandler"/>
 			<x path="cs.system.diagnostics.DataReceivedEventHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -34163,7 +33708,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -34177,7 +33721,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -34186,10 +33729,7 @@
 				<c path="cs.system.diagnostics.Delegate_DataReceivedEventHandler"/>
 				<c path="cs.system.diagnostics.Delegate_DataReceivedEventHandler"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -34197,10 +33737,7 @@
 				<x path="cs.system.diagnostics.DataReceivedEventHandler"/>
 				<x path="cs.system.diagnostics.DataReceivedEventHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -34208,10 +33745,7 @@
 				<x path="cs.system.diagnostics.DataReceivedEventHandler"/>
 				<x path="cs.system.diagnostics.DataReceivedEventHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -34807,7 +34341,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -34817,7 +34350,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -34826,10 +34358,7 @@
 			<c path="cs.system.diagnostics.Process_Delegate_AsyncReadHandler"/>
 			<c path="cs.system.diagnostics.Process_Delegate_AsyncReadHandler"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -34837,10 +34366,7 @@
 			<x path="cs.system.diagnostics.Process_AsyncReadHandler"/>
 			<x path="cs.system.diagnostics.Process_AsyncReadHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -34848,10 +34374,7 @@
 			<x path="cs.system.diagnostics.Process_AsyncReadHandler"/>
 			<x path="cs.system.diagnostics.Process_AsyncReadHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -34868,7 +34391,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -34878,7 +34400,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -34887,10 +34408,7 @@
 				<c path="cs.system.diagnostics.Process_Delegate_AsyncReadHandler"/>
 				<c path="cs.system.diagnostics.Process_Delegate_AsyncReadHandler"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -34898,10 +34416,7 @@
 				<x path="cs.system.diagnostics.Process_AsyncReadHandler"/>
 				<x path="cs.system.diagnostics.Process_AsyncReadHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -34909,10 +34424,7 @@
 				<x path="cs.system.diagnostics.Process_AsyncReadHandler"/>
 				<x path="cs.system.diagnostics.Process_AsyncReadHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -41664,7 +41176,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -41679,7 +41190,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -41688,10 +41198,7 @@
 			<c path="cs.system.io.FileStream_Delegate_WriteDelegate"/>
 			<c path="cs.system.io.FileStream_Delegate_WriteDelegate"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -41699,10 +41206,7 @@
 			<x path="cs.system.io.FileStream_WriteDelegate"/>
 			<x path="cs.system.io.FileStream_WriteDelegate"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -41710,10 +41214,7 @@
 			<x path="cs.system.io.FileStream_WriteDelegate"/>
 			<x path="cs.system.io.FileStream_WriteDelegate"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -41735,7 +41236,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -41750,7 +41250,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -41759,10 +41258,7 @@
 				<c path="cs.system.io.FileStream_Delegate_WriteDelegate"/>
 				<c path="cs.system.io.FileStream_Delegate_WriteDelegate"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -41770,10 +41266,7 @@
 				<x path="cs.system.io.FileStream_WriteDelegate"/>
 				<x path="cs.system.io.FileStream_WriteDelegate"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -41781,10 +41274,7 @@
 				<x path="cs.system.io.FileStream_WriteDelegate"/>
 				<x path="cs.system.io.FileStream_WriteDelegate"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -41876,7 +41366,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -41891,7 +41380,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -41900,10 +41388,7 @@
 			<c path="cs.system.io.FileStream_Delegate_ReadDelegate"/>
 			<c path="cs.system.io.FileStream_Delegate_ReadDelegate"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -41911,10 +41396,7 @@
 			<x path="cs.system.io.FileStream_ReadDelegate"/>
 			<x path="cs.system.io.FileStream_ReadDelegate"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -41922,10 +41404,7 @@
 			<x path="cs.system.io.FileStream_ReadDelegate"/>
 			<x path="cs.system.io.FileStream_ReadDelegate"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -41947,7 +41426,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -41962,7 +41440,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -41971,10 +41448,7 @@
 				<c path="cs.system.io.FileStream_Delegate_ReadDelegate"/>
 				<c path="cs.system.io.FileStream_Delegate_ReadDelegate"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -41982,10 +41456,7 @@
 				<x path="cs.system.io.FileStream_ReadDelegate"/>
 				<x path="cs.system.io.FileStream_ReadDelegate"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -41993,10 +41464,7 @@
 				<x path="cs.system.io.FileStream_ReadDelegate"/>
 				<x path="cs.system.io.FileStream_ReadDelegate"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -43827,7 +43295,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -43840,7 +43307,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -43849,10 +43315,7 @@
 			<c path="cs.system.net.Dns_Delegate_GetHostAddressesCallback"/>
 			<c path="cs.system.net.Dns_Delegate_GetHostAddressesCallback"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -43860,10 +43323,7 @@
 			<x path="cs.system.net.Dns_GetHostAddressesCallback"/>
 			<x path="cs.system.net.Dns_GetHostAddressesCallback"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -43871,10 +43331,7 @@
 			<x path="cs.system.net.Dns_GetHostAddressesCallback"/>
 			<x path="cs.system.net.Dns_GetHostAddressesCallback"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -43894,7 +43351,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -43907,7 +43363,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -43916,10 +43371,7 @@
 				<c path="cs.system.net.Dns_Delegate_GetHostAddressesCallback"/>
 				<c path="cs.system.net.Dns_Delegate_GetHostAddressesCallback"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -43927,10 +43379,7 @@
 				<x path="cs.system.net.Dns_GetHostAddressesCallback"/>
 				<x path="cs.system.net.Dns_GetHostAddressesCallback"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -43938,10 +43387,7 @@
 				<x path="cs.system.net.Dns_GetHostAddressesCallback"/>
 				<x path="cs.system.net.Dns_GetHostAddressesCallback"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -44025,7 +43471,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -44038,7 +43483,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -44047,10 +43491,7 @@
 			<c path="cs.system.net.Dns_Delegate_GetHostEntryIPCallback"/>
 			<c path="cs.system.net.Dns_Delegate_GetHostEntryIPCallback"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -44058,10 +43499,7 @@
 			<x path="cs.system.net.Dns_GetHostEntryIPCallback"/>
 			<x path="cs.system.net.Dns_GetHostEntryIPCallback"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -44069,10 +43507,7 @@
 			<x path="cs.system.net.Dns_GetHostEntryIPCallback"/>
 			<x path="cs.system.net.Dns_GetHostEntryIPCallback"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -44092,7 +43527,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -44105,7 +43539,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -44114,10 +43547,7 @@
 				<c path="cs.system.net.Dns_Delegate_GetHostEntryIPCallback"/>
 				<c path="cs.system.net.Dns_Delegate_GetHostEntryIPCallback"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -44125,10 +43555,7 @@
 				<x path="cs.system.net.Dns_GetHostEntryIPCallback"/>
 				<x path="cs.system.net.Dns_GetHostEntryIPCallback"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -44136,10 +43563,7 @@
 				<x path="cs.system.net.Dns_GetHostEntryIPCallback"/>
 				<x path="cs.system.net.Dns_GetHostEntryIPCallback"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -44223,7 +43647,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -44236,7 +43659,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -44245,10 +43667,7 @@
 			<c path="cs.system.net.Dns_Delegate_GetHostEntryNameCallback"/>
 			<c path="cs.system.net.Dns_Delegate_GetHostEntryNameCallback"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -44256,10 +43675,7 @@
 			<x path="cs.system.net.Dns_GetHostEntryNameCallback"/>
 			<x path="cs.system.net.Dns_GetHostEntryNameCallback"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -44267,10 +43683,7 @@
 			<x path="cs.system.net.Dns_GetHostEntryNameCallback"/>
 			<x path="cs.system.net.Dns_GetHostEntryNameCallback"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -44290,7 +43703,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -44303,7 +43715,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -44312,10 +43723,7 @@
 				<c path="cs.system.net.Dns_Delegate_GetHostEntryNameCallback"/>
 				<c path="cs.system.net.Dns_Delegate_GetHostEntryNameCallback"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -44323,10 +43731,7 @@
 				<x path="cs.system.net.Dns_GetHostEntryNameCallback"/>
 				<x path="cs.system.net.Dns_GetHostEntryNameCallback"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -44334,10 +43739,7 @@
 				<x path="cs.system.net.Dns_GetHostEntryNameCallback"/>
 				<x path="cs.system.net.Dns_GetHostEntryNameCallback"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -44421,7 +43823,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -44434,7 +43835,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -44443,10 +43843,7 @@
 			<c path="cs.system.net.Dns_Delegate_ResolveCallback"/>
 			<c path="cs.system.net.Dns_Delegate_ResolveCallback"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -44454,10 +43851,7 @@
 			<x path="cs.system.net.Dns_ResolveCallback"/>
 			<x path="cs.system.net.Dns_ResolveCallback"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -44465,10 +43859,7 @@
 			<x path="cs.system.net.Dns_ResolveCallback"/>
 			<x path="cs.system.net.Dns_ResolveCallback"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -44488,7 +43879,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -44501,7 +43891,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -44510,10 +43899,7 @@
 				<c path="cs.system.net.Dns_Delegate_ResolveCallback"/>
 				<c path="cs.system.net.Dns_Delegate_ResolveCallback"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -44521,10 +43907,7 @@
 				<x path="cs.system.net.Dns_ResolveCallback"/>
 				<x path="cs.system.net.Dns_ResolveCallback"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -44532,10 +43915,7 @@
 				<x path="cs.system.net.Dns_ResolveCallback"/>
 				<x path="cs.system.net.Dns_ResolveCallback"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -44619,7 +43999,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -44632,7 +44011,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -44641,10 +44019,7 @@
 			<c path="cs.system.net.Dns_Delegate_GetHostByNameCallback"/>
 			<c path="cs.system.net.Dns_Delegate_GetHostByNameCallback"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -44652,10 +44027,7 @@
 			<x path="cs.system.net.Dns_GetHostByNameCallback"/>
 			<x path="cs.system.net.Dns_GetHostByNameCallback"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -44663,10 +44035,7 @@
 			<x path="cs.system.net.Dns_GetHostByNameCallback"/>
 			<x path="cs.system.net.Dns_GetHostByNameCallback"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -44686,7 +44055,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -44699,7 +44067,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -44708,10 +44075,7 @@
 				<c path="cs.system.net.Dns_Delegate_GetHostByNameCallback"/>
 				<c path="cs.system.net.Dns_Delegate_GetHostByNameCallback"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -44719,10 +44083,7 @@
 				<x path="cs.system.net.Dns_GetHostByNameCallback"/>
 				<x path="cs.system.net.Dns_GetHostByNameCallback"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -44730,10 +44091,7 @@
 				<x path="cs.system.net.Dns_GetHostByNameCallback"/>
 				<x path="cs.system.net.Dns_GetHostByNameCallback"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -46127,7 +45485,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -46140,7 +45497,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -46149,10 +45505,7 @@
 			<c path="cs.system.net.sockets.Socket_Delegate_SocketAsyncCall"/>
 			<c path="cs.system.net.sockets.Socket_Delegate_SocketAsyncCall"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -46160,10 +45513,7 @@
 			<x path="cs.system.net.sockets.Socket_SocketAsyncCall"/>
 			<x path="cs.system.net.sockets.Socket_SocketAsyncCall"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -46171,10 +45521,7 @@
 			<x path="cs.system.net.sockets.Socket_SocketAsyncCall"/>
 			<x path="cs.system.net.sockets.Socket_SocketAsyncCall"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -46194,7 +45541,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -46207,7 +45553,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -46216,10 +45561,7 @@
 				<c path="cs.system.net.sockets.Socket_Delegate_SocketAsyncCall"/>
 				<c path="cs.system.net.sockets.Socket_Delegate_SocketAsyncCall"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -46227,10 +45569,7 @@
 				<x path="cs.system.net.sockets.Socket_SocketAsyncCall"/>
 				<x path="cs.system.net.sockets.Socket_SocketAsyncCall"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -46238,10 +45577,7 @@
 				<x path="cs.system.net.sockets.Socket_SocketAsyncCall"/>
 				<x path="cs.system.net.sockets.Socket_SocketAsyncCall"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -46800,7 +46136,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -46816,7 +46151,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -46825,10 +46159,7 @@
 			<c path="cs.system.net.sockets.Socket_Delegate_SendFileHandler"/>
 			<c path="cs.system.net.sockets.Socket_Delegate_SendFileHandler"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -46836,10 +46167,7 @@
 			<x path="cs.system.net.sockets.Socket_SendFileHandler"/>
 			<x path="cs.system.net.sockets.Socket_SendFileHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -46847,10 +46175,7 @@
 			<x path="cs.system.net.sockets.Socket_SendFileHandler"/>
 			<x path="cs.system.net.sockets.Socket_SendFileHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -46873,7 +46198,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -46889,7 +46213,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -46898,10 +46221,7 @@
 				<c path="cs.system.net.sockets.Socket_Delegate_SendFileHandler"/>
 				<c path="cs.system.net.sockets.Socket_Delegate_SendFileHandler"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -46909,10 +46229,7 @@
 				<x path="cs.system.net.sockets.Socket_SendFileHandler"/>
 				<x path="cs.system.net.sockets.Socket_SendFileHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -46920,10 +46237,7 @@
 				<x path="cs.system.net.sockets.Socket_SendFileHandler"/>
 				<x path="cs.system.net.sockets.Socket_SendFileHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -51309,7 +50623,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" params="T0" get="inline" set="null" line="1" static="1">
@@ -51322,7 +50635,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -51331,10 +50643,7 @@
 			<c path="cs.system.reflection.EventInfo_Delegate_StaticAddEvent_1"><c path="cs.system.reflection.EventInfo_StaticAddEvent_1.T0"/></c>
 			<c path="cs.system.reflection.EventInfo_Delegate_StaticAddEvent_1"><c path="cs.system.reflection.EventInfo_StaticAddEvent_1.T0"/></c>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" params="T0" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -51342,10 +50651,7 @@
 			<x path="cs.system.reflection.EventInfo_StaticAddEvent_1"><c path="Add.T0"/></x>
 			<x path="cs.system.reflection.EventInfo_StaticAddEvent_1"><c path="Add.T0"/></x>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" params="T0" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -51353,10 +50659,7 @@
 			<x path="cs.system.reflection.EventInfo_StaticAddEvent_1"><c path="Remove.T0"/></x>
 			<x path="cs.system.reflection.EventInfo_StaticAddEvent_1"><c path="Remove.T0"/></x>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -51376,7 +50679,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" params="T0" get="inline" set="null" line="1" static="1">
@@ -51389,7 +50691,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -51398,10 +50699,7 @@
 				<c path="cs.system.reflection.EventInfo_Delegate_StaticAddEvent_1"><c path="cs.system.reflection.EventInfo_StaticAddEvent_1.T0"/></c>
 				<c path="cs.system.reflection.EventInfo_Delegate_StaticAddEvent_1"><c path="cs.system.reflection.EventInfo_StaticAddEvent_1.T0"/></c>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" params="T0" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -51409,10 +50707,7 @@
 				<x path="cs.system.reflection.EventInfo_StaticAddEvent_1"><c path="Add.T0"/></x>
 				<x path="cs.system.reflection.EventInfo_StaticAddEvent_1"><c path="Add.T0"/></x>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" params="T0" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -51420,10 +50715,7 @@
 				<x path="cs.system.reflection.EventInfo_StaticAddEvent_1"><c path="Remove.T0"/></x>
 				<x path="cs.system.reflection.EventInfo_StaticAddEvent_1"><c path="Remove.T0"/></x>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -51535,7 +50827,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" params="T0:T1" get="inline" set="null" line="1" static="1">
@@ -51552,7 +50843,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -51567,10 +50857,7 @@
 				<c path="cs.system.reflection.EventInfo_AddEvent_2.T1"/>
 			</c>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" params="T0:T1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -51587,10 +50874,7 @@
 				<c path="Add.T1"/>
 			</x>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" params="T0:T1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -51607,10 +50891,7 @@
 				<c path="Remove.T1"/>
 			</x>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -51634,7 +50915,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" params="T0:T1" get="inline" set="null" line="1" static="1">
@@ -51651,7 +50931,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -51666,10 +50945,7 @@
 					<c path="cs.system.reflection.EventInfo_AddEvent_2.T1"/>
 				</c>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" params="T0:T1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -51686,10 +50962,7 @@
 					<c path="Add.T1"/>
 				</x>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" params="T0:T1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -51706,10 +50979,7 @@
 					<c path="Remove.T1"/>
 				</x>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -51797,7 +51067,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -51811,7 +51080,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -51820,10 +51088,7 @@
 			<c path="cs.system.reflection.EventInfo_Delegate_AddEventAdapter"/>
 			<c path="cs.system.reflection.EventInfo_Delegate_AddEventAdapter"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -51831,10 +51096,7 @@
 			<x path="cs.system.reflection.EventInfo_AddEventAdapter"/>
 			<x path="cs.system.reflection.EventInfo_AddEventAdapter"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -51842,10 +51104,7 @@
 			<x path="cs.system.reflection.EventInfo_AddEventAdapter"/>
 			<x path="cs.system.reflection.EventInfo_AddEventAdapter"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -51866,7 +51125,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -51880,7 +51138,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -51889,10 +51146,7 @@
 				<c path="cs.system.reflection.EventInfo_Delegate_AddEventAdapter"/>
 				<c path="cs.system.reflection.EventInfo_Delegate_AddEventAdapter"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -51900,10 +51154,7 @@
 				<x path="cs.system.reflection.EventInfo_AddEventAdapter"/>
 				<x path="cs.system.reflection.EventInfo_AddEventAdapter"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -51911,10 +51162,7 @@
 				<x path="cs.system.reflection.EventInfo_AddEventAdapter"/>
 				<x path="cs.system.reflection.EventInfo_AddEventAdapter"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -52932,7 +52180,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -52946,7 +52193,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -52955,10 +52201,7 @@
 			<c path="cs.system.reflection.Delegate_MemberFilter"/>
 			<c path="cs.system.reflection.Delegate_MemberFilter"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -52966,10 +52209,7 @@
 			<x path="cs.system.reflection.MemberFilter"/>
 			<x path="cs.system.reflection.MemberFilter"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -52977,10 +52217,7 @@
 			<x path="cs.system.reflection.MemberFilter"/>
 			<x path="cs.system.reflection.MemberFilter"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -53001,7 +52238,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -53015,7 +52251,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -53024,10 +52259,7 @@
 				<c path="cs.system.reflection.Delegate_MemberFilter"/>
 				<c path="cs.system.reflection.Delegate_MemberFilter"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -53035,10 +52267,7 @@
 				<x path="cs.system.reflection.MemberFilter"/>
 				<x path="cs.system.reflection.MemberFilter"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -53046,10 +52275,7 @@
 				<x path="cs.system.reflection.MemberFilter"/>
 				<x path="cs.system.reflection.MemberFilter"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -53994,7 +53220,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -54008,7 +53233,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -54017,10 +53241,7 @@
 			<c path="cs.system.reflection.Delegate_ModuleResolveEventHandler"/>
 			<c path="cs.system.reflection.Delegate_ModuleResolveEventHandler"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -54028,10 +53249,7 @@
 			<x path="cs.system.reflection.ModuleResolveEventHandler"/>
 			<x path="cs.system.reflection.ModuleResolveEventHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -54039,10 +53257,7 @@
 			<x path="cs.system.reflection.ModuleResolveEventHandler"/>
 			<x path="cs.system.reflection.ModuleResolveEventHandler"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -54063,7 +53278,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -54077,7 +53291,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -54086,10 +53299,7 @@
 				<c path="cs.system.reflection.Delegate_ModuleResolveEventHandler"/>
 				<c path="cs.system.reflection.Delegate_ModuleResolveEventHandler"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -54097,10 +53307,7 @@
 				<x path="cs.system.reflection.ModuleResolveEventHandler"/>
 				<x path="cs.system.reflection.ModuleResolveEventHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -54108,10 +53315,7 @@
 				<x path="cs.system.reflection.ModuleResolveEventHandler"/>
 				<x path="cs.system.reflection.ModuleResolveEventHandler"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -54973,7 +54177,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -54987,7 +54190,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -54996,10 +54198,7 @@
 			<c path="cs.system.reflection.Delegate_TypeFilter"/>
 			<c path="cs.system.reflection.Delegate_TypeFilter"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -55007,10 +54206,7 @@
 			<x path="cs.system.reflection.TypeFilter"/>
 			<x path="cs.system.reflection.TypeFilter"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -55018,10 +54214,7 @@
 			<x path="cs.system.reflection.TypeFilter"/>
 			<x path="cs.system.reflection.TypeFilter"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -55042,7 +54235,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -55056,7 +54248,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -55065,10 +54256,7 @@
 				<c path="cs.system.reflection.Delegate_TypeFilter"/>
 				<c path="cs.system.reflection.Delegate_TypeFilter"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -55076,10 +54264,7 @@
 				<x path="cs.system.reflection.TypeFilter"/>
 				<x path="cs.system.reflection.TypeFilter"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -55087,10 +54272,7 @@
 				<x path="cs.system.reflection.TypeFilter"/>
 				<x path="cs.system.reflection.TypeFilter"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -61774,7 +60956,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -61784,7 +60965,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -61793,10 +60973,7 @@
 			<c path="cs.system.runtime.remoting.contexts.Delegate_CrossContextDelegate"/>
 			<c path="cs.system.runtime.remoting.contexts.Delegate_CrossContextDelegate"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -61804,10 +60981,7 @@
 			<x path="cs.system.runtime.remoting.contexts.CrossContextDelegate"/>
 			<x path="cs.system.runtime.remoting.contexts.CrossContextDelegate"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -61815,10 +60989,7 @@
 			<x path="cs.system.runtime.remoting.contexts.CrossContextDelegate"/>
 			<x path="cs.system.runtime.remoting.contexts.CrossContextDelegate"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -61835,7 +61006,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -61845,7 +61015,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -61854,10 +61023,7 @@
 				<c path="cs.system.runtime.remoting.contexts.Delegate_CrossContextDelegate"/>
 				<c path="cs.system.runtime.remoting.contexts.Delegate_CrossContextDelegate"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -61865,10 +61031,7 @@
 				<x path="cs.system.runtime.remoting.contexts.CrossContextDelegate"/>
 				<x path="cs.system.runtime.remoting.contexts.CrossContextDelegate"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -61876,10 +61039,7 @@
 				<x path="cs.system.runtime.remoting.contexts.CrossContextDelegate"/>
 				<x path="cs.system.runtime.remoting.contexts.CrossContextDelegate"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -65399,7 +64559,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -65415,7 +64574,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -65424,10 +64582,7 @@
 			<c path="cs.system.security.accesscontrol.NativeObjectSecurity_Delegate_ExceptionFromErrorCode"/>
 			<c path="cs.system.security.accesscontrol.NativeObjectSecurity_Delegate_ExceptionFromErrorCode"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -65435,10 +64590,7 @@
 			<x path="cs.system.security.accesscontrol.NativeObjectSecurity_ExceptionFromErrorCode"/>
 			<x path="cs.system.security.accesscontrol.NativeObjectSecurity_ExceptionFromErrorCode"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -65446,10 +64598,7 @@
 			<x path="cs.system.security.accesscontrol.NativeObjectSecurity_ExceptionFromErrorCode"/>
 			<x path="cs.system.security.accesscontrol.NativeObjectSecurity_ExceptionFromErrorCode"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -65472,7 +64621,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -65488,7 +64636,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -65497,10 +64644,7 @@
 				<c path="cs.system.security.accesscontrol.NativeObjectSecurity_Delegate_ExceptionFromErrorCode"/>
 				<c path="cs.system.security.accesscontrol.NativeObjectSecurity_Delegate_ExceptionFromErrorCode"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -65508,10 +64652,7 @@
 				<x path="cs.system.security.accesscontrol.NativeObjectSecurity_ExceptionFromErrorCode"/>
 				<x path="cs.system.security.accesscontrol.NativeObjectSecurity_ExceptionFromErrorCode"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -65519,10 +64660,7 @@
 				<x path="cs.system.security.accesscontrol.NativeObjectSecurity_ExceptionFromErrorCode"/>
 				<x path="cs.system.security.accesscontrol.NativeObjectSecurity_ExceptionFromErrorCode"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -69657,7 +68795,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -69670,7 +68807,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -69679,10 +68815,7 @@
 			<c path="cs.system.text.regularexpressions.Delegate_MatchEvaluator"/>
 			<c path="cs.system.text.regularexpressions.Delegate_MatchEvaluator"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -69690,10 +68823,7 @@
 			<x path="cs.system.text.regularexpressions.MatchEvaluator"/>
 			<x path="cs.system.text.regularexpressions.MatchEvaluator"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -69701,10 +68831,7 @@
 			<x path="cs.system.text.regularexpressions.MatchEvaluator"/>
 			<x path="cs.system.text.regularexpressions.MatchEvaluator"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -69724,7 +68851,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -69737,7 +68863,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -69746,10 +68871,7 @@
 				<c path="cs.system.text.regularexpressions.Delegate_MatchEvaluator"/>
 				<c path="cs.system.text.regularexpressions.Delegate_MatchEvaluator"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -69757,10 +68879,7 @@
 				<x path="cs.system.text.regularexpressions.MatchEvaluator"/>
 				<x path="cs.system.text.regularexpressions.MatchEvaluator"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -69768,10 +68887,7 @@
 				<x path="cs.system.text.regularexpressions.MatchEvaluator"/>
 				<x path="cs.system.text.regularexpressions.MatchEvaluator"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -71090,7 +70206,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -71103,7 +70218,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -71112,10 +70226,7 @@
 			<c path="cs.system.threading.Delegate_ContextCallback"/>
 			<c path="cs.system.threading.Delegate_ContextCallback"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -71123,10 +70234,7 @@
 			<x path="cs.system.threading.ContextCallback"/>
 			<x path="cs.system.threading.ContextCallback"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -71134,10 +70242,7 @@
 			<x path="cs.system.threading.ContextCallback"/>
 			<x path="cs.system.threading.ContextCallback"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -71157,7 +70262,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -71170,7 +70274,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -71179,10 +70282,7 @@
 				<c path="cs.system.threading.Delegate_ContextCallback"/>
 				<c path="cs.system.threading.Delegate_ContextCallback"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -71190,10 +70290,7 @@
 				<x path="cs.system.threading.ContextCallback"/>
 				<x path="cs.system.threading.ContextCallback"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -71201,10 +70298,7 @@
 				<x path="cs.system.threading.ContextCallback"/>
 				<x path="cs.system.threading.ContextCallback"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -71581,7 +70675,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -71594,7 +70687,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -71603,10 +70695,7 @@
 			<c path="cs.system.threading.Delegate_ParameterizedThreadStart"/>
 			<c path="cs.system.threading.Delegate_ParameterizedThreadStart"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -71614,10 +70703,7 @@
 			<x path="cs.system.threading.ParameterizedThreadStart"/>
 			<x path="cs.system.threading.ParameterizedThreadStart"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -71625,10 +70711,7 @@
 			<x path="cs.system.threading.ParameterizedThreadStart"/>
 			<x path="cs.system.threading.ParameterizedThreadStart"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -71648,7 +70731,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -71661,7 +70743,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -71670,10 +70751,7 @@
 				<c path="cs.system.threading.Delegate_ParameterizedThreadStart"/>
 				<c path="cs.system.threading.Delegate_ParameterizedThreadStart"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -71681,10 +70759,7 @@
 				<x path="cs.system.threading.ParameterizedThreadStart"/>
 				<x path="cs.system.threading.ParameterizedThreadStart"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -71692,10 +70767,7 @@
 				<x path="cs.system.threading.ParameterizedThreadStart"/>
 				<x path="cs.system.threading.ParameterizedThreadStart"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -72568,7 +71640,6 @@
 		<meta>
 			<m n=":has_untyped"/>
 			<m n=":impl"/>
-			<m n=":extern"/>
 		</meta>
 	</_new>
 	<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -72578,7 +71649,6 @@
 		</f>
 		<meta>
 			<m n=":has_untyped"/>
-			<m n=":extern"/>
 			<m n=":from"/>
 		</meta>
 	</FromHaxeFunction>
@@ -72587,10 +71657,7 @@
 			<c path="cs.system.threading.Delegate_ThreadStart"/>
 			<c path="cs.system.threading.Delegate_ThreadStart"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</AsDelegate>
 	<Add public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -72598,10 +71665,7 @@
 			<x path="cs.system.threading.ThreadStart"/>
 			<x path="cs.system.threading.ThreadStart"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A + B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A + B</e></m></meta>
 	</Add>
 	<Remove public="1" get="inline" set="null" line="1" static="1">
 		<f a="arg1:arg2">
@@ -72609,10 +71673,7 @@
 			<x path="cs.system.threading.ThreadStart"/>
 			<x path="cs.system.threading.ThreadStart"/>
 		</f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":op"><e>A - B</e></m>
-		</meta>
+		<meta><m n=":op"><e>A - B</e></m></meta>
 	</Remove>
 	<meta>
 		<m n=":nativeGen"/>
@@ -72629,7 +71690,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":impl"/>
-				<m n=":extern"/>
 			</meta>
 		</_new>
 		<FromHaxeFunction public="1" get="inline" set="null" line="1" static="1">
@@ -72639,7 +71699,6 @@
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":extern"/>
 				<m n=":from"/>
 			</meta>
 		</FromHaxeFunction>
@@ -72648,10 +71707,7 @@
 				<c path="cs.system.threading.Delegate_ThreadStart"/>
 				<c path="cs.system.threading.Delegate_ThreadStart"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</AsDelegate>
 		<Add public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -72659,10 +71715,7 @@
 				<x path="cs.system.threading.ThreadStart"/>
 				<x path="cs.system.threading.ThreadStart"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A + B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A + B</e></m></meta>
 		</Add>
 		<Remove public="1" get="inline" set="null" line="1" static="1">
 			<f a="arg1:arg2">
@@ -72670,10 +71723,7 @@
 				<x path="cs.system.threading.ThreadStart"/>
 				<x path="cs.system.threading.ThreadStart"/>
 			</f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":op"><e>A - B</e></m>
-			</meta>
+			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta>
 			<m n=":nativeGen"/>
@@ -75119,14 +74169,11 @@
 		The values of `this.useCache` and `this.useEnumIndex` may affect
 		serialization output.</haxe_doc>
 		</serialize>
-		<__getField get="inline" set="null" line="540">
-			<f a="o:f">
-				<d/>
-				<c path="String"/>
-				<d/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</__getField>
+		<__getField get="inline" set="null" line="540"><f a="o:f">
+	<d/>
+	<c path="String"/>
+	<d/>
+</f></__getField>
 		<serializeException public="1" set="method" line="542"><f a="e">
 	<d/>
 	<x path="Void"/>
@@ -75410,40 +74457,28 @@
 		<impl><class path="haxe._Ucs2.Ucs2_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/Ucs2.hx" private="1" module="haxe.Ucs2">
 	<length public="1" get="accessor" set="null" static="1">
 		<x path="Int"/>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</length>
 	<_new get="inline" set="null" line="31" static="1">
 		<f a="str">
 			<c path="String"/>
 			<x path="haxe.Ucs2"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</_new>
 	<get_length get="inline" set="null" line="40" static="1">
 		<f a="this">
 			<c path="String"/>
 			<x path="Int"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 	</get_length>
 	<toUpperCase public="1" get="inline" set="null" line="49" static="1">
 		<f a="this">
 			<c path="String"/>
 			<x path="haxe.Ucs2"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Returns a Ucs2 where all characters of `this` Ucs2 are upper case.
 
 		Affects the characters `a-z`. Other characters remain unchanged.</haxe_doc>
@@ -75453,10 +74488,7 @@
 			<c path="String"/>
 			<x path="haxe.Ucs2"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Returns a Ucs2 where all characters of `this` Ucs2 are lower case.
 
 		Affects the characters `A-Z`. Other characters remain unchanged.</haxe_doc>
@@ -75467,10 +74499,7 @@
 			<x path="Int"/>
 			<x path="haxe.Ucs2"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Returns the character at position `index` of `this` Ucs2.
 
 		If `index` is negative or exceeds `this.length`, the empty Ucs2 ""
@@ -75482,16 +74511,13 @@
 			<x path="Int"/>
 			<x path="Null"><x path="Int"/></x>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Returns the character code at position `index` of `this` Ucs2.
 
 		If `index` is negative or exceeds `this.length`, null is returned.
 
 		To obtain the character code of a single character, "x".code can be used
-		instead to @:extern public inline the character code at compile time. Note that this
+		instead to extern public inline the character code at compile time. Note that this
 		only works on Ucs2 literals of length 1.</haxe_doc>
 	</charCodeAt>
 	<indexOf public="1" get="inline" set="null" line="96" static="1">
@@ -75501,10 +74527,7 @@
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Returns the position of the leftmost occurrence of `str` within `this`
 		Ucs2.
 
@@ -75522,10 +74545,7 @@
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Returns the position of the rightmost occurrence of `str` within `this`
 		Ucs2.
 
@@ -75542,10 +74562,7 @@
 			<x path="haxe.Ucs2"/>
 			<c path="Array"><x path="haxe.Ucs2"/></c>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Splits `this` Ucs2 at each occurrence of `delimiter`.
 
 		If `this` Ucs2 is the empty Ucs2 "", the result is not consistent
@@ -75572,10 +74589,7 @@
 			<x path="Int"/>
 			<x path="haxe.Ucs2"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Returns `len` characters of `this` Ucs2, starting at position `pos`.
 
 		If `len` is omitted, all characters from position `pos` to the end of
@@ -75597,10 +74611,7 @@
 			<x path="Int"/>
 			<x path="haxe.Ucs2"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Returns the part of `this` Ucs2 from `startIndex` to `endIndex`.
 
 		If `startIndex` or `endIndex` are negative, 0 is used instead.
@@ -75618,10 +74629,7 @@
 			<c path="String"/>
 			<c path="String"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Returns the native underlying String.</haxe_doc>
 	</toNativeString>
 	<fromCharCode public="1" get="inline" set="null" line="188" static="1">
@@ -75629,7 +74637,6 @@
 			<x path="Int"/>
 			<x path="haxe.Ucs2"/>
 		</f>
-		<meta><m n=":extern"/></meta>
 		<haxe_doc>Returns the Ucs2 corresponding to the character code `code`.
 
 		If `code` is negative or has another invalid value, the result is
@@ -75644,40 +74651,28 @@
 	<class path="haxe._Ucs2.Ucs2_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/Ucs2.hx" private="1" module="haxe.Ucs2">
 		<length public="1" get="accessor" set="null" static="1">
 			<x path="Int"/>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</length>
 		<_new get="inline" set="null" line="31" static="1">
 			<f a="str">
 				<c path="String"/>
 				<x path="haxe.Ucs2"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</_new>
 		<get_length get="inline" set="null" line="40" static="1">
 			<f a="this">
 				<c path="String"/>
 				<x path="Int"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 		</get_length>
 		<toUpperCase public="1" get="inline" set="null" line="49" static="1">
 			<f a="this">
 				<c path="String"/>
 				<x path="haxe.Ucs2"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Returns a Ucs2 where all characters of `this` Ucs2 are upper case.
 
 		Affects the characters `a-z`. Other characters remain unchanged.</haxe_doc>
@@ -75687,10 +74682,7 @@
 				<c path="String"/>
 				<x path="haxe.Ucs2"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Returns a Ucs2 where all characters of `this` Ucs2 are lower case.
 
 		Affects the characters `A-Z`. Other characters remain unchanged.</haxe_doc>
@@ -75701,10 +74693,7 @@
 				<x path="Int"/>
 				<x path="haxe.Ucs2"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Returns the character at position `index` of `this` Ucs2.
 
 		If `index` is negative or exceeds `this.length`, the empty Ucs2 ""
@@ -75716,16 +74705,13 @@
 				<x path="Int"/>
 				<x path="Null"><x path="Int"/></x>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Returns the character code at position `index` of `this` Ucs2.
 
 		If `index` is negative or exceeds `this.length`, null is returned.
 
 		To obtain the character code of a single character, "x".code can be used
-		instead to @:extern public inline the character code at compile time. Note that this
+		instead to extern public inline the character code at compile time. Note that this
 		only works on Ucs2 literals of length 1.</haxe_doc>
 		</charCodeAt>
 		<indexOf public="1" get="inline" set="null" line="96" static="1">
@@ -75735,10 +74721,7 @@
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Returns the position of the leftmost occurrence of `str` within `this`
 		Ucs2.
 
@@ -75756,10 +74739,7 @@
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Returns the position of the rightmost occurrence of `str` within `this`
 		Ucs2.
 
@@ -75776,10 +74756,7 @@
 				<x path="haxe.Ucs2"/>
 				<c path="Array"><x path="haxe.Ucs2"/></c>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Splits `this` Ucs2 at each occurrence of `delimiter`.
 
 		If `this` Ucs2 is the empty Ucs2 "", the result is not consistent
@@ -75806,10 +74783,7 @@
 				<x path="Int"/>
 				<x path="haxe.Ucs2"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Returns `len` characters of `this` Ucs2, starting at position `pos`.
 
 		If `len` is omitted, all characters from position `pos` to the end of
@@ -75831,10 +74805,7 @@
 				<x path="Int"/>
 				<x path="haxe.Ucs2"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Returns the part of `this` Ucs2 from `startIndex` to `endIndex`.
 
 		If `startIndex` or `endIndex` are negative, 0 is used instead.
@@ -75852,10 +74823,7 @@
 				<c path="String"/>
 				<c path="String"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Returns the native underlying String.</haxe_doc>
 		</toNativeString>
 		<fromCharCode public="1" get="inline" set="null" line="188" static="1">
@@ -75863,7 +74831,6 @@
 				<x path="Int"/>
 				<x path="haxe.Ucs2"/>
 			</f>
-			<meta><m n=":extern"/></meta>
 			<haxe_doc>Returns the Ucs2 corresponding to the character code `code`.
 
 		If `code` is negative or has another invalid value, the result is
@@ -76613,81 +75580,54 @@
 	<c path="String"/>
 	<c path="Array"><x path="Int"/></c>
 </f></str2blks>
-		<safeAdd get="inline" set="null" line="144" static="1">
-			<f a="x:y">
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</safeAdd>
+		<safeAdd get="inline" set="null" line="144" static="1"><f a="x:y">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></safeAdd>
 		<doEncode set="method" line="51"><f a="str:strlen">
 	<c path="String"/>
 	<x path="Int"/>
 	<c path="Array"><x path="Int"/></c>
 </f></doEncode>
-		<ROTR get="inline" set="null" line="152">
-			<f a="X:n">
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</ROTR>
-		<SHR get="inline" set="null" line="158">
-			<f a="X:n">
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</SHR>
-		<Ch get="inline" set="null" line="164">
-			<f a="x:y:z">
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</Ch>
-		<Maj get="inline" set="null" line="170">
-			<f a="x:y:z">
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</Maj>
-		<Sigma0 get="inline" set="null" line="175">
-			<f a="x">
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</Sigma0>
-		<Sigma1 get="inline" set="null" line="180">
-			<f a="x">
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</Sigma1>
-		<Gamma0 get="inline" set="null" line="185">
-			<f a="x">
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</Gamma0>
-		<Gamma1 get="inline" set="null" line="190">
-			<f a="x">
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</Gamma1>
+		<ROTR get="inline" set="null" line="152"><f a="X:n">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></ROTR>
+		<SHR get="inline" set="null" line="158"><f a="X:n">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></SHR>
+		<Ch get="inline" set="null" line="164"><f a="x:y:z">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></Ch>
+		<Maj get="inline" set="null" line="170"><f a="x:y:z">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></Maj>
+		<Sigma0 get="inline" set="null" line="175"><f a="x">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></Sigma0>
+		<Sigma1 get="inline" set="null" line="180"><f a="x">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></Sigma1>
+		<Gamma0 get="inline" set="null" line="185"><f a="x">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></Gamma0>
+		<Gamma1 get="inline" set="null" line="190"><f a="x">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></Gamma1>
 		<hex set="method" line="194"><f a="a">
 	<c path="Array"><x path="Int"/></c>
 	<c path="String"/>
@@ -76718,76 +75658,49 @@
 	<x path="Int"/>
 	<c path="Array"><x path="Int"/></c>
 </f></doEncode>
-		<S get="inline" set="null" line="144">
-			<f a="X:n">
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</S>
-		<R get="inline" set="null" line="149">
-			<f a="X:n">
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</R>
-		<Ch get="inline" set="null" line="154">
-			<f a="x:y:z">
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</Ch>
-		<Maj get="inline" set="null" line="159">
-			<f a="x:y:z">
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</Maj>
-		<Sigma0256 get="inline" set="null" line="164">
-			<f a="x">
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</Sigma0256>
-		<Sigma1256 get="inline" set="null" line="169">
-			<f a="x">
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</Sigma1256>
-		<Gamma0256 get="inline" set="null" line="174">
-			<f a="x">
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</Gamma0256>
-		<Gamma1256 get="inline" set="null" line="179">
-			<f a="x">
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</Gamma1256>
-		<safeAdd get="inline" set="null" line="184">
-			<f a="x:y">
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</safeAdd>
+		<S get="inline" set="null" line="144"><f a="X:n">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></S>
+		<R get="inline" set="null" line="149"><f a="X:n">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></R>
+		<Ch get="inline" set="null" line="154"><f a="x:y:z">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></Ch>
+		<Maj get="inline" set="null" line="159"><f a="x:y:z">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></Maj>
+		<Sigma0256 get="inline" set="null" line="164"><f a="x">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></Sigma0256>
+		<Sigma1256 get="inline" set="null" line="169"><f a="x">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></Sigma1256>
+		<Gamma0256 get="inline" set="null" line="174"><f a="x">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></Gamma0256>
+		<Gamma1256 get="inline" set="null" line="179"><f a="x">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></Gamma1256>
+		<safeAdd get="inline" set="null" line="184"><f a="x:y">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></safeAdd>
 		<hex set="method" line="190"><f a="a">
 	<c path="Array"><x path="Int"/></c>
 	<c path="String"/>
@@ -77135,10 +76048,7 @@
 		<key public="1"><c path="haxe.ds.TreeNode.K"/></key>
 		<value public="1"><c path="haxe.ds.TreeNode.V"/></value>
 		<_height><x path="Int"/></_height>
-		<get_height public="1" get="inline" set="null" line="240">
-			<f a=""><x path="Int"/></f>
-			<meta><m n=":extern"/></meta>
-		</get_height>
+		<get_height public="1" get="inline" set="null" line="240"><f a=""><x path="Int"/></f></get_height>
 		<toString public="1" set="method" line="242"><f a=""><c path="String"/></f></toString>
 		<new public="1" set="method" line="229">
 			<f a="l:k:v:r:?h" v="::::-1">
@@ -77806,14 +76716,11 @@
 		<meta><m n=":hxGen"/></meta>
 	</class>
 	<class path="haxe.ds._List.ListNode" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/ds/List.hx" private="1" module="haxe.ds.List">
-		<create public="1" params="T" get="inline" set="null" line="260" static="1">
-			<f a="item:next">
-				<c path="create.T"/>
-				<c path="haxe.ds._List.ListNode"><c path="create.T"/></c>
-				<c path="haxe.ds._List.ListNode"><c path="create.T"/></c>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</create>
+		<create public="1" params="T" get="inline" set="null" line="260" static="1"><f a="item:next">
+	<c path="create.T"/>
+	<c path="haxe.ds._List.ListNode"><c path="create.T"/></c>
+	<c path="haxe.ds._List.ListNode"><c path="create.T"/></c>
+</f></create>
 		<item public="1"><c path="haxe.ds._List.ListNode.T"/></item>
 		<next public="1"><c path="haxe.ds._List.ListNode"><c path="haxe.ds._List.ListNode.T"/></c></next>
 		<new public="1" set="method" line="256"><f a="item:next">
@@ -77918,10 +76825,7 @@
 	<c path="haxe.ds.Map.K"/>
 	<c path="haxe.ds.Map.V"/>
 </x></f>
-		<meta>
-			<m n=":extern"/>
-			<m n=":impl"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Creates a new Map.
 
 		This becomes a constructor call to one of the specialization types in
@@ -78182,10 +77086,7 @@
 	<c path="haxe.ds.Map.K"/>
 	<c path="haxe.ds.Map.V"/>
 </x></f>
-			<meta>
-				<m n=":extern"/>
-				<m n=":impl"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Creates a new Map.
 
 		This becomes a constructor call to one of the specialization types in
@@ -78446,89 +77347,56 @@
 		</implements>
 		<HASH_UPPER get="inline" set="null" expr="0.77" line="28" static="1">
 			<x path="Float"/>
-			<meta>
-				<m n=":value"><e>0.77</e></m>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":value"><e>0.77</e></m></meta>
 		</HASH_UPPER>
 		<FLAG_EMPTY get="inline" set="null" expr="0" line="29" static="1">
 			<x path="Int"/>
-			<meta>
-				<m n=":value"><e>0</e></m>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":value"><e>0</e></m></meta>
 		</FLAG_EMPTY>
 		<FLAG_DEL get="inline" set="null" expr="1" line="30" static="1">
 			<x path="Int"/>
-			<meta>
-				<m n=":value"><e>1</e></m>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":value"><e>1</e></m></meta>
 		</FLAG_DEL>
-		<roundUp get="inline" set="null" line="423" static="1">
-			<f a="x">
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</roundUp>
-		<getInc get="inline" set="null" line="434" static="1">
-			<f a="k:mask">
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</getInc>
-		<isEither get="inline" set="null" line="437" static="1">
-			<f a="v">
-				<t path="haxe.ds._ObjectMap.HashType"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</isEither>
-		<isEmpty get="inline" set="null" line="440" static="1">
-			<f a="v">
-				<t path="haxe.ds._ObjectMap.HashType"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</isEmpty>
-		<isDel get="inline" set="null" line="443" static="1">
-			<f a="v">
-				<t path="haxe.ds._ObjectMap.HashType"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</isDel>
+		<roundUp get="inline" set="null" line="423" static="1"><f a="x">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></roundUp>
+		<getInc get="inline" set="null" line="434" static="1"><f a="k:mask">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></getInc>
+		<isEither get="inline" set="null" line="437" static="1"><f a="v">
+	<t path="haxe.ds._ObjectMap.HashType"/>
+	<x path="Bool"/>
+</f></isEither>
+		<isEmpty get="inline" set="null" line="440" static="1"><f a="v">
+	<t path="haxe.ds._ObjectMap.HashType"/>
+	<x path="Bool"/>
+</f></isEmpty>
+		<isDel get="inline" set="null" line="443" static="1"><f a="v">
+	<t path="haxe.ds._ObjectMap.HashType"/>
+	<x path="Bool"/>
+</f></isDel>
 		<hash params="K" get="inline" set="null" line="447" static="1">
 			<f a="s">
 				<c path="hash.K"/>
 				<t path="haxe.ds._ObjectMap.HashType"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 		</hash>
-		<arrayCopy get="inline" set="null" line="475" static="1">
-			<f a="sourceArray:sourceIndex:destinationArray:destinationIndex:length">
-				<c path="cs.system.Array"/>
-				<x path="Int"/>
-				<c path="cs.system.Array"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</arrayCopy>
-		<assert get="inline" set="null" line="478" static="1">
-			<f a="x">
-				<x path="Bool"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</assert>
+		<arrayCopy get="inline" set="null" line="475" static="1"><f a="sourceArray:sourceIndex:destinationArray:destinationIndex:length">
+	<c path="cs.system.Array"/>
+	<x path="Int"/>
+	<c path="cs.system.Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></arrayCopy>
+		<assert get="inline" set="null" line="478" static="1"><f a="x">
+	<x path="Bool"/>
+	<x path="Void"/>
+</f></assert>
 		<hashes>
 			<c path="cs.NativeArray"><t path="haxe.ds._ObjectMap.HashType"/></c>
 			<haxe_doc>* This is the most important structure here and the reason why it's so fast.
@@ -78696,81 +77564,51 @@
 		</implements>
 		<HASH_UPPER get="inline" set="null" expr="0.77" line="28" static="1">
 			<x path="Float"/>
-			<meta>
-				<m n=":value"><e>0.77</e></m>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":value"><e>0.77</e></m></meta>
 		</HASH_UPPER>
 		<FLAG_EMPTY get="inline" set="null" expr="0" line="29" static="1">
 			<x path="Int"/>
-			<meta>
-				<m n=":value"><e>0</e></m>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":value"><e>0</e></m></meta>
 		</FLAG_EMPTY>
 		<FLAG_DEL get="inline" set="null" expr="1" line="30" static="1">
 			<x path="Int"/>
-			<meta>
-				<m n=":value"><e>1</e></m>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":value"><e>1</e></m></meta>
 		</FLAG_DEL>
-		<roundUp get="inline" set="null" line="427" static="1">
-			<f a="x">
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</roundUp>
-		<isEither get="inline" set="null" line="438" static="1">
-			<f a="v">
-				<t path="haxe.ds._StringMap.HashType"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</isEither>
-		<isEmpty get="inline" set="null" line="441" static="1">
-			<f a="v">
-				<t path="haxe.ds._StringMap.HashType"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</isEmpty>
-		<isDel get="inline" set="null" line="444" static="1">
-			<f a="v">
-				<t path="haxe.ds._StringMap.HashType"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</isDel>
+		<roundUp get="inline" set="null" line="427" static="1"><f a="x">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></roundUp>
+		<isEither get="inline" set="null" line="438" static="1"><f a="v">
+	<t path="haxe.ds._StringMap.HashType"/>
+	<x path="Bool"/>
+</f></isEither>
+		<isEmpty get="inline" set="null" line="441" static="1"><f a="v">
+	<t path="haxe.ds._StringMap.HashType"/>
+	<x path="Bool"/>
+</f></isEmpty>
+		<isDel get="inline" set="null" line="444" static="1"><f a="v">
+	<t path="haxe.ds._StringMap.HashType"/>
+	<x path="Bool"/>
+</f></isDel>
 		<hash get="inline" set="null" line="448" static="1">
 			<f a="s">
 				<c path="String"/>
 				<t path="haxe.ds._StringMap.HashType"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 		</hash>
-		<arrayCopy get="inline" set="null" line="476" static="1">
-			<f a="sourceArray:sourceIndex:destinationArray:destinationIndex:length">
-				<c path="cs.system.Array"/>
-				<x path="Int"/>
-				<c path="cs.system.Array"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</arrayCopy>
-		<assert get="inline" set="null" line="479" static="1">
-			<f a="x">
-				<x path="Bool"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</assert>
+		<arrayCopy get="inline" set="null" line="476" static="1"><f a="sourceArray:sourceIndex:destinationArray:destinationIndex:length">
+	<c path="cs.system.Array"/>
+	<x path="Int"/>
+	<c path="cs.system.Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></arrayCopy>
+		<assert get="inline" set="null" line="479" static="1"><f a="x">
+	<x path="Bool"/>
+	<x path="Void"/>
+</f></assert>
 		<hashes>
 			<c path="cs.NativeArray"><t path="haxe.ds._StringMap.HashType"/></c>
 			<haxe_doc>* This is the most important structure here and the reason why it's so fast.
@@ -79039,10 +77877,7 @@
 			<t path="haxe.ds._Vector.VectorData"><c path="copy.T"/></t>
 			<x path="haxe.ds.Vector"><c path="copy.T"/></x>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Returns a shallow copy of `this` Vector.
 
 		The elements are not copied and retain their identity, so
@@ -79055,10 +77890,7 @@
 			<c path="String"/>
 			<c path="String"/>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Returns a string representation of `this` Vector, with `sep` separating
 		each element.
 
@@ -79080,10 +77912,7 @@
 			</f>
 			<x path="haxe.ds.Vector"><c path="map.S"/></x>
 		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":extern"/>
-		</meta>
+		<meta><m n=":impl"/></meta>
 		<haxe_doc>Creates a new Vector by applying function `f` to all elements of `this`.
 
 		The order of elements is preserved.
@@ -79242,10 +78071,7 @@
 				<t path="haxe.ds._Vector.VectorData"><c path="copy.T"/></t>
 				<x path="haxe.ds.Vector"><c path="copy.T"/></x>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Returns a shallow copy of `this` Vector.
 
 		The elements are not copied and retain their identity, so
@@ -79258,10 +78084,7 @@
 				<c path="String"/>
 				<c path="String"/>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Returns a string representation of `this` Vector, with `sep` separating
 		each element.
 
@@ -79283,10 +78106,7 @@
 				</f>
 				<x path="haxe.ds.Vector"><c path="map.S"/></x>
 			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":extern"/>
-			</meta>
+			<meta><m n=":impl"/></meta>
 			<haxe_doc>Creates a new Vector by applying function `f` to all elements of `this`.
 
 		The order of elements is preserved.
@@ -79533,20 +78353,14 @@
 	<d/>
 	<x path="Void"/>
 </f></write>
-		<addChar get="inline" set="null" line="136">
-			<f a="c">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</addChar>
-		<add get="inline" set="null" line="144">
-			<f a="v">
-				<c path="String"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":extern"/></meta>
-		</add>
+		<addChar get="inline" set="null" line="136"><f a="c">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></addChar>
+		<add get="inline" set="null" line="144"><f a="v">
+	<c path="String"/>
+	<x path="Void"/>
+</f></add>
 		<classString set="method" line="153"><f a="v">
 	<d/>
 	<x path="Void"/>
@@ -82632,6 +81446,7 @@
 		normal functions which are executed as soon as they are typed.</haxe_doc></AMacro>
 		<AFinal><haxe_doc>Final access modifier. For functions, they can not be overridden. For
 		variables, it means they can be assigned to only once.</haxe_doc></AFinal>
+		<AExtern><haxe_doc>Extern access modifier.</haxe_doc></AExtern>
 		<haxe_doc>Represents an access modifier.
 	@see https://haxe.org/manual/class-field-access-modifier.html</haxe_doc>
 		<meta>
@@ -82737,11 +81552,11 @@
 			<t path="haxe.macro.Position"/>
 			<haxe_doc>The position of the error.</haxe_doc>
 		</pos>
-		<toString set="method" line="950">
+		<toString set="method" line="955">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the string representation of the error.</haxe_doc>
 		</toString>
-		<new public="1" set="method" line="942">
+		<new public="1" set="method" line="947">
 			<f a="m:p">
 				<c path="String"/>
 				<t path="haxe.macro.Position"/>
@@ -83133,53 +81948,53 @@
 	<e path="haxe.macro.Access"/>
 	<c path="String"/>
 </f></printAccess>
-		<printField public="1" set="method" line="142"><f a="field">
+		<printField public="1" set="method" line="143"><f a="field">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printField>
-		<printTypeParamDecl public="1" set="method" line="152"><f a="tpd">
+		<printTypeParamDecl public="1" set="method" line="153"><f a="tpd">
 	<t path="haxe.macro.TypeParamDecl"/>
 	<c path="String"/>
 </f></printTypeParamDecl>
-		<printFunctionArg public="1" set="method" line="157"><f a="arg">
+		<printFunctionArg public="1" set="method" line="158"><f a="arg">
 	<t path="haxe.macro.FunctionArg"/>
 	<c path="String"/>
 </f></printFunctionArg>
-		<printFunction public="1" set="method" line="163"><f a="func">
+		<printFunction public="1" set="method" line="164"><f a="func">
 	<t path="haxe.macro.Function"/>
 	<c path="String"/>
 </f></printFunction>
-		<printVar public="1" set="method" line="169"><f a="v">
+		<printVar public="1" set="method" line="170"><f a="v">
 	<t path="haxe.macro.Var"/>
 	<c path="String"/>
 </f></printVar>
-		<printObjectFieldKey public="1" set="method" line="175"><f a="of">
+		<printObjectFieldKey public="1" set="method" line="176"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectFieldKey>
-		<printObjectField public="1" set="method" line="182"><f a="of">
+		<printObjectField public="1" set="method" line="183"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectField>
-		<printExpr public="1" set="method" line="186"><f a="e">
+		<printExpr public="1" set="method" line="187"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExpr>
-		<printExprs public="1" set="method" line="247"><f a="el:sep">
+		<printExprs public="1" set="method" line="248"><f a="el:sep">
 	<c path="Array"><t path="haxe.macro.Expr"/></c>
 	<c path="String"/>
 	<c path="String"/>
 </f></printExprs>
-		<printExtension set="method" line="251"><f a="tpl:fields">
+		<printExtension set="method" line="252"><f a="tpl:fields">
 	<c path="Array"><t path="haxe.macro.TypePath"/></c>
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printExtension>
-		<printStructure set="method" line="256"><f a="fields">
+		<printStructure set="method" line="257"><f a="fields">
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printStructure>
-		<printTypeDefinition public="1" set="method" line="261">
+		<printTypeDefinition public="1" set="method" line="262">
 			<f a="t:?printPackage" v=":true">
 				<t path="haxe.macro.TypeDefinition"/>
 				<x path="Bool"/>
@@ -83187,11 +82002,11 @@
 			</f>
 			<meta><m n=":value"><e>{ printPackage : true }</e></m></meta>
 		</printTypeDefinition>
-		<printFieldWithDelimiter set="method" line="321"><f a="f">
+		<printFieldWithDelimiter set="method" line="322"><f a="f">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printFieldWithDelimiter>
-		<opt params="T" set="method" line="332">
+		<opt params="T" set="method" line="333">
 			<f a="v:f:?prefix" v="::&quot;&quot;">
 				<c path="opt.T"/>
 				<f a="">
