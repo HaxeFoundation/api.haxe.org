@@ -20093,18 +20093,17 @@
 	<enum path="hl.GcFlag" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/Gc.hx" module="hl.Gc">
 		<Profile><haxe_doc>Activate profiling: regularly print on stdout gc allocation stats</haxe_doc></Profile>
 		<DumpMem><haxe_doc>Allows one to dump a hlmemory.dump file when HL runs out of memory to be examined with hl memory inspector tool.</haxe_doc></DumpMem>
-		<Track><haxe_doc>Enable allocation tracking</haxe_doc></Track>
 		<NoThreads><haxe_doc>Disable GC locking for multithreads</haxe_doc></NoThreads>
 		<meta><m n=":flatEnum"/></meta>
 	</enum>
 	<class path="hl.Gc" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/Gc.hx">
 		<flags public="1" get="accessor" set="accessor" static="1"><x path="haxe.EnumFlags"><e path="hl.GcFlag"/></x></flags>
-		<stats public="1" set="method" line="47" static="1"><f a=""><a>
+		<stats public="1" set="method" line="43" static="1"><f a=""><a>
 	<totalAllocated><x path="Float"/></totalAllocated>
 	<currentMemory><x path="Float"/></currentMemory>
 	<allocationCount><x path="Float"/></allocationCount>
 </a></f></stats>
-		<dumpMemory public="1" set="method" line="56" static="1">
+		<dumpMemory public="1" set="method" line="52" static="1">
 			<f a="?fileName" v="&quot;hlmemory.dump&quot;">
 				<c path="String"/>
 				<x path="Void"/>
@@ -20112,12 +20111,12 @@
 			<meta><m n=":value"><e>{ fileName : "hlmemory.dump" }</e></m></meta>
 			<haxe_doc>Dump whole memory into target filename for analysis.</haxe_doc>
 		</dumpMemory>
-		<get_flags set="method" line="60" static="1"><f a=""><x path="haxe.EnumFlags"><e path="hl.GcFlag"/></x></f></get_flags>
-		<set_flags set="method" line="64" static="1"><f a="v">
+		<get_flags set="method" line="56" static="1"><f a=""><x path="haxe.EnumFlags"><e path="hl.GcFlag"/></x></f></get_flags>
+		<set_flags set="method" line="60" static="1"><f a="v">
 	<x path="haxe.EnumFlags"><e path="hl.GcFlag"/></x>
 	<x path="haxe.EnumFlags"><e path="hl.GcFlag"/></x>
 </f></set_flags>
-		<blocking public="1" set="method" line="74" static="1">
+		<blocking public="1" set="method" line="70" static="1">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
@@ -20129,7 +20128,7 @@
 			<haxe_doc>Enter/leave a blocking section: when in a blocking section the thread cannot
 		allocate any memory but other threads will not wait for it for collecting memory.</haxe_doc>
 		</blocking>
-		<_dump set="method" line="77" static="1">
+		<_dump set="method" line="73" static="1">
 			<f a="b">
 				<x path="hl.Bytes"/>
 				<x path="Void"/>
@@ -20139,7 +20138,7 @@
 	<e>"gc_dump_memory"</e>
 </m></meta>
 		</_dump>
-		<enable public="1" set="method" line="79" static="1">
+		<enable public="1" set="method" line="75" static="1">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
@@ -20149,14 +20148,14 @@
 	<e>"gc_enable"</e>
 </m></meta>
 		</enable>
-		<major public="1" set="method" line="80" static="1">
+		<major public="1" set="method" line="76" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"gc_major"</e>
 </m></meta>
 		</major>
-		<_stats set="method" line="81" static="1">
+		<_stats set="method" line="77" static="1">
 			<f a="totalAllocated:allocationCount:currentMemory">
 				<x path="hl.Ref"><x path="Float"/></x>
 				<x path="hl.Ref"><x path="Float"/></x>
@@ -20168,14 +20167,14 @@
 	<e>"gc_stats"</e>
 </m></meta>
 		</_stats>
-		<_get_flags set="method" line="83" static="1">
+		<_get_flags set="method" line="79" static="1">
 			<f a=""><x path="Int"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"gc_get_flags"</e>
 </m></meta>
 		</_get_flags>
-		<_set_flags set="method" line="84" static="1">
+		<_set_flags set="method" line="80" static="1">
 			<f a="v">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -20435,15 +20434,18 @@
 </f></new>
 	</class>
 	<class path="hl.Profile" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/Profile.hx">
-		<enable public="1" get="accessor" set="accessor" static="1"><x path="Bool"/></enable>
-		<getData public="1" set="method" line="25" static="1">
+		<enable public="1" get="accessor" set="accessor" static="1">
+			<x path="Bool"/>
+			<haxe_doc>Enable allocation tracking per thread. All threads are enabled by default.</haxe_doc>
+		</enable>
+		<getData public="1" set="method" line="28" static="1">
 			<f a="?sortBySize" v="false">
 				<x path="Bool"/>
 				<c path="Array"><c path="hl.Allocation"/></c>
 			</f>
 			<meta><m n=":value"><e>{ sortBySize : false }</e></m></meta>
 		</getData>
-		<dump public="1" set="method" line="48" static="1">
+		<dump public="1" set="method" line="53" static="1">
 			<f a="?fileName:?sortBySize" v="&quot;alloc.dump&quot;:false">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -20451,34 +20453,58 @@
 			</f>
 			<meta><m n=":value"><e>{ sortBySize : false, fileName : "alloc.dump" }</e></m></meta>
 		</dump>
-		<BUFSIZE expr="512" line="68" static="1">
+		<reset public="1" set="method" line="76" static="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"track_reset"</e>
+</m></meta>
+			<haxe_doc>Reset accumulated tracked data.</haxe_doc>
+		</reset>
+		<start public="1" set="method" line="82" static="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"track_init"</e>
+</m></meta>
+			<haxe_doc>Start tracking. Enabled by default.</haxe_doc>
+		</start>
+		<stop public="1" set="method" line="88" static="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"track_stop"</e>
+</m></meta>
+			<haxe_doc>Stop tracking for all threads.</haxe_doc>
+		</stop>
+		<BUFSIZE expr="512" line="91" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>512</e></m></meta>
 		</BUFSIZE>
-		<buf expr="new hl.Bytes(BUFSIZE * 2)" line="69" static="1">
+		<buf expr="new hl.Bytes(BUFSIZE * 2)" line="92" static="1">
 			<x path="hl.Bytes"/>
 			<meta><m n=":value"><e>new hl.Bytes(BUFSIZE * 2)</e></m></meta>
 		</buf>
-		<resolveSymbol set="method" line="70" static="1"><f a="s">
+		<resolveSymbol set="method" line="93" static="1"><f a="s">
 	<t path="hl.Symbol"/>
 	<c path="String"/>
 </f></resolveSymbol>
-		<get_enable set="method" line="77" static="1"><f a=""><x path="Bool"/></f></get_enable>
-		<set_enable set="method" line="78" static="1"><f a="v">
+		<get_enable set="method" line="100" static="1"><f a=""><x path="Bool"/></f></get_enable>
+		<set_enable set="method" line="101" static="1"><f a="v">
 	<x path="Bool"/>
 	<x path="Bool"/>
 </f></set_enable>
-		<resolve_symbol set="method" line="85" static="1"><f a="s:buf:bufSize">
+		<resolve_symbol set="method" line="106" static="1"><f a="s:buf:bufSize">
 	<t path="hl.Symbol"/>
 	<x path="hl.Bytes"/>
 	<x path="hl.Ref"><x path="Int"/></x>
 	<x path="hl.Bytes"/>
 </f></resolve_symbol>
-		<track_count set="method" line="86" static="1"><f a="maxDepth">
+		<track_count set="method" line="107" static="1"><f a="maxDepth">
 	<x path="hl.Ref"><x path="Int"/></x>
 	<x path="Int"/>
 </f></track_count>
-		<track_entry set="method" line="87" static="1"><f a="id:type:count:size:stack">
+		<track_entry set="method" line="108" static="1"><f a="id:type:count:size:stack">
 	<x path="Int"/>
 	<x path="hl.Ref"><x path="hl.Type"/></x>
 	<x path="hl.Ref"><x path="Int"/></x>
@@ -20486,7 +20512,15 @@
 	<x path="hl.NativeArray"><t path="hl.Symbol"/></x>
 	<x path="Void"/>
 </f></track_entry>
-		<track_init set="method" line="88" static="1"><f a=""><x path="Void"/></f></track_init>
+		<track_enable set="method" line="109" static="1"><f a="b">
+	<x path="Bool"/>
+	<x path="Void"/>
+</f></track_enable>
+		<track_lock set="method" line="110" static="1"><f a="b">
+	<x path="Bool"/>
+	<x path="Void"/>
+</f></track_lock>
+		<track_enabled set="method" line="111" static="1"><f a=""><x path="Bool"/></f></track_enabled>
 		<meta><m n=":hlNative"><e>"std"</e></m></meta>
 	</class>
 	<abstract path="hl.Ref" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/hl/Ref.hx">
@@ -20979,14 +21013,14 @@
 		</f>
 		<meta><m n=":has_untyped"/></meta>
 	</get>
-	<getName public="1" get="inline" set="null" line="68" static="1">
+	<getTypeName public="1" get="inline" set="null" line="68" static="1">
 		<f a="this">
 			<x path="hl.Type"/>
 			<c path="String"/>
 		</f>
 		<meta><m n=":impl"/></meta>
-	</getName>
-	<safeCast public="1" set="method" line="73" static="1">
+	</getTypeName>
+	<safeCast public="1" set="method" line="74" static="1">
 		<f a="this:t">
 			<x path="hl.Type"/>
 			<x path="hl.Type"/>
@@ -21000,7 +21034,7 @@
 			</m>
 		</meta>
 	</safeCast>
-	<getInstanceFields public="1" set="method" line="77" static="1">
+	<getInstanceFields public="1" set="method" line="78" static="1">
 		<f a="this">
 			<x path="hl.Type"/>
 			<x path="hl.NativeArray"><x path="hl.Bytes"/></x>
@@ -21013,7 +21047,7 @@
 			</m>
 		</meta>
 	</getInstanceFields>
-	<getGlobal public="1" set="method" line="81" static="1">
+	<getGlobal public="1" set="method" line="82" static="1">
 		<f a="this">
 			<x path="hl.Type"/>
 			<d/>
@@ -21026,7 +21060,7 @@
 			</m>
 		</meta>
 	</getGlobal>
-	<setGlobal public="1" set="method" line="85" static="1">
+	<setGlobal public="1" set="method" line="86" static="1">
 		<f a="this:v">
 			<x path="hl.Type"/>
 			<d/>
@@ -21040,7 +21074,7 @@
 			</m>
 		</meta>
 	</setGlobal>
-	<getArgsCount public="1" set="method" line="89" static="1">
+	<getArgsCount public="1" set="method" line="90" static="1">
 		<f a="this">
 			<x path="hl.Type"/>
 			<x path="Int"/>
@@ -21053,7 +21087,7 @@
 			</m>
 		</meta>
 	</getArgsCount>
-	<getSuper public="1" set="method" line="93" static="1">
+	<getSuper public="1" set="method" line="94" static="1">
 		<f a="this">
 			<x path="hl.Type"/>
 			<x path="hl.Type"/>
@@ -21066,7 +21100,7 @@
 			</m>
 		</meta>
 	</getSuper>
-	<getEnumFields public="1" set="method" line="97" static="1">
+	<getEnumFields public="1" set="method" line="98" static="1">
 		<f a="this">
 			<x path="hl.Type"/>
 			<x path="hl.NativeArray"><x path="hl.Bytes"/></x>
@@ -21079,7 +21113,7 @@
 			</m>
 		</meta>
 	</getEnumFields>
-	<getEnumValues public="1" set="method" line="101" static="1">
+	<getEnumValues public="1" set="method" line="102" static="1">
 		<f a="this">
 			<x path="hl.Type"/>
 			<x path="hl.NativeArray"><d/></x>
@@ -21092,7 +21126,7 @@
 			</m>
 		</meta>
 	</getEnumValues>
-	<allocObject public="1" set="method" line="105" static="1">
+	<allocObject public="1" set="method" line="106" static="1">
 		<f a="this">
 			<x path="hl.Type"/>
 			<d/>
@@ -21105,7 +21139,7 @@
 			</m>
 		</meta>
 	</allocObject>
-	<allocEnum public="1" set="method" line="109" static="1">
+	<allocEnum public="1" set="method" line="110" static="1">
 		<f a="this:index:args:nargs">
 			<x path="hl.Type"/>
 			<x path="Int"/>
@@ -21166,14 +21200,14 @@
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</get>
-		<getName public="1" get="inline" set="null" line="68" static="1">
+		<getTypeName public="1" get="inline" set="null" line="68" static="1">
 			<f a="this">
 				<x path="hl.Type"/>
 				<c path="String"/>
 			</f>
 			<meta><m n=":impl"/></meta>
-		</getName>
-		<safeCast public="1" set="method" line="73" static="1">
+		</getTypeName>
+		<safeCast public="1" set="method" line="74" static="1">
 			<f a="this:t">
 				<x path="hl.Type"/>
 				<x path="hl.Type"/>
@@ -21187,7 +21221,7 @@
 				</m>
 			</meta>
 		</safeCast>
-		<getInstanceFields public="1" set="method" line="77" static="1">
+		<getInstanceFields public="1" set="method" line="78" static="1">
 			<f a="this">
 				<x path="hl.Type"/>
 				<x path="hl.NativeArray"><x path="hl.Bytes"/></x>
@@ -21200,7 +21234,7 @@
 				</m>
 			</meta>
 		</getInstanceFields>
-		<getGlobal public="1" set="method" line="81" static="1">
+		<getGlobal public="1" set="method" line="82" static="1">
 			<f a="this">
 				<x path="hl.Type"/>
 				<d/>
@@ -21213,7 +21247,7 @@
 				</m>
 			</meta>
 		</getGlobal>
-		<setGlobal public="1" set="method" line="85" static="1">
+		<setGlobal public="1" set="method" line="86" static="1">
 			<f a="this:v">
 				<x path="hl.Type"/>
 				<d/>
@@ -21227,7 +21261,7 @@
 				</m>
 			</meta>
 		</setGlobal>
-		<getArgsCount public="1" set="method" line="89" static="1">
+		<getArgsCount public="1" set="method" line="90" static="1">
 			<f a="this">
 				<x path="hl.Type"/>
 				<x path="Int"/>
@@ -21240,7 +21274,7 @@
 				</m>
 			</meta>
 		</getArgsCount>
-		<getSuper public="1" set="method" line="93" static="1">
+		<getSuper public="1" set="method" line="94" static="1">
 			<f a="this">
 				<x path="hl.Type"/>
 				<x path="hl.Type"/>
@@ -21253,7 +21287,7 @@
 				</m>
 			</meta>
 		</getSuper>
-		<getEnumFields public="1" set="method" line="97" static="1">
+		<getEnumFields public="1" set="method" line="98" static="1">
 			<f a="this">
 				<x path="hl.Type"/>
 				<x path="hl.NativeArray"><x path="hl.Bytes"/></x>
@@ -21266,7 +21300,7 @@
 				</m>
 			</meta>
 		</getEnumFields>
-		<getEnumValues public="1" set="method" line="101" static="1">
+		<getEnumValues public="1" set="method" line="102" static="1">
 			<f a="this">
 				<x path="hl.Type"/>
 				<x path="hl.NativeArray"><d/></x>
@@ -21279,7 +21313,7 @@
 				</m>
 			</meta>
 		</getEnumValues>
-		<allocObject public="1" set="method" line="105" static="1">
+		<allocObject public="1" set="method" line="106" static="1">
 			<f a="this">
 				<x path="hl.Type"/>
 				<d/>
@@ -21292,7 +21326,7 @@
 				</m>
 			</meta>
 		</allocObject>
-		<allocEnum public="1" set="method" line="109" static="1">
+		<allocEnum public="1" set="method" line="110" static="1">
 			<f a="this:index:args:nargs">
 				<x path="hl.Type"/>
 				<x path="Int"/>
@@ -23175,6 +23209,442 @@
 	<x path="Void"/>
 </f></new>
 		<meta><m n=":hlNative"><e>"uv"</e></m></meta>
+	</class>
+	<abstract path="hl.vm.Deque" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/hl/vm/Deque.hx">
+		<this><c path="hl.Abstract"><c path="Shl_deque"/></c></this>
+		<haxe_doc>A message queue for multithread access.</haxe_doc>
+		<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"deque_"</e>
+</m></meta>
+		<impl><class path="hl.vm._Deque.Deque_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/vm/Deque.hx" private="1" module="hl.vm.Deque">
+	<_new public="1" set="method" line="33" static="1">
+		<f a=""><x path="hl.vm.Deque"><c path="hl.vm.Deque.T"/></x></f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Create a message queue for multithread access.</haxe_doc>
+	</_new>
+	<add public="1" set="method" line="40" static="1">
+		<f a="this:i">
+			<c path="hl.Abstract"><c path="Shl_deque"/></c>
+			<c path="hl.vm.Deque.T"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Add a message at the end of the queue.</haxe_doc>
+	</add>
+	<push public="1" set="method" line="46" static="1">
+		<f a="this:i">
+			<c path="hl.Abstract"><c path="Shl_deque"/></c>
+			<c path="hl.vm.Deque.T"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Add a message at the head of the queue.</haxe_doc>
+	</push>
+	<pop public="1" set="method" line="53" static="1">
+		<f a="this:block">
+			<c path="hl.Abstract"><c path="Shl_deque"/></c>
+			<x path="Bool"/>
+			<x path="Null"><c path="hl.vm.Deque.T"/></x>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Pop a message from the queue head. Either block until a message
+		is available or return immediately with `null`.</haxe_doc>
+	</pop>
+	<alloc set="method" line="57" static="1"><f a=""><c path="hl.Abstract"><c path="Shl_deque"/></c></f></alloc>
+	<meta>
+		<m n=":final"/>
+		<m n=":hlNative">
+			<e>"std"</e>
+			<e>"deque_"</e>
+		</m>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="hl.vm._Deque.Deque_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/vm/Deque.hx" private="1" module="hl.vm.Deque">
+		<_new public="1" set="method" line="33" static="1">
+			<f a=""><x path="hl.vm.Deque"><c path="hl.vm.Deque.T"/></x></f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Create a message queue for multithread access.</haxe_doc>
+		</_new>
+		<add public="1" set="method" line="40" static="1">
+			<f a="this:i">
+				<c path="hl.Abstract"><c path="Shl_deque"/></c>
+				<c path="hl.vm.Deque.T"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Add a message at the end of the queue.</haxe_doc>
+		</add>
+		<push public="1" set="method" line="46" static="1">
+			<f a="this:i">
+				<c path="hl.Abstract"><c path="Shl_deque"/></c>
+				<c path="hl.vm.Deque.T"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Add a message at the head of the queue.</haxe_doc>
+		</push>
+		<pop public="1" set="method" line="53" static="1">
+			<f a="this:block">
+				<c path="hl.Abstract"><c path="Shl_deque"/></c>
+				<x path="Bool"/>
+				<x path="Null"><c path="hl.vm.Deque.T"/></x>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Pop a message from the queue head. Either block until a message
+		is available or return immediately with `null`.</haxe_doc>
+		</pop>
+		<alloc set="method" line="57" static="1"><f a=""><c path="hl.Abstract"><c path="Shl_deque"/></c></f></alloc>
+		<meta>
+			<m n=":final"/>
+			<m n=":hlNative">
+				<e>"std"</e>
+				<e>"deque_"</e>
+			</m>
+		</meta>
+	</class>
+	<abstract path="hl.vm.Mutex" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/vm/Mutex.hx">
+		<this><c path="hl.Abstract"><c path="Shl_mutex"/></c></this>
+		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock 
+	to access some ressource. The main difference with a lock is 
+	that a mutex must always be released by the owner thread.</haxe_doc>
+		<impl><class path="hl.vm._Mutex.Mutex_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/vm/Mutex.hx" private="1" module="hl.vm.Mutex">
+	<_new public="1" set="method" line="34" static="1">
+		<f a=""><x path="hl.vm.Mutex"/></f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Creates a mutex.</haxe_doc>
+	</_new>
+	<acquire public="1" set="method" line="43" static="1">
+		<f a="this">
+			<c path="hl.Abstract"><c path="Shl_mutex"/></c>
+			<x path="Void"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":hlNative">
+				<e>"std"</e>
+				<e>"mutex_acquire"</e>
+			</m>
+		</meta>
+		<haxe_doc>The current thread acquire the mutex or wait if not available.
+		The same thread can acquire several times the same mutex but 
+		must release it as many times it has been acquired.</haxe_doc>
+	</acquire>
+	<tryAcquire public="1" set="method" line="50" static="1">
+		<f a="this">
+			<c path="hl.Abstract"><c path="Shl_mutex"/></c>
+			<x path="Bool"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":hlNative">
+				<e>"std"</e>
+				<e>"mutex_try_acquire"</e>
+			</m>
+		</meta>
+		<haxe_doc>Try to acquire the mutex, returns true if acquire or false 
+		if it's already locked by another thread.</haxe_doc>
+	</tryAcquire>
+	<release public="1" set="method" line="59" static="1">
+		<f a="this">
+			<c path="hl.Abstract"><c path="Shl_mutex"/></c>
+			<x path="Void"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":hlNative">
+				<e>"std"</e>
+				<e>"mutex_release"</e>
+			</m>
+		</meta>
+		<haxe_doc>Release a mutex that has been acquired by the current thread. 
+		The behavior is undefined if the current thread does not own
+		the mutex.</haxe_doc>
+	</release>
+	<alloc public="1" set="method" line="62" static="1">
+		<f a="b">
+			<x path="Bool"/>
+			<c path="hl.Abstract"><c path="Shl_mutex"/></c>
+		</f>
+		<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"mutex_alloc"</e>
+</m></meta>
+	</alloc>
+	<meta><m n=":final"/></meta>
+</class></impl>
+	</abstract>
+	<class path="hl.vm._Mutex.Mutex_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/vm/Mutex.hx" private="1" module="hl.vm.Mutex">
+		<_new public="1" set="method" line="34" static="1">
+			<f a=""><x path="hl.vm.Mutex"/></f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Creates a mutex.</haxe_doc>
+		</_new>
+		<acquire public="1" set="method" line="43" static="1">
+			<f a="this">
+				<c path="hl.Abstract"><c path="Shl_mutex"/></c>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":hlNative">
+					<e>"std"</e>
+					<e>"mutex_acquire"</e>
+				</m>
+			</meta>
+			<haxe_doc>The current thread acquire the mutex or wait if not available.
+		The same thread can acquire several times the same mutex but 
+		must release it as many times it has been acquired.</haxe_doc>
+		</acquire>
+		<tryAcquire public="1" set="method" line="50" static="1">
+			<f a="this">
+				<c path="hl.Abstract"><c path="Shl_mutex"/></c>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":hlNative">
+					<e>"std"</e>
+					<e>"mutex_try_acquire"</e>
+				</m>
+			</meta>
+			<haxe_doc>Try to acquire the mutex, returns true if acquire or false 
+		if it's already locked by another thread.</haxe_doc>
+		</tryAcquire>
+		<release public="1" set="method" line="59" static="1">
+			<f a="this">
+				<c path="hl.Abstract"><c path="Shl_mutex"/></c>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":hlNative">
+					<e>"std"</e>
+					<e>"mutex_release"</e>
+				</m>
+			</meta>
+			<haxe_doc>Release a mutex that has been acquired by the current thread. 
+		The behavior is undefined if the current thread does not own
+		the mutex.</haxe_doc>
+		</release>
+		<alloc public="1" set="method" line="62" static="1">
+			<f a="b">
+				<x path="Bool"/>
+				<c path="hl.Abstract"><c path="Shl_mutex"/></c>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"mutex_alloc"</e>
+</m></meta>
+		</alloc>
+		<meta><m n=":final"/></meta>
+	</class>
+	<typedef path="hl.vm.ThreadHandle" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/vm/Thread.hx" module="hl.vm.Thread"><c path="hl.Abstract"><c path="Shl_thread"/></c></typedef>
+	<abstract path="hl.vm.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/vm/Thread.hx">
+		<this><t path="hl.vm.ThreadHandle"/></this>
+		<impl><class path="hl.vm._Thread.Thread_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/vm/Thread.hx" private="1" module="hl.vm.Thread">
+	<sendMessage public="1" set="method" line="28" static="1">
+		<f a="this:msg">
+			<t path="hl.vm.ThreadHandle"/>
+			<d/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</sendMessage>
+	<readMessage public="1" set="method" line="32" static="1">
+		<f a="?block" v="true">
+			<x path="Bool"/>
+			<d/>
+		</f>
+		<meta><m n=":value"><e>{ block : true }</e></m></meta>
+	</readMessage>
+	<queue_mutex expr="null" line="36" static="1">
+		<x path="hl.vm.Mutex"/>
+		<meta><m n=":value"><e>null</e></m></meta>
+	</queue_mutex>
+	<threads_queues expr="null" line="37" static="1">
+		<c path="Array"><a>
+	<t><t path="hl.vm.ThreadHandle"/></t>
+	<q><x path="hl.vm.Deque"><d/></x></q>
+</a></c>
+		<meta><m n=":value"><e>null</e></m></meta>
+	</threads_queues>
+	<getQueue set="method" line="38" static="1"><f a="t">
+	<t path="hl.vm.ThreadHandle"/>
+	<x path="hl.vm.Deque"><d/></x>
+</f></getQueue>
+	<create public="1" set="method" line="59" static="1">
+		<f a="callb">
+			<f a=""><x path="Void"/></f>
+			<x path="hl.vm.Thread"/>
+		</f>
+		<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"thread_create"</e>
+</m></meta>
+	</create>
+	<current public="1" set="method" line="64" static="1">
+		<f a=""><x path="hl.vm.Thread"/></f>
+		<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"thread_current"</e>
+</m></meta>
+	</current>
+	<meta><m n=":final"/></meta>
+</class></impl>
+	</abstract>
+	<class path="hl.vm._Thread.Thread_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/vm/Thread.hx" private="1" module="hl.vm.Thread">
+		<sendMessage public="1" set="method" line="28" static="1">
+			<f a="this:msg">
+				<t path="hl.vm.ThreadHandle"/>
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</sendMessage>
+		<readMessage public="1" set="method" line="32" static="1">
+			<f a="?block" v="true">
+				<x path="Bool"/>
+				<d/>
+			</f>
+			<meta><m n=":value"><e>{ block : true }</e></m></meta>
+		</readMessage>
+		<queue_mutex expr="null" line="36" static="1">
+			<x path="hl.vm.Mutex"/>
+			<meta><m n=":value"><e>null</e></m></meta>
+		</queue_mutex>
+		<threads_queues expr="null" line="37" static="1">
+			<c path="Array"><a>
+	<t><t path="hl.vm.ThreadHandle"/></t>
+	<q><x path="hl.vm.Deque"><d/></x></q>
+</a></c>
+			<meta><m n=":value"><e>null</e></m></meta>
+		</threads_queues>
+		<getQueue set="method" line="38" static="1"><f a="t">
+	<t path="hl.vm.ThreadHandle"/>
+	<x path="hl.vm.Deque"><d/></x>
+</f></getQueue>
+		<create public="1" set="method" line="59" static="1">
+			<f a="callb">
+				<f a=""><x path="Void"/></f>
+				<x path="hl.vm.Thread"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"thread_create"</e>
+</m></meta>
+		</create>
+		<current public="1" set="method" line="64" static="1">
+			<f a=""><x path="hl.vm.Thread"/></f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"thread_current"</e>
+</m></meta>
+		</current>
+		<meta><m n=":final"/></meta>
+	</class>
+	<abstract path="hl.vm.Tls" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/hl/vm/Tls.hx">
+		<this><c path="hl.Abstract"><c path="Shl_tls"/></c></this>
+		<haxe_doc>Creates thread local storage.
+	Warning : ATM Tls does not protect the value from being GC'ed. Keep the value reachable to avoid crashes.</haxe_doc>
+		<meta><m n=":hlNative"><e>"std"</e></m></meta>
+		<impl><class path="hl.vm._Tls.Tls_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/vm/Tls.hx" private="1" module="hl.vm.Tls">
+	<value public="1" get="accessor" set="accessor" static="1">
+		<c path="hl.vm.Tls.T"/>
+		<meta><m n=":impl"/></meta>
+	</value>
+	<_new public="1" set="method" line="39" static="1">
+		<f a=""><x path="hl.vm.Tls"><c path="hl.vm.Tls.T"/></x></f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Creates thread local storage. This is placeholder that can store
+		a value that will be different depending on the local thread. 
+		Set the tls value to `null` before exiting the thread 
+		or the memory will never be collected.</haxe_doc>
+	</_new>
+	<get_value set="method" line="46" static="1">
+		<f a="this">
+			<c path="hl.Abstract"><c path="Shl_tls"/></c>
+			<c path="hl.vm.Tls.T"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns the value set by tls_set for the local thread.</haxe_doc>
+	</get_value>
+	<set_value set="method" line="53" static="1">
+		<f a="this:v">
+			<c path="hl.Abstract"><c path="Shl_tls"/></c>
+			<c path="hl.vm.Tls.T"/>
+			<c path="hl.vm.Tls.T"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Set the value of the TLS for the local thread.</haxe_doc>
+	</set_value>
+	<tls_alloc set="method" line="58" static="1"><f a="gcValue">
+	<x path="Bool"/>
+	<c path="hl.Abstract"><c path="Shl_tls"/></c>
+</f></tls_alloc>
+	<tls_get set="method" line="59" static="1"><f a="t">
+	<c path="hl.Abstract"><c path="Shl_tls"/></c>
+	<d/>
+</f></tls_get>
+	<tls_set set="method" line="60" static="1"><f a="t:v">
+	<c path="hl.Abstract"><c path="Shl_tls"/></c>
+	<d/>
+	<x path="Void"/>
+</f></tls_set>
+	<meta>
+		<m n=":final"/>
+		<m n=":hlNative"><e>"std"</e></m>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="hl.vm._Tls.Tls_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/vm/Tls.hx" private="1" module="hl.vm.Tls">
+		<value public="1" get="accessor" set="accessor" static="1">
+			<c path="hl.vm.Tls.T"/>
+			<meta><m n=":impl"/></meta>
+		</value>
+		<_new public="1" set="method" line="39" static="1">
+			<f a=""><x path="hl.vm.Tls"><c path="hl.vm.Tls.T"/></x></f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Creates thread local storage. This is placeholder that can store
+		a value that will be different depending on the local thread. 
+		Set the tls value to `null` before exiting the thread 
+		or the memory will never be collected.</haxe_doc>
+		</_new>
+		<get_value set="method" line="46" static="1">
+			<f a="this">
+				<c path="hl.Abstract"><c path="Shl_tls"/></c>
+				<c path="hl.vm.Tls.T"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns the value set by tls_set for the local thread.</haxe_doc>
+		</get_value>
+		<set_value set="method" line="53" static="1">
+			<f a="this:v">
+				<c path="hl.Abstract"><c path="Shl_tls"/></c>
+				<c path="hl.vm.Tls.T"/>
+				<c path="hl.vm.Tls.T"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Set the value of the TLS for the local thread.</haxe_doc>
+		</set_value>
+		<tls_alloc set="method" line="58" static="1"><f a="gcValue">
+	<x path="Bool"/>
+	<c path="hl.Abstract"><c path="Shl_tls"/></c>
+</f></tls_alloc>
+		<tls_get set="method" line="59" static="1"><f a="t">
+	<c path="hl.Abstract"><c path="Shl_tls"/></c>
+	<d/>
+</f></tls_get>
+		<tls_set set="method" line="60" static="1"><f a="t:v">
+	<c path="hl.Abstract"><c path="Shl_tls"/></c>
+	<d/>
+	<x path="Void"/>
+</f></tls_set>
+		<meta>
+			<m n=":final"/>
+			<m n=":hlNative"><e>"std"</e></m>
+		</meta>
 	</class>
 	<typedef path="sys.FileStat" params="" file="/home/travis/build/HaxeFoundation/haxe/std/sys/FileStat.hx">
 		<a>
