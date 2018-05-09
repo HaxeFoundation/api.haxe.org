@@ -12497,16 +12497,21 @@
 		<haxe_doc>If a file is modified, also checks if its content changed. This check
 		is not free, but useful when .hx files are auto-generated.</haxe_doc>
 	</CheckFileContentModification>
-	<NoCheckDependencies public="1" get="inline" set="null" expr="cast 2" line="21" static="1">
+	<NoCheckDependencies public="1" get="inline" set="null" expr="cast 2" line="26" static="1">
 		<x path="haxe.macro.ModuleCheckPolicy"/>
 		<meta>
 			<m n=":value"><e>cast 2</e></m>
 			<m n=":enum"/>
 			<m n=":impl"/>
 		</meta>
-		<haxe_doc>Disables dependency checks of the module.</haxe_doc>
+		<haxe_doc>Disables dependency checks of the module.
+
+		This should only be used for modules that don't depend on any module that
+		might change. It is effectively a promise to the compiler that the module
+		is unaffected by changes made to other modules. If that promise is broken,
+		the compiler is sad and things probably stop working.</haxe_doc>
 	</NoCheckDependencies>
-	<NoCheckShadowing public="1" get="inline" set="null" expr="cast 3" line="28" static="1">
+	<NoCheckShadowing public="1" get="inline" set="null" expr="cast 3" line="33" static="1">
 		<x path="haxe.macro.ModuleCheckPolicy"/>
 		<meta>
 			<m n=":value"><e>cast 3</e></m>
@@ -12543,16 +12548,21 @@
 			<haxe_doc>If a file is modified, also checks if its content changed. This check
 		is not free, but useful when .hx files are auto-generated.</haxe_doc>
 		</CheckFileContentModification>
-		<NoCheckDependencies public="1" get="inline" set="null" expr="cast 2" line="21" static="1">
+		<NoCheckDependencies public="1" get="inline" set="null" expr="cast 2" line="26" static="1">
 			<x path="haxe.macro.ModuleCheckPolicy"/>
 			<meta>
 				<m n=":value"><e>cast 2</e></m>
 				<m n=":enum"/>
 				<m n=":impl"/>
 			</meta>
-			<haxe_doc>Disables dependency checks of the module.</haxe_doc>
+			<haxe_doc>Disables dependency checks of the module.
+
+		This should only be used for modules that don't depend on any module that
+		might change. It is effectively a promise to the compiler that the module
+		is unaffected by changes made to other modules. If that promise is broken,
+		the compiler is sad and things probably stop working.</haxe_doc>
 		</NoCheckDependencies>
-		<NoCheckShadowing public="1" get="inline" set="null" expr="cast 3" line="28" static="1">
+		<NoCheckShadowing public="1" get="inline" set="null" expr="cast 3" line="33" static="1">
 			<x path="haxe.macro.ModuleCheckPolicy"/>
 			<meta>
 				<m n=":value"><e>cast 3</e></m>
@@ -12572,7 +12582,7 @@
 		<this><x path="Int"/></this>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="haxe.macro._CompilationServer.ContextOptions_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/macro/CompilationServer.hx" private="1" module="haxe.macro.CompilationServer" extern="1">
-	<NormalContext public="1" get="inline" set="null" expr="cast 0" line="35" static="1">
+	<NormalContext public="1" get="inline" set="null" expr="cast 0" line="40" static="1">
 		<x path="haxe.macro.ContextOptions"/>
 		<meta>
 			<m n=":value"><e>cast 0</e></m>
@@ -12581,7 +12591,7 @@
 		</meta>
 		<haxe_doc>Affects only the normal context.</haxe_doc>
 	</NormalContext>
-	<MacroContext public="1" get="inline" set="null" expr="cast 1" line="40" static="1">
+	<MacroContext public="1" get="inline" set="null" expr="cast 1" line="45" static="1">
 		<x path="haxe.macro.ContextOptions"/>
 		<meta>
 			<m n=":value"><e>cast 1</e></m>
@@ -12590,7 +12600,7 @@
 		</meta>
 		<haxe_doc>Affects only the macro context.</haxe_doc>
 	</MacroContext>
-	<NormalAndMacroContext public="1" get="inline" set="null" expr="cast 2" line="45" static="1">
+	<NormalAndMacroContext public="1" get="inline" set="null" expr="cast 2" line="50" static="1">
 		<x path="haxe.macro.ContextOptions"/>
 		<meta>
 			<m n=":value"><e>cast 2</e></m>
@@ -12606,7 +12616,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.macro._CompilationServer.ContextOptions_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/macro/CompilationServer.hx" private="1" module="haxe.macro.CompilationServer" extern="1">
-		<NormalContext public="1" get="inline" set="null" expr="cast 0" line="35" static="1">
+		<NormalContext public="1" get="inline" set="null" expr="cast 0" line="40" static="1">
 			<x path="haxe.macro.ContextOptions"/>
 			<meta>
 				<m n=":value"><e>cast 0</e></m>
@@ -12615,7 +12625,7 @@
 			</meta>
 			<haxe_doc>Affects only the normal context.</haxe_doc>
 		</NormalContext>
-		<MacroContext public="1" get="inline" set="null" expr="cast 1" line="40" static="1">
+		<MacroContext public="1" get="inline" set="null" expr="cast 1" line="45" static="1">
 			<x path="haxe.macro.ContextOptions"/>
 			<meta>
 				<m n=":value"><e>cast 1</e></m>
@@ -12624,7 +12634,7 @@
 			</meta>
 			<haxe_doc>Affects only the macro context.</haxe_doc>
 		</MacroContext>
-		<NormalAndMacroContext public="1" get="inline" set="null" expr="cast 2" line="45" static="1">
+		<NormalAndMacroContext public="1" get="inline" set="null" expr="cast 2" line="50" static="1">
 			<x path="haxe.macro.ContextOptions"/>
 			<meta>
 				<m n=":value"><e>cast 2</e></m>
