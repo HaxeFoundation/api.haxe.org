@@ -36,9 +36,18 @@ class DeployGhPages {
         }
         runCommand("git", ["add", "--all"]);
         runCommand("git", ["commit", "--allow-empty", "--quiet", "-m", 'deploy for ${sha}']);
-        runCommand("git", ["push", "local", branch]);
+
+        // keep only the last 25 commits
+        var hash = StringTools.trim(commandOutput("git", ["rev-parse", "HEAD~24"], true));
+        if (hash.length == 40) { // is a valid commit sha
+            runCommand("git", ["replace", "-f", "--graft", hash]);
+            runCommand("git", ["filter-branch"]);
+            runCommand("git", ["gc", "--prune=now"]);
+        }
+
+        runCommand("git", ["push", "local", branch, "-f"]);
 
         setCwd(root);
-        runCommand("git", ["push", remote, branch]);
+        runCommand("git", ["push", remote, branch, "-f"]);
     }
 }

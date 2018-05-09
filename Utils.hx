@@ -12,21 +12,26 @@ class Utils {
                 v;
         }
     }
-    static public function runCommand(cmd:String, args:Array<String>):Void {
+    static public function runCommand(cmd:String, args:Array<String>, allowFailure = false):Bool {
         println('run: $cmd $args');
-        switch(command(cmd, args)) {
+        return switch(command(cmd, args)) {
             case 0:
-                //pass
-            case exitCode:
-                exit(exitCode);
+                true;
+            case exitCode :
+                if (!allowFailure) {
+                    exit(exitCode);
+                    false;
+                } else {
+                    true;
+                }
         }
     }
-    static public function commandOutput(cmd:String, args:Array<String>):String {
+    static public function commandOutput(cmd:String, args:Array<String>, allowFailure = false):String {
         var p = new Process(cmd, args);
         var exitCode = p.exitCode();
         var output = p.stdout.readAll().toString();
         p.close();
-        if (exitCode != 0)
+        if (!allowFailure && exitCode != 0)
             exit(exitCode);
         return output;
     }
