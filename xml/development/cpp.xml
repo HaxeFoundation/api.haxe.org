@@ -5162,7 +5162,7 @@
 			<m n=":analyzer"><e>as_var</e></m>
 		</meta>
 	</class>
-	<typedef path="cpp.ConstStar" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/ConstStar.hx"><c path="cpp.ConstStar.T"/></typedef>
+	<typedef path="cpp.ConstStar" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/ConstStar.hx"><x path="Null"><c path="cpp.ConstStar.T"/></x></typedef>
 	<class path="cpp.EnumBase" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/EnumBase.hx" extern="1">
 		<_hx_getIndex public="1" set="method"><f a=""><x path="Int"/></f></_hx_getIndex>
 		<_hx_getTag public="1" set="method"><f a=""><c path="String"/></f></_hx_getTag>
@@ -5713,6 +5713,110 @@
 		<haxe_doc>Platform-specific Cpp Library. Provides some platform-specific functions
 	for the C++ target, such as conversion from Haxe types to native types
 	and vice-versa.</haxe_doc>
+	</class>
+	<class path="cpp.Native" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/Native.hx" extern="1">
+		<nativeMalloc public="1" set="method" static="1">
+			<f a="bytes">
+				<x path="Int"/>
+				<t path="cpp.Star"><c path="cpp.Void"/></t>
+			</f>
+			<meta><m n=":native"><e>"malloc"</e></m></meta>
+		</nativeMalloc>
+		<nativeCalloc public="1" set="method" static="1">
+			<f a="bytes">
+				<x path="Int"/>
+				<t path="cpp.Star"><c path="cpp.Void"/></t>
+			</f>
+			<meta><m n=":native"><e>"calloc"</e></m></meta>
+		</nativeCalloc>
+		<nativeRealloc public="1" set="method" static="1">
+			<f a="inPtr:bytes">
+				<t path="cpp.Star"><c path="cpp.Void"/></t>
+				<x path="Int"/>
+				<c path="cpp.RawPointer"><c path="cpp.Void"/></c>
+			</f>
+			<meta><m n=":native"><e>"realloc"</e></m></meta>
+		</nativeRealloc>
+		<nativeFree public="1" set="method" static="1">
+			<f a="ptr">
+				<t path="cpp.Star"><c path="cpp.Void"/></t>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":native"><e>"free"</e></m></meta>
+		</nativeFree>
+		<nativeMemcpy public="1" set="method" static="1">
+			<f a="dest:src:bytes">
+				<t path="cpp.Star"><c path="cpp.Void"/></t>
+				<t path="cpp.Star"><c path="cpp.Void"/></t>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":native"><e>"memcpy"</e></m></meta>
+		</nativeMemcpy>
+		<sizeof public="1" params="T" set="method" static="1">
+			<f a="t">
+				<c path="sizeof.T"/>
+				<x path="Int"/>
+			</f>
+			<meta>
+				<m n=":native"><e>"hx::ClassSizeOf"</e></m>
+				<m n=":templatedCall"/>
+			</meta>
+		</sizeof>
+		<set public="1" params="T" get="inline" set="null" line="44" static="1">
+			<f a="ptr:value">
+				<t path="cpp.Star"><c path="set.T"/></t>
+				<c path="set.T"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":generic"/></meta>
+		</set>
+		<get public="1" params="T" get="inline" set="null" line="50" static="1">
+			<f a="ptr">
+				<t path="cpp.Star"><c path="get.T"/></t>
+				<c path="get.T"/>
+			</f>
+			<meta><m n=":generic"/></meta>
+		</get>
+		<memcpy public="1" params="DEST:SRC" get="inline" set="null" line="57" static="1">
+			<f a="dest:src:bytes">
+				<t path="cpp.Star"><c path="memcpy.DEST"/></t>
+				<t path="cpp.Star"><c path="memcpy.SRC"/></t>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":generic"/></meta>
+		</memcpy>
+		<malloc public="1" params="T" get="inline" set="null" line="61" static="1">
+			<f a="bytes">
+				<x path="Int"/>
+				<t path="cpp.Star"><c path="malloc.T"/></t>
+			</f>
+			<meta><m n=":generic"/></meta>
+		</malloc>
+		<calloc public="1" params="T" get="inline" set="null" line="65" static="1">
+			<f a="bytes">
+				<x path="Int"/>
+				<t path="cpp.Star"><c path="calloc.T"/></t>
+			</f>
+			<meta><m n=":generic"/></meta>
+		</calloc>
+		<realloc public="1" params="T" get="inline" set="null" line="69" static="1">
+			<f a="ioPtr:bytes">
+				<t path="cpp.Star"><c path="realloc.T"/></t>
+				<x path="Int"/>
+				<t path="cpp.Star"><c path="realloc.T"/></t>
+			</f>
+			<meta><m n=":generic"/></meta>
+		</realloc>
+		<free public="1" params="T" get="inline" set="null" line="73" static="1">
+			<f a="ptr">
+				<t path="cpp.Star"><c path="free.T"/></t>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":generic"/></meta>
+		</free>
+		<meta><m n=":include"><e>"stdlib.h"</e></m></meta>
 	</class>
 	<class path="cpp.NativeArc" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/NativeArc.hx" extern="1">
 		<_bridgeTransfer public="1" params="T" set="method" static="1">
@@ -7707,7 +7811,7 @@
 			<m n=":notNull"/>
 		</meta>
 	</abstract>
-	<typedef path="cpp.Star" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/Star.hx"><c path="cpp.Star.T"/></typedef>
+	<typedef path="cpp.Star" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/Star.hx"><x path="Null"><c path="cpp.Star.T"/></x></typedef>
 	<class path="cpp.StdStringRef" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/StdStringRef.hx" extern="1">
 		<c_str public="1" set="method"><f a=""><c path="cpp.ConstPointer"><x path="cpp.Char"/></c></f></c_str>
 		<size public="1" set="method"><f a=""><x path="Int"/></f></size>
