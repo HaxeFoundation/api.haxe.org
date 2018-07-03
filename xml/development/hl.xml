@@ -21255,16 +21255,17 @@
 		<Profile><haxe_doc>Activate profiling: regularly print on stdout gc allocation stats</haxe_doc></Profile>
 		<DumpMem><haxe_doc>Allows one to dump a hlmemory.dump file when HL runs out of memory to be examined with hl memory inspector tool.</haxe_doc></DumpMem>
 		<NoThreads><haxe_doc>Disable GC locking for multithreads</haxe_doc></NoThreads>
+		<ForceMajor><haxe_doc>Force major GC on each allocation</haxe_doc></ForceMajor>
 		<meta><m n=":flatEnum"/></meta>
 	</enum>
 	<class path="hl.Gc" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/Gc.hx">
 		<flags public="1" get="accessor" set="accessor" static="1"><x path="haxe.EnumFlags"><e path="hl.GcFlag"/></x></flags>
-		<stats public="1" set="method" line="43" static="1"><f a=""><a>
+		<stats public="1" set="method" line="47" static="1"><f a=""><a>
 	<totalAllocated><x path="Float"/></totalAllocated>
 	<currentMemory><x path="Float"/></currentMemory>
 	<allocationCount><x path="Float"/></allocationCount>
 </a></f></stats>
-		<dumpMemory public="1" set="method" line="52" static="1">
+		<dumpMemory public="1" set="method" line="56" static="1">
 			<f a="?fileName" v="&quot;hlmemory.dump&quot;">
 				<c path="String"/>
 				<x path="Void"/>
@@ -21272,12 +21273,12 @@
 			<meta><m n=":value"><e>{ fileName : "hlmemory.dump" }</e></m></meta>
 			<haxe_doc>Dump whole memory into target filename for analysis.</haxe_doc>
 		</dumpMemory>
-		<get_flags set="method" line="56" static="1"><f a=""><x path="haxe.EnumFlags"><e path="hl.GcFlag"/></x></f></get_flags>
-		<set_flags set="method" line="60" static="1"><f a="v">
+		<get_flags set="method" line="60" static="1"><f a=""><x path="haxe.EnumFlags"><e path="hl.GcFlag"/></x></f></get_flags>
+		<set_flags set="method" line="64" static="1"><f a="v">
 	<x path="haxe.EnumFlags"><e path="hl.GcFlag"/></x>
 	<x path="haxe.EnumFlags"><e path="hl.GcFlag"/></x>
 </f></set_flags>
-		<blocking public="1" set="method" line="70" static="1">
+		<blocking public="1" set="method" line="74" static="1">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
@@ -21289,7 +21290,7 @@
 			<haxe_doc>Enter/leave a blocking section: when in a blocking section the thread cannot
 		allocate any memory but other threads will not wait for it for collecting memory.</haxe_doc>
 		</blocking>
-		<_dump set="method" line="73" static="1">
+		<_dump set="method" line="77" static="1">
 			<f a="b">
 				<x path="hl.Bytes"/>
 				<x path="Void"/>
@@ -21299,7 +21300,7 @@
 	<e>"gc_dump_memory"</e>
 </m></meta>
 		</_dump>
-		<enable public="1" set="method" line="75" static="1">
+		<enable public="1" set="method" line="79" static="1">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
@@ -21309,14 +21310,14 @@
 	<e>"gc_enable"</e>
 </m></meta>
 		</enable>
-		<major public="1" set="method" line="76" static="1">
+		<major public="1" set="method" line="80" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"gc_major"</e>
 </m></meta>
 		</major>
-		<_stats set="method" line="77" static="1">
+		<_stats set="method" line="81" static="1">
 			<f a="totalAllocated:allocationCount:currentMemory">
 				<x path="hl.Ref"><x path="Float"/></x>
 				<x path="hl.Ref"><x path="Float"/></x>
@@ -21328,14 +21329,14 @@
 	<e>"gc_stats"</e>
 </m></meta>
 		</_stats>
-		<_get_flags set="method" line="79" static="1">
+		<_get_flags set="method" line="83" static="1">
 			<f a=""><x path="Int"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"gc_get_flags"</e>
 </m></meta>
 		</_get_flags>
-		<_set_flags set="method" line="80" static="1">
+		<_set_flags set="method" line="84" static="1">
 			<f a="v">
 				<x path="Int"/>
 				<x path="Void"/>
