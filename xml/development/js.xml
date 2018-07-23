@@ -53348,7 +53348,10 @@
 		<fireWith public="1" set="method">
 			<f a="?context:?args">
 				<d/>
-				<d/>
+				<x path="haxe.extern.EitherType">
+					<c path="Array"><d/></c>
+					<c path="js.html.NodeList"/>
+				</x>
 				<c path="js.jquery.Callbacks"/>
 			</f>
 			<haxe_doc>Call all callbacks in a list with the given context and arguments.</haxe_doc>
@@ -53781,7 +53784,7 @@
 		<ajaxSetup public="1" set="method" static="1">
 			<f a="options">
 				<d/>
-				<x path="Void"/>
+				<d/>
 			</f>
 			<haxe_doc>Set default values for future Ajax requests. Its use is not recommended.</haxe_doc>
 		</ajaxSetup>
@@ -53801,7 +53804,7 @@
 		<boxModel public="1" static="1">
 			<x path="Bool"/>
 			<meta><m n=":deprecated"><e>"Deprecated since jQuery 1.3"</e></m></meta>
-			<haxe_doc><![CDATA[States if the current page, in the user's browser, is being rendered using the <a href="http://www.w3.org/TR/REC-CSS2/box.html">W3C CSS Box Model</a>. <strong>This property was removed in jQuery 1.8</strong>. Please try to use feature detection instead.]]></haxe_doc>
+			<haxe_doc><![CDATA[States if the current page, in the user's browser, is being rendered using the <a href="https://www.w3.org/TR/REC-CSS2/box.html">W3C CSS Box Model</a>. <strong>This property was removed in jQuery 1.8</strong>. Please try to use feature detection instead.]]></haxe_doc>
 		</boxModel>
 		<browser public="1" static="1">
 			<d/>
@@ -53866,7 +53869,10 @@
 		</dequeue>
 		<each public="1" set="method" static="1">
 			<f a="array:callback">
-				<c path="Array"><d/></c>
+				<x path="haxe.extern.EitherType">
+					<c path="Array"><d/></c>
+					<c path="js.html.NodeList"/>
+				</x>
 				<f a=":">
 					<x path="Int"/>
 					<d/>
@@ -53988,7 +53994,7 @@
 		<globalEval public="1" set="method" static="1">
 			<f a="code">
 				<c path="String"/>
-				<x path="Void"/>
+				<d/>
 			</f>
 			<haxe_doc>Execute some JavaScript code globally.</haxe_doc>
 		</globalEval>
@@ -54053,11 +54059,12 @@
 			<haxe_doc>Check to see if an object is empty (contains no enumerable properties).</haxe_doc>
 		</isEmptyObject>
 		<isFunction public="1" set="method" static="1">
-			<f a="obj">
+			<f a="value">
 				<d/>
 				<x path="Bool"/>
 			</f>
-			<haxe_doc>Determine if the argument passed is a JavaScript function object.</haxe_doc>
+			<meta><m n=":deprecated"><e>"Deprecated since jQuery 3.3"</e></m></meta>
+			<haxe_doc>Determines if its argument is callable as a function.</haxe_doc>
 		</isFunction>
 		<isNumeric public="1" set="method" static="1">
 			<f a="value">
@@ -54078,6 +54085,7 @@
 				<d/>
 				<x path="Bool"/>
 			</f>
+			<meta><m n=":deprecated"><e>"Deprecated since jQuery 3.3"</e></m></meta>
 			<haxe_doc>Determine whether the argument is a window.</haxe_doc>
 		</isWindow>
 		<isXMLDoc public="1" set="method" static="1">
@@ -54337,7 +54345,7 @@
 		<support public="1" static="1">
 			<d/>
 			<meta><m n=":deprecated"><e>"Deprecated since jQuery 1.9"</e></m></meta>
-			<haxe_doc><![CDATA[A collection of properties that represent the presence of different browser features or bugs. Intended for jQuery's internal use; specific properties may be removed when they are no longer needed internally to improve page startup performance. For your own project's feature-detection needs, we strongly recommend the use of an external library such as <a href="http://modernizr.com">Modernizr</a> instead of dependency on properties in <code>jQuery.support</code>.]]></haxe_doc>
+			<haxe_doc><![CDATA[A collection of properties that represent the presence of different browser features or bugs. Intended for jQuery's internal use; specific properties may be removed when they are no longer needed internally to improve page startup performance. For your own project's feature-detection needs, we strongly recommend the use of an external library such as <a href="https://modernizr.com">Modernizr</a> instead of dependency on properties in <code>jQuery.support</code>.]]></haxe_doc>
 		</support>
 		<trim public="1" set="method" static="1">
 			<f a="str">
@@ -57659,12 +57667,12 @@
 	<haxe_doc>Wrap an HTML structure around the content of each element in the set of matched elements.</haxe_doc>
 </wrapInner></overloads>
 		</wrapInner>
-		<iterator public="1" get="inline" set="null" line="1100">
+		<iterator public="1" get="inline" set="null" line="1102">
 			<f a=""><c path="js.jquery.JqIterator"/></f>
 			<meta><m n=":runtime"/></meta>
 			<haxe_doc>Haxe iterator.</haxe_doc>
 		</iterator>
-		<elements public="1" get="inline" set="null" line="1105">
+		<elements public="1" get="inline" set="null" line="1107">
 			<f a=""><c path="js.jquery.JqEltsIterator"/></f>
 			<meta><m n=":runtime"/></meta>
 			<haxe_doc>Haxe iterator.</haxe_doc>
