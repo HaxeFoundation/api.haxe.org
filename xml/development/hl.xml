@@ -8399,15 +8399,19 @@
 	<x path="Int"/>
 	<c path="haxe.io.Bytes"/>
 </f></alloc>
-		<ofString public="1" set="method" line="165" static="1"><f a="s">
-	<c path="String"/>
-	<c path="haxe.io.Bytes"/>
-</f></ofString>
-		<ofData public="1" set="method" line="171" static="1"><f a="b">
+		<ofString public="1" set="method" line="165" static="1">
+			<f a="s:?encoding">
+				<c path="String"/>
+				<e path="haxe.io.Encoding"/>
+				<c path="haxe.io.Bytes"/>
+			</f>
+			<haxe_doc>Returns bytes representation of the given String, using specific encoding (UTF-8 by default)</haxe_doc>
+		</ofString>
+		<ofData public="1" set="method" line="177" static="1"><f a="b">
 	<t path="haxe.io.BytesData"/>
 	<c path="haxe.io.Bytes"/>
 </f></ofData>
-		<fastGet public="1" get="inline" set="null" line="175" static="1">
+		<fastGet public="1" get="inline" set="null" line="181" static="1">
 			<f a="b:pos">
 				<t path="haxe.io.BytesData"/>
 				<x path="Int"/>
@@ -8537,9 +8541,10 @@
 			</f>
 			<haxe_doc>Store the 64 bit integer at given position (in low endian encoding).</haxe_doc>
 		</setInt64>
-		<getString public="1" set="method" line="122"><f a="pos:len">
+		<getString public="1" set="method" line="122"><f a="pos:len:?encoding">
 	<x path="Int"/>
 	<x path="Int"/>
+	<e path="haxe.io.Encoding"/>
 	<c path="String"/>
 </f></getString>
 		<readString public="1" get="inline" set="null" line="133">
@@ -8553,7 +8558,10 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</readString>
-		<toString public="1" set="method" line="137"><f a=""><c path="String"/></f></toString>
+		<toString public="1" set="method" line="137">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns string representation of the bytes as UTF8</haxe_doc>
+		</toString>
 		<toHex public="1" set="method" line="141"><f a=""><c path="String"/></f></toHex>
 		<getData public="1" get="inline" set="null" line="155"><f a=""><t path="haxe.io.BytesData"/></f></getData>
 		<new set="method" line="30"><f a="b:length">
@@ -8563,6 +8571,12 @@
 </f></new>
 		<meta><m n=":coreApi"/></meta>
 	</class>
+	<enum path="haxe.io.Encoding" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/io/Encoding.hx">
+		<UTF8/>
+		<RawNative><haxe_doc>Output the string the way the platform represent it in memory. This is the most efficient but is platform-specific</haxe_doc></RawNative>
+		<haxe_doc>String binary encoding supported by Haxe I/O</haxe_doc>
+		<meta><m n=":flatEnum"/></meta>
+	</enum>
 	<class path="haxe.crypto.Base64" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/crypto/Base64.hx">
 		<CHARS public="1" set="null" expr="&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;" line="29" static="1">
 			<c path="String"/>
@@ -14392,8 +14406,9 @@
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</readInt32>
 		<readString public="1" set="method" line="303">
-			<f a="len">
+			<f a="len:?encoding">
 				<x path="Int"/>
+				<e path="haxe.io.Encoding"/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Read and `len` bytes as a string.</haxe_doc>
@@ -14456,8 +14471,9 @@
 	<c path="haxe.io.Bytes"/>
 	<x path="Void"/>
 </f></add>
-		<addString public="1" get="inline" set="null" line="67"><f a="v">
+		<addString public="1" get="inline" set="null" line="67"><f a="v:?encoding">
 	<c path="String"/>
+	<e path="haxe.io.Encoding"/>
 	<x path="Void"/>
 </f></addString>
 		<addInt32 public="1" get="inline" set="null" line="72"><f a="v">
@@ -14786,8 +14802,9 @@
 		which data is read and written. Its default value is 4096.</haxe_doc>
 		</writeInput>
 		<writeString public="1" set="method" line="278">
-			<f a="s">
+			<f a="s:?encoding">
 				<c path="String"/>
+				<e path="haxe.io.Encoding"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Write `s` string.</haxe_doc>
@@ -14815,7 +14832,7 @@
 	<x path="Int"/>
 	<x path="Int"/>
 </f></writeBytes>
-		<getBytes public="1" set="method" line="131">
+		<getBytes public="1" set="method" line="134">
 			<f a=""><c path="haxe.io.Bytes"/></f>
 			<haxe_doc>Returns the `Bytes` of this output.
 

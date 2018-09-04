@@ -1557,8 +1557,103 @@
 	@see https://haxe.org/manual/std-reflection.html</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
+	<class path="js.Syntax" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/Syntax.hx" extern="1">
+		<code public="1" set="method" static="1">
+			<f a="code:args">
+				<c path="String"/>
+				<x path="haxe.extern.Rest"><d/></x>
+				<d/>
+			</f>
+			<haxe_doc>Inject `code` directly into generated source.
+
+		`code` must be a string constant.
+
+		Additional `args` are supported to provide code interpolation, for example:
+		```
+		Syntax.code("console.log({0}, {1})", "hi", 42);
+		```
+		will generate
+		```
+		console.log("hi", 42);
+		```</haxe_doc>
+		</code>
+		<construct public="1" params="T" set="method" static="1">
+			<f a="cl:args">
+				<x path="Class"><c path="construct.T"/></x>
+				<x path="haxe.extern.Rest"><d/></x>
+				<c path="construct.T"/>
+			</f>
+			<haxe_doc>Generate `new cl(...args)` expression.</haxe_doc>
+			<overloads><construct public="1" set="method">
+	<f a="cl:args">
+		<c path="String"/>
+		<x path="haxe.extern.Rest"><d/></x>
+		<d/>
+	</f>
+	<haxe_doc>Generate `new cl(...args)` expression.</haxe_doc>
+</construct></overloads>
+		</construct>
+		<instanceof public="1" set="method" static="1">
+			<f a="v:cl">
+				<d/>
+				<x path="Class"><d/></x>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Generate `v instanceof cl` expression.</haxe_doc>
+		</instanceof>
+		<typeof public="1" set="method" static="1">
+			<f a="o">
+				<d/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Generate `typeof o` expression.</haxe_doc>
+		</typeof>
+		<strictEq public="1" set="method" static="1">
+			<f a="a:b">
+				<d/>
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Genearte `a === b` expression.</haxe_doc>
+		</strictEq>
+		<strictNeq public="1" set="method" static="1">
+			<f a="a:b">
+				<d/>
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Genearte `a !== b` expression.</haxe_doc>
+		</strictNeq>
+		<delete public="1" set="method" static="1">
+			<f a="o:f">
+				<d/>
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Generate `delete o[f]` expression.</haxe_doc>
+			<overloads><delete public="1" set="method">
+	<f a="o:f">
+		<d/>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<haxe_doc>Generate `delete o[f]` expression.</haxe_doc>
+</delete></overloads>
+		</delete>
+		<field public="1" set="method" static="1">
+			<f a="o:f">
+				<d/>
+				<c path="String"/>
+				<d/>
+			</f>
+			<haxe_doc>Generate `o.f` expression, if `f` is a constant string,
+		or `o[f]` if it's any other expression.</haxe_doc>
+		</field>
+		<haxe_doc>Generate JavaScript syntax not directly supported by Haxe.
+	Use only at low-level when specific target-specific code-generation is required.</haxe_doc>
+	</class>
 	<class path="String" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/_std/String.hx" extern="1">
-		<fromCharCode public="1" set="method" static="1">
+		<fromCharCode public="1" get="inline" set="null" line="43" static="1">
 			<f a="code">
 				<x path="Int"/>
 				<c path="String"/>
@@ -7089,22 +7184,26 @@
 		<haxe_doc>Calculates the Adler32 of the given Bytes.</haxe_doc>
 	</class>
 	<class path="haxe.io.Bytes" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/_std/haxe/io/Bytes.hx">
-		<alloc public="1" get="inline" set="null" line="193" static="1"><f a="length">
+		<alloc public="1" get="inline" set="null" line="200" static="1"><f a="length">
 	<x path="Int"/>
 	<c path="haxe.io.Bytes"/>
 </f></alloc>
-		<ofString public="1" set="method" line="197" static="1"><f a="s">
-	<c path="String"/>
-	<c path="haxe.io.Bytes"/>
-</f></ofString>
-		<ofData public="1" set="method" line="225" static="1">
+		<ofString public="1" set="method" line="204" static="1">
+			<f a="s:?encoding">
+				<c path="String"/>
+				<e path="haxe.io.Encoding"/>
+				<c path="haxe.io.Bytes"/>
+			</f>
+			<haxe_doc>Returns bytes representation of the given String, using specific encoding (UTF-8 by default)</haxe_doc>
+		</ofString>
+		<ofData public="1" set="method" line="241" static="1">
 			<f a="b">
 				<t path="haxe.io.BytesData"/>
 				<c path="haxe.io.Bytes"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</ofData>
-		<fastGet public="1" get="inline" set="null" line="231" static="1">
+		<fastGet public="1" get="inline" set="null" line="247" static="1">
 			<f a="b:pos">
 				<t path="haxe.io.BytesData"/>
 				<x path="Int"/>
@@ -7228,12 +7327,13 @@
 			</f>
 			<haxe_doc>Store the 64 bit integer at given position (in low endian encoding).</haxe_doc>
 		</setInt64>
-		<getString public="1" set="method" line="135"><f a="pos:len">
+		<getString public="1" set="method" line="135"><f a="pos:len:?encoding">
 	<x path="Int"/>
 	<x path="Int"/>
+	<e path="haxe.io.Encoding"/>
 	<c path="String"/>
 </f></getString>
-		<readString public="1" get="inline" set="null" line="167">
+		<readString public="1" get="inline" set="null" line="174">
 			<f a="pos:len">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -7244,9 +7344,12 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</readString>
-		<toString public="1" set="method" line="171"><f a=""><c path="String"/></f></toString>
-		<toHex public="1" set="method" line="175"><f a=""><c path="String"/></f></toHex>
-		<getData public="1" get="inline" set="null" line="189">
+		<toString public="1" set="method" line="178">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns string representation of the bytes as UTF8</haxe_doc>
+		</toString>
+		<toHex public="1" set="method" line="182"><f a=""><c path="String"/></f></toHex>
+		<getData public="1" get="inline" set="null" line="196">
 			<f a=""><t path="haxe.io.BytesData"/></f>
 			<meta><m n=":has_untyped"/></meta>
 		</getData>
@@ -7259,6 +7362,12 @@
 		</new>
 		<meta><m n=":coreApi"/></meta>
 	</class>
+	<enum path="haxe.io.Encoding" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/io/Encoding.hx">
+		<UTF8/>
+		<RawNative><haxe_doc>Output the string the way the platform represent it in memory. This is the most efficient but is platform-specific</haxe_doc></RawNative>
+		<haxe_doc>String binary encoding supported by Haxe I/O</haxe_doc>
+		<meta><m n=":flatEnum"/></meta>
+	</enum>
 	<class path="js.html.ArrayBufferView" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/ArrayBufferView.hx" extern="1">
 		<buffer public="1" set="null"><c path="js.html.ArrayBuffer"/></buffer>
 		<byteOffset public="1" set="null"><x path="Int"/></byteOffset>
@@ -13311,8 +13420,9 @@
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</readInt32>
 		<readString public="1" set="method" line="303">
-			<f a="len">
+			<f a="len:?encoding">
 				<x path="Int"/>
+				<e path="haxe.io.Encoding"/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Read and `len` bytes as a string.</haxe_doc>
@@ -13358,48 +13468,57 @@
 		<u8><c path="js.html.Uint8Array"/></u8>
 		<pos><x path="Int"/></pos>
 		<size><x path="Int"/></size>
-		<length public="1" get="accessor" set="null"><x path="Int"/></length>
-		<get_length get="inline" set="null" line="39"><f a=""><x path="Int"/></f></get_length>
-		<addByte public="1" set="method" line="43"><f a="byte">
+		<length public="1" get="accessor" set="null">
+			<x path="Int"/>
+			<haxe_doc>The length of the buffer in bytes.</haxe_doc>
+		</length>
+		<get_length get="inline" set="null" line="40"><f a=""><x path="Int"/></f></get_length>
+		<addByte public="1" set="method" line="44"><f a="byte">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addByte>
-		<add public="1" set="method" line="48"><f a="src">
+		<add public="1" set="method" line="49"><f a="src">
 	<c path="haxe.io.Bytes"/>
 	<x path="Void"/>
 </f></add>
-		<addString public="1" set="method" line="56"><f a="v">
+		<addString public="1" set="method" line="57"><f a="v:?encoding">
 	<c path="String"/>
+	<e path="haxe.io.Encoding"/>
 	<x path="Void"/>
 </f></addString>
-		<addInt32 public="1" set="method" line="60"><f a="v">
+		<addInt32 public="1" set="method" line="61"><f a="v">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addInt32>
-		<addInt64 public="1" set="method" line="66"><f a="v">
+		<addInt64 public="1" set="method" line="67"><f a="v">
 	<x path="haxe.Int64"/>
 	<x path="Void"/>
 </f></addInt64>
-		<addFloat public="1" set="method" line="73"><f a="v">
+		<addFloat public="1" set="method" line="74"><f a="v">
 	<x path="Float"/>
 	<x path="Void"/>
 </f></addFloat>
-		<addDouble public="1" set="method" line="79"><f a="v">
+		<addDouble public="1" set="method" line="80"><f a="v">
 	<x path="Float"/>
 	<x path="Void"/>
 </f></addDouble>
-		<addBytes public="1" set="method" line="85"><f a="src:pos:len">
+		<addBytes public="1" set="method" line="86"><f a="src:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addBytes>
-		<grow set="method" line="94"><f a="delta">
+		<grow set="method" line="95"><f a="delta">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></grow>
-		<getBytes public="1" set="method" line="109"><f a=""><c path="haxe.io.Bytes"/></f></getBytes>
-		<new public="1" set="method" line="34"><f a=""><x path="Void"/></f></new>
+		<getBytes public="1" set="method" line="110">
+			<f a=""><c path="haxe.io.Bytes"/></f>
+			<haxe_doc>Returns either a copy or a reference of the current bytes.
+		Once called, the buffer can no longer be used.</haxe_doc>
+		</getBytes>
+		<new public="1" set="method" line="35"><f a=""><x path="Void"/></f></new>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<typedef path="haxe.io.BytesData" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/io/BytesData.hx"><c path="js.html.ArrayBuffer"/></typedef>
 	<class path="haxe.io.BytesInput" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/io/BytesInput.hx">
@@ -13589,8 +13708,9 @@
 		which data is read and written. Its default value is 4096.</haxe_doc>
 		</writeInput>
 		<writeString public="1" set="method" line="278">
-			<f a="s">
+			<f a="s:?encoding">
 				<c path="String"/>
+				<e path="haxe.io.Encoding"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Write `s` string.</haxe_doc>
@@ -13618,7 +13738,7 @@
 	<x path="Int"/>
 	<x path="Int"/>
 </f></writeBytes>
-		<getBytes public="1" set="method" line="131">
+		<getBytes public="1" set="method" line="134">
 			<f a=""><c path="haxe.io.Bytes"/></f>
 			<haxe_doc>Returns the `Bytes` of this output.
 
@@ -26216,101 +26336,6 @@
 		will be generated as required by JavaScript specification.</haxe_doc>
 		</new>
 		<meta><m n=":native"><e>"Symbol"</e></m></meta>
-	</class>
-	<class path="js.Syntax" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/Syntax.hx" extern="1">
-		<code public="1" set="method" static="1">
-			<f a="code:args">
-				<c path="String"/>
-				<x path="haxe.extern.Rest"><d/></x>
-				<d/>
-			</f>
-			<haxe_doc>Inject `code` directly into generated source.
-
-		`code` must be a string constant.
-
-		Additional `args` are supported to provide code interpolation, for example:
-		```
-		Syntax.code("console.log({0}, {1})", "hi", 42);
-		```
-		will generate
-		```
-		console.log("hi", 42);
-		```</haxe_doc>
-		</code>
-		<construct public="1" params="T" set="method" static="1">
-			<f a="cl:args">
-				<x path="Class"><c path="construct.T"/></x>
-				<x path="haxe.extern.Rest"><d/></x>
-				<c path="construct.T"/>
-			</f>
-			<haxe_doc>Generate `new cl(...args)` expression.</haxe_doc>
-			<overloads><construct public="1" set="method">
-	<f a="cl:args">
-		<c path="String"/>
-		<x path="haxe.extern.Rest"><d/></x>
-		<d/>
-	</f>
-	<haxe_doc>Generate `new cl(...args)` expression.</haxe_doc>
-</construct></overloads>
-		</construct>
-		<instanceof public="1" set="method" static="1">
-			<f a="v:cl">
-				<d/>
-				<x path="Class"><d/></x>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Generate `v instanceof cl` expression.</haxe_doc>
-		</instanceof>
-		<typeof public="1" set="method" static="1">
-			<f a="o">
-				<d/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Generate `typeof o` expression.</haxe_doc>
-		</typeof>
-		<strictEq public="1" set="method" static="1">
-			<f a="a:b">
-				<d/>
-				<d/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Genearte `a === b` expression.</haxe_doc>
-		</strictEq>
-		<strictNeq public="1" set="method" static="1">
-			<f a="a:b">
-				<d/>
-				<d/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Genearte `a !== b` expression.</haxe_doc>
-		</strictNeq>
-		<delete public="1" set="method" static="1">
-			<f a="o:f">
-				<d/>
-				<c path="String"/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Generate `delete o[f]` expression.</haxe_doc>
-			<overloads><delete public="1" set="method">
-	<f a="o:f">
-		<d/>
-		<x path="Int"/>
-		<x path="Bool"/>
-	</f>
-	<haxe_doc>Generate `delete o[f]` expression.</haxe_doc>
-</delete></overloads>
-		</delete>
-		<field public="1" set="method" static="1">
-			<f a="o:f">
-				<d/>
-				<c path="String"/>
-				<d/>
-			</f>
-			<haxe_doc>Generate `o.f` expression, if `f` is a constant string,
-		or `o[f]` if it's any other expression.</haxe_doc>
-		</field>
-		<haxe_doc>Generate JavaScript syntax not directly supported by Haxe.
-	Use only at low-level when specific target-specific code-generation is required.</haxe_doc>
 	</class>
 	<abstract path="js.html.AlignSetting" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/AlignSetting.hx">
 		<this><c path="String"/></this>

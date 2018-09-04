@@ -11933,7 +11933,7 @@
 </f></toNativeString>
 		<fromCharCode public="1" set="method" line="183" static="1"><f a="code">
 	<x path="Int"/>
-	<t path="cs.internal._StringExt.NativeString"/>
+	<c path="String"/>
 </f></fromCharCode>
 		<meta>
 			<m n=":nativeGen"/>
@@ -11943,17 +11943,17 @@
 		</meta>
 	</class>
 	<class path="cs.internal.StringRefl" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cs/internal/StringExt.hx" module="cs.internal.StringExt">
-		<fields public="1" expr="[&quot;length&quot;, &quot;toUpperCase&quot;, &quot;toLowerCase&quot;, &quot;charAt&quot;, &quot;charCodeAt&quot;, &quot;indexOf&quot;, &quot;lastIndexOf&quot;, &quot;split&quot;, &quot;substr&quot;, &quot;substring&quot;]" line="191" static="1">
+		<fields public="1" expr="[&quot;length&quot;, &quot;toUpperCase&quot;, &quot;toLowerCase&quot;, &quot;charAt&quot;, &quot;charCodeAt&quot;, &quot;indexOf&quot;, &quot;lastIndexOf&quot;, &quot;split&quot;, &quot;substr&quot;, &quot;substring&quot;]" line="192" static="1">
 			<c path="Array"><c path="String"/></c>
 			<meta><m n=":value"><e>["length", "toUpperCase", "toLowerCase", "charAt", "charCodeAt", "indexOf", "lastIndexOf", "split", "substr", "substring"]</e></m></meta>
 		</fields>
-		<handleGetField public="1" set="method" line="193" static="1"><f a="str:f:throwErrors">
+		<handleGetField public="1" set="method" line="194" static="1"><f a="str:f:throwErrors">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="Bool"/>
 	<d/>
 </f></handleGetField>
-		<handleCallField public="1" set="method" line="208" static="1"><f a="str:f:args">
+		<handleCallField public="1" set="method" line="209" static="1"><f a="str:f:args">
 	<t path="cs.internal._StringExt.NativeString"/>
 	<c path="String"/>
 	<c path="cs.NativeArray"><d/></c>
@@ -12091,8 +12091,9 @@
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</readInt32>
 		<readString public="1" set="method" line="303">
-			<f a="len">
+			<f a="len:?encoding">
 				<x path="Int"/>
+				<e path="haxe.io.Encoding"/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Read and `len` bytes as a string.</haxe_doc>
@@ -12284,8 +12285,9 @@
 		which data is read and written. Its default value is 4096.</haxe_doc>
 		</writeInput>
 		<writeString public="1" set="method" line="278">
-			<f a="s">
+			<f a="s:?encoding">
 				<c path="String"/>
+				<e path="haxe.io.Encoding"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Write `s` string.</haxe_doc>
@@ -16441,6 +16443,412 @@
 			<m n=":libType"/>
 			<m n=":csNative"/>
 			<m n=":native"><e>"System.BitConverter"</e></m>
+		</meta>
+	</class>
+	<class path="cs.system.Char" params="" file="/home/travis/haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.Char" extern="1">
+		<extends path="cs.system.ValueType"/>
+		<implements path="cs.system.IComparable_1"><t path="cs.types.Char16"/></implements>
+		<implements path="cs.system.IEquatable_1"><t path="cs.types.Char16"/></implements>
+		<implements path="cs.system.IComparable"/>
+		<implements path="cs.system.IConvertible"/>
+		<MinValue public="1" set="null" static="1">
+			<t path="cs.types.Char16"/>
+			<meta><m n=":readOnly"/></meta>
+		</MinValue>
+		<MaxValue public="1" set="null" static="1">
+			<t path="cs.types.Char16"/>
+			<meta><m n=":readOnly"/></meta>
+		</MaxValue>
+		<ConvertFromUtf32 final="1" public="1" set="method" static="1">
+			<f a="utf32">
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</ConvertFromUtf32>
+		<ConvertToUtf32 final="1" public="1" set="method" static="1">
+			<f a="highSurrogate:lowSurrogate">
+				<t path="cs.types.Char16"/>
+				<t path="cs.types.Char16"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><ConvertToUtf32 final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Int"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</ConvertToUtf32></overloads>
+		</ConvertToUtf32>
+		<IsSurrogatePair final="1" public="1" set="method" static="1">
+			<f a="highSurrogate:lowSurrogate">
+				<t path="cs.types.Char16"/>
+				<t path="cs.types.Char16"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><IsSurrogatePair final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</IsSurrogatePair></overloads>
+		</IsSurrogatePair>
+		<GetNumericValue final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<x path="Float"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><GetNumericValue final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Float"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</GetNumericValue></overloads>
+		</GetNumericValue>
+		<GetUnicodeCategory final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<e path="cs.system.globalization.UnicodeCategory"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><GetUnicodeCategory final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<e path="cs.system.globalization.UnicodeCategory"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</GetUnicodeCategory></overloads>
+		</GetUnicodeCategory>
+		<IsControl final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><IsControl final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</IsControl></overloads>
+		</IsControl>
+		<IsDigit final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><IsDigit final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</IsDigit></overloads>
+		</IsDigit>
+		<IsHighSurrogate final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><IsHighSurrogate final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</IsHighSurrogate></overloads>
+		</IsHighSurrogate>
+		<IsLetter final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><IsLetter final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</IsLetter></overloads>
+		</IsLetter>
+		<IsLetterOrDigit final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><IsLetterOrDigit final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</IsLetterOrDigit></overloads>
+		</IsLetterOrDigit>
+		<IsLower final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><IsLower final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</IsLower></overloads>
+		</IsLower>
+		<IsLowSurrogate final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><IsLowSurrogate final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</IsLowSurrogate></overloads>
+		</IsLowSurrogate>
+		<IsNumber final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><IsNumber final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</IsNumber></overloads>
+		</IsNumber>
+		<IsPunctuation final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><IsPunctuation final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</IsPunctuation></overloads>
+		</IsPunctuation>
+		<IsSeparator final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><IsSeparator final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</IsSeparator></overloads>
+		</IsSeparator>
+		<IsSurrogate final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><IsSurrogate final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</IsSurrogate></overloads>
+		</IsSurrogate>
+		<IsSymbol final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><IsSymbol final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</IsSymbol></overloads>
+		</IsSymbol>
+		<IsUpper final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><IsUpper final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</IsUpper></overloads>
+		</IsUpper>
+		<IsWhiteSpace final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><IsWhiteSpace final="1" public="1" set="method">
+	<f a="s:index">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</IsWhiteSpace></overloads>
+		</IsWhiteSpace>
+		<TryParse final="1" public="1" set="method" static="1">
+			<f a="s:result">
+				<c path="String"/>
+				<t path="cs.Out"><t path="cs.types.Char16"/></t>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</TryParse>
+		<Parse final="1" public="1" set="method" static="1">
+			<f a="s">
+				<c path="String"/>
+				<t path="cs.types.Char16"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</Parse>
+		<ToLower final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<t path="cs.types.Char16"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><ToLower final="1" public="1" set="method">
+	<f a="c:culture">
+		<t path="cs.types.Char16"/>
+		<c path="cs.system.globalization.CultureInfo"/>
+		<t path="cs.types.Char16"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</ToLower></overloads>
+		</ToLower>
+		<ToLowerInvariant final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<t path="cs.types.Char16"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</ToLowerInvariant>
+		<ToUpper final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<t path="cs.types.Char16"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><ToUpper final="1" public="1" set="method">
+	<f a="c:culture">
+		<t path="cs.types.Char16"/>
+		<c path="cs.system.globalization.CultureInfo"/>
+		<t path="cs.types.Char16"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</ToUpper></overloads>
+		</ToUpper>
+		<ToUpperInvariant final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<t path="cs.types.Char16"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</ToUpperInvariant>
+		<ToString final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</ToString>
+		<_ToString final="1" public="1" set="method" static="1">
+			<f a="c">
+				<t path="cs.types.Char16"/>
+				<c path="String"/>
+			</f>
+			<meta>
+				<m n=":native"><e>"ToString"</e></m>
+				<m n=":overload"/>
+			</meta>
+		</_ToString>
+		<CompareTo final="1" public="1" set="method">
+			<f a="value">
+				<d/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><CompareTo final="1" public="1" set="method">
+	<f a="value">
+		<t path="cs.types.Char16"/>
+		<x path="Int"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</CompareTo></overloads>
+		</CompareTo>
+		<ToString public="1" set="method" override="1">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":overload"/></meta>
+			<overloads><ToString final="1" public="1" set="method">
+	<f a="provider">
+		<c path="cs.system.IFormatProvider"/>
+		<c path="String"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</ToString></overloads>
+		</ToString>
+		<GetTypeCode final="1" public="1" set="method">
+			<f a=""><e path="cs.system.TypeCode"/></f>
+			<meta><m n=":overload"/></meta>
+		</GetTypeCode>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":struct"/>
+			<m n=":libType"/>
+			<m n=":csNative"/>
+			<m n=":native"><e>"System.Char"</e></m>
 		</meta>
 	</class>
 	<class path="cs.system.CharEnumerator" params="" file="/home/travis/haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.CharEnumerator" extern="1">
@@ -33900,6 +34308,44 @@
 			<m n=":native"><e>"System.Globalization.TextInfo"</e></m>
 		</meta>
 	</class>
+	<enum path="cs.system.globalization.UnicodeCategory" params="" file="/home/travis/haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.globalization.UnicodeCategory">
+		<UppercaseLetter><meta><m n=":csNative"><e>0</e></m></meta></UppercaseLetter>
+		<LowercaseLetter><meta><m n=":csNative"><e>1</e></m></meta></LowercaseLetter>
+		<TitlecaseLetter><meta><m n=":csNative"><e>2</e></m></meta></TitlecaseLetter>
+		<ModifierLetter><meta><m n=":csNative"><e>3</e></m></meta></ModifierLetter>
+		<OtherLetter><meta><m n=":csNative"><e>4</e></m></meta></OtherLetter>
+		<NonSpacingMark><meta><m n=":csNative"><e>5</e></m></meta></NonSpacingMark>
+		<SpacingCombiningMark><meta><m n=":csNative"><e>6</e></m></meta></SpacingCombiningMark>
+		<EnclosingMark><meta><m n=":csNative"><e>7</e></m></meta></EnclosingMark>
+		<DecimalDigitNumber><meta><m n=":csNative"><e>8</e></m></meta></DecimalDigitNumber>
+		<LetterNumber><meta><m n=":csNative"><e>9</e></m></meta></LetterNumber>
+		<OtherNumber><meta><m n=":csNative"><e>10</e></m></meta></OtherNumber>
+		<SpaceSeparator><meta><m n=":csNative"><e>11</e></m></meta></SpaceSeparator>
+		<LineSeparator><meta><m n=":csNative"><e>12</e></m></meta></LineSeparator>
+		<ParagraphSeparator><meta><m n=":csNative"><e>13</e></m></meta></ParagraphSeparator>
+		<Control><meta><m n=":csNative"><e>14</e></m></meta></Control>
+		<Format><meta><m n=":csNative"><e>15</e></m></meta></Format>
+		<Surrogate><meta><m n=":csNative"><e>16</e></m></meta></Surrogate>
+		<PrivateUse><meta><m n=":csNative"><e>17</e></m></meta></PrivateUse>
+		<ConnectorPunctuation><meta><m n=":csNative"><e>18</e></m></meta></ConnectorPunctuation>
+		<DashPunctuation><meta><m n=":csNative"><e>19</e></m></meta></DashPunctuation>
+		<OpenPunctuation><meta><m n=":csNative"><e>20</e></m></meta></OpenPunctuation>
+		<ClosePunctuation><meta><m n=":csNative"><e>21</e></m></meta></ClosePunctuation>
+		<InitialQuotePunctuation><meta><m n=":csNative"><e>22</e></m></meta></InitialQuotePunctuation>
+		<FinalQuotePunctuation><meta><m n=":csNative"><e>23</e></m></meta></FinalQuotePunctuation>
+		<OtherPunctuation><meta><m n=":csNative"><e>24</e></m></meta></OtherPunctuation>
+		<MathSymbol><meta><m n=":csNative"><e>25</e></m></meta></MathSymbol>
+		<CurrencySymbol><meta><m n=":csNative"><e>26</e></m></meta></CurrencySymbol>
+		<ModifierSymbol><meta><m n=":csNative"><e>27</e></m></meta></ModifierSymbol>
+		<OtherSymbol><meta><m n=":csNative"><e>28</e></m></meta></OtherSymbol>
+		<OtherNotAssigned><meta><m n=":csNative"><e>29</e></m></meta></OtherNotAssigned>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":flatEnum"/>
+			<m n=":native"><e>"System.Globalization.UnicodeCategory"</e></m>
+			<m n=":csNative"/>
+		</meta>
+	</enum>
 	<class path="cs.system.io.Directory" params="" file="/home/travis/haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.io.Directory" extern="1">
 		<CreateDirectory final="1" public="1" set="method" static="1">
 			<f a="path">
@@ -64534,19 +64980,23 @@
 		<meta><m n=":hxGen"/></meta>
 	</class>
 	<class path="haxe.io.Bytes" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/io/Bytes.hx">
-		<alloc public="1" set="method" line="447" static="1"><f a="length">
+		<alloc public="1" set="method" line="471" static="1"><f a="length">
 	<x path="Int"/>
 	<c path="haxe.io.Bytes"/>
 </f></alloc>
-		<ofString public="1" set="method" line="473" static="1"><f a="s">
-	<c path="String"/>
-	<c path="haxe.io.Bytes"/>
-</f></ofString>
-		<ofData public="1" set="method" line="531" static="1"><f a="b">
+		<ofString public="1" set="method" line="500" static="1">
+			<f a="s:?encoding">
+				<c path="String"/>
+				<e path="haxe.io.Encoding"/>
+				<c path="haxe.io.Bytes"/>
+			</f>
+			<haxe_doc>Returns bytes representation of the given String, using specific encoding (UTF-8 by default)</haxe_doc>
+		</ofString>
+		<ofData public="1" set="method" line="570" static="1"><f a="b">
 	<t path="haxe.io.BytesData"/>
 	<c path="haxe.io.Bytes"/>
 </f></ofData>
-		<fastGet public="1" get="inline" set="null" line="547" static="1">
+		<fastGet public="1" get="inline" set="null" line="586" static="1">
 			<f a="b:pos">
 				<t path="haxe.io.BytesData"/>
 				<x path="Int"/>
@@ -64670,12 +65120,13 @@
 			</f>
 			<haxe_doc>Store the 64 bit integer at given position (in low endian encoding).</haxe_doc>
 		</setInt64>
-		<getString public="1" set="method" line="349"><f a="pos:len">
+		<getString public="1" set="method" line="349"><f a="pos:len:?encoding">
 	<x path="Int"/>
 	<x path="Int"/>
+	<e path="haxe.io.Encoding"/>
 	<c path="String"/>
 </f></getString>
-		<readString public="1" get="inline" set="null" line="406">
+		<readString public="1" get="inline" set="null" line="427">
 			<f a="pos:len">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -64686,9 +65137,12 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</readString>
-		<toString public="1" set="method" line="410"><f a=""><c path="String"/></f></toString>
-		<toHex public="1" set="method" line="429"><f a=""><c path="String"/></f></toHex>
-		<getData public="1" get="inline" set="null" line="443"><f a=""><t path="haxe.io.BytesData"/></f></getData>
+		<toString public="1" set="method" line="434">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns string representation of the bytes as UTF8</haxe_doc>
+		</toString>
+		<toHex public="1" set="method" line="453"><f a=""><c path="String"/></f></toHex>
+		<getData public="1" get="inline" set="null" line="467"><f a=""><t path="haxe.io.BytesData"/></f></getData>
 		<new set="method" line="33"><f a="length:b">
 	<x path="Int"/>
 	<t path="haxe.io.BytesData"/>
@@ -71265,8 +71719,9 @@
 	<c path="haxe.io.Bytes"/>
 	<x path="Void"/>
 </f></add>
-		<addString public="1" get="inline" set="null" line="110"><f a="v">
+		<addString public="1" get="inline" set="null" line="110"><f a="v:?encoding">
 	<c path="String"/>
+	<e path="haxe.io.Encoding"/>
 	<x path="Void"/>
 </f></addString>
 		<addInt32 public="1" set="method" line="120"><f a="v">
@@ -71357,7 +71812,7 @@
 	<x path="Int"/>
 	<x path="Int"/>
 </f></writeBytes>
-		<getBytes public="1" set="method" line="131">
+		<getBytes public="1" set="method" line="134">
 			<f a=""><c path="haxe.io.Bytes"/></f>
 			<haxe_doc>Returns the `Bytes` of this output.
 
@@ -71367,6 +71822,15 @@
 		<new public="1" set="method" line="35"><f a=""><x path="Void"/></f></new>
 		<meta><m n=":hxGen"/></meta>
 	</class>
+	<enum path="haxe.io.Encoding" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/io/Encoding.hx">
+		<UTF8/>
+		<RawNative><haxe_doc>Output the string the way the platform represent it in memory. This is the most efficient but is platform-specific</haxe_doc></RawNative>
+		<haxe_doc>String binary encoding supported by Haxe I/O</haxe_doc>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":flatEnum"/>
+		</meta>
+	</enum>
 	<class path="haxe.io.Eof" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/io/Eof.hx">
 		<toString set="method" line="32">
 			<f a=""><c path="String"/></f>

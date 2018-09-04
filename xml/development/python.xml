@@ -8689,19 +8689,23 @@
 		<haxe_doc>Calculates the Adler32 of the given Bytes.</haxe_doc>
 	</class>
 	<class path="haxe.io.Bytes" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/io/Bytes.hx">
-		<alloc public="1" set="method" line="447" static="1"><f a="length">
+		<alloc public="1" set="method" line="471" static="1"><f a="length">
 	<x path="Int"/>
 	<c path="haxe.io.Bytes"/>
 </f></alloc>
-		<ofString public="1" set="method" line="473" static="1"><f a="s">
-	<c path="String"/>
-	<c path="haxe.io.Bytes"/>
-</f></ofString>
-		<ofData public="1" set="method" line="531" static="1"><f a="b">
+		<ofString public="1" set="method" line="500" static="1">
+			<f a="s:?encoding">
+				<c path="String"/>
+				<e path="haxe.io.Encoding"/>
+				<c path="haxe.io.Bytes"/>
+			</f>
+			<haxe_doc>Returns bytes representation of the given String, using specific encoding (UTF-8 by default)</haxe_doc>
+		</ofString>
+		<ofData public="1" set="method" line="570" static="1"><f a="b">
 	<t path="haxe.io.BytesData"/>
 	<c path="haxe.io.Bytes"/>
 </f></ofData>
-		<fastGet public="1" get="inline" set="null" line="547" static="1">
+		<fastGet public="1" get="inline" set="null" line="586" static="1">
 			<f a="b:pos">
 				<t path="haxe.io.BytesData"/>
 				<x path="Int"/>
@@ -8825,12 +8829,13 @@
 			</f>
 			<haxe_doc>Store the 64 bit integer at given position (in low endian encoding).</haxe_doc>
 		</setInt64>
-		<getString public="1" set="method" line="349"><f a="pos:len">
+		<getString public="1" set="method" line="349"><f a="pos:len:?encoding">
 	<x path="Int"/>
 	<x path="Int"/>
+	<e path="haxe.io.Encoding"/>
 	<c path="String"/>
 </f></getString>
-		<readString public="1" get="inline" set="null" line="406">
+		<readString public="1" get="inline" set="null" line="427">
 			<f a="pos:len">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -8841,9 +8846,12 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</readString>
-		<toString public="1" set="method" line="410"><f a=""><c path="String"/></f></toString>
-		<toHex public="1" set="method" line="429"><f a=""><c path="String"/></f></toHex>
-		<getData public="1" get="inline" set="null" line="443"><f a=""><t path="haxe.io.BytesData"/></f></getData>
+		<toString public="1" set="method" line="434">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns string representation of the bytes as UTF8</haxe_doc>
+		</toString>
+		<toHex public="1" set="method" line="453"><f a=""><c path="String"/></f></toHex>
+		<getData public="1" get="inline" set="null" line="467"><f a=""><t path="haxe.io.BytesData"/></f></getData>
 		<new set="method" line="33"><f a="length:b">
 	<x path="Int"/>
 	<t path="haxe.io.BytesData"/>
@@ -14728,8 +14736,9 @@
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</readInt32>
 		<readString public="1" set="method" line="303">
-			<f a="len">
+			<f a="len:?encoding">
 				<x path="Int"/>
+				<e path="haxe.io.Encoding"/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Read and `len` bytes as a string.</haxe_doc>
@@ -14784,8 +14793,9 @@
 	<c path="haxe.io.Bytes"/>
 	<x path="Void"/>
 </f></add>
-		<addString public="1" get="inline" set="null" line="110"><f a="v">
+		<addString public="1" get="inline" set="null" line="110"><f a="v:?encoding">
 	<c path="String"/>
+	<e path="haxe.io.Encoding"/>
 	<x path="Void"/>
 </f></addString>
 		<addInt32 public="1" set="method" line="120"><f a="v">
@@ -15006,8 +15016,9 @@
 		which data is read and written. Its default value is 4096.</haxe_doc>
 		</writeInput>
 		<writeString public="1" set="method" line="278">
-			<f a="s">
+			<f a="s:?encoding">
 				<c path="String"/>
+				<e path="haxe.io.Encoding"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Write `s` string.</haxe_doc>
@@ -15035,7 +15046,7 @@
 	<x path="Int"/>
 	<x path="Int"/>
 </f></writeBytes>
-		<getBytes public="1" set="method" line="131">
+		<getBytes public="1" set="method" line="134">
 			<f a=""><c path="haxe.io.Bytes"/></f>
 			<haxe_doc>Returns the `Bytes` of this output.
 
@@ -15044,6 +15055,12 @@
 		</getBytes>
 		<new public="1" set="method" line="35"><f a=""><x path="Void"/></f></new>
 	</class>
+	<enum path="haxe.io.Encoding" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/io/Encoding.hx">
+		<UTF8/>
+		<RawNative><haxe_doc>Output the string the way the platform represent it in memory. This is the most efficient but is platform-specific</haxe_doc></RawNative>
+		<haxe_doc>String binary encoding supported by Haxe I/O</haxe_doc>
+		<meta><m n=":flatEnum"/></meta>
+	</enum>
 	<class path="haxe.io.Eof" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/io/Eof.hx">
 		<toString set="method" line="32">
 			<f a=""><c path="String"/></f>
@@ -28196,8 +28213,9 @@
 		<readInt24 public="1" set="method"><f a=""><x path="Int"/></f></readInt24>
 		<readUInt24 public="1" set="method"><f a=""><x path="Int"/></f></readUInt24>
 		<readInt32 public="1" set="method"><f a=""><x path="Int"/></f></readInt32>
-		<readString public="1" set="method"><f a="len">
+		<readString public="1" set="method"><f a="len:?encoding">
 	<x path="Int"/>
+	<e path="haxe.io.Encoding"/>
 	<c path="String"/>
 </f></readString>
 	</class>
@@ -28346,8 +28364,9 @@
 	<x path="Int"/>
 	<x path="Void"/>
 </f></writeInput>
-		<writeString public="1" set="method"><f a="s">
+		<writeString public="1" set="method"><f a="s:?encoding">
 	<c path="String"/>
+	<e path="haxe.io.Encoding"/>
 	<x path="Void"/>
 </f></writeString>
 	</class>
@@ -31656,57 +31675,58 @@
 	<class path="sys.io.FileInput" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/_std/sys/io/FileInput.hx">
 		<extends path="haxe.io.Input"/>
 		<impl><c path="python.io.IFileInput"/></impl>
-		<set_bigEndian public="1" set="method" line="40" override="1"><f a="b">
+		<set_bigEndian public="1" set="method" line="41" override="1"><f a="b">
 	<x path="Bool"/>
 	<x path="Bool"/>
 </f></set_bigEndian>
-		<seek public="1" set="method" line="44"><f a="p:pos">
+		<seek public="1" set="method" line="45"><f a="p:pos">
 	<x path="Int"/>
 	<e path="sys.io.FileSeek"/>
 	<x path="Void"/>
 </f></seek>
-		<tell public="1" set="method" line="47"><f a=""><x path="Int"/></f></tell>
-		<eof public="1" set="method" line="50"><f a=""><x path="Bool"/></f></eof>
-		<readByte public="1" set="method" line="54" override="1"><f a=""><x path="Int"/></f></readByte>
-		<readBytes public="1" set="method" line="58" override="1"><f a="s:pos:len">
+		<tell public="1" set="method" line="48"><f a=""><x path="Int"/></f></tell>
+		<eof public="1" set="method" line="51"><f a=""><x path="Bool"/></f></eof>
+		<readByte public="1" set="method" line="55" override="1"><f a=""><x path="Int"/></f></readByte>
+		<readBytes public="1" set="method" line="59" override="1"><f a="s:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></readBytes>
-		<close public="1" set="method" line="62" override="1"><f a=""><x path="Void"/></f></close>
-		<readAll public="1" set="method" line="66" override="1"><f a="?bufsize">
+		<close public="1" set="method" line="63" override="1"><f a=""><x path="Void"/></f></close>
+		<readAll public="1" set="method" line="67" override="1"><f a="?bufsize">
 	<x path="Int"/>
 	<c path="haxe.io.Bytes"/>
 </f></readAll>
-		<readFullBytes public="1" set="method" line="70" override="1"><f a="s:pos:len">
+		<readFullBytes public="1" set="method" line="71" override="1"><f a="s:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></readFullBytes>
-		<read public="1" set="method" line="74" override="1"><f a="nbytes">
+		<read public="1" set="method" line="75" override="1"><f a="nbytes">
 	<x path="Int"/>
 	<c path="haxe.io.Bytes"/>
 </f></read>
-		<readUntil public="1" set="method" line="78" override="1"><f a="end">
+		<readUntil public="1" set="method" line="79" override="1"><f a="end">
 	<x path="Int"/>
 	<c path="String"/>
 </f></readUntil>
-		<readLine public="1" set="method" line="82" override="1"><f a=""><c path="String"/></f></readLine>
-		<readFloat public="1" set="method" line="86" override="1"><f a=""><x path="Float"/></f></readFloat>
-		<readDouble public="1" set="method" line="90" override="1"><f a=""><x path="Float"/></f></readDouble>
-		<readInt8 public="1" set="method" line="94" override="1"><f a=""><x path="Int"/></f></readInt8>
-		<readInt16 public="1" set="method" line="98" override="1"><f a=""><x path="Int"/></f></readInt16>
-		<readUInt16 public="1" set="method" line="102" override="1"><f a=""><x path="Int"/></f></readUInt16>
-		<readInt24 public="1" set="method" line="106" override="1"><f a=""><x path="Int"/></f></readInt24>
-		<readUInt24 public="1" set="method" line="110" override="1"><f a=""><x path="Int"/></f></readUInt24>
-		<readInt32 public="1" set="method" line="114" override="1"><f a=""><x path="Int"/></f></readInt32>
-		<readString public="1" set="method" line="118" override="1"><f a="len">
+		<readLine public="1" set="method" line="83" override="1"><f a=""><c path="String"/></f></readLine>
+		<readFloat public="1" set="method" line="87" override="1"><f a=""><x path="Float"/></f></readFloat>
+		<readDouble public="1" set="method" line="91" override="1"><f a=""><x path="Float"/></f></readDouble>
+		<readInt8 public="1" set="method" line="95" override="1"><f a=""><x path="Int"/></f></readInt8>
+		<readInt16 public="1" set="method" line="99" override="1"><f a=""><x path="Int"/></f></readInt16>
+		<readUInt16 public="1" set="method" line="103" override="1"><f a=""><x path="Int"/></f></readUInt16>
+		<readInt24 public="1" set="method" line="107" override="1"><f a=""><x path="Int"/></f></readInt24>
+		<readUInt24 public="1" set="method" line="111" override="1"><f a=""><x path="Int"/></f></readUInt24>
+		<readInt32 public="1" set="method" line="115" override="1"><f a=""><x path="Int"/></f></readInt32>
+		<readString public="1" set="method" line="119" override="1"><f a="len:?encoding">
 	<x path="Int"/>
+	<e path="haxe.io.Encoding"/>
 	<c path="String"/>
 </f></readString>
-		<new public="1" set="method" line="36"><f a="impl">
+		<new public="1" set="method" line="37"><f a="impl">
 	<c path="python.io.IFileInput"/>
 	<x path="Void"/>
 </f></new>
@@ -31714,84 +31734,85 @@
 	<class path="sys.io.FileOutput" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/_std/sys/io/FileOutput.hx">
 		<extends path="haxe.io.Output"/>
 		<impl><c path="python.io.IFileOutput"/></impl>
-		<seek public="1" set="method" line="37"><f a="p:pos">
+		<seek public="1" set="method" line="38"><f a="p:pos">
 	<x path="Int"/>
 	<e path="sys.io.FileSeek"/>
 	<x path="Void"/>
 </f></seek>
-		<tell public="1" set="method" line="41"><f a=""><x path="Int"/></f></tell>
-		<set_bigEndian public="1" set="method" line="45" override="1"><f a="b">
+		<tell public="1" set="method" line="42"><f a=""><x path="Int"/></f></tell>
+		<set_bigEndian public="1" set="method" line="46" override="1"><f a="b">
 	<x path="Bool"/>
 	<x path="Bool"/>
 </f></set_bigEndian>
-		<writeByte public="1" set="method" line="49" override="1"><f a="c">
+		<writeByte public="1" set="method" line="50" override="1"><f a="c">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></writeByte>
-		<writeBytes public="1" set="method" line="53" override="1"><f a="s:pos:len">
+		<writeBytes public="1" set="method" line="54" override="1"><f a="s:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></writeBytes>
-		<flush public="1" set="method" line="57" override="1"><f a=""><x path="Void"/></f></flush>
-		<close public="1" set="method" line="61" override="1"><f a=""><x path="Void"/></f></close>
-		<write public="1" set="method" line="65" override="1"><f a="s">
+		<flush public="1" set="method" line="58" override="1"><f a=""><x path="Void"/></f></flush>
+		<close public="1" set="method" line="62" override="1"><f a=""><x path="Void"/></f></close>
+		<write public="1" set="method" line="66" override="1"><f a="s">
 	<c path="haxe.io.Bytes"/>
 	<x path="Void"/>
 </f></write>
-		<writeFullBytes public="1" set="method" line="69" override="1"><f a="s:pos:len">
+		<writeFullBytes public="1" set="method" line="70" override="1"><f a="s:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></writeFullBytes>
-		<writeFloat public="1" set="method" line="73" override="1"><f a="x">
+		<writeFloat public="1" set="method" line="74" override="1"><f a="x">
 	<x path="Float"/>
 	<x path="Void"/>
 </f></writeFloat>
-		<writeDouble public="1" set="method" line="77" override="1"><f a="x">
+		<writeDouble public="1" set="method" line="78" override="1"><f a="x">
 	<x path="Float"/>
 	<x path="Void"/>
 </f></writeDouble>
-		<writeInt8 public="1" set="method" line="81" override="1"><f a="x">
+		<writeInt8 public="1" set="method" line="82" override="1"><f a="x">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></writeInt8>
-		<writeInt16 public="1" set="method" line="85" override="1"><f a="x">
+		<writeInt16 public="1" set="method" line="86" override="1"><f a="x">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></writeInt16>
-		<writeUInt16 public="1" set="method" line="89" override="1"><f a="x">
+		<writeUInt16 public="1" set="method" line="90" override="1"><f a="x">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></writeUInt16>
-		<writeInt24 public="1" set="method" line="93" override="1"><f a="x">
+		<writeInt24 public="1" set="method" line="94" override="1"><f a="x">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></writeInt24>
-		<writeUInt24 public="1" set="method" line="97" override="1"><f a="x">
+		<writeUInt24 public="1" set="method" line="98" override="1"><f a="x">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></writeUInt24>
-		<writeInt32 public="1" set="method" line="101" override="1"><f a="x">
+		<writeInt32 public="1" set="method" line="102" override="1"><f a="x">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></writeInt32>
-		<prepare public="1" set="method" line="105" override="1"><f a="nbytes">
+		<prepare public="1" set="method" line="106" override="1"><f a="nbytes">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></prepare>
-		<writeInput public="1" set="method" line="109" override="1"><f a="i:?bufsize">
+		<writeInput public="1" set="method" line="110" override="1"><f a="i:?bufsize">
 	<c path="haxe.io.Input"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></writeInput>
-		<writeString public="1" set="method" line="113" override="1"><f a="s">
+		<writeString public="1" set="method" line="114" override="1"><f a="s:?encoding">
 	<c path="String"/>
+	<e path="haxe.io.Encoding"/>
 	<x path="Void"/>
 </f></writeString>
-		<new public="1" set="method" line="33"><f a="impl">
+		<new public="1" set="method" line="34"><f a="impl">
 	<c path="python.io.IFileOutput"/>
 	<x path="Void"/>
 </f></new>
