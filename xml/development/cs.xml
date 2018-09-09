@@ -9996,49 +9996,89 @@
 	<x path="Int"/>
 	<c path="String"/>
 </f></lookupHash>
-		<hash public="1" set="method" line="154" static="1"><f a="s">
+		<hash public="1" set="method" line="153" static="1"><f a="s">
 	<c path="String"/>
 	<x path="Int"/>
 </f></hash>
-		<findHash public="1" set="method" line="205" static="1"><f a="hash:hashs:length">
+		<findHash public="1" set="method" line="196" static="1"><f a="hash:hashs:length">
 	<x path="Int"/>
 	<c path="cs.NativeArray"><x path="Int"/></c>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></findHash>
-		<remove params="T" set="method" line="228" static="1"><f a="a:length:pos">
-	<c path="cs.NativeArray"><c path="remove.T"/></c>
+		<removeInt public="1" set="method" line="218" static="1"><f a="a:length:pos">
+	<c path="cs.NativeArray"><x path="Int"/></c>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
-</f></remove>
-		<insert params="T" set="method" line="234" static="1"><f a="a:length:pos:x">
-	<t path="cs.Ref"><c path="cs.NativeArray"><c path="insert.T"/></c></t>
+</f></removeInt>
+		<removeFloat public="1" set="method" line="223" static="1"><f a="a:length:pos">
+	<c path="cs.NativeArray"><x path="Float"/></c>
 	<x path="Int"/>
 	<x path="Int"/>
-	<c path="insert.T"/>
 	<x path="Void"/>
-</f></insert>
-		<getHashConflict set="method" line="344" static="1"><f a="head:hash:name">
+</f></removeFloat>
+		<removeDynamic public="1" set="method" line="228" static="1"><f a="a:length:pos">
+	<c path="cs.NativeArray"><d/></c>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></removeDynamic>
+		<__insert params="T" get="inline" set="null" line="234" static="1"><f a="a:length:pos:x">
+	<c path="cs.NativeArray"><c path="__insert.T"/></c>
+	<x path="Int"/>
+	<x path="Int"/>
+	<c path="__insert.T"/>
+	<c path="cs.NativeArray"><c path="__insert.T"/></c>
+</f></__insert>
+		<insertInt public="1" set="method" line="279" static="1"><f a="a:length:pos:x">
+	<c path="cs.NativeArray"><x path="Int"/></c>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<c path="cs.NativeArray"><x path="Int"/></c>
+</f></insertInt>
+		<insertFloat public="1" set="method" line="280" static="1"><f a="a:length:pos:x">
+	<c path="cs.NativeArray"><x path="Float"/></c>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Float"/>
+	<c path="cs.NativeArray"><x path="Float"/></c>
+</f></insertFloat>
+		<insertDynamic public="1" set="method" line="281" static="1"><f a="a:length:pos:x">
+	<c path="cs.NativeArray"><d/></c>
+	<x path="Int"/>
+	<x path="Int"/>
+	<d/>
+	<c path="cs.NativeArray"><d/></c>
+</f></insertDynamic>
+		<insertString public="1" set="method" line="282" static="1"><f a="a:length:pos:x">
+	<c path="cs.NativeArray"><c path="String"/></c>
+	<x path="Int"/>
+	<x path="Int"/>
+	<c path="String"/>
+	<c path="cs.NativeArray"><c path="String"/></c>
+</f></insertString>
+		<getHashConflict public="1" set="method" line="284" static="1"><f a="head:hash:name">
 	<c path="cs.internal.FieldHashConflict"/>
 	<x path="Int"/>
 	<c path="String"/>
 	<c path="cs.internal.FieldHashConflict"/>
 </f></getHashConflict>
-		<setHashConflict set="method" line="354" static="1"><f a="head:hash:name:value">
+		<setHashConflict public="1" set="method" line="294" static="1"><f a="head:hash:name:value">
 	<t path="cs.Ref"><c path="cs.internal.FieldHashConflict"/></t>
 	<x path="Int"/>
 	<c path="String"/>
 	<d/>
 	<x path="Void"/>
 </f></setHashConflict>
-		<deleteHashConflict set="method" line="366" static="1"><f a="head:hash:name">
+		<deleteHashConflict public="1" set="method" line="306" static="1"><f a="head:hash:name">
 	<t path="cs.Ref"><c path="cs.internal.FieldHashConflict"/></t>
 	<x path="Int"/>
 	<c path="String"/>
 	<x path="Bool"/>
 </f></deleteHashConflict>
-		<addHashConflictNames set="method" line="392" static="1"><f a="head:arr">
+		<addHashConflictNames public="1" set="method" line="332" static="1"><f a="head:arr">
 	<c path="cs.internal.FieldHashConflict"/>
 	<c path="Array"><c path="String"/></c>
 	<x path="Void"/>
@@ -10148,6 +10188,11 @@
 </meta></class>
 	<class path="cs.internal.HxObject" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cs/internal/HxObject.hx">
 		<implements path="cs.internal.IHxObject"/>
+		<__hx_deleteField public="1" set="method" line="31"><f a="field:hash">
+	<c path="String"/>
+	<x path="Int"/>
+	<x path="Bool"/>
+</f></__hx_deleteField>
 		<meta>
 			<m n=":hxGen"/>
 			<m n=":keep"/>
@@ -10156,16 +10201,104 @@
 	</class>
 	<class path="cs.internal.DynamicObject" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cs/internal/HxObject.hx" module="cs.internal.HxObject">
 		<extends path="cs.internal.HxObject"/>
-		<toString public="1" set="method" line="43">
+		<__hx_hashes>
+			<c path="cs.NativeArray"><x path="Int"/></c>
+			<meta><m n=":skipReflection"/></meta>
+		</__hx_hashes>
+		<__hx_dynamics>
+			<c path="cs.NativeArray"><d/></c>
+			<meta><m n=":skipReflection"/></meta>
+		</__hx_dynamics>
+		<__hx_hashes_f>
+			<c path="cs.NativeArray"><x path="Int"/></c>
+			<meta><m n=":skipReflection"/></meta>
+		</__hx_hashes_f>
+		<__hx_dynamics_f>
+			<c path="cs.NativeArray"><x path="Float"/></c>
+			<meta><m n=":skipReflection"/></meta>
+		</__hx_dynamics_f>
+		<__hx_length>
+			<x path="Int"/>
+			<meta><m n=":skipReflection"/></meta>
+		</__hx_length>
+		<__hx_length_f>
+			<x path="Int"/>
+			<meta><m n=":skipReflection"/></meta>
+		</__hx_length_f>
+		<__hx_conflicts>
+			<c path="cs.internal.FieldHashConflict"/>
+			<meta><m n=":skipReflection"/></meta>
+		</__hx_conflicts>
+		<__hx_deleteField public="1" set="method" line="78" override="1"><f a="field:hash">
+	<c path="String"/>
+	<x path="Int"/>
+	<x path="Bool"/>
+</f></__hx_deleteField>
+		<__hx_getField public="1" set="method" line="104"><f a="field:hash:throwErrors:isCheck:handleProperties">
+	<c path="String"/>
+	<x path="Int"/>
+	<x path="Bool"/>
+	<x path="Bool"/>
+	<x path="Bool"/>
+	<d/>
+</f></__hx_getField>
+		<__hx_setField public="1" set="method" line="129"><f a="field:hash:value:handleProperties">
+	<c path="String"/>
+	<x path="Int"/>
+	<d/>
+	<x path="Bool"/>
+	<d/>
+</f></__hx_setField>
+		<__hx_getField_f public="1" set="method" line="162"><f a="field:hash:throwErrors:handleProperties">
+	<c path="String"/>
+	<x path="Int"/>
+	<x path="Bool"/>
+	<x path="Bool"/>
+	<x path="Float"/>
+</f></__hx_getField_f>
+		<__hx_setField_f public="1" set="method" line="187"><f a="field:hash:value:handleProperties">
+	<c path="String"/>
+	<x path="Int"/>
+	<x path="Float"/>
+	<x path="Bool"/>
+	<x path="Float"/>
+</f></__hx_setField_f>
+		<__hx_getFields public="1" set="method" line="216"><f a="baseArr">
+	<c path="Array"><c path="String"/></c>
+	<x path="Void"/>
+</f></__hx_getFields>
+		<__hx_invokeField public="1" set="method" line="229">
+			<f a="field:hash:dynargs">
+				<c path="String"/>
+				<x path="Int"/>
+				<c path="cs.NativeArray"><d/></c>
+				<d/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</__hx_invokeField>
+		<toString public="1" set="method" line="244">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":skipReflection"/></meta>
 		</toString>
+		<new public="1" set="method" line="58">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+			<overloads><new public="1" set="method" line="67">
+	<f a="hashes:dynamics:hashes_f:dynamics_f">
+		<c path="cs.NativeArray"><x path="Int"/></c>
+		<c path="cs.NativeArray"><d/></c>
+		<c path="cs.NativeArray"><x path="Int"/></c>
+		<c path="cs.NativeArray"><x path="Float"/></c>
+		<x path="Void"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</new></overloads>
+		</new>
 		<meta>
 			<m n=":hxGen"/>
 			<m n=":keep"/>
 			<m n=":native"><e>"haxe.lang.DynamicObject"</e></m>
 		</meta>
-		<haxe_dynamic><d/></haxe_dynamic>
 	</class>
 	<class path="cs.internal.IGenericObject" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cs/internal/HxObject.hx" module="cs.internal.HxObject" interface="1"><meta>
 	<m n=":hxGen"/>
@@ -10531,7 +10664,7 @@
 			<c path="cs.system.Type"/>
 			<meta><m n=":readOnly"/></meta>
 		</generic>
-		<new public="1" set="method" line="76">
+		<new public="1" set="method" line="277">
 			<f a="generic">
 				<c path="cs.system.Type"/>
 				<x path="Void"/>
@@ -10546,7 +10679,7 @@
 		</meta>
 	</class>
 	<class path="cs.internal.HxEnum" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cs/internal/HxObject.hx" module="cs.internal.HxObject">
-		<paramsToString set="method" line="107" static="1">
+		<paramsToString set="method" line="308" static="1">
 			<f a="tag:params">
 				<c path="String"/>
 				<x path="haxe.ds.Vector"><d/></x>
@@ -10554,7 +10687,7 @@
 			</f>
 			<meta><m n=":protected"/></meta>
 		</paramsToString>
-		<paramsGetHashCode set="method" line="124" static="1">
+		<paramsGetHashCode set="method" line="325" static="1">
 			<f a="index:params">
 				<x path="Int"/>
 				<x path="haxe.ds.Vector"><d/></x>
@@ -10569,10 +10702,10 @@
 			<x path="Int"/>
 			<meta><m n=":readOnly"/></meta>
 		</_hx_index>
-		<getTag public="1" set="method" line="95"><f a=""><c path="String"/></f></getTag>
-		<getParams public="1" set="method" line="99"><f a=""><c path="Array"><a/></c></f></getParams>
-		<toString public="1" set="method" line="103"><f a=""><c path="String"/></f></toString>
-		<new set="method" line="91">
+		<getTag public="1" set="method" line="296"><f a=""><c path="String"/></f></getTag>
+		<getParams public="1" set="method" line="300"><f a=""><c path="Array"><a/></c></f></getParams>
+		<toString public="1" set="method" line="304"><f a=""><c path="String"/></f></toString>
+		<new set="method" line="292">
 			<f a="index">
 				<x path="Int"/>
 				<x path="Void"/>
