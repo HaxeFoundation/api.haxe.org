@@ -1074,22 +1074,20 @@
 
 		If `it` is a List, this function returns a copy of it.</haxe_doc>
 		</list>
-		<map public="1" params="A:B" set="method" line="73" static="1">
+		<map public="1" params="A:B" get="inline" set="null" line="71" static="1">
 			<f a="it:f">
 				<t path="Iterable"><c path="map.A"/></t>
 				<f a="">
 					<c path="map.A"/>
 					<c path="map.B"/>
 				</f>
-				<c path="haxe.ds.List"><c path="map.B"/></c>
+				<c path="Array"><c path="map.B"/></c>
 			</f>
-			<haxe_doc>Creates a new List by applying function `f` to all elements of `it`.
-
+			<haxe_doc>Creates a new Array by applying function `f` to all elements of `it`.
 		The order of elements is preserved.
-
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</map>
-		<mapi public="1" params="A:B" set="method" line="87" static="1">
+		<mapi public="1" params="A:B" get="inline" set="null" line="80" static="1">
 			<f a="it:f">
 				<t path="Iterable"><c path="mapi.A"/></t>
 				<f a=":">
@@ -1097,39 +1095,34 @@
 					<c path="mapi.A"/>
 					<c path="mapi.B"/>
 				</f>
-				<c path="haxe.ds.List"><c path="mapi.B"/></c>
+				<c path="Array"><c path="mapi.B"/></c>
 			</f>
 			<haxe_doc>Similar to map, but also passes the index of each element to `f`.
-
 		The order of elements is preserved.
-
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</mapi>
-		<flatten public="1" params="A" set="method" line="100" static="1">
+		<flatten public="1" params="A" get="inline" set="null" line="89" static="1">
 			<f a="it">
 				<t path="Iterable"><t path="Iterable"><c path="flatten.A"/></t></t>
-				<c path="haxe.ds.List"><c path="flatten.A"/></c>
+				<c path="Array"><c path="flatten.A"/></c>
 			</f>
-			<haxe_doc>Concatenate a list of lists.
-
+			<haxe_doc>Concatenate a list of iterables.
 		The order of elements is preserved.</haxe_doc>
 		</flatten>
-		<flatMap public="1" params="A:B" set="method" line="115" static="1">
+		<flatMap public="1" params="A:B" get="inline" set="null" line="98" static="1">
 			<f a="it:f">
 				<t path="Iterable"><c path="flatMap.A"/></t>
 				<f a="">
 					<c path="flatMap.A"/>
 					<t path="Iterable"><c path="flatMap.B"/></t>
 				</f>
-				<c path="haxe.ds.List"><c path="flatMap.B"/></c>
+				<c path="Array"><c path="flatMap.B"/></c>
 			</f>
 			<haxe_doc>A composition of map and flatten.
-
 		The order of elements is preserved.
-
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</flatMap>
-		<has public="1" params="A" set="method" line="127" static="1">
+		<has public="1" params="A" set="method" line="110" static="1">
 			<f a="it:elt">
 				<t path="Iterable"><c path="has.A"/></t>
 				<c path="has.A"/>
@@ -1142,7 +1135,7 @@
 
 		If no such element is found, the result is false.</haxe_doc>
 		</has>
-		<exists public="1" params="A" set="method" line="144" static="1">
+		<exists public="1" params="A" set="method" line="127" static="1">
 			<f a="it:f">
 				<t path="Iterable"><c path="exists.A"/></t>
 				<f a="">
@@ -1160,7 +1153,7 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</exists>
-		<foreach public="1" params="A" set="method" line="163" static="1">
+		<foreach public="1" params="A" set="method" line="146" static="1">
 			<f a="it:f">
 				<t path="Iterable"><c path="foreach.A"/></t>
 				<f a="">
@@ -1180,7 +1173,7 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</foreach>
-		<iter public="1" params="A" set="method" line="175" static="1">
+		<iter public="1" params="A" set="method" line="158" static="1">
 			<f a="it:f">
 				<t path="Iterable"><c path="iter.A"/></t>
 				<f a="">
@@ -1193,23 +1186,21 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</iter>
-		<filter public="1" params="A" set="method" line="188" static="1">
+		<filter public="1" params="A" get="inline" set="null" line="169" static="1">
 			<f a="it:f">
-				<t path="Iterable"><c path="filter.A"/></t>
+				<c path="Array"><c path="filter.A"/></c>
 				<f a="">
 					<c path="filter.A"/>
 					<x path="Bool"/>
 				</f>
-				<c path="haxe.ds.List"><c path="filter.A"/></c>
+				<c path="Array"><c path="filter.A"/></c>
 			</f>
-			<haxe_doc>Returns a List containing those elements of `it` for which `f` returned
+			<haxe_doc>Returns a Array containing those elements of `it` for which `f` returned
 		true.
-
-		If `it` is empty, the result is the empty List even if `f` is null.
-
+		If `it` is empty, the result is the empty Array even if `f` is null.
 		Otherwise if `f` is null, the result is unspecified.</haxe_doc>
 		</filter>
-		<fold public="1" params="A:B" set="method" line="208" static="1">
+		<fold public="1" params="A:B" set="method" line="185" static="1">
 			<f a="it:f:first">
 				<t path="Iterable"><c path="fold.A"/></t>
 				<f a=":">
@@ -1231,7 +1222,7 @@
 
 		If `it` or `f` are null, the result is unspecified.</haxe_doc>
 		</fold>
-		<count public="1" params="A" set="method" line="220" static="1">
+		<count public="1" params="A" set="method" line="197" static="1">
 			<f a="it:?pred">
 				<t path="Iterable"><c path="count.A"/></t>
 				<f a="">
@@ -1245,14 +1236,14 @@
 
 		This function traverses all elements.</haxe_doc>
 		</count>
-		<empty public="1" params="T" set="method" line="235" static="1">
+		<empty public="1" params="T" set="method" line="212" static="1">
 			<f a="it">
 				<t path="Iterable"><c path="empty.T"/></t>
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>Tells if Iterable `it` does not contain any element.</haxe_doc>
 		</empty>
-		<indexOf public="1" params="T" set="method" line="246" static="1">
+		<indexOf public="1" params="T" set="method" line="223" static="1">
 			<f a="it:v">
 				<t path="Iterable"><c path="indexOf.T"/></t>
 				<c path="indexOf.T"/>
@@ -1264,7 +1255,7 @@
 
 		If `v` does not exist in `it`, the result is -1.</haxe_doc>
 		</indexOf>
-		<find public="1" params="T" set="method" line="266" static="1">
+		<find public="1" params="T" set="method" line="243" static="1">
 			<f a="it:f">
 				<t path="Iterable"><c path="find.T"/></t>
 				<f a="">
@@ -1282,13 +1273,13 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</find>
-		<concat public="1" params="T" set="method" line="279" static="1">
+		<concat public="1" params="T" set="method" line="256" static="1">
 			<f a="a:b">
 				<t path="Iterable"><c path="concat.T"/></t>
 				<t path="Iterable"><c path="concat.T"/></t>
-				<c path="haxe.ds.List"><c path="concat.T"/></c>
+				<c path="Array"><c path="concat.T"/></c>
 			</f>
-			<haxe_doc>Returns a new List containing all elements of Iterable `a` followed by
+			<haxe_doc>Returns a new Array containing all elements of Iterable `a` followed by
 		all elements of Iterable `b`.
 
 		If `a` or `b` are null, the result is unspecified.</haxe_doc>
