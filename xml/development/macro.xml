@@ -21738,35 +21738,21 @@ The total amount of memory allocated by the program since it was started is (in 
 		the expression returned by this method in a static variable and using the
 		compilation server.</haxe_doc>
 		</storeExpr>
-		<registerModuleDependency public="1" set="method" line="575" static="1">
+		<registerModuleDependency public="1" set="method" line="547" static="1">
 			<f a="modulePath:externFile">
 				<c path="String"/>
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<haxe_doc><![CDATA[Evaluates `e` as macro code.
+			<haxe_doc>Manually adds a dependency between module `modulePath` and an external
+		file `externFile`.
 
-		Any call to this function takes effect when the macro is executed, not
-		during typing. As a consequence, this function can not introduce new
-		local variables into the macro context and may have other restrictions.
+		This affects the compilation cache, causing the module to be typed if
+		`externFile` has changed.
 
-		Usage example:
-
-		```haxe
-		var e = macro function(i) return i * 2;
-		var f:Int -> Int = haxe.macro.Context.eval(e);
-		trace(f(2)); // 4
-		```
-
-		Code passed in from outside the macro cannot reference anything in its
-		context, such as local variables. However, it is possible to reference
-		static methods.
-
-		This method should be considered experimental.
-
-		If `e` is null, the result is unspecified.]]></haxe_doc>
+		Has no effect if the compilation cache is not used.</haxe_doc>
 		</registerModuleDependency>
-		<registerModuleReuseCall public="1" set="method" line="592" static="1">
+		<registerModuleReuseCall public="1" set="method" line="564" static="1">
 			<f a="modulePath:macroCall">
 				<c path="String"/>
 				<c path="String"/>
@@ -21784,7 +21770,7 @@ The total amount of memory allocated by the program since it was started is (in 
 		If the compilation cache is not used, `macroCall` expressions will not be called,
 		but calling this function will still trigger loading of given `modulePath`.</haxe_doc>
 		</registerModuleReuseCall>
-		<onMacroContextReused public="1" set="method" line="601" static="1">
+		<onMacroContextReused public="1" set="method" line="573" static="1">
 			<f a="callb">
 				<f a=""><x path="Bool"/></f>
 				<x path="Void"/>
@@ -21793,7 +21779,7 @@ The total amount of memory allocated by the program since it was started is (in 
 		compilation. This enable to reset some static vars since the code might have been changed. If the callback
 		returns false, the macro context is discarded and another one is created.</haxe_doc>
 		</onMacroContextReused>
-		<load set="method" line="609" static="1">
+		<load set="method" line="581" static="1">
 			<f a="f:nargs">
 				<c path="String"/>
 				<x path="Int"/>
@@ -21806,12 +21792,12 @@ The total amount of memory allocated by the program since it was started is (in 
 				<m n=":allow"><e>haxe.macro.PositionTools</e></m>
 			</meta>
 		</load>
-		<includeFile set="method" line="619" static="1"><f a="file:position">
+		<includeFile set="method" line="591" static="1"><f a="file:position">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></includeFile>
-		<sExpr set="method" line="623" static="1"><f a="e:pretty">
+		<sExpr set="method" line="595" static="1"><f a="e:pretty">
 	<t path="haxe.macro.TypedExpr"/>
 	<x path="Bool"/>
 	<c path="String"/>
