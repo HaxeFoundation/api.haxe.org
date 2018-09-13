@@ -69,7 +69,7 @@ class Gen {
         return function(args:Array<String>):Void {
             var cwd = Sys.getCwd();
             Sys.setCwd(doxDir);
-            runCommand("neko", ["Dox.n"].concat(args));
+            runCommand("cpp/Dox", args);
             Sys.setCwd(cwd);
         }
     }
