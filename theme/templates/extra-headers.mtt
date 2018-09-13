@@ -7,7 +7,7 @@
 ::end::
 ::if api.isDefined("origin")::
 <link rel="canonical" href="::api.getValue("origin")::/::api.currentPageUrl::" />
-<script type="text/javascript">
+<script>
 function startsWith(str, searchString){
     return str.substr(0, searchString.length) === searchString;
 }
@@ -16,3 +16,10 @@ if (!startsWith(location.href, "::api.getValue("origin")::")) {
 }
 </script>
 ::end::
+
+<style>
+::raw "
+.main-content { margin-top:65px; }
+.nav-list>.active>a.treeLink, .nav-list>.active>a.treeLink:hover, .nav-list>.active>a.treeLink:focus { background:#F48821; color:#fff; text-shadow:0 0 0 transparent; }
+"::
+</style>
