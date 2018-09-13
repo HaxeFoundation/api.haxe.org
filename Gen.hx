@@ -63,9 +63,21 @@ class Gen {
         return Path.join(["v", version]);
     }
 
+    static function getDox():Array<String>->Void {
+        runCommand("haxe", ["dox.hxml"]);
+        var doxDir = sys.FileSystem.absolutePath("libs/dox");
+        return function(args:Array<String>):Void {
+            var cwd = Sys.getCwd();
+            Sys.setCwd(doxDir);
+            runCommand("neko", ["Dox.n"].concat(args));
+            Sys.setCwd(cwd);
+        }
+    }
+
     static function generateHTML(
         versionInfo:Array<GhVersion>
     ):Void {
+        var dox = getDox();
         var latestVersion = getLatestVersion(versionInfo);
         deleteRecursive(htmlDir);
         createDirectory(htmlDir);
@@ -92,14 +104,6 @@ class Gen {
             var outDir = Path.join([htmlDir, versionDir]);
             createDirectory(outDir);
             var args = [
-                "--cwd", "libs/dox",
-                "-lib", "hxtemplo",
-                "-lib", "hxparse",
-                "-lib", "hxargs",
-                "-lib", "markdown",
-                "-cp", "src",
-                "-dce", "no",
-                "--run", "dox.Dox",
                 "-theme", absolutePath(themeDir),
                 "--title", 'Haxe $version API',
                 "-D", "website", "https://haxe.org/",
@@ -117,7 +121,7 @@ class Gen {
                     "-D", "origin", Path.join([origin, versionDir]),
                 ]);
             }
-            runCommand("haxe", args);
+            dox(args);
 
             if (version == latestVersion) {
                 var args = args.concat([
@@ -128,7 +132,7 @@ class Gen {
                         "-D", "origin", origin,
                     ]);
                 }
-                runCommand("haxe", args);
+                dox(args);
             }
         }
 
