@@ -16,6 +16,10 @@ install:
 script:
   - haxe gen.hxml
   - neko Gen.n
+  # validate html
+  - wget https://github.com/validator/validator/releases/download/18.8.29/vnu.jar_18.8.29.zip
+  - unzip vnu.jar_18.8.29.zip
+  - java -jar dist/vnu.jar --errors-only html/*.html # only for the top level html for now since there are many errors in e.g. js/html/*.html
 
 deploy:
   provider: script
