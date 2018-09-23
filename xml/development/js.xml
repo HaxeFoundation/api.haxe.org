@@ -1471,7 +1471,17 @@
 				<c path="Array"><d/></c>
 				<d/>
 			</f>
-			<haxe_doc>Call a method with the given object and arguments.</haxe_doc>
+			<haxe_doc>Call a method `func` with the given arguments `args`.
+
+		The object `o` is ignored in most cases. It serves as the `this`-context in the following
+		situations:
+
+		* (neko) Allows switching the context to `o` in all cases.
+		* (macro) Same as neko for Haxe 3. No context switching in Haxe 4.
+		* (js, lua) Require the `o` argument if `func` does not, but should have a context.
+		    This can occur by accessing a function field natively, e.g. through `Reflect.field`
+			or by using `(object : Dynamic).field`. However, if `func` has a context, `o` is
+			ignored like on other targets.</haxe_doc>
 		</callMethod>
 		<fields public="1" set="method" line="52" static="1">
 			<f a="o">
@@ -1529,7 +1539,7 @@
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>Compares the functions `f1` and `f2`.
-		
+
 		If `f1` or `f2` are null, the result is false.
 		If `f1` or `f2` are not functions, the result is unspecified.
 
@@ -64407,7 +64417,10 @@
 			<haxe_doc>An `SVGAnimatedString` corresponding to the `in` attribute of the given element.</haxe_doc>
 		</in1>
 		<in2 public="1" set="null"><c path="js.html.svg.AnimatedString"/></in2>
-		<operator public="1" set="null"><c path="js.html.svg.AnimatedEnumeration"/></operator>
+		<operator_ public="1" set="null">
+			<c path="js.html.svg.AnimatedEnumeration"/>
+			<meta><m n=":native"><e>"operator"</e></m></meta>
+		</operator_>
 		<k1 public="1" set="null"><c path="js.html.svg.AnimatedNumber"/></k1>
 		<k2 public="1" set="null"><c path="js.html.svg.AnimatedNumber"/></k2>
 		<k3 public="1" set="null"><c path="js.html.svg.AnimatedNumber"/></k3>
@@ -64797,10 +64810,11 @@
 			<c path="js.html.svg.AnimatedString"/>
 			<haxe_doc>An `SVGAnimatedString` corresponding to the `in` attribute of the given element.</haxe_doc>
 		</in1>
-		<operator public="1" set="null">
+		<operator_ public="1" set="null">
 			<c path="js.html.svg.AnimatedEnumeration"/>
+			<meta><m n=":native"><e>"operator"</e></m></meta>
 			<haxe_doc>An `SVGAnimatedEnumeration` corresponding to the `operator` attribute of the given element. It takes one of the `SVG_MORPHOLOGY_OPERATOR_*` constants defined on this interface.</haxe_doc>
-		</operator>
+		</operator_>
 		<radiusX public="1" set="null">
 			<c path="js.html.svg.AnimatedNumber"/>
 			<haxe_doc>An `SVGAnimatedNumber` corresponding to the X component of the `radius` attribute of the given element.</haxe_doc>
