@@ -11893,7 +11893,7 @@
 	argument expressions are bound to a local variable.</haxe_doc>
 		<meta>
 			<m n=":forward"/>
-			<m n=":analyzer"><e>as_var</e></m>
+			<m n=":semantics"><e>variable</e></m>
 		</meta>
 		<impl><class path="haxe.extern._AsVar.AsVar_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/extern/AsVar.hx" private="1" module="haxe.extern.AsVar" extern="1"/></impl>
 	</abstract>
@@ -27085,7 +27085,7 @@
 			<haxe_doc>Returns a `Boolean` value indicating whether a node is a descendant of a given node or not.</haxe_doc>
 		</contains>
 		<lookupPrefix public="1" set="method">
-			<f a="namespace_">
+			<f a="namespace">
 				<c path="String"/>
 				<c path="String"/>
 			</f>
@@ -27099,7 +27099,7 @@
 			<haxe_doc>Accepts a prefix and returns the namespace URI associated with it on the given node if found (and `null` if not). Supplying `null` for the prefix will return the default namespace.</haxe_doc>
 		</lookupNamespaceURI>
 		<isDefaultNamespace public="1" set="method">
-			<f a="namespace_">
+			<f a="namespace">
 				<c path="String"/>
 				<x path="Bool"/>
 			</f>
@@ -27348,7 +27348,7 @@
 			<haxe_doc>Retrieves the value of the named attribute from the current node and returns it as an `Object`.</haxe_doc>
 		</getAttribute>
 		<getAttributeNS public="1" set="method">
-			<f a="namespace_:localName">
+			<f a="namespace:localName">
 				<c path="String"/>
 				<c path="String"/>
 				<c path="String"/>
@@ -27374,7 +27374,7 @@
 		@throws DOMError</haxe_doc>
 		</setAttribute>
 		<setAttributeNS public="1" set="method">
-			<f a="namespace_:name:value">
+			<f a="namespace:name:value">
 				<c path="String"/>
 				<c path="String"/>
 				<c path="String"/>
@@ -27392,7 +27392,7 @@
 		@throws DOMError</haxe_doc>
 		</removeAttribute>
 		<removeAttributeNS public="1" set="method">
-			<f a="namespace_:localName">
+			<f a="namespace:localName">
 				<c path="String"/>
 				<c path="String"/>
 				<x path="Void"/>
@@ -27408,7 +27408,7 @@
 			<haxe_doc>Returns a `Boolean` indicating if the element has the specified attribute or not.</haxe_doc>
 		</hasAttribute>
 		<hasAttributeNS public="1" set="method">
-			<f a="namespace_:localName">
+			<f a="namespace:localName">
 				<c path="String"/>
 				<c path="String"/>
 				<x path="Bool"/>
@@ -27450,7 +27450,7 @@
 			<haxe_doc>Returns a live `HTMLCollection` containing all descendant elements, of a particular tag name, from the current element.</haxe_doc>
 		</getElementsByTagName>
 		<getElementsByTagNameNS public="1" set="method">
-			<f a="namespace_:localName">
+			<f a="namespace:localName">
 				<c path="String"/>
 				<c path="String"/>
 				<c path="js.html.HTMLCollection"/>
@@ -34273,7 +34273,7 @@
 		@throws DOMError</haxe_doc>
 		</createDocumentType>
 		<createDocument public="1" set="method">
-			<f a="namespace_:qualifiedName:?doctype">
+			<f a="namespace:qualifiedName:?doctype">
 				<c path="String"/>
 				<c path="String"/>
 				<c path="js.html.DocumentType"/>
@@ -36354,7 +36354,7 @@
 			<haxe_doc>Returns a list of elements with the given tag name.</haxe_doc>
 		</getElementsByTagName>
 		<getElementsByTagNameNS public="1" set="method">
-			<f a="namespace_:localName">
+			<f a="namespace:localName">
 				<c path="String"/>
 				<c path="String"/>
 				<c path="js.html.HTMLCollection"/>
@@ -36392,7 +36392,7 @@
 </createElement></overloads>
 		</createElement>
 		<createElementNS public="1" set="method">
-			<f a="namespace_:qualifiedName:?options">
+			<f a="namespace:qualifiedName:?options">
 				<c path="String"/>
 				<c path="String"/>
 				<t path="js.html.ElementCreationOptions"/>
@@ -36401,7 +36401,7 @@
 			<haxe_doc>Creates a new element with the given tag name and namespace URI.
 		@throws DOMError</haxe_doc>
 			<overloads><createElementNS public="1" set="method">
-	<f a="namespace_:qualifiedName:?options">
+	<f a="namespace:qualifiedName:?options">
 		<c path="String"/>
 		<c path="String"/>
 		<c path="String"/>
@@ -36562,7 +36562,7 @@
 		@throws DOMError</haxe_doc>
 		</createAttribute>
 		<createAttributeNS public="1" set="method">
-			<f a="namespace_:name">
+			<f a="namespace:name">
 				<c path="String"/>
 				<c path="String"/>
 				<c path="js.html.Attr"/>
@@ -37374,13 +37374,10 @@
 
 	@see <https://developer.mozilla.org/en-US/docs/Web/API/EffectTiming>]]></haxe_doc>
 	</typedef>
-	<typedef path="js.html.ElementCreationOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/ElementCreationOptions.hx"><a><is_>
+	<typedef path="js.html.ElementCreationOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/ElementCreationOptions.hx"><a><is>
 	<x path="Null"><c path="String"/></x>
-	<meta>
-		<m n=":native"><e>"is"</e></m>
-		<m n=":optional"/>
-	</meta>
-</is_></a></typedef>
+	<meta><m n=":optional"/></meta>
+</is></a></typedef>
 	<class path="js.html.EmbedElement" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/EmbedElement.hx" extern="1">
 		<extends path="js.html.Element"/>
 		<src public="1">
@@ -37427,14 +37424,14 @@
 			<m n=":impl"/>
 		</meta>
 	</TRANSPARENT>
-	<NATIVE_ public="1" get="inline" set="null" expr="cast &quot;native&quot;" line="30" static="1">
+	<NATIVE public="1" get="inline" set="null" expr="cast &quot;native&quot;" line="30" static="1">
 		<x path="js.html.EndingTypes"/>
 		<meta>
 			<m n=":value"><e>cast "native"</e></m>
 			<m n=":enum"/>
 			<m n=":impl"/>
 		</meta>
-	</NATIVE_>
+	</NATIVE>
 	<meta><m n=":enum"/></meta>
 </class></impl>
 	</abstract>
@@ -37447,14 +37444,14 @@
 				<m n=":impl"/>
 			</meta>
 		</TRANSPARENT>
-		<NATIVE_ public="1" get="inline" set="null" expr="cast &quot;native&quot;" line="30" static="1">
+		<NATIVE public="1" get="inline" set="null" expr="cast &quot;native&quot;" line="30" static="1">
 			<x path="js.html.EndingTypes"/>
 			<meta>
 				<m n=":value"><e>cast "native"</e></m>
 				<m n=":enum"/>
 				<m n=":impl"/>
 			</meta>
-		</NATIVE_>
+		</NATIVE>
 		<meta><m n=":enum"/></meta>
 	</class>
 	<typedef path="js.html.ErrorCallback" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/ErrorCallback.hx"><a><handleEvent set="method"><f a="err">
@@ -39399,13 +39396,10 @@
 	<c path="js.html.FontFace"/>
 	<x path="Bool"/>
 </f></has>
-		<delete_ public="1" set="method">
-			<f a="font">
-				<c path="js.html.FontFace"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":native"><e>"delete"</e></m></meta>
-		</delete_>
+		<delete public="1" set="method"><f a="font">
+	<c path="js.html.FontFace"/>
+	<x path="Bool"/>
+</f></delete>
 		<clear public="1" set="method"><f a=""><x path="Void"/></f></clear>
 		<entries public="1" set="method"><f a=""><t path="js.html.FontFaceSetIterator"/></f></entries>
 		<values public="1" set="method"><f a=""><t path="js.html.FontFaceSetIterator"/></f></values>
@@ -39555,13 +39549,13 @@
 		@throws DOMError</haxe_doc>
 </append></overloads>
 		</append>
-		<delete_ public="1" set="method">
+		<delete public="1" set="method">
 			<f a="name">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":native"><e>"delete"</e></m></meta>
-		</delete_>
+			<haxe_doc>Deletes a key/value pair from a `FormData` object.</haxe_doc>
+		</delete>
 		<get public="1" set="method">
 			<f a="name">
 				<c path="String"/>
@@ -40596,14 +40590,14 @@
 			<haxe_doc>Appends a new value onto an existing header inside a `Headers` object, or adds the header if it does not already exist.
 		@throws DOMError</haxe_doc>
 		</append>
-		<delete_ public="1" set="method">
+		<delete public="1" set="method">
 			<f a="name">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":native"><e>"delete"</e></m></meta>
-			<haxe_doc>@throws DOMError</haxe_doc>
-		</delete_>
+			<haxe_doc>Deletes a header from a `Headers` object.
+		@throws DOMError</haxe_doc>
+		</delete>
 		<get public="1" set="method">
 			<f a="name">
 				<c path="String"/>
@@ -44351,10 +44345,10 @@
 			<haxe_doc>Is a `DOMString` representing the name of the target frame to which the resource applies.</haxe_doc>
 		</target>
 		<integrity public="1"><c path="String"/></integrity>
-		<as_ public="1">
+		<as public="1">
 			<c path="String"/>
-			<meta><m n=":native"><e>"as"</e></m></meta>
-		</as_>
+			<haxe_doc>Is a `DOMString` representing the type of content being loaded by the HTML link.</haxe_doc>
+		</as>
 		<sheet public="1" set="null"><c path="js.html.StyleSheet"/></sheet>
 		<haxe_doc><![CDATA[The `HTMLLinkElement` interface represents reference information for external resources and the relationship of those resources to a document and vice-versa. This object inherits all of the properties and methods of the `HTMLElement` interface.
 
@@ -46737,14 +46731,14 @@
 		<this><c path="String"/></this>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="js.html._NotificationPermission.NotificationPermission_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/NotificationPermission.hx" private="1" module="js.html.NotificationPermission" extern="1">
-	<DEFAULT_ public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="29" static="1">
+	<DEFAULT public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="29" static="1">
 		<x path="js.html.NotificationPermission"/>
 		<meta>
 			<m n=":value"><e>cast "default"</e></m>
 			<m n=":enum"/>
 			<m n=":impl"/>
 		</meta>
-	</DEFAULT_>
+	</DEFAULT>
 	<DENIED public="1" get="inline" set="null" expr="cast &quot;denied&quot;" line="30" static="1">
 		<x path="js.html.NotificationPermission"/>
 		<meta>
@@ -46765,14 +46759,14 @@
 </class></impl>
 	</abstract>
 	<class path="js.html._NotificationPermission.NotificationPermission_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/NotificationPermission.hx" private="1" module="js.html.NotificationPermission" extern="1">
-		<DEFAULT_ public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="29" static="1">
+		<DEFAULT public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="29" static="1">
 			<x path="js.html.NotificationPermission"/>
 			<meta>
 				<m n=":value"><e>cast "default"</e></m>
 				<m n=":enum"/>
 				<m n=":impl"/>
 			</meta>
-		</DEFAULT_>
+		</DEFAULT>
 		<DENIED public="1" get="inline" set="null" expr="cast &quot;denied&quot;" line="30" static="1">
 			<x path="js.html.NotificationPermission"/>
 			<meta>
@@ -49330,14 +49324,14 @@
 		<this><c path="String"/></this>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="js.html._RequestCache.RequestCache_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/RequestCache.hx" private="1" module="js.html.RequestCache" extern="1">
-	<DEFAULT_ public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="29" static="1">
+	<DEFAULT public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="29" static="1">
 		<x path="js.html.RequestCache"/>
 		<meta>
 			<m n=":value"><e>cast "default"</e></m>
 			<m n=":enum"/>
 			<m n=":impl"/>
 		</meta>
-	</DEFAULT_>
+	</DEFAULT>
 	<NO_STORE public="1" get="inline" set="null" expr="cast &quot;no-store&quot;" line="30" static="1">
 		<x path="js.html.RequestCache"/>
 		<meta>
@@ -49382,14 +49376,14 @@
 </class></impl>
 	</abstract>
 	<class path="js.html._RequestCache.RequestCache_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/RequestCache.hx" private="1" module="js.html.RequestCache" extern="1">
-		<DEFAULT_ public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="29" static="1">
+		<DEFAULT public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="29" static="1">
 			<x path="js.html.RequestCache"/>
 			<meta>
 				<m n=":value"><e>cast "default"</e></m>
 				<m n=":enum"/>
 				<m n=":impl"/>
 			</meta>
-		</DEFAULT_>
+		</DEFAULT>
 		<NO_STORE public="1" get="inline" set="null" expr="cast &quot;no-store&quot;" line="30" static="1">
 			<x path="js.html.RequestCache"/>
 			<meta>
@@ -50176,14 +50170,14 @@
 			<m n=":impl"/>
 		</meta>
 	</CORS>
-	<DEFAULT_ public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="31" static="1">
+	<DEFAULT public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="31" static="1">
 		<x path="js.html.ResponseType"/>
 		<meta>
 			<m n=":value"><e>cast "default"</e></m>
 			<m n=":enum"/>
 			<m n=":impl"/>
 		</meta>
-	</DEFAULT_>
+	</DEFAULT>
 	<ERROR public="1" get="inline" set="null" expr="cast &quot;error&quot;" line="32" static="1">
 		<x path="js.html.ResponseType"/>
 		<meta>
@@ -50228,14 +50222,14 @@
 				<m n=":impl"/>
 			</meta>
 		</CORS>
-		<DEFAULT_ public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="31" static="1">
+		<DEFAULT public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="31" static="1">
 			<x path="js.html.ResponseType"/>
 			<meta>
 				<m n=":value"><e>cast "default"</e></m>
 				<m n=":enum"/>
 				<m n=":impl"/>
 			</meta>
-		</DEFAULT_>
+		</DEFAULT>
 		<ERROR public="1" get="inline" set="null" expr="cast &quot;error&quot;" line="32" static="1">
 			<x path="js.html.ResponseType"/>
 			<meta>
@@ -51454,7 +51448,7 @@
 	<c path="String"/>
 	<c path="js.html.HTMLCollection"/>
 </f></getElementsByTagName>
-		<getElementsByTagNameNS public="1" set="method"><f a="namespace_:localName">
+		<getElementsByTagNameNS public="1" set="method"><f a="namespace:localName">
 	<c path="String"/>
 	<c path="String"/>
 	<c path="js.html.HTMLCollection"/>
@@ -52690,6 +52684,7 @@
 		<default_ public="1" set="null">
 			<x path="Bool"/>
 			<meta><m n=":native"><e>"default"</e></m></meta>
+			<haxe_doc>A `Boolean` indicating whether the voice is the default voice for the current app language (`true`), or not (`false`.)</haxe_doc>
 		</default_>
 		<haxe_doc><![CDATA[The `SpeechSynthesisVoice` interface of the Web Speech API represents a voice that the system supports. Every `SpeechSynthesisVoice` has its own relative speech service including information about language, name and URI.
 
@@ -52838,14 +52833,14 @@
 			<m n=":impl"/>
 		</meta>
 	</TEMPORARY>
-	<DEFAULT_ public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="31" static="1">
+	<DEFAULT public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="31" static="1">
 		<x path="js.html.StorageType"/>
 		<meta>
 			<m n=":value"><e>cast "default"</e></m>
 			<m n=":enum"/>
 			<m n=":impl"/>
 		</meta>
-	</DEFAULT_>
+	</DEFAULT>
 	<meta><m n=":enum"/></meta>
 </class></impl>
 	</abstract>
@@ -52866,14 +52861,14 @@
 				<m n=":impl"/>
 			</meta>
 		</TEMPORARY>
-		<DEFAULT_ public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="31" static="1">
+		<DEFAULT public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="31" static="1">
 			<x path="js.html.StorageType"/>
 			<meta>
 				<m n=":value"><e>cast "default"</e></m>
 				<m n=":enum"/>
 				<m n=":impl"/>
 			</meta>
-		</DEFAULT_>
+		</DEFAULT>
 		<meta><m n=":enum"/></meta>
 	</class>
 	<class path="js.html.StyleElement" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/StyleElement.hx" extern="1">
@@ -54307,6 +54302,7 @@
 		<default_ public="1">
 			<x path="Bool"/>
 			<meta><m n=":native"><e>"default"</e></m></meta>
+			<haxe_doc>Is a `Boolean` reflects the `default` HTML attribute, indicating that the track is to be enabled if the user's preferences do not indicate that another track would be more appropriate.</haxe_doc>
 		</default_>
 		<readyState public="1" set="null">
 			<x path="Int"/>
@@ -54723,13 +54719,13 @@
 			</f>
 			<haxe_doc>Appends a specified key/value pair as a new search parameter.</haxe_doc>
 		</append>
-		<delete_ public="1" set="method">
+		<delete public="1" set="method">
 			<f a="name">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":native"><e>"delete"</e></m></meta>
-		</delete_>
+			<haxe_doc>Deletes the given search parameter, and its associated value, from the list of all search parameters.</haxe_doc>
+		</delete>
 		<get public="1" set="method">
 			<f a="name">
 				<c path="String"/>
@@ -60827,7 +60823,8 @@
 				<x path="Void"/>
 			</f>
 			<meta><m n=":native"><e>"continue"</e></m></meta>
-			<haxe_doc>@throws DOMError</haxe_doc>
+			<haxe_doc>Advances the cursor to the next position along its direction, to the item whose key matches the optional `key` parameter.
+		@throws DOMError</haxe_doc>
 		</continue_>
 		<continuePrimaryKey public="1" set="method">
 			<f a="key:primaryKey">
@@ -60838,11 +60835,11 @@
 			<haxe_doc>Sets the cursor to the given index key and primary key given as arguments.
 		@throws DOMError</haxe_doc>
 		</continuePrimaryKey>
-		<delete_ public="1" set="method">
+		<delete public="1" set="method">
 			<f a=""><c path="js.html.idb.Request"/></f>
-			<meta><m n=":native"><e>"delete"</e></m></meta>
-			<haxe_doc>@throws DOMError</haxe_doc>
-		</delete_>
+			<haxe_doc>Returns an `IDBRequest` object, and, in a separate thread, deletes the record at the cursor's position, without changing the cursor's position. This can be used to delete specific records.
+		@throws DOMError</haxe_doc>
+		</delete>
 		<haxe_doc><![CDATA[The `IDBCursor` interface of the IndexedDB API represents a cursor for traversing or iterating over multiple records in a database.
 
 	Documentation [IDBCursor](https://developer.mozilla.org/en-US/docs/Web/API/IDBCursor) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/IDBCursor$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
@@ -61428,14 +61425,14 @@
 			<haxe_doc>Returns an `IDBRequest` object, and, in a separate thread, creates a structured clone of the `value`, and stores the cloned value in the object store. This is for adding new records to an object store.
 		@throws DOMError</haxe_doc>
 		</add>
-		<delete_ public="1" set="method">
+		<delete public="1" set="method">
 			<f a="key">
 				<d/>
 				<c path="js.html.idb.Request"/>
 			</f>
-			<meta><m n=":native"><e>"delete"</e></m></meta>
-			<haxe_doc>@throws DOMError</haxe_doc>
-		</delete_>
+			<haxe_doc>returns an `IDBRequest` object, and, in a separate thread, deletes the store object selected by the specified key. This is for deleting individual records out of an object store.
+		@throws DOMError</haxe_doc>
+		</delete>
 		<get public="1" set="method">
 			<f a="key">
 				<d/>
@@ -62355,14 +62352,14 @@
 		<this><c path="String"/></this>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="js.html.rtc._IceConnectionState.IceConnectionState_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/rtc/IceConnectionState.hx" private="1" module="js.html.rtc.IceConnectionState" extern="1">
-	<NEW_ public="1" get="inline" set="null" expr="cast &quot;new&quot;" line="29" static="1">
+	<NEW public="1" get="inline" set="null" expr="cast &quot;new&quot;" line="29" static="1">
 		<x path="js.html.rtc.IceConnectionState"/>
 		<meta>
 			<m n=":value"><e>cast "new"</e></m>
 			<m n=":enum"/>
 			<m n=":impl"/>
 		</meta>
-	</NEW_>
+	</NEW>
 	<CHECKING public="1" get="inline" set="null" expr="cast &quot;checking&quot;" line="30" static="1">
 		<x path="js.html.rtc.IceConnectionState"/>
 		<meta>
@@ -62415,14 +62412,14 @@
 </class></impl>
 	</abstract>
 	<class path="js.html.rtc._IceConnectionState.IceConnectionState_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/rtc/IceConnectionState.hx" private="1" module="js.html.rtc.IceConnectionState" extern="1">
-		<NEW_ public="1" get="inline" set="null" expr="cast &quot;new&quot;" line="29" static="1">
+		<NEW public="1" get="inline" set="null" expr="cast &quot;new&quot;" line="29" static="1">
 			<x path="js.html.rtc.IceConnectionState"/>
 			<meta>
 				<m n=":value"><e>cast "new"</e></m>
 				<m n=":enum"/>
 				<m n=":impl"/>
 			</meta>
-		</NEW_>
+		</NEW>
 		<CHECKING public="1" get="inline" set="null" expr="cast &quot;checking&quot;" line="30" static="1">
 			<x path="js.html.rtc.IceConnectionState"/>
 			<meta>
@@ -62519,14 +62516,14 @@
 		<this><c path="String"/></this>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="js.html.rtc._IceGatheringState.IceGatheringState_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/rtc/IceGatheringState.hx" private="1" module="js.html.rtc.IceGatheringState" extern="1">
-	<NEW_ public="1" get="inline" set="null" expr="cast &quot;new&quot;" line="29" static="1">
+	<NEW public="1" get="inline" set="null" expr="cast &quot;new&quot;" line="29" static="1">
 		<x path="js.html.rtc.IceGatheringState"/>
 		<meta>
 			<m n=":value"><e>cast "new"</e></m>
 			<m n=":enum"/>
 			<m n=":impl"/>
 		</meta>
-	</NEW_>
+	</NEW>
 	<GATHERING public="1" get="inline" set="null" expr="cast &quot;gathering&quot;" line="30" static="1">
 		<x path="js.html.rtc.IceGatheringState"/>
 		<meta>
@@ -62547,14 +62544,14 @@
 </class></impl>
 	</abstract>
 	<class path="js.html.rtc._IceGatheringState.IceGatheringState_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/rtc/IceGatheringState.hx" private="1" module="js.html.rtc.IceGatheringState" extern="1">
-		<NEW_ public="1" get="inline" set="null" expr="cast &quot;new&quot;" line="29" static="1">
+		<NEW public="1" get="inline" set="null" expr="cast &quot;new&quot;" line="29" static="1">
 			<x path="js.html.rtc.IceGatheringState"/>
 			<meta>
 				<m n=":value"><e>cast "new"</e></m>
 				<m n=":enum"/>
 				<m n=":impl"/>
 			</meta>
-		</NEW_>
+		</NEW>
 		<GATHERING public="1" get="inline" set="null" expr="cast &quot;gathering&quot;" line="30" static="1">
 			<x path="js.html.rtc.IceGatheringState"/>
 			<meta>
@@ -67450,14 +67447,14 @@
 		<this><c path="String"/></this>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="js.html.webgl._PowerPreference.PowerPreference_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/webgl/PowerPreference.hx" private="1" module="js.html.webgl.PowerPreference" extern="1">
-	<DEFAULT_ public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="29" static="1">
+	<DEFAULT public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="29" static="1">
 		<x path="js.html.webgl.PowerPreference"/>
 		<meta>
 			<m n=":value"><e>cast "default"</e></m>
 			<m n=":enum"/>
 			<m n=":impl"/>
 		</meta>
-	</DEFAULT_>
+	</DEFAULT>
 	<LOW_POWER public="1" get="inline" set="null" expr="cast &quot;low-power&quot;" line="30" static="1">
 		<x path="js.html.webgl.PowerPreference"/>
 		<meta>
@@ -67478,14 +67475,14 @@
 </class></impl>
 	</abstract>
 	<class path="js.html.webgl._PowerPreference.PowerPreference_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/webgl/PowerPreference.hx" private="1" module="js.html.webgl.PowerPreference" extern="1">
-		<DEFAULT_ public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="29" static="1">
+		<DEFAULT public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="29" static="1">
 			<x path="js.html.webgl.PowerPreference"/>
 			<meta>
 				<m n=":value"><e>cast "default"</e></m>
 				<m n=":enum"/>
 				<m n=":impl"/>
 			</meta>
-		</DEFAULT_>
+		</DEFAULT>
 		<LOW_POWER public="1" get="inline" set="null" expr="cast &quot;low-power&quot;" line="30" static="1">
 			<x path="js.html.webgl.PowerPreference"/>
 			<meta>
