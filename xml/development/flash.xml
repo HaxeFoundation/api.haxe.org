@@ -23796,6 +23796,74 @@
 
 	@see https://haxe.org/manual/std-Option.html</haxe_doc>
 	</enum>
+	<abstract path="haxe.ds.ReadOnlyArray" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/ds/ReadOnlyArray.hx">
+		<from><icast><c path="Array"><c path="haxe.ds.ReadOnlyArray.T"/></c></icast></from>
+		<this><c path="Array"><c path="haxe.ds.ReadOnlyArray.T"/></c></this>
+		<haxe_doc>ReadOnlyArray is an abstract over an ordinary Array but only exposes
+ API's that don't modify the Array instance, hence read-only.
+ Notice that this doesn't necessarily mean that the instance is immutable.
+ Because other code holding the reference as ordinary Array can still modify it.</haxe_doc>
+		<meta><m n=":forward">
+	<e>concat</e>
+	<e>copy</e>
+	<e>filter</e>
+	<e>indexOf</e>
+	<e>iterator</e>
+	<e>join</e>
+	<e>lastIndexOf</e>
+	<e>map</e>
+	<e>slice</e>
+	<e>toString</e>
+</m></meta>
+		<impl><class path="haxe.ds._ReadOnlyArray.ReadOnlyArray_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/ds/ReadOnlyArray.hx" private="1" module="haxe.ds.ReadOnlyArray">
+	<length public="1" get="accessor" set="null" static="1">
+		<x path="Int"/>
+		<meta><m n=":impl"/></meta>
+	</length>
+	<get_length get="inline" set="null" line="34" static="1">
+		<f a="this">
+			<c path="Array"><c path="haxe.ds.ReadOnlyArray.T"/></c>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_length>
+	<get get="inline" set="null" line="35" static="1">
+		<f a="this:i">
+			<c path="Array"><c path="haxe.ds.ReadOnlyArray.T"/></c>
+			<x path="Int"/>
+			<c path="haxe.ds.ReadOnlyArray.T"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":arrayAccess"/>
+		</meta>
+	</get>
+</class></impl>
+	</abstract>
+	<class path="haxe.ds._ReadOnlyArray.ReadOnlyArray_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/ds/ReadOnlyArray.hx" private="1" module="haxe.ds.ReadOnlyArray">
+		<length public="1" get="accessor" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":impl"/></meta>
+		</length>
+		<get_length get="inline" set="null" line="34" static="1">
+			<f a="this">
+				<c path="Array"><c path="haxe.ds.ReadOnlyArray.T"/></c>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_length>
+		<get get="inline" set="null" line="35" static="1">
+			<f a="this:i">
+				<c path="Array"><c path="haxe.ds.ReadOnlyArray.T"/></c>
+				<x path="Int"/>
+				<c path="haxe.ds.ReadOnlyArray.T"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":arrayAccess"/>
+			</meta>
+		</get>
+	</class>
 	<class path="haxe.ds.StringMap" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/flash/_std/haxe/ds/StringMap.hx">
 		<implements path="haxe.IMap">
 			<c path="String"/>
