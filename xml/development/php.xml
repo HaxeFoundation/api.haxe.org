@@ -13812,14 +13812,19 @@
 			<f a=""><c path="haxe.ds._List.ListIterator"><c path="haxe.ds.List.T"/></c></f>
 			<haxe_doc>Returns an iterator on the elements of the list.</haxe_doc>
 		</iterator>
-		<toString public="1" set="method" line="171">
+		<keyValueIterator public="1" get="inline" set="null" line="168">
+			<f a=""><c path="haxe.ds._List.ListKeyValueIterator"><c path="haxe.ds.List.T"/></c></f>
+			<meta><m n=":runtime"/></meta>
+			<haxe_doc>Returns an iterator of the List indices and values.</haxe_doc>
+		</keyValueIterator>
+		<toString public="1" set="method" line="178">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns a string representation of `this` List.
 
 		The result is enclosed in { } with the individual elements being
 		separated by a comma.</haxe_doc>
 		</toString>
-		<join public="1" set="method" line="192">
+		<join public="1" set="method" line="199">
 			<f a="sep">
 				<c path="String"/>
 				<c path="String"/>
@@ -13827,7 +13832,7 @@
 			<haxe_doc>Returns a string representation of `this` List, with `sep` separating
 		each element.</haxe_doc>
 		</join>
-		<filter public="1" set="method" line="211">
+		<filter public="1" set="method" line="218">
 			<f a="f">
 				<f a="">
 					<c path="haxe.ds.List.T"/>
@@ -13838,7 +13843,7 @@
 			<haxe_doc>Returns a list filtered with `f`. The returned list will contain all
 		elements for which `f(x) == true`.</haxe_doc>
 		</filter>
-		<map public="1" params="X" set="method" line="227">
+		<map public="1" params="X" set="method" line="234">
 			<f a="f">
 				<f a="">
 					<c path="haxe.ds.List.T"/>
@@ -13860,14 +13865,14 @@
 	@see https://haxe.org/manual/std-List.html</haxe_doc>
 	</class>
 	<class path="haxe.ds._List.ListNode" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/ds/List.hx" private="1" module="haxe.ds.List">
-		<create public="1" params="T" get="inline" set="null" line="260" static="1"><f a="item:next">
+		<create public="1" params="T" get="inline" set="null" line="267" static="1"><f a="item:next">
 	<c path="create.T"/>
 	<c path="haxe.ds._List.ListNode"><c path="create.T"/></c>
 	<c path="haxe.ds._List.ListNode"><c path="create.T"/></c>
 </f></create>
 		<item public="1"><c path="haxe.ds._List.ListNode.T"/></item>
 		<next public="1"><c path="haxe.ds._List.ListNode"><c path="haxe.ds._List.ListNode.T"/></c></next>
-		<new public="1" set="method" line="256"><f a="item:next">
+		<new public="1" set="method" line="263"><f a="item:next">
 	<c path="haxe.ds._List.ListNode.T"/>
 	<c path="haxe.ds._List.ListNode"><c path="haxe.ds._List.ListNode.T"/></c>
 	<x path="Void"/>
@@ -13875,10 +13880,23 @@
 	</class>
 	<class path="haxe.ds._List.ListIterator" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/ds/List.hx" private="1" module="haxe.ds.List">
 		<head><c path="haxe.ds._List.ListNode"><c path="haxe.ds._List.ListIterator.T"/></c></head>
-		<hasNext public="1" get="inline" set="null" line="273"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" get="inline" set="null" line="277"><f a=""><c path="haxe.ds._List.ListIterator.T"/></f></next>
-		<new public="1" get="inline" set="null" line="269"><f a="head">
+		<hasNext public="1" get="inline" set="null" line="280"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="284"><f a=""><c path="haxe.ds._List.ListIterator.T"/></f></next>
+		<new public="1" get="inline" set="null" line="276"><f a="head">
 	<c path="haxe.ds._List.ListNode"><c path="haxe.ds._List.ListIterator.T"/></c>
+	<x path="Void"/>
+</f></new>
+	</class>
+	<class path="haxe.ds._List.ListKeyValueIterator" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/ds/List.hx" private="1" module="haxe.ds.List">
+		<idx><x path="Int"/></idx>
+		<head><c path="haxe.ds._List.ListNode"><c path="haxe.ds._List.ListKeyValueIterator.T"/></c></head>
+		<hasNext public="1" get="inline" set="null" line="300"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="304"><f a=""><a>
+	<value><c path="haxe.ds._List.ListKeyValueIterator.T"/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new public="1" get="inline" set="null" line="295"><f a="head">
+	<c path="haxe.ds._List.ListNode"><c path="haxe.ds._List.ListKeyValueIterator.T"/></c>
 	<x path="Void"/>
 </f></new>
 	</class>
