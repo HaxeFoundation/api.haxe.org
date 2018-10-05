@@ -29683,7 +29683,7 @@
 			<m n=":semantics"><e>value</e></m>
 		</meta>
 		<impl><class path="php._NativeArray.NativeArray_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/NativeArray.hx" private="1" module="php.NativeArray">
-	<_new public="1" get="inline" set="null" line="30" static="1">
+	<_new public="1" get="inline" set="null" line="32" static="1">
 		<f a=""><x path="php.NativeArray"/></f>
 		<meta>
 			<m n=":impl"/>
@@ -29790,17 +29790,24 @@
 			<m n=":arrayAccess"/>
 		</meta>
 	</setByBool>
-	<iterator public="1" get="inline" set="null" line="42" static="1">
+	<iterator public="1" get="inline" set="null" line="44" static="1">
 		<f a="this">
 			<x path="php.NativeArray"/>
 			<c path="php._NativeIndexedArray.NativeIndexedArrayIterator"><d/></c>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</iterator>
+	<keyValueIterator public="1" get="inline" set="null" line="47" static="1">
+		<f a="this">
+			<x path="php.NativeArray"/>
+			<c path="php._NativeArray.NativeArrayKeyValueIterator"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</keyValueIterator>
 </class></impl>
 	</abstract>
 	<class path="php._NativeArray.NativeArray_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/NativeArray.hx" private="1" module="php.NativeArray">
-		<_new public="1" get="inline" set="null" line="30" static="1">
+		<_new public="1" get="inline" set="null" line="32" static="1">
 			<f a=""><x path="php.NativeArray"/></f>
 			<meta>
 				<m n=":impl"/>
@@ -29907,13 +29914,44 @@
 				<m n=":arrayAccess"/>
 			</meta>
 		</setByBool>
-		<iterator public="1" get="inline" set="null" line="42" static="1">
+		<iterator public="1" get="inline" set="null" line="44" static="1">
 			<f a="this">
 				<x path="php.NativeArray"/>
 				<c path="php._NativeIndexedArray.NativeIndexedArrayIterator"><d/></c>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="47" static="1">
+			<f a="this">
+				<x path="php.NativeArray"/>
+				<c path="php._NativeArray.NativeArrayKeyValueIterator"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</keyValueIterator>
+	</class>
+	<class path="php._NativeArray.NativeArrayKeyValueIterator" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/NativeArray.hx" private="1" module="php.NativeArray">
+		<length><x path="Int"/></length>
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<keys><x path="php.NativeIndexedArray"><x path="haxe.extern.EitherType">
+	<c path="String"/>
+	<x path="Int"/>
+</x></x></keys>
+		<values><x path="php.NativeIndexedArray"><d/></x></values>
+		<hasNext public="1" get="inline" set="null" line="63"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="67"><f a=""><a>
+	<value><d/></value>
+	<key><x path="haxe.extern.EitherType">
+	<c path="String"/>
+	<x path="Int"/>
+</x></key>
+</a></f></next>
+		<new public="1" get="inline" set="null" line="57"><f a="data">
+	<x path="php.NativeArray"/>
+	<x path="Void"/>
+</f></new>
 	</class>
 	<abstract path="php.NativeAssocArray" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/php/NativeAssocArray.hx">
 		<from><icast><x path="php.NativeArray"/></icast></from>
@@ -29961,6 +29999,13 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</iterator>
+	<keyValueIterator public="1" get="inline" set="null" line="41" static="1">
+		<f a="this">
+			<x path="php.NativeArray"/>
+			<c path="php._NativeAssocArray.NativeAssocArrayKeyValueIterator"><c path="php.NativeAssocArray.T"/></c>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</keyValueIterator>
 </class></impl>
 	</abstract>
 	<class path="php._NativeAssocArray.NativeAssocArray_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/NativeAssocArray.hx" private="1" module="php.NativeAssocArray">
@@ -30001,6 +30046,31 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="41" static="1">
+			<f a="this">
+				<x path="php.NativeArray"/>
+				<c path="php._NativeAssocArray.NativeAssocArrayKeyValueIterator"><c path="php.NativeAssocArray.T"/></c>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</keyValueIterator>
+	</class>
+	<class path="php._NativeAssocArray.NativeAssocArrayKeyValueIterator" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/php/NativeAssocArray.hx" private="1" module="php.NativeAssocArray">
+		<length><x path="Int"/></length>
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<keys><x path="php.NativeIndexedArray"><c path="String"/></x></keys>
+		<values><x path="php.NativeIndexedArray"><c path="php._NativeAssocArray.NativeAssocArrayKeyValueIterator.T"/></x></values>
+		<hasNext public="1" get="inline" set="null" line="57"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="61"><f a=""><a>
+	<value><c path="php._NativeAssocArray.NativeAssocArrayKeyValueIterator.T"/></value>
+	<key><c path="String"/></key>
+</a></f></next>
+		<new public="1" get="inline" set="null" line="51"><f a="data">
+	<x path="php.NativeIndexedArray"><c path="php._NativeAssocArray.NativeAssocArrayKeyValueIterator.T"/></x>
+	<x path="Void"/>
+</f></new>
 	</class>
 	<abstract path="php.NativeIndexedArray" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/php/NativeIndexedArray.hx">
 		<from>
@@ -30062,7 +30132,14 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</iterator>
-	<toHaxeArray get="inline" set="null" line="45" static="1">
+	<keyValueIterator public="1" get="inline" set="null" line="44" static="1">
+		<f a="this">
+			<x path="php.NativeArray"/>
+			<c path="php._NativeIndexedArray.NativeIndexedArrayKeyValueIterator"><c path="php.NativeIndexedArray.T"/></c>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</keyValueIterator>
+	<toHaxeArray get="inline" set="null" line="48" static="1">
 		<f a="this">
 			<x path="php.NativeArray"/>
 			<c path="Array"><c path="php.NativeIndexedArray.T"/></c>
@@ -30072,7 +30149,7 @@
 			<m n=":to"/>
 		</meta>
 	</toHaxeArray>
-	<fromHaxeArray params="T" get="inline" set="null" line="49" static="1">
+	<fromHaxeArray params="T" get="inline" set="null" line="52" static="1">
 		<f a="a">
 			<c path="Array"><c path="fromHaxeArray.T"/></c>
 			<x path="php.NativeIndexedArray"><c path="fromHaxeArray.T"/></x>
@@ -30127,7 +30204,14 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</iterator>
-		<toHaxeArray get="inline" set="null" line="45" static="1">
+		<keyValueIterator public="1" get="inline" set="null" line="44" static="1">
+			<f a="this">
+				<x path="php.NativeArray"/>
+				<c path="php._NativeIndexedArray.NativeIndexedArrayKeyValueIterator"><c path="php.NativeIndexedArray.T"/></c>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</keyValueIterator>
+		<toHaxeArray get="inline" set="null" line="48" static="1">
 			<f a="this">
 				<x path="php.NativeArray"/>
 				<c path="Array"><c path="php.NativeIndexedArray.T"/></c>
@@ -30137,7 +30221,7 @@
 				<m n=":to"/>
 			</meta>
 		</toHaxeArray>
-		<fromHaxeArray params="T" get="inline" set="null" line="49" static="1">
+		<fromHaxeArray params="T" get="inline" set="null" line="52" static="1">
 			<f a="a">
 				<c path="Array"><c path="fromHaxeArray.T"/></c>
 				<x path="php.NativeIndexedArray"><c path="fromHaxeArray.T"/></x>
@@ -30152,10 +30236,27 @@
 			<meta><m n=":value"><e>0</e></m></meta>
 		</current>
 		<data><x path="php.NativeIndexedArray"><c path="php._NativeIndexedArray.NativeIndexedArrayIterator.T"/></x></data>
-		<hasNext public="1" get="inline" set="null" line="63"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" get="inline" set="null" line="67"><f a=""><c path="php._NativeIndexedArray.NativeIndexedArrayIterator.T"/></f></next>
-		<new public="1" get="inline" set="null" line="58"><f a="data">
+		<hasNext public="1" get="inline" set="null" line="66"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="70"><f a=""><c path="php._NativeIndexedArray.NativeIndexedArrayIterator.T"/></f></next>
+		<new public="1" get="inline" set="null" line="61"><f a="data">
 	<x path="php.NativeIndexedArray"><c path="php._NativeIndexedArray.NativeIndexedArrayIterator.T"/></x>
+	<x path="Void"/>
+</f></new>
+	</class>
+	<class path="php._NativeIndexedArray.NativeIndexedArrayKeyValueIterator" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/php/NativeIndexedArray.hx" private="1" module="php.NativeIndexedArray">
+		<length><x path="Int"/></length>
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<data><x path="php.NativeIndexedArray"><c path="php._NativeIndexedArray.NativeIndexedArrayKeyValueIterator.T"/></x></data>
+		<hasNext public="1" get="inline" set="null" line="85"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="89"><f a=""><a>
+	<value><c path="php._NativeIndexedArray.NativeIndexedArrayKeyValueIterator.T"/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new public="1" get="inline" set="null" line="80"><f a="data">
+	<x path="php.NativeIndexedArray"><c path="php._NativeIndexedArray.NativeIndexedArrayKeyValueIterator.T"/></x>
 	<x path="Void"/>
 </f></new>
 	</class>
