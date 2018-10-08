@@ -10519,6 +10519,10 @@
 </f></remove>
 		<keys public="1" set="method"><f a=""><t path="Iterator"><c path="haxe.IMap.K"/></t></f></keys>
 		<iterator public="1" set="method"><f a=""><t path="Iterator"><c path="haxe.IMap.V"/></t></f></iterator>
+		<keyValueIterator public="1" set="method"><f a=""><t path="KeyValueIterator">
+	<c path="haxe.IMap.K"/>
+	<c path="haxe.IMap.V"/>
+</t></f></keyValueIterator>
 		<copy public="1" set="method"><f a=""><c path="haxe.IMap">
 	<c path="haxe.IMap.K"/>
 	<c path="haxe.IMap.V"/>
@@ -17513,7 +17517,19 @@
 
 		This operation is performed in-order.</haxe_doc>
 		</iterator>
-		<keys public="1" set="method" line="126">
+		<keyValueIterator public="1" get="inline" set="null" line="124">
+			<f a=""><t path="KeyValueIterator">
+	<c path="haxe.ds.BalancedTree.K"/>
+	<c path="haxe.ds.BalancedTree.V"/>
+</t></f>
+			<meta>
+				<m n=":keep"/>
+				<m n=":keep"/>
+				<m n=":runtime"/>
+			</meta>
+			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
+		</keyValueIterator>
+		<keys public="1" set="method" line="133">
 			<f a=""><t path="Iterator"><c path="haxe.ds.BalancedTree.K"/></t></f>
 			<meta>
 				<m n=":keep"/>
@@ -17523,7 +17539,7 @@
 
 		This operation is performed in-order.</haxe_doc>
 		</keys>
-		<copy public="1" set="method" line="132">
+		<copy public="1" set="method" line="139">
 			<f a=""><c path="haxe.ds.BalancedTree">
 	<c path="haxe.ds.BalancedTree.K"/>
 	<c path="haxe.ds.BalancedTree.V"/>
@@ -17533,7 +17549,7 @@
 				<m n=":keep"/>
 			</meta>
 		</copy>
-		<setLoop set="method" line="138">
+		<setLoop set="method" line="145">
 			<f a="k:v:node">
 				<c path="haxe.ds.BalancedTree.K"/>
 				<c path="haxe.ds.BalancedTree.V"/>
@@ -17551,7 +17567,7 @@
 				<m n=":keep"/>
 			</meta>
 		</setLoop>
-		<removeLoop set="method" line="151">
+		<removeLoop set="method" line="158">
 			<f a="k:node">
 				<c path="haxe.ds.BalancedTree.K"/>
 				<c path="haxe.ds.TreeNode">
@@ -17568,7 +17584,7 @@
 				<m n=":keep"/>
 			</meta>
 		</removeLoop>
-		<iteratorLoop set="method" line="159">
+		<iteratorLoop set="method" line="166">
 			<f a="node:acc">
 				<c path="haxe.ds.TreeNode">
 					<c path="haxe.ds.BalancedTree.K"/>
@@ -17582,7 +17598,7 @@
 				<m n=":keep"/>
 			</meta>
 		</iteratorLoop>
-		<keysLoop set="method" line="167">
+		<keysLoop set="method" line="174">
 			<f a="node:acc">
 				<c path="haxe.ds.TreeNode">
 					<c path="haxe.ds.BalancedTree.K"/>
@@ -17596,7 +17612,7 @@
 				<m n=":keep"/>
 			</meta>
 		</keysLoop>
-		<merge set="method" line="175">
+		<merge set="method" line="182">
 			<f a="t1:t2">
 				<c path="haxe.ds.TreeNode">
 					<c path="haxe.ds.BalancedTree.K"/>
@@ -17616,7 +17632,7 @@
 				<m n=":keep"/>
 			</meta>
 		</merge>
-		<minBinding set="method" line="182">
+		<minBinding set="method" line="189">
 			<f a="t">
 				<c path="haxe.ds.TreeNode">
 					<c path="haxe.ds.BalancedTree.K"/>
@@ -17632,7 +17648,7 @@
 				<m n=":keep"/>
 			</meta>
 		</minBinding>
-		<removeMinBinding set="method" line="188">
+		<removeMinBinding set="method" line="195">
 			<f a="t">
 				<c path="haxe.ds.TreeNode">
 					<c path="haxe.ds.BalancedTree.K"/>
@@ -17648,7 +17664,7 @@
 				<m n=":keep"/>
 			</meta>
 		</removeMinBinding>
-		<balance set="method" line="193">
+		<balance set="method" line="200">
 			<f a="l:k:v:r">
 				<c path="haxe.ds.TreeNode">
 					<c path="haxe.ds.BalancedTree.K"/>
@@ -17670,7 +17686,7 @@
 				<m n=":keep"/>
 			</meta>
 		</balance>
-		<compare set="method" line="207">
+		<compare set="method" line="214">
 			<f a="k1:k2">
 				<c path="haxe.ds.BalancedTree.K"/>
 				<c path="haxe.ds.BalancedTree.K"/>
@@ -17681,7 +17697,7 @@
 				<m n=":keep"/>
 			</meta>
 		</compare>
-		<toString public="1" set="method" line="211">
+		<toString public="1" set="method" line="218">
 			<f a=""><c path="String"/></f>
 			<meta>
 				<m n=":keep"/>
@@ -17747,21 +17763,21 @@
 				<m n=":keep"/>
 			</meta>
 		</_height>
-		<get_height public="1" get="inline" set="null" line="240">
+		<get_height public="1" get="inline" set="null" line="247">
 			<f a=""><x path="Int"/></f>
 			<meta>
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
 		</get_height>
-		<toString public="1" set="method" line="242">
+		<toString public="1" set="method" line="249">
 			<f a=""><c path="String"/></f>
 			<meta>
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
 		</toString>
-		<new public="1" set="method" line="229">
+		<new public="1" set="method" line="236">
 			<f a="l:k:v:r:?h" v="::::-1">
 				<c path="haxe.ds.TreeNode">
 					<c path="haxe.ds.TreeNode.K"/>
@@ -18294,7 +18310,19 @@
 			</meta>
 			<haxe_doc>See `Map.iterator`</haxe_doc>
 		</iterator>
-		<copy public="1" set="method" line="86">
+		<keyValueIterator public="1" get="inline" set="null" line="86">
+			<f a=""><t path="KeyValueIterator">
+	<x path="Int"/>
+	<c path="haxe.ds.IntMap.T"/>
+</t></f>
+			<meta>
+				<m n=":keep"/>
+				<m n=":keep"/>
+				<m n=":runtime"/>
+			</meta>
+			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
+		</keyValueIterator>
+		<copy public="1" set="method" line="90">
 			<f a=""><c path="haxe.ds.IntMap"><c path="haxe.ds.IntMap.T"/></c></f>
 			<meta>
 				<m n=":keep"/>
@@ -18302,7 +18330,7 @@
 			</meta>
 			<haxe_doc>See `Map.copy`</haxe_doc>
 		</copy>
-		<toString public="1" set="method" line="92">
+		<toString public="1" set="method" line="96">
 			<f a=""><c path="String"/></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -18684,7 +18712,23 @@
 
 		The order of values is undefined.</haxe_doc>
 	</iterator>
-	<copy public="1" get="inline" set="null" line="132" static="1">
+	<keyValueIterator public="1" get="inline" set="null" line="132" static="1">
+		<f a="this">
+			<c path="haxe.IMap">
+				<c path="haxe.ds.Map.K"/>
+				<c path="haxe.ds.Map.V"/>
+			</c>
+			<t path="KeyValueIterator">
+				<c path="haxe.ds.Map.K"/>
+				<c path="haxe.ds.Map.V"/>
+			</t>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns an Iterator over the keys and values of `this` Map.
+
+		The order of values is undefined.</haxe_doc>
+	</keyValueIterator>
+	<copy public="1" get="inline" set="null" line="141" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -18700,7 +18744,7 @@
 
 		The order of values is undefined.</haxe_doc>
 	</copy>
-	<toString public="1" get="inline" set="null" line="141" static="1">
+	<toString public="1" get="inline" set="null" line="150" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -18713,7 +18757,7 @@
 
 		The exact representation depends on the platform and key-type.</haxe_doc>
 	</toString>
-	<arrayWrite public="1" get="inline" set="null" line="145" static="1">
+	<arrayWrite public="1" get="inline" set="null" line="154" static="1">
 		<f a="this:k:v">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -18729,7 +18773,7 @@
 			<m n=":noCompletion"/>
 		</meta>
 	</arrayWrite>
-	<toStringMap params="K:V" get="inline" set="null" line="150" static="1">
+	<toStringMap params="K:V" get="inline" set="null" line="159" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toStringMap.K"/>
@@ -18742,7 +18786,7 @@
 			<m n=":to"/>
 		</meta>
 	</toStringMap>
-	<toIntMap params="K:V" get="inline" set="null" line="154" static="1">
+	<toIntMap params="K:V" get="inline" set="null" line="163" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toIntMap.K"/>
@@ -18755,7 +18799,7 @@
 			<m n=":to"/>
 		</meta>
 	</toIntMap>
-	<toEnumValueMapMap params="K:V" get="inline" set="null" line="158" static="1">
+	<toEnumValueMapMap params="K:V" get="inline" set="null" line="167" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toEnumValueMapMap.K"/>
@@ -18771,7 +18815,7 @@
 			<m n=":to"/>
 		</meta>
 	</toEnumValueMapMap>
-	<toObjectMap params="K:V" get="inline" set="null" line="162" static="1">
+	<toObjectMap params="K:V" get="inline" set="null" line="171" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toObjectMap.K"/>
@@ -18787,7 +18831,7 @@
 			<m n=":to"/>
 		</meta>
 	</toObjectMap>
-	<fromStringMap params="V" get="inline" set="null" line="166" static="1">
+	<fromStringMap params="V" get="inline" set="null" line="175" static="1">
 		<f a="map">
 			<c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c>
 			<x path="haxe.ds.Map">
@@ -18797,7 +18841,7 @@
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromStringMap>
-	<fromIntMap params="V" get="inline" set="null" line="170" static="1">
+	<fromIntMap params="V" get="inline" set="null" line="179" static="1">
 		<f a="map">
 			<c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c>
 			<x path="haxe.ds.Map">
@@ -18807,7 +18851,7 @@
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromIntMap>
-	<fromObjectMap params="K:V" get="inline" set="null" line="174" static="1">
+	<fromObjectMap params="K:V" get="inline" set="null" line="183" static="1">
 		<f a="map">
 			<c path="haxe.ds.ObjectMap">
 				<c path="fromObjectMap.K"/>
@@ -18944,7 +18988,23 @@
 
 		The order of values is undefined.</haxe_doc>
 		</iterator>
-		<copy public="1" get="inline" set="null" line="132" static="1">
+		<keyValueIterator public="1" get="inline" set="null" line="132" static="1">
+			<f a="this">
+				<c path="haxe.IMap">
+					<c path="haxe.ds.Map.K"/>
+					<c path="haxe.ds.Map.V"/>
+				</c>
+				<t path="KeyValueIterator">
+					<c path="haxe.ds.Map.K"/>
+					<c path="haxe.ds.Map.V"/>
+				</t>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns an Iterator over the keys and values of `this` Map.
+
+		The order of values is undefined.</haxe_doc>
+		</keyValueIterator>
+		<copy public="1" get="inline" set="null" line="141" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -18960,7 +19020,7 @@
 
 		The order of values is undefined.</haxe_doc>
 		</copy>
-		<toString public="1" get="inline" set="null" line="141" static="1">
+		<toString public="1" get="inline" set="null" line="150" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -18973,7 +19033,7 @@
 
 		The exact representation depends on the platform and key-type.</haxe_doc>
 		</toString>
-		<arrayWrite public="1" get="inline" set="null" line="145" static="1">
+		<arrayWrite public="1" get="inline" set="null" line="154" static="1">
 			<f a="this:k:v">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -18989,7 +19049,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</arrayWrite>
-		<toStringMap params="K:V" get="inline" set="null" line="150" static="1">
+		<toStringMap params="K:V" get="inline" set="null" line="159" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toStringMap.K"/>
@@ -19002,7 +19062,7 @@
 				<m n=":to"/>
 			</meta>
 		</toStringMap>
-		<toIntMap params="K:V" get="inline" set="null" line="154" static="1">
+		<toIntMap params="K:V" get="inline" set="null" line="163" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toIntMap.K"/>
@@ -19015,7 +19075,7 @@
 				<m n=":to"/>
 			</meta>
 		</toIntMap>
-		<toEnumValueMapMap params="K:V" get="inline" set="null" line="158" static="1">
+		<toEnumValueMapMap params="K:V" get="inline" set="null" line="167" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toEnumValueMapMap.K"/>
@@ -19031,7 +19091,7 @@
 				<m n=":to"/>
 			</meta>
 		</toEnumValueMapMap>
-		<toObjectMap params="K:V" get="inline" set="null" line="162" static="1">
+		<toObjectMap params="K:V" get="inline" set="null" line="171" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toObjectMap.K"/>
@@ -19047,7 +19107,7 @@
 				<m n=":to"/>
 			</meta>
 		</toObjectMap>
-		<fromStringMap params="V" get="inline" set="null" line="166" static="1">
+		<fromStringMap params="V" get="inline" set="null" line="175" static="1">
 			<f a="map">
 				<c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c>
 				<x path="haxe.ds.Map">
@@ -19057,7 +19117,7 @@
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromStringMap>
-		<fromIntMap params="V" get="inline" set="null" line="170" static="1">
+		<fromIntMap params="V" get="inline" set="null" line="179" static="1">
 			<f a="map">
 				<c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c>
 				<x path="haxe.ds.Map">
@@ -19067,7 +19127,7 @@
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromIntMap>
-		<fromObjectMap params="K:V" get="inline" set="null" line="174" static="1">
+		<fromObjectMap params="K:V" get="inline" set="null" line="183" static="1">
 			<f a="map">
 				<c path="haxe.ds.ObjectMap">
 					<c path="fromObjectMap.K"/>
@@ -19161,7 +19221,19 @@
 			</meta>
 			<haxe_doc>See `Map.iterator`</haxe_doc>
 		</iterator>
-		<copy public="1" set="method" line="85">
+		<keyValueIterator public="1" get="inline" set="null" line="85">
+			<f a=""><t path="KeyValueIterator">
+	<c path="haxe.ds.ObjectMap.K"/>
+	<c path="haxe.ds.ObjectMap.V"/>
+</t></f>
+			<meta>
+				<m n=":keep"/>
+				<m n=":keep"/>
+				<m n=":runtime"/>
+			</meta>
+			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
+		</keyValueIterator>
+		<copy public="1" set="method" line="89">
 			<f a=""><c path="haxe.ds.ObjectMap">
 	<c path="haxe.ds.ObjectMap.K"/>
 	<c path="haxe.ds.ObjectMap.V"/>
@@ -19172,7 +19244,7 @@
 			</meta>
 			<haxe_doc>See `Map.copy`</haxe_doc>
 		</copy>
-		<toString public="1" set="method" line="91">
+		<toString public="1" set="method" line="95">
 			<f a=""><c path="String"/></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -19358,7 +19430,19 @@
 			</meta>
 			<haxe_doc>See `Map.iterator`</haxe_doc>
 		</iterator>
-		<copy public="1" set="method" line="85">
+		<keyValueIterator public="1" get="inline" set="null" line="85">
+			<f a=""><t path="KeyValueIterator">
+	<c path="String"/>
+	<c path="haxe.ds.StringMap.T"/>
+</t></f>
+			<meta>
+				<m n=":keep"/>
+				<m n=":keep"/>
+				<m n=":runtime"/>
+			</meta>
+			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
+		</keyValueIterator>
+		<copy public="1" set="method" line="89">
 			<f a=""><c path="haxe.ds.StringMap"><c path="haxe.ds.StringMap.T"/></c></f>
 			<meta>
 				<m n=":keep"/>
@@ -19366,7 +19450,7 @@
 			</meta>
 			<haxe_doc>See `Map.copy`</haxe_doc>
 		</copy>
-		<toString public="1" set="method" line="91">
+		<toString public="1" set="method" line="95">
 			<f a=""><c path="String"/></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -19920,7 +20004,15 @@
 			</meta>
 			<haxe_doc>See `Map.iterator`</haxe_doc>
 		</iterator>
-		<copy public="1" set="method" line="78">
+		<keyValueIterator public="1" get="inline" set="null" line="78">
+			<f a=""><t path="KeyValueIterator">
+	<c path="haxe.ds.WeakMap.K"/>
+	<c path="haxe.ds.WeakMap.V"/>
+</t></f>
+			<meta><m n=":keep"/></meta>
+			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
+		</keyValueIterator>
+		<copy public="1" set="method" line="82">
 			<f a=""><c path="haxe.ds.WeakMap">
 	<c path="haxe.ds.WeakMap.K"/>
 	<c path="haxe.ds.WeakMap.V"/>
@@ -19928,7 +20020,7 @@
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>See `Map.copy`</haxe_doc>
 		</copy>
-		<toString public="1" set="method" line="85">
+		<toString public="1" set="method" line="89">
 			<f a=""><c path="String"/></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -28972,6 +29064,36 @@
 			</f>
 			<meta><m n=":value"><e>{ bytePos : 0 }</e></m></meta>
 		</fromBytes>
+	</class>
+	<class path="haxe.iterators.MapKeyValueIterator" params="K:V" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/iterators/MapKeyValueIterator.hx">
+		<map><c path="haxe.IMap">
+	<c path="haxe.iterators.MapKeyValueIterator.K"/>
+	<c path="haxe.iterators.MapKeyValueIterator.V"/>
+</c></map>
+		<keys><t path="Iterator"><c path="haxe.iterators.MapKeyValueIterator.K"/></t></keys>
+		<hasNext public="1" get="inline" set="null" line="42">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>See `Iterator.hasNext`</haxe_doc>
+		</hasNext>
+		<next public="1" get="inline" set="null" line="49">
+			<f a=""><a>
+	<value><c path="haxe.iterators.MapKeyValueIterator.V"/></value>
+	<key><c path="haxe.iterators.MapKeyValueIterator.K"/></key>
+</a></f>
+			<haxe_doc>See `Iterator.next`</haxe_doc>
+		</next>
+		<new public="1" get="inline" set="null" line="34"><f a="map">
+	<c path="haxe.IMap">
+		<c path="haxe.iterators.MapKeyValueIterator.K"/>
+		<c path="haxe.iterators.MapKeyValueIterator.V"/>
+	</c>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>This Key/Value iterator can be used to iterate across maps.</haxe_doc>
+		<meta><m n=":ifFeature">
+	<e>"anon_read.keyValueIterator"</e>
+	<e>"dynamic_read.keyValueIterator"</e>
+</m></meta>
 	</class>
 	<class path="haxe.iterators.StringIteratorUnicode" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/iterators/StringIteratorUnicode.hx">
 		<unicodeIterator public="1" get="inline" set="null" line="66" static="1">
