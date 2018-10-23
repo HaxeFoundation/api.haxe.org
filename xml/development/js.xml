@@ -29695,7 +29695,7 @@
 		<onbeforeprint public="1"><x path="haxe.Function"/></onbeforeprint>
 		<onbeforeunload public="1"><f a="">
 	<c path="js.html.Event"/>
-	<c path="String"/>
+	<x path="Null"><c path="String"/></x>
 </f></onbeforeunload>
 		<onhashchange public="1"><x path="haxe.Function"/></onhashchange>
 		<onlanguagechange public="1"><x path="haxe.Function"/></onlanguagechange>
@@ -37372,7 +37372,7 @@
 				<c path="String"/>
 				<f a="">
 					<c path="String"/>
-					<c path="String"/>
+					<x path="Null"><c path="String"/></x>
 				</f>
 				<c path="js.html.XPathExpression"/>
 			</f>
@@ -37406,7 +37406,7 @@
 				<c path="js.html.Node"/>
 				<f a="">
 					<c path="String"/>
-					<c path="String"/>
+					<x path="Null"><c path="String"/></x>
 				</f>
 				<x path="Int"/>
 				<d/>
@@ -40327,7 +40327,7 @@
 		<onbeforeprint public="1"><x path="haxe.Function"/></onbeforeprint>
 		<onbeforeunload public="1"><f a="">
 	<c path="js.html.Event"/>
-	<c path="String"/>
+	<x path="Null"><c path="String"/></x>
 </f></onbeforeunload>
 		<onhashchange public="1"><x path="haxe.Function"/></onhashchange>
 		<onlanguagechange public="1"><x path="haxe.Function"/></onlanguagechange>
@@ -46778,6 +46778,10 @@
 			<c path="String"/>
 			<haxe_doc>Returns the build identifier of the browser (e.g., "2006090803").</haxe_doc>
 		</buildID>
+		<serviceWorker public="1" set="null">
+			<c path="js.html.ServiceWorkerContainer"/>
+			<haxe_doc>Returns a `ServiceWorkerContainer` object, which provides access to registration, removal, upgrade, and communication with the `ServiceWorker` objects for the associated document.</haxe_doc>
+		</serviceWorker>
 		<hardwareConcurrency public="1" set="null"><x path="Int"/></hardwareConcurrency>
 		<geolocation public="1" set="null">
 			<t path="js.html.Geolocation"/>
@@ -49805,6 +49809,16 @@
 		</STRICT_ORIGIN_WHEN_CROSS_ORIGIN>
 		<meta><m n=":enum"/></meta>
 	</class>
+	<typedef path="js.html.RegistrationOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/RegistrationOptions.hx"><a>
+	<updateViaCache>
+		<x path="Null"><x path="js.html.ServiceWorkerUpdateViaCache"/></x>
+		<meta><m n=":optional"/></meta>
+	</updateViaCache>
+	<scope>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</scope>
+</a></typedef>
 	<class path="js.html.Request" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/Request.hx" extern="1">
 		<method public="1" set="null">
 			<c path="String"/>
@@ -51739,6 +51753,52 @@
 
 	@see <https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorker>]]></haxe_doc>
 		<meta><m n=":native"><e>"ServiceWorker"</e></m></meta>
+	</class>
+	<class path="js.html.ServiceWorkerContainer" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/ServiceWorkerContainer.hx" extern="1">
+		<extends path="js.html.EventTarget"/>
+		<controller public="1" set="null">
+			<c path="js.html.ServiceWorker"/>
+			<haxe_doc>Returns a `ServiceWorker` object if its state is `activated` (the same object returned by `ServiceWorkerRegistration.active`). This property returns `null` during a force-refresh request (Shift + refresh) or if there is no active worker.</haxe_doc>
+		</controller>
+		<ready public="1" set="null">
+			<c path="js.Promise"><c path="js.html.ServiceWorkerRegistration"/></c>
+			<haxe_doc>Provides a way of delaying code execution until a service worker is active. It returns a `Promise` that will never reject, and which waits indefinitely until the `ServiceWorkerRegistration` associated with the current page has an `ServiceWorkerRegistration.active` worker. Once that condition is met, it resolves with the `ServiceWorkerRegistration`.</haxe_doc>
+		</ready>
+		<oncontrollerchange public="1">
+			<x path="haxe.Function"/>
+			<haxe_doc>Fired whenever a `controllerchange` event occurs — when the document's associated `ServiceWorkerRegistration` acquires a new `ServiceWorkerRegistration.active` worker.</haxe_doc>
+		</oncontrollerchange>
+		<onerror public="1">
+			<x path="haxe.Function"/>
+			<haxe_doc>Fired whenever an `error` event occurs in the associated service workers.</haxe_doc>
+		</onerror>
+		<onmessage public="1">
+			<x path="haxe.Function"/>
+			<haxe_doc>Fired whenever a `message` event occurs — when incoming messages are received to the `ServiceWorkerContainer` object (e.g. via a `MessagePort.postMessage()` call.)</haxe_doc>
+		</onmessage>
+		<register public="1" set="method"><f a="scriptURL:?options">
+	<c path="String"/>
+	<t path="js.html.RegistrationOptions"/>
+	<c path="js.Promise"><c path="js.html.ServiceWorkerRegistration"/></c>
+</f></register>
+		<getRegistration public="1" set="method">
+			<f a="?documentURL" v="&quot;&quot;">
+				<c path="String"/>
+				<c path="js.Promise"><d/></c>
+			</f>
+			<meta><m n=":value"><e>{ documentURL : "" }</e></m></meta>
+			<haxe_doc>Gets a `ServiceWorkerRegistration` object whose scope matches the provided document URL.  If the method can't return a `ServiceWorkerRegistration`, it returns a `Promise`. </haxe_doc>
+		</getRegistration>
+		<getRegistrations public="1" set="method">
+			<f a=""><c path="js.Promise"><c path="Array"><c path="js.html.ServiceWorkerRegistration"/></c></c></f>
+			<haxe_doc>Returns all `ServiceWorkerRegistration` objects associated with a `ServiceWorkerContainer` in an array.  If the method can't return `ServiceWorkerRegistration` objects, it returns a `Promise`. </haxe_doc>
+		</getRegistrations>
+		<haxe_doc><![CDATA[The `ServiceWorkerContainer` interface of the ServiceWorker API provides an object representing the service worker as an overall unit in the network ecosystem, including facilities to register, unregister and update service workers, and access the state of service workers and their registrations.
+
+	Documentation [ServiceWorkerContainer](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer>]]></haxe_doc>
+		<meta><m n=":native"><e>"ServiceWorkerContainer"</e></m></meta>
 	</class>
 	<class path="js.html.ServiceWorkerGlobalScope" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/ServiceWorkerGlobalScope.hx" extern="1">
 		<extends path="js.html.WorkerGlobalScope"/>
@@ -56981,7 +57041,7 @@
 		<onbeforeprint public="1"><x path="haxe.Function"/></onbeforeprint>
 		<onbeforeunload public="1"><f a="">
 	<c path="js.html.Event"/>
-	<c path="String"/>
+	<x path="Null"><c path="String"/></x>
 </f></onbeforeunload>
 		<onhashchange public="1"><x path="haxe.Function"/></onhashchange>
 		<onlanguagechange public="1"><x path="haxe.Function"/></onlanguagechange>
@@ -58176,7 +58236,7 @@
 				<c path="String"/>
 				<f a="">
 					<c path="String"/>
-					<c path="String"/>
+					<x path="Null"><c path="String"/></x>
 				</f>
 				<c path="js.html.XPathExpression"/>
 			</f>
@@ -58210,7 +58270,7 @@
 				<c path="js.html.Node"/>
 				<f a="">
 					<c path="String"/>
-					<c path="String"/>
+					<x path="Null"><c path="String"/></x>
 				</f>
 				<x path="Int"/>
 				<d/>
