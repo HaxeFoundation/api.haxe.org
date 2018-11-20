@@ -1468,6 +1468,9 @@
 		<AF_INET6 public="1" static="1"><x path="Int"/></AF_INET6>
 		<AF_UNIX public="1" static="1"><x path="Int"/></AF_UNIX>
 		<SOL_TCP public="1" static="1"><x path="Int"/></SOL_TCP>
+		<SOL_SOCKET public="1" static="1"><x path="Int"/></SOL_SOCKET>
+		<SO_RCVTIMEO public="1" static="1"><x path="Int"/></SO_RCVTIMEO>
+		<SO_SNDTIMEO public="1" static="1"><x path="Int"/></SO_SNDTIMEO>
 		<TCP_NODELAY public="1" static="1"><x path="Int"/></TCP_NODELAY>
 		<PHP_BINARY_READ public="1" static="1"><x path="Int"/></PHP_BINARY_READ>
 		<JSON_ERROR_NONE public="1" static="1">
@@ -5411,7 +5414,7 @@
 				<x path="php.Resource"/>
 				<x path="Int"/>
 				<x path="Int"/>
-				<x path="Bool"/>
+				<x path="Any"/>
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.socket-set-option.php</haxe_doc>
@@ -31745,13 +31748,13 @@
 		<meta><m n=":native"><e>"SQLite3Stmt"</e></m></meta>
 	</class>
 	<class path="sys.net.Socket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/_std/sys/net/Socket.hx">
-		<checkError set="method" line="144" static="1"><f a="r:code:msg">
+		<checkError set="method" line="147" static="1"><f a="r:code:msg">
 	<x path="Bool"/>
 	<x path="Int"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></checkError>
-		<select public="1" set="method" line="149" static="1">
+		<select public="1" set="method" line="152" static="1">
 			<f a="read:write:others:?timeout">
 				<c path="Array"><c path="sys.net.Socket"/></c>
 				<c path="Array"><c path="sys.net.Socket"/></c>
@@ -31860,21 +31863,21 @@
 			</f>
 			<haxe_doc>Gives a timeout after which blocking socket operations (such as reading and writing) will abort and throw an exception.</haxe_doc>
 		</setTimeout>
-		<setBlocking public="1" set="method" line="130">
+		<setBlocking public="1" set="method" line="133">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Change the blocking mode of the socket. A blocking socket is the default behavior. A non-blocking socket will abort blocking operations immediately by throwing a haxe.io.Error.Blocked value.</haxe_doc>
 		</setBlocking>
-		<setFastSend public="1" set="method" line="135">
+		<setFastSend public="1" set="method" line="138">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Allows the socket to immediately send the data when written to its output : this will cause less ping but might increase the number of packets / data size, especially when doing a lot of small writes.</haxe_doc>
 		</setFastSend>
-		<waitForRead public="1" set="method" line="140">
+		<waitForRead public="1" set="method" line="143">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Block until some data is available for read on the socket.</haxe_doc>
 		</waitForRead>
@@ -31887,15 +31890,15 @@
 	</class>
 	<class path="php.net.Socket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/net/Socket.hx">
 		<extends path="sys.net.Socket"/>
-		<getType set="method" line="127" static="1"><f a="isUdp">
+		<getType set="method" line="135" static="1"><f a="isUdp">
 	<x path="Bool"/>
 	<x path="Int"/>
 </f></getType>
-		<getProtocol set="method" line="131" static="1"><f a="protocol">
+		<getProtocol set="method" line="139" static="1"><f a="protocol">
 	<c path="String"/>
 	<x path="Int"/>
 </f></getProtocol>
-		<select public="1" set="method" line="135" static="1"><f a="read:write:others:?timeout">
+		<select public="1" set="method" line="143" static="1"><f a="read:write:others:?timeout">
 	<c path="Array"><c path="php.net.Socket"/></c>
 	<c path="Array"><c path="php.net.Socket"/></c>
 	<c path="Array"><c path="php.net.Socket"/></c>
@@ -31906,7 +31909,7 @@
 		<others><c path="Array"><c path="php.net.Socket"/></c></others>
 	</a>
 </f></select>
-		<checkError get="inline" set="null" line="141" static="1"><f a="r:code:msg">
+		<checkError get="inline" set="null" line="149" static="1"><f a="r:code:msg">
 	<x path="Bool"/>
 	<x path="Int"/>
 	<c path="String"/>
@@ -31954,6 +31957,10 @@
 	<port><x path="Int"/></port>
 	<host><c path="sys.net.Host"/></host>
 </a></f></host>
+		<setTimeout public="1" set="method" line="128" override="1"><f a="timeout">
+	<x path="Float"/>
+	<x path="Void"/>
+</f></setTimeout>
 		<new public="1" set="method" line="33"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="php.net.SslSocket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/net/SslSocket.hx">
@@ -32438,7 +32445,7 @@
 			</a>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</PROXY>
-		<requestUrl public="1" set="method" line="451" static="1">
+		<requestUrl public="1" set="method" line="456" static="1">
 			<f a="url">
 				<c path="String"/>
 				<c path="String"/>
@@ -32502,12 +32509,12 @@
 	<c path="String"/>
 	<x path="Void"/>
 </f></customRequest>
-		<readHttpResponse set="method" line="244"><f a="api:sock">
+		<readHttpResponse set="method" line="249"><f a="api:sock">
 	<c path="haxe.io.Output"/>
 	<c path="sys.net.Socket"/>
 	<x path="Void"/>
 </f></readHttpResponse>
-		<readChunk set="method" line="386"><f a="chunk_re:api:buf:len">
+		<readChunk set="method" line="391"><f a="chunk_re:api:buf:len">
 	<c path="EReg"/>
 	<c path="haxe.io.Output"/>
 	<c path="haxe.io.Bytes"/>
