@@ -26854,12 +26854,12 @@
 				<c path="resolve.T"/>
 				<c path="js.Promise"><c path="resolve.T"/></c>
 			</f>
-			<haxe_doc>Returns a Promise object that is resolved with the given value. If the 
-		value is Thenable, the returned promise will "follow" that 
-		thenable, adopting its eventual state; 
-		otherwise the returned promise will be fulfilled with the value. 
-		Generally, when it's unknown when value is a promise or not, 
-		use `Promise.resolve(value)` instead and work with the return value as 
+			<haxe_doc>Returns a Promise object that is resolved with the given value. If the
+		value is Thenable, the returned promise will "follow" that
+		thenable, adopting its eventual state;
+		otherwise the returned promise will be fulfilled with the value.
+		Generally, when it's unknown when value is a promise or not,
+		use `Promise.resolve(value)` instead and work with the return value as
 		a promise.</haxe_doc>
 			<overloads>
 				<resolve public="1" params="T" set="method">
@@ -26867,12 +26867,12 @@
 						<c path="js.Promise"><c path="resolve.T"/></c>
 						<c path="js.Promise"><c path="resolve.T"/></c>
 					</f>
-					<haxe_doc>Returns a Promise object that is resolved with the given value. If the 
-		value is Thenable, the returned promise will "follow" that 
-		thenable, adopting its eventual state; 
-		otherwise the returned promise will be fulfilled with the value. 
-		Generally, when it's unknown when value is a promise or not, 
-		use `Promise.resolve(value)` instead and work with the return value as 
+					<haxe_doc>Returns a Promise object that is resolved with the given value. If the
+		value is Thenable, the returned promise will "follow" that
+		thenable, adopting its eventual state;
+		otherwise the returned promise will be fulfilled with the value.
+		Generally, when it's unknown when value is a promise or not,
+		use `Promise.resolve(value)` instead and work with the return value as
 		a promise.</haxe_doc>
 				</resolve>
 				<resolve public="1" params="T" set="method">
@@ -26880,12 +26880,12 @@
 						<t path="js.Thenable"><c path="resolve.T"/></t>
 						<c path="js.Promise"><c path="resolve.T"/></c>
 					</f>
-					<haxe_doc>Returns a Promise object that is resolved with the given value. If the 
-		value is Thenable, the returned promise will "follow" that 
-		thenable, adopting its eventual state; 
-		otherwise the returned promise will be fulfilled with the value. 
-		Generally, when it's unknown when value is a promise or not, 
-		use `Promise.resolve(value)` instead and work with the return value as 
+					<haxe_doc>Returns a Promise object that is resolved with the given value. If the
+		value is Thenable, the returned promise will "follow" that
+		thenable, adopting its eventual state;
+		otherwise the returned promise will be fulfilled with the value.
+		Generally, when it's unknown when value is a promise or not,
+		use `Promise.resolve(value)` instead and work with the return value as
 		a promise.</haxe_doc>
 				</resolve>
 			</overloads>
@@ -26902,13 +26902,13 @@
 				<c path="Array"><d/></c>
 				<c path="js.Promise"><c path="Array"><d/></c></c>
 			</f>
-			<haxe_doc>Returns a promise that either fulfills when all of the promises in the 
+			<haxe_doc>Returns a promise that either fulfills when all of the promises in the
 		iterable argument have fulfilled or rejects as soon as one of the
-		promises in the iterable argument rejects. If the returned promise 
-		fulfills, it is fulfilled with an array of the values from the 
-		fulfilled promises in the same order as defined in the iterable. 
-		If the returned promise rejects, it is rejected with the reason from 
-		the first promise in the iterable that rejected. This method can be 
+		promises in the iterable argument rejects. If the returned promise
+		fulfills, it is fulfilled with an array of the values from the
+		fulfilled promises in the same order as defined in the iterable.
+		If the returned promise rejects, it is rejected with the reason from
+		the first promise in the iterable that rejected. This method can be
 		useful for aggregating results of multiple promises.</haxe_doc>
 		</all>
 		<race public="1" set="method" static="1">
@@ -26916,50 +26916,38 @@
 				<c path="Array"><d/></c>
 				<c path="js.Promise"><d/></c>
 			</f>
-			<haxe_doc>Returns a promise that fulfills or rejects as soon as one of the 
-		promises in the iterable fulfills or rejects, with the value or reason 
+			<haxe_doc>Returns a promise that fulfills or rejects as soon as one of the
+		promises in the iterable fulfills or rejects, with the value or reason
 		from that promise.</haxe_doc>
 		</race>
 		<then public="1" params="TOut" set="method">
 			<f a="fulfillCallback:?rejectCallback">
-				<x path="Null"><t path="js.PromiseCallback">
+				<x path="Null"><x path="js.PromiseHandler">
 	<c path="js.Promise.T"/>
 	<c path="then.TOut"/>
-</t></x>
-				<x path="haxe.extern.EitherType">
-					<f a="">
-						<d/>
-						<x path="Void"/>
-					</f>
-					<t path="js.PromiseCallback">
-						<d/>
-						<c path="then.TOut"/>
-					</t>
+</x></x>
+				<x path="js.PromiseHandler">
+					<d/>
+					<c path="then.TOut"/>
 				</x>
 				<c path="js.Promise"><c path="then.TOut"/></c>
 			</f>
-			<haxe_doc>Appends fulfillment and rejection handlers to the promise and returns a 
-		new promise resolving to the return value of the called handler, or to 
-		its original settled value if the promise was not handled 
+			<haxe_doc>Appends fulfillment and rejection handlers to the promise and returns a
+		new promise resolving to the return value of the called handler, or to
+		its original settled value if the promise was not handled
 		(i.e. if the relevant handler onFulfilled or onRejected is not a function).</haxe_doc>
 		</then>
 		<catchError public="1" params="TOut" set="method">
 			<f a="rejectCallback">
-				<x path="haxe.extern.EitherType">
-					<f a="">
-						<d/>
-						<x path="Void"/>
-					</f>
-					<t path="js.PromiseCallback">
-						<d/>
-						<c path="catchError.TOut"/>
-					</t>
+				<x path="js.PromiseHandler">
+					<d/>
+					<c path="catchError.TOut"/>
 				</x>
 				<c path="js.Promise"><c path="catchError.TOut"/></c>
 			</f>
 			<meta><m n=":native"><e>"catch"</e></m></meta>
-			<haxe_doc>Appends a rejection handler callback to the promise, and returns a new 
-		promise resolving to the return value of the callback if it is called, 
+			<haxe_doc>Appends a rejection handler callback to the promise, and returns a new
+		promise resolving to the return value of the callback if it is called,
 		or to its original fulfillment value if the promise is instead fulfilled.</haxe_doc>
 		</catchError>
 		<new public="1" set="method">
@@ -26979,25 +26967,55 @@
 			</f>
 			<haxe_doc>@throws DOMError</haxe_doc>
 		</new>
-		<haxe_doc>The Promise object represents the eventual completion (or failure) of an 
+		<haxe_doc>The Promise object represents the eventual completion (or failure) of an
 	asynchronous operation and its resulting value.
-	
+
 	Documentation [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
 		<meta><m n=":native"><e>"Promise"</e></m></meta>
 	</class>
-	<typedef path="js.PromiseCallback" params="T:TOut" file="/home/travis/build/HaxeFoundation/haxe/std/js/Promise.hx" module="js.Promise">
-		<x path="haxe.extern.EitherType">
-			<f a="">
-				<c path="js.PromiseCallback.T"/>
-				<c path="js.PromiseCallback.TOut"/>
-			</f>
-			<f a="">
-				<c path="js.PromiseCallback.T"/>
-				<c path="js.Promise"><c path="js.PromiseCallback.TOut"/></c>
-			</f>
+	<abstract path="js.PromiseHandler" params="T:TOut" file="/home/travis/build/HaxeFoundation/haxe/std/js/Promise.hx" module="js.Promise">
+		<from>
+			<icast><f a="">
+	<c path="js.PromiseHandler.T"/>
+	<c path="js.Promise"><c path="js.PromiseHandler.TOut"/></c>
+</f></icast>
+			<icast field="fromNonPromise"><f a="">
+	<c path="fromNonPromise.T"/>
+	<c path="fromNonPromise.TOut"/>
+</f></icast>
+		</from>
+		<this><f a="">
+	<c path="js.PromiseHandler.T"/>
+	<d/>
+</f></this>
+		<haxe_doc>Handler type for the Promise object.</haxe_doc>
+		<impl><class path="js._Promise.PromiseHandler_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/Promise.hx" private="1" module="js.Promise"><fromNonPromise params="T:TOut" get="inline" set="null" line="100" static="1">
+	<f a="f">
+		<f a="">
+			<c path="fromNonPromise.T"/>
+			<c path="fromNonPromise.TOut"/>
+		</f>
+		<x path="js.PromiseHandler">
+			<c path="fromNonPromise.T"/>
+			<c path="fromNonPromise.TOut"/>
 		</x>
-		<haxe_doc>Callback for the Promise object.</haxe_doc>
-	</typedef>
+	</f>
+	<meta><m n=":from"/></meta>
+</fromNonPromise></class></impl>
+	</abstract>
+	<class path="js._Promise.PromiseHandler_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/Promise.hx" private="1" module="js.Promise"><fromNonPromise params="T:TOut" get="inline" set="null" line="100" static="1">
+	<f a="f">
+		<f a="">
+			<c path="fromNonPromise.T"/>
+			<c path="fromNonPromise.TOut"/>
+		</f>
+		<x path="js.PromiseHandler">
+			<c path="fromNonPromise.T"/>
+			<c path="fromNonPromise.TOut"/>
+		</x>
+	</f>
+	<meta><m n=":from"/></meta>
+</fromNonPromise></class>
 	<typedef path="js.Thenable" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/js/Promise.hx" module="js.Promise">
 		<a><then set="method"><f a="resolve:?reject">
 	<f a="">
