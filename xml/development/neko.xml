@@ -23210,34 +23210,22 @@
 
 		Has no effect if the compilation cache is not used.</haxe_doc>
 		</registerModuleDependency>
-		<registerModuleReuseCall public="1" set="method" line="564" static="1">
+		<registerModuleReuseCall public="1" set="method" line="552" static="1">
 			<f a="modulePath:macroCall">
 				<c path="String"/>
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<haxe_doc>Register a macro call to be performed every time the module `modulePath` is reused by the compilation cache,
-		meaning that neither the module itself nor its dependencies was changed since last compilation.
-
-		The `macroCall` should be a String containing valid Haxe expression, similar to `--init` macros (see https://haxe.org/manual/macro-initialization.html).
-		Multiple calls with the exact same `macroCall` value will only register the callback once.
-
-		This also triggers loading of given module and its dependencies, if it's not yet loaded,
-		but given macro call will not be called on the first module load.
-
-		If the compilation cache is not used, `macroCall` expressions will not be called,
-		but calling this function will still trigger loading of given `modulePath`.</haxe_doc>
+			<meta><m n=":deprecated"/></meta>
 		</registerModuleReuseCall>
-		<onMacroContextReused public="1" set="method" line="573" static="1">
+		<onMacroContextReused public="1" set="method" line="557" static="1">
 			<f a="callb">
 				<f a=""><x path="Bool"/></f>
 				<x path="Void"/>
 			</f>
-			<haxe_doc>Register a callback function that will be called every time the macro context cached is reused with a new
-		compilation. This enable to reset some static vars since the code might have been changed. If the callback
-		returns false, the macro context is discarded and another one is created.</haxe_doc>
+			<meta><m n=":deprecated"/></meta>
 		</onMacroContextReused>
-		<load set="method" line="581" static="1">
+		<load set="method" line="565" static="1">
 			<f a="f:nargs">
 				<c path="String"/>
 				<x path="Int"/>
@@ -23250,12 +23238,12 @@
 				<m n=":allow"><e>haxe.macro.PositionTools</e></m>
 			</meta>
 		</load>
-		<includeFile set="method" line="591" static="1"><f a="file:position">
+		<includeFile set="method" line="575" static="1"><f a="file:position">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></includeFile>
-		<sExpr set="method" line="595" static="1"><f a="e:pretty">
+		<sExpr set="method" line="579" static="1"><f a="e:pretty">
 	<t path="haxe.macro.TypedExpr"/>
 	<x path="Bool"/>
 	<c path="String"/>
