@@ -26858,8 +26858,8 @@
 	</typedef>
 	<class path="js.Promise" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/js/Promise.hx" extern="1">
 		<resolve public="1" params="T" set="method" static="1">
-			<f a="?value">
-				<c path="resolve.T"/>
+			<f a="thenable">
+				<x path="js.Thenable"><c path="resolve.T"/></x>
 				<c path="js.Promise"><c path="resolve.T"/></c>
 			</f>
 			<haxe_doc>Returns a Promise object that is resolved with the given value. If the
@@ -26869,34 +26869,19 @@
 		Generally, when it's unknown when value is a promise or not,
 		use `Promise.resolve(value)` instead and work with the return value as
 		a promise.</haxe_doc>
-			<overloads>
-				<resolve public="1" params="T" set="method">
-					<f a="promise">
-						<c path="js.Promise"><c path="resolve.T"/></c>
-						<c path="js.Promise"><c path="resolve.T"/></c>
-					</f>
-					<haxe_doc>Returns a Promise object that is resolved with the given value. If the
+			<overloads><resolve public="1" params="T" set="method">
+	<f a="?value">
+		<c path="resolve.T"/>
+		<c path="js.Promise"><c path="resolve.T"/></c>
+	</f>
+	<haxe_doc>Returns a Promise object that is resolved with the given value. If the
 		value is Thenable, the returned promise will "follow" that
 		thenable, adopting its eventual state;
 		otherwise the returned promise will be fulfilled with the value.
 		Generally, when it's unknown when value is a promise or not,
 		use `Promise.resolve(value)` instead and work with the return value as
 		a promise.</haxe_doc>
-				</resolve>
-				<resolve public="1" params="T" set="method">
-					<f a="thenable">
-						<t path="js.Thenable"><c path="resolve.T"/></t>
-						<c path="js.Promise"><c path="resolve.T"/></c>
-					</f>
-					<haxe_doc>Returns a Promise object that is resolved with the given value. If the
-		value is Thenable, the returned promise will "follow" that
-		thenable, adopting its eventual state;
-		otherwise the returned promise will be fulfilled with the value.
-		Generally, when it's unknown when value is a promise or not,
-		use `Promise.resolve(value)` instead and work with the return value as
-		a promise.</haxe_doc>
-				</resolve>
-			</overloads>
+</resolve></overloads>
 		</resolve>
 		<reject public="1" params="T" set="method" static="1">
 			<f a="?reason">
@@ -26929,7 +26914,7 @@
 		from that promise.</haxe_doc>
 		</race>
 		<then public="1" params="TOut" set="method">
-			<f a="fulfillCallback:?rejectCallback">
+			<f a="onFulfilled:?onRejected">
 				<x path="Null"><x path="js.PromiseHandler">
 	<c path="js.Promise.T"/>
 	<c path="then.TOut"/>
@@ -26946,7 +26931,7 @@
 		(i.e. if the relevant handler onFulfilled or onRejected is not a function).</haxe_doc>
 		</then>
 		<catchError public="1" params="TOut" set="method">
-			<f a="rejectCallback">
+			<f a="onRejected">
 				<x path="js.PromiseHandler">
 					<d/>
 					<c path="catchError.TOut"/>
@@ -26989,6 +26974,10 @@
 </f></icast>
 			<icast><f a="">
 	<c path="js.PromiseHandler.T"/>
+	<x path="js.Thenable"><c path="js.PromiseHandler.TOut"/></x>
+</f></icast>
+			<icast><f a="">
+	<c path="js.PromiseHandler.T"/>
 	<c path="js.PromiseHandler.TOut"/>
 </f></icast>
 		</from>
@@ -27000,20 +26989,25 @@
 		<impl><class path="js._Promise.PromiseHandler_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/Promise.hx" private="1" module="js.Promise" extern="1"/></impl>
 	</abstract>
 	<class path="js._Promise.PromiseHandler_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/Promise.hx" private="1" module="js.Promise" extern="1"/>
-	<typedef path="js.Thenable" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/js/Promise.hx" module="js.Promise">
-		<a><then set="method"><f a="resolve:?reject">
-	<f a="">
-		<c path="js.Thenable.T"/>
-		<x path="Void"/>
-	</f>
-	<f a="">
-		<d/>
-		<x path="Void"/>
-	</f>
-	<x path="Void"/>
-</f></then></a>
+	<abstract path="js.Thenable" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/js/Promise.hx" module="js.Promise">
+		<from><icast><t path="js.ThenableStruct"><c path="js.Thenable.T"/></t></icast></from>
+		<this><t path="js.ThenableStruct"><c path="js.Thenable.T"/></t></this>
 		<haxe_doc>A value with a `then` method.</haxe_doc>
-	</typedef>
+		<meta><m n=":forward"/></meta>
+		<impl><class path="js._Promise.Thenable_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/Promise.hx" private="1" module="js.Promise" extern="1"/></impl>
+	</abstract>
+	<class path="js._Promise.Thenable_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/Promise.hx" private="1" module="js.Promise" extern="1"/>
+	<typedef path="js.ThenableStruct" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/js/Promise.hx" module="js.Promise"><a><then params="TOut" set="method"><f a="onFulfilled:?onRejected">
+	<x path="Null"><x path="js.PromiseHandler">
+	<c path="js.ThenableStruct.T"/>
+	<c path="then.TOut"/>
+</x></x>
+	<x path="js.PromiseHandler">
+		<d/>
+		<c path="then.TOut"/>
+	</x>
+	<x path="js.Thenable"><c path="then.TOut"/></x>
+</f></then></a></typedef>
 	<class path="js.RegExpMatch" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/RegExp.hx" module="js.RegExp" extern="1">
 		<extends path="Array"><c path="String"/></extends>
 		<index public="1"><x path="Int"/></index>
