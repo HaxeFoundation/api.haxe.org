@@ -2479,9 +2479,13 @@
 		String.
 
 		If `startIndex` is given, the search is performed within the substring
-		of `this` String starting from `startIndex`. Otherwise the search is
-		performed within `this` String. In either case, the returned position
-		is relative to the beginning of `this` String.
+		of `this` String starting from `startIndex` (if `startIndex` is posivite
+		or 0) or `max(this.length + startIndex, 0)` (if `startIndex` is negative).
+
+		If `startIndex` exceeds `this.length`, -1 is returned.
+
+		Otherwise the search is performed within `this` String. In either case,
+		the returned position is relative to the beginning of `this` String.
 
 		If `str` cannot be found, -1 is returned.</haxe_doc>
 		</indexOf>
@@ -2585,7 +2589,7 @@
 
 	String can be concatenated by using the `+` operator. If an operand is not a
 	String, it is passed through `Std.string()` first.
-	
+
 	@see https://haxe.org/manual/std-String.html</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
@@ -29341,7 +29345,7 @@
 			</f>
 			<meta><m n=":value"><e>{ startIndex : null }</e></m></meta>
 		</indexOf>
-		<lastIndexOf public="1" set="method" line="725" static="1">
+		<lastIndexOf public="1" set="method" line="734" static="1">
 			<f a="str:search:?startIndex" v="::null">
 				<c path="String"/>
 				<c path="String"/>
@@ -29350,28 +29354,28 @@
 			</f>
 			<meta><m n=":value"><e>{ startIndex : null }</e></m></meta>
 		</lastIndexOf>
-		<split public="1" set="method" line="748" static="1"><f a="str:delimiter">
+		<split public="1" set="method" line="757" static="1"><f a="str:delimiter">
 	<c path="String"/>
 	<c path="String"/>
 	<c path="Array"><c path="String"/></c>
 </f></split>
-		<substr public="1" set="method" line="758" static="1"><f a="str:pos:?len">
+		<substr public="1" set="method" line="767" static="1"><f a="str:pos:?len">
 	<c path="String"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<c path="String"/>
 </f></substr>
-		<substring public="1" set="method" line="762" static="1"><f a="str:startIndex:?endIndex">
+		<substring public="1" set="method" line="771" static="1"><f a="str:startIndex:?endIndex">
 	<c path="String"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<c path="String"/>
 </f></substring>
-		<toString public="1" set="method" line="783" static="1"><f a="str">
+		<toString public="1" set="method" line="792" static="1"><f a="str">
 	<c path="String"/>
 	<c path="String"/>
 </f></toString>
-		<fromCharCode public="1" set="method" line="787" static="1"><f a="code">
+		<fromCharCode public="1" set="method" line="796" static="1"><f a="code">
 	<x path="Int"/>
 	<c path="String"/>
 </f></fromCharCode>
@@ -29394,12 +29398,12 @@
 			<x path="Any"/>
 			<haxe_doc>A callable value, which can be invoked by PHP</haxe_doc>
 		</callable>
-		<__invoke public="1" set="method" line="923">
+		<__invoke public="1" set="method" line="932">
 			<f a=""><unknown/></f>
 			<meta><m n=":phpMagic"/></meta>
 			<haxe_doc>@see http://php.net/manual/en/language.oop5.magic.php#object.invoke</haxe_doc>
 		</__invoke>
-		<getCallback public="1" set="method" line="930">
+		<getCallback public="1" set="method" line="939">
 			<f a="?eThis" v="null">
 				<d/>
 				<x path="php.NativeIndexedArray"><d/></x>
@@ -29407,14 +29411,14 @@
 			<meta><m n=":value"><e>{ eThis : null }</e></m></meta>
 			<haxe_doc>Generates callable value for PHP</haxe_doc>
 		</getCallback>
-		<equals public="1" set="method" line="943">
+		<equals public="1" set="method" line="952">
 			<f a="closure">
 				<c path="php._Boot.HxClosure"/>
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>Check if this is the same closure</haxe_doc>
 		</equals>
-		<callWith public="1" set="method" line="950">
+		<callWith public="1" set="method" line="959">
 			<f a="newThis:args">
 				<d/>
 				<x path="php.NativeArray"/>
@@ -29422,7 +29426,7 @@
 			</f>
 			<haxe_doc>Invoke this closure with `newThis` instead of `this`</haxe_doc>
 		</callWith>
-		<new public="1" set="method" line="909"><f a="target:func">
+		<new public="1" set="method" line="918"><f a="target:func">
 	<d/>
 	<c path="String"/>
 	<x path="Void"/>
@@ -29435,11 +29439,11 @@
 	</class>
 	<class path="php._Boot.HxDynamicStr" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/Boot.hx" private="1" module="php.Boot">
 		<extends path="php._Boot.HxClosure"/>
-		<hxString expr="((cast HxString : HxClass)).phpClassName" line="800" static="1">
+		<hxString expr="((cast HxString : HxClass)).phpClassName" line="809" static="1">
 			<c path="String"/>
 			<meta><m n=":value"><e>((cast HxString : HxClass)).phpClassName</e></m></meta>
 		</hxString>
-		<wrap set="method" line="806" static="1">
+		<wrap set="method" line="815" static="1">
 			<f a="value">
 				<d/>
 				<d/>
@@ -29447,20 +29451,20 @@
 			<haxe_doc>Returns HxDynamicStr instance if `value` is a string.
 		Otherwise returns `value` as-is.</haxe_doc>
 		</wrap>
-		<invoke get="inline" set="null" line="814" static="1"><f a="str:method:args">
+		<invoke get="inline" set="null" line="823" static="1"><f a="str:method:args">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="php.NativeArray"/>
 	<d/>
 </f></invoke>
-		<__get set="method" line="824">
+		<__get set="method" line="833">
 			<f a="field">
 				<c path="String"/>
 				<d/>
 			</f>
 			<meta><m n=":phpMagic"/></meta>
 		</__get>
-		<__call set="method" line="835">
+		<__call set="method" line="844">
 			<f a="method:args">
 				<c path="String"/>
 				<x path="php.NativeArray"/>
@@ -29468,12 +29472,12 @@
 			</f>
 			<meta><m n=":phpMagic"/></meta>
 		</__call>
-		<__invoke public="1" set="method" line="843" override="1">
+		<__invoke public="1" set="method" line="852" override="1">
 			<f a=""><unknown/></f>
 			<meta><m n=":phpMagic"/></meta>
 			<haxe_doc>@see http://php.net/manual/en/language.oop5.magic.php#object.invoke</haxe_doc>
 		</__invoke>
-		<getCallback public="1" set="method" line="850" override="1">
+		<getCallback public="1" set="method" line="859" override="1">
 			<f a="?eThis" v="null">
 				<d/>
 				<x path="php.NativeIndexedArray"><d/></x>
@@ -29481,7 +29485,7 @@
 			<meta><m n=":value"><e>{ eThis : null }</e></m></meta>
 			<haxe_doc>Generates callable value for PHP</haxe_doc>
 		</getCallback>
-		<callWith public="1" set="method" line="860" override="1">
+		<callWith public="1" set="method" line="869" override="1">
 			<f a="newThis:args">
 				<d/>
 				<x path="php.NativeArray"/>
@@ -29489,7 +29493,7 @@
 			</f>
 			<haxe_doc>Invoke this closure with `newThis` instead of `this`</haxe_doc>
 		</callWith>
-		<new set="method" line="819"><f a="str">
+		<new set="method" line="828"><f a="str">
 	<c path="String"/>
 	<x path="Void"/>
 </f></new>
@@ -29510,14 +29514,14 @@
 	</class>
 	<class path="php._Boot.HxAnon" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/Boot.hx" private="1" module="php.Boot">
 		<extends path="php.StdClass"/>
-		<__get set="method" line="884">
+		<__get set="method" line="893">
 			<f a="name">
 				<c path="String"/>
 				<unknown/>
 			</f>
 			<meta><m n=":phpMagic"/></meta>
 		</__get>
-		<__call set="method" line="889">
+		<__call set="method" line="898">
 			<f a="name:args">
 				<c path="String"/>
 				<x path="php.NativeArray"/>
@@ -29525,7 +29529,7 @@
 			</f>
 			<meta><m n=":phpMagic"/></meta>
 		</__call>
-		<new public="1" set="method" line="876">
+		<new public="1" set="method" line="885">
 			<f a="?fields" v="null">
 				<x path="php.NativeArray"/>
 				<x path="Void"/>
@@ -29569,7 +29573,7 @@
 	<class path="php._Boot.HxException" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/Boot.hx" private="1" module="php.Boot">
 		<extends path="php.Exception"/>
 		<e><d/></e>
-		<new public="1" set="method" line="962"><f a="e">
+		<new public="1" set="method" line="971"><f a="e">
 	<d/>
 	<x path="Void"/>
 </f></new>
