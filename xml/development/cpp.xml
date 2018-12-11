@@ -7887,6 +7887,39 @@
 		</meta>
 	</abstract>
 	<typedef path="cpp.Star" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/Star.hx"><x path="Null"><c path="cpp.Star.T"/></x></typedef>
+	<class path="cpp.StdString" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/StdString.hx" extern="1">
+		<npos public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":native"><e>"std::string::npos"</e></m></meta>
+		</npos>
+		<ofString public="1" set="method" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="cpp.StdString"/>
+			</f>
+			<meta><m n=":native"><e>"hx::StdString"</e></m></meta>
+		</ofString>
+		<c_str public="1" set="method"><f a=""><c path="cpp.ConstPointer"><x path="cpp.Char"/></c></f></c_str>
+		<size public="1" set="method"><f a=""><x path="Int"/></f></size>
+		<find public="1" set="method"><f a="s">
+	<c path="String"/>
+	<x path="Int"/>
+</f></find>
+		<substr public="1" set="method"><f a="pos:len">
+	<x path="Int"/>
+	<x path="Int"/>
+	<c path="cpp.StdString"/>
+</f></substr>
+		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
+		<toStdString public="1" set="method"><f a=""><c path="cpp.StdString"/></f></toStdString>
+		<meta>
+			<m n=":native"><e>"hx::StdString"</e></m>
+			<m n=":include"><e>"hx/StdString.h"</e></m>
+			<m n=":stackOnly"/>
+			<m n=":structAccess"/>
+			<m n=":unrelfective"/>
+		</meta>
+	</class>
 	<class path="cpp.StdStringRef" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/StdStringRef.hx" extern="1">
 		<c_str public="1" set="method"><f a=""><c path="cpp.ConstPointer"><x path="cpp.Char"/></c></f></c_str>
 		<size public="1" set="method"><f a=""><x path="Int"/></f></size>
@@ -7904,26 +7937,6 @@
 		<meta>
 			<m n=":native"><e><![CDATA["hx::StdString const &"]]></e></m>
 			<m n=":include"><e>"hx/StdString.h"</e></m>
-			<m n=":structAccess"/>
-		</meta>
-	</class>
-	<class path="cpp.StdString" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/StdString.hx" extern="1">
-		<extends path="cpp.StdStringRef"/>
-		<npos public="1" set="null" static="1">
-			<x path="Int"/>
-			<meta><m n=":native"><e>"std::string::npos"</e></m></meta>
-		</npos>
-		<ofString public="1" set="method" static="1">
-			<f a="s">
-				<c path="String"/>
-				<c path="cpp.StdString"/>
-			</f>
-			<meta><m n=":native"><e>"hx::StdString"</e></m></meta>
-		</ofString>
-		<meta>
-			<m n=":native"><e>"hx::StdString"</e></m>
-			<m n=":include"><e>"hx/StdString.h"</e></m>
-			<m n=":stackOnly"/>
 			<m n=":structAccess"/>
 		</meta>
 	</class>
@@ -10278,7 +10291,7 @@
 		</sendMessage>
 		<__compare set="method" line="65">
 			<f a="t">
-				<a><handle set="null"><t path="cpp.vm.ThreadHandle"/></handle></a>
+				<c path="cpp.vm.Thread"/>
 				<x path="Int"/>
 			</f>
 			<meta>
