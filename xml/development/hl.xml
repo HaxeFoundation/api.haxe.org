@@ -33063,6 +33063,366 @@
 		</new>
 		<meta><m n=":coreApi"/></meta>
 	</class>
+	<typedef path="sys.ssl._Context.ConfigPtr" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Context.hx" private="1" module="sys.ssl.Context"><c path="hl.Abstract"><c path="Smbedtls_ssl_config"/></c></typedef>
+	<typedef path="sys.ssl._Context.ContextPtr" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Context.hx" private="1" module="sys.ssl.Context"><c path="hl.Abstract"><c path="Smbedtls_ssl_context"/></c></typedef>
+	<class path="sys.ssl.SNICbResult" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Context.hx" module="sys.ssl.Context">
+		<cert public="1"><t path="sys.ssl.CertificatePtr"/></cert>
+		<key public="1"><t path="sys.ssl.KeyPtr"/></key>
+		<new public="1" set="method" line="9"><f a="cert:key">
+	<c path="sys.ssl.Certificate"/>
+	<c path="sys.ssl.Key"/>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":keep"/></meta>
+	</class>
+	<abstract path="sys.ssl.Context" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Context.hx">
+		<this><t path="sys.ssl._Context.ContextPtr"/></this>
+		<meta><m n=":hlNative">
+	<e>"ssl"</e>
+	<e>"ssl_"</e>
+</m></meta>
+		<impl><class path="sys.ssl._Context.Context_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Context.hx" private="1" module="sys.ssl.Context">
+	<_new public="1" set="method" line="18" static="1">
+		<f a="config">
+			<x path="sys.ssl.Config"/>
+			<x path="sys.ssl.Context"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</_new>
+	<close public="1" set="method" line="22" static="1">
+		<f a="this">
+			<t path="sys.ssl._Context.ContextPtr"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</close>
+	<handshake public="1" set="method" line="23" static="1">
+		<f a="this">
+			<t path="sys.ssl._Context.ContextPtr"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</handshake>
+	<recvChar public="1" set="method" line="24" static="1">
+		<f a="this">
+			<t path="sys.ssl._Context.ContextPtr"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</recvChar>
+	<sendChar public="1" set="method" line="25" static="1">
+		<f a="this:c">
+			<t path="sys.ssl._Context.ContextPtr"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</sendChar>
+	<getPeerCertificate public="1" set="method" line="26" static="1">
+		<f a="this">
+			<t path="sys.ssl._Context.ContextPtr"/>
+			<t path="sys.ssl.CertificatePtr"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</getPeerCertificate>
+	<recv public="1" set="method" line="27" static="1">
+		<f a="this:bytes:pos:len">
+			<t path="sys.ssl._Context.ContextPtr"/>
+			<x path="hl.Bytes"/>
+			<x path="Int"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</recv>
+	<send public="1" set="method" line="28" static="1">
+		<f a="this:bytes:pos:len">
+			<t path="sys.ssl._Context.ContextPtr"/>
+			<x path="hl.Bytes"/>
+			<x path="Int"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</send>
+	<setSocket public="1" set="method" line="29" static="1">
+		<f a="this:socket">
+			<t path="sys.ssl._Context.ContextPtr"/>
+			<e path="sys.net.SocketHandle"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</setSocket>
+	<setHostname public="1" set="method" line="30" static="1">
+		<f a="this:name">
+			<t path="sys.ssl._Context.ContextPtr"/>
+			<x path="hl.Bytes"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</setHostname>
+	<ssl_new set="method" line="32" static="1">
+		<f a="conf">
+			<x path="sys.ssl.Config"/>
+			<t path="sys.ssl._Context.ContextPtr"/>
+		</f>
+		<meta><m n=":hlNative">
+	<e>"ssl"</e>
+	<e>"ssl_new"</e>
+</m></meta>
+	</ssl_new>
+	<meta><m n=":hlNative">
+	<e>"ssl"</e>
+	<e>"ssl_"</e>
+</m></meta>
+</class></impl>
+	</abstract>
+	<class path="sys.ssl._Context.Context_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Context.hx" private="1" module="sys.ssl.Context">
+		<_new public="1" set="method" line="18" static="1">
+			<f a="config">
+				<x path="sys.ssl.Config"/>
+				<x path="sys.ssl.Context"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</_new>
+		<close public="1" set="method" line="22" static="1">
+			<f a="this">
+				<t path="sys.ssl._Context.ContextPtr"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</close>
+		<handshake public="1" set="method" line="23" static="1">
+			<f a="this">
+				<t path="sys.ssl._Context.ContextPtr"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</handshake>
+		<recvChar public="1" set="method" line="24" static="1">
+			<f a="this">
+				<t path="sys.ssl._Context.ContextPtr"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</recvChar>
+		<sendChar public="1" set="method" line="25" static="1">
+			<f a="this:c">
+				<t path="sys.ssl._Context.ContextPtr"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</sendChar>
+		<getPeerCertificate public="1" set="method" line="26" static="1">
+			<f a="this">
+				<t path="sys.ssl._Context.ContextPtr"/>
+				<t path="sys.ssl.CertificatePtr"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</getPeerCertificate>
+		<recv public="1" set="method" line="27" static="1">
+			<f a="this:bytes:pos:len">
+				<t path="sys.ssl._Context.ContextPtr"/>
+				<x path="hl.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</recv>
+		<send public="1" set="method" line="28" static="1">
+			<f a="this:bytes:pos:len">
+				<t path="sys.ssl._Context.ContextPtr"/>
+				<x path="hl.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</send>
+		<setSocket public="1" set="method" line="29" static="1">
+			<f a="this:socket">
+				<t path="sys.ssl._Context.ContextPtr"/>
+				<e path="sys.net.SocketHandle"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</setSocket>
+		<setHostname public="1" set="method" line="30" static="1">
+			<f a="this:name">
+				<t path="sys.ssl._Context.ContextPtr"/>
+				<x path="hl.Bytes"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</setHostname>
+		<ssl_new set="method" line="32" static="1">
+			<f a="conf">
+				<x path="sys.ssl.Config"/>
+				<t path="sys.ssl._Context.ContextPtr"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"ssl"</e>
+	<e>"ssl_new"</e>
+</m></meta>
+		</ssl_new>
+		<meta><m n=":hlNative">
+	<e>"ssl"</e>
+	<e>"ssl_"</e>
+</m></meta>
+	</class>
+	<abstract path="sys.ssl.Config" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Context.hx" module="sys.ssl.Context">
+		<this><t path="sys.ssl._Context.ConfigPtr"/></this>
+		<meta><m n=":hlNative">
+	<e>"ssl"</e>
+	<e>"conf_"</e>
+</m></meta>
+		<impl><class path="sys.ssl._Context.Config_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Context.hx" private="1" module="sys.ssl.Context">
+	<_new public="1" set="method" line="39" static="1">
+		<f a="server">
+			<x path="Bool"/>
+			<x path="sys.ssl.Config"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</_new>
+	<setCert public="1" set="method" line="43" static="1">
+		<f a="this:cert:pkey">
+			<t path="sys.ssl._Context.ConfigPtr"/>
+			<t path="sys.ssl.CertificatePtr"/>
+			<t path="sys.ssl.KeyPtr"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</setCert>
+	<setCa public="1" set="method" line="44" static="1">
+		<f a="this:ca">
+			<t path="sys.ssl._Context.ConfigPtr"/>
+			<t path="sys.ssl.CertificatePtr"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</setCa>
+	<close public="1" set="method" line="45" static="1">
+		<f a="this">
+			<t path="sys.ssl._Context.ConfigPtr"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</close>
+	<setVerify public="1" set="method" line="46" static="1">
+		<f a="this:mode">
+			<t path="sys.ssl._Context.ConfigPtr"/>
+			<x path="Int"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</setVerify>
+	<setServernameCallback public="1" set="method" line="47" static="1">
+		<f a="this:cb">
+			<t path="sys.ssl._Context.ConfigPtr"/>
+			<f a="">
+				<x path="hl.Bytes"/>
+				<c path="sys.ssl.SNICbResult"/>
+			</f>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</setServernameCallback>
+	<conf_new set="method" line="49" static="1">
+		<f a="server">
+			<x path="Bool"/>
+			<t path="sys.ssl._Context.ConfigPtr"/>
+		</f>
+		<meta><m n=":hlNative">
+	<e>"ssl"</e>
+	<e>"conf_new"</e>
+</m></meta>
+	</conf_new>
+	<meta><m n=":hlNative">
+	<e>"ssl"</e>
+	<e>"conf_"</e>
+</m></meta>
+</class></impl>
+	</abstract>
+	<class path="sys.ssl._Context.Config_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Context.hx" private="1" module="sys.ssl.Context">
+		<_new public="1" set="method" line="39" static="1">
+			<f a="server">
+				<x path="Bool"/>
+				<x path="sys.ssl.Config"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</_new>
+		<setCert public="1" set="method" line="43" static="1">
+			<f a="this:cert:pkey">
+				<t path="sys.ssl._Context.ConfigPtr"/>
+				<t path="sys.ssl.CertificatePtr"/>
+				<t path="sys.ssl.KeyPtr"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</setCert>
+		<setCa public="1" set="method" line="44" static="1">
+			<f a="this:ca">
+				<t path="sys.ssl._Context.ConfigPtr"/>
+				<t path="sys.ssl.CertificatePtr"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</setCa>
+		<close public="1" set="method" line="45" static="1">
+			<f a="this">
+				<t path="sys.ssl._Context.ConfigPtr"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</close>
+		<setVerify public="1" set="method" line="46" static="1">
+			<f a="this:mode">
+				<t path="sys.ssl._Context.ConfigPtr"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</setVerify>
+		<setServernameCallback public="1" set="method" line="47" static="1">
+			<f a="this:cb">
+				<t path="sys.ssl._Context.ConfigPtr"/>
+				<f a="">
+					<x path="hl.Bytes"/>
+					<c path="sys.ssl.SNICbResult"/>
+				</f>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</setServernameCallback>
+		<conf_new set="method" line="49" static="1">
+			<f a="server">
+				<x path="Bool"/>
+				<t path="sys.ssl._Context.ConfigPtr"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"ssl"</e>
+	<e>"conf_new"</e>
+</m></meta>
+		</conf_new>
+		<meta><m n=":hlNative">
+	<e>"ssl"</e>
+	<e>"conf_"</e>
+</m></meta>
+	</class>
 	<class path="sys.ssl.Digest" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Digest.hx">
 		<make public="1" set="method" line="7" static="1"><f a="data:alg">
 	<c path="haxe.io.Bytes"/>
@@ -33298,245 +33658,56 @@
 </f></new>
 		<meta><m n=":coreApi"/></meta>
 	</class>
-	<typedef path="sys.ssl._Socket.ConfigPtr" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Socket.hx" private="1" module="sys.ssl.Socket"><c path="hl.Abstract"><c path="Smbedtls_ssl_config"/></c></typedef>
-	<typedef path="sys.ssl._Socket.ContextPtr" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Socket.hx" private="1" module="sys.ssl.Socket"><c path="hl.Abstract"><c path="Smbedtls_ssl_context"/></c></typedef>
-	<class path="sys.ssl._Socket.SNICbResult" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Socket.hx" private="1" module="sys.ssl.Socket">
-		<cert public="1"><t path="sys.ssl.CertificatePtr"/></cert>
-		<key public="1"><t path="sys.ssl.KeyPtr"/></key>
-		<new public="1" set="method" line="14"><f a="cert:key">
-	<c path="sys.ssl.Certificate"/>
-	<c path="sys.ssl.Key"/>
-	<x path="Void"/>
-</f></new>
-		<meta><m n=":keep"/></meta>
-	</class>
 	<class path="sys.ssl._Socket.SocketInput" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Socket.hx" private="1" module="sys.ssl.Socket">
 		<extends path="haxe.io.Input"/>
-		<ssl_recv set="method" line="54" static="1">
-			<f a="ssl:bytes:pos:len">
-				<t path="sys.ssl._Socket.ContextPtr"/>
-				<x path="hl.Bytes"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"ssl"</e>
-	<e>"ssl_recv"</e>
-</m></meta>
-		</ssl_recv>
-		<ssl_recv_char set="method" line="55" static="1">
-			<f a="ssl">
-				<t path="sys.ssl._Socket.ContextPtr"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"ssl"</e>
-	<e>"ssl_recv_char"</e>
-</m></meta>
-		</ssl_recv_char>
 		<__s>
 			<c path="sys.ssl.Socket"/>
 			<meta><m n=":allow"><e>sys.ssl.Socket</e></m></meta>
 		</__s>
-		<readByte public="1" set="method" line="27" override="1"><f a=""><x path="Int"/></f></readByte>
-		<readBytes public="1" set="method" line="37" override="1"><f a="buf:pos:len">
+		<readByte public="1" set="method" line="14" override="1"><f a=""><x path="Int"/></f></readByte>
+		<readBytes public="1" set="method" line="24" override="1"><f a="buf:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></readBytes>
-		<close public="1" set="method" line="49" override="1"><f a=""><x path="Void"/></f></close>
-		<new public="1" set="method" line="23"><f a="s">
+		<close public="1" set="method" line="36" override="1"><f a=""><x path="Void"/></f></close>
+		<new public="1" set="method" line="10"><f a="s">
 	<c path="sys.ssl.Socket"/>
 	<x path="Void"/>
 </f></new>
 	</class>
 	<class path="sys.ssl._Socket.SocketOutput" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Socket.hx" private="1" module="sys.ssl.Socket">
 		<extends path="haxe.io.Output"/>
-		<ssl_send set="method" line="91" static="1">
-			<f a="ssl:bytes:pos:len">
-				<t path="sys.ssl._Socket.ContextPtr"/>
-				<x path="hl.Bytes"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"ssl"</e>
-	<e>"ssl_send"</e>
-</m></meta>
-		</ssl_send>
-		<ssl_send_char set="method" line="92" static="1">
-			<f a="ssl:c">
-				<t path="sys.ssl._Socket.ContextPtr"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"ssl"</e>
-	<e>"ssl_send_char"</e>
-</m></meta>
-		</ssl_send_char>
 		<__s>
 			<c path="sys.ssl.Socket"/>
 			<meta><m n=":allow"><e>sys.ssl.Socket</e></m></meta>
 		</__s>
-		<writeByte public="1" set="method" line="65" override="1"><f a="c">
+		<writeByte public="1" set="method" line="50" override="1"><f a="c">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></writeByte>
-		<writeBytes public="1" set="method" line="74" override="1"><f a="buf:pos:len">
+		<writeBytes public="1" set="method" line="59" override="1"><f a="buf:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></writeBytes>
-		<close public="1" set="method" line="86" override="1"><f a=""><x path="Void"/></f></close>
-		<new public="1" set="method" line="61"><f a="s">
+		<close public="1" set="method" line="71" override="1"><f a=""><x path="Void"/></f></close>
+		<new public="1" set="method" line="46"><f a="s">
 	<c path="sys.ssl.Socket"/>
 	<x path="Void"/>
 </f></new>
 	</class>
 	<class path="sys.ssl.Socket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Socket.hx">
 		<extends path="sys.net.Socket"/>
-		<DEFAULT_VERIFY_CERT public="1" expr="true" line="99" static="1">
+		<DEFAULT_VERIFY_CERT public="1" expr="true" line="81" static="1">
 			<x path="Null"><x path="Bool"/></x>
 			<meta><m n=":value"><e>true</e></m></meta>
 		</DEFAULT_VERIFY_CERT>
 		<DEFAULT_CA public="1" static="1"><x path="Null"><c path="sys.ssl.Certificate"/></x></DEFAULT_CA>
-		<ssl_new set="method" line="248" static="1">
-			<f a="conf">
-				<t path="sys.ssl._Socket.ConfigPtr"/>
-				<t path="sys.ssl._Socket.ContextPtr"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"ssl"</e>
-	<e>"ssl_new"</e>
-</m></meta>
-		</ssl_new>
-		<ssl_close set="method" line="249" static="1">
-			<f a="ssl">
-				<t path="sys.ssl._Socket.ContextPtr"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"ssl"</e>
-	<e>"ssl_close"</e>
-</m></meta>
-		</ssl_close>
-		<ssl_handshake set="method" line="250" static="1">
-			<f a="ssl">
-				<t path="sys.ssl._Socket.ContextPtr"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"ssl"</e>
-	<e>"ssl_handshake"</e>
-</m></meta>
-		</ssl_handshake>
-		<ssl_set_socket set="method" line="251" static="1">
-			<f a="ssl:socket">
-				<t path="sys.ssl._Socket.ContextPtr"/>
-				<e path="sys.net.SocketHandle"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"ssl"</e>
-	<e>"ssl_set_socket"</e>
-</m></meta>
-		</ssl_set_socket>
-		<ssl_set_hostname set="method" line="252" static="1">
-			<f a="ssl:name">
-				<t path="sys.ssl._Socket.ContextPtr"/>
-				<x path="hl.Bytes"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"ssl"</e>
-	<e>"ssl_set_hostname"</e>
-</m></meta>
-		</ssl_set_hostname>
-		<ssl_get_peer_certificate set="method" line="253" static="1">
-			<f a="ssl">
-				<t path="sys.ssl._Socket.ContextPtr"/>
-				<t path="sys.ssl.CertificatePtr"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"ssl"</e>
-	<e>"ssl_get_peer_certificate"</e>
-</m></meta>
-		</ssl_get_peer_certificate>
-		<conf_new set="method" line="255" static="1">
-			<f a="server">
-				<x path="Bool"/>
-				<t path="sys.ssl._Socket.ConfigPtr"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"ssl"</e>
-	<e>"conf_new"</e>
-</m></meta>
-		</conf_new>
-		<conf_close set="method" line="256" static="1">
-			<f a="conf">
-				<t path="sys.ssl._Socket.ConfigPtr"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"ssl"</e>
-	<e>"conf_close"</e>
-</m></meta>
-		</conf_close>
-		<conf_set_ca set="method" line="257" static="1">
-			<f a="conf:ca">
-				<t path="sys.ssl._Socket.ConfigPtr"/>
-				<t path="sys.ssl.CertificatePtr"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"ssl"</e>
-	<e>"conf_set_ca"</e>
-</m></meta>
-		</conf_set_ca>
-		<conf_set_verify set="method" line="258" static="1">
-			<f a="conf:mode">
-				<t path="sys.ssl._Socket.ConfigPtr"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"ssl"</e>
-	<e>"conf_set_verify"</e>
-</m></meta>
-		</conf_set_verify>
-		<conf_set_cert set="method" line="259" static="1">
-			<f a="conf:cert:pkey">
-				<t path="sys.ssl._Socket.ConfigPtr"/>
-				<t path="sys.ssl.CertificatePtr"/>
-				<t path="sys.ssl.KeyPtr"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"ssl"</e>
-	<e>"conf_set_cert"</e>
-</m></meta>
-		</conf_set_cert>
-		<conf_set_servername_callback set="method" line="260" static="1">
-			<f a="conf:cb">
-				<t path="sys.ssl._Socket.ConfigPtr"/>
-				<f a="">
-					<x path="hl.Bytes"/>
-					<c path="sys.ssl._Socket.SNICbResult"/>
-				</f>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"ssl"</e>
-	<e>"conf_set_servername_callback"</e>
-</m></meta>
-		</conf_set_servername_callback>
-		<conf><t path="sys.ssl._Socket.ConfigPtr"/></conf>
-		<ssl><t path="sys.ssl._Socket.ContextPtr"/></ssl>
+		<conf><x path="sys.ssl.Config"/></conf>
+		<ssl><x path="sys.ssl.Context"/></ssl>
 		<verifyCert public="1">
 			<x path="Null"><x path="Bool"/></x>
 			<haxe_doc>Define if peer certificate is verified during SSL handshake.</haxe_doc>
@@ -33555,42 +33726,42 @@
 </a></c></x></altSNIContexts>
 		<sniCallback><f a="">
 	<x path="hl.Bytes"/>
-	<c path="sys.ssl._Socket.SNICbResult"/>
+	<c path="sys.ssl.SNICbResult"/>
 </f></sniCallback>
 		<handshakeDone><x path="Bool"/></handshakeDone>
 		<isBlocking expr="true">
 			<x path="Bool"/>
 			<meta><m n=":value"><e>true</e></m></meta>
 		</isBlocking>
-		<init set="method" line="117" override="1"><f a=""><x path="Void"/></f></init>
-		<connect public="1" set="method" line="130" override="1"><f a="host:port">
+		<init set="method" line="99" override="1"><f a=""><x path="Void"/></f></init>
+		<connect public="1" set="method" line="112" override="1"><f a="host:port">
 	<c path="sys.net.Host"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></connect>
-		<handshake public="1" set="method" line="145">
+		<handshake public="1" set="method" line="127">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Perform the SSL handshake.</haxe_doc>
 		</handshake>
-		<setBlocking public="1" set="method" line="157" override="1"><f a="b">
+		<setBlocking public="1" set="method" line="139" override="1"><f a="b">
 	<x path="Bool"/>
 	<x path="Void"/>
 </f></setBlocking>
-		<setCA public="1" set="method" line="162">
+		<setCA public="1" set="method" line="144">
 			<f a="cert">
 				<c path="sys.ssl.Certificate"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Configure the certificate chain for peer certificate verification.</haxe_doc>
 		</setCA>
-		<setHostname public="1" set="method" line="166">
+		<setHostname public="1" set="method" line="148">
 			<f a="name">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Configure the hostname for Server Name Indication TLS extension.</haxe_doc>
 		</setHostname>
-		<setCertificate public="1" set="method" line="170">
+		<setCertificate public="1" set="method" line="152">
 			<f a="cert:key">
 				<c path="sys.ssl.Certificate"/>
 				<c path="sys.ssl.Key"/>
@@ -33598,8 +33769,8 @@
 			</f>
 			<haxe_doc>Configure own certificate and private key.</haxe_doc>
 		</setCertificate>
-		<close public="1" set="method" line="175" override="1"><f a=""><x path="Void"/></f></close>
-		<addSNICertificate public="1" set="method" line="188">
+		<close public="1" set="method" line="157" override="1"><f a=""><x path="Void"/></f></close>
+		<addSNICertificate public="1" set="method" line="170">
 			<f a="cbServernameMatch:cert:key">
 				<f a="">
 					<c path="String"/>
@@ -33612,21 +33783,21 @@
 			<haxe_doc>Configure additionals certificates and private keys for Server Name Indication extension.
 		The callback may be called during handshake to determine the certificate to use.</haxe_doc>
 		</addSNICertificate>
-		<bind public="1" set="method" line="194" override="1"><f a="host:port">
+		<bind public="1" set="method" line="176" override="1"><f a="host:port">
 	<c path="sys.net.Host"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></bind>
-		<accept public="1" set="method" line="200" override="1"><f a=""><c path="sys.ssl.Socket"/></f></accept>
-		<peerCertificate public="1" set="method" line="215">
+		<accept public="1" set="method" line="182" override="1"><f a=""><c path="sys.ssl.Socket"/></f></accept>
+		<peerCertificate public="1" set="method" line="197">
 			<f a=""><c path="sys.ssl.Certificate"/></f>
 			<haxe_doc>Return the certificate received from the other side of a connection.</haxe_doc>
 		</peerCertificate>
-		<buildConfig set="method" line="220"><f a="server">
+		<buildConfig set="method" line="202"><f a="server">
 	<x path="Bool"/>
-	<t path="sys.ssl._Socket.ConfigPtr"/>
+	<x path="sys.ssl.Config"/>
 </f></buildConfig>
-		<new public="1" set="method" line="97"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="79"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>A TLS socket class : allow you to both connect to a given server and exchange messages or start your own server and wait for connections.</haxe_doc>
 		<meta>
 			<m n=":coreApi"/>
