@@ -30062,7 +30062,7 @@
 	</class>
 	<class path="sys.net.UdpSocket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/neko/_std/sys/net/UdpSocket.hx">
 		<extends path="sys.net.Socket"/>
-		<socket_recv_from expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;socket_recv_from&quot;, 5)" line="59" static="1">
+		<socket_recv_from expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;socket_recv_from&quot;, 5)" line="63" static="1">
 			<f a="::::">
 				<x path="sys.net.SocketHandle"/>
 				<t path="haxe.io.BytesData"/>
@@ -30073,7 +30073,7 @@
 			</f>
 			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "socket_recv_from", 5)</e></m></meta>
 		</socket_recv_from>
-		<socket_send_to expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;socket_send_to&quot;, 5)" line="60" static="1">
+		<socket_send_to expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;socket_send_to&quot;, 5)" line="64" static="1">
 			<f a="::::">
 				<x path="sys.net.SocketHandle"/>
 				<t path="haxe.io.BytesData"/>
@@ -30084,6 +30084,14 @@
 			</f>
 			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "socket_send_to", 5)</e></m></meta>
 		</socket_send_to>
+		<socket_set_broadcast expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;socket_set_broadcast&quot;, 2)" line="65" static="1">
+			<f a=":">
+				<x path="sys.net.SocketHandle"/>
+				<x path="Bool"/>
+				<unknown/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "socket_set_broadcast", 2)</e></m></meta>
+		</socket_set_broadcast>
 		<init set="method" line="28" override="1"><f a=""><x path="Void"/></f></init>
 		<sendTo public="1" set="method" line="33">
 			<f a="buf:pos:len:addr">
@@ -30105,6 +30113,13 @@
 			</f>
 			<haxe_doc>Reads data from any incoming address and store the receiver address into the address parameter.</haxe_doc>
 		</readFrom>
+		<setBroadcast public="1" set="method" line="59">
+			<f a="b">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Allows the socket to send to broadcast addresses.</haxe_doc>
+		</setBroadcast>
 		<new public="1" set="method" line="26"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>A UDP socket class</haxe_doc>
 		<meta><m n=":coreApi"/></meta>

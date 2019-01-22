@@ -32864,7 +32864,7 @@
 	</class>
 	<class path="sys.net.UdpSocket" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/net/UdpSocket.hx">
 		<extends path="sys.net.Socket"/>
-		<socket_send_to set="method" line="60" static="1">
+		<socket_send_to set="method" line="64" static="1">
 			<f a="s:bytes:len:host:port">
 				<e path="sys.net.SocketHandle"/>
 				<x path="hl.Bytes"/>
@@ -32878,7 +32878,18 @@
 	<e>"socket_send_to"</e>
 </m></meta>
 		</socket_send_to>
-		<socket_recv_from set="method" line="62" static="1">
+		<socket_set_broadcast set="method" line="65" static="1">
+			<f a="s:b">
+				<e path="sys.net.SocketHandle"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"socket_set_broadcast"</e>
+</m></meta>
+		</socket_set_broadcast>
+		<socket_recv_from set="method" line="66" static="1">
 			<f a="s:bytes:len:host:port">
 				<e path="sys.net.SocketHandle"/>
 				<x path="hl.Bytes"/>
@@ -32907,6 +32918,10 @@
 	<c path="sys.net.Address"/>
 	<x path="Int"/>
 </f></readFrom>
+		<setBroadcast public="1" set="method" line="60"><f a="b">
+	<x path="Bool"/>
+	<x path="Void"/>
+</f></setBroadcast>
 		<new public="1" set="method" line="28"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="sys.ssl.Certificate" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/ssl/Certificate.hx">
