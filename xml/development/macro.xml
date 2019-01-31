@@ -21463,7 +21463,19 @@ The total amount of memory allocated by the program since it was started is (in 
 		@param paths An Array of package, module or sub-type dot paths to keep.
 		@param recursive If true, recurses into sub-packages for package paths.</haxe_doc>
 		</keep>
-		<addGlobalMetadata public="1" set="method" line="402" static="1">
+		<nullSafety public="1" set="method" line="394" static="1">
+			<f a="path:?recursive" v=":true">
+				<c path="String"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ recursive : true }</e></m></meta>
+			<haxe_doc>Enables null safety for a type or a package.
+
+		@param path A package, module or sub-type dot path to keep.
+		@param recursive If true, recurses into sub-packages for package paths.</haxe_doc>
+		</nullSafety>
+		<addGlobalMetadata public="1" set="method" line="412" static="1">
 			<f a="pathFilter:meta:?recursive:?toTypes:?toFields" v="::true:true:false">
 				<c path="String"/>
 				<c path="String"/>
@@ -21486,7 +21498,7 @@ The total amount of memory allocated by the program since it was started is (in 
 		This operation has no effect if the type has already been loaded, e.g.
 		through `Context.getType`.</haxe_doc>
 		</addGlobalMetadata>
-		<setCustomJSGenerator public="1" set="method" line="413" static="1">
+		<setCustomJSGenerator public="1" set="method" line="423" static="1">
 			<f a="callb">
 				<f a="">
 					<t path="haxe.macro.JSGenApi"/>
@@ -21496,12 +21508,12 @@ The total amount of memory allocated by the program since it was started is (in 
 			</f>
 			<haxe_doc>Change the default JS output by using a custom generator callback</haxe_doc>
 		</setCustomJSGenerator>
-		<load get="inline" set="null" line="420" static="1"><f a="f:nargs">
+		<load get="inline" set="null" line="430" static="1"><f a="f:nargs">
 	<c path="String"/>
 	<x path="Int"/>
 	<d/>
 </f></load>
-		<includeFile public="1" set="method" line="431" static="1">
+		<includeFile public="1" set="method" line="441" static="1">
 			<f a="file:?position" v=":Top">
 				<c path="String"/>
 				<x path="haxe.macro.IncludePosition"/>
@@ -21524,7 +21536,7 @@ The total amount of memory allocated by the program since it was started is (in 
 		<to><icast><c path="String"/></icast></to>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1">
-	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="457" static="1">
+	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="467" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "top"</e></m>
@@ -21533,7 +21545,7 @@ The total amount of memory allocated by the program since it was started is (in 
 		</meta>
 		<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 	</Top>
-	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="463" static="1">
+	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="473" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "closure"</e></m>
@@ -21544,7 +21556,7 @@ The total amount of memory allocated by the program since it was started is (in 
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 	</Closure>
-	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="467" static="1">
+	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="477" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "inline"</e></m>
@@ -21557,7 +21569,7 @@ The total amount of memory allocated by the program since it was started is (in 
 </class></impl>
 	</abstract>
 	<class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1">
-		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="457" static="1">
+		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="467" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "top"</e></m>
@@ -21566,7 +21578,7 @@ The total amount of memory allocated by the program since it was started is (in 
 			</meta>
 			<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 		</Top>
-		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="463" static="1">
+		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="473" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "closure"</e></m>
@@ -21577,7 +21589,7 @@ The total amount of memory allocated by the program since it was started is (in 
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 		</Closure>
-		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="467" static="1">
+		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="477" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "inline"</e></m>
