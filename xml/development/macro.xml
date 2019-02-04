@@ -1908,12 +1908,15 @@
 		<from><icast><c path="Null.T"/></icast></from>
 		<this><x path="Null"><c path="Null.T"/></x></this>
 		<to><icast><c path="Null.T"/></icast></to>
-		<haxe_doc>`Null` can be useful in two cases. In order to document some methods
-	that accept or can return a `null` value, or for the Flash compiler and AS3
-	generator to distinguish between base values that can be `null` and others that
-	can't.
+		<haxe_doc><![CDATA[`Null<T>` is a wrapper that can be used to make the basic types `Int`,
+	`Float` and `Bool` nullable on static targets.
 
-	@see https://haxe.org/manual/types-nullability.html</haxe_doc>
+	If null safety is enabled, only types wrapped in `Null<T>` are nullable.
+
+	Otherwise, it has no effect on non-basic-types, but it can be useful as a way to document
+	that `null` is an acceptable value for a method argument, return value or variable.
+
+	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
 		<meta>
 			<m n=":forward"/>
 			<m n=":coreType"/>
@@ -25429,10 +25432,10 @@ The total amount of memory allocated by the program since it was started is (in 
 			</f>
 			<haxe_doc>Returns the `haxe.rtti.CType.Classdef` corresponding to class `c`.
 
-		If `c` has no runtime type information, e.g. because no `@:rtti@` was
-		added, `null` is returned.
+		If `c` has no runtime type information, e.g. because no `@:rtti` was
+		added, an exception of type `String` is thrown.
 
-		If `c` is null, the result is unspecified.</haxe_doc>
+		If `c` is `null`, the result is unspecified.</haxe_doc>
 		</getRtti>
 		<hasRtti public="1" params="T" set="method" line="59" static="1">
 			<f a="c">
@@ -25441,7 +25444,7 @@ The total amount of memory allocated by the program since it was started is (in 
 			</f>
 			<haxe_doc>Tells if `c` has runtime type information.
 
-		If `c` is null, the result is unspecified.</haxe_doc>
+		If `c` is `null`, the result is unspecified.</haxe_doc>
 		</hasRtti>
 		<haxe_doc><![CDATA[Rtti is a helper class which supplements the `@:rtti` metadata.
 
