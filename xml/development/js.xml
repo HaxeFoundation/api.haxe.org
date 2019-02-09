@@ -4117,9 +4117,9 @@
 		</meta>
 		<haxe_doc>Returns a value by specified `key`.
 
-		If the structure does not contain the given key, null is returned.
+		If the structure does not contain the given key, `null` is returned.
 
-		If `key` is null, the result is unspecified.</haxe_doc>
+		If `key` is `null`, the result is unspecified.</haxe_doc>
 	</get>
 	<set public="1" get="inline" set="null" line="65" static="1">
 		<f a="this:key:value">
@@ -4139,7 +4139,7 @@
 
 		Returns the given value.
 
-		If `key` is null, the result is unspecified.</haxe_doc>
+		If `key` is `null`, the result is unspecified.</haxe_doc>
 	</set>
 	<exists public="1" get="inline" set="null" line="79" static="1">
 		<f a="this:key">
@@ -4150,7 +4150,7 @@
 		<meta><m n=":impl"/></meta>
 		<haxe_doc>Tells if the structure contains a specified `key`.
 
-		If `key` is null, the result is unspecified.</haxe_doc>
+		If `key` is `null`, the result is unspecified.</haxe_doc>
 	</exists>
 	<remove public="1" get="inline" set="null" line="88" static="1">
 		<f a="this:key">
@@ -4163,7 +4163,7 @@
 
 		Returns true, if `key` was present in structure, or false otherwise.
 
-		If `key` is null, the result is unspecified.</haxe_doc>
+		If `key` is `null`, the result is unspecified.</haxe_doc>
 	</remove>
 	<keys public="1" get="inline" set="null" line="93" static="1">
 		<f a="this">
@@ -4181,6 +4181,19 @@
 		<meta><m n=":impl"/></meta>
 		<haxe_doc>Returns a shallow copy of the structure</haxe_doc>
 	</copy>
+	<keyValueIterator public="1" get="inline" set="null" line="105" static="1">
+		<f a="this">
+			<d><c path="haxe.DynamicAccess.T"/></d>
+			<t path="KeyValueIterator">
+				<c path="String"/>
+				<c path="haxe.DynamicAccess.T"/>
+			</t>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns an Iterator over the keys and values of this `DynamicAccess`.
+
+		The order of values is undefined.</haxe_doc>
+	</keyValueIterator>
 </class></impl>
 	</abstract>
 	<class path="haxe._DynamicAccess.DynamicAccess_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/DynamicAccess.hx" private="1" module="haxe.DynamicAccess">
@@ -4205,9 +4218,9 @@
 			</meta>
 			<haxe_doc>Returns a value by specified `key`.
 
-		If the structure does not contain the given key, null is returned.
+		If the structure does not contain the given key, `null` is returned.
 
-		If `key` is null, the result is unspecified.</haxe_doc>
+		If `key` is `null`, the result is unspecified.</haxe_doc>
 		</get>
 		<set public="1" get="inline" set="null" line="65" static="1">
 			<f a="this:key:value">
@@ -4227,7 +4240,7 @@
 
 		Returns the given value.
 
-		If `key` is null, the result is unspecified.</haxe_doc>
+		If `key` is `null`, the result is unspecified.</haxe_doc>
 		</set>
 		<exists public="1" get="inline" set="null" line="79" static="1">
 			<f a="this:key">
@@ -4238,7 +4251,7 @@
 			<meta><m n=":impl"/></meta>
 			<haxe_doc>Tells if the structure contains a specified `key`.
 
-		If `key` is null, the result is unspecified.</haxe_doc>
+		If `key` is `null`, the result is unspecified.</haxe_doc>
 		</exists>
 		<remove public="1" get="inline" set="null" line="88" static="1">
 			<f a="this:key">
@@ -4251,7 +4264,7 @@
 
 		Returns true, if `key` was present in structure, or false otherwise.
 
-		If `key` is null, the result is unspecified.</haxe_doc>
+		If `key` is `null`, the result is unspecified.</haxe_doc>
 		</remove>
 		<keys public="1" get="inline" set="null" line="93" static="1">
 			<f a="this">
@@ -4269,6 +4282,19 @@
 			<meta><m n=":impl"/></meta>
 			<haxe_doc>Returns a shallow copy of the structure</haxe_doc>
 		</copy>
+		<keyValueIterator public="1" get="inline" set="null" line="105" static="1">
+			<f a="this">
+				<d><c path="haxe.DynamicAccess.T"/></d>
+				<t path="KeyValueIterator">
+					<c path="String"/>
+					<c path="haxe.DynamicAccess.T"/>
+				</t>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns an Iterator over the keys and values of this `DynamicAccess`.
+
+		The order of values is undefined.</haxe_doc>
+		</keyValueIterator>
 	</class>
 	<class path="haxe.EntryPoint" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/EntryPoint.hx">
 		<pending expr="new Array&lt;Void&gt;()" line="49" static="1">
@@ -21028,6 +21054,27 @@
 			<meta><m n=":value"><e>{ bytePos : 0 }</e></m></meta>
 		</fromBytes>
 		<meta><m n=":coreApi"/></meta>
+	</class>
+	<class path="haxe.iterators.DynamicAccessKeyValueIterator" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/iterators/DynamicAccessKeyValueIterator.hx">
+		<access final="1"><x path="haxe.DynamicAccess"><c path="haxe.iterators.DynamicAccessKeyValueIterator.T"/></x></access>
+		<keys final="1"><c path="Array"><c path="String"/></c></keys>
+		<index><x path="Int"/></index>
+		<hasNext public="1" get="inline" set="null" line="41">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>See `Iterator.hasNext`</haxe_doc>
+		</hasNext>
+		<next public="1" get="inline" set="null" line="48">
+			<f a=""><a>
+	<value><c path="haxe.iterators.DynamicAccessKeyValueIterator.T"/></value>
+	<key><c path="String"/></key>
+</a></f>
+			<haxe_doc>See `Iterator.next`</haxe_doc>
+		</next>
+		<new public="1" get="inline" set="null" line="32"><f a="access">
+	<x path="haxe.DynamicAccess"><c path="haxe.iterators.DynamicAccessKeyValueIterator.T"/></x>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>This Key/Value iterator can be used to iterate over `haxe.DynamicAccess`.</haxe_doc>
 	</class>
 	<class path="haxe.iterators.MapKeyValueIterator" params="K:V" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/iterators/MapKeyValueIterator.hx">
 		<map><c path="haxe.IMap">
