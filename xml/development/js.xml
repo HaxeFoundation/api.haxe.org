@@ -28170,6 +28170,7 @@
 		<ontimeupdate public="1"><x path="haxe.Function"/></ontimeupdate>
 		<onvolumechange public="1"><x path="haxe.Function"/></onvolumechange>
 		<onwaiting public="1"><x path="haxe.Function"/></onwaiting>
+		<onselectstart public="1"><x path="haxe.Function"/></onselectstart>
 		<ontoggle public="1"><x path="haxe.Function"/></ontoggle>
 		<onpointercancel public="1"><x path="haxe.Function"/></onpointercancel>
 		<onpointerdown public="1"><x path="haxe.Function"/></onpointerdown>
@@ -32761,6 +32762,208 @@
 		<transitionProperty public="1" set="null"><c path="String"/></transitionProperty>
 		<meta><m n=":native"><e>"CSSTransition"</e></m></meta>
 	</class>
+	<class path="js.html.Cache" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/Cache.hx" extern="1">
+		<match public="1" set="method">
+			<f a="request:?options">
+				<c path="js.html.Request"/>
+				<t path="js.html.CacheQueryOptions"/>
+				<c path="js.Promise"><c path="js.html.Response"/></c>
+			</f>
+			<overloads><match public="1" set="method"><f a="request:?options">
+	<c path="String"/>
+	<t path="js.html.CacheQueryOptions"/>
+	<c path="js.Promise"><c path="js.html.Response"/></c>
+</f></match></overloads>
+		</match>
+		<matchAll public="1" set="method">
+			<f a="?request:?options">
+				<c path="js.html.Request"/>
+				<t path="js.html.CacheQueryOptions"/>
+				<c path="js.Promise"><c path="Array"><c path="js.html.Response"/></c></c>
+			</f>
+			<overloads><matchAll public="1" set="method"><f a="?request:?options">
+	<c path="String"/>
+	<t path="js.html.CacheQueryOptions"/>
+	<c path="js.Promise"><c path="Array"><c path="js.html.Response"/></c></c>
+</f></matchAll></overloads>
+		</matchAll>
+		<add public="1" set="method">
+			<f a="request">
+				<c path="js.html.Request"/>
+				<c path="js.Promise"><x path="Void"/></c>
+			</f>
+			<overloads><add public="1" set="method"><f a="request">
+	<c path="String"/>
+	<c path="js.Promise"><x path="Void"/></c>
+</f></add></overloads>
+		</add>
+		<addAll public="1" set="method"><f a="requests">
+	<c path="Array"><x path="haxe.extern.EitherType">
+	<c path="js.html.Request"/>
+	<c path="String"/>
+</x></c>
+	<c path="js.Promise"><x path="Void"/></c>
+</f></addAll>
+		<put public="1" set="method">
+			<f a="request:response">
+				<c path="js.html.Request"/>
+				<c path="js.html.Response"/>
+				<c path="js.Promise"><x path="Void"/></c>
+			</f>
+			<overloads><put public="1" set="method"><f a="request:response">
+	<c path="String"/>
+	<c path="js.html.Response"/>
+	<c path="js.Promise"><x path="Void"/></c>
+</f></put></overloads>
+		</put>
+		<delete public="1" set="method">
+			<f a="request:?options">
+				<c path="js.html.Request"/>
+				<t path="js.html.CacheQueryOptions"/>
+				<c path="js.Promise"><x path="Bool"/></c>
+			</f>
+			<overloads><delete public="1" set="method"><f a="request:?options">
+	<c path="String"/>
+	<t path="js.html.CacheQueryOptions"/>
+	<c path="js.Promise"><x path="Bool"/></c>
+</f></delete></overloads>
+		</delete>
+		<keys public="1" set="method">
+			<f a="?request:?options">
+				<c path="js.html.Request"/>
+				<t path="js.html.CacheQueryOptions"/>
+				<c path="js.Promise"><c path="Array"><c path="js.html.Request"/></c></c>
+			</f>
+			<overloads><keys public="1" set="method"><f a="?request:?options">
+	<c path="String"/>
+	<t path="js.html.CacheQueryOptions"/>
+	<c path="js.Promise"><c path="Array"><c path="js.html.Request"/></c></c>
+</f></keys></overloads>
+		</keys>
+		<haxe_doc><![CDATA[The `Cache` interface provides a storage mechanism for `Request` / `Response` object pairs that are cached, for example as part of the `ServiceWorker` life cycle. Note that the `Cache` interface is exposed to windowed scopes as well as workers. You don't have to use it in conjunction with service workers, even though it is defined in the service worker spec.
+
+	Documentation [Cache](https://developer.mozilla.org/en-US/docs/Web/API/Cache) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/Cache$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/Cache>]]></haxe_doc>
+		<meta><m n=":native"><e>"Cache"</e></m></meta>
+	</class>
+	<typedef path="js.html.CacheQueryOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/CacheQueryOptions.hx"><a>
+	<ignoreVary>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</ignoreVary>
+	<ignoreSearch>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</ignoreSearch>
+	<ignoreMethod>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</ignoreMethod>
+	<cacheName>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</cacheName>
+</a></typedef>
+	<class path="js.html.CacheStorage" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/CacheStorage.hx" extern="1">
+		<match public="1" set="method">
+			<f a="request:?options">
+				<c path="js.html.Request"/>
+				<t path="js.html.CacheQueryOptions"/>
+				<c path="js.Promise"><c path="js.html.Response"/></c>
+			</f>
+			<haxe_doc>Checks if a given `Request` is a key in any of the `Cache` objects that the `CacheStorage` object tracks, and returns a `Promise` that resolves to that match.</haxe_doc>
+			<overloads><match public="1" set="method">
+	<f a="request:?options">
+		<c path="String"/>
+		<t path="js.html.CacheQueryOptions"/>
+		<c path="js.Promise"><c path="js.html.Response"/></c>
+	</f>
+	<haxe_doc>Checks if a given `Request` is a key in any of the `Cache` objects that the `CacheStorage` object tracks, and returns a `Promise` that resolves to that match.</haxe_doc>
+</match></overloads>
+		</match>
+		<has public="1" set="method">
+			<f a="cacheName">
+				<c path="String"/>
+				<c path="js.Promise"><x path="Bool"/></c>
+			</f>
+			<haxe_doc>Returns a `Promise` that resolves to `true` if a `Cache` object matching the `cacheName` exists.</haxe_doc>
+		</has>
+		<open public="1" set="method">
+			<f a="cacheName">
+				<c path="String"/>
+				<c path="js.Promise"><c path="js.html.Cache"/></c>
+			</f>
+			<haxe_doc>Returns a `Promise` that resolves to the `Cache` object matching the `cacheName` (a new cache is created if it doesn't already exist.)</haxe_doc>
+		</open>
+		<delete public="1" set="method">
+			<f a="cacheName">
+				<c path="String"/>
+				<c path="js.Promise"><x path="Bool"/></c>
+			</f>
+			<haxe_doc>Finds the `Cache` object matching the `cacheName`, and if found, deletes the `Cache` object and returns a `Promise` that resolves to `true`. If no `Cache` object is found, it returns `false`.</haxe_doc>
+		</delete>
+		<keys public="1" set="method">
+			<f a=""><c path="js.Promise"><c path="Array"><c path="String"/></c></c></f>
+			<haxe_doc>Returns a `Promise` that will resolve with an array containing strings corresponding to all of the named `Cache` objects tracked by the `CacheStorage`. Use this method to iterate over a list of all the `Cache` objects.</haxe_doc>
+		</keys>
+		<new public="1" set="method">
+			<f a="namespace:principal">
+				<x path="js.html.CacheStorageNamespace"/>
+				<d/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[The `CacheStorage` interface represents the storage for `Cache` objects.
+
+	Documentation [CacheStorage](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage>]]></haxe_doc>
+		<meta><m n=":native"><e>"CacheStorage"</e></m></meta>
+	</class>
+	<abstract path="js.html.CacheStorageNamespace" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/CacheStorageNamespace.hx">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.html._CacheStorageNamespace.CacheStorageNamespace_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/CacheStorageNamespace.hx" private="1" module="js.html.CacheStorageNamespace" extern="1">
+	<CONTENT public="1" get="inline" set="null" expr="cast &quot;content&quot;" line="29" static="1">
+		<x path="js.html.CacheStorageNamespace"/>
+		<meta>
+			<m n=":value"><e>cast "content"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</CONTENT>
+	<CHROME public="1" get="inline" set="null" expr="cast &quot;chrome&quot;" line="30" static="1">
+		<x path="js.html.CacheStorageNamespace"/>
+		<meta>
+			<m n=":value"><e>cast "chrome"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</CHROME>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.html._CacheStorageNamespace.CacheStorageNamespace_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/CacheStorageNamespace.hx" private="1" module="js.html.CacheStorageNamespace" extern="1">
+		<CONTENT public="1" get="inline" set="null" expr="cast &quot;content&quot;" line="29" static="1">
+			<x path="js.html.CacheStorageNamespace"/>
+			<meta>
+				<m n=":value"><e>cast "content"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</CONTENT>
+		<CHROME public="1" get="inline" set="null" expr="cast &quot;chrome&quot;" line="30" static="1">
+			<x path="js.html.CacheStorageNamespace"/>
+			<meta>
+				<m n=":value"><e>cast "chrome"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</CHROME>
+		<meta><m n=":enum"/></meta>
+	</class>
 	<class path="js.html.MediaStream" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/MediaStream.hx" extern="1">
 		<extends path="js.html.EventTarget"/>
 		<id public="1" set="null">
@@ -36186,6 +36389,7 @@
 		<origin public="1" set="null"><c path="String"/></origin>
 		<isSecureContext public="1" set="null"><x path="Bool"/></isSecureContext>
 		<indexedDB public="1" set="null"><c path="js.html.idb.Factory"/></indexedDB>
+		<caches public="1" set="null"><c path="js.html.CacheStorage"/></caches>
 		<importScripts public="1" set="method">
 			<f a="urls">
 				<x path="haxe.extern.Rest"><c path="String"/></x>
@@ -37062,6 +37266,10 @@
 			<x path="haxe.Function"/>
 			<haxe_doc>Represents the event handling code for the `afterscriptexecute` event.</haxe_doc>
 		</onafterscriptexecute>
+		<onselectionchange public="1">
+			<x path="haxe.Function"/>
+			<haxe_doc>Is an `EventHandler` representing the code to be called when the `selectionchange` event is raised.</haxe_doc>
+		</onselectionchange>
 		<currentScript public="1" set="null"><c path="js.html.Element"/></currentScript>
 		<anchors public="1" set="null">
 			<c path="js.html.HTMLCollection"/>
@@ -37210,6 +37418,7 @@
 		<ontimeupdate public="1"><x path="haxe.Function"/></ontimeupdate>
 		<onvolumechange public="1"><x path="haxe.Function"/></onvolumechange>
 		<onwaiting public="1"><x path="haxe.Function"/></onwaiting>
+		<onselectstart public="1"><x path="haxe.Function"/></onselectstart>
 		<ontoggle public="1"><x path="haxe.Function"/></ontoggle>
 		<onpointercancel public="1"><x path="haxe.Function"/></onpointercancel>
 		<onpointerdown public="1"><x path="haxe.Function"/></onpointerdown>
@@ -40920,6 +41129,10 @@
 
 	@see <https://developer.mozilla.org/en-US/docs/Web/API/Geolocation>]]></haxe_doc>
 	</typedef>
+	<typedef path="js.html.GetNotificationOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/GetNotificationOptions.hx"><a><tag>
+	<x path="Null"><c path="String"/></x>
+	<meta><m n=":optional"/></meta>
+</tag></a></typedef>
 	<typedef path="js.html.GetRootNodeOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/GetRootNodeOptions.hx"><a><composed>
 	<x path="Null"><x path="Bool"/></x>
 	<meta><m n=":optional"/></meta>
@@ -43125,6 +43338,113 @@
 		</new>
 		<meta><m n=":native"><e>"Int8Array"</e></m></meta>
 	</class>
+	<class path="js.html.IntersectionObserver" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/IntersectionObserver.hx" extern="1">
+		<root public="1" set="null">
+			<c path="js.html.Element"/>
+			<haxe_doc>A specific ancestor of the target `element` being observed. If no value was passed to the constructor or this is `null`, the top-level document's viewport is used.</haxe_doc>
+		</root>
+		<rootMargin public="1" set="null">
+			<c path="String"/>
+			<haxe_doc>An offset rectangle applied to the root's `bounding box` when calculating intersections, effectively shrinking or growing the root for calculation purposes. The value returned by this property may not be the same as the one specified when calling the constructor as it may be changed to match internal requirements. Each offset can be expressed in pixels (`px`) or as a percentage (`%`). The default is "0px 0px 0px 0px".</haxe_doc>
+		</rootMargin>
+		<thresholds public="1" set="null">
+			<c path="Array"><x path="Float"/></c>
+			<haxe_doc>A list of thresholds, sorted in increasing numeric order, where each threshold is a ratio of intersection area to bounding box area of an observed target. Notifications for a target are generated when any of the thresholds are crossed for that target. If no value was passed to the constructor, 0 is used.</haxe_doc>
+		</thresholds>
+		<observe public="1" set="method">
+			<f a="target">
+				<c path="js.html.Element"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Tells the `IntersectionObserver` a target element to observe.</haxe_doc>
+		</observe>
+		<unobserve public="1" set="method">
+			<f a="target">
+				<c path="js.html.Element"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Tells the `IntersectionObserver` to stop observing a particular target element.</haxe_doc>
+		</unobserve>
+		<disconnect public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Stops the `IntersectionObserver` object from observing any target.</haxe_doc>
+		</disconnect>
+		<takeRecords public="1" set="method">
+			<f a=""><c path="Array"><c path="js.html.IntersectionObserverEntry"/></c></f>
+			<haxe_doc>Returns an array of `IntersectionObserverEntry` objects for all observed targets.</haxe_doc>
+		</takeRecords>
+		<new public="1" set="method">
+			<f a="intersectionCallback:?options">
+				<f a=":">
+					<c path="Array"><c path="js.html.IntersectionObserverEntry"/></c>
+					<c path="js.html.IntersectionObserver"/>
+					<x path="Void"/>
+				</f>
+				<t path="js.html.IntersectionObserverInit"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document's viewport.
+
+	Documentation [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver>]]></haxe_doc>
+		<meta><m n=":native"><e>"IntersectionObserver"</e></m></meta>
+	</class>
+	<class path="js.html.IntersectionObserverEntry" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/IntersectionObserverEntry.hx" extern="1">
+		<time public="1" set="null">
+			<x path="Float"/>
+			<haxe_doc>A `DOMHighResTimeStamp` indicating the time at which the intersection was recorded, relative to the `IntersectionObserver`'s time origin.</haxe_doc>
+		</time>
+		<rootBounds public="1" set="null">
+			<c path="js.html.DOMRectReadOnly"/>
+			<haxe_doc>Returns a `DOMRectReadOnly` for the intersection observer's root.</haxe_doc>
+		</rootBounds>
+		<boundingClientRect public="1" set="null">
+			<c path="js.html.DOMRectReadOnly"/>
+			<haxe_doc>Returns the bounds rectangle of the target element as a `DOMRectReadOnly`. The bounds are computed as described in the documentation for `Element.getBoundingClientRect()`.</haxe_doc>
+		</boundingClientRect>
+		<intersectionRect public="1" set="null">
+			<c path="js.html.DOMRectReadOnly"/>
+			<haxe_doc>Returns a `DOMRectReadOnly` representing the target's visible area.</haxe_doc>
+		</intersectionRect>
+		<isIntersecting public="1" set="null">
+			<x path="Bool"/>
+			<haxe_doc>A Boolean value which is `true` if the target element intersects with the intersection observer's root. If this is `true`, then, the `IntersectionObserverEntry` describes a transition into a state of intersection; if it's `false`, then you know the transition is from intersecting to not-intersecting.</haxe_doc>
+		</isIntersecting>
+		<intersectionRatio public="1" set="null">
+			<x path="Float"/>
+			<haxe_doc>Returns the ratio of the `intersectionRect` to the `boundingClientRect`.</haxe_doc>
+		</intersectionRatio>
+		<target public="1" set="null">
+			<c path="js.html.Element"/>
+			<haxe_doc>The `Element` whose intersection with the root changed.</haxe_doc>
+		</target>
+		<haxe_doc><![CDATA[The `IntersectionObserverEntry` interface of the Intersection Observer API describes the intersection between the target element and its root container at a specific moment of transition.
+
+	Documentation [IntersectionObserverEntry](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry>]]></haxe_doc>
+		<meta><m n=":native"><e>"IntersectionObserverEntry"</e></m></meta>
+	</class>
+	<typedef path="js.html.IntersectionObserverInit" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/IntersectionObserverInit.hx"><a>
+	<threshold>
+		<x path="Null"><x path="haxe.extern.EitherType">
+	<x path="Float"/>
+	<c path="Array"><x path="Float"/></c>
+</x></x>
+		<meta><m n=":optional"/></meta>
+	</threshold>
+	<rootMargin>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</rootMargin>
+	<root>
+		<x path="Null"><c path="js.html.Element"/></x>
+		<meta><m n=":optional"/></meta>
+	</root>
+</a></typedef>
 	<typedef path="js.html.IntlUtils" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/IntlUtils.hx"><a>
 	<getLocaleInfo set="method">
 		<f a="locales">
@@ -45360,6 +45680,114 @@
 	@see <https://developer.mozilla.org/en-US/docs/Web/API/HTMLMapElement>]]></haxe_doc>
 		<meta><m n=":native"><e>"HTMLMapElement"</e></m></meta>
 	</class>
+	<class path="js.html.MediaDeviceInfo" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/MediaDeviceInfo.hx" extern="1">
+		<deviceId public="1" set="null">
+			<c path="String"/>
+			<haxe_doc>Returns a `DOMString` that is an identifier for the represented device that is persisted across sessions. It is un-guessable by other applications and unique to the origin of the calling application. It is reset when the user clears cookies (for Private Browsing, a different identifier is used that is not persisted across sessions).</haxe_doc>
+		</deviceId>
+		<kind public="1" set="null">
+			<x path="js.html.MediaDeviceKind"/>
+			<haxe_doc>Returns an enumerated value that is either `"videoinput"`, `"audioinput"` or `"audiooutput"`.</haxe_doc>
+		</kind>
+		<label public="1" set="null">
+			<c path="String"/>
+			<haxe_doc>Returns a `DOMString` that is a label describing this device (for example "External USB Webcam").</haxe_doc>
+		</label>
+		<groupId public="1" set="null">
+			<c path="String"/>
+			<haxe_doc>Returns a `DOMString` that is a group identifier. Two devices have the same group identifier if they belong to the same physical device — for example a monitor with both a built-in camera and a microphone.</haxe_doc>
+		</groupId>
+		<toJSON public="1" set="method"><f a=""><d/></f></toJSON>
+		<haxe_doc><![CDATA[The `MediaDevicesInfo` interface contains information that describes a single media input or output device.
+
+	Documentation [MediaDeviceInfo](https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo>]]></haxe_doc>
+		<meta><m n=":native"><e>"MediaDeviceInfo"</e></m></meta>
+	</class>
+	<abstract path="js.html.MediaDeviceKind" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/MediaDeviceKind.hx">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.html._MediaDeviceKind.MediaDeviceKind_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/MediaDeviceKind.hx" private="1" module="js.html.MediaDeviceKind" extern="1">
+	<AUDIOINPUT public="1" get="inline" set="null" expr="cast &quot;audioinput&quot;" line="29" static="1">
+		<x path="js.html.MediaDeviceKind"/>
+		<meta>
+			<m n=":value"><e>cast "audioinput"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</AUDIOINPUT>
+	<AUDIOOUTPUT public="1" get="inline" set="null" expr="cast &quot;audiooutput&quot;" line="30" static="1">
+		<x path="js.html.MediaDeviceKind"/>
+		<meta>
+			<m n=":value"><e>cast "audiooutput"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</AUDIOOUTPUT>
+	<VIDEOINPUT public="1" get="inline" set="null" expr="cast &quot;videoinput&quot;" line="31" static="1">
+		<x path="js.html.MediaDeviceKind"/>
+		<meta>
+			<m n=":value"><e>cast "videoinput"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</VIDEOINPUT>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.html._MediaDeviceKind.MediaDeviceKind_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/MediaDeviceKind.hx" private="1" module="js.html.MediaDeviceKind" extern="1">
+		<AUDIOINPUT public="1" get="inline" set="null" expr="cast &quot;audioinput&quot;" line="29" static="1">
+			<x path="js.html.MediaDeviceKind"/>
+			<meta>
+				<m n=":value"><e>cast "audioinput"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</AUDIOINPUT>
+		<AUDIOOUTPUT public="1" get="inline" set="null" expr="cast &quot;audiooutput&quot;" line="30" static="1">
+			<x path="js.html.MediaDeviceKind"/>
+			<meta>
+				<m n=":value"><e>cast "audiooutput"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</AUDIOOUTPUT>
+		<VIDEOINPUT public="1" get="inline" set="null" expr="cast &quot;videoinput&quot;" line="31" static="1">
+			<x path="js.html.MediaDeviceKind"/>
+			<meta>
+				<m n=":value"><e>cast "videoinput"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</VIDEOINPUT>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<class path="js.html.MediaDevices" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/MediaDevices.hx" extern="1">
+		<extends path="js.html.EventTarget"/>
+		<ondevicechange public="1">
+			<x path="haxe.Function"/>
+			<haxe_doc>The event handler for the `devicechange` event. This event is delivered to the `MediaDevices` object when a media input or output device is attached to or removed from the user's computer.</haxe_doc>
+		</ondevicechange>
+		<getSupportedConstraints public="1" set="method"><f a=""><t path="js.html.MediaTrackSupportedConstraints"/></f></getSupportedConstraints>
+		<enumerateDevices public="1" set="method">
+			<f a=""><c path="js.Promise"><c path="Array"><c path="js.html.MediaDeviceInfo"/></c></c></f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</enumerateDevices>
+		<getUserMedia public="1" set="method">
+			<f a="?constraints">
+				<t path="js.html.MediaStreamConstraints"/>
+				<c path="js.Promise"><c path="js.html.MediaStream"/></c>
+			</f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</getUserMedia>
+		<haxe_doc><![CDATA[The `MediaDevices` interface provides access to connected media input devices like cameras and microphones, as well as screen sharing. In essence, it lets you obtain access to any hardware source of media data.
+
+	Documentation [MediaDevices](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices>]]></haxe_doc>
+		<meta><m n=":native"><e>"MediaDevices"</e></m></meta>
+	</class>
 	<class path="js.html.MediaError" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/MediaError.hx" extern="1">
 		<MEDIA_ERR_ABORTED public="1" get="inline" set="null" expr="1" line="37" static="1">
 			<x path="Int"/>
@@ -46330,6 +46758,118 @@
 
 	@see <https://developer.mozilla.org/en-US/docs/Web/API/MediaTrackSettings>]]></haxe_doc>
 	</typedef>
+	<typedef path="js.html.MediaTrackSupportedConstraints" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/MediaTrackSupportedConstraints.hx">
+		<a>
+			<width>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A Boolean value whose value is `true` if the `width` constraint is supported in the current environment.</haxe_doc>
+			</width>
+			<volume>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A Boolean value whose value is `true` if the `volume` constraint is supported in the current environment.</haxe_doc>
+			</volume>
+			<viewportWidth>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</viewportWidth>
+			<viewportOffsetY>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</viewportOffsetY>
+			<viewportOffsetX>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</viewportOffsetX>
+			<viewportHeight>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</viewportHeight>
+			<scrollWithPage>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</scrollWithPage>
+			<sampleSize>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A Boolean value whose value is `true` if the `sampleSize` constraint is supported in the current environment.</haxe_doc>
+			</sampleSize>
+			<sampleRate>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A Boolean value whose value is `true` if the `sampleRate` constraint is supported in the current environment.</haxe_doc>
+			</sampleRate>
+			<noiseSuppression>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A Boolean whose value is `true` if the `noiseSuppression` constraint is supported in the current environment.</haxe_doc>
+			</noiseSuppression>
+			<mediaSource>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</mediaSource>
+			<latency>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A Boolean value whose value is `true` if the `latency` constraint is supported in the current environment.</haxe_doc>
+			</latency>
+			<height>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A Boolean value whose value is `true` if the `height` constraint is supported in the current environment.</haxe_doc>
+			</height>
+			<groupId>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A Boolean value whose value is `true` if the `groupId` constraint is supported in the current environment.</haxe_doc>
+			</groupId>
+			<frameRate>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A Boolean value whose value is `true` if the `frameRate` constraint is supported in the current environment.</haxe_doc>
+			</frameRate>
+			<facingMode>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A Boolean value whose value is `true` if the `facingMode` constraint is supported in the current environment.</haxe_doc>
+			</facingMode>
+			<echoCancellation>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A Boolean value whose value is `true` if the `echoCancellation` constraint is supported in the current environment.</haxe_doc>
+			</echoCancellation>
+			<deviceId>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A Boolean value whose value is `true` if the `deviceId` constraint is supported in the current environment.</haxe_doc>
+			</deviceId>
+			<channelCount>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A Boolean value whose value is `true` if the `channelCount` constraint is supported in the current environment.</haxe_doc>
+			</channelCount>
+			<browserWindow>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</browserWindow>
+			<autoGainControl>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A Boolean whose value is `true` if the `autoGainControl` constraint is supported in the current environment.</haxe_doc>
+			</autoGainControl>
+			<aspectRatio>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A Boolean value whose value is `true` if the `aspectRatio` constraint is supported in the current environment.</haxe_doc>
+			</aspectRatio>
+		</a>
+		<haxe_doc><![CDATA[The `MediaTrackSupportedConstraints` dictionary establishes the list of constrainable properties recognized by the user agent or browser in its implementation of the `MediaStreamTrack` object. An object conforming to `MediaTrackSupportedConstraints` is returned by `MediaDevices.getSupportedConstraints()`.
+
+	Documentation [MediaTrackSupportedConstraints](https://developer.mozilla.org/en-US/docs/Web/API/MediaTrackSupportedConstraints) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/MediaTrackSupportedConstraints$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/MediaTrackSupportedConstraints>]]></haxe_doc>
+	</typedef>
 	<class path="js.html.MenuElement" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/MenuElement.hx" extern="1">
 		<extends path="js.html.Element"/>
 		<type public="1"><c path="String"/></type>
@@ -47095,6 +47635,10 @@
 			<c path="String"/>
 			<haxe_doc>Returns the build identifier of the browser (e.g., "2006090803").</haxe_doc>
 		</buildID>
+		<mediaDevices public="1" set="null">
+			<c path="js.html.MediaDevices"/>
+			<haxe_doc>Returns a reference to a `MediaDevices` object which can then be used to get information about available media devices (`MediaDevices.enumerateDevices()`), find out what constrainable properties are supported for media on the user's computer and user agent (`MediaDevices.getSupportedConstraints()`), and to request access to media using `MediaDevices.getUserMedia()`.</haxe_doc>
+		</mediaDevices>
 		<serviceWorker public="1" set="null">
 			<c path="js.html.ServiceWorkerContainer"/>
 			<haxe_doc>Returns a `ServiceWorkerContainer` object, which provides access to registration, removal, upgrade, and communication with the `ServiceWorker` objects for the associated document.</haxe_doc>
@@ -47113,6 +47657,7 @@
 		<language public="1" set="null"><c path="String"/></language>
 		<languages public="1" set="null"><c path="Array"><c path="String"/></c></languages>
 		<onLine public="1" set="null"><x path="Bool"/></onLine>
+		<storage public="1" set="null"><c path="js.html.StorageManager"/></storage>
 		<vibrate public="1" set="method">
 			<f a="pattern">
 				<c path="Array"><x path="Int"/></c>
@@ -47128,6 +47673,13 @@
 			<f a=""><c path="Array"><c path="js.html.Gamepad"/></c></f>
 			<haxe_doc>@throws DOMError</haxe_doc>
 		</getGamepads>
+		<requestMIDIAccess public="1" set="method">
+			<f a="?options">
+				<t path="js.html.midi.MIDIOptions"/>
+				<c path="js.Promise"><c path="js.html.midi.MIDIAccess"/></c>
+			</f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</requestMIDIAccess>
 		<sendBeacon public="1" set="method">
 			<f a="url:?data">
 				<c path="String"/>
@@ -48551,6 +49103,20 @@
 	@see <https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry>]]></haxe_doc>
 		<meta><m n=":native"><e>"PerformanceEntry"</e></m></meta>
 	</class>
+	<typedef path="js.html.PerformanceEntryFilterOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/PerformanceEntryFilterOptions.hx"><a>
+	<name>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</name>
+	<initiatorType>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</initiatorType>
+	<entryType>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</entryType>
+</a></typedef>
 	<class path="js.html.PerformanceMark" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/PerformanceMark.hx" extern="1">
 		<extends path="js.html.PerformanceEntry"/>
 		<haxe_doc><![CDATA[`PerformanceMark` is an abstract interface for `PerformanceEntry` objects with an `entryType` of "`mark`". Entries of this type are created by calling `performance.mark()` to add a named `DOMHighResTimeStamp` (the mark) to the browser's performance timeline.
@@ -48743,6 +49309,59 @@
 	@see <https://developer.mozilla.org/en-US/docs/Web/API/PerformanceNavigationTiming>]]></haxe_doc>
 		<meta><m n=":native"><e>"PerformanceNavigationTiming"</e></m></meta>
 	</class>
+	<class path="js.html.PerformanceObserver" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/PerformanceObserver.hx" extern="1">
+		<observe public="1" set="method"><f a="options">
+	<t path="js.html.PerformanceObserverInit"/>
+	<x path="Void"/>
+</f></observe>
+		<disconnect public="1" set="method"><f a=""><x path="Void"/></f></disconnect>
+		<takeRecords public="1" set="method"><f a=""><c path="Array"><c path="js.html.PerformanceEntry"/></c></f></takeRecords>
+		<new public="1" set="method">
+			<f a="callback">
+				<f a=":">
+					<c path="js.html.PerformanceObserverEntryList"/>
+					<c path="js.html.PerformanceObserver"/>
+					<x path="Void"/>
+				</f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[The `PerformanceObserver` interface is used to observe performance measurement events and be notified of new performance entries as they are recorded in the browser's performance timeline.
+
+	Documentation [PerformanceObserver](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver>]]></haxe_doc>
+		<meta><m n=":native"><e>"PerformanceObserver"</e></m></meta>
+	</class>
+	<class path="js.html.PerformanceObserverEntryList" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/PerformanceObserverEntryList.hx" extern="1">
+		<getEntries public="1" set="method"><f a="?filter">
+	<t path="js.html.PerformanceEntryFilterOptions"/>
+	<c path="Array"><c path="js.html.PerformanceEntry"/></c>
+</f></getEntries>
+		<getEntriesByType public="1" set="method"><f a="entryType">
+	<c path="String"/>
+	<c path="Array"><c path="js.html.PerformanceEntry"/></c>
+</f></getEntriesByType>
+		<getEntriesByName public="1" set="method"><f a="name:?entryType">
+	<c path="String"/>
+	<c path="String"/>
+	<c path="Array"><c path="js.html.PerformanceEntry"/></c>
+</f></getEntriesByName>
+		<haxe_doc><![CDATA[The `PerformanceObserverEntryList` interface is a list of peformance events that were explicitly observed via the `observe()` method.
+
+	Documentation [PerformanceObserverEntryList](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserverEntryList) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserverEntryList$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserverEntryList>]]></haxe_doc>
+		<meta><m n=":native"><e>"PerformanceObserverEntryList"</e></m></meta>
+	</class>
+	<typedef path="js.html.PerformanceObserverInit" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/PerformanceObserverInit.hx"><a>
+	<entryTypes><c path="Array"><c path="String"/></c></entryTypes>
+	<buffered>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</buffered>
+</a></typedef>
 	<class path="js.html.PerformanceServerTiming" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/PerformanceServerTiming.hx" extern="1">
 		<name public="1" set="null">
 			<c path="String"/>
@@ -52194,6 +52813,10 @@
 			<x path="haxe.Function"/>
 			<haxe_doc>An `EventListener` property called whenever an event of type `updatefound` is fired; it is fired any time the `ServiceWorkerRegistration.installing` property acquires a new service worker.</haxe_doc>
 		</onupdatefound>
+		<pushManager public="1" set="null">
+			<c path="js.html.push.PushManager"/>
+			<haxe_doc>Returns a reference to the `PushManager` interface for managing push subscriptions including subscribing, getting an active subscription, and accessing push permission status.</haxe_doc>
+		</pushManager>
 		<update public="1" set="method">
 			<f a=""><c path="js.Promise"><x path="Void"/></c></f>
 			<haxe_doc>Checks the server for an updated version of the service worker without consulting caches.
@@ -52204,6 +52827,23 @@
 			<haxe_doc>Unregisters the service worker registration and returns a `Promise`. The service worker will finish any ongoing operations before it is unregistered.
 		@throws DOMError</haxe_doc>
 		</unregister>
+		<showNotification public="1" set="method">
+			<f a="title:?options">
+				<c path="String"/>
+				<t path="js.html.NotificationOptions"/>
+				<c path="js.Promise"><x path="Void"/></c>
+			</f>
+			<haxe_doc>Displays the notification with the requested title.
+		@throws DOMError</haxe_doc>
+		</showNotification>
+		<getNotifications public="1" set="method">
+			<f a="?filter">
+				<t path="js.html.GetNotificationOptions"/>
+				<c path="js.Promise"><c path="Array"><c path="js.html.Notification"/></c></c>
+			</f>
+			<haxe_doc>Returns a `Promise` that resolves to an array of `Notification` objects.
+		@throws DOMError</haxe_doc>
+		</getNotifications>
 		<haxe_doc><![CDATA[The `ServiceWorkerRegistration` interface of the ServiceWorker API represents the service worker registration. You register a service worker to control one or more pages that share the same origin.
 
 	Documentation [ServiceWorkerRegistration](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
@@ -53701,6 +54341,25 @@
 	@see <https://developer.mozilla.org/en-US/docs/Web/API/Storage>]]></haxe_doc>
 		<meta><m n=":native"><e>"Storage"</e></m></meta>
 	</class>
+	<typedef path="js.html.StorageEstimate" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/StorageEstimate.hx">
+		<a>
+			<usage>
+				<x path="Null"><x path="Int"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A numeric value approximating the amount of storage space currently being used by the site or Web app, out of the available space as indicated by `quota`.</haxe_doc>
+			</usage>
+			<quota>
+				<x path="Null"><x path="Int"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A numeric value which provides a conservative approximation of the total storage the user's device or computer has available for the site origin or Web app. It's possible that there's more than this amount of space available though you can't rely on that being the case.</haxe_doc>
+			</quota>
+		</a>
+		<haxe_doc><![CDATA[The `StorageEstimate` dictionary is used by the `StorageManager` to provide estimates of the size of a site's or application's data store and how much of it is in use. The `estimate()` method returns an object that conforms to this dictionary when its `Promise` resolves.
+
+	Documentation [StorageEstimate](https://developer.mozilla.org/en-US/docs/Web/API/StorageEstimate) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/StorageEstimate$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/StorageEstimate>]]></haxe_doc>
+	</typedef>
 	<class path="js.html.StorageEvent" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/StorageEvent.hx" extern="1">
 		<extends path="js.html.Event"/>
 		<key public="1" set="null"><c path="String"/></key>
@@ -53771,6 +54430,29 @@
 		<meta><m n=":optional"/></meta>
 	</bubbles>
 </a></typedef>
+	<class path="js.html.StorageManager" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/StorageManager.hx" extern="1">
+		<persisted public="1" set="method">
+			<f a=""><c path="js.Promise"><x path="Bool"/></c></f>
+			<haxe_doc>Returns a `Promise` that resolves to `true` if persistence has already been granted for your site's storage.
+		@throws DOMError</haxe_doc>
+		</persisted>
+		<persist public="1" set="method">
+			<f a=""><c path="js.Promise"><x path="Bool"/></c></f>
+			<haxe_doc>Returns a `Promise` that resolves to `true` if the user agent is able to persist your site's storage.
+		@throws DOMError</haxe_doc>
+		</persist>
+		<estimate public="1" set="method">
+			<f a=""><c path="js.Promise"><t path="js.html.StorageEstimate"/></c></f>
+			<haxe_doc>Returns a `StorageEstimate` object containing usage and quota numbers for your origin.
+		@throws DOMError</haxe_doc>
+		</estimate>
+		<haxe_doc><![CDATA[The `StorageManager` interface of the the Storage API provides an interface for managing persistance permissions and estimating available storage. You can get a reference to this interface using either `navigator.storage` or `WorkerNavigator.storage`.
+
+	Documentation [StorageManager](https://developer.mozilla.org/en-US/docs/Web/API/StorageManager) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/StorageManager$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/StorageManager>]]></haxe_doc>
+		<meta><m n=":native"><e>"StorageManager"</e></m></meta>
+	</class>
 	<abstract path="js.html.StorageType" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/StorageType.hx">
 		<this><c path="String"/></this>
 		<meta><m n=":enum"/></meta>
@@ -57313,6 +57995,7 @@
 		<ontimeupdate public="1"><x path="haxe.Function"/></ontimeupdate>
 		<onvolumechange public="1"><x path="haxe.Function"/></onvolumechange>
 		<onwaiting public="1"><x path="haxe.Function"/></onwaiting>
+		<onselectstart public="1"><x path="haxe.Function"/></onselectstart>
 		<ontoggle public="1"><x path="haxe.Function"/></ontoggle>
 		<onpointercancel public="1"><x path="haxe.Function"/></onpointercancel>
 		<onpointerdown public="1"><x path="haxe.Function"/></onpointerdown>
@@ -57382,6 +58065,7 @@
 			<haxe_doc>Indicates whether a context is capable of using features that require secure contexts.</haxe_doc>
 		</isSecureContext>
 		<indexedDB public="1" set="null"><c path="js.html.idb.Factory"/></indexedDB>
+		<caches public="1" set="null"><c path="js.html.CacheStorage"/></caches>
 		<sessionStorage public="1" set="null">
 			<c path="js.html.Storage"/>
 			<haxe_doc>Returns a reference to the session storage object used to store data that may only be accessed by the origin that created it.</haxe_doc>
@@ -58168,6 +58852,7 @@
 		<language public="1" set="null"><c path="String"/></language>
 		<languages public="1" set="null"><c path="Array"><c path="String"/></c></languages>
 		<onLine public="1" set="null"><x path="Bool"/></onLine>
+		<storage public="1" set="null"><c path="js.html.StorageManager"/></storage>
 		<taintEnabled public="1" set="method"><f a=""><x path="Bool"/></f></taintEnabled>
 		<haxe_doc><![CDATA[The `WorkerNavigator` interface represents a subset of the `Navigator` interface allowed to be accessed from a `Worker`. Such an object is initialized for each worker and is available via the `WorkerGlobalScope.navigator` property obtained by calling `window.self.navigator`.
 
@@ -62817,6 +63502,681 @@
 		<meta><m n=":optional"/></meta>
 	</bubbles>
 </a></typedef>
+	<class path="js.html.midi.MIDIAccess" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIAccess.hx" extern="1">
+		<extends path="js.html.EventTarget"/>
+		<inputs public="1" set="null">
+			<c path="js.html.midi.MIDIInputMap"/>
+			<haxe_doc>Returns an instance of `MIDIInputMap` which provides access to any available MIDI input ports.</haxe_doc>
+		</inputs>
+		<outputs public="1" set="null">
+			<c path="js.html.midi.MIDIOutputMap"/>
+			<haxe_doc>Returns an instance of `MIDIOutputMap` which provides access to any available MIDI output ports.</haxe_doc>
+		</outputs>
+		<onstatechange public="1">
+			<x path="haxe.Function"/>
+			<haxe_doc>Called whenever a new MIDI port is added or an existing port changes state.</haxe_doc>
+		</onstatechange>
+		<sysexEnabled public="1" set="null">
+			<x path="Bool"/>
+			<haxe_doc>A boolean attribute indicating whether system exclusive support is enabled on the current MIDIAccess instance.</haxe_doc>
+		</sysexEnabled>
+		<haxe_doc><![CDATA[The `MIDIAccess` interface of the Web MIDI API provides methods for listing MIDI input and output devices, and obtaining access to those devices.
+
+	Documentation [MIDIAccess](https://developer.mozilla.org/en-US/docs/Web/API/MIDIAccess) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/MIDIAccess$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/MIDIAccess>]]></haxe_doc>
+		<meta><m n=":native"><e>"MIDIAccess"</e></m></meta>
+	</class>
+	<class path="js.html.midi.MIDIConnectionEvent" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIConnectionEvent.hx" extern="1">
+		<extends path="js.html.Event"/>
+		<port public="1" set="null">
+			<c path="js.html.midi.MIDIPort"/>
+			<haxe_doc>Returns a reference to a `MIDIPort` instance for a port that has been connected or disconnected."</haxe_doc>
+		</port>
+		<new public="1" set="method">
+			<f a="type:?eventInitDict">
+				<c path="String"/>
+				<t path="js.html.midi.MIDIConnectionEventInit"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[The `MIDIConnectionEvent` interface of the Web MIDI API is the event passed to the `onstatechange` event of the `MIDIAccess` interface and the `onstatechange` event of the `MIDIPorts` interface. This occurs any time a new port becomes available, or when a previously available port becomes unavailable. For example, this event is fired whenever a MIDI device is either plugged in to or unplugged from a computer.
+
+	Documentation [MIDIConnectionEvent](https://developer.mozilla.org/en-US/docs/Web/API/MIDIConnectionEvent) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/MIDIConnectionEvent$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/MIDIConnectionEvent>]]></haxe_doc>
+		<meta><m n=":native"><e>"MIDIConnectionEvent"</e></m></meta>
+	</class>
+	<typedef path="js.html.midi.MIDIConnectionEventInit" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIConnectionEventInit.hx"><a>
+	<port>
+		<x path="Null"><c path="js.html.midi.MIDIPort"/></x>
+		<meta><m n=":optional"/></meta>
+	</port>
+	<composed>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</composed>
+	<cancelable>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</cancelable>
+	<bubbles>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</bubbles>
+</a></typedef>
+	<class path="js.html.midi.MIDIPort" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIPort.hx" extern="1">
+		<extends path="js.html.EventTarget"/>
+		<id public="1" set="null"><c path="String"/></id>
+		<manufacturer public="1" set="null"><c path="String"/></manufacturer>
+		<name public="1" set="null"><c path="String"/></name>
+		<version public="1" set="null"><c path="String"/></version>
+		<type public="1" set="null"><x path="js.html.midi.MIDIPortType"/></type>
+		<state public="1" set="null"><x path="js.html.midi.MIDIPortDeviceState"/></state>
+		<connection public="1" set="null"><x path="js.html.midi.MIDIPortConnectionState"/></connection>
+		<onstatechange public="1"><x path="haxe.Function"/></onstatechange>
+		<open public="1" set="method"><f a=""><c path="js.Promise"><c path="js.html.midi.MIDIPort"/></c></f></open>
+		<close public="1" set="method"><f a=""><c path="js.Promise"><c path="js.html.midi.MIDIPort"/></c></f></close>
+		<meta><m n=":native"><e>"MIDIPort"</e></m></meta>
+	</class>
+	<class path="js.html.midi.MIDIInput" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIInput.hx" extern="1">
+		<extends path="js.html.midi.MIDIPort"/>
+		<onmidimessage public="1">
+			<x path="haxe.Function"/>
+			<haxe_doc>When the current port receives a `MIDIMessage` it triggers a call to this event handler.</haxe_doc>
+		</onmidimessage>
+		<haxe_doc><![CDATA[Use the `MIDIInput` interface of the Web MIDI API to access and pass messages to a MIDI input port.
+
+	Documentation [MIDIInput](https://developer.mozilla.org/en-US/docs/Web/API/MIDIInput) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/MIDIInput$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/MIDIInput>]]></haxe_doc>
+		<meta><m n=":native"><e>"MIDIInput"</e></m></meta>
+	</class>
+	<class path="js.html.midi.MIDIInputMap" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIInputMap.hx" extern="1">
+		<size public="1" set="null"><x path="Int"/></size>
+		<entries public="1" set="method">
+			<f a=""><d/></f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</entries>
+		<keys public="1" set="method">
+			<f a=""><d/></f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</keys>
+		<values public="1" set="method">
+			<f a=""><d/></f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</values>
+		<forEach public="1" set="method">
+			<f a="callback:?thisArg">
+				<d/>
+				<d/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</forEach>
+		<has public="1" set="method">
+			<f a="key">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</has>
+		<get public="1" set="method">
+			<f a="key">
+				<c path="String"/>
+				<d/>
+			</f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</get>
+		<haxe_doc><![CDATA[The `MIDIInputMap` read-only interface of the Web MIDI API provides a `Map`-like interface to the currently available MIDI input ports. Though it works generally like a map, because it is read-only it does not contain `clear()`, `delete()`, or `set()` functions.
+
+	Documentation [MIDIInputMap](https://developer.mozilla.org/en-US/docs/Web/API/MIDIInputMap) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/MIDIInputMap$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/MIDIInputMap>]]></haxe_doc>
+		<meta><m n=":native"><e>"MIDIInputMap"</e></m></meta>
+	</class>
+	<class path="js.html.midi.MIDIMessageEvent" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIMessageEvent.hx" extern="1">
+		<extends path="js.html.Event"/>
+		<data public="1" set="null"><c path="js.html.Uint8Array"/></data>
+		<new public="1" set="method">
+			<f a="type:?eventInitDict">
+				<c path="String"/>
+				<t path="js.html.midi.MIDIMessageEventInit"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</new>
+		<meta><m n=":native"><e>"MIDIMessageEvent"</e></m></meta>
+	</class>
+	<typedef path="js.html.midi.MIDIMessageEventInit" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIMessageEventInit.hx"><a>
+	<data>
+		<x path="Null"><c path="js.html.Uint8Array"/></x>
+		<meta><m n=":optional"/></meta>
+	</data>
+	<composed>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</composed>
+	<cancelable>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</cancelable>
+	<bubbles>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</bubbles>
+</a></typedef>
+	<typedef path="js.html.midi.MIDIOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIOptions.hx"><a>
+	<sysex>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</sysex>
+	<software>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</software>
+</a></typedef>
+	<class path="js.html.midi.MIDIOutput" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIOutput.hx" extern="1">
+		<extends path="js.html.midi.MIDIPort"/>
+		<send public="1" set="method">
+			<f a="data:?timestamp">
+				<c path="Array"><x path="Int"/></c>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</send>
+		<clear public="1" set="method"><f a=""><x path="Void"/></f></clear>
+		<meta><m n=":native"><e>"MIDIOutput"</e></m></meta>
+	</class>
+	<class path="js.html.midi.MIDIOutputMap" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIOutputMap.hx" extern="1">
+		<size public="1" set="null"><x path="Int"/></size>
+		<entries public="1" set="method">
+			<f a=""><d/></f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</entries>
+		<keys public="1" set="method">
+			<f a=""><d/></f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</keys>
+		<values public="1" set="method">
+			<f a=""><d/></f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</values>
+		<forEach public="1" set="method">
+			<f a="callback:?thisArg">
+				<d/>
+				<d/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</forEach>
+		<has public="1" set="method">
+			<f a="key">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</has>
+		<get public="1" set="method">
+			<f a="key">
+				<c path="String"/>
+				<d/>
+			</f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</get>
+		<haxe_doc><![CDATA[The `MIDIOutputMap` read-only interface of the Web MIDI API provides a `Map`-like interface to the currently available MIDI output ports. Although it works like a map, because it is read-only, it does not contain `clear()`, `delete()`, or `set()` functions.
+
+	Documentation [MIDIOutputMap](https://developer.mozilla.org/en-US/docs/Web/API/MIDIOutputMap) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/MIDIOutputMap$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/MIDIOutputMap>]]></haxe_doc>
+		<meta><m n=":native"><e>"MIDIOutputMap"</e></m></meta>
+	</class>
+	<abstract path="js.html.midi.MIDIPortConnectionState" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIPortConnectionState.hx">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.html.midi._MIDIPortConnectionState.MIDIPortConnectionState_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIPortConnectionState.hx" private="1" module="js.html.midi.MIDIPortConnectionState" extern="1">
+	<OPEN public="1" get="inline" set="null" expr="cast &quot;open&quot;" line="29" static="1">
+		<x path="js.html.midi.MIDIPortConnectionState"/>
+		<meta>
+			<m n=":value"><e>cast "open"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</OPEN>
+	<CLOSED public="1" get="inline" set="null" expr="cast &quot;closed&quot;" line="30" static="1">
+		<x path="js.html.midi.MIDIPortConnectionState"/>
+		<meta>
+			<m n=":value"><e>cast "closed"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</CLOSED>
+	<PENDING public="1" get="inline" set="null" expr="cast &quot;pending&quot;" line="31" static="1">
+		<x path="js.html.midi.MIDIPortConnectionState"/>
+		<meta>
+			<m n=":value"><e>cast "pending"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</PENDING>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.html.midi._MIDIPortConnectionState.MIDIPortConnectionState_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIPortConnectionState.hx" private="1" module="js.html.midi.MIDIPortConnectionState" extern="1">
+		<OPEN public="1" get="inline" set="null" expr="cast &quot;open&quot;" line="29" static="1">
+			<x path="js.html.midi.MIDIPortConnectionState"/>
+			<meta>
+				<m n=":value"><e>cast "open"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</OPEN>
+		<CLOSED public="1" get="inline" set="null" expr="cast &quot;closed&quot;" line="30" static="1">
+			<x path="js.html.midi.MIDIPortConnectionState"/>
+			<meta>
+				<m n=":value"><e>cast "closed"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</CLOSED>
+		<PENDING public="1" get="inline" set="null" expr="cast &quot;pending&quot;" line="31" static="1">
+			<x path="js.html.midi.MIDIPortConnectionState"/>
+			<meta>
+				<m n=":value"><e>cast "pending"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</PENDING>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.html.midi.MIDIPortDeviceState" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIPortDeviceState.hx">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.html.midi._MIDIPortDeviceState.MIDIPortDeviceState_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIPortDeviceState.hx" private="1" module="js.html.midi.MIDIPortDeviceState" extern="1">
+	<DISCONNECTED public="1" get="inline" set="null" expr="cast &quot;disconnected&quot;" line="29" static="1">
+		<x path="js.html.midi.MIDIPortDeviceState"/>
+		<meta>
+			<m n=":value"><e>cast "disconnected"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</DISCONNECTED>
+	<CONNECTED public="1" get="inline" set="null" expr="cast &quot;connected&quot;" line="30" static="1">
+		<x path="js.html.midi.MIDIPortDeviceState"/>
+		<meta>
+			<m n=":value"><e>cast "connected"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</CONNECTED>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.html.midi._MIDIPortDeviceState.MIDIPortDeviceState_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIPortDeviceState.hx" private="1" module="js.html.midi.MIDIPortDeviceState" extern="1">
+		<DISCONNECTED public="1" get="inline" set="null" expr="cast &quot;disconnected&quot;" line="29" static="1">
+			<x path="js.html.midi.MIDIPortDeviceState"/>
+			<meta>
+				<m n=":value"><e>cast "disconnected"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</DISCONNECTED>
+		<CONNECTED public="1" get="inline" set="null" expr="cast &quot;connected&quot;" line="30" static="1">
+			<x path="js.html.midi.MIDIPortDeviceState"/>
+			<meta>
+				<m n=":value"><e>cast "connected"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</CONNECTED>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.html.midi.MIDIPortType" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIPortType.hx">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.html.midi._MIDIPortType.MIDIPortType_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIPortType.hx" private="1" module="js.html.midi.MIDIPortType" extern="1">
+	<INPUT public="1" get="inline" set="null" expr="cast &quot;input&quot;" line="29" static="1">
+		<x path="js.html.midi.MIDIPortType"/>
+		<meta>
+			<m n=":value"><e>cast "input"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</INPUT>
+	<OUTPUT public="1" get="inline" set="null" expr="cast &quot;output&quot;" line="30" static="1">
+		<x path="js.html.midi.MIDIPortType"/>
+		<meta>
+			<m n=":value"><e>cast "output"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</OUTPUT>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.html.midi._MIDIPortType.MIDIPortType_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/midi/MIDIPortType.hx" private="1" module="js.html.midi.MIDIPortType" extern="1">
+		<INPUT public="1" get="inline" set="null" expr="cast &quot;input&quot;" line="29" static="1">
+			<x path="js.html.midi.MIDIPortType"/>
+			<meta>
+				<m n=":value"><e>cast "input"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</INPUT>
+		<OUTPUT public="1" get="inline" set="null" expr="cast &quot;output&quot;" line="30" static="1">
+			<x path="js.html.midi.MIDIPortType"/>
+			<meta>
+				<m n=":value"><e>cast "output"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</OUTPUT>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.html.push.PushEncryptionKeyName" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/push/PushEncryptionKeyName.hx">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.html.push._PushEncryptionKeyName.PushEncryptionKeyName_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/push/PushEncryptionKeyName.hx" private="1" module="js.html.push.PushEncryptionKeyName" extern="1">
+	<P256DH public="1" get="inline" set="null" expr="cast &quot;p256dh&quot;" line="29" static="1">
+		<x path="js.html.push.PushEncryptionKeyName"/>
+		<meta>
+			<m n=":value"><e>cast "p256dh"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</P256DH>
+	<AUTH public="1" get="inline" set="null" expr="cast &quot;auth&quot;" line="30" static="1">
+		<x path="js.html.push.PushEncryptionKeyName"/>
+		<meta>
+			<m n=":value"><e>cast "auth"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</AUTH>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.html.push._PushEncryptionKeyName.PushEncryptionKeyName_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/push/PushEncryptionKeyName.hx" private="1" module="js.html.push.PushEncryptionKeyName" extern="1">
+		<P256DH public="1" get="inline" set="null" expr="cast &quot;p256dh&quot;" line="29" static="1">
+			<x path="js.html.push.PushEncryptionKeyName"/>
+			<meta>
+				<m n=":value"><e>cast "p256dh"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</P256DH>
+		<AUTH public="1" get="inline" set="null" expr="cast &quot;auth&quot;" line="30" static="1">
+			<x path="js.html.push.PushEncryptionKeyName"/>
+			<meta>
+				<m n=":value"><e>cast "auth"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</AUTH>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<class path="js.html.push.PushEvent" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/push/PushEvent.hx" extern="1">
+		<extends path="js.html.ExtendableEvent"/>
+		<data public="1" set="null">
+			<c path="js.html.push.PushMessageData"/>
+			<haxe_doc>Returns a reference to a `PushMessageData` object containing data sent to the `PushSubscription`.</haxe_doc>
+		</data>
+		<new public="1" set="method">
+			<f a="type:?eventInitDict">
+				<c path="String"/>
+				<t path="js.html.push.PushEventInit"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[The `PushEvent` interface of the Push API represents a push message that has been received. This event is sent to the global scope of a `ServiceWorker`. It contains the information sent from an application server to a `PushSubscription`.
+
+	Documentation [PushEvent](https://developer.mozilla.org/en-US/docs/Web/API/PushEvent) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/PushEvent$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/PushEvent>]]></haxe_doc>
+		<meta><m n=":native"><e>"PushEvent"</e></m></meta>
+	</class>
+	<typedef path="js.html.push.PushEventInit" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/push/PushEventInit.hx"><a>
+	<data>
+		<x path="Null"><x path="haxe.extern.EitherType">
+	<x path="haxe.extern.EitherType">
+		<c path="js.html.ArrayBufferView"/>
+		<c path="js.html.ArrayBuffer"/>
+	</x>
+	<c path="String"/>
+</x></x>
+		<meta><m n=":optional"/></meta>
+	</data>
+	<composed>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</composed>
+	<cancelable>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</cancelable>
+	<bubbles>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</bubbles>
+</a></typedef>
+	<class path="js.html.push.PushManager" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/push/PushManager.hx" extern="1">
+		<subscribe public="1" set="method">
+			<f a="?options">
+				<t path="js.html.push.PushSubscriptionOptionsInit"/>
+				<c path="js.Promise"><c path="js.html.push.PushSubscription"/></c>
+			</f>
+			<haxe_doc>Subscribes to a push service. It returns a `Promise` that resolves to a `PushSubscription` object containing details of a push subscription. A new push subscription is created if the current service worker does not have an existing subscription.
+		@throws DOMError</haxe_doc>
+		</subscribe>
+		<getSubscription public="1" set="method">
+			<f a=""><c path="js.Promise"><c path="js.html.push.PushSubscription"/></c></f>
+			<haxe_doc>Retrieves an existing push subscription. It returns a `Promise` that resolves to a `PushSubscription` object containing details of an existing subscription. If no existing subscription exists, this resolves to a `null` value.
+		@throws DOMError</haxe_doc>
+		</getSubscription>
+		<permissionState public="1" set="method">
+			<f a="?options">
+				<t path="js.html.push.PushSubscriptionOptionsInit"/>
+				<c path="js.Promise"><x path="js.html.push.PushPermissionState"/></c>
+			</f>
+			<haxe_doc>Returns a `Promise` that resolves to the permission state of the current `PushManager`, which will be one of `'granted'`, `'denied'`, or `'prompt'`.
+		@throws DOMError</haxe_doc>
+		</permissionState>
+		<new public="1" set="method">
+			<f a="scope">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[The `PushManager` interface of the Push API provides a way to receive notifications from third-party servers as well as request URLs for push notifications.
+
+	Documentation [PushManager](https://developer.mozilla.org/en-US/docs/Web/API/PushManager) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/PushManager$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/PushManager>]]></haxe_doc>
+		<meta><m n=":native"><e>"PushManager"</e></m></meta>
+	</class>
+	<class path="js.html.push.PushMessageData" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/push/PushMessageData.hx" extern="1">
+		<arrayBuffer public="1" set="method">
+			<f a=""><c path="js.html.ArrayBuffer"/></f>
+			<haxe_doc>Extracts the data as an `ArrayBuffer` object.
+		@throws DOMError</haxe_doc>
+		</arrayBuffer>
+		<blob public="1" set="method">
+			<f a=""><c path="js.html.Blob"/></f>
+			<haxe_doc>Extracts the data as a `Blob` object.
+		@throws DOMError</haxe_doc>
+		</blob>
+		<json public="1" set="method">
+			<f a=""><d/></f>
+			<haxe_doc>Extracts the data as a JSON object.
+		@throws DOMError</haxe_doc>
+		</json>
+		<text public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Extracts the data as a plain text string.</haxe_doc>
+		</text>
+		<haxe_doc><![CDATA[The `PushMessageData` interface of the Push API provides methods which let you retrieve the push data sent by a server in various formats.
+
+	Documentation [PushMessageData](https://developer.mozilla.org/en-US/docs/Web/API/PushMessageData) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/PushMessageData$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/PushMessageData>]]></haxe_doc>
+		<meta><m n=":native"><e>"PushMessageData"</e></m></meta>
+	</class>
+	<abstract path="js.html.push.PushPermissionState" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/push/PushPermissionState.hx">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.html.push._PushPermissionState.PushPermissionState_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/push/PushPermissionState.hx" private="1" module="js.html.push.PushPermissionState" extern="1">
+	<GRANTED public="1" get="inline" set="null" expr="cast &quot;granted&quot;" line="29" static="1">
+		<x path="js.html.push.PushPermissionState"/>
+		<meta>
+			<m n=":value"><e>cast "granted"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</GRANTED>
+	<DENIED public="1" get="inline" set="null" expr="cast &quot;denied&quot;" line="30" static="1">
+		<x path="js.html.push.PushPermissionState"/>
+		<meta>
+			<m n=":value"><e>cast "denied"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</DENIED>
+	<PROMPT public="1" get="inline" set="null" expr="cast &quot;prompt&quot;" line="31" static="1">
+		<x path="js.html.push.PushPermissionState"/>
+		<meta>
+			<m n=":value"><e>cast "prompt"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</PROMPT>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.html.push._PushPermissionState.PushPermissionState_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/push/PushPermissionState.hx" private="1" module="js.html.push.PushPermissionState" extern="1">
+		<GRANTED public="1" get="inline" set="null" expr="cast &quot;granted&quot;" line="29" static="1">
+			<x path="js.html.push.PushPermissionState"/>
+			<meta>
+				<m n=":value"><e>cast "granted"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</GRANTED>
+		<DENIED public="1" get="inline" set="null" expr="cast &quot;denied&quot;" line="30" static="1">
+			<x path="js.html.push.PushPermissionState"/>
+			<meta>
+				<m n=":value"><e>cast "denied"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</DENIED>
+		<PROMPT public="1" get="inline" set="null" expr="cast &quot;prompt&quot;" line="31" static="1">
+			<x path="js.html.push.PushPermissionState"/>
+			<meta>
+				<m n=":value"><e>cast "prompt"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</PROMPT>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<class path="js.html.push.PushSubscription" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/push/PushSubscription.hx" extern="1">
+		<endpoint public="1" set="null">
+			<c path="String"/>
+			<haxe_doc>A `USVString` containing the endpoint associated with the push subscription.</haxe_doc>
+		</endpoint>
+		<options public="1" set="null">
+			<c path="js.html.push.PushSubscriptionOptions"/>
+			<haxe_doc>An object containing the options used to create the subscription.</haxe_doc>
+		</options>
+		<getKey public="1" set="method">
+			<f a="name">
+				<x path="js.html.push.PushEncryptionKeyName"/>
+				<c path="js.html.ArrayBuffer"/>
+			</f>
+			<haxe_doc>Returns an `ArrayBuffer` which contains the client's public key, which can then be sent to a server and used in encrypting push message data.
+		@throws DOMError</haxe_doc>
+		</getKey>
+		<unsubscribe public="1" set="method">
+			<f a=""><c path="js.Promise"><x path="Bool"/></c></f>
+			<haxe_doc>Starts the asynchronous process of unsubscribing from the push service, returning a `Promise` that resolves to a `Boolean` when the current subscription is successfully unregistered.
+		@throws DOMError</haxe_doc>
+		</unsubscribe>
+		<toJSON public="1" set="method">
+			<f a=""><t path="js.html.push.PushSubscriptionJSON"/></f>
+			<haxe_doc>Standard serializer — returns a JSON representation of the subscription properties.
+		@throws DOMError</haxe_doc>
+		</toJSON>
+		<new public="1" set="method">
+			<f a="initDict">
+				<t path="js.html.push.PushSubscriptionInit"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>@throws DOMError</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[The `PushSubscription` interface of the Push API provides a subcription's URL endpoint and allows unsubscription from a push service.
+
+	Documentation [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription>]]></haxe_doc>
+		<meta><m n=":native"><e>"PushSubscription"</e></m></meta>
+	</class>
+	<typedef path="js.html.push.PushSubscriptionInit" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/push/PushSubscriptionInit.hx"><a>
+	<scope><c path="String"/></scope>
+	<p256dhKey>
+		<x path="Null"><c path="js.html.ArrayBuffer"/></x>
+		<meta><m n=":optional"/></meta>
+	</p256dhKey>
+	<endpoint><c path="String"/></endpoint>
+	<authSecret>
+		<x path="Null"><c path="js.html.ArrayBuffer"/></x>
+		<meta><m n=":optional"/></meta>
+	</authSecret>
+	<appServerKey>
+		<x path="Null"><x path="haxe.extern.EitherType">
+	<c path="js.html.ArrayBufferView"/>
+	<c path="js.html.ArrayBuffer"/>
+</x></x>
+		<meta><m n=":optional"/></meta>
+	</appServerKey>
+</a></typedef>
+	<typedef path="js.html.push.PushSubscriptionJSON" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/push/PushSubscriptionJSON.hx"><a>
+	<keys>
+		<x path="Null"><t path="js.html.push.PushSubscriptionKeys"/></x>
+		<meta><m n=":optional"/></meta>
+	</keys>
+	<endpoint>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</endpoint>
+</a></typedef>
+	<typedef path="js.html.push.PushSubscriptionKeys" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/push/PushSubscriptionKeys.hx"><a>
+	<p256dh>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</p256dh>
+	<auth>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</auth>
+</a></typedef>
+	<class path="js.html.push.PushSubscriptionOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/push/PushSubscriptionOptions.hx" extern="1">
+		<applicationServerKey public="1" set="null"><c path="js.html.ArrayBuffer"/></applicationServerKey>
+		<meta><m n=":native"><e>"PushSubscriptionOptions"</e></m></meta>
+	</class>
+	<typedef path="js.html.push.PushSubscriptionOptionsInit" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/push/PushSubscriptionOptionsInit.hx"><a><applicationServerKey>
+	<x path="Null"><x path="haxe.extern.EitherType">
+	<x path="haxe.extern.EitherType">
+		<c path="js.html.ArrayBufferView"/>
+		<c path="js.html.ArrayBuffer"/>
+	</x>
+	<c path="String"/>
+</x></x>
+	<meta><m n=":optional"/></meta>
+</applicationServerKey></a></typedef>
 	<typedef path="js.html.rtc.AnswerOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/rtc/AnswerOptions.hx"><a/></typedef>
 	<abstract path="js.html.rtc.BundlePolicy" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/rtc/BundlePolicy.hx">
 		<this><c path="String"/></this>
