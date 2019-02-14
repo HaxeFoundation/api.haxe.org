@@ -28436,16 +28436,24 @@
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<typedef path="hl.Symbol" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/Profile.hx" module="hl.Profile"><c path="hl.Abstract"><c path="Shl_symbol"/></c></typedef>
-	<class path="hl.Allocation" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/Profile.hx" module="hl.Profile">
+	<enum path="hl.TrackKind" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/Profile.hx" module="hl.Profile">
+		<Alloc/>
+		<Cast/>
+		<DynField/>
+		<DynCall/>
+		<meta><m n=":flatEnum"/></meta>
+	</enum>
+	<class path="hl.Result" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/Profile.hx" module="hl.Profile">
 		<t public="1"><x path="hl.Type"/></t>
+		<kind public="1"><e path="hl.TrackKind"/></kind>
 		<count public="1"><x path="Int"/></count>
-		<size public="1"><x path="Int"/></size>
+		<info public="1"><x path="Int"/></info>
 		<stack public="1"><c path="Array"><c path="String"/></c></stack>
-		<toString public="1" set="method" line="15">
+		<toString public="1" set="method" line="23">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":keep"/></meta>
 		</toString>
-		<new public="1" set="method" line="10"><f a="t:count:size">
+		<new public="1" set="method" line="18"><f a="t:count:info">
 	<x path="hl.Type"/>
 	<x path="Int"/>
 	<x path="Int"/>
@@ -28453,26 +28461,30 @@
 </f></new>
 	</class>
 	<class path="hl.Profile" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/Profile.hx">
-		<enable public="1" get="accessor" set="accessor" static="1">
-			<x path="Bool"/>
-			<haxe_doc>Enable allocation tracking per thread. All threads are enabled by default.</haxe_doc>
-		</enable>
-		<getData public="1" set="method" line="28" static="1">
-			<f a="?sortBySize" v="false">
+		<threadBits public="1" get="accessor" set="accessor" static="1"><x path="haxe.EnumFlags"><e path="hl.TrackKind"/></x></threadBits>
+		<globalBits public="1" get="accessor" set="accessor" static="1"><x path="haxe.EnumFlags"><e path="hl.TrackKind"/></x></globalBits>
+		<KINDS expr="null" line="35" static="1">
+			<c path="Array"><e path="hl.TrackKind"/></c>
+			<meta><m n=":value"><e>null</e></m></meta>
+		</KINDS>
+		<getData public="1" set="method" line="36" static="1">
+			<f a="?sortBySize:?reset" v="false:true">
 				<x path="Bool"/>
-				<c path="Array"><c path="hl.Allocation"/></c>
+				<x path="Bool"/>
+				<c path="Array"><c path="hl.Result"/></c>
 			</f>
-			<meta><m n=":value"><e>{ sortBySize : false }</e></m></meta>
+			<meta><m n=":value"><e>{ reset : true, sortBySize : false }</e></m></meta>
 		</getData>
-		<dump public="1" set="method" line="54" static="1">
-			<f a="?fileName:?sortBySize" v="&quot;alloc.dump&quot;:false">
+		<dump public="1" set="method" line="68" static="1">
+			<f a="?fileName:?sortBySize:?reset" v="&quot;track.dump&quot;:false:true">
 				<c path="String"/>
+				<x path="Bool"/>
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":value"><e>{ sortBySize : false, fileName : "alloc.dump" }</e></m></meta>
+			<meta><m n=":value"><e>{ reset : true, sortBySize : false, fileName : "track.dump" }</e></m></meta>
 		</dump>
-		<reset public="1" set="method" line="77" static="1">
+		<reset public="1" set="method" line="114" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
@@ -28480,63 +28492,79 @@
 </m></meta>
 			<haxe_doc>Reset accumulated tracked data.</haxe_doc>
 		</reset>
-		<init public="1" set="method" line="83" static="1">
+		<restart public="1" set="method" line="120" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"track_init"</e>
 </m></meta>
-			<haxe_doc>Init tracking. Already set by default.</haxe_doc>
-		</init>
-		<stop public="1" set="method" line="89" static="1">
+			<haxe_doc>Restart tracking after being stopped.</haxe_doc>
+		</restart>
+		<stop public="1" set="method" line="126" static="1">
 			<f a=""><x path="Void"/></f>
-			<meta><m n=":hlNative">
-	<e>"std"</e>
-	<e>"track_stop"</e>
-</m></meta>
 			<haxe_doc>Stop tracking for all threads.</haxe_doc>
 		</stop>
-		<BUFSIZE expr="512" line="92" static="1">
+		<get_threadBits set="method" line="130" static="1"><f a=""><x path="haxe.EnumFlags"><e path="hl.TrackKind"/></x></f></get_threadBits>
+		<set_threadBits set="method" line="131" static="1"><f a="v">
+	<x path="haxe.EnumFlags"><e path="hl.TrackKind"/></x>
+	<x path="haxe.EnumFlags"><e path="hl.TrackKind"/></x>
+</f></set_threadBits>
+		<get_globalBits set="method" line="132" static="1"><f a=""><x path="haxe.EnumFlags"><e path="hl.TrackKind"/></x></f></get_globalBits>
+		<set_globalBits set="method" line="133" static="1"><f a="v">
+	<x path="haxe.EnumFlags"><e path="hl.TrackKind"/></x>
+	<x path="haxe.EnumFlags"><e path="hl.TrackKind"/></x>
+</f></set_globalBits>
+		<BUFSIZE expr="512" line="135" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>512</e></m></meta>
 		</BUFSIZE>
 		<buf static="1"><x path="hl.Bytes"/></buf>
-		<resolveSymbol set="method" line="94" static="1"><f a="s">
+		<resolveSymbol set="method" line="137" static="1"><f a="s">
 	<t path="hl.Symbol"/>
 	<c path="String"/>
 </f></resolveSymbol>
-		<get_enable set="method" line="102" static="1"><f a=""><x path="Bool"/></f></get_enable>
-		<set_enable set="method" line="103" static="1"><f a="v">
-	<x path="Bool"/>
-	<x path="Bool"/>
-</f></set_enable>
-		<resolve_symbol set="method" line="108" static="1"><f a="s:buf:bufSize">
+		<resolve_symbol set="method" line="145" static="1"><f a="s:buf:bufSize">
 	<t path="hl.Symbol"/>
 	<x path="hl.Bytes"/>
 	<x path="hl.Ref"><x path="Int"/></x>
 	<x path="hl.Bytes"/>
 </f></resolve_symbol>
-		<track_count set="method" line="109" static="1"><f a="maxDepth">
+		<track_count set="method" line="146" static="1"><f a="maxDepth">
 	<x path="hl.Ref"><x path="Int"/></x>
 	<x path="Int"/>
 </f></track_count>
-		<track_entry set="method" line="110" static="1"><f a="id:type:count:size:stack">
+		<track_entry set="method" line="147" static="1"><f a="id:type:count:info:stack">
 	<x path="Int"/>
 	<x path="hl.Ref"><x path="hl.Type"/></x>
 	<x path="hl.Ref"><x path="Int"/></x>
 	<x path="hl.Ref"><x path="Int"/></x>
 	<x path="hl.NativeArray"><t path="hl.Symbol"/></x>
-	<x path="Void"/>
+	<x path="Int"/>
 </f></track_entry>
-		<track_enable set="method" line="111" static="1"><f a="b">
-	<x path="Bool"/>
-	<x path="Void"/>
-</f></track_enable>
-		<track_lock set="method" line="112" static="1"><f a="b">
+		<track_init set="method" line="148" static="1"><f a=""><x path="Void"/></f></track_init>
+		<track_lock set="method" line="149" static="1"><f a="b">
 	<x path="Bool"/>
 	<x path="Void"/>
 </f></track_lock>
-		<track_enabled set="method" line="113" static="1"><f a=""><x path="Bool"/></f></track_enabled>
+		<track_get_bits set="method" line="150" static="1"><f a="thread">
+	<x path="Bool"/>
+	<x path="Int"/>
+</f></track_get_bits>
+		<track_set_bits set="method" line="151" static="1"><f a="bits:thread">
+	<x path="Int"/>
+	<x path="Bool"/>
+	<x path="Void"/>
+</f></track_set_bits>
+		<getFieldName public="1" set="method" line="156" static="1">
+			<f a="hash">
+				<x path="Int"/>
+				<x path="hl.Bytes"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"field_name"</e>
+</m></meta>
+		</getFieldName>
 		<meta><m n=":hlNative"><e>"std"</e></m></meta>
 	</class>
 	<abstract path="hl.Ref" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/hl/Ref.hx">
