@@ -2947,6 +2947,7 @@
 				<m n=":keep"/>
 				<m n=":noUsing"/>
 			</meta>
+			<haxe_doc>Tells if `c` represents the end-of-file (EOF) character.</haxe_doc>
 		</isEof>
 		<quoteUnixArg public="1" set="method" line="506" static="1">
 			<f a="argument">
@@ -2980,7 +2981,7 @@
 		http://msdn.microsoft.com/en-us/library/ms880421
 
 		Examples:
-		```
+		```haxe
 		quoteWinArg("abc") == "abc";
 		quoteWinArg("ab c") == '"ab c"';
 		```</haxe_doc>
@@ -30428,7 +30429,7 @@
 					ExprTools.map(e, capitalizeStrings);
 			}
 		}
-		```haxe</haxe_doc>
+		```</haxe_doc>
 		</map>
 		<getValue public="1" set="method" line="234" static="1">
 			<f a="e">
@@ -33751,27 +33752,27 @@
 		<message public="1">
 			<c path="String"/>
 			<meta><m n=":keep"/></meta>
-			<haxe_doc>* the XML parsing error message</haxe_doc>
+			<haxe_doc>the XML parsing error message</haxe_doc>
 		</message>
 		<lineNumber public="1">
 			<x path="Int"/>
 			<meta><m n=":keep"/></meta>
-			<haxe_doc>* the line number at which the XML parsing error occurred</haxe_doc>
+			<haxe_doc>the line number at which the XML parsing error occurred</haxe_doc>
 		</lineNumber>
 		<positionAtLine public="1">
 			<x path="Int"/>
 			<meta><m n=":keep"/></meta>
-			<haxe_doc>* the character position in the reported line at which the parsing error occurred</haxe_doc>
+			<haxe_doc>the character position in the reported line at which the parsing error occurred</haxe_doc>
 		</positionAtLine>
 		<position public="1">
 			<x path="Int"/>
 			<meta><m n=":keep"/></meta>
-			<haxe_doc>* the character position in the XML string at which the parsing error occurred</haxe_doc>
+			<haxe_doc>the character position in the XML string at which the parsing error occurred</haxe_doc>
 		</position>
 		<xml public="1">
 			<c path="String"/>
 			<meta><m n=":keep"/></meta>
-			<haxe_doc>* the invalid XML string</haxe_doc>
+			<haxe_doc>the invalid XML string</haxe_doc>
 		</xml>
 		<toString public="1" set="method" line="95">
 			<f a=""><c path="String"/></f>
@@ -33822,9 +33823,9 @@
 				<m n=":value"><e>{ strict : false }</e></m>
 				<m n=":keep"/>
 			</meta>
-			<haxe_doc>* Parses the String into an XML Document. Set strict parsing to true in order to enable a strict check of XML attributes and entities.
-	 *
-	 * @throws haxe.xml.XmlParserException</haxe_doc>
+			<haxe_doc>Parses the String into an XML Document. Set strict parsing to true in order to enable a strict check of XML attributes and entities.
+		
+		@throws haxe.xml.XmlParserException</haxe_doc>
 		</parse>
 		<doParse set="method" line="125" static="1">
 			<f a="str:strict:?p:?parent" v="::0:">
@@ -34385,10 +34386,18 @@
 		<CENTRAL_DIRECTORY_RECORD_FIELDS_SIZE get="inline" set="null" expr="46" line="35" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>46</e></m></meta>
+			<haxe_doc>The next constant is required for computing the Central
+		Directory Record(CDR) size. CDR consists of some fields
+		of constant size and a filename. Constant represents
+		total length of all fields with constant size for each
+		file in archive</haxe_doc>
 		</CENTRAL_DIRECTORY_RECORD_FIELDS_SIZE>
 		<LOCAL_FILE_HEADER_FIELDS_SIZE get="inline" set="null" expr="30" line="42" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>30</e></m></meta>
+			<haxe_doc>The following constant is the total size of all fields
+		of Local File Header. It's required for calculating
+		offset of start of central directory record</haxe_doc>
 		</LOCAL_FILE_HEADER_FIELDS_SIZE>
 		<o><c path="haxe.io.Output"/></o>
 		<files><c path="haxe.ds.List"><a>

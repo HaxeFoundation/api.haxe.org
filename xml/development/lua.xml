@@ -2641,6 +2641,7 @@
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":noUsing"/></meta>
+			<haxe_doc>Tells if `c` represents the end-of-file (EOF) character.</haxe_doc>
 		</isEof>
 		<quoteUnixArg public="1" set="method" line="506" static="1">
 			<f a="argument">
@@ -2669,7 +2670,7 @@
 		http://msdn.microsoft.com/en-us/library/ms880421
 
 		Examples:
-		```
+		```haxe
 		quoteWinArg("abc") == "abc";
 		quoteWinArg("ab c") == '"ab c"';
 		```</haxe_doc>
@@ -6518,9 +6519,9 @@
 	</class>
 	<typedef path="haxe._Int64.__Int64" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/Int64.hx" private="1" module="haxe.Int64">
 		<c path="haxe._Int64.___Int64"/>
-		<haxe_doc>* This typedef will fool @:coreApi into thinking that we are using
-  * the same underlying type, even though it might be different on
-  * specific platforms.</haxe_doc>
+		<haxe_doc>This typedef will fool `@:coreApi` into thinking that we are using
+	the same underlying type, even though it might be different on
+	specific platforms.</haxe_doc>
 	</typedef>
 	<class path="haxe._Int64.___Int64" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/Int64.hx" private="1" module="haxe.Int64">
 		<high public="1"><x path="haxe.Int32"/></high>
@@ -6528,8 +6529,8 @@
 		<toString public="1" set="method" line="469">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>We also define toString here to ensure we always get a pretty string
-		when tracing or calling Std.string. This tends not to happen when
-		toString is only in the abstract.</haxe_doc>
+		when tracing or calling `Std.string`. This tends not to happen when
+		`toString` is only in the abstract.</haxe_doc>
 		</toString>
 		<new public="1" get="inline" set="null" line="459"><f a="high:low">
 	<x path="haxe.Int32"/>
@@ -22497,7 +22498,7 @@
 					ExprTools.map(e, capitalizeStrings);
 			}
 		}
-		```haxe</haxe_doc>
+		```</haxe_doc>
 		</map>
 		<getValue public="1" set="method" line="234" static="1">
 			<f a="e">
@@ -25781,23 +25782,23 @@
 	<class path="haxe.xml.XmlParserException" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/xml/Parser.hx" module="haxe.xml.Parser">
 		<message public="1">
 			<c path="String"/>
-			<haxe_doc>* the XML parsing error message</haxe_doc>
+			<haxe_doc>the XML parsing error message</haxe_doc>
 		</message>
 		<lineNumber public="1">
 			<x path="Int"/>
-			<haxe_doc>* the line number at which the XML parsing error occurred</haxe_doc>
+			<haxe_doc>the line number at which the XML parsing error occurred</haxe_doc>
 		</lineNumber>
 		<positionAtLine public="1">
 			<x path="Int"/>
-			<haxe_doc>* the character position in the reported line at which the parsing error occurred</haxe_doc>
+			<haxe_doc>the character position in the reported line at which the parsing error occurred</haxe_doc>
 		</positionAtLine>
 		<position public="1">
 			<x path="Int"/>
-			<haxe_doc>* the character position in the XML string at which the parsing error occurred</haxe_doc>
+			<haxe_doc>the character position in the XML string at which the parsing error occurred</haxe_doc>
 		</position>
 		<xml public="1">
 			<c path="String"/>
-			<haxe_doc>* the invalid XML string</haxe_doc>
+			<haxe_doc>the invalid XML string</haxe_doc>
 		</xml>
 		<toString public="1" set="method" line="95"><f a=""><c path="String"/></f></toString>
 		<new public="1" set="method" line="75"><f a="message:xml:position">
@@ -25835,9 +25836,9 @@
 				<c path="Xml"/>
 			</f>
 			<meta><m n=":value"><e>{ strict : false }</e></m></meta>
-			<haxe_doc>* Parses the String into an XML Document. Set strict parsing to true in order to enable a strict check of XML attributes and entities.
-	 *
-	 * @throws haxe.xml.XmlParserException</haxe_doc>
+			<haxe_doc>Parses the String into an XML Document. Set strict parsing to true in order to enable a strict check of XML attributes and entities.
+		
+		@throws haxe.xml.XmlParserException</haxe_doc>
 		</parse>
 		<doParse set="method" line="125" static="1">
 			<f a="str:strict:?p:?parent" v="::0:">
@@ -26229,10 +26230,18 @@
 		<CENTRAL_DIRECTORY_RECORD_FIELDS_SIZE get="inline" set="null" expr="46" line="35" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>46</e></m></meta>
+			<haxe_doc>The next constant is required for computing the Central
+		Directory Record(CDR) size. CDR consists of some fields
+		of constant size and a filename. Constant represents
+		total length of all fields with constant size for each
+		file in archive</haxe_doc>
 		</CENTRAL_DIRECTORY_RECORD_FIELDS_SIZE>
 		<LOCAL_FILE_HEADER_FIELDS_SIZE get="inline" set="null" expr="30" line="42" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>30</e></m></meta>
+			<haxe_doc>The following constant is the total size of all fields
+		of Local File Header. It's required for calculating
+		offset of start of central directory record</haxe_doc>
 		</LOCAL_FILE_HEADER_FIELDS_SIZE>
 		<o><c path="haxe.io.Output"/></o>
 		<files><c path="haxe.ds.List"><a>
@@ -26339,6 +26348,7 @@
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Indicates if the given object is a class.</haxe_doc>
 		</isClass>
 		<isEnum public="1" get="inline" set="null" line="58" static="1">
 			<f a="e">
@@ -26346,6 +26356,7 @@
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Indicates if the given object is a enum.</haxe_doc>
 		</isEnum>
 		<getClass public="1" get="inline" set="null" line="67" static="1">
 			<f a="o">
@@ -26353,6 +26364,8 @@
 				<x path="Class"><d/></x>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Returns the class of a given object, and defines the getClass feature
+	   for the given class.</haxe_doc>
 		</getClass>
 		<__instanceof set="method" line="81" static="1">
 			<f a="o:cl">
@@ -26364,6 +26377,7 @@
 				<m n=":has_untyped"/>
 				<m n=":ifFeature"><e>"typed_catch"</e></m>
 			</meta>
+			<haxe_doc>Indicates if the given object is an instance of the given Type</haxe_doc>
 		</__instanceof>
 		<isArray set="method" line="118" static="1">
 			<f a="o">
@@ -26379,6 +26393,7 @@
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Indicates if the given object inherits from the given class</haxe_doc>
 		</inheritsFrom>
 		<__cast set="method" line="137" static="1">
 			<f a="o:t">
@@ -26388,19 +26403,25 @@
 			</f>
 			<meta><m n=":ifFeature"><e>"typed_cast"</e></m></meta>
 		</__cast>
-		<printEnum set="method" line="145" static="1"><f a="o:s">
-	<c path="Array"><d/></c>
-	<c path="String"/>
-	<c path="String"/>
-</f></printEnum>
-		<printClass get="inline" set="null" line="165" static="1"><f a="c:s">
-	<c path="lua.Table">
-		<c path="String"/>
-		<d/>
-	</c>
-	<c path="String"/>
-	<c path="String"/>
-</f></printClass>
+		<printEnum set="method" line="145" static="1">
+			<f a="o:s">
+				<c path="Array"><d/></c>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Helper method to generate a string representation of an enum</haxe_doc>
+		</printEnum>
+		<printClass get="inline" set="null" line="165" static="1">
+			<f a="c:s">
+				<c path="lua.Table">
+					<c path="String"/>
+					<d/>
+				</c>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Helper method to generate a string representation of a class</haxe_doc>
+		</printClass>
 		<printClassRec set="method" line="172" static="1">
 			<f a="c:?result:s" v=":&quot;&quot;:">
 				<c path="lua.Table">
@@ -26415,6 +26436,7 @@
 				<m n=":has_untyped"/>
 				<m n=":value"><e>{ result : "" }</e></m>
 			</meta>
+			<haxe_doc>Helper method to generate a string representation of a class</haxe_doc>
 		</printClassRec>
 		<__string_rec set="method" line="182" static="1">
 			<f a="o:?s" v=":&quot;&quot;">
@@ -26427,6 +26449,7 @@
 				<m n=":value"><e>{ s : "" }</e></m>
 				<m n=":ifFeature"><e>"has_enum"</e></m>
 			</meta>
+			<haxe_doc>Generate a string representation for arbitrary object.</haxe_doc>
 		</__string_rec>
 		<defArray public="1" params="T" get="inline" set="null" line="238" static="1">
 			<f a="tab:?length">
@@ -26438,6 +26461,7 @@
 				<c path="Array"><c path="defArray.T"/></c>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Define an array from the given table</haxe_doc>
 		</defArray>
 		<tableToObject public="1" params="T" get="inline" set="null" line="257" static="1">
 			<f a="t">
@@ -26448,22 +26472,30 @@
 				<d><c path="tableToObject.T"/></d>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Create a Haxe object from the given table structure</haxe_doc>
 		</tableToObject>
-		<dateStr public="1" set="method" line="264" static="1"><f a="date">
-	<c path="Date"/>
-	<c path="String"/>
-</f></dateStr>
+		<dateStr public="1" set="method" line="264" static="1">
+			<f a="date">
+				<c path="Date"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Get Date object as string representation</haxe_doc>
+		</dateStr>
 		<clamp public="1" get="inline" set="null" line="281" static="1">
 			<f a="x">
 				<x path="Float"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>A 32 bit clamp function for numbers</haxe_doc>
 		</clamp>
-		<strDate public="1" set="method" line="288" static="1"><f a="s">
-	<c path="String"/>
-	<c path="Date"/>
-</f></strDate>
+		<strDate public="1" set="method" line="288" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="Date"/>
+			</f>
+			<haxe_doc>Create a standard date object from a lua string representation</haxe_doc>
+		</strDate>
 		<extendsOrImplements public="1" set="method" line="317" static="1">
 			<f a="cl1:cl2">
 				<x path="Class"><d/></x>
@@ -26471,13 +26503,20 @@
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Helper method to determine if class cl1 extends, implements, or otherwise equals cl2</haxe_doc>
 		</extendsOrImplements>
-		<shellEscapeCmd public="1" set="method" line="335" static="1"><f a="cmd:?args">
-	<c path="String"/>
-	<c path="Array"><c path="String"/></c>
-	<c path="String"/>
-</f></shellEscapeCmd>
-		<tempFile public="1" set="method" line="353" static="1"><f a=""><c path="String"/></f></tempFile>
+		<shellEscapeCmd public="1" set="method" line="335" static="1">
+			<f a="cmd:?args">
+				<c path="String"/>
+				<c path="Array"><c path="String"/></c>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a shell escaped version of "cmd" along with any args</haxe_doc>
+		</shellEscapeCmd>
+		<tempFile public="1" set="method" line="353" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns a temp file path that can be used for reading and writing</haxe_doc>
+		</tempFile>
 		<fieldIterator public="1" set="method" line="360" static="1">
 			<f a="o">
 				<c path="lua.Table">
