@@ -31126,14 +31126,14 @@
 		<meta><m n=":native"><e>"Traversable"</e></m></meta>
 	</class>
 	<class path="php.Web" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/Web.hx">
-		<getParams public="1" set="method" line="38" static="1">
-			<f a=""><t path="Map">
+		<getParams public="1" set="method" line="39" static="1">
+			<f a=""><x path="haxe.ds.Map">
 	<c path="String"/>
 	<c path="String"/>
-</t></f>
+</x></f>
 			<haxe_doc>Returns the GET and POST parameters.</haxe_doc>
 		</getParams>
-		<getParamValues public="1" set="method" line="60" static="1">
+		<getParamValues public="1" set="method" line="61" static="1">
 			<f a="param">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -31142,26 +31142,26 @@
 		If you have in your URL the parameters `a[]=foo;a[]=hello;a[5]=bar;a[3]=baz` then
 		`php.Web.getParamValues("a")` will return `["foo","hello",null,"baz",null,"bar"]`.</haxe_doc>
 		</getParamValues>
-		<getHostName public="1" get="inline" set="null" line="98" static="1">
+		<getHostName public="1" get="inline" set="null" line="99" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the local server host name.</haxe_doc>
 		</getHostName>
-		<getClientIP public="1" get="inline" set="null" line="105" static="1">
+		<getClientIP public="1" get="inline" set="null" line="106" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Surprisingly returns the client IP address.</haxe_doc>
 		</getClientIP>
-		<getURI public="1" set="method" line="112" static="1">
+		<getURI public="1" set="method" line="113" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the original request URL (before any server internal redirections).</haxe_doc>
 		</getURI>
-		<redirect public="1" set="method" line="120" static="1">
+		<redirect public="1" set="method" line="121" static="1">
 			<f a="url">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Tell the client to redirect to the given url ("Location" header).</haxe_doc>
 		</redirect>
-		<setHeader public="1" get="inline" set="null" line="128" static="1">
+		<setHeader public="1" get="inline" set="null" line="129" static="1">
 			<f a="h:v">
 				<c path="String"/>
 				<c path="String"/>
@@ -31170,7 +31170,7 @@
 			<haxe_doc>Set an output header value. If some data have been printed, the headers have
 		already been sent so this will raise an exception.</haxe_doc>
 		</setHeader>
-		<setReturnCode public="1" set="method" line="136" static="1">
+		<setReturnCode public="1" set="method" line="137" static="1">
 			<f a="r">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -31178,22 +31178,22 @@
 			<haxe_doc>Set the HTTP return code. Same remark as `php.Web.setHeader()`.
 		See status code explanation here: http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</haxe_doc>
 		</setReturnCode>
-		<getClientHeader public="1" set="method" line="187" static="1">
+		<getClientHeader public="1" set="method" line="188" static="1">
 			<f a="k">
 				<c path="String"/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Retrieve a client header value sent with the request.</haxe_doc>
 		</getClientHeader>
-		<_clientHeaders static="1"><t path="Map">
+		<_clientHeaders static="1"><x path="haxe.ds.Map">
 	<c path="String"/>
 	<c path="String"/>
-</t></_clientHeaders>
-		<loadClientHeaders set="method" line="196" static="1">
-			<f a=""><t path="Map">
+</x></_clientHeaders>
+		<loadClientHeaders set="method" line="197" static="1">
+			<f a=""><x path="haxe.ds.Map">
 	<c path="String"/>
 	<c path="String"/>
-</t></f>
+</x></f>
 			<haxe_doc>Based on https://github.com/ralouphie/getallheaders</haxe_doc>
 		</loadClientHeaders>
 		<getClientHeaders public="1" set="method" line="241" static="1">
@@ -31203,11 +31203,18 @@
 </a></t></f>
 			<haxe_doc>Retrieve all the client headers.</haxe_doc>
 		</getClientHeaders>
-		<getParamsString public="1" set="method" line="253" static="1">
+		<getClientHeadersMap public="1" set="method" line="253" static="1">
+			<f a=""><x path="haxe.ds.Map">
+	<c path="String"/>
+	<c path="String"/>
+</x></f>
+			<haxe_doc>Retrieve all the client headers as `haxe.ds.Map`.</haxe_doc>
+		</getClientHeadersMap>
+		<getParamsString public="1" set="method" line="260" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns all the GET parameters `String`</haxe_doc>
 		</getParamsString>
-		<getPostData public="1" set="method" line="268" static="1">
+		<getPostData public="1" set="method" line="275" static="1">
 			<f a=""><x path="Null"><c path="String"/></x></f>
 			<haxe_doc>Returns all the POST data. POST Data is always parsed as
 		being application/x-www-form-urlencoded and is stored into
@@ -31216,16 +31223,16 @@
 		case, you will have to use `php.Web.getMultipart()` or
 		`php.Web.parseMultipart()` methods.</haxe_doc>
 		</getPostData>
-		<getCookies public="1" set="method" line="287" static="1">
-			<f a=""><t path="Map">
+		<getCookies public="1" set="method" line="294" static="1">
+			<f a=""><x path="haxe.ds.Map">
 	<c path="String"/>
 	<c path="String"/>
-</t></f>
+</x></f>
 			<haxe_doc>Returns an hashtable of all Cookies sent by the client.
 		Modifying the hashtable will not modify the cookie, use `php.Web.setCookie()`
 		instead.</haxe_doc>
 		</getCookies>
-		<setCookie public="1" set="method" line="295" static="1">
+		<setCookie public="1" set="method" line="302" static="1">
 			<f a="key:value:?expire:?domain:?path:?secure:?httpOnly">
 				<c path="String"/>
 				<c path="String"/>
@@ -31238,29 +31245,29 @@
 			</f>
 			<haxe_doc>Set a Cookie value in the HTTP headers. Same remark as `php.Web.setHeader()`.</haxe_doc>
 		</setCookie>
-		<getAuthorization public="1" set="method" line="307" static="1">
+		<getAuthorization public="1" set="method" line="314" static="1">
 			<f a=""><a>
 	<user><c path="String"/></user>
 	<pass><c path="String"/></pass>
 </a></f>
 			<haxe_doc>Returns an object with the authorization sent by the client (Basic scheme only).</haxe_doc>
 		</getAuthorization>
-		<getCwd public="1" get="inline" set="null" line="316" static="1">
+		<getCwd public="1" get="inline" set="null" line="323" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Get the current script directory in the local filesystem.</haxe_doc>
 		</getCwd>
-		<getMultipart public="1" set="method" line="324" static="1">
+		<getMultipart public="1" set="method" line="331" static="1">
 			<f a="maxSize">
 				<x path="Int"/>
-				<t path="Map">
+				<x path="haxe.ds.Map">
 					<c path="String"/>
 					<c path="String"/>
-				</t>
+				</x>
 			</f>
 			<haxe_doc>Get the multipart parameters as an hashtable. The data
 		cannot exceed the maximum size specified.</haxe_doc>
 		</getMultipart>
-		<parseMultipart public="1" set="method" line="353" static="1">
+		<parseMultipart public="1" set="method" line="360" static="1">
 			<f a="onPart:onData">
 				<f a=":">
 					<c path="String"/>
@@ -31280,12 +31287,12 @@
 		and `onData` when some part data is readed. You can this way
 		directly save the data on hard drive in the case of a file upload.</haxe_doc>
 		</parseMultipart>
-		<flush public="1" get="inline" set="null" line="403" static="1">
+		<flush public="1" get="inline" set="null" line="410" static="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Flush the data sent to the client. By default on Apache, outgoing data is buffered so
 		this can be useful for displaying some long operation progress.</haxe_doc>
 		</flush>
-		<getMethod public="1" set="method" line="410" static="1">
+		<getMethod public="1" set="method" line="417" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Get the HTTP method used by the client.</haxe_doc>
 		</getMethod>
