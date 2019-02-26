@@ -3145,11 +3145,12 @@
 				<c path="Array"><c path="String"/></c>
 			</f>
 			<meta><m n=":functionCode"><e><![CDATA["\n\t\tif (c == java.lang.String.class)\n\t\t{\n\t\t\treturn haxe.lang.StringRefl.fields;\n\t\t}\n\n\t\tArray<String> ret = new Array<String>();\n\t\tfor (java.lang.reflect.Field f : c.getFields())\n\t\t{\n\t\t\tjava.lang.String fname = f.getName();\n\t\t\tif (!java.lang.reflect.Modifier.isStatic(f.getModifiers()) && !fname.startsWith(\"__hx_\"))\n\t\t\t\tret.push(fname);\n\t\t}\n\n\t\tfor (java.lang.reflect.Method m : c.getMethods())\n\t\t{\n\t\t\tif (m.getDeclaringClass() == java.lang.Object.class)\n\t\t\t\tcontinue;\n\t\t\tjava.lang.String mname = m.getName();\n\t\t\tif (!java.lang.reflect.Modifier.isStatic(m.getModifiers()) && !mname.startsWith(\"__hx_\"))\n\t\t\t\tret.push(mname);\n\t\t}\n\n\t\treturn ret;\n\t"]]></e></m></meta>
-			<haxe_doc>Returns a list of the instance fields of class `c`.
+			<haxe_doc>Returns a list of the instance fields of class `c`, including
+		inherited fields.
 
 		This only includes fields which are known at compile-time. In
-		particular, using getInstanceFields(getClass(obj)) will not include
-		any fields which were added to obj at runtime.
+		particular, using `getInstanceFields(getClass(obj))` will not include
+		any fields which were added to `obj` at runtime.
 
 		The order of the fields in the returned Array is unspecified.
 
