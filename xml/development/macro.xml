@@ -21997,7 +21997,7 @@ The total amount of memory allocated by the program since it was started is (in 
 			</f>
 			<haxe_doc>Returns a hashed MD5 signature of value `v`.</haxe_doc>
 		</signature>
-		<onGenerate public="1" set="method" line="322" static="1">
+		<onGenerate public="1" set="method" line="324" static="1">
 			<f a="callback:?persistent" v=":true">
 				<f a="">
 					<c path="Array"><e path="haxe.macro.Type"/></c>
@@ -22018,9 +22018,11 @@ The total amount of memory allocated by the program since it was started is (in 
 		server, if active. This means that any effect persists for the next compilation.
 		If `persistent` is set to `false`, changes to types made by the callback only
 		affect the current compilation. If no compilation server is used, this flag has
-		no effect.</haxe_doc>
+		no effect.
+
+		*Note*: the callback is still invoked when generation is disabled with  `--no-output`.</haxe_doc>
 		</onGenerate>
-		<onAfterGenerate public="1" set="method" line="334" static="1">
+		<onAfterGenerate public="1" set="method" line="338" static="1">
 			<f a="callback">
 				<f a=""><x path="Void"/></f>
 				<x path="Void"/>
@@ -22030,9 +22032,11 @@ The total amount of memory allocated by the program since it was started is (in 
 		generation phase.
 
 		Compilation has completed at this point and cannot be influenced
-		anymore. However, contextual information is still available.</haxe_doc>
+		anymore. However, contextual information is still available.
+
+		*Note*: the callback is still invoked when generation is disabled with  `--no-output`.</haxe_doc>
 		</onAfterGenerate>
-		<onAfterTyping public="1" set="method" line="346" static="1">
+		<onAfterTyping public="1" set="method" line="350" static="1">
 			<f a="callback">
 				<f a="">
 					<c path="Array"><e path="haxe.macro.ModuleType"/></c>
@@ -22047,7 +22051,7 @@ The total amount of memory allocated by the program since it was started is (in 
 		It is possible to define new types in the callback, in which case it
 		will be called again with the new types as argument.</haxe_doc>
 		</onAfterTyping>
-		<onTypeNotFound public="1" set="method" line="358" static="1">
+		<onTypeNotFound public="1" set="method" line="362" static="1">
 			<f a="callback">
 				<f a="">
 					<c path="String"/>
@@ -22062,7 +22066,7 @@ The total amount of memory allocated by the program since it was started is (in 
 		expected type. If it returns `null`, the type is considered to still not
 		exist.</haxe_doc>
 		</onTypeNotFound>
-		<typeof public="1" set="method" line="368" static="1">
+		<typeof public="1" set="method" line="372" static="1">
 			<f a="e">
 				<t path="haxe.macro.Expr"/>
 				<e path="haxe.macro.Type"/>
@@ -22072,7 +22076,7 @@ The total amount of memory allocated by the program since it was started is (in 
 		Typing the expression may result in a compiler error which can be
 		caught using `try ... catch`.</haxe_doc>
 		</typeof>
-		<typeExpr public="1" set="method" line="379" static="1">
+		<typeExpr public="1" set="method" line="383" static="1">
 			<f a="e">
 				<t path="haxe.macro.Expr"/>
 				<t path="haxe.macro.TypedExpr"/>
@@ -22083,7 +22087,7 @@ The total amount of memory allocated by the program since it was started is (in 
 		Typing the expression may result in a compiler error which can be
 		caught using `try ... catch`.</haxe_doc>
 		</typeExpr>
-		<resolveType public="1" set="method" line="391" static="1">
+		<resolveType public="1" set="method" line="395" static="1">
 			<f a="t:p">
 				<e path="haxe.macro.ComplexType"/>
 				<t path="haxe.macro.Position"/>
@@ -22096,7 +22100,7 @@ The total amount of memory allocated by the program since it was started is (in 
 		caught using `try ... catch`.
 		Resolution is performed based on the current context in which the macro is called.</haxe_doc>
 		</resolveType>
-		<toComplexType public="1" set="method" line="400" static="1">
+		<toComplexType public="1" set="method" line="404" static="1">
 			<f a="t">
 				<e path="haxe.macro.Type"/>
 				<x path="Null"><e path="haxe.macro.ComplexType"/></x>
@@ -22105,7 +22109,7 @@ The total amount of memory allocated by the program since it was started is (in 
 
 		See `haxe.macro.TypeTools.toComplexType` for details.</haxe_doc>
 		</toComplexType>
-		<unify public="1" set="method" line="407" static="1">
+		<unify public="1" set="method" line="411" static="1">
 			<f a="t1:t2">
 				<e path="haxe.macro.Type"/>
 				<e path="haxe.macro.Type"/>
@@ -22113,7 +22117,7 @@ The total amount of memory allocated by the program since it was started is (in 
 			</f>
 			<haxe_doc>Tries to unify `t1` and `t2` and returns `true` if successful.</haxe_doc>
 		</unify>
-		<follow public="1" set="method" line="416" static="1">
+		<follow public="1" set="method" line="420" static="1">
 			<f a="t:?once">
 				<e path="haxe.macro.Type"/>
 				<x path="Bool"/>
@@ -22123,7 +22127,7 @@ The total amount of memory allocated by the program since it was started is (in 
 
 		See `haxe.macro.TypeTools.follow` for details.</haxe_doc>
 		</follow>
-		<followWithAbstracts public="1" set="method" line="425" static="1">
+		<followWithAbstracts public="1" set="method" line="429" static="1">
 			<f a="t:?once" v=":false">
 				<e path="haxe.macro.Type"/>
 				<x path="Bool"/>
@@ -22134,7 +22138,7 @@ The total amount of memory allocated by the program since it was started is (in 
 
 		See `haxe.macro.TypeTools.followWithAbstracts` for details.</haxe_doc>
 		</followWithAbstracts>
-		<getPosInfos public="1" set="method" line="432" static="1">
+		<getPosInfos public="1" set="method" line="436" static="1">
 			<f a="p">
 				<t path="haxe.macro.Position"/>
 				<a>
@@ -22145,7 +22149,7 @@ The total amount of memory allocated by the program since it was started is (in 
 			</f>
 			<haxe_doc>Returns the information stored in `Position` `p`.</haxe_doc>
 		</getPosInfos>
-		<makePosition public="1" set="method" line="439" static="1">
+		<makePosition public="1" set="method" line="443" static="1">
 			<f a="inf">
 				<a>
 					<min><x path="Int"/></min>
@@ -22156,7 +22160,7 @@ The total amount of memory allocated by the program since it was started is (in 
 			</f>
 			<haxe_doc>Builds a `Position` from `inf`.</haxe_doc>
 		</makePosition>
-		<getResources public="1" set="method" line="449" static="1">
+		<getResources public="1" set="method" line="453" static="1">
 			<f a=""><t path="Map">
 	<c path="String"/>
 	<c path="haxe.io.Bytes"/>
@@ -22166,7 +22170,7 @@ The total amount of memory allocated by the program since it was started is (in 
 		Modifying the returned map has no effect on the compilation, use
 		`haxe.macro.Context.addResource` to add new resources to the compilation unit.</haxe_doc>
 		</getResources>
-		<addResource public="1" set="method" line="465" static="1">
+		<addResource public="1" set="method" line="469" static="1">
 			<f a="name:data">
 				<c path="String"/>
 				<c path="haxe.io.Bytes"/>
@@ -22183,13 +22187,13 @@ The total amount of memory allocated by the program since it was started is (in 
 		that module is reused. If this resource concerns several modules, prefix its
 		name with a `$` sign, this will bind it to the macro module instead.</haxe_doc>
 		</addResource>
-		<getBuildFields public="1" set="method" line="474" static="1">
+		<getBuildFields public="1" set="method" line="478" static="1">
 			<f a=""><c path="Array"><t path="haxe.macro.Field"/></c></f>
 			<haxe_doc>Returns an `Array` of fields of the class which is to be built.
 
 		This is only defined for `@:build/@:autoBuild` macros.</haxe_doc>
 		</getBuildFields>
-		<defineType public="1" set="method" line="485" static="1">
+		<defineType public="1" set="method" line="489" static="1">
 			<f a="t:?moduleDependency">
 				<t path="haxe.macro.TypeDefinition"/>
 				<c path="String"/>
@@ -22201,7 +22205,7 @@ The total amount of memory allocated by the program since it was started is (in 
 		a module path that will be used as a dependency for the newly defined module
 		instead of the current module.</haxe_doc>
 		</defineType>
-		<defineModule public="1" set="method" line="497" static="1">
+		<defineModule public="1" set="method" line="501" static="1">
 			<f a="modulePath:types:?imports:?usings">
 				<c path="String"/>
 				<c path="Array"><t path="haxe.macro.TypeDefinition"/></c>
@@ -22216,7 +22220,7 @@ The total amount of memory allocated by the program since it was started is (in 
 		respects the `imports` and `usings` as usual, expect that imports are
 		not allowed to have `.*` wildcards or `as s` shorthands.</haxe_doc>
 		</defineModule>
-		<getTypedExpr public="1" set="method" line="508" static="1">
+		<getTypedExpr public="1" set="method" line="512" static="1">
 			<f a="t">
 				<t path="haxe.macro.TypedExpr"/>
 				<t path="haxe.macro.Expr"/>
@@ -22225,7 +22229,7 @@ The total amount of memory allocated by the program since it was started is (in 
 
 		This process may lose some information.</haxe_doc>
 		</getTypedExpr>
-		<storeTypedExpr public="1" set="method" line="526" static="1">
+		<storeTypedExpr public="1" set="method" line="530" static="1">
 			<f a="t">
 				<t path="haxe.macro.TypedExpr"/>
 				<t path="haxe.macro.Expr"/>
@@ -22242,7 +22246,7 @@ The total amount of memory allocated by the program since it was started is (in 
 		the expression returned by this method in a static variable and using the
 		compilation server.</haxe_doc>
 		</storeTypedExpr>
-		<storeExpr public="1" set="method" line="546" static="1">
+		<storeExpr public="1" set="method" line="550" static="1">
 			<f a="e">
 				<t path="haxe.macro.Expr"/>
 				<t path="haxe.macro.Expr"/>
@@ -22262,7 +22266,7 @@ The total amount of memory allocated by the program since it was started is (in 
 		the expression returned by this method in a static variable and using the
 		compilation server.</haxe_doc>
 		</storeExpr>
-		<registerModuleDependency public="1" set="method" line="559" static="1">
+		<registerModuleDependency public="1" set="method" line="563" static="1">
 			<f a="modulePath:externFile">
 				<c path="String"/>
 				<c path="String"/>
@@ -22276,7 +22280,7 @@ The total amount of memory allocated by the program since it was started is (in 
 
 		Has no effect if the compilation cache is not used.</haxe_doc>
 		</registerModuleDependency>
-		<registerModuleReuseCall public="1" set="method" line="564" static="1">
+		<registerModuleReuseCall public="1" set="method" line="568" static="1">
 			<f a="modulePath:macroCall">
 				<c path="String"/>
 				<c path="String"/>
@@ -22284,14 +22288,14 @@ The total amount of memory allocated by the program since it was started is (in 
 			</f>
 			<meta><m n=":deprecated"/></meta>
 		</registerModuleReuseCall>
-		<onMacroContextReused public="1" set="method" line="569" static="1">
+		<onMacroContextReused public="1" set="method" line="573" static="1">
 			<f a="callb">
 				<f a=""><x path="Bool"/></f>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":deprecated"/></meta>
 		</onMacroContextReused>
-		<load set="method" line="577" static="1">
+		<load set="method" line="581" static="1">
 			<f a="f:nargs">
 				<c path="String"/>
 				<x path="Int"/>
@@ -22304,12 +22308,12 @@ The total amount of memory allocated by the program since it was started is (in 
 				<m n=":allow"><e>haxe.macro.PositionTools</e></m>
 			</meta>
 		</load>
-		<includeFile set="method" line="587" static="1"><f a="file:position">
+		<includeFile set="method" line="591" static="1"><f a="file:position">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></includeFile>
-		<sExpr set="method" line="591" static="1"><f a="e:pretty">
+		<sExpr set="method" line="595" static="1"><f a="e:pretty">
 	<t path="haxe.macro.TypedExpr"/>
 	<x path="Bool"/>
 	<c path="String"/>
