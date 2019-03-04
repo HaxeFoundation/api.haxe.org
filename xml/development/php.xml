@@ -30897,6 +30897,20 @@
 			<m n=":arrayAccess"/>
 		</meta>
 	</set>
+	<iterator public="1" get="inline" set="null" line="32" static="1">
+		<f a="this">
+			<x path="php.NativeString"/>
+			<c path="php.NativeStringIterator"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</iterator>
+	<keyValueIterator public="1" get="inline" set="null" line="36" static="1">
+		<f a="this">
+			<x path="php.NativeString"/>
+			<c path="php.NativeStringKeyValueIterator"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</keyValueIterator>
 </class></impl>
 	</abstract>
 	<class path="php._NativeString.NativeString_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/NativeString.hx" private="1" module="php.NativeString">
@@ -30925,6 +30939,49 @@
 				<m n=":arrayAccess"/>
 			</meta>
 		</set>
+		<iterator public="1" get="inline" set="null" line="32" static="1">
+			<f a="this">
+				<x path="php.NativeString"/>
+				<c path="php.NativeStringIterator"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="36" static="1">
+			<f a="this">
+				<x path="php.NativeString"/>
+				<c path="php.NativeStringKeyValueIterator"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</keyValueIterator>
+	</class>
+	<class path="php.NativeStringIterator" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/NativeString.hx" module="php.NativeString">
+		<s><x path="php.NativeString"/></s>
+		<i expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</i>
+		<hasNext public="1" get="inline" set="null" line="49"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="53"><f a=""><c path="String"/></f></next>
+		<new public="1" get="inline" set="null" line="45"><f a="s">
+	<x path="php.NativeString"/>
+	<x path="Void"/>
+</f></new>
+	</class>
+	<class path="php.NativeStringKeyValueIterator" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/NativeString.hx" module="php.NativeString">
+		<s><x path="php.NativeString"/></s>
+		<i expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</i>
+		<hasNext public="1" get="inline" set="null" line="66"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="70"><f a=""><a>
+	<value><c path="String"/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new public="1" get="inline" set="null" line="62"><f a="s">
+	<x path="php.NativeString"/>
+	<x path="Void"/>
+</f></new>
 	</class>
 	<abstract path="php.NativeStructArray" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/php/NativeStructArray.hx">
 		<from><icast field="__fromObject"><c path="__fromObject.T"/></icast></from>
