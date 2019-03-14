@@ -4179,6 +4179,21 @@
 		of type `String` is thrown.]]></haxe_doc>
 		</loadPlugin>
 	</class>
+	<class path="eval.vm.Deque" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/eval/vm/Deque.hx" extern="1">
+		<add public="1" set="method"><f a="i">
+	<c path="eval.vm.Deque.T"/>
+	<x path="Void"/>
+</f></add>
+		<pop public="1" set="method"><f a="block">
+	<x path="Bool"/>
+	<x path="Null"><c path="eval.vm.Deque.T"/></x>
+</f></pop>
+		<push public="1" set="method"><f a="i">
+	<c path="eval.vm.Deque.T"/>
+	<x path="Void"/>
+</f></push>
+		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
+	</class>
 	<typedef path="eval.vm.Stat" params="" file="/home/travis/build/HaxeFoundation/haxe/std/eval/vm/Gc.hx" module="eval.vm.Gc">
 		<a>
 			<top_heap_words>
@@ -4368,6 +4383,20 @@ The total amount of memory allocated by the program since it was started is (in 
 		</stat>
 		<haxe_doc>Memory management control and statistics; finalised values.</haxe_doc>
 	</class>
+	<class path="eval.vm.Lock" params="" file="/home/travis/build/HaxeFoundation/haxe/std/eval/vm/Lock.hx" extern="1">
+		<release public="1" set="method"><f a=""><x path="Void"/></f></release>
+		<wait public="1" set="method"><f a="?timeout">
+	<x path="Float"/>
+	<x path="Bool"/>
+</f></wait>
+		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
+	</class>
+	<class path="eval.vm.Mutex" params="" file="/home/travis/build/HaxeFoundation/haxe/std/eval/vm/Mutex.hx" extern="1">
+		<acquire public="1" set="method"><f a=""><x path="Void"/></f></acquire>
+		<tryAcquire public="1" set="method"><f a=""><x path="Bool"/></f></tryAcquire>
+		<release public="1" set="method"><f a=""><x path="Void"/></f></release>
+		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
+	</class>
 	<class path="eval.vm.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/eval/vm/Thread.hx" extern="1">
 		<delay public="1" set="method" static="1">
 			<f a="f">
@@ -4399,6 +4428,11 @@ The total amount of memory allocated by the program since it was started is (in 
 		to give scheduling hints, telling the scheduler that now is a good time to switch
 		to other threads.</haxe_doc>
 		</yield>
+		<create public="1" get="inline" set="null" line="85" static="1"><f a="f">
+	<f a=""><x path="Void"/></f>
+	<c path="eval.vm.Thread"/>
+</f></create>
+		<current public="1" get="inline" set="null" line="86" static="1"><f a=""><c path="eval.vm.Thread"/></f></current>
 		<id public="1" set="method">
 			<f a=""><x path="Int"/></f>
 			<haxe_doc>Return the identifier of the given thread. A thread identifier is an integer
@@ -4410,6 +4444,14 @@ The total amount of memory allocated by the program since it was started is (in 
 			<haxe_doc>Terminate prematurely the thread whose handle is given. This functionality is
 		available only with bytecode-level threads.</haxe_doc>
 		</kill>
+		<readMessage public="1" params="T" set="method"><f a="block">
+	<x path="Bool"/>
+	<c path="readMessage.T"/>
+</f></readMessage>
+		<sendMessage public="1" params="T" set="method"><f a="msg">
+	<c path="sendMessage.T"/>
+	<x path="Void"/>
+</f></sendMessage>
 		<new public="1" set="method">
 			<f a="f">
 				<f a=""><x path="Void"/></f>
@@ -4423,6 +4465,10 @@ The total amount of memory allocated by the program since it was started is (in 
 		<haxe_doc>Experimental Thread API.
 
 	Note that the debugger does not properly support threads at the moment.</haxe_doc>
+	</class>
+	<class path="eval.vm.Tls" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/eval/vm/Tls.hx" extern="1">
+		<value public="1" get="null" set="null"><c path="eval.vm.Tls.T"/></value>
+		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
 	</class>
 	<enum path="haxe.StackItem" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/CallStack.hx" module="haxe.CallStack">
 		<CFunction/>
