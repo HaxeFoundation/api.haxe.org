@@ -5082,36 +5082,36 @@
 		</meta>
 	</class>
 	<class path="haxe.EntryPoint" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/EntryPoint.hx">
-		<sleepLock expr="new Lock()" line="46" static="1">
+		<sleepLock expr="new Lock()" line="37" static="1">
 			<c path="sys.thread.Lock"/>
 			<meta><m n=":value"><e>new Lock()</e></m></meta>
 		</sleepLock>
-		<mutex expr="new Mutex()" line="47" static="1">
+		<mutex expr="new Mutex()" line="38" static="1">
 			<c path="sys.thread.Mutex"/>
 			<meta><m n=":value"><e>new Mutex()</e></m></meta>
 		</mutex>
-		<pending expr="new Array&lt;Void&gt;()" line="49" static="1">
+		<pending expr="new Array&lt;Void&gt;()" line="40" static="1">
 			<c path="Array"><f a=""><x path="Void"/></f></c>
 			<meta><m n=":value"><e><![CDATA[new Array<Void>()]]></e></m></meta>
 		</pending>
-		<threadCount public="1" set="null" expr="0" line="51" static="1">
+		<threadCount public="1" set="null" expr="0" line="41" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>0</e></m></meta>
 		</threadCount>
-		<wakeup public="1" set="method" line="56" static="1">
+		<wakeup public="1" set="method" line="46" static="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Wakeup a sleeping run()</haxe_doc>
 		</wakeup>
-		<runInMainThread public="1" set="method" line="62" static="1"><f a="f">
+		<runInMainThread public="1" set="method" line="52" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runInMainThread>
-		<addThread public="1" set="method" line="73" static="1"><f a="f">
+		<addThread public="1" set="method" line="63" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></addThread>
-		<processEvents set="method" line="91" static="1"><f a=""><x path="Float"/></f></processEvents>
-		<run public="1" set="method" line="113" static="1">
+		<processEvents set="method" line="85" static="1"><f a=""><x path="Float"/></f></processEvents>
+		<run public="1" set="method" line="108" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Start the main loop. Depending on the platform, this can return immediately or will only return when the application exits.</haxe_doc>
@@ -74469,6 +74469,208 @@
 		<x path="java.Int8"/>
 		<meta><m n=":nativeGen"/></meta>
 	</typedef>
+	<class path="java.util.Queue" params="E" file="/home/travis/haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Queue.class" extern="1" interface="1">
+		<extends path="java.util.Collection"><c path="java.util.Queue.E"/></extends>
+		<peek public="1" set="method">
+			<f a=""><c path="java.util.Queue.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</peek>
+		<element public="1" set="method">
+			<f a=""><c path="java.util.Queue.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</element>
+		<poll public="1" set="method">
+			<f a=""><c path="java.util.Queue.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</poll>
+		<remove public="1" set="method">
+			<f a=""><c path="java.util.Queue.E"/></f>
+			<meta><m n=":overload"/></meta>
+			<overloads><remove public="1" set="method">
+	<f a="param1">
+		<d/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</remove></overloads>
+		</remove>
+		<offer public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Queue.E"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</offer>
+		<add public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Queue.E"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</add>
+		<forEach public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.Consumer"><d/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</forEach>
+		<size public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":overload"/></meta>
+		</size>
+		<isEmpty public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":overload"/></meta>
+		</isEmpty>
+		<contains public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</contains>
+		<iterator public="1" set="method">
+			<f a=""><c path="java.util.Iterator"><c path="java.util.Queue.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</iterator>
+		<toArray public="1" set="method">
+			<f a=""><c path="java.NativeArray"><d/></c></f>
+			<meta><m n=":overload"/></meta>
+			<overloads><toArray public="1" params="T" set="method">
+	<f a="param1">
+		<c path="java.NativeArray"><c path="toArray.T"/></c>
+		<c path="java.NativeArray"><c path="toArray.T"/></c>
+	</f>
+	<meta><m n=":overload"/></meta>
+</toArray></overloads>
+		</toArray>
+		<containsAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</containsAll>
+		<addAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><c path="java.util.Queue.E"/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</addAll>
+		<removeAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</removeAll>
+		<removeIf public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.Predicate"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</removeIf>
+		<retainAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</retainAll>
+		<clear public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+		</clear>
+		<spliterator public="1" set="method">
+			<f a=""><c path="java.util.Spliterator"><c path="java.util.Queue.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</spliterator>
+		<stream public="1" set="method">
+			<f a=""><c path="java.util.stream.Stream"><c path="java.util.Queue.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</stream>
+		<parallelStream public="1" set="method">
+			<f a=""><c path="java.util.stream.Stream"><c path="java.util.Queue.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</parallelStream>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.Queue"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util"</e>
+				<e>"Queue"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.util.AbstractQueue" params="E" file="/home/travis/haxelib/hxjava/git/lib/hxjava-std.jar@java/util/AbstractQueue.class" extern="1">
+		<extends path="java.util.AbstractCollection"><c path="java.util.AbstractQueue.E"/></extends>
+		<implements path="java.util.Queue"><c path="java.util.AbstractQueue.E"/></implements>
+		<addAll public="1" set="method" override="1">
+			<f a="param1">
+				<c path="java.util.Collection"><c path="java.util.AbstractQueue.E"/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</addAll>
+		<clear public="1" set="method" override="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+		</clear>
+		<element public="1" set="method">
+			<f a=""><c path="java.util.AbstractQueue.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</element>
+		<remove public="1" set="method" override="1">
+			<f a=""><c path="java.util.AbstractQueue.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</remove>
+		<add public="1" set="method" override="1">
+			<f a="param1">
+				<c path="java.util.AbstractQueue.E"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</add>
+		<offer public="1" set="method">
+			<f a="param1">
+				<c path="java.util.AbstractQueue.E"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</offer>
+		<poll public="1" set="method">
+			<f a=""><c path="java.util.AbstractQueue.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</poll>
+		<peek public="1" set="method">
+			<f a=""><c path="java.util.AbstractQueue.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</peek>
+		<new set="method">
+			<f a=""><x path="Void"/></f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":protected"/>
+			</meta>
+		</new>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.AbstractQueue"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util"</e>
+				<e>"AbstractQueue"</e>
+			</m>
+		</meta>
+	</class>
 	<class path="java.util.Calendar" params="" file="/home/travis/haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Calendar.class" extern="1">
 		<implements path="java.lang.Comparable"><c path="java.util.Calendar"/></implements>
 		<implements path="java.lang.Cloneable"/>
@@ -75223,6 +75425,234 @@
 			<m n=":javaCanonical">
 				<e>"java.util"</e>
 				<e>"Comparator"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.util.Deque" params="E" file="/home/travis/haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Deque.class" extern="1" interface="1">
+		<extends path="java.util.Queue"><c path="java.util.Deque.E"/></extends>
+		<descendingIterator public="1" set="method">
+			<f a=""><c path="java.util.Iterator"><c path="java.util.Deque.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</descendingIterator>
+		<iterator public="1" set="method">
+			<f a=""><c path="java.util.Iterator"><c path="java.util.Deque.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</iterator>
+		<size public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":overload"/></meta>
+		</size>
+		<contains public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</contains>
+		<remove public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><remove public="1" set="method">
+	<f a=""><c path="java.util.Deque.E"/></f>
+	<meta><m n=":overload"/></meta>
+</remove></overloads>
+		</remove>
+		<pop public="1" set="method">
+			<f a=""><c path="java.util.Deque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</pop>
+		<push public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Deque.E"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</push>
+		<peek public="1" set="method">
+			<f a=""><c path="java.util.Deque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</peek>
+		<element public="1" set="method">
+			<f a=""><c path="java.util.Deque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</element>
+		<poll public="1" set="method">
+			<f a=""><c path="java.util.Deque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</poll>
+		<offer public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Deque.E"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</offer>
+		<add public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Deque.E"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</add>
+		<removeLastOccurrence public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</removeLastOccurrence>
+		<removeFirstOccurrence public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</removeFirstOccurrence>
+		<peekLast public="1" set="method">
+			<f a=""><c path="java.util.Deque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</peekLast>
+		<peekFirst public="1" set="method">
+			<f a=""><c path="java.util.Deque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</peekFirst>
+		<getLast public="1" set="method">
+			<f a=""><c path="java.util.Deque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</getLast>
+		<getFirst public="1" set="method">
+			<f a=""><c path="java.util.Deque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</getFirst>
+		<pollLast public="1" set="method">
+			<f a=""><c path="java.util.Deque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</pollLast>
+		<pollFirst public="1" set="method">
+			<f a=""><c path="java.util.Deque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</pollFirst>
+		<removeLast public="1" set="method">
+			<f a=""><c path="java.util.Deque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</removeLast>
+		<removeFirst public="1" set="method">
+			<f a=""><c path="java.util.Deque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</removeFirst>
+		<offerLast public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Deque.E"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</offerLast>
+		<offerFirst public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Deque.E"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</offerFirst>
+		<addLast public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Deque.E"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</addLast>
+		<addFirst public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Deque.E"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</addFirst>
+		<parallelStream public="1" set="method">
+			<f a=""><c path="java.util.stream.Stream"><c path="java.util.Deque.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</parallelStream>
+		<stream public="1" set="method">
+			<f a=""><c path="java.util.stream.Stream"><c path="java.util.Deque.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</stream>
+		<spliterator public="1" set="method">
+			<f a=""><c path="java.util.Spliterator"><c path="java.util.Deque.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</spliterator>
+		<clear public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+		</clear>
+		<retainAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</retainAll>
+		<removeIf public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.Predicate"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</removeIf>
+		<removeAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</removeAll>
+		<addAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><c path="java.util.Deque.E"/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</addAll>
+		<containsAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</containsAll>
+		<toArray public="1" params="T" set="method">
+			<f a="param1">
+				<c path="java.NativeArray"><c path="toArray.T"/></c>
+				<c path="java.NativeArray"><c path="toArray.T"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><toArray public="1" set="method">
+	<f a=""><c path="java.NativeArray"><d/></c></f>
+	<meta><m n=":overload"/></meta>
+</toArray></overloads>
+		</toArray>
+		<isEmpty public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":overload"/></meta>
+		</isEmpty>
+		<forEach public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.Consumer"><d/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</forEach>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.Deque"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util"</e>
+				<e>"Deque"</e>
 			</m>
 		</meta>
 	</class>
@@ -78989,6 +79419,572 @@
 			</m>
 		</meta>
 	</class>
+	<class path="java.util.concurrent.BlockingQueue" params="E" file="/home/travis/haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/BlockingQueue.class" extern="1" interface="1">
+		<extends path="java.util.Queue"><c path="java.util.concurrent.BlockingQueue.E"/></extends>
+		<drainTo public="1" set="method">
+			<f a="param1:param2">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><drainTo public="1" set="method">
+	<f a="param1">
+		<c path="java.util.Collection"><d/></c>
+		<x path="Int"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</drainTo></overloads>
+		</drainTo>
+		<contains public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</contains>
+		<remove public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><remove public="1" set="method">
+	<f a=""><c path="java.util.concurrent.BlockingQueue.E"/></f>
+	<meta><m n=":overload"/></meta>
+</remove></overloads>
+		</remove>
+		<remainingCapacity public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":overload"/></meta>
+		</remainingCapacity>
+		<poll public="1" set="method">
+			<f a="param1:param2">
+				<x path="haxe.Int64"/>
+				<e path="java.util.concurrent.TimeUnit"/>
+				<c path="java.util.concurrent.BlockingQueue.E"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+			<overloads><poll public="1" set="method">
+	<f a=""><c path="java.util.concurrent.BlockingQueue.E"/></f>
+	<meta><m n=":overload"/></meta>
+</poll></overloads>
+		</poll>
+		<take public="1" set="method">
+			<f a=""><c path="java.util.concurrent.BlockingQueue.E"/></f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+		</take>
+		<offer public="1" set="method">
+			<f a="param1:param2:param3">
+				<c path="java.util.concurrent.BlockingQueue.E"/>
+				<x path="haxe.Int64"/>
+				<e path="java.util.concurrent.TimeUnit"/>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+			<overloads><offer public="1" set="method">
+	<f a="param1">
+		<c path="java.util.concurrent.BlockingQueue.E"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</offer></overloads>
+		</offer>
+		<put public="1" set="method">
+			<f a="param1">
+				<c path="java.util.concurrent.BlockingQueue.E"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+		</put>
+		<add public="1" set="method">
+			<f a="param1">
+				<c path="java.util.concurrent.BlockingQueue.E"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</add>
+		<parallelStream public="1" set="method">
+			<f a=""><c path="java.util.stream.Stream"><c path="java.util.concurrent.BlockingQueue.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</parallelStream>
+		<stream public="1" set="method">
+			<f a=""><c path="java.util.stream.Stream"><c path="java.util.concurrent.BlockingQueue.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</stream>
+		<spliterator public="1" set="method">
+			<f a=""><c path="java.util.Spliterator"><c path="java.util.concurrent.BlockingQueue.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</spliterator>
+		<clear public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+		</clear>
+		<retainAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</retainAll>
+		<removeIf public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.Predicate"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</removeIf>
+		<removeAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</removeAll>
+		<addAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><c path="java.util.concurrent.BlockingQueue.E"/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</addAll>
+		<containsAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</containsAll>
+		<toArray public="1" params="T" set="method">
+			<f a="param1">
+				<c path="java.NativeArray"><c path="toArray.T"/></c>
+				<c path="java.NativeArray"><c path="toArray.T"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><toArray public="1" set="method">
+	<f a=""><c path="java.NativeArray"><d/></c></f>
+	<meta><m n=":overload"/></meta>
+</toArray></overloads>
+		</toArray>
+		<iterator public="1" set="method">
+			<f a=""><c path="java.util.Iterator"><c path="java.util.concurrent.BlockingQueue.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</iterator>
+		<isEmpty public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":overload"/></meta>
+		</isEmpty>
+		<size public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":overload"/></meta>
+		</size>
+		<forEach public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.Consumer"><d/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</forEach>
+		<element public="1" set="method">
+			<f a=""><c path="java.util.concurrent.BlockingQueue.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</element>
+		<peek public="1" set="method">
+			<f a=""><c path="java.util.concurrent.BlockingQueue.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</peek>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.concurrent.BlockingQueue"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util.concurrent"</e>
+				<e>"BlockingQueue"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.util.concurrent.BlockingDeque" params="E" file="/home/travis/haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/BlockingDeque.class" extern="1" interface="1">
+		<extends path="java.util.Deque"><c path="java.util.concurrent.BlockingDeque.E"/></extends>
+		<extends path="java.util.concurrent.BlockingQueue"><c path="java.util.concurrent.BlockingDeque.E"/></extends>
+		<push public="1" set="method">
+			<f a="param1">
+				<c path="java.util.concurrent.BlockingDeque.E"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</push>
+		<iterator public="1" set="method">
+			<f a=""><c path="java.util.Iterator"><c path="java.util.concurrent.BlockingDeque.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</iterator>
+		<size public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":overload"/></meta>
+		</size>
+		<contains public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</contains>
+		<remove public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><remove public="1" set="method">
+	<f a=""><c path="java.util.concurrent.BlockingDeque.E"/></f>
+	<meta><m n=":overload"/></meta>
+</remove></overloads>
+		</remove>
+		<peek public="1" set="method">
+			<f a=""><c path="java.util.concurrent.BlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</peek>
+		<element public="1" set="method">
+			<f a=""><c path="java.util.concurrent.BlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</element>
+		<poll public="1" set="method">
+			<f a="param1:param2">
+				<x path="haxe.Int64"/>
+				<e path="java.util.concurrent.TimeUnit"/>
+				<c path="java.util.concurrent.BlockingDeque.E"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+			<overloads><poll public="1" set="method">
+	<f a=""><c path="java.util.concurrent.BlockingDeque.E"/></f>
+	<meta><m n=":overload"/></meta>
+</poll></overloads>
+		</poll>
+		<take public="1" set="method">
+			<f a=""><c path="java.util.concurrent.BlockingDeque.E"/></f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+		</take>
+		<offer public="1" set="method">
+			<f a="param1:param2:param3">
+				<c path="java.util.concurrent.BlockingDeque.E"/>
+				<x path="haxe.Int64"/>
+				<e path="java.util.concurrent.TimeUnit"/>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+			<overloads><offer public="1" set="method">
+	<f a="param1">
+		<c path="java.util.concurrent.BlockingDeque.E"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</offer></overloads>
+		</offer>
+		<put public="1" set="method">
+			<f a="param1">
+				<c path="java.util.concurrent.BlockingDeque.E"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+		</put>
+		<add public="1" set="method">
+			<f a="param1">
+				<c path="java.util.concurrent.BlockingDeque.E"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</add>
+		<removeLastOccurrence public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</removeLastOccurrence>
+		<removeFirstOccurrence public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</removeFirstOccurrence>
+		<pollLast public="1" set="method">
+			<f a="param1:param2">
+				<x path="haxe.Int64"/>
+				<e path="java.util.concurrent.TimeUnit"/>
+				<c path="java.util.concurrent.BlockingDeque.E"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+			<overloads><pollLast public="1" set="method">
+	<f a=""><c path="java.util.concurrent.BlockingDeque.E"/></f>
+	<meta><m n=":overload"/></meta>
+</pollLast></overloads>
+		</pollLast>
+		<pollFirst public="1" set="method">
+			<f a="param1:param2">
+				<x path="haxe.Int64"/>
+				<e path="java.util.concurrent.TimeUnit"/>
+				<c path="java.util.concurrent.BlockingDeque.E"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+			<overloads><pollFirst public="1" set="method">
+	<f a=""><c path="java.util.concurrent.BlockingDeque.E"/></f>
+	<meta><m n=":overload"/></meta>
+</pollFirst></overloads>
+		</pollFirst>
+		<takeLast public="1" set="method">
+			<f a=""><c path="java.util.concurrent.BlockingDeque.E"/></f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+		</takeLast>
+		<takeFirst public="1" set="method">
+			<f a=""><c path="java.util.concurrent.BlockingDeque.E"/></f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+		</takeFirst>
+		<offerLast public="1" set="method">
+			<f a="param1:param2:param3">
+				<c path="java.util.concurrent.BlockingDeque.E"/>
+				<x path="haxe.Int64"/>
+				<e path="java.util.concurrent.TimeUnit"/>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+			<overloads><offerLast public="1" set="method">
+	<f a="param1">
+		<c path="java.util.concurrent.BlockingDeque.E"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</offerLast></overloads>
+		</offerLast>
+		<offerFirst public="1" set="method">
+			<f a="param1:param2:param3">
+				<c path="java.util.concurrent.BlockingDeque.E"/>
+				<x path="haxe.Int64"/>
+				<e path="java.util.concurrent.TimeUnit"/>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+			<overloads><offerFirst public="1" set="method">
+	<f a="param1">
+		<c path="java.util.concurrent.BlockingDeque.E"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</offerFirst></overloads>
+		</offerFirst>
+		<putLast public="1" set="method">
+			<f a="param1">
+				<c path="java.util.concurrent.BlockingDeque.E"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+		</putLast>
+		<putFirst public="1" set="method">
+			<f a="param1">
+				<c path="java.util.concurrent.BlockingDeque.E"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+		</putFirst>
+		<addLast public="1" set="method">
+			<f a="param1">
+				<c path="java.util.concurrent.BlockingDeque.E"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</addLast>
+		<addFirst public="1" set="method">
+			<f a="param1">
+				<c path="java.util.concurrent.BlockingDeque.E"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</addFirst>
+		<forEach public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.Consumer"><d/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</forEach>
+		<isEmpty public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":overload"/></meta>
+		</isEmpty>
+		<toArray public="1" set="method">
+			<f a=""><c path="java.NativeArray"><d/></c></f>
+			<meta><m n=":overload"/></meta>
+			<overloads><toArray public="1" params="T" set="method">
+	<f a="param1">
+		<c path="java.NativeArray"><c path="toArray.T"/></c>
+		<c path="java.NativeArray"><c path="toArray.T"/></c>
+	</f>
+	<meta><m n=":overload"/></meta>
+</toArray></overloads>
+		</toArray>
+		<containsAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</containsAll>
+		<addAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><c path="java.util.concurrent.BlockingDeque.E"/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</addAll>
+		<removeAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</removeAll>
+		<removeIf public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.Predicate"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</removeIf>
+		<retainAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</retainAll>
+		<clear public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+		</clear>
+		<spliterator public="1" set="method">
+			<f a=""><c path="java.util.Spliterator"><c path="java.util.concurrent.BlockingDeque.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</spliterator>
+		<stream public="1" set="method">
+			<f a=""><c path="java.util.stream.Stream"><c path="java.util.concurrent.BlockingDeque.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</stream>
+		<parallelStream public="1" set="method">
+			<f a=""><c path="java.util.stream.Stream"><c path="java.util.concurrent.BlockingDeque.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</parallelStream>
+		<removeFirst public="1" set="method">
+			<f a=""><c path="java.util.concurrent.BlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</removeFirst>
+		<removeLast public="1" set="method">
+			<f a=""><c path="java.util.concurrent.BlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</removeLast>
+		<getFirst public="1" set="method">
+			<f a=""><c path="java.util.concurrent.BlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</getFirst>
+		<getLast public="1" set="method">
+			<f a=""><c path="java.util.concurrent.BlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</getLast>
+		<peekFirst public="1" set="method">
+			<f a=""><c path="java.util.concurrent.BlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</peekFirst>
+		<peekLast public="1" set="method">
+			<f a=""><c path="java.util.concurrent.BlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</peekLast>
+		<pop public="1" set="method">
+			<f a=""><c path="java.util.concurrent.BlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</pop>
+		<descendingIterator public="1" set="method">
+			<f a=""><c path="java.util.Iterator"><c path="java.util.concurrent.BlockingDeque.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</descendingIterator>
+		<remainingCapacity public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":overload"/></meta>
+		</remainingCapacity>
+		<drainTo public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><drainTo public="1" set="method">
+	<f a="param1:param2">
+		<c path="java.util.Collection"><d/></c>
+		<x path="Int"/>
+		<x path="Int"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</drainTo></overloads>
+		</drainTo>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.concurrent.BlockingDeque"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util.concurrent"</e>
+				<e>"BlockingDeque"</e>
+			</m>
+		</meta>
+	</class>
 	<class path="java.util.concurrent.Callable" params="V" file="/home/travis/haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/Callable.class" extern="1" interface="1">
 		<call public="1" set="method">
 			<f a=""><c path="java.util.concurrent.Callable.V"/></f>
@@ -79241,6 +80237,467 @@
 			<m n=":javaCanonical">
 				<e>"java.util.concurrent"</e>
 				<e>"Future"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.util.concurrent.LinkedBlockingDeque" params="E" file="/home/travis/haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/LinkedBlockingDeque.class" extern="1">
+		<extends path="java.util.AbstractQueue"><c path="java.util.concurrent.LinkedBlockingDeque.E"/></extends>
+		<implements path="java.io.Serializable"/>
+		<implements path="java.util.concurrent.BlockingDeque"><c path="java.util.concurrent.LinkedBlockingDeque.E"/></implements>
+		<spliterator public="1" set="method" override="1">
+			<f a=""><c path="java.util.Spliterator"><c path="java.util.concurrent.LinkedBlockingDeque.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</spliterator>
+		<descendingIterator public="1" set="method">
+			<f a=""><c path="java.util.Iterator"><c path="java.util.concurrent.LinkedBlockingDeque.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</descendingIterator>
+		<iterator public="1" set="method" override="1">
+			<f a=""><c path="java.util.Iterator"><c path="java.util.concurrent.LinkedBlockingDeque.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</iterator>
+		<clear public="1" set="method" override="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+		</clear>
+		<toString public="1" set="method" override="1">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":overload"/></meta>
+		</toString>
+		<toArray public="1" params="T" set="method" override="1">
+			<f a="param1">
+				<c path="java.NativeArray"><c path="toArray.T"/></c>
+				<c path="java.NativeArray"><c path="toArray.T"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><toArray public="1" set="method">
+	<f a=""><c path="java.NativeArray"><d/></c></f>
+	<meta><m n=":overload"/></meta>
+</toArray></overloads>
+		</toArray>
+		<contains public="1" set="method" override="1">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</contains>
+		<size public="1" set="method" override="1">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":overload"/></meta>
+		</size>
+		<remove public="1" set="method" override="1">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><remove public="1" set="method">
+	<f a=""><c path="java.util.concurrent.LinkedBlockingDeque.E"/></f>
+	<meta><m n=":overload"/></meta>
+</remove></overloads>
+		</remove>
+		<pop public="1" set="method">
+			<f a=""><c path="java.util.concurrent.LinkedBlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</pop>
+		<push public="1" set="method">
+			<f a="param1">
+				<c path="java.util.concurrent.LinkedBlockingDeque.E"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</push>
+		<drainTo public="1" set="method">
+			<f a="param1:param2">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><drainTo public="1" set="method">
+	<f a="param1">
+		<c path="java.util.Collection"><d/></c>
+		<x path="Int"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</drainTo></overloads>
+		</drainTo>
+		<remainingCapacity public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":overload"/></meta>
+		</remainingCapacity>
+		<peek public="1" set="method" override="1">
+			<f a=""><c path="java.util.concurrent.LinkedBlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</peek>
+		<element public="1" set="method" override="1">
+			<f a=""><c path="java.util.concurrent.LinkedBlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</element>
+		<poll public="1" set="method" override="1">
+			<f a="param1:param2">
+				<x path="haxe.Int64"/>
+				<e path="java.util.concurrent.TimeUnit"/>
+				<c path="java.util.concurrent.LinkedBlockingDeque.E"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+			<overloads><poll public="1" set="method">
+	<f a=""><c path="java.util.concurrent.LinkedBlockingDeque.E"/></f>
+	<meta><m n=":overload"/></meta>
+</poll></overloads>
+		</poll>
+		<take public="1" set="method">
+			<f a=""><c path="java.util.concurrent.LinkedBlockingDeque.E"/></f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+		</take>
+		<offer public="1" set="method" override="1">
+			<f a="param1:param2:param3">
+				<c path="java.util.concurrent.LinkedBlockingDeque.E"/>
+				<x path="haxe.Int64"/>
+				<e path="java.util.concurrent.TimeUnit"/>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+			<overloads><offer public="1" set="method">
+	<f a="param1">
+		<c path="java.util.concurrent.LinkedBlockingDeque.E"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</offer></overloads>
+		</offer>
+		<put public="1" set="method">
+			<f a="param1">
+				<c path="java.util.concurrent.LinkedBlockingDeque.E"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+		</put>
+		<add public="1" set="method" override="1">
+			<f a="param1">
+				<c path="java.util.concurrent.LinkedBlockingDeque.E"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</add>
+		<removeLastOccurrence public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</removeLastOccurrence>
+		<removeFirstOccurrence public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</removeFirstOccurrence>
+		<peekLast public="1" set="method">
+			<f a=""><c path="java.util.concurrent.LinkedBlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</peekLast>
+		<peekFirst public="1" set="method">
+			<f a=""><c path="java.util.concurrent.LinkedBlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</peekFirst>
+		<getLast public="1" set="method">
+			<f a=""><c path="java.util.concurrent.LinkedBlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</getLast>
+		<getFirst public="1" set="method">
+			<f a=""><c path="java.util.concurrent.LinkedBlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</getFirst>
+		<pollLast public="1" set="method">
+			<f a="param1:param2">
+				<x path="haxe.Int64"/>
+				<e path="java.util.concurrent.TimeUnit"/>
+				<c path="java.util.concurrent.LinkedBlockingDeque.E"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+			<overloads><pollLast public="1" set="method">
+	<f a=""><c path="java.util.concurrent.LinkedBlockingDeque.E"/></f>
+	<meta><m n=":overload"/></meta>
+</pollLast></overloads>
+		</pollLast>
+		<pollFirst public="1" set="method">
+			<f a="param1:param2">
+				<x path="haxe.Int64"/>
+				<e path="java.util.concurrent.TimeUnit"/>
+				<c path="java.util.concurrent.LinkedBlockingDeque.E"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+			<overloads><pollFirst public="1" set="method">
+	<f a=""><c path="java.util.concurrent.LinkedBlockingDeque.E"/></f>
+	<meta><m n=":overload"/></meta>
+</pollFirst></overloads>
+		</pollFirst>
+		<takeLast public="1" set="method">
+			<f a=""><c path="java.util.concurrent.LinkedBlockingDeque.E"/></f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+		</takeLast>
+		<takeFirst public="1" set="method">
+			<f a=""><c path="java.util.concurrent.LinkedBlockingDeque.E"/></f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+		</takeFirst>
+		<removeLast public="1" set="method">
+			<f a=""><c path="java.util.concurrent.LinkedBlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</removeLast>
+		<removeFirst public="1" set="method">
+			<f a=""><c path="java.util.concurrent.LinkedBlockingDeque.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</removeFirst>
+		<offerLast public="1" set="method">
+			<f a="param1:param2:param3">
+				<c path="java.util.concurrent.LinkedBlockingDeque.E"/>
+				<x path="haxe.Int64"/>
+				<e path="java.util.concurrent.TimeUnit"/>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+			<overloads><offerLast public="1" set="method">
+	<f a="param1">
+		<c path="java.util.concurrent.LinkedBlockingDeque.E"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</offerLast></overloads>
+		</offerLast>
+		<offerFirst public="1" set="method">
+			<f a="param1:param2:param3">
+				<c path="java.util.concurrent.LinkedBlockingDeque.E"/>
+				<x path="haxe.Int64"/>
+				<e path="java.util.concurrent.TimeUnit"/>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+			<overloads><offerFirst public="1" set="method">
+	<f a="param1">
+		<c path="java.util.concurrent.LinkedBlockingDeque.E"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</offerFirst></overloads>
+		</offerFirst>
+		<putLast public="1" set="method">
+			<f a="param1">
+				<c path="java.util.concurrent.LinkedBlockingDeque.E"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+		</putLast>
+		<putFirst public="1" set="method">
+			<f a="param1">
+				<c path="java.util.concurrent.LinkedBlockingDeque.E"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.lang.InterruptedException"</e></m>
+			</meta>
+		</putFirst>
+		<addLast public="1" set="method">
+			<f a="param1">
+				<c path="java.util.concurrent.LinkedBlockingDeque.E"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</addLast>
+		<addFirst public="1" set="method">
+			<f a="param1">
+				<c path="java.util.concurrent.LinkedBlockingDeque.E"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</addFirst>
+		<new public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><c path="java.util.concurrent.LinkedBlockingDeque.E"/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<new public="1" set="method">
+					<f a=""><x path="Void"/></f>
+					<meta><m n=":overload"/></meta>
+				</new>
+				<new public="1" set="method">
+					<f a="param1">
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</new>
+			</overloads>
+		</new>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.concurrent.LinkedBlockingDeque"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util.concurrent"</e>
+				<e>"LinkedBlockingDeque"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.util.concurrent.LinkedBlockingDeque_Node" params="E" file="/home/travis/haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/LinkedBlockingDeque$Node.class" module="java.util.concurrent.LinkedBlockingDeque" extern="1"><meta>
+	<m n=":nativeGen"/>
+	<m n=":libType"/>
+	<m n=":javaNative"/>
+	<m n=":native"><e>"java.util.concurrent.LinkedBlockingDeque$Node"</e></m>
+	<m n=":javaCanonical">
+		<e>"java.util.concurrent"</e>
+		<e>"LinkedBlockingDeque.Node"</e>
+	</m>
+</meta></class>
+	<class path="java.util.concurrent.LinkedBlockingDeque_AbstractItr" params="" file="/home/travis/haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/LinkedBlockingDeque$AbstractItr.class" module="java.util.concurrent.LinkedBlockingDeque" extern="1">
+		<implements path="java.util.Iterator"><d/></implements>
+		<remove public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+		</remove>
+		<next public="1" set="method">
+			<f a=""><d/></f>
+			<meta><m n=":overload"/></meta>
+		</next>
+		<hasNext public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":overload"/></meta>
+		</hasNext>
+		<forEachRemaining public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.Consumer"><d/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</forEachRemaining>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.concurrent.LinkedBlockingDeque$AbstractItr"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util.concurrent"</e>
+				<e>"LinkedBlockingDeque.AbstractItr"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.util.concurrent.LinkedBlockingDeque_Itr" params="" file="/home/travis/haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/LinkedBlockingDeque$Itr.class" module="java.util.concurrent.LinkedBlockingDeque" extern="1">
+		<extends path="java.util.concurrent.LinkedBlockingDeque_AbstractItr"/>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.concurrent.LinkedBlockingDeque$Itr"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util.concurrent"</e>
+				<e>"LinkedBlockingDeque.Itr"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.util.concurrent.LinkedBlockingDeque_DescendingItr" params="" file="/home/travis/haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/LinkedBlockingDeque$DescendingItr.class" module="java.util.concurrent.LinkedBlockingDeque" extern="1">
+		<extends path="java.util.concurrent.LinkedBlockingDeque_AbstractItr"/>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.concurrent.LinkedBlockingDeque$DescendingItr"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util.concurrent"</e>
+				<e>"LinkedBlockingDeque.DescendingItr"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.util.concurrent.LinkedBlockingDeque_LBDSpliterator" params="E" file="/home/travis/haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/LinkedBlockingDeque$LBDSpliterator.class" module="java.util.concurrent.LinkedBlockingDeque" extern="1">
+		<implements path="java.util.Spliterator"><c path="java.util.concurrent.LinkedBlockingDeque_LBDSpliterator.E"/></implements>
+		<characteristics public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":overload"/></meta>
+		</characteristics>
+		<tryAdvance public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.Consumer"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</tryAdvance>
+		<forEachRemaining public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.Consumer"><d/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</forEachRemaining>
+		<trySplit public="1" set="method">
+			<f a=""><c path="java.util.Spliterator"><c path="java.util.concurrent.LinkedBlockingDeque_LBDSpliterator.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</trySplit>
+		<estimateSize public="1" set="method">
+			<f a=""><x path="haxe.Int64"/></f>
+			<meta><m n=":overload"/></meta>
+		</estimateSize>
+		<getExactSizeIfKnown public="1" set="method">
+			<f a=""><x path="haxe.Int64"/></f>
+			<meta><m n=":overload"/></meta>
+		</getExactSizeIfKnown>
+		<hasCharacteristics public="1" set="method">
+			<f a="param1">
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</hasCharacteristics>
+		<getComparator public="1" set="method">
+			<f a=""><c path="java.util.Comparator"><d/></c></f>
+			<meta><m n=":overload"/></meta>
+		</getComparator>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.concurrent.LinkedBlockingDeque$LBDSpliterator"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util.concurrent"</e>
+				<e>"LinkedBlockingDeque.LBDSpliterator"</e>
 			</m>
 		</meta>
 	</class>
@@ -86045,36 +87502,26 @@
 		<meta><m n=":hxGen"/></meta>
 	</class>
 	<class path="sys.thread.Deque" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/sys/thread/Deque.hx">
-		<head>
-			<c path="sys.thread.Node"><c path="sys.thread.Deque.T"/></c>
-			<meta><m n=":private"/></meta>
-		</head>
-		<tail>
-			<c path="sys.thread.Node"><c path="sys.thread.Deque.T"/></c>
-			<meta><m n=":private"/></meta>
-		</tail>
-		<add public="1" set="method" line="37">
+		<lbd><c path="java.util.concurrent.LinkedBlockingDeque"><c path="sys.thread.Deque.T"/></c></lbd>
+		<add public="1" set="method" line="36">
 			<f a="i">
 				<c path="sys.thread.Deque.T"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Adds an element at the end of `this` Deque.</haxe_doc>
 		</add>
-		<push public="1" set="method" line="48">
+		<push public="1" set="method" line="40">
 			<f a="i">
 				<c path="sys.thread.Deque.T"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Adds an element at the front of `this` Deque.</haxe_doc>
 		</push>
-		<pop public="1" set="method" line="59">
+		<pop public="1" get="inline" set="null" line="44">
 			<f a="block">
 				<x path="Bool"/>
 				<x path="Null"><c path="sys.thread.Deque.T"/></x>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Tries to retrieve an element from the front of `this` Deque.
 
 		If an element is available, it is removed from the queue and returned.
@@ -86093,19 +87540,6 @@
 			<m n=":nativeGen"/>
 			<m n=":coreApi"/>
 			<m n=":native"><e>"haxe.java.vm.Deque"</e></m>
-			<m n=":nativeGen"/>
-		</meta>
-	</class>
-	<class path="sys.thread.Node" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/sys/thread/Deque.hx" module="sys.thread.Deque">
-		<value public="1"><c path="sys.thread.Node.T"/></value>
-		<next public="1"><c path="sys.thread.Node"><c path="sys.thread.Node.T"/></c></next>
-		<new public="1" set="method" line="88"><f a="val">
-	<c path="sys.thread.Node.T"/>
-	<x path="Void"/>
-</f></new>
-		<meta>
-			<m n=":nativeGen"/>
-			<m n=":native"><e>"haxe.java.vm.DequeNode"</e></m>
 			<m n=":nativeGen"/>
 		</meta>
 	</class>

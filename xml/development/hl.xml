@@ -5570,54 +5570,207 @@
 		The order of values is undefined.</haxe_doc>
 		</keyValueIterator>
 	</class>
-	<class path="haxe._EntryPoint.Lock" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/EntryPoint.hx" private="1" module="haxe.EntryPoint">
-		<release public="1" get="inline" set="null" line="19"><f a=""><x path="Void"/></f></release>
-		<wait public="1" get="inline" set="null" line="21"><f a="?t">
-	<x path="Float"/>
-	<x path="Void"/>
-</f></wait>
-		<new public="1" set="method" line="17"><f a=""><x path="Void"/></f></new>
+	<class path="sys.thread._Mutex.Mutex_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/thread/Mutex.hx" private="1" module="sys.thread.Mutex">
+		<_new public="1" set="method" line="34" static="1">
+			<f a=""><x path="sys.thread.Mutex"/></f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+			<haxe_doc>Creates a mutex.</haxe_doc>
+		</_new>
+		<acquire public="1" set="method" line="43" static="1">
+			<f a="this">
+				<c path="hl.Abstract"><c path="Shl_mutex"/></c>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":hlNative">
+					<e>"std"</e>
+					<e>"mutex_acquire"</e>
+				</m>
+			</meta>
+			<haxe_doc>The current thread acquire the mutex or wait if not available.
+		The same thread can acquire several times the same mutex but
+		must release it as many times it has been acquired.</haxe_doc>
+		</acquire>
+		<tryAcquire public="1" set="method" line="50" static="1">
+			<f a="this">
+				<c path="hl.Abstract"><c path="Shl_mutex"/></c>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":hlNative">
+					<e>"std"</e>
+					<e>"mutex_try_acquire"</e>
+				</m>
+			</meta>
+			<haxe_doc>Try to acquire the mutex, returns true if acquire or false
+		if it's already locked by another thread.</haxe_doc>
+		</tryAcquire>
+		<release public="1" set="method" line="59" static="1">
+			<f a="this">
+				<c path="hl.Abstract"><c path="Shl_mutex"/></c>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":hlNative">
+					<e>"std"</e>
+					<e>"mutex_release"</e>
+				</m>
+			</meta>
+			<haxe_doc>Release a mutex that has been acquired by the current thread.
+		The behavior is undefined if the current thread does not own
+		the mutex.</haxe_doc>
+		</release>
+		<alloc public="1" set="method" line="62" static="1">
+			<f a="b">
+				<x path="Bool"/>
+				<c path="hl.Abstract"><c path="Shl_mutex"/></c>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"mutex_alloc"</e>
+</m></meta>
+		</alloc>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
-	<class path="haxe._EntryPoint.Mutex" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/EntryPoint.hx" private="1" module="haxe.EntryPoint">
-		<acquire public="1" get="inline" set="null" line="27"><f a=""><x path="Void"/></f></acquire>
-		<release public="1" get="inline" set="null" line="29"><f a=""><x path="Void"/></f></release>
-		<new public="1" set="method" line="25"><f a=""><x path="Void"/></f></new>
+	<class path="sys.thread.Lock" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/thread/Lock.hx">
+		<deque><x path="sys.thread.Deque"><x path="Bool"/></x></deque>
+		<wait public="1" set="method" line="33">
+			<f a="?timeout">
+				<x path="Float"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Waits for the lock to be released, or `timeout` (in seconds)
+		to expire. Returns `true` if the lock is released and `false`
+		if a time-out occurs.</haxe_doc>
+		</wait>
+		<release public="1" set="method" line="47">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Releases the lock once.
+
+		The thread does not need to own the lock in order to release
+		it. Each call to `release` allows exactly one call to `wait`
+		to execute.</haxe_doc>
+		</release>
+		<new public="1" set="method" line="29">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a new Lock which is initially locked.</haxe_doc>
+		</new>
+		<haxe_doc>A Lock allows blocking execution until it has been unlocked. It keeps track
+	of how often `release` has been called, and blocks exactly as many `wait`
+	calls.
+
+	The order of the `release` and `wait` calls is irrelevant. That is, a Lock
+	can be released before anyone waits for it. In that case, the `wait` call
+	will execute immediately.
+
+	Usage example:
+
+	```
+		var lock = new Lock();
+		var elements = [1, 2, 3];
+		for (element in elements) {
+			// Create one thread per element
+			new Thread(function() {
+				trace(element);
+				Sys.sleep(1);
+				// Release once per thread = 3 times
+				lock.release();
+			});
+		}
+		for (_ in elements) {
+			// Wait 3 times
+			lock.wait();
+		}
+		trace("All threads finished");
+	```</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
-	<class path="haxe._EntryPoint.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/EntryPoint.hx" private="1" module="haxe.EntryPoint"><create public="1" set="method" line="33" static="1"><f a="f">
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></create></class>
+	<class path="sys.thread._Deque.Deque_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/thread/Deque.hx" private="1" module="sys.thread.Deque">
+		<_new public="1" set="method" line="33" static="1">
+			<f a=""><x path="sys.thread.Deque"><c path="sys.thread.Deque.T"/></x></f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+			<haxe_doc>Create a message queue for multithread access.</haxe_doc>
+		</_new>
+		<add public="1" set="method" line="40" static="1">
+			<f a="this:i">
+				<c path="hl.Abstract"><c path="Shl_deque"/></c>
+				<c path="sys.thread.Deque.T"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Add a message at the end of the queue.</haxe_doc>
+		</add>
+		<push public="1" set="method" line="46" static="1">
+			<f a="this:i">
+				<c path="hl.Abstract"><c path="Shl_deque"/></c>
+				<c path="sys.thread.Deque.T"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Add a message at the head of the queue.</haxe_doc>
+		</push>
+		<pop public="1" set="method" line="53" static="1">
+			<f a="this:block">
+				<c path="hl.Abstract"><c path="Shl_deque"/></c>
+				<x path="Bool"/>
+				<x path="Null"><c path="sys.thread.Deque.T"/></x>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Pop a message from the queue head. Either block until a message
+		is available or return immediately with `null`.</haxe_doc>
+		</pop>
+		<alloc set="method" line="57" static="1"><f a=""><c path="hl.Abstract"><c path="Shl_deque"/></c></f></alloc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":hlNative">
+				<e>"std"</e>
+				<e>"deque_"</e>
+			</m>
+		</meta>
+	</class>
 	<class path="haxe.EntryPoint" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/EntryPoint.hx">
-		<sleepLock expr="new Lock()" line="46" static="1">
-			<c path="haxe._EntryPoint.Lock"/>
+		<sleepLock expr="new Lock()" line="37" static="1">
+			<c path="sys.thread.Lock"/>
 			<meta><m n=":value"><e>new Lock()</e></m></meta>
 		</sleepLock>
-		<mutex expr="new Mutex()" line="47" static="1">
-			<c path="haxe._EntryPoint.Mutex"/>
+		<mutex expr="new Mutex()" line="38" static="1">
+			<x path="sys.thread.Mutex"/>
 			<meta><m n=":value"><e>new Mutex()</e></m></meta>
 		</mutex>
-		<pending expr="new Array&lt;Void&gt;()" line="49" static="1">
+		<pending expr="new Array&lt;Void&gt;()" line="40" static="1">
 			<c path="Array"><f a=""><x path="Void"/></f></c>
 			<meta><m n=":value"><e><![CDATA[new Array<Void>()]]></e></m></meta>
 		</pending>
-		<threadCount public="1" set="null" expr="0" line="51" static="1">
+		<threadCount public="1" set="null" expr="0" line="41" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>0</e></m></meta>
 		</threadCount>
-		<wakeup public="1" set="method" line="56" static="1">
+		<wakeup public="1" set="method" line="46" static="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Wakeup a sleeping run()</haxe_doc>
 		</wakeup>
-		<runInMainThread public="1" set="method" line="62" static="1"><f a="f">
+		<runInMainThread public="1" set="method" line="52" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runInMainThread>
-		<addThread public="1" set="method" line="73" static="1"><f a="f">
+		<addThread public="1" set="method" line="63" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></addThread>
-		<processEvents set="method" line="91" static="1"><f a=""><x path="Float"/></f></processEvents>
-		<run public="1" set="method" line="113" static="1">
+		<processEvents set="method" line="85" static="1"><f a=""><x path="Float"/></f></processEvents>
+		<run public="1" set="method" line="108" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Start the main loop. Depending on the platform, this can return immediately or will only return when the application exits.</haxe_doc>
@@ -33947,106 +34100,15 @@
 		is available or return immediately with `null`.</haxe_doc>
 	</pop>
 	<alloc set="method" line="57" static="1"><f a=""><c path="hl.Abstract"><c path="Shl_deque"/></c></f></alloc>
-	<meta><m n=":hlNative">
-	<e>"std"</e>
-	<e>"deque_"</e>
-</m></meta>
+	<meta>
+		<m n=":directlyUsed"/>
+		<m n=":hlNative">
+			<e>"std"</e>
+			<e>"deque_"</e>
+		</m>
+	</meta>
 </class></impl>
 	</abstract>
-	<class path="sys.thread._Deque.Deque_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/thread/Deque.hx" private="1" module="sys.thread.Deque">
-		<_new public="1" set="method" line="33" static="1">
-			<f a=""><x path="sys.thread.Deque"><c path="sys.thread.Deque.T"/></x></f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":noCompletion"/>
-			</meta>
-			<haxe_doc>Create a message queue for multithread access.</haxe_doc>
-		</_new>
-		<add public="1" set="method" line="40" static="1">
-			<f a="this:i">
-				<c path="hl.Abstract"><c path="Shl_deque"/></c>
-				<c path="sys.thread.Deque.T"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":impl"/></meta>
-			<haxe_doc>Add a message at the end of the queue.</haxe_doc>
-		</add>
-		<push public="1" set="method" line="46" static="1">
-			<f a="this:i">
-				<c path="hl.Abstract"><c path="Shl_deque"/></c>
-				<c path="sys.thread.Deque.T"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":impl"/></meta>
-			<haxe_doc>Add a message at the head of the queue.</haxe_doc>
-		</push>
-		<pop public="1" set="method" line="53" static="1">
-			<f a="this:block">
-				<c path="hl.Abstract"><c path="Shl_deque"/></c>
-				<x path="Bool"/>
-				<x path="Null"><c path="sys.thread.Deque.T"/></x>
-			</f>
-			<meta><m n=":impl"/></meta>
-			<haxe_doc>Pop a message from the queue head. Either block until a message
-		is available or return immediately with `null`.</haxe_doc>
-		</pop>
-		<alloc set="method" line="57" static="1"><f a=""><c path="hl.Abstract"><c path="Shl_deque"/></c></f></alloc>
-		<meta><m n=":hlNative">
-	<e>"std"</e>
-	<e>"deque_"</e>
-</m></meta>
-	</class>
-	<class path="sys.thread.Lock" params="" file="/home/travis/build/HaxeFoundation/haxe/std/sys/thread/Lock.hx" extern="1">
-		<wait public="1" set="method">
-			<f a="?timeout">
-				<x path="Float"/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Waits for the lock to be released, or `timeout` (in seconds)
-		to expire. Returns `true` if the lock is released and `false`
-		if a time-out occurs.</haxe_doc>
-		</wait>
-		<release public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Releases the lock once.
-
-		The thread does not need to own the lock in order to release
-		it. Each call to `release` allows exactly one call to `wait`
-		to execute.</haxe_doc>
-		</release>
-		<new public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Creates a new Lock which is initially locked.</haxe_doc>
-		</new>
-		<haxe_doc>A Lock allows blocking execution until it has been unlocked. It keeps track
-	of how often `release` has been called, and blocks exactly as many `wait`
-	calls.
-
-	The order of the `release` and `wait` calls is irrelevant. That is, a Lock
-	can be released before anyone waits for it. In that case, the `wait` call
-	will execute immediately.
-
-	Usage example:
-
-	```
-		var lock = new Lock();
-		var elements = [1, 2, 3];
-		for (element in elements) {
-			// Create one thread per element
-			new Thread(function() {
-				trace(element);
-				Sys.sleep(1);
-				// Release once per thread = 3 times
-				lock.release();
-			});
-		}
-		for (_ in elements) {
-			// Wait 3 times
-			lock.wait();
-		}
-		trace("All threads finished");
-	```</haxe_doc>
-	</class>
 	<abstract path="sys.thread.Mutex" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/thread/Mutex.hx">
 		<this><c path="hl.Abstract"><c path="Shl_mutex"/></c></this>
 		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
@@ -34118,75 +34180,9 @@
 	<e>"mutex_alloc"</e>
 </m></meta>
 	</alloc>
+	<meta><m n=":directlyUsed"/></meta>
 </class></impl>
 	</abstract>
-	<class path="sys.thread._Mutex.Mutex_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/thread/Mutex.hx" private="1" module="sys.thread.Mutex">
-		<_new public="1" set="method" line="34" static="1">
-			<f a=""><x path="sys.thread.Mutex"/></f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":noCompletion"/>
-			</meta>
-			<haxe_doc>Creates a mutex.</haxe_doc>
-		</_new>
-		<acquire public="1" set="method" line="43" static="1">
-			<f a="this">
-				<c path="hl.Abstract"><c path="Shl_mutex"/></c>
-				<x path="Void"/>
-			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":hlNative">
-					<e>"std"</e>
-					<e>"mutex_acquire"</e>
-				</m>
-			</meta>
-			<haxe_doc>The current thread acquire the mutex or wait if not available.
-		The same thread can acquire several times the same mutex but
-		must release it as many times it has been acquired.</haxe_doc>
-		</acquire>
-		<tryAcquire public="1" set="method" line="50" static="1">
-			<f a="this">
-				<c path="hl.Abstract"><c path="Shl_mutex"/></c>
-				<x path="Bool"/>
-			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":hlNative">
-					<e>"std"</e>
-					<e>"mutex_try_acquire"</e>
-				</m>
-			</meta>
-			<haxe_doc>Try to acquire the mutex, returns true if acquire or false
-		if it's already locked by another thread.</haxe_doc>
-		</tryAcquire>
-		<release public="1" set="method" line="59" static="1">
-			<f a="this">
-				<c path="hl.Abstract"><c path="Shl_mutex"/></c>
-				<x path="Void"/>
-			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":hlNative">
-					<e>"std"</e>
-					<e>"mutex_release"</e>
-				</m>
-			</meta>
-			<haxe_doc>Release a mutex that has been acquired by the current thread.
-		The behavior is undefined if the current thread does not own
-		the mutex.</haxe_doc>
-		</release>
-		<alloc public="1" set="method" line="62" static="1">
-			<f a="b">
-				<x path="Bool"/>
-				<c path="hl.Abstract"><c path="Shl_mutex"/></c>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"std"</e>
-	<e>"mutex_alloc"</e>
-</m></meta>
-		</alloc>
-	</class>
 	<typedef path="sys.thread.ThreadHandle" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/thread/Thread.hx" module="sys.thread.Thread"><c path="hl.Abstract"><c path="Shl_thread"/></c></typedef>
 	<abstract path="sys.thread.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/thread/Thread.hx">
 		<this><t path="sys.thread.ThreadHandle"/></this>
