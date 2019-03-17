@@ -5551,26 +5551,26 @@
 		The order of values is undefined.</haxe_doc>
 		</keyValueIterator>
 	</class>
-	<class path="neko.vm.Mutex" params="" file="/home/travis/build/HaxeFoundation/haxe/std/neko/vm/Mutex.hx">
-		<mutex_create expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_create&quot;, 0)" line="65" static="1">
+	<class path="sys.thread.Mutex" params="" file="/home/travis/build/HaxeFoundation/haxe/std/neko/_std/sys/thread/Mutex.hx">
+		<mutex_create expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_create&quot;, 0)" line="44" static="1">
 			<f a=""><unknown/></f>
 			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_create", 0)</e></m></meta>
 		</mutex_create>
-		<mutex_release expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_release&quot;, 1)" line="66" static="1">
+		<mutex_release expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_release&quot;, 1)" line="45" static="1">
 			<f a="">
 				<d/>
 				<unknown/>
 			</f>
 			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_release", 1)</e></m></meta>
 		</mutex_release>
-		<mutex_acquire expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_acquire&quot;, 1)" line="67" static="1">
+		<mutex_acquire expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_acquire&quot;, 1)" line="46" static="1">
 			<f a="">
 				<d/>
 				<unknown/>
 			</f>
 			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_acquire", 1)</e></m></meta>
 		</mutex_acquire>
-		<mutex_try expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_try&quot;, 1)" line="68" static="1">
+		<mutex_try expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_try&quot;, 1)" line="47" static="1">
 			<f a="">
 				<d/>
 				<x path="Bool"/>
@@ -5578,45 +5578,48 @@
 			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_try", 1)</e></m></meta>
 		</mutex_try>
 		<m><d/></m>
-		<acquire public="1" set="method" line="44">
+		<acquire public="1" set="method" line="32">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>The current thread acquire the mutex or wait if not available.
-		The same thread can acquire several times the same mutex but 
+		The same thread can acquire several times the same mutex but
 		must release it as many times it has been acquired.</haxe_doc>
 		</acquire>
-		<tryAcquire public="1" set="method" line="52">
+		<tryAcquire public="1" set="method" line="36">
 			<f a=""><x path="Bool"/></f>
-			<haxe_doc>Try to acquire the mutex, returns true if acquire or false 
+			<haxe_doc>Try to acquire the mutex, returns true if acquire or false
 		if it's already locked by another thread.</haxe_doc>
 		</tryAcquire>
-		<release public="1" set="method" line="61">
+		<release public="1" set="method" line="40">
 			<f a=""><x path="Void"/></f>
-			<haxe_doc>Release a mutex that has been acquired by the current thread. 
+			<haxe_doc>Release a mutex that has been acquired by the current thread.
 		The behavior is undefined if the current thread does not own
 		the mutex.</haxe_doc>
 		</release>
-		<new public="1" set="method" line="35">
+		<new public="1" set="method" line="28">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a mutex.</haxe_doc>
 		</new>
-		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock 
-	to access some ressource. The main difference with a lock is 
+		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
+	to access some ressource. The main difference with a lock is
 	that a mutex must always be released by the owner thread.</haxe_doc>
-		<meta><m n=":directlyUsed"/></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
-	<class path="neko.vm.Lock" params="" file="/home/travis/build/HaxeFoundation/haxe/std/neko/vm/Lock.hx">
-		<lock_create expr="neko.Lib.load(&quot;std&quot;, &quot;lock_create&quot;, 0)" line="52" static="1">
+	<class path="sys.thread.Lock" params="" file="/home/travis/build/HaxeFoundation/haxe/std/neko/_std/sys/thread/Lock.hx">
+		<lock_create expr="neko.Lib.load(&quot;std&quot;, &quot;lock_create&quot;, 0)" line="40" static="1">
 			<f a=""><unknown/></f>
 			<meta><m n=":value"><e>neko.Lib.load("std", "lock_create", 0)</e></m></meta>
 		</lock_create>
-		<lock_release expr="neko.Lib.load(&quot;std&quot;, &quot;lock_release&quot;, 1)" line="53" static="1">
+		<lock_release expr="neko.Lib.load(&quot;std&quot;, &quot;lock_release&quot;, 1)" line="41" static="1">
 			<f a="">
 				<d/>
 				<unknown/>
 			</f>
 			<meta><m n=":value"><e>neko.Lib.load("std", "lock_release", 1)</e></m></meta>
 		</lock_release>
-		<lock_wait expr="neko.Lib.load(&quot;std&quot;, &quot;lock_wait&quot;, 2)" line="54" static="1">
+		<lock_wait expr="neko.Lib.load(&quot;std&quot;, &quot;lock_wait&quot;, 2)" line="42" static="1">
 			<f a=":">
 				<d/>
 				<x path="Null"><x path="Float"/></x>
@@ -5625,34 +5628,67 @@
 			<meta><m n=":value"><e>neko.Lib.load("std", "lock_wait", 2)</e></m></meta>
 		</lock_wait>
 		<l><d/></l>
-		<wait public="1" set="method" line="39">
+		<wait public="1" set="method" line="32">
 			<f a="?timeout">
 				<x path="Float"/>
 				<x path="Bool"/>
 			</f>
-			<haxe_doc>Waits for a lock to be released and acquire it. If timeout 
-		(in seconds) is not `null` and expires then the returned 
-		value is `false`.</haxe_doc>
+			<haxe_doc>Waits for the lock to be released, or `timeout` (in seconds)
+		to expire. Returns `true` if the lock is released and `false`
+		if a time-out occurs.</haxe_doc>
 		</wait>
-		<release public="1" set="method" line="48">
+		<release public="1" set="method" line="36">
 			<f a=""><x path="Void"/></f>
-			<haxe_doc>Release a lock. The thread does not need to own the lock 
-		to be able to release it. If a lock is released several 
-		times, it can be acquired as many times.</haxe_doc>
+			<haxe_doc>Releases the lock once.
+
+		The thread does not need to own the lock in order to release
+		it. Each call to `release` allows exactly one call to `wait`
+		to execute.</haxe_doc>
 		</release>
-		<new public="1" set="method" line="30">
+		<new public="1" set="method" line="28">
 			<f a=""><x path="Void"/></f>
-			<haxe_doc>Creates a lock which is initially locked.</haxe_doc>
+			<haxe_doc>Creates a new Lock which is initially locked.</haxe_doc>
 		</new>
-		<meta><m n=":directlyUsed"/></meta>
+		<haxe_doc>A Lock allows blocking execution until it has been unlocked. It keeps track
+	of how often `release` has been called, and blocks exactly as many `wait`
+	calls.
+
+	The order of the `release` and `wait` calls is irrelevant. That is, a Lock
+	can be released before anyone waits for it. In that case, the `wait` call
+	will execute immediately.
+
+	Usage example:
+
+	```
+		var lock = new Lock();
+		var elements = [1, 2, 3];
+		for (element in elements) {
+			// Create one thread per element
+			new Thread(function() {
+				trace(element);
+				Sys.sleep(1);
+				// Release once per thread = 3 times
+				lock.release();
+			});
+		}
+		for (_ in elements) {
+			// Wait 3 times
+			lock.wait();
+		}
+		trace("All threads finished");
+	```</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
 	<class path="haxe.EntryPoint" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/EntryPoint.hx">
 		<sleepLock expr="new Lock()" line="46" static="1">
-			<c path="neko.vm.Lock"/>
+			<c path="sys.thread.Lock"/>
 			<meta><m n=":value"><e>new Lock()</e></m></meta>
 		</sleepLock>
 		<mutex expr="new Mutex()" line="47" static="1">
-			<c path="neko.vm.Mutex"/>
+			<c path="sys.thread.Mutex"/>
 			<meta><m n=":value"><e>new Mutex()</e></m></meta>
 		</mutex>
 		<pending expr="new Array&lt;Void&gt;()" line="49" static="1">
@@ -15422,60 +15458,55 @@
 		</Custom>
 		<haxe_doc>The possible IO errors that can occur</haxe_doc>
 	</enum>
-	<class path="neko.vm.Tls" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/neko/vm/Tls.hx">
-		<tls_create expr="neko.Lib.load(&quot;std&quot;, &quot;tls_create&quot;, 0)" line="57" static="1">
+	<class path="sys.thread.Tls" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/neko/_std/sys/thread/Tls.hx">
+		<tls_create expr="neko.Lib.load(&quot;std&quot;, &quot;tls_create&quot;, 0)" line="43" static="1">
 			<f a=""><unknown/></f>
 			<meta><m n=":value"><e>neko.Lib.load("std", "tls_create", 0)</e></m></meta>
 		</tls_create>
-		<tls_get expr="neko.Lib.load(&quot;std&quot;, &quot;tls_get&quot;, 1)" line="58" static="1">
+		<tls_get expr="neko.Lib.load(&quot;std&quot;, &quot;tls_get&quot;, 1)" line="44" static="1">
 			<f a="">
 				<d/>
-				<c path="neko.vm.Tls.T"/>
+				<c path="sys.thread.Tls.T"/>
 			</f>
 			<meta><m n=":value"><e>neko.Lib.load("std", "tls_get", 1)</e></m></meta>
 		</tls_get>
-		<tls_set expr="neko.Lib.load(&quot;std&quot;, &quot;tls_set&quot;, 2)" line="59" static="1">
+		<tls_set expr="neko.Lib.load(&quot;std&quot;, &quot;tls_set&quot;, 2)" line="45" static="1">
 			<f a=":">
 				<d/>
-				<c path="neko.vm.Tls.T"/>
+				<c path="sys.thread.Tls.T"/>
 				<unknown/>
 			</f>
 			<meta><m n=":value"><e>neko.Lib.load("std", "tls_set", 2)</e></m></meta>
 		</tls_set>
 		<t><d/></t>
-		<value public="1" get="accessor" set="accessor"><c path="neko.vm.Tls.T"/></value>
-		<get_value set="method" line="45">
-			<f a=""><c path="neko.vm.Tls.T"/></f>
-			<haxe_doc>Returns the value set by tls_set for the local thread.</haxe_doc>
-		</get_value>
-		<set_value set="method" line="52">
-			<f a="v">
-				<c path="neko.vm.Tls.T"/>
-				<c path="neko.vm.Tls.T"/>
-			</f>
-			<haxe_doc>Set the value of the TLS for the local thread.</haxe_doc>
-		</set_value>
-		<new public="1" set="method" line="38">
+		<value public="1" get="accessor" set="accessor"><c path="sys.thread.Tls.T"/></value>
+		<get_value set="method" line="34"><f a=""><c path="sys.thread.Tls.T"/></f></get_value>
+		<set_value set="method" line="38"><f a="v">
+	<c path="sys.thread.Tls.T"/>
+	<c path="sys.thread.Tls.T"/>
+</f></set_value>
+		<new public="1" set="method" line="30">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates thread local storage. This is placeholder that can store
-		a value that will be different depending on the local thread. 
-		Set the tls value to `null` before exiting the thread 
+		a value that will be different depending on the local thread.
+		Set the tls value to `null` before exiting the thread
 		or the memory will never be collected.</haxe_doc>
 		</new>
 		<haxe_doc>Creates thread local storage.</haxe_doc>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="haxe.io.FPHelper" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/io/FPHelper.hx">
-		<i64tmp expr="new neko.vm.Tls&lt;Int64&gt;()" line="33" static="1">
-			<c path="neko.vm.Tls"><x path="haxe.Int64"/></c>
-			<meta><m n=":value"><e><![CDATA[new neko.vm.Tls<Int64>()]]></e></m></meta>
+		<i64tmp expr="new sys.thread.Tls&lt;Int64&gt;()" line="33" static="1">
+			<c path="sys.thread.Tls"><x path="haxe.Int64"/></c>
+			<meta><m n=":value"><e><![CDATA[new sys.thread.Tls<Int64>()]]></e></m></meta>
 		</i64tmp>
-		<helperf expr="new neko.vm.Tls&lt;neko.NativeString&gt;()" line="116" static="1">
-			<c path="neko.vm.Tls"><c path="neko.NativeString"/></c>
-			<meta><m n=":value"><e><![CDATA[new neko.vm.Tls<neko.NativeString>()]]></e></m></meta>
+		<helperf expr="new sys.thread.Tls&lt;neko.NativeString&gt;()" line="116" static="1">
+			<c path="sys.thread.Tls"><c path="neko.NativeString"/></c>
+			<meta><m n=":value"><e><![CDATA[new sys.thread.Tls<neko.NativeString>()]]></e></m></meta>
 		</helperf>
-		<helperd expr="new neko.vm.Tls&lt;neko.NativeString&gt;()" line="117" static="1">
-			<c path="neko.vm.Tls"><c path="neko.NativeString"/></c>
-			<meta><m n=":value"><e><![CDATA[new neko.vm.Tls<neko.NativeString>()]]></e></m></meta>
+		<helperd expr="new sys.thread.Tls&lt;neko.NativeString&gt;()" line="117" static="1">
+			<c path="sys.thread.Tls"><c path="neko.NativeString"/></c>
+			<meta><m n=":value"><e><![CDATA[new sys.thread.Tls<neko.NativeString>()]]></e></m></meta>
 		</helperd>
 		<_float_of_bytes expr="neko.Lib.load(&quot;std&quot;, &quot;float_of_bytes&quot;, 2)" line="118" static="1">
 			<f a=":">
@@ -28603,64 +28634,10 @@
 		<haxe_doc>This class is used for accessing the local Web server and the current
 	client request and information.</haxe_doc>
 	</class>
-	<class path="neko.vm.Deque" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/neko/vm/Deque.hx">
-		<deque_create expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;deque_create&quot;, 0)" line="59" static="1">
-			<f a=""><unknown/></f>
-			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "deque_create", 0)</e></m></meta>
-		</deque_create>
-		<deque_add expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;deque_add&quot;, 2)" line="60" static="1">
-			<f a=":">
-				<d/>
-				<c path="neko.vm.Deque.T"/>
-				<unknown/>
-			</f>
-			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "deque_add", 2)</e></m></meta>
-		</deque_add>
-		<deque_push expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;deque_push&quot;, 2)" line="61" static="1">
-			<f a=":">
-				<d/>
-				<c path="neko.vm.Deque.T"/>
-				<unknown/>
-			</f>
-			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "deque_push", 2)</e></m></meta>
-		</deque_push>
-		<deque_pop expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;deque_pop&quot;, 2)" line="62" static="1">
-			<f a=":">
-				<d/>
-				<x path="Bool"/>
-				<x path="Null"><c path="neko.vm.Deque.T"/></x>
-			</f>
-			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "deque_pop", 2)</e></m></meta>
-		</deque_pop>
-		<q><d/></q>
-		<add public="1" set="method" line="40">
-			<f a="i">
-				<c path="neko.vm.Deque.T"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Add a message at the end of the queue.</haxe_doc>
-		</add>
-		<push public="1" set="method" line="47">
-			<f a="i">
-				<c path="neko.vm.Deque.T"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Add a message at the head of the queue.</haxe_doc>
-		</push>
-		<pop public="1" set="method" line="55">
-			<f a="block">
-				<x path="Bool"/>
-				<x path="Null"><c path="neko.vm.Deque.T"/></x>
-			</f>
-			<haxe_doc>Pop a message from the queue head. Either block until a message 
-		is available or return immediately with `null`.</haxe_doc>
-		</pop>
-		<new public="1" set="method" line="33">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Create a message queue for multithread access.</haxe_doc>
-		</new>
-		<haxe_doc>A message queue for multithread access.</haxe_doc>
-	</class>
+	<typedef path="neko.vm.Deque" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/neko/vm/Deque.hx">
+		<c path="sys.thread.Deque"><c path="neko.vm.Deque.T"/></c>
+		<meta><m n=":deprecated"/></meta>
+	</typedef>
 	<class path="neko.vm.Gc" params="" file="/home/travis/build/HaxeFoundation/haxe/std/neko/vm/Gc.hx">
 		<run public="1" set="method" line="31" static="1">
 			<f a="major">
@@ -28822,6 +28799,10 @@
 	primitives can be loaded by this module or by rewrapping them at loading-time
 	with custom secured versions. Loaders are inherited in loaded submodules.</haxe_doc>
 	</class>
+	<typedef path="neko.vm.Lock" params="" file="/home/travis/build/HaxeFoundation/haxe/std/neko/vm/Lock.hx">
+		<c path="sys.thread.Lock"/>
+		<meta><m n=":deprecated"/></meta>
+	</typedef>
 	<abstract path="neko.vm.ModuleHandle" params="" file="/home/travis/build/HaxeFoundation/haxe/std/neko/vm/Module.hx" module="neko.vm.Module">
 		<this><x path="neko.vm.ModuleHandle"/></this>
 		<haxe_doc>The abstract Neko module handle.</haxe_doc>
@@ -28830,143 +28811,18 @@
 			<m n=":coreType"/>
 		</meta>
 	</abstract>
-	<abstract path="neko.vm.ThreadHandle" params="" file="/home/travis/build/HaxeFoundation/haxe/std/neko/vm/Thread.hx" module="neko.vm.Thread">
-		<this><x path="neko.vm.ThreadHandle"/></this>
-		<meta>
-			<m n=":callable"/>
-			<m n=":coreType"/>
-		</meta>
-	</abstract>
-	<class path="neko.vm.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/neko/vm/Thread.hx">
-		<current public="1" set="method" line="48" static="1">
-			<f a=""><c path="neko.vm.Thread"/></f>
-			<haxe_doc>Returns the current thread.</haxe_doc>
-		</current>
-		<create public="1" set="method" line="55" static="1">
-			<f a="callb">
-				<f a=""><x path="Void"/></f>
-				<c path="neko.vm.Thread"/>
-			</f>
-			<haxe_doc>Creates a new thread that will execute the `callb` function, then exit.</haxe_doc>
-		</create>
-		<readMessage public="1" set="method" line="64" static="1">
-			<f a="block">
-				<x path="Bool"/>
-				<d/>
-			</f>
-			<haxe_doc>Reads a message from the thread queue. If `block` is true, the function
-		blocks until a message is available. If `block` is false, the function
-		returns `null` if no message is available.</haxe_doc>
-		</readMessage>
-		<thread_create expr="neko.Lib.load(&quot;std&quot;, &quot;thread_create&quot;, 2)" line="131" static="1">
-			<f a=":">
-				<f a="_">
-					<unknown/>
-					<x path="Void"/>
-				</f>
-				<unknown/>
-				<x path="neko.vm.ThreadHandle"/>
-			</f>
-			<meta><m n=":value"><e>neko.Lib.load("std", "thread_create", 2)</e></m></meta>
-			<haxe_doc><![CDATA[Starts an OS message loop after [osInitialize] has been done.
-		In that state, the UI handled by this thread will be updated and
-		[sync] calls can be performed. The loop returns when [exitLoop] is
-		called for this thread.
-	**
-	public static function osLoop() {
-		if( os_loop == null ) throw "Please call osInitialize() first";
-		os_loop();
-	}
-
-	/**
-		The function [f] will be called by this thread if it's in [osLoop].
-		[sync] returns immediately. See [osInitialize] remarks.
-	**
-	public function sync( f : Void -> Void ) {
-		os_sync(handle,f);
-	}
-
-	/**
-		The function [f] will be called by this thread and the calling thread
-		will wait until the result is available then return its value.
-	**
-	public function syncResult<T>( f : Void -> T ) : T {
-		if( this == current() )
-			return f();
-		var v = new neko.vm.Lock();
-		var r = null;
-		sync(function() {
-			r = f();
-			v.release();
-		});
-		v.wait();
-		return r;
-	}
-
-	/**
-		Exit from [osLoop].
-	**
-	public function exitLoop() {
-		os_loop_stop(handle);
-	}
-
-	/**
-		If you want to use the [osLoop], [sync] and [syncResult] methods, you
-		need to call [osInitialize] before creating any thread or calling [current].
-		This will load [os.ndll] library and initialize UI methods for each thread.
-	**
-	public static function osInitialize() {
-		os_loop = neko.Lib.load("os","os_loop",0);
-		os_loop_stop = neko.Lib.load("os","os_loop_stop",1);
-		os_sync = neko.Lib.load("os","os_sync",2);
-	}
-
-	static var os_loop = null;
-	static var os_loop_stop = null;
-	static var os_sync = null;]]></haxe_doc>
-		</thread_create>
-		<thread_current expr="neko.Lib.load(&quot;std&quot;, &quot;thread_current&quot;, 0)" line="132" static="1">
-			<f a=""><x path="neko.vm.ThreadHandle"/></f>
-			<meta><m n=":value"><e>neko.Lib.load("std", "thread_current", 0)</e></m></meta>
-		</thread_current>
-		<thread_send expr="neko.Lib.load(&quot;std&quot;, &quot;thread_send&quot;, 2)" line="133" static="1">
-			<f a=":">
-				<x path="neko.vm.ThreadHandle"/>
-				<d/>
-				<unknown/>
-			</f>
-			<meta><m n=":value"><e>neko.Lib.load("std", "thread_send", 2)</e></m></meta>
-		</thread_send>
-		<thread_read_message expr="neko.Lib.load(&quot;std&quot;, &quot;thread_read_message&quot;, 1)" line="134" static="1">
-			<f a="">
-				<x path="Bool"/>
-				<unknown/>
-			</f>
-			<meta><m n=":value"><e>neko.Lib.load("std", "thread_read_message", 1)</e></m></meta>
-		</thread_read_message>
-		<handle><x path="neko.vm.ThreadHandle"/></handle>
-		<sendMessage public="1" set="method" line="40">
-			<f a="msg">
-				<d/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Send a message to the thread queue. This message can be read by using `readMessage`.</haxe_doc>
-		</sendMessage>
-		<__compare set="method" line="68">
-			<f a="t">
-				<d/>
-				<unknown/>
-			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
-		</__compare>
-		<new set="method" line="33"><f a="h">
-	<x path="neko.vm.ThreadHandle"/>
-	<x path="Void"/>
-</f></new>
-	</class>
+	<typedef path="neko.vm.Mutex" params="" file="/home/travis/build/HaxeFoundation/haxe/std/neko/vm/Mutex.hx">
+		<c path="sys.thread.Mutex"/>
+		<meta><m n=":deprecated"/></meta>
+	</typedef>
+	<typedef path="neko.vm.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/neko/vm/Thread.hx">
+		<c path="sys.thread.Thread"/>
+		<meta><m n=":deprecated"/></meta>
+	</typedef>
+	<typedef path="neko.vm.Tls" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/neko/vm/Tls.hx">
+		<c path="sys.thread.Tls"><c path="neko.vm.Tls.T"/></c>
+		<meta><m n=":deprecated"/></meta>
+	</typedef>
 	<class path="neko.vm.Ui" params="" file="/home/travis/build/HaxeFoundation/haxe/std/neko/vm/Ui.hx">
 		<isMainThread public="1" set="method" line="35" static="1">
 			<f a=""><x path="Bool"/></f>
@@ -31303,6 +31159,209 @@
 </f></buildSSLContext>
 		<new public="1" set="method" line="99"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>A TLS socket class : allow you to both connect to a given server and exchange messages or start your own server and wait for connections.</haxe_doc>
+		<meta><m n=":coreApi"/></meta>
+	</class>
+	<class path="sys.thread.Deque" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/neko/_std/sys/thread/Deque.hx">
+		<deque_create expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;deque_create&quot;, 0)" line="44" static="1">
+			<f a=""><unknown/></f>
+			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "deque_create", 0)</e></m></meta>
+		</deque_create>
+		<deque_add expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;deque_add&quot;, 2)" line="45" static="1">
+			<f a=":">
+				<d/>
+				<c path="sys.thread.Deque.T"/>
+				<unknown/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "deque_add", 2)</e></m></meta>
+		</deque_add>
+		<deque_push expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;deque_push&quot;, 2)" line="46" static="1">
+			<f a=":">
+				<d/>
+				<c path="sys.thread.Deque.T"/>
+				<unknown/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "deque_push", 2)</e></m></meta>
+		</deque_push>
+		<deque_pop expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;deque_pop&quot;, 2)" line="47" static="1">
+			<f a=":">
+				<d/>
+				<x path="Bool"/>
+				<x path="Null"><c path="sys.thread.Deque.T"/></x>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "deque_pop", 2)</e></m></meta>
+		</deque_pop>
+		<q><d/></q>
+		<add public="1" set="method" line="32">
+			<f a="i">
+				<c path="sys.thread.Deque.T"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Adds an element at the end of `this` Deque.</haxe_doc>
+		</add>
+		<push public="1" set="method" line="36">
+			<f a="i">
+				<c path="sys.thread.Deque.T"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Adds an element at the front of `this` Deque.</haxe_doc>
+		</push>
+		<pop public="1" set="method" line="40">
+			<f a="block">
+				<x path="Bool"/>
+				<x path="Null"><c path="sys.thread.Deque.T"/></x>
+			</f>
+			<haxe_doc>Tries to retrieve an element from the front of `this` Deque.
+
+		If an element is available, it is removed from the queue and returned.
+
+		If no element is available and `block` is `false`, `null` is returned.
+
+		Otherwise, execution blocks until an element is available and returns it.</haxe_doc>
+		</pop>
+		<new public="1" set="method" line="28">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Create a new Deque instance which is initially empty.</haxe_doc>
+		</new>
+		<haxe_doc>A Deque is a double-ended queue with a `pop` method that can block until
+	an element is available. It is commonly used to synchronize threads.</haxe_doc>
+		<meta><m n=":coreApi"/></meta>
+	</class>
+	<abstract path="sys.thread.ThreadHandle" params="" file="/home/travis/build/HaxeFoundation/haxe/std/neko/_std/sys/thread/Thread.hx" module="sys.thread.Thread">
+		<this><x path="sys.thread.ThreadHandle"/></this>
+		<meta>
+			<m n=":callable"/>
+			<m n=":coreType"/>
+		</meta>
+	</abstract>
+	<class path="sys.thread.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/neko/_std/sys/thread/Thread.hx">
+		<current public="1" set="method" line="42" static="1">
+			<f a=""><c path="sys.thread.Thread"/></f>
+			<haxe_doc>Returns the current thread.</haxe_doc>
+		</current>
+		<create public="1" set="method" line="46" static="1">
+			<f a="callb">
+				<f a=""><x path="Void"/></f>
+				<c path="sys.thread.Thread"/>
+			</f>
+			<haxe_doc>Creates a new thread that will execute the `f` function, then exit.</haxe_doc>
+		</create>
+		<readMessage public="1" set="method" line="50" static="1">
+			<f a="block">
+				<x path="Bool"/>
+				<d/>
+			</f>
+			<haxe_doc>Reads a message from the thread queue. If `block` is true, the function
+		blocks until a message is available. If `block` is false, the function
+		returns `null` if no message is available.</haxe_doc>
+		</readMessage>
+		<thread_create expr="neko.Lib.load(&quot;std&quot;, &quot;thread_create&quot;, 2)" line="117" static="1">
+			<f a=":">
+				<f a="_">
+					<unknown/>
+					<x path="Void"/>
+				</f>
+				<unknown/>
+				<x path="sys.thread.ThreadHandle"/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.load("std", "thread_create", 2)</e></m></meta>
+			<haxe_doc><![CDATA[Starts an OS message loop after [osInitialize] has been done.
+		In that state, the UI handled by this thread will be updated and
+		[sync] calls can be performed. The loop returns when [exitLoop] is
+		called for this thread.
+	**
+	public static function osLoop() {
+		if( os_loop == null ) throw "Please call osInitialize() first";
+		os_loop();
+	}
+
+	/**
+		The function [f] will be called by this thread if it's in [osLoop].
+		[sync] returns immediately. See [osInitialize] remarks.
+	**
+	public function sync( f : Void -> Void ) {
+		os_sync(handle,f);
+	}
+
+	/**
+		The function [f] will be called by this thread and the calling thread
+		will wait until the result is available then return its value.
+	**
+	public function syncResult<T>( f : Void -> T ) : T {
+		if( this == current() )
+			return f();
+		var v = new neko.vm.Lock();
+		var r = null;
+		sync(function() {
+			r = f();
+			v.release();
+		});
+		v.wait();
+		return r;
+	}
+
+	/**
+		Exit from [osLoop].
+	**
+	public function exitLoop() {
+		os_loop_stop(handle);
+	}
+
+	/**
+		If you want to use the [osLoop], [sync] and [syncResult] methods, you
+		need to call [osInitialize] before creating any thread or calling [current].
+		This will load [os.ndll] library and initialize UI methods for each thread.
+	**
+	public static function osInitialize() {
+		os_loop = neko.Lib.load("os","os_loop",0);
+		os_loop_stop = neko.Lib.load("os","os_loop_stop",1);
+		os_sync = neko.Lib.load("os","os_sync",2);
+	}
+
+	static var os_loop = null;
+	static var os_loop_stop = null;
+	static var os_sync = null;]]></haxe_doc>
+		</thread_create>
+		<thread_current expr="neko.Lib.load(&quot;std&quot;, &quot;thread_current&quot;, 0)" line="118" static="1">
+			<f a=""><x path="sys.thread.ThreadHandle"/></f>
+			<meta><m n=":value"><e>neko.Lib.load("std", "thread_current", 0)</e></m></meta>
+		</thread_current>
+		<thread_send expr="neko.Lib.load(&quot;std&quot;, &quot;thread_send&quot;, 2)" line="119" static="1">
+			<f a=":">
+				<x path="sys.thread.ThreadHandle"/>
+				<d/>
+				<unknown/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.load("std", "thread_send", 2)</e></m></meta>
+		</thread_send>
+		<thread_read_message expr="neko.Lib.load(&quot;std&quot;, &quot;thread_read_message&quot;, 1)" line="120" static="1">
+			<f a="">
+				<x path="Bool"/>
+				<unknown/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.load("std", "thread_read_message", 1)</e></m></meta>
+		</thread_read_message>
+		<handle><x path="sys.thread.ThreadHandle"/></handle>
+		<sendMessage public="1" set="method" line="38">
+			<f a="msg">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Send a message to the thread queue. This message can be read by using `readMessage`.</haxe_doc>
+		</sendMessage>
+		<__compare set="method" line="54">
+			<f a="t">
+				<d/>
+				<x path="Int"/>
+			</f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
+		</__compare>
+		<new set="method" line="34"><f a="h">
+	<x path="sys.thread.ThreadHandle"/>
+	<x path="Void"/>
+</f></new>
 		<meta><m n=":coreApi"/></meta>
 	</class>
 </haxe>

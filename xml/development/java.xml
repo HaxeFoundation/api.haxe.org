@@ -4787,32 +4787,39 @@
 		</keyValueIterator>
 		<meta><m n=":hxGen"/></meta>
 	</class>
-	<class path="java.vm.Mutex" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/vm/Mutex.hx">
+	<class path="sys.thread.Mutex" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/sys/thread/Mutex.hx">
 		<lock>
 			<c path="java.util.concurrent.locks.ReentrantLock"/>
 			<meta><m n=":private"/></meta>
 		</lock>
-		<tryAcquire public="1" set="method" line="41">
+		<tryAcquire public="1" set="method" line="35">
 			<f a=""><x path="Bool"/></f>
-			<haxe_doc>Try to acquire the mutex, returns true if acquire or false if it's already locked by another thread.</haxe_doc>
+			<haxe_doc>Try to acquire the mutex, returns true if acquire or false
+		if it's already locked by another thread.</haxe_doc>
 		</tryAcquire>
-		<acquire public="1" set="method" line="50">
+		<acquire public="1" set="method" line="40">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>The current thread acquire the mutex or wait if not available.
-		The same thread can acquire several times the same mutex, but must release it as many times it has been acquired.</haxe_doc>
+		The same thread can acquire several times the same mutex but
+		must release it as many times it has been acquired.</haxe_doc>
 		</acquire>
-		<release public="1" set="method" line="58">
+		<release public="1" set="method" line="45">
 			<f a=""><x path="Void"/></f>
-			<haxe_doc>Release a mutex that has been acquired by the current thread. If the current thread does not own the mutex, an exception will be thrown</haxe_doc>
+			<haxe_doc>Release a mutex that has been acquired by the current thread.
+		The behavior is undefined if the current thread does not own
+		the mutex.</haxe_doc>
 		</release>
-		<new public="1" set="method" line="33">
+		<new public="1" set="method" line="30">
 			<f a=""><x path="Void"/></f>
-			<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock to access some resource.
-		The main difference with a lock is that a mutex must always be released by the owner thread</haxe_doc>
+			<haxe_doc>Creates a mutex.</haxe_doc>
 		</new>
+		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
+	to access some ressource. The main difference with a lock is
+	that a mutex must always be released by the owner thread.</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":hxGen"/>
+			<m n=":coreApi"/>
 			<m n=":native"><e>"haxe.java.vm.Mutex"</e></m>
 		</meta>
 	</class>
@@ -5007,8 +5014,8 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.vm.Lock" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/vm/Lock.hx">
-		<releasedCount expr="0" line="29">
+	<class path="sys.thread.Lock" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/sys/thread/Lock.hx">
+		<releasedCount expr="0" line="30">
 			<x path="Int"/>
 			<meta>
 				<m n=":value"><e>0</e></m>
@@ -5016,38 +5023,71 @@
 				<m n=":volatile"/>
 			</meta>
 		</releasedCount>
-		<wait public="1" set="method" line="42">
+		<wait public="1" set="method" line="36">
 			<f a="?timeout">
 				<x path="Float"/>
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Waits for a lock to be released and acquire it.
-		If `timeout` (in seconds) is not null and expires then the returned value is false</haxe_doc>
+			<haxe_doc>Waits for the lock to be released, or `timeout` (in seconds)
+		to expire. Returns `true` if the lock is released and `false`
+		if a time-out occurs.</haxe_doc>
 		</wait>
-		<release public="1" set="method" line="95">
+		<release public="1" set="method" line="85">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Release a lock. The thread does not need to own the lock to be able to release it.
-		If a lock is released several times, it can be acquired as many times</haxe_doc>
+			<haxe_doc>Releases the lock once.
+
+		The thread does not need to own the lock in order to release
+		it. Each call to `release` allows exactly one call to `wait`
+		to execute.</haxe_doc>
 		</release>
-		<new public="1" set="method" line="34">
+		<new public="1" set="method" line="32">
 			<f a=""><x path="Void"/></f>
-			<haxe_doc>Creates a new lock, which is initially locked</haxe_doc>
+			<haxe_doc>Creates a new Lock which is initially locked.</haxe_doc>
 		</new>
+		<haxe_doc>A Lock allows blocking execution until it has been unlocked. It keeps track
+	of how often `release` has been called, and blocks exactly as many `wait`
+	calls.
+
+	The order of the `release` and `wait` calls is irrelevant. That is, a Lock
+	can be released before anyone waits for it. In that case, the `wait` call
+	will execute immediately.
+
+	Usage example:
+
+	```
+		var lock = new Lock();
+		var elements = [1, 2, 3];
+		for (element in elements) {
+			// Create one thread per element
+			new Thread(function() {
+				trace(element);
+				Sys.sleep(1);
+				// Release once per thread = 3 times
+				lock.release();
+			});
+		}
+		for (_ in elements) {
+			// Wait 3 times
+			lock.wait();
+		}
+		trace("All threads finished");
+	```</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":hxGen"/>
+			<m n=":coreApi"/>
 			<m n=":native"><e>"haxe.java.vm.Lock"</e></m>
 		</meta>
 	</class>
 	<class path="haxe.EntryPoint" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/EntryPoint.hx">
 		<sleepLock expr="new Lock()" line="46" static="1">
-			<c path="java.vm.Lock"/>
+			<c path="sys.thread.Lock"/>
 			<meta><m n=":value"><e>new Lock()</e></m></meta>
 		</sleepLock>
 		<mutex expr="new Mutex()" line="47" static="1">
-			<c path="java.vm.Mutex"/>
+			<c path="sys.thread.Mutex"/>
 			<meta><m n=":value"><e>new Mutex()</e></m></meta>
 		</mutex>
 		<pending expr="new Array&lt;Void&gt;()" line="49" static="1">
@@ -85019,57 +85059,13 @@
 			<m n=":nativeGen"/>
 		</meta>
 	</class>
-	<class path="java.vm.Deque" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/java/vm/Deque.hx">
-		<head>
-			<c path="java.vm.Node"><c path="java.vm.Deque.T"/></c>
-			<meta><m n=":private"/></meta>
-		</head>
-		<tail>
-			<c path="java.vm.Node"><c path="java.vm.Deque.T"/></c>
-			<meta><m n=":private"/></meta>
-		</tail>
-		<add public="1" set="method" line="39">
-			<f a="i">
-				<c path="java.vm.Deque.T"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</add>
-		<push public="1" set="method" line="50">
-			<f a="i">
-				<c path="java.vm.Deque.T"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</push>
-		<pop public="1" set="method" line="61">
-			<f a="block">
-				<x path="Bool"/>
-				<x path="Null"><c path="java.vm.Deque.T"/></x>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</pop>
-		<new public="1" set="method" line="34"><f a=""><x path="Void"/></f></new>
-		<haxe_doc>A Lock-free Queue implementation</haxe_doc>
+	<typedef path="java.vm.Deque" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/java/vm/Deque.hx">
+		<c path="sys.thread.Deque"><c path="java.vm.Deque.T"/></c>
 		<meta>
 			<m n=":nativeGen"/>
-			<m n=":native"><e>"haxe.java.vm.Deque"</e></m>
-			<m n=":nativeGen"/>
+			<m n=":deprecated"/>
 		</meta>
-	</class>
-	<class path="java.vm.Node" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/java/vm/Deque.hx" module="java.vm.Deque">
-		<value public="1"><c path="java.vm.Node.T"/></value>
-		<next public="1"><c path="java.vm.Node"><c path="java.vm.Node.T"/></c></next>
-		<new public="1" set="method" line="90"><f a="val">
-	<c path="java.vm.Node.T"/>
-	<x path="Void"/>
-</f></new>
-		<meta>
-			<m n=":nativeGen"/>
-			<m n=":native"><e>"haxe.java.vm.DequeNode"</e></m>
-			<m n=":nativeGen"/>
-		</meta>
-	</class>
+	</typedef>
 	<class path="java.vm.Gc" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/vm/Gc.hx">
 		<run public="1" set="method" line="26" static="1"><f a="major">
 	<x path="Bool"/>
@@ -85084,99 +85080,34 @@
 			<m n=":native"><e>"haxe.java.vm.Gc"</e></m>
 		</meta>
 	</class>
-	<class path="java.vm.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/vm/Thread.hx">
-		<javaThreadToHaxe expr="new haxe.ds.WeakMap&lt;java.lang.Thread,java.vm.Thread&gt;()" line="28" static="1">
-			<c path="haxe.ds.WeakMap">
-				<c path="java.lang.Thread"/>
-				<c path="java.vm.Thread"/>
-			</c>
-			<meta>
-				<m n=":value"><e><![CDATA[new haxe.ds.WeakMap<java.lang.Thread,java.vm.Thread>()]]></e></m>
-				<m n=":private"/>
-			</meta>
-		</javaThreadToHaxe>
-		<mainJavaThread expr="java.lang.Thread.currentThread()" line="29" static="1">
-			<c path="java.lang.Thread"/>
-			<meta>
-				<m n=":value"><e>java.lang.Thread.currentThread()</e></m>
-				<m n=":private"/>
-			</meta>
-		</mainJavaThread>
-		<mainHaxeThread expr="{
-	var ret = new Thread();
-	javaThreadToHaxe.set(mainJavaThread, ret);
-	ret;
-}" line="30" static="1">
-			<c path="java.vm.Thread"/>
-			<meta>
-				<m n=":value"><e>{
-	var ret = new Thread();
-	javaThreadToHaxe.set(mainJavaThread, ret);
-	ret;
-}</e></m>
-				<m n=":private"/>
-			</meta>
-		</mainHaxeThread>
-		<getThread set="method" line="37" static="1">
-			<f a="jt">
-				<c path="java.lang.Thread"/>
-				<c path="java.vm.Thread"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</getThread>
-		<current public="1" set="method" line="76" static="1"><f a=""><c path="java.vm.Thread"/></f></current>
-		<readMessage public="1" set="method" line="81" static="1"><f a="block">
-	<x path="Bool"/>
-	<d/>
-</f></readMessage>
-		<create public="1" set="method" line="86" static="1"><f a="fn">
-	<f a=""><x path="Void"/></f>
-	<c path="java.vm.Thread"/>
-</f></create>
-		<messages><c path="java.vm.Deque"><d/></c></messages>
-		<sendMessage public="1" set="method" line="71"><f a="obj">
-	<d/>
-	<x path="Void"/>
-</f></sendMessage>
-		<new set="method" line="66"><f a=""><x path="Void"/></f></new>
+	<typedef path="java.vm.Lock" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/vm/Lock.hx">
+		<c path="sys.thread.Lock"/>
 		<meta>
-			<m n=":hxGen"/>
-			<m n=":native"><e>"haxe.java.vm.Thread"</e></m>
+			<m n=":nativeGen"/>
+			<m n=":deprecated"/>
 		</meta>
-	</class>
-	<class path="java.vm._Thread.HaxeThread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/vm/Thread.hx" private="1" module="java.vm.Thread">
-		<extends path="java.lang.Thread"/>
-		<threadObject public="1" set="null"><c path="java.vm.Thread"/></threadObject>
-		<runFunction><f a=""><x path="Void"/></f></runFunction>
-		<run public="1" set="method" line="100" override="1">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":overload"/></meta>
-		</run>
-		<new public="1" set="method" line="104"><f a="hxThread:run">
-	<c path="java.vm.Thread"/>
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></new>
+	</typedef>
+	<typedef path="java.vm.Mutex" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/vm/Mutex.hx">
+		<c path="sys.thread.Mutex"/>
 		<meta>
-			<m n=":hxGen"/>
-			<m n=":native"><e>"haxe.java.vm.HaxeThread"</e></m>
+			<m n=":nativeGen"/>
+			<m n=":deprecated"/>
 		</meta>
-	</class>
-	<class path="java.vm.Tls" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/java/vm/Tls.hx">
-		<t><c path="java.lang.ThreadLocal"><c path="java.vm.Tls.T"/></c></t>
-		<value public="1" get="accessor" set="accessor"><c path="java.vm.Tls.T"/></value>
-		<get_value get="inline" set="null" line="37"><f a=""><c path="java.vm.Tls.T"/></f></get_value>
-		<set_value get="inline" set="null" line="42"><f a="v">
-	<c path="java.vm.Tls.T"/>
-	<c path="java.vm.Tls.T"/>
-</f></set_value>
-		<new public="1" set="method" line="32"><f a=""><x path="Void"/></f></new>
-		<haxe_doc>Thread-local Storage implementation</haxe_doc>
+	</typedef>
+	<typedef path="java.vm.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/vm/Thread.hx">
+		<c path="sys.thread.Thread"/>
 		<meta>
-			<m n=":hxGen"/>
-			<m n=":native"><e>"haxe.java.vm.Tls"</e></m>
+			<m n=":nativeGen"/>
+			<m n=":deprecated"/>
 		</meta>
-	</class>
+	</typedef>
+	<typedef path="java.vm.Tls" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/java/vm/Tls.hx">
+		<c path="sys.thread.Tls"><c path="java.vm.Tls.T"/></c>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":deprecated"/>
+		</meta>
+	</typedef>
 	<typedef path="sys.FileStat" params="" file="/home/travis/build/HaxeFoundation/haxe/std/sys/FileStat.hx">
 		<a>
 			<uid>
@@ -86112,5 +86043,177 @@
 		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>A TLS socket class : allow you to both connect to a given server and exchange messages or start your own server and wait for connections.</haxe_doc>
 		<meta><m n=":hxGen"/></meta>
+	</class>
+	<class path="sys.thread.Deque" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/sys/thread/Deque.hx">
+		<head>
+			<c path="sys.thread.Node"><c path="sys.thread.Deque.T"/></c>
+			<meta><m n=":private"/></meta>
+		</head>
+		<tail>
+			<c path="sys.thread.Node"><c path="sys.thread.Deque.T"/></c>
+			<meta><m n=":private"/></meta>
+		</tail>
+		<add public="1" set="method" line="37">
+			<f a="i">
+				<c path="sys.thread.Deque.T"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Adds an element at the end of `this` Deque.</haxe_doc>
+		</add>
+		<push public="1" set="method" line="48">
+			<f a="i">
+				<c path="sys.thread.Deque.T"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Adds an element at the front of `this` Deque.</haxe_doc>
+		</push>
+		<pop public="1" set="method" line="59">
+			<f a="block">
+				<x path="Bool"/>
+				<x path="Null"><c path="sys.thread.Deque.T"/></x>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Tries to retrieve an element from the front of `this` Deque.
+
+		If an element is available, it is removed from the queue and returned.
+
+		If no element is available and `block` is `false`, `null` is returned.
+
+		Otherwise, execution blocks until an element is available and returns it.</haxe_doc>
+		</pop>
+		<new public="1" set="method" line="32">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Create a new Deque instance which is initially empty.</haxe_doc>
+		</new>
+		<haxe_doc>A Deque is a double-ended queue with a `pop` method that can block until
+	an element is available. It is commonly used to synchronize threads.</haxe_doc>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":coreApi"/>
+			<m n=":native"><e>"haxe.java.vm.Deque"</e></m>
+			<m n=":nativeGen"/>
+		</meta>
+	</class>
+	<class path="sys.thread.Node" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/sys/thread/Deque.hx" module="sys.thread.Deque">
+		<value public="1"><c path="sys.thread.Node.T"/></value>
+		<next public="1"><c path="sys.thread.Node"><c path="sys.thread.Node.T"/></c></next>
+		<new public="1" set="method" line="88"><f a="val">
+	<c path="sys.thread.Node.T"/>
+	<x path="Void"/>
+</f></new>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":native"><e>"haxe.java.vm.DequeNode"</e></m>
+			<m n=":nativeGen"/>
+		</meta>
+	</class>
+	<class path="sys.thread.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/sys/thread/Thread.hx">
+		<javaThreadToHaxe expr="new haxe.ds.WeakMap&lt;java.lang.Thread,sys.thread.Thread&gt;()" line="29" static="1">
+			<c path="haxe.ds.WeakMap">
+				<c path="java.lang.Thread"/>
+				<c path="sys.thread.Thread"/>
+			</c>
+			<meta>
+				<m n=":value"><e><![CDATA[new haxe.ds.WeakMap<java.lang.Thread,sys.thread.Thread>()]]></e></m>
+				<m n=":private"/>
+			</meta>
+		</javaThreadToHaxe>
+		<mainJavaThread expr="java.lang.Thread.currentThread()" line="30" static="1">
+			<c path="java.lang.Thread"/>
+			<meta>
+				<m n=":value"><e>java.lang.Thread.currentThread()</e></m>
+				<m n=":private"/>
+			</meta>
+		</mainJavaThread>
+		<mainHaxeThread expr="{
+	var ret = new Thread();
+	javaThreadToHaxe.set(mainJavaThread, ret);
+	ret;
+}" line="31" static="1">
+			<c path="sys.thread.Thread"/>
+			<meta>
+				<m n=":value"><e>{
+	var ret = new Thread();
+	javaThreadToHaxe.set(mainJavaThread, ret);
+	ret;
+}</e></m>
+				<m n=":private"/>
+			</meta>
+		</mainHaxeThread>
+		<getThread set="method" line="38" static="1">
+			<f a="jt">
+				<c path="java.lang.Thread"/>
+				<c path="sys.thread.Thread"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</getThread>
+		<current public="1" set="method" line="77" static="1">
+			<f a=""><c path="sys.thread.Thread"/></f>
+			<haxe_doc>Returns the current thread.</haxe_doc>
+		</current>
+		<readMessage public="1" set="method" line="82" static="1">
+			<f a="block">
+				<x path="Bool"/>
+				<d/>
+			</f>
+			<haxe_doc>Reads a message from the thread queue. If `block` is true, the function
+		blocks until a message is available. If `block` is false, the function
+		returns `null` if no message is available.</haxe_doc>
+		</readMessage>
+		<create public="1" set="method" line="87" static="1">
+			<f a="callb">
+				<f a=""><x path="Void"/></f>
+				<c path="sys.thread.Thread"/>
+			</f>
+			<haxe_doc>Creates a new thread that will execute the `f` function, then exit.</haxe_doc>
+		</create>
+		<messages><c path="sys.thread.Deque"><d/></c></messages>
+		<sendMessage public="1" set="method" line="72">
+			<f a="msg">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Send a message to the thread queue. This message can be read by using `readMessage`.</haxe_doc>
+		</sendMessage>
+		<new set="method" line="67"><f a=""><x path="Void"/></f></new>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":coreApi"/>
+			<m n=":native"><e>"haxe.java.vm.Thread"</e></m>
+		</meta>
+	</class>
+	<class path="sys.thread._Thread.HaxeThread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
+		<extends path="java.lang.Thread"/>
+		<threadObject public="1" set="null"><c path="sys.thread.Thread"/></threadObject>
+		<runFunction><f a=""><x path="Void"/></f></runFunction>
+		<run public="1" set="method" line="101" override="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+		</run>
+		<new public="1" set="method" line="105"><f a="hxThread:run">
+	<c path="sys.thread.Thread"/>
+	<f a=""><x path="Void"/></f>
+	<x path="Void"/>
+</f></new>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":native"><e>"haxe.java.vm.HaxeThread"</e></m>
+		</meta>
+	</class>
+	<class path="sys.thread.Tls" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/sys/thread/Tls.hx">
+		<t><c path="java.lang.ThreadLocal"><c path="sys.thread.Tls.T"/></c></t>
+		<value public="1" get="accessor" set="accessor"><c path="sys.thread.Tls.T"/></value>
+		<get_value get="inline" set="null" line="35"><f a=""><c path="sys.thread.Tls.T"/></f></get_value>
+		<set_value get="inline" set="null" line="40"><f a="v">
+	<c path="sys.thread.Tls.T"/>
+	<c path="sys.thread.Tls.T"/>
+</f></set_value>
+		<new public="1" set="method" line="30"><f a=""><x path="Void"/></f></new>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":native"><e>"haxe.java.vm.Tls"</e></m>
+		</meta>
 	</class>
 </haxe>
