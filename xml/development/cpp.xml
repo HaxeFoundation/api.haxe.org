@@ -5879,7 +5879,14 @@
 				<m n=":templatedCall"/>
 			</meta>
 		</sizeof>
-		<set public="1" params="T" get="inline" set="null" line="44" static="1">
+		<star public="1" params="T" set="method" static="1">
+			<f a="ptr">
+				<t path="cpp.Star"><c path="star.T"/></t>
+				<t path="cpp.Reference"><c path="star.T"/></t>
+			</f>
+			<meta><m n=":native"><e>"hx::Dereference"</e></m></meta>
+		</star>
+		<set public="1" params="T" get="inline" set="null" line="47" static="1">
 			<f a="ptr:value">
 				<t path="cpp.Star"><c path="set.T"/></t>
 				<c path="set.T"/>
@@ -5887,14 +5894,14 @@
 			</f>
 			<meta><m n=":generic"/></meta>
 		</set>
-		<get public="1" params="T" get="inline" set="null" line="50" static="1">
+		<get public="1" params="T" get="inline" set="null" line="53" static="1">
 			<f a="ptr">
 				<t path="cpp.Star"><c path="get.T"/></t>
 				<c path="get.T"/>
 			</f>
 			<meta><m n=":generic"/></meta>
 		</get>
-		<memcpy public="1" params="DEST:SRC" get="inline" set="null" line="57" static="1">
+		<memcpy public="1" params="DEST:SRC" get="inline" set="null" line="60" static="1">
 			<f a="dest:src:bytes">
 				<t path="cpp.Star"><c path="memcpy.DEST"/></t>
 				<t path="cpp.Star"><c path="memcpy.SRC"/></t>
@@ -5903,21 +5910,21 @@
 			</f>
 			<meta><m n=":generic"/></meta>
 		</memcpy>
-		<malloc public="1" params="T" get="inline" set="null" line="61" static="1">
+		<malloc public="1" params="T" get="inline" set="null" line="64" static="1">
 			<f a="bytes">
 				<x path="Int"/>
 				<t path="cpp.Star"><c path="malloc.T"/></t>
 			</f>
 			<meta><m n=":generic"/></meta>
 		</malloc>
-		<calloc public="1" params="T" get="inline" set="null" line="65" static="1">
+		<calloc public="1" params="T" get="inline" set="null" line="68" static="1">
 			<f a="bytes">
 				<x path="Int"/>
 				<t path="cpp.Star"><c path="calloc.T"/></t>
 			</f>
 			<meta><m n=":generic"/></meta>
 		</calloc>
-		<realloc public="1" params="T" get="inline" set="null" line="69" static="1">
+		<realloc public="1" params="T" get="inline" set="null" line="72" static="1">
 			<f a="ioPtr:bytes">
 				<t path="cpp.Star"><c path="realloc.T"/></t>
 				<x path="Int"/>
@@ -5925,7 +5932,7 @@
 			</f>
 			<meta><m n=":generic"/></meta>
 		</realloc>
-		<free public="1" params="T" get="inline" set="null" line="73" static="1">
+		<free public="1" params="T" get="inline" set="null" line="76" static="1">
 			<f a="ptr">
 				<t path="cpp.Star"><c path="free.T"/></t>
 				<x path="Void"/>
