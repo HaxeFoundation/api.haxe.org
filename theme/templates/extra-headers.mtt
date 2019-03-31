@@ -1,20 +1,5 @@
-::if false::
-<!--
-    Force redirect to the right origin.
-    It is needed to redirect `path` to `path/` with the correct domain name.
-    See the "Caveats" section of http://strd6.com/2016/02/github-pages-custom-domain-with-ssltls/.
--->
-::end::
 ::if api.isDefined("origin")::
 <link rel="canonical" href="::api.getValue("origin")::/::api.currentPageUrl::" />
-<script>
-function startsWith(str, searchString){
-    return str.substr(0, searchString.length) === searchString;
-}
-if (!startsWith(location.href, "::api.getValue("origin")::")) {
-	window.location.replace("::api.getValue("origin")::/::api.currentPageUrl::");
-}
-</script>
 ::end::
 
 <style>
