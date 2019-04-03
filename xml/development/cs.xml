@@ -3830,6 +3830,24 @@
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the String itself.</haxe_doc>
 		</toString>
+		<iterator public="1" get="inline" set="null" line="58">
+			<f a=""><c path="haxe.iterators.StringIterator"/></f>
+			<meta><m n=":runtime"/></meta>
+			<haxe_doc>Returns an iterator of the char codes.
+
+		Note that char codes may differ across platforms because of different
+		internal encoding of strings in different of runtimes.
+		For the consistent cross-platform UTF8 char codes see `haxe.iterators.StringIteratorUnicode`.</haxe_doc>
+		</iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="62">
+			<f a=""><c path="haxe.iterators.StringKeyValueIterator"/></f>
+			<meta><m n=":runtime"/></meta>
+			<haxe_doc>Returns an iterator of the char indexes and codes.
+
+		Note that char codes may differ across platforms because of different
+		internal encoding of strings in different of runtimes.
+		For the consistent cross-platform UTF8 char codes see `haxe.iterators.StringKeyValueIteratorUnicode`.</haxe_doc>
+		</keyValueIterator>
 		<IndexOf set="method"><f a="value:startIndex:comparisonType">
 	<c path="String"/>
 	<x path="Int"/>
@@ -12114,30 +12132,30 @@
 		</meta>
 	</class>
 	<class path="cs.internal.StringExt" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cs/internal/StringExt.hx">
-		<empty set="null" expr="new NativeString(cast 0, 0)" line="28" static="1">
+		<empty set="null" expr="new NativeString(cast 0, 0)" line="32" static="1">
 			<c path="cs.system.String"/>
 			<meta>
 				<m n=":value"><e>new NativeString(cast 0, 0)</e></m>
 				<m n=":readOnly"/>
 			</meta>
 		</empty>
-		<charAt public="1" set="method" line="30" static="1"><f a="me:index">
+		<charAt public="1" set="method" line="34" static="1"><f a="me:index">
 	<t path="cs.internal._StringExt.NativeString"/>
 	<x path="Int"/>
 	<t path="cs.internal._StringExt.NativeString"/>
 </f></charAt>
-		<charCodeAt public="1" set="method" line="38" static="1"><f a="me:index">
+		<charCodeAt public="1" set="method" line="42" static="1"><f a="me:index">
 	<t path="cs.internal._StringExt.NativeString"/>
 	<x path="Int"/>
 	<x path="Null"><x path="Int"/></x>
 </f></charCodeAt>
-		<indexOf public="1" set="method" line="46" static="1"><f a="me:str:?startIndex">
+		<indexOf public="1" set="method" line="50" static="1"><f a="me:str:?startIndex">
 	<t path="cs.internal._StringExt.NativeString"/>
 	<c path="String"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></indexOf>
-		<lastIndexOf public="1" set="method" line="54" static="1">
+		<lastIndexOf public="1" set="method" line="58" static="1">
 			<f a="me:str:?startIndex">
 				<t path="cs.internal._StringExt.NativeString"/>
 				<t path="cs.internal._StringExt.NativeString"/>
@@ -12146,7 +12164,7 @@
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</lastIndexOf>
-		<split public="1" set="method" line="97" static="1">
+		<split public="1" set="method" line="101" static="1">
 			<f a="me:delimiter">
 				<t path="cs.internal._StringExt.NativeString"/>
 				<t path="cs.internal._StringExt.NativeString"/>
@@ -12154,38 +12172,46 @@
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</split>
-		<substr public="1" set="method" line="116" static="1"><f a="me:pos:?len">
+		<substr public="1" set="method" line="120" static="1"><f a="me:pos:?len">
 	<t path="cs.internal._StringExt.NativeString"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<c path="String"/>
 </f></substr>
-		<substring public="1" set="method" line="145" static="1"><f a="me:startIndex:?endIndex">
+		<substring public="1" set="method" line="149" static="1"><f a="me:startIndex:?endIndex">
 	<t path="cs.internal._StringExt.NativeString"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<c path="String"/>
 </f></substring>
-		<toString public="1" set="method" line="171" static="1"><f a="me">
+		<toString public="1" set="method" line="175" static="1"><f a="me">
 	<t path="cs.internal._StringExt.NativeString"/>
 	<t path="cs.internal._StringExt.NativeString"/>
 </f></toString>
-		<toLowerCase public="1" set="method" line="176" static="1"><f a="me">
+		<toLowerCase public="1" set="method" line="180" static="1"><f a="me">
 	<t path="cs.internal._StringExt.NativeString"/>
 	<c path="String"/>
 </f></toLowerCase>
-		<toUpperCase public="1" set="method" line="181" static="1"><f a="me">
+		<toUpperCase public="1" set="method" line="185" static="1"><f a="me">
 	<t path="cs.internal._StringExt.NativeString"/>
 	<c path="String"/>
 </f></toUpperCase>
-		<toNativeString public="1" set="method" line="186" static="1"><f a="me">
+		<toNativeString public="1" set="method" line="190" static="1"><f a="me">
 	<t path="cs.internal._StringExt.NativeString"/>
 	<t path="cs.internal._StringExt.NativeString"/>
 </f></toNativeString>
-		<fromCharCode public="1" set="method" line="191" static="1"><f a="code">
+		<fromCharCode public="1" set="method" line="195" static="1"><f a="code">
 	<x path="Int"/>
 	<c path="String"/>
 </f></fromCharCode>
+		<iterator public="1" set="method" line="201" static="1"><f a="me">
+	<c path="String"/>
+	<c path="haxe.iterators.StringIterator"/>
+</f></iterator>
+		<keyValueIterator public="1" set="method" line="206" static="1"><f a="me">
+	<c path="String"/>
+	<c path="haxe.iterators.StringKeyValueIterator"/>
+</f></keyValueIterator>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":nativeGen"/>
@@ -12195,17 +12221,17 @@
 		</meta>
 	</class>
 	<class path="cs.internal.StringRefl" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cs/internal/StringExt.hx" module="cs.internal.StringExt">
-		<fields public="1" expr="[&quot;length&quot;, &quot;toUpperCase&quot;, &quot;toLowerCase&quot;, &quot;charAt&quot;, &quot;charCodeAt&quot;, &quot;indexOf&quot;, &quot;lastIndexOf&quot;, &quot;split&quot;, &quot;substr&quot;, &quot;substring&quot;]" line="200" static="1">
+		<fields public="1" expr="[&quot;length&quot;, &quot;toUpperCase&quot;, &quot;toLowerCase&quot;, &quot;charAt&quot;, &quot;charCodeAt&quot;, &quot;indexOf&quot;, &quot;lastIndexOf&quot;, &quot;split&quot;, &quot;substr&quot;, &quot;substring&quot;]" line="214" static="1">
 			<c path="Array"><c path="String"/></c>
 			<meta><m n=":value"><e>["length", "toUpperCase", "toLowerCase", "charAt", "charCodeAt", "indexOf", "lastIndexOf", "split", "substr", "substring"]</e></m></meta>
 		</fields>
-		<handleGetField public="1" set="method" line="202" static="1"><f a="str:f:throwErrors">
+		<handleGetField public="1" set="method" line="216" static="1"><f a="str:f:throwErrors">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="Bool"/>
 	<d/>
 </f></handleGetField>
-		<handleCallField public="1" set="method" line="217" static="1"><f a="str:f:args">
+		<handleCallField public="1" set="method" line="231" static="1"><f a="str:f:args">
 	<t path="cs.internal._StringExt.NativeString"/>
 	<c path="String"/>
 	<c path="cs.NativeArray"><d/></c>
@@ -79180,6 +79206,36 @@
 			</m>
 		</meta>
 	</class>
+	<class path="haxe.iterators.StringIterator" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/iterators/StringIterator.hx">
+		<offset expr="0" line="31">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</offset>
+		<s><c path="String"/></s>
+		<hasNext public="1" get="inline" set="null" line="44">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>See `Iterator.hasNext`</haxe_doc>
+		</hasNext>
+		<next public="1" get="inline" set="null" line="51">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>See `Iterator.next`</haxe_doc>
+		</next>
+		<new public="1" get="inline" set="null" line="37">
+			<f a="s">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Create a new `StringIterator` over String `s`.</haxe_doc>
+		</new>
+		<haxe_doc>This iterator can be used to iterate over char codes in a string.
+
+	Note that char codes may differ across platforms because of different
+	internal encoding of strings in different of runtimes.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":hxGen"/>
+		</meta>
+	</class>
 	<class path="haxe.iterators.StringIteratorUnicode" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/iterators/StringIteratorUnicode.hx">
 		<unicodeIterator public="1" get="inline" set="null" line="66" static="1">
 			<f a="s">
@@ -79215,6 +79271,39 @@
 	Note that this has different semantics than a standard for-loop over the
 	String's length due to the fact that it deals with surrogate pairs.</haxe_doc>
 		<meta><m n=":hxGen"/></meta>
+	</class>
+	<class path="haxe.iterators.StringKeyValueIterator" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/iterators/StringKeyValueIterator.hx">
+		<offset expr="0" line="31">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</offset>
+		<s><c path="String"/></s>
+		<hasNext public="1" get="inline" set="null" line="44">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>See `KeyValueIterator.hasNext`</haxe_doc>
+		</hasNext>
+		<next public="1" get="inline" set="null" line="51">
+			<f a=""><a>
+	<value><x path="Int"/></value>
+	<key><x path="Int"/></key>
+</a></f>
+			<haxe_doc>See `KeyValueIterator.next`</haxe_doc>
+		</next>
+		<new public="1" get="inline" set="null" line="37">
+			<f a="s">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Create a new `StringKeyValueIterator` over String `s`.</haxe_doc>
+		</new>
+		<haxe_doc>This iterator can be used to iterate over char indexes and char codes in a string.
+
+	Note that char codes may differ across platforms because of different
+	internal encoding of strings in different runtimes.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":hxGen"/>
+		</meta>
 	</class>
 	<class path="haxe.iterators.StringKeyValueIteratorUnicode" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/iterators/StringKeyValueIteratorUnicode.hx">
 		<unicodeKeyValueIterator public="1" get="inline" set="null" line="69" static="1">
