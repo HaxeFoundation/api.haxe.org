@@ -4404,6 +4404,67 @@ The total amount of memory allocated by the program since it was started is (in 
 		</stat>
 		<haxe_doc>Memory management control and statistics; finalised values.</haxe_doc>
 	</class>
+	<class path="eval.vm.NativeThread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/eval/vm/NativeThread.hx" extern="1">
+		<delay public="1" set="method" static="1">
+			<f a="f">
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Suspends the execution of the calling thread for `f` seconds. The other program
+		threads continue to run during this time.</haxe_doc>
+		</delay>
+		<exit public="1" set="method" static="1">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Terminate prematurely the currently executing thread.</haxe_doc>
+		</exit>
+		<join public="1" set="method" static="1">
+			<f a="thread">
+				<c path="eval.vm.NativeThread"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Suspends the execution of the calling thread until the thread `thread` has
+		terminated.</haxe_doc>
+		</join>
+		<self public="1" set="method" static="1">
+			<f a=""><c path="eval.vm.NativeThread"/></f>
+			<haxe_doc>Return the thread currently executing.</haxe_doc>
+		</self>
+		<yield public="1" set="method" static="1">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Re-schedule the calling thread without suspending it. This function can be used
+		to give scheduling hints, telling the scheduler that now is a good time to switch
+		to other threads.</haxe_doc>
+		</yield>
+		<readMessage public="1" params="T" set="method" static="1"><f a="block">
+	<x path="Bool"/>
+	<c path="readMessage.T"/>
+</f></readMessage>
+		<id public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Return the identifier of the given thread. A thread identifier is an integer
+		that identifies uniquely the thread. It can be used to build data structures
+		indexed by threads.</haxe_doc>
+		</id>
+		<kill public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Terminate prematurely the thread whose handle is given. This functionality is
+		available only with bytecode-level threads.</haxe_doc>
+		</kill>
+		<sendMessage public="1" params="T" set="method"><f a="msg">
+	<c path="sendMessage.T"/>
+	<x path="Void"/>
+</f></sendMessage>
+		<new public="1" set="method">
+			<f a="f">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new thread that executes function `f`.
+
+		Exceptions caused while executing `f` are printed to stderr and are not
+		propagated to the parent thread.</haxe_doc>
+		</new>
+	</class>
 	<enum path="haxe.StackItem" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/CallStack.hx" module="haxe.CallStack">
 		<CFunction/>
 		<Module a="m"><c path="String"/></Module>
@@ -28579,74 +28640,104 @@ The total amount of memory allocated by the program since it was started is (in 
 	an element is available. It is commonly used to synchronize threads.</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
-	<class path="sys.thread.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/eval/_std/sys/thread/Thread.hx" extern="1">
-		<delay public="1" set="method" static="1">
-			<f a="f">
-				<x path="Float"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Suspends the execution of the calling thread for `f` seconds. The other program
-		threads continue to run during this time.</haxe_doc>
-		</delay>
-		<exit public="1" set="method" static="1">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Terminate prematurely the currently executing thread.</haxe_doc>
-		</exit>
-		<join public="1" set="method" static="1">
-			<f a="thread">
-				<c path="sys.thread.Thread"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Suspends the execution of the calling thread until the thread `thread` has
-		terminated.</haxe_doc>
-		</join>
-		<self public="1" set="method" static="1">
-			<f a=""><c path="sys.thread.Thread"/></f>
-			<haxe_doc>Return the thread currently executing.</haxe_doc>
-		</self>
-		<yield public="1" set="method" static="1">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Re-schedule the calling thread without suspending it. This function can be used
-		to give scheduling hints, telling the scheduler that now is a good time to switch
-		to other threads.</haxe_doc>
-		</yield>
-		<readMessage public="1" params="T" set="method" static="1"><f a="block">
-	<x path="Bool"/>
-	<c path="readMessage.T"/>
-</f></readMessage>
-		<create public="1" get="inline" set="null" line="83" static="1"><f a="f">
+	<abstract path="sys.thread.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/eval/_std/sys/thread/Thread.hx">
+		<this><c path="eval.vm.NativeThread"/></this>
+		<impl><class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/eval/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
+	<_new get="inline" set="null" line="28" static="1">
+		<f a="h">
+			<c path="eval.vm.NativeThread"/>
+			<x path="sys.thread.Thread"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</_new>
+	<sendMessage public="1" get="inline" set="null" line="32" static="1">
+		<f a="this:msg">
+			<c path="eval.vm.NativeThread"/>
+			<d/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</sendMessage>
+	<current public="1" get="inline" set="null" line="36" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
+	<create public="1" get="inline" set="null" line="40" static="1"><f a="callb">
 	<f a=""><x path="Void"/></f>
-	<c path="sys.thread.Thread"/>
+	<x path="sys.thread.Thread"/>
 </f></create>
-		<current public="1" get="inline" set="null" line="85" static="1"><f a=""><c path="sys.thread.Thread"/></f></current>
-		<id public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Return the identifier of the given thread. A thread identifier is an integer
-		that identifies uniquely the thread. It can be used to build data structures
-		indexed by threads.</haxe_doc>
-		</id>
-		<kill public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Terminate prematurely the thread whose handle is given. This functionality is
-		available only with bytecode-level threads.</haxe_doc>
-		</kill>
-		<sendMessage public="1" params="T" set="method"><f a="msg">
-	<c path="sendMessage.T"/>
-	<x path="Void"/>
-</f></sendMessage>
-		<new public="1" set="method">
-			<f a="f">
-				<f a=""><x path="Void"/></f>
+	<readMessage public="1" get="inline" set="null" line="44" static="1"><f a="block">
+	<x path="Bool"/>
+	<d/>
+</f></readMessage>
+	<yield public="1" get="inline" set="null" line="48" static="1"><f a=""><x path="Void"/></f></yield>
+	<equals public="1" get="inline" set="null" line="53" static="1">
+		<f a="this:other">
+			<c path="eval.vm.NativeThread"/>
+			<x path="sys.thread.Thread"/>
+			<x path="Bool"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":op"><e>A == B</e></m>
+		</meta>
+	</equals>
+	<getHandle get="inline" set="null" line="57" static="1">
+		<f a="this">
+			<c path="eval.vm.NativeThread"/>
+			<c path="eval.vm.NativeThread"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</getHandle>
+</class></impl>
+	</abstract>
+	<class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/eval/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
+		<_new get="inline" set="null" line="28" static="1">
+			<f a="h">
+				<c path="eval.vm.NativeThread"/>
+				<x path="sys.thread.Thread"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</_new>
+		<sendMessage public="1" get="inline" set="null" line="32" static="1">
+			<f a="this:msg">
+				<c path="eval.vm.NativeThread"/>
+				<d/>
 				<x path="Void"/>
 			</f>
-			<haxe_doc>Creates a new thread that executes function `f`.
-
-		Exceptions caused while executing `f` are printed to stderr and are not
-		propagated to the parent thread.</haxe_doc>
-		</new>
-		<haxe_doc>Experimental Thread API.
-
-	Note that the debugger does not properly support threads at the moment.</haxe_doc>
+			<meta><m n=":impl"/></meta>
+		</sendMessage>
+		<current public="1" get="inline" set="null" line="36" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
+		<create public="1" get="inline" set="null" line="40" static="1"><f a="callb">
+	<f a=""><x path="Void"/></f>
+	<x path="sys.thread.Thread"/>
+</f></create>
+		<readMessage public="1" get="inline" set="null" line="44" static="1"><f a="block">
+	<x path="Bool"/>
+	<d/>
+</f></readMessage>
+		<yield public="1" get="inline" set="null" line="48" static="1"><f a=""><x path="Void"/></f></yield>
+		<equals public="1" get="inline" set="null" line="53" static="1">
+			<f a="this:other">
+				<c path="eval.vm.NativeThread"/>
+				<x path="sys.thread.Thread"/>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":op"><e>A == B</e></m>
+			</meta>
+		</equals>
+		<getHandle get="inline" set="null" line="57" static="1">
+			<f a="this">
+				<c path="eval.vm.NativeThread"/>
+				<c path="eval.vm.NativeThread"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</getHandle>
 	</class>
 	<class path="sys.thread.Tls" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/sys/thread/Tls.hx" extern="1">
 		<value public="1" get="null" set="null"><c path="sys.thread.Tls.T"/></value>

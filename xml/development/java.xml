@@ -71484,7 +71484,7 @@
 		</meta>
 	</typedef>
 	<typedef path="java.vm.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/vm/Thread.hx">
-		<c path="sys.thread.Thread"/>
+		<x path="sys.thread.Thread"/>
 		<meta>
 			<m n=":nativeGen"/>
 			<m n=":deprecated"/>
@@ -72475,18 +72475,96 @@
 			<m n=":nativeGen"/>
 		</meta>
 	</class>
-	<class path="sys.thread.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/sys/thread/Thread.hx">
-		<javaThreadToHaxe expr="new haxe.ds.WeakMap&lt;java.lang.Thread,sys.thread.Thread&gt;()" line="29" static="1">
+	<abstract path="sys.thread.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/sys/thread/Thread.hx">
+		<this><c path="sys.thread._Thread.NativeThread"/></this>
+		<meta><m n=":hxGen"/></meta>
+		<impl><class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
+	<_new get="inline" set="null" line="26" static="1">
+		<f a="t">
+			<c path="sys.thread._Thread.NativeThread"/>
+			<x path="sys.thread.Thread"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</_new>
+	<create public="1" set="method" line="31" static="1"><f a="callb">
+	<f a=""><x path="Void"/></f>
+	<x path="sys.thread.Thread"/>
+</f></create>
+	<current public="1" set="method" line="39" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
+	<readMessage public="1" set="method" line="44" static="1"><f a="block">
+	<x path="Bool"/>
+	<d/>
+</f></readMessage>
+	<sendMessage public="1" get="inline" set="null" line="49" static="1">
+		<f a="this:msg">
+			<c path="sys.thread._Thread.NativeThread"/>
+			<d/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</sendMessage>
+	<getHandle get="inline" set="null" line="54" static="1">
+		<f a="this">
+			<c path="sys.thread._Thread.NativeThread"/>
+			<c path="sys.thread._Thread.NativeThread"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</getHandle>
+	<meta><m n=":hxGen"/></meta>
+</class></impl>
+	</abstract>
+	<class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
+		<_new get="inline" set="null" line="26" static="1">
+			<f a="t">
+				<c path="sys.thread._Thread.NativeThread"/>
+				<x path="sys.thread.Thread"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</_new>
+		<create public="1" set="method" line="31" static="1"><f a="callb">
+	<f a=""><x path="Void"/></f>
+	<x path="sys.thread.Thread"/>
+</f></create>
+		<current public="1" set="method" line="39" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
+		<readMessage public="1" set="method" line="44" static="1"><f a="block">
+	<x path="Bool"/>
+	<d/>
+</f></readMessage>
+		<sendMessage public="1" get="inline" set="null" line="49" static="1">
+			<f a="this:msg">
+				<c path="sys.thread._Thread.NativeThread"/>
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</sendMessage>
+		<getHandle get="inline" set="null" line="54" static="1">
+			<f a="this">
+				<c path="sys.thread._Thread.NativeThread"/>
+				<c path="sys.thread._Thread.NativeThread"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</getHandle>
+		<meta><m n=":hxGen"/></meta>
+	</class>
+	<class path="sys.thread._Thread.NativeThread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
+		<javaThreadToHaxe expr="new haxe.ds.WeakMap&lt;java.lang.Thread,NativeThread&gt;()" line="61" static="1">
 			<c path="haxe.ds.WeakMap">
 				<c path="java.lang.Thread"/>
-				<c path="sys.thread.Thread"/>
+				<c path="sys.thread._Thread.NativeThread"/>
 			</c>
 			<meta>
-				<m n=":value"><e><![CDATA[new haxe.ds.WeakMap<java.lang.Thread,sys.thread.Thread>()]]></e></m>
+				<m n=":value"><e><![CDATA[new haxe.ds.WeakMap<java.lang.Thread,NativeThread>()]]></e></m>
 				<m n=":private"/>
 			</meta>
 		</javaThreadToHaxe>
-		<mainJavaThread expr="java.lang.Thread.currentThread()" line="30" static="1">
+		<mainJavaThread expr="java.lang.Thread.currentThread()" line="62" static="1">
 			<c path="java.lang.Thread"/>
 			<meta>
 				<m n=":value"><e>java.lang.Thread.currentThread()</e></m>
@@ -72494,72 +72572,48 @@
 			</meta>
 		</mainJavaThread>
 		<mainHaxeThread expr="{
-	var ret = new Thread();
+	var ret = new NativeThread();
 	javaThreadToHaxe.set(mainJavaThread, ret);
 	ret;
-}" line="31" static="1">
-			<c path="sys.thread.Thread"/>
+}" line="63" static="1">
+			<c path="sys.thread._Thread.NativeThread"/>
 			<meta>
 				<m n=":value"><e>{
-	var ret = new Thread();
+	var ret = new NativeThread();
 	javaThreadToHaxe.set(mainJavaThread, ret);
 	ret;
 }</e></m>
 				<m n=":private"/>
 			</meta>
 		</mainHaxeThread>
-		<getThread set="method" line="38" static="1">
+		<getThread public="1" set="method" line="69" static="1">
 			<f a="jt">
 				<c path="java.lang.Thread"/>
-				<c path="sys.thread.Thread"/>
+				<c path="sys.thread._Thread.NativeThread"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</getThread>
-		<current public="1" set="method" line="77" static="1">
-			<f a=""><c path="sys.thread.Thread"/></f>
-			<haxe_doc>Returns the current thread.</haxe_doc>
-		</current>
-		<readMessage public="1" set="method" line="82" static="1">
-			<f a="block">
-				<x path="Bool"/>
-				<d/>
-			</f>
-			<haxe_doc>Reads a message from the thread queue. If `block` is true, the function
-		blocks until a message is available. If `block` is false, the function
-		returns `null` if no message is available.</haxe_doc>
-		</readMessage>
-		<create public="1" set="method" line="87" static="1">
-			<f a="callb">
-				<f a=""><x path="Void"/></f>
-				<c path="sys.thread.Thread"/>
-			</f>
-			<haxe_doc>Creates a new thread that will execute the `f` function, then exit.</haxe_doc>
-		</create>
-		<messages><c path="sys.thread.Deque"><d/></c></messages>
-		<sendMessage public="1" set="method" line="72">
-			<f a="msg">
-				<d/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Send a message to the thread queue. This message can be read by using `readMessage`.</haxe_doc>
-		</sendMessage>
-		<new set="method" line="67"><f a=""><x path="Void"/></f></new>
+		<messages public="1"><c path="sys.thread.Deque"><d/></c></messages>
+		<sendMessage public="1" set="method" line="103"><f a="msg">
+	<d/>
+	<x path="Void"/>
+</f></sendMessage>
+		<new public="1" set="method" line="98"><f a=""><x path="Void"/></f></new>
 		<meta>
 			<m n=":hxGen"/>
-			<m n=":coreApi"/>
 			<m n=":native"><e>"haxe.java.vm.Thread"</e></m>
 		</meta>
 	</class>
 	<class path="sys.thread._Thread.HaxeThread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
 		<extends path="java.lang.Thread"/>
-		<threadObject public="1" set="null"><c path="sys.thread.Thread"/></threadObject>
+		<threadObject public="1" set="null"><c path="sys.thread._Thread.NativeThread"/></threadObject>
 		<runFunction><f a=""><x path="Void"/></f></runFunction>
-		<run public="1" set="method" line="101" override="1">
+		<run public="1" set="method" line="114" override="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":overload"/></meta>
 		</run>
-		<new public="1" set="method" line="105"><f a="hxThread:run">
-	<c path="sys.thread.Thread"/>
+		<new public="1" set="method" line="118"><f a="hxThread:run">
+	<c path="sys.thread._Thread.NativeThread"/>
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></new>

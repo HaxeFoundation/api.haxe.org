@@ -10270,7 +10270,7 @@
 		</stop>
 	</class>
 	<typedef path="cpp.vm.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/vm/Thread.hx">
-		<c path="sys.thread.Thread"/>
+		<x path="sys.thread.Thread"/>
 		<meta><m n=":deprecated"/></meta>
 	</typedef>
 	<typedef path="cpp.vm.Tls" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/vm/Tls.hx">
@@ -36841,51 +36841,126 @@
 			<m n=":coreType"/>
 		</meta>
 	</abstract>
-	<class path="sys.thread.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/_std/sys/thread/Thread.hx">
-		<current public="1" set="method" line="41" static="1">
-			<f a=""><c path="sys.thread.Thread"/></f>
+	<abstract path="sys.thread.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/_std/sys/thread/Thread.hx">
+		<this><x path="sys.thread._Thread.ThreadHandle"/></this>
+		<impl><class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
+	<_new get="inline" set="null" line="30" static="1">
+		<f a="h">
+			<x path="sys.thread._Thread.ThreadHandle"/>
+			<x path="sys.thread.Thread"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</_new>
+	<sendMessage public="1" get="inline" set="null" line="34" static="1">
+		<f a="this:msg">
+			<x path="sys.thread._Thread.ThreadHandle"/>
+			<d/>
+			<x path="Void"/>
+		</f>
+		<meta>
+			<m n=":has_untyped"/>
+			<m n=":impl"/>
+		</meta>
+	</sendMessage>
+	<current public="1" get="inline" set="null" line="38" static="1">
+		<f a=""><x path="sys.thread.Thread"/></f>
+		<meta><m n=":has_untyped"/></meta>
+	</current>
+	<create public="1" get="inline" set="null" line="42" static="1">
+		<f a="callb">
+			<f a=""><x path="Void"/></f>
+			<x path="sys.thread.Thread"/>
+		</f>
+		<meta><m n=":has_untyped"/></meta>
+	</create>
+	<readMessage public="1" set="method" line="46" static="1">
+		<f a="block">
+			<x path="Bool"/>
+			<d/>
+		</f>
+		<meta><m n=":has_untyped"/></meta>
+	</readMessage>
+	<equals public="1" get="inline" set="null" line="51" static="1">
+		<f a="this:other">
+			<x path="sys.thread._Thread.ThreadHandle"/>
+			<x path="sys.thread.Thread"/>
+			<x path="Bool"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":op"><e>A == B</e></m>
+		</meta>
+	</equals>
+	<getHandle get="inline" set="null" line="55" static="1">
+		<f a="this">
+			<x path="sys.thread._Thread.ThreadHandle"/>
+			<x path="sys.thread._Thread.ThreadHandle"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</getHandle>
+</class></impl>
+	</abstract>
+	<class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
+		<_new get="inline" set="null" line="30" static="1">
+			<f a="h">
+				<x path="sys.thread._Thread.ThreadHandle"/>
+				<x path="sys.thread.Thread"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</_new>
+		<sendMessage public="1" get="inline" set="null" line="34" static="1">
+			<f a="this:msg">
+				<x path="sys.thread._Thread.ThreadHandle"/>
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":impl"/>
+			</meta>
+		</sendMessage>
+		<current public="1" get="inline" set="null" line="38" static="1">
+			<f a=""><x path="sys.thread.Thread"/></f>
 			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Returns the current thread.</haxe_doc>
 		</current>
-		<create public="1" set="method" line="45" static="1">
+		<create public="1" get="inline" set="null" line="42" static="1">
 			<f a="callb">
 				<f a=""><x path="Void"/></f>
-				<c path="sys.thread.Thread"/>
+				<x path="sys.thread.Thread"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Creates a new thread that will execute the `f` function, then exit.</haxe_doc>
 		</create>
-		<readMessage public="1" set="method" line="49" static="1">
+		<readMessage public="1" set="method" line="46" static="1">
 			<f a="block">
 				<x path="Bool"/>
 				<d/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Reads a message from the thread queue. If `block` is true, the function
-		blocks until a message is available. If `block` is false, the function
-		returns `null` if no message is available.</haxe_doc>
 		</readMessage>
-		<handle set="null"><x path="sys.thread._Thread.ThreadHandle"/></handle>
-		<sendMessage public="1" set="method" line="37">
-			<f a="msg">
-				<d/>
-				<x path="Void"/>
+		<equals public="1" get="inline" set="null" line="51" static="1">
+			<f a="this:other">
+				<x path="sys.thread._Thread.ThreadHandle"/>
+				<x path="sys.thread.Thread"/>
+				<x path="Bool"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Send a message to the thread queue. This message can be read by using `readMessage`.</haxe_doc>
-		</sendMessage>
-		<__compare set="method" line="53">
-			<f a="t">
-				<c path="sys.thread.Thread"/>
-				<x path="Int"/>
+			<meta>
+				<m n=":impl"/>
+				<m n=":op"><e>A == B</e></m>
+			</meta>
+		</equals>
+		<getHandle get="inline" set="null" line="55" static="1">
+			<f a="this">
+				<x path="sys.thread._Thread.ThreadHandle"/>
+				<x path="sys.thread._Thread.ThreadHandle"/>
 			</f>
-			<meta><m n=":keep"/></meta>
-		</__compare>
-		<new set="method" line="33"><f a="h">
-	<x path="sys.thread._Thread.ThreadHandle"/>
-	<x path="Void"/>
-</f></new>
-		<meta><m n=":coreApi"/></meta>
+			<meta><m n=":impl"/></meta>
+		</getHandle>
 	</class>
 	<class path="sys.thread.Tls" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/cpp/_std/sys/thread/Tls.hx">
 		<sFreeSlot expr="0" line="27" static="1">

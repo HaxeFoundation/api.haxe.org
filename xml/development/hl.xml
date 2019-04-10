@@ -34112,35 +34112,107 @@
 			<m n=":access"><e>sys.net.Socket</e></m>
 		</meta>
 	</class>
-	<class path="sys.thread.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/thread/Thread.hx" extern="1">
-		<current public="1" set="method" static="1">
-			<f a=""><c path="sys.thread.Thread"/></f>
-			<haxe_doc>Returns the current thread.</haxe_doc>
-		</current>
-		<create public="1" set="method" static="1">
-			<f a="callb">
-				<f a=""><x path="Void"/></f>
-				<c path="sys.thread.Thread"/>
-			</f>
-			<haxe_doc>Creates a new thread that will execute the `f` function, then exit.</haxe_doc>
-		</create>
-		<readMessage public="1" set="method" static="1">
-			<f a="block">
-				<x path="Bool"/>
-				<d/>
-			</f>
-			<haxe_doc>Reads a message from the thread queue. If `block` is true, the function
-		blocks until a message is available. If `block` is false, the function
-		returns `null` if no message is available.</haxe_doc>
-		</readMessage>
-		<sendMessage public="1" set="method">
-			<f a="msg">
+	<typedef path="sys.thread.ThreadHandle" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/thread/Thread.hx" module="sys.thread.Thread"><c path="hl.Abstract"><c path="Shl_thread"/></c></typedef>
+	<abstract path="sys.thread.Thread" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/thread/Thread.hx">
+		<this><t path="sys.thread.ThreadHandle"/></this>
+		<impl><class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
+	<sendMessage public="1" set="method" line="28" static="1">
+		<f a="this:msg">
+			<t path="sys.thread.ThreadHandle"/>
+			<d/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</sendMessage>
+	<readMessage public="1" set="method" line="32" static="1">
+		<f a="?block" v="true">
+			<x path="Bool"/>
+			<d/>
+		</f>
+		<meta><m n=":value"><e>{ block : true }</e></m></meta>
+	</readMessage>
+	<queue_mutex expr="null" line="36" static="1">
+		<c path="sys.thread.Mutex"/>
+		<meta><m n=":value"><e>null</e></m></meta>
+	</queue_mutex>
+	<threads_queues expr="null" line="37" static="1">
+		<c path="Array"><a>
+	<t><t path="sys.thread.ThreadHandle"/></t>
+	<q><c path="sys.thread.Deque"><d/></c></q>
+</a></c>
+		<meta><m n=":value"><e>null</e></m></meta>
+	</threads_queues>
+	<getQueue set="method" line="39" static="1"><f a="t">
+	<t path="sys.thread.ThreadHandle"/>
+	<c path="sys.thread.Deque"><d/></c>
+</f></getQueue>
+	<create public="1" set="method" line="60" static="1">
+		<f a="callb">
+			<f a=""><x path="Void"/></f>
+			<x path="sys.thread.Thread"/>
+		</f>
+		<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"thread_create"</e>
+</m></meta>
+	</create>
+	<current public="1" set="method" line="65" static="1">
+		<f a=""><x path="sys.thread.Thread"/></f>
+		<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"thread_current"</e>
+</m></meta>
+	</current>
+</class></impl>
+	</abstract>
+	<class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
+		<sendMessage public="1" set="method" line="28" static="1">
+			<f a="this:msg">
+				<t path="sys.thread.ThreadHandle"/>
 				<d/>
 				<x path="Void"/>
 			</f>
-			<haxe_doc>Send a message to the thread queue. This message can be read by using `readMessage`.</haxe_doc>
+			<meta><m n=":impl"/></meta>
 		</sendMessage>
-		<meta><m n=":coreApi"/></meta>
+		<readMessage public="1" set="method" line="32" static="1">
+			<f a="?block" v="true">
+				<x path="Bool"/>
+				<d/>
+			</f>
+			<meta><m n=":value"><e>{ block : true }</e></m></meta>
+		</readMessage>
+		<queue_mutex expr="null" line="36" static="1">
+			<c path="sys.thread.Mutex"/>
+			<meta><m n=":value"><e>null</e></m></meta>
+		</queue_mutex>
+		<threads_queues expr="null" line="37" static="1">
+			<c path="Array"><a>
+	<t><t path="sys.thread.ThreadHandle"/></t>
+	<q><c path="sys.thread.Deque"><d/></c></q>
+</a></c>
+			<meta><m n=":value"><e>null</e></m></meta>
+		</threads_queues>
+		<getQueue set="method" line="39" static="1"><f a="t">
+	<t path="sys.thread.ThreadHandle"/>
+	<c path="sys.thread.Deque"><d/></c>
+</f></getQueue>
+		<create public="1" set="method" line="60" static="1">
+			<f a="callb">
+				<f a=""><x path="Void"/></f>
+				<x path="sys.thread.Thread"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"thread_create"</e>
+</m></meta>
+		</create>
+		<current public="1" set="method" line="65" static="1">
+			<f a=""><x path="sys.thread.Thread"/></f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"thread_current"</e>
+</m></meta>
+		</current>
 	</class>
 	<class path="sys.thread.Tls" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/sys/thread/Tls.hx" extern="1">
 		<value public="1" get="null" set="null"><c path="sys.thread.Tls.T"/></value>
