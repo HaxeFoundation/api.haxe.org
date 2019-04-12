@@ -2505,7 +2505,6 @@
 				<c path="String"/>
 				<c path="String"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Decode an URL using the standard format.</haxe_doc>
 		</urlDecode>
 		<htmlEscape public="1" set="method" line="153" static="1">
@@ -5064,7 +5063,6 @@
 				<x path="Float"/>
 				<x path="Bool"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Waits for the lock to be released, or `timeout` (in seconds)
 		to expire. Returns `true` if the lock is released and `false`
 		if a time-out occurs.</haxe_doc>
@@ -27899,12 +27897,13 @@
 		<meta><m n=":hxGen"/></meta>
 	</class>
 	<class path="haxe.zip.Uncompress" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/haxe/zip/Uncompress.hx">
-		<run public="1" set="method" line="40" static="1"><f a="src:?bufsize">
+		<run public="1" set="method" line="51" static="1"><f a="src:?bufsize">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<c path="haxe.io.Bytes"/>
 </f></run>
-		<execute public="1" set="method" line="30"><f a="src:srcPos:dst:dstPos">
+		<inflater final="1"><c path="java.util.zip.Inflater"/></inflater>
+		<execute public="1" set="method" line="34"><f a="src:srcPos:dst:dstPos">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<c path="haxe.io.Bytes"/>
@@ -27915,12 +27914,12 @@
 		<done><x path="Bool"/></done>
 	</a>
 </f></execute>
-		<setFlushMode public="1" set="method" line="34"><f a="f">
+		<setFlushMode public="1" set="method" line="44"><f a="f">
 	<e path="haxe.zip.FlushMode"/>
 	<x path="Void"/>
 </f></setFlushMode>
-		<close public="1" set="method" line="37"><f a=""><x path="Void"/></f></close>
-		<new public="1" set="method" line="26"><f a="?windowBits">
+		<close public="1" set="method" line="47"><f a=""><x path="Void"/></f></close>
+		<new public="1" set="method" line="30"><f a="?windowBits">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></new>
@@ -46442,6 +46441,43 @@
 			<m n=":javaCanonical">
 				<e>"java.net"</e>
 				<e>"URLConnection"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.net.URLDecoder" params="" file="/home/travis/haxelib/hxjava/git/lib/hxjava-std.jar@java/net/URLDecoder.class" extern="1">
+		<decode public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":throws"><e>"java.io.UnsupportedEncodingException"</e></m>
+			</meta>
+			<overloads><decode public="1" set="method">
+	<f a="param1">
+		<c path="String"/>
+		<c path="String"/>
+	</f>
+	<meta>
+		<m n=":overload"/>
+		<m n=":deprecated"/>
+	</meta>
+</decode></overloads>
+		</decode>
+		<new public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+		</new>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.net.URLDecoder"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.net"</e>
+				<e>"URLDecoder"</e>
 			</m>
 		</meta>
 	</class>
