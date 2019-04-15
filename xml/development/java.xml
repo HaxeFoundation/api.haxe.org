@@ -2560,7 +2560,6 @@
 				<c path="String"/>
 				<x path="Bool"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Tells if the string `s` starts with the string `start`.
 
 		If `start` is `null`, the result is unspecified.
@@ -2573,7 +2572,6 @@
 				<c path="String"/>
 				<x path="Bool"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Tells if the string `s` ends with the string `end`.
 
 		If `end` is `null`, the result is unspecified.
@@ -2673,7 +2671,6 @@
 				<c path="String"/>
 				<c path="String"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Replace all occurrences of the String `sub` in the String `s` by the
 		String `by`.
 
@@ -2758,14 +2755,11 @@
 		quoteWinArg("ab c") == '"ab c"';
 		```</haxe_doc>
 		</quoteWinArg>
-		<_charAt get="inline" set="null" line="618" static="1">
-			<f a="str:idx">
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="java.Char16"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</_charAt>
+		<_charAt get="inline" set="null" line="618" static="1"><f a="str:idx">
+	<c path="String"/>
+	<x path="Int"/>
+	<x path="java.Char16"/>
+</f></_charAt>
 		<haxe_doc>This class provides advanced methods on Strings. It is ideally used with
 	`using StringTools` and then acts as an [extension](https://haxe.org/manual/lf-static-extension.html)
 	to the `String` class.
@@ -12502,13 +12496,10 @@
 	<t path="haxe.ds._ObjectMap.HashType"/>
 	<x path="Bool"/>
 </f></isDel>
-		<hash get="inline" set="null" line="451" static="1">
-			<f a="s">
-				<d/>
-				<t path="haxe.ds._ObjectMap.HashType"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</hash>
+		<hash get="inline" set="null" line="451" static="1"><f a="s">
+	<d/>
+	<t path="haxe.ds._ObjectMap.HashType"/>
+</f></hash>
 		<arrayCopy get="inline" set="null" line="479" static="1"><f a="sourceArray:sourceIndex:destinationArray:destinationIndex:length">
 	<d/>
 	<x path="Int"/>
@@ -12544,16 +12535,12 @@
 				<c path="haxe.ds.ObjectMap.V"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>See `Map.set`</haxe_doc>
 		</set>
-		<lookup final="1" set="method" line="142">
-			<f a="key">
-				<c path="haxe.ds.ObjectMap.K"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</lookup>
+		<lookup final="1" set="method" line="142"><f a="key">
+	<c path="haxe.ds.ObjectMap.K"/>
+	<x path="Int"/>
+</f></lookup>
 		<resize final="1" set="method" line="173">
 			<f a="newNBuckets">
 				<x path="Int"/>
@@ -12803,13 +12790,10 @@
 	<t path="haxe.ds._StringMap.HashType"/>
 	<x path="Bool"/>
 </f></isDel>
-		<hash get="inline" set="null" line="455" static="1">
-			<f a="s">
-				<c path="String"/>
-				<t path="haxe.ds._StringMap.HashType"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</hash>
+		<hash get="inline" set="null" line="455" static="1"><f a="s">
+	<c path="String"/>
+	<t path="haxe.ds._StringMap.HashType"/>
+</f></hash>
 		<arrayCopy get="inline" set="null" line="483" static="1"><f a="sourceArray:sourceIndex:destinationArray:destinationIndex:length">
 	<d/>
 	<x path="Int"/>
@@ -28183,6 +28167,81 @@
 		<meta>
 			<m n=":hxGen"/>
 			<m n=":native"><e>"haxe.java.Lib"</e></m>
+		</meta>
+	</class>
+	<class path="java.NativeString" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/NativeString.hx" extern="1">
+		<charAt public="1" set="method"><f a="index">
+	<x path="Int"/>
+	<t path="java.types.Char16"/>
+</f></charAt>
+		<codePointAt public="1" set="method"><f a="index">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></codePointAt>
+		<compareTo public="1" set="method"><f a="s">
+	<c path="String"/>
+	<x path="Int"/>
+</f></compareTo>
+		<concat public="1" set="method"><f a="s">
+	<c path="String"/>
+	<c path="String"/>
+</f></concat>
+		<endsWith public="1" set="method"><f a="suffix">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></endsWith>
+		<equals public="1" set="method"><f a="obj">
+	<d/>
+	<x path="Bool"/>
+</f></equals>
+		<hashCode public="1" set="method"><f a=""><x path="Int"/></f></hashCode>
+		<indexOf public="1" set="method">
+			<f a="str">
+				<c path="String"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><indexOf public="1" set="method">
+	<f a="str:fromIndex">
+		<c path="String"/>
+		<x path="Int"/>
+		<x path="Int"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</indexOf></overloads>
+		</indexOf>
+		<lastIndexOf public="1" set="method"><f a="str:fromIndex">
+	<c path="String"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></lastIndexOf>
+		<replace public="1" set="method"><f a="target:replacement">
+	<c path="java.lang.CharSequence"/>
+	<c path="java.lang.CharSequence"/>
+	<c path="String"/>
+</f></replace>
+		<startsWith public="1" set="method"><f a="prefix">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></startsWith>
+		<substring public="1" set="method">
+			<f a="beginIndex">
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><substring public="1" set="method">
+	<f a="beginIndex:endIndex">
+		<x path="Int"/>
+		<x path="Int"/>
+		<c path="String"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</substring></overloads>
+		</substring>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":native"><e>"java.lang.String"</e></m>
 		</meta>
 	</class>
 	<abstract path="java.Int8" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/StdTypes.hx" module="java.StdTypes">
