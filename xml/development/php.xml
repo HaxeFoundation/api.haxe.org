@@ -2689,6 +2689,40 @@
 	values. However, the internal buffer cannot be modified.</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
+	<class path="haxe.SysTools" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/SysTools.hx">
+		<winMetaCharacters final="1" public="1" set="null" expr="[&quot; &quot;.code, &quot;(&quot;.code, &quot;)&quot;.code, &quot;%&quot;.code, &quot;!&quot;.code, &quot;^&quot;.code, &quot;\&quot;&quot;.code, &quot;&lt;&quot;.code, &quot;&gt;&quot;.code, &quot;&amp;&quot;.code, &quot;|&quot;.code, &quot;\n&quot;.code, &quot;\r&quot;.code, &quot;,&quot;.code, &quot;;&quot;.code]" line="10" static="1">
+			<x path="haxe.ds.ReadOnlyArray"><x path="Int"/></x>
+			<meta><m n=":value"><e><![CDATA[[" ".code, "(".code, ")".code, "%".code, "!".code, "^".code, "\"".code, "<".code, ">".code, "&".code, "|".code, "\n".code, "\r".code, ",".code, ";".code]]]></e></m></meta>
+			<haxe_doc>Character codes of the characters that will be escaped by `quoteWinArg(_, true)`.</haxe_doc>
+		</winMetaCharacters>
+		<quoteUnixArg public="1" set="method" line="17" static="1">
+			<f a="argument">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a String that can be used as a single command line argument
+		on Unix.
+		The input will be quoted, or escaped if necessary.</haxe_doc>
+		</quoteUnixArg>
+		<quoteWinArg public="1" set="method" line="45" static="1">
+			<f a="argument:escapeMetaCharacters">
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a String that can be used as a single command line argument
+		on Windows.
+		The input will be quoted, or escaped if necessary, such that the output
+		will be parsed as a single argument using the rule specified in
+		http://msdn.microsoft.com/en-us/library/ms880421
+
+		Examples:
+		```haxe
+		quoteWinArg("abc") == "abc";
+		quoteWinArg("ab c") == '"ab c"';
+		```</haxe_doc>
+		</quoteWinArg>
+	</class>
 	<class path="StringTools" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/_std/StringTools.hx">
 		<urlEncode public="1" get="inline" set="null" line="27" static="1">
 			<f a="s">
@@ -2911,28 +2945,41 @@
 				<x path="Int"/>
 				<x path="Bool"/>
 			</f>
+			<meta><m n=":noUsing"/></meta>
 			<haxe_doc>Tells if `c` represents the end-of-file (EOF) character.</haxe_doc>
 		</isEof>
-		<quoteUnixArg public="1" set="method" line="132" static="1">
+		<quoteUnixArg public="1" set="method" line="129" static="1">
 			<f a="argument">
 				<c path="String"/>
 				<c path="String"/>
 			</f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":deprecated"><e>"StringTools.quoteUnixArg() is deprecated. Use haxe.SysTools.quoteUnixArg() instead."</e></m>
+			</meta>
 			<haxe_doc>Returns a String that can be used as a single command line argument
 		on Unix.
 		The input will be quoted, or escaped if necessary.</haxe_doc>
 		</quoteUnixArg>
-		<winMetaCharacters public="1" expr="[&quot;;&quot;.code, &quot;,&quot;.code, &quot; &quot;.code, &quot;(&quot;.code, &quot;)&quot;.code, &quot;%&quot;.code, &quot;!&quot;.code, &quot;^&quot;.code, &quot;\&quot;&quot;.code, &quot;&lt;&quot;.code, &quot;&gt;&quot;.code, &quot;&amp;&quot;.code, &quot;|&quot;.code, &quot;\n&quot;.code, &quot;\r&quot;.code]" line="150" static="1">
+		<winMetaCharacters public="1" expr="cast haxe.SysTools.winMetaCharacters" line="135" static="1">
 			<c path="Array"><x path="Int"/></c>
-			<meta><m n=":value"><e><![CDATA[[";".code, ",".code, " ".code, "(".code, ")".code, "%".code, "!".code, "^".code, "\"".code, "<".code, ">".code, "&".code, "|".code, "\n".code, "\r".code]]]></e></m></meta>
+			<meta>
+				<m n=":value"><e>cast haxe.SysTools.winMetaCharacters</e></m>
+				<m n=":noCompletion"/>
+				<m n=":deprecated"><e>"StringTools.winMetaCharacters is deprecated. Use haxe.SysTools.winMetaCharacters instead."</e></m>
+			</meta>
 			<haxe_doc>Character codes of the characters that will be escaped by `quoteWinArg(_, true)`.</haxe_doc>
 		</winMetaCharacters>
-		<quoteWinArg public="1" set="method" line="165" static="1">
+		<quoteWinArg public="1" set="method" line="139" static="1">
 			<f a="argument:escapeMetaCharacters">
 				<c path="String"/>
 				<x path="Bool"/>
 				<c path="String"/>
 			</f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":deprecated"><e>"StringTools.quoteWinArg() is deprecated. Use haxe.SysTools.quoteWinArg() instead."</e></m>
+			</meta>
 			<haxe_doc>Returns a String that can be used as a single command line argument
 		on Windows.
 		The input will be quoted, or escaped if necessary, such that the output
@@ -5944,37 +5991,37 @@
 		</meta>
 	</class>
 	<class path="Sys" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/_std/Sys.hx">
-		<customEnvVars expr="new NativeAssocArray&lt;String&gt;()" line="29" static="1">
+		<customEnvVars expr="new NativeAssocArray&lt;String&gt;()" line="30" static="1">
 			<x path="php.NativeAssocArray"><c path="String"/></x>
 			<meta><m n=":value"><e><![CDATA[new NativeAssocArray<String>()]]></e></m></meta>
 			<haxe_doc>Environment variables set by `Sys.putEnv()`</haxe_doc>
 		</customEnvVars>
-		<print public="1" get="inline" set="null" line="31" static="1">
+		<print public="1" get="inline" set="null" line="32" static="1">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Print any value on the standard output.</haxe_doc>
 		</print>
-		<println public="1" get="inline" set="null" line="35" static="1">
+		<println public="1" get="inline" set="null" line="36" static="1">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Print any value on the standard output, followed by a newline.</haxe_doc>
 		</println>
-		<args public="1" set="method" line="39" static="1">
+		<args public="1" set="method" line="40" static="1">
 			<f a=""><c path="Array"><c path="String"/></c></f>
 			<haxe_doc>Returns all the arguments that were passed by the command line.</haxe_doc>
 		</args>
-		<getEnv public="1" set="method" line="47" static="1">
+		<getEnv public="1" set="method" line="48" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Returns the value of the given environment variable.</haxe_doc>
 		</getEnv>
-		<putEnv public="1" set="method" line="52" static="1">
+		<putEnv public="1" set="method" line="53" static="1">
 			<f a="s:v">
 				<c path="String"/>
 				<c path="String"/>
@@ -5982,14 +6029,14 @@
 			</f>
 			<haxe_doc>Set the value of the given environment variable.</haxe_doc>
 		</putEnv>
-		<sleep public="1" get="inline" set="null" line="57" static="1">
+		<sleep public="1" get="inline" set="null" line="58" static="1">
 			<f a="seconds">
 				<x path="Float"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Suspend the current execution for the given time (in seconds).</haxe_doc>
 		</sleep>
-		<setTimeLocale public="1" get="inline" set="null" line="61" static="1">
+		<setTimeLocale public="1" get="inline" set="null" line="62" static="1">
 			<f a="loc">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -5997,23 +6044,23 @@
 			<haxe_doc>Change the current time locale, which will affect `DateTools.format` date formating.
 		Returns true if the locale was successfully changed</haxe_doc>
 		</setTimeLocale>
-		<getCwd public="1" set="method" line="65" static="1">
+		<getCwd public="1" set="method" line="66" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Get the current working directory (usually the one in which the program was started)</haxe_doc>
 		</getCwd>
-		<setCwd public="1" get="inline" set="null" line="72" static="1">
+		<setCwd public="1" get="inline" set="null" line="73" static="1">
 			<f a="s">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Change the current working directory.</haxe_doc>
 		</setCwd>
-		<systemName public="1" set="method" line="76" static="1">
+		<systemName public="1" set="method" line="77" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the name of the system you are running on. For instance :
 			"Windows", "Linux", "BSD" and "Mac" depending on your desktop OS.</haxe_doc>
 		</systemName>
-		<command public="1" set="method" line="82" static="1">
+		<command public="1" set="method" line="83" static="1">
 			<f a="cmd:?args">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -6032,7 +6079,7 @@
 
 		Read the `sys.io.Process` api for a more complete way to start background processes.</haxe_doc>
 		</command>
-		<exit public="1" get="inline" set="null" line="99" static="1">
+		<exit public="1" get="inline" set="null" line="100" static="1">
 			<f a="code">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -6042,49 +6089,49 @@
 		(macro)(eval) Being invoked in a macro or eval context (e.g. with `-x` or `--run`) immediately terminates
 		the compilation process also preventing the execution of any `--next` section of compilation arguments.</haxe_doc>
 		</exit>
-		<time public="1" get="inline" set="null" line="103" static="1">
+		<time public="1" get="inline" set="null" line="104" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Gives the most precise timestamp value (in seconds).</haxe_doc>
 		</time>
-		<cpuTime public="1" set="method" line="107" static="1">
+		<cpuTime public="1" set="method" line="108" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Gives the most precise timestamp value (in seconds) but only account for the actual time spent running on the CPU for the current thread/process.</haxe_doc>
 		</cpuTime>
-		<executablePath public="1" get="inline" set="null" line="111" static="1">
+		<executablePath public="1" get="inline" set="null" line="112" static="1">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":deprecated"><e>"Use programPath instead"</e></m></meta>
 			<haxe_doc>Returns the path to the current executable that we are running.</haxe_doc>
 		</executablePath>
-		<_programPath expr="sys.FileSystem.fullPath(SuperGlobal._SERVER[&quot;SCRIPT_FILENAME&quot;])" line="116" static="1">
+		<_programPath expr="sys.FileSystem.fullPath(SuperGlobal._SERVER[&quot;SCRIPT_FILENAME&quot;])" line="117" static="1">
 			<c path="String"/>
 			<meta><m n=":value"><e>sys.FileSystem.fullPath(SuperGlobal._SERVER["SCRIPT_FILENAME"])</e></m></meta>
 		</_programPath>
-		<programPath public="1" set="method" line="117" static="1">
+		<programPath public="1" set="method" line="118" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the absolute path to the current program file that we are running.
 		Concretely, for an executable binary, it returns the path to the binary.
 		For a script (e.g. a PHP file), it returns the path to the script.</haxe_doc>
 		</programPath>
-		<environment public="1" set="method" line="121" static="1">
+		<environment public="1" set="method" line="122" static="1">
 			<f a=""><t path="Map">
 	<c path="String"/>
 	<c path="String"/>
 </t></f>
 			<haxe_doc>Returns all environment variables.</haxe_doc>
 		</environment>
-		<stdin public="1" set="method" line="129" static="1">
+		<stdin public="1" set="method" line="130" static="1">
 			<f a=""><c path="haxe.io.Input"/></f>
 			<haxe_doc>Returns the process standard input, from which you can read what user enters. Usually it will block until the user send a full input line. See `getChar` for an alternative.</haxe_doc>
 		</stdin>
-		<stdout public="1" set="method" line="134" static="1">
+		<stdout public="1" set="method" line="135" static="1">
 			<f a=""><c path="haxe.io.Output"/></f>
 			<haxe_doc>Returns the process standard output on which you can write.</haxe_doc>
 		</stdout>
-		<stderr public="1" set="method" line="139" static="1">
+		<stderr public="1" set="method" line="140" static="1">
 			<f a=""><c path="haxe.io.Output"/></f>
 			<haxe_doc>Returns the process standard error on which you can write.</haxe_doc>
 		</stderr>
-		<getChar public="1" set="method" line="144" static="1">
+		<getChar public="1" set="method" line="145" static="1">
 			<f a="echo">
 				<x path="Bool"/>
 				<x path="Int"/>
@@ -33784,21 +33831,21 @@
 		<x path="php.Resource"/>
 		<meta><m n=":impl"/></meta>
 	</stderr>
-	<get_stdin get="inline" set="null" line="36" static="1">
+	<get_stdin get="inline" set="null" line="37" static="1">
 		<f a="this">
 			<x path="php.NativeIndexedArray"><x path="php.Resource"/></x>
 			<x path="php.Resource"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_stdin>
-	<get_stdout get="inline" set="null" line="37" static="1">
+	<get_stdout get="inline" set="null" line="38" static="1">
 		<f a="this">
 			<x path="php.NativeIndexedArray"><x path="php.Resource"/></x>
 			<x path="php.Resource"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_stdout>
-	<get_stderr get="inline" set="null" line="38" static="1">
+	<get_stderr get="inline" set="null" line="39" static="1">
 		<f a="this">
 			<x path="php.NativeIndexedArray"><x path="php.Resource"/></x>
 			<x path="php.Resource"/>
@@ -33820,21 +33867,21 @@
 			<x path="php.Resource"/>
 			<meta><m n=":impl"/></meta>
 		</stderr>
-		<get_stdin get="inline" set="null" line="36" static="1">
+		<get_stdin get="inline" set="null" line="37" static="1">
 			<f a="this">
 				<x path="php.NativeIndexedArray"><x path="php.Resource"/></x>
 				<x path="php.Resource"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_stdin>
-		<get_stdout get="inline" set="null" line="37" static="1">
+		<get_stdout get="inline" set="null" line="38" static="1">
 			<f a="this">
 				<x path="php.NativeIndexedArray"><x path="php.Resource"/></x>
 				<x path="php.Resource"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_stdout>
-		<get_stderr get="inline" set="null" line="38" static="1">
+		<get_stderr get="inline" set="null" line="39" static="1">
 			<f a="this">
 				<x path="php.NativeIndexedArray"><x path="php.Resource"/></x>
 				<x path="php.Resource"/>
@@ -33846,15 +33893,15 @@
 		<extends path="haxe.io.Input"/>
 		<pipe><x path="php.Resource"/></pipe>
 		<tmpBytes><c path="haxe.io.Bytes"/></tmpBytes>
-		<close public="1" set="method" line="50" override="1"><f a=""><x path="Void"/></f></close>
-		<readByte public="1" set="method" line="54" override="1"><f a=""><x path="Int"/></f></readByte>
-		<readBytes public="1" set="method" line="59" override="1"><f a="s:pos:len">
+		<close public="1" set="method" line="51" override="1"><f a=""><x path="Void"/></f></close>
+		<readByte public="1" set="method" line="55" override="1"><f a=""><x path="Int"/></f></readByte>
+		<readBytes public="1" set="method" line="60" override="1"><f a="s:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></readBytes>
-		<new public="1" set="method" line="45"><f a="pipe">
+		<new public="1" set="method" line="46"><f a="pipe">
 	<x path="php.Resource"/>
 	<x path="Void"/>
 </f></new>
@@ -33863,18 +33910,18 @@
 		<extends path="haxe.io.Output"/>
 		<pipe><x path="php.Resource"/></pipe>
 		<tmpBytes><c path="haxe.io.Bytes"/></tmpBytes>
-		<close public="1" set="method" line="82" override="1"><f a=""><x path="Void"/></f></close>
-		<writeByte public="1" set="method" line="86" override="1"><f a="c">
+		<close public="1" set="method" line="83" override="1"><f a=""><x path="Void"/></f></close>
+		<writeByte public="1" set="method" line="87" override="1"><f a="c">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></writeByte>
-		<writeBytes public="1" set="method" line="91" override="1"><f a="b:pos:l">
+		<writeBytes public="1" set="method" line="92" override="1"><f a="b:pos:l">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></writeBytes>
-		<new public="1" set="method" line="77"><f a="pipe">
+		<new public="1" set="method" line="78"><f a="pipe">
 	<x path="php.Resource"/>
 	<x path="Void"/>
 </f></new>
@@ -33906,33 +33953,33 @@
 			<x path="Int"/>
 			<meta><m n=":value"><e>-1</e></m></meta>
 		</_exitCode>
-		<getPid public="1" set="method" line="157">
+		<getPid public="1" set="method" line="158">
 			<f a=""><x path="Int"/></f>
 			<haxe_doc>Return the process ID.</haxe_doc>
 		</getPid>
-		<exitCode public="1" set="method" line="161">
+		<exitCode public="1" set="method" line="162">
 			<f a="?block" v="true">
 				<x path="Bool"/>
 				<x path="Null"><x path="Int"/></x>
 			</f>
 			<meta><m n=":value"><e>{ block : true }</e></m></meta>
 		</exitCode>
-		<close public="1" set="method" line="178">
+		<close public="1" set="method" line="179">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Close the process handle and release the associated resources.
 		All `Process` fields should not be used after `close()` is called.</haxe_doc>
 		</close>
-		<kill public="1" set="method" line="188">
+		<kill public="1" set="method" line="189">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Kill the process.</haxe_doc>
 		</kill>
-		<buildCmd set="method" line="192"><f a="cmd:?args">
+		<buildCmd set="method" line="193"><f a="cmd:?args">
 	<c path="String"/>
 	<c path="Array"><c path="String"/></c>
 	<c path="String"/>
 </f></buildCmd>
-		<updateStatus set="method" line="203"><f a=""><x path="Void"/></f></updateStatus>
-		<new public="1" set="method" line="136">
+		<updateStatus set="method" line="204"><f a=""><x path="Void"/></f></updateStatus>
+		<new public="1" set="method" line="137">
 			<f a="cmd:?args:?detached">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>

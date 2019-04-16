@@ -2616,6 +2616,40 @@
 	values. However, the internal buffer cannot be modified.</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
+	<class path="haxe.SysTools" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/SysTools.hx">
+		<winMetaCharacters final="1" public="1" set="null" expr="[&quot; &quot;.code, &quot;(&quot;.code, &quot;)&quot;.code, &quot;%&quot;.code, &quot;!&quot;.code, &quot;^&quot;.code, &quot;\&quot;&quot;.code, &quot;&lt;&quot;.code, &quot;&gt;&quot;.code, &quot;&amp;&quot;.code, &quot;|&quot;.code, &quot;\n&quot;.code, &quot;\r&quot;.code, &quot;,&quot;.code, &quot;;&quot;.code]" line="10" static="1">
+			<x path="haxe.ds.ReadOnlyArray"><x path="Int"/></x>
+			<meta><m n=":value"><e><![CDATA[[" ".code, "(".code, ")".code, "%".code, "!".code, "^".code, "\"".code, "<".code, ">".code, "&".code, "|".code, "\n".code, "\r".code, ",".code, ";".code]]]></e></m></meta>
+			<haxe_doc>Character codes of the characters that will be escaped by `quoteWinArg(_, true)`.</haxe_doc>
+		</winMetaCharacters>
+		<quoteUnixArg public="1" set="method" line="17" static="1">
+			<f a="argument">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a String that can be used as a single command line argument
+		on Unix.
+		The input will be quoted, or escaped if necessary.</haxe_doc>
+		</quoteUnixArg>
+		<quoteWinArg public="1" set="method" line="45" static="1">
+			<f a="argument:escapeMetaCharacters">
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a String that can be used as a single command line argument
+		on Windows.
+		The input will be quoted, or escaped if necessary, such that the output
+		will be parsed as a single argument using the rule specified in
+		http://msdn.microsoft.com/en-us/library/ms880421
+
+		Examples:
+		```haxe
+		quoteWinArg("abc") == "abc";
+		quoteWinArg("ab c") == '"ab c"';
+		```</haxe_doc>
+		</quoteWinArg>
+	</class>
 	<class path="StringTools" params="" file="/home/travis/build/HaxeFoundation/haxe/std/StringTools.hx">
 		<urlEncode public="1" get="inline" set="null" line="37" static="1">
 			<f a="s">
@@ -2841,31 +2875,38 @@
 			<meta><m n=":noUsing"/></meta>
 			<haxe_doc>Tells if `c` represents the end-of-file (EOF) character.</haxe_doc>
 		</isEof>
-		<quoteUnixArg public="1" set="method" line="520" static="1">
+		<quoteUnixArg public="1" set="method" line="517" static="1">
 			<f a="argument">
 				<c path="String"/>
 				<c path="String"/>
 			</f>
-			<meta><m n=":noCompletion"/></meta>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":deprecated"><e>"StringTools.quoteUnixArg() is deprecated. Use haxe.SysTools.quoteUnixArg() instead."</e></m>
+			</meta>
 			<haxe_doc>Returns a String that can be used as a single command line argument
 		on Unix.
 		The input will be quoted, or escaped if necessary.</haxe_doc>
 		</quoteUnixArg>
-		<winMetaCharacters public="1" expr="[&quot; &quot;.code, &quot;(&quot;.code, &quot;)&quot;.code, &quot;%&quot;.code, &quot;!&quot;.code, &quot;^&quot;.code, &quot;\&quot;&quot;.code, &quot;&lt;&quot;.code, &quot;&gt;&quot;.code, &quot;&amp;&quot;.code, &quot;|&quot;.code, &quot;\n&quot;.code, &quot;\r&quot;.code, &quot;,&quot;.code, &quot;;&quot;.code]" line="539" static="1">
+		<winMetaCharacters public="1" expr="cast haxe.SysTools.winMetaCharacters" line="526" static="1">
 			<c path="Array"><x path="Int"/></c>
 			<meta>
-				<m n=":value"><e><![CDATA[[" ".code, "(".code, ")".code, "%".code, "!".code, "^".code, "\"".code, "<".code, ">".code, "&".code, "|".code, "\n".code, "\r".code, ",".code, ";".code]]]></e></m>
+				<m n=":value"><e>cast haxe.SysTools.winMetaCharacters</e></m>
 				<m n=":noCompletion"/>
+				<m n=":deprecated"><e>"StringTools.winMetaCharacters is deprecated. Use haxe.SysTools.winMetaCharacters instead."</e></m>
 			</meta>
 			<haxe_doc>Character codes of the characters that will be escaped by `quoteWinArg(_, true)`.</haxe_doc>
 		</winMetaCharacters>
-		<quoteWinArg public="1" set="method" line="555" static="1">
+		<quoteWinArg public="1" set="method" line="543" static="1">
 			<f a="argument:escapeMetaCharacters">
 				<c path="String"/>
 				<x path="Bool"/>
 				<c path="String"/>
 			</f>
-			<meta><m n=":noCompletion"/></meta>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":deprecated"><e>"StringTools.quoteWinArg() is deprecated. Use haxe.SysTools.quoteWinArg() instead."</e></m>
+			</meta>
 			<haxe_doc>Returns a String that can be used as a single command line argument
 		on Windows.
 		The input will be quoted, or escaped if necessary, such that the output
@@ -26867,7 +26908,7 @@
 			</f>
 			<meta><m n=":value"><e>{ strict : false }</e></m></meta>
 			<haxe_doc>Parses the String into an XML Document. Set strict parsing to true in order to enable a strict check of XML attributes and entities.
-		
+
 		@throws haxe.xml.XmlParserException</haxe_doc>
 		</parse>
 		<doParse set="method" line="125" static="1">

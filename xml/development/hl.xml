@@ -2611,6 +2611,40 @@
 			<m n=":coreApi"/>
 		</meta>
 	</class>
+	<class path="haxe.SysTools" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/SysTools.hx">
+		<winMetaCharacters final="1" public="1" set="null" expr="[&quot; &quot;.code, &quot;(&quot;.code, &quot;)&quot;.code, &quot;%&quot;.code, &quot;!&quot;.code, &quot;^&quot;.code, &quot;\&quot;&quot;.code, &quot;&lt;&quot;.code, &quot;&gt;&quot;.code, &quot;&amp;&quot;.code, &quot;|&quot;.code, &quot;\n&quot;.code, &quot;\r&quot;.code, &quot;,&quot;.code, &quot;;&quot;.code]" line="10" static="1">
+			<x path="haxe.ds.ReadOnlyArray"><x path="Int"/></x>
+			<meta><m n=":value"><e><![CDATA[[" ".code, "(".code, ")".code, "%".code, "!".code, "^".code, "\"".code, "<".code, ">".code, "&".code, "|".code, "\n".code, "\r".code, ",".code, ";".code]]]></e></m></meta>
+			<haxe_doc>Character codes of the characters that will be escaped by `quoteWinArg(_, true)`.</haxe_doc>
+		</winMetaCharacters>
+		<quoteUnixArg public="1" set="method" line="17" static="1">
+			<f a="argument">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a String that can be used as a single command line argument
+		on Unix.
+		The input will be quoted, or escaped if necessary.</haxe_doc>
+		</quoteUnixArg>
+		<quoteWinArg public="1" set="method" line="45" static="1">
+			<f a="argument:escapeMetaCharacters">
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a String that can be used as a single command line argument
+		on Windows.
+		The input will be quoted, or escaped if necessary, such that the output
+		will be parsed as a single argument using the rule specified in
+		http://msdn.microsoft.com/en-us/library/ms880421
+
+		Examples:
+		```haxe
+		quoteWinArg("abc") == "abc";
+		quoteWinArg("ab c") == '"ab c"';
+		```</haxe_doc>
+		</quoteWinArg>
+	</class>
 	<class path="StringTools" params="" file="/home/travis/build/HaxeFoundation/haxe/std/StringTools.hx">
 		<urlEncode public="1" get="inline" set="null" line="37" static="1">
 			<f a="s">
@@ -2836,31 +2870,38 @@
 			<meta><m n=":noUsing"/></meta>
 			<haxe_doc>Tells if `c` represents the end-of-file (EOF) character.</haxe_doc>
 		</isEof>
-		<quoteUnixArg public="1" set="method" line="520" static="1">
+		<quoteUnixArg public="1" set="method" line="517" static="1">
 			<f a="argument">
 				<c path="String"/>
 				<c path="String"/>
 			</f>
-			<meta><m n=":noCompletion"/></meta>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":deprecated"><e>"StringTools.quoteUnixArg() is deprecated. Use haxe.SysTools.quoteUnixArg() instead."</e></m>
+			</meta>
 			<haxe_doc>Returns a String that can be used as a single command line argument
 		on Unix.
 		The input will be quoted, or escaped if necessary.</haxe_doc>
 		</quoteUnixArg>
-		<winMetaCharacters public="1" expr="[&quot; &quot;.code, &quot;(&quot;.code, &quot;)&quot;.code, &quot;%&quot;.code, &quot;!&quot;.code, &quot;^&quot;.code, &quot;\&quot;&quot;.code, &quot;&lt;&quot;.code, &quot;&gt;&quot;.code, &quot;&amp;&quot;.code, &quot;|&quot;.code, &quot;\n&quot;.code, &quot;\r&quot;.code, &quot;,&quot;.code, &quot;;&quot;.code]" line="539" static="1">
+		<winMetaCharacters public="1" expr="cast haxe.SysTools.winMetaCharacters" line="526" static="1">
 			<c path="Array"><x path="Int"/></c>
 			<meta>
-				<m n=":value"><e><![CDATA[[" ".code, "(".code, ")".code, "%".code, "!".code, "^".code, "\"".code, "<".code, ">".code, "&".code, "|".code, "\n".code, "\r".code, ",".code, ";".code]]]></e></m>
+				<m n=":value"><e>cast haxe.SysTools.winMetaCharacters</e></m>
 				<m n=":noCompletion"/>
+				<m n=":deprecated"><e>"StringTools.winMetaCharacters is deprecated. Use haxe.SysTools.winMetaCharacters instead."</e></m>
 			</meta>
 			<haxe_doc>Character codes of the characters that will be escaped by `quoteWinArg(_, true)`.</haxe_doc>
 		</winMetaCharacters>
-		<quoteWinArg public="1" set="method" line="555" static="1">
+		<quoteWinArg public="1" set="method" line="543" static="1">
 			<f a="argument:escapeMetaCharacters">
 				<c path="String"/>
 				<x path="Bool"/>
 				<c path="String"/>
 			</f>
-			<meta><m n=":noCompletion"/></meta>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":deprecated"><e>"StringTools.quoteWinArg() is deprecated. Use haxe.SysTools.quoteWinArg() instead."</e></m>
+			</meta>
 			<haxe_doc>Returns a String that can be used as a single command line argument
 		on Windows.
 		The input will be quoted, or escaped if necessary, such that the output
@@ -2882,11 +2923,11 @@
 	</class>
 	<class path="SysError" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/Sys.hx" module="Sys">
 		<msg public="1"><c path="String"/></msg>
-		<toString public="1" set="method" line="27">
+		<toString public="1" set="method" line="29">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":keep"/></meta>
 		</toString>
-		<new public="1" set="method" line="24"><f a="msg">
+		<new public="1" set="method" line="26"><f a="msg">
 	<c path="String"/>
 	<x path="Void"/>
 </f></new>
@@ -3616,52 +3657,52 @@
 	</class>
 	<class path="Sys" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/_std/Sys.hx">
 		<utf8Path static="1"><x path="Bool"/></utf8Path>
-		<getPath set="method" line="41" static="1"><f a="s">
+		<getPath set="method" line="43" static="1"><f a="s">
 	<c path="String"/>
 	<x path="hl.Bytes"/>
 </f></getPath>
-		<makePath set="method" line="44" static="1"><f a="b">
+		<makePath set="method" line="46" static="1"><f a="b">
 	<x path="hl.Bytes"/>
 	<c path="String"/>
 </f></makePath>
-		<print public="1" set="method" line="49" static="1">
+		<print public="1" set="method" line="51" static="1">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Print any value on the standard output.</haxe_doc>
 		</print>
-		<println public="1" set="method" line="53" static="1">
+		<println public="1" set="method" line="55" static="1">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Print any value on the standard output, followed by a newline.</haxe_doc>
 		</println>
-		<args public="1" set="method" line="58" static="1">
+		<args public="1" set="method" line="60" static="1">
 			<f a=""><c path="Array"><c path="String"/></c></f>
 			<haxe_doc>Returns all the arguments that were passed by the command line.</haxe_doc>
 		</args>
-		<stdin public="1" set="method" line="62" static="1">
+		<stdin public="1" set="method" line="64" static="1">
 			<f a=""><c path="haxe.io.Input"/></f>
 			<haxe_doc>Returns the process standard input, from which you can read what user enters. Usually it will block until the user send a full input line. See `getChar` for an alternative.</haxe_doc>
 		</stdin>
-		<stdout public="1" set="method" line="66" static="1">
+		<stdout public="1" set="method" line="68" static="1">
 			<f a=""><c path="haxe.io.Output"/></f>
 			<haxe_doc>Returns the process standard output on which you can write.</haxe_doc>
 		</stdout>
-		<stderr public="1" set="method" line="70" static="1">
+		<stderr public="1" set="method" line="72" static="1">
 			<f a=""><c path="haxe.io.Output"/></f>
 			<haxe_doc>Returns the process standard error on which you can write.</haxe_doc>
 		</stderr>
-		<getEnv public="1" set="method" line="74" static="1">
+		<getEnv public="1" set="method" line="76" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Returns the value of the given environment variable.</haxe_doc>
 		</getEnv>
-		<putEnv public="1" set="method" line="81" static="1">
+		<putEnv public="1" set="method" line="83" static="1">
 			<f a="s:v">
 				<c path="String"/>
 				<c path="String"/>
@@ -3669,14 +3710,14 @@
 			</f>
 			<haxe_doc>Set the value of the given environment variable.</haxe_doc>
 		</putEnv>
-		<environment public="1" set="method" line="85" static="1">
+		<environment public="1" set="method" line="87" static="1">
 			<f a=""><t path="Map">
 	<c path="String"/>
 	<c path="String"/>
 </t></f>
 			<haxe_doc>Returns all environment variables.</haxe_doc>
 		</environment>
-		<sleep public="1" set="method" line="96" static="1">
+		<sleep public="1" set="method" line="98" static="1">
 			<f a="seconds">
 				<x path="Float"/>
 				<x path="Void"/>
@@ -3687,7 +3728,7 @@
 </m></meta>
 			<haxe_doc>Suspend the current execution for the given time (in seconds).</haxe_doc>
 		</sleep>
-		<setTimeLocale public="1" set="method" line="99" static="1">
+		<setTimeLocale public="1" set="method" line="101" static="1">
 			<f a="loc">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -3695,23 +3736,23 @@
 			<haxe_doc>Change the current time locale, which will affect `DateTools.format` date formating.
 		Returns true if the locale was successfully changed</haxe_doc>
 		</setTimeLocale>
-		<getCwd public="1" set="method" line="103" static="1">
+		<getCwd public="1" set="method" line="105" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Get the current working directory (usually the one in which the program was started)</haxe_doc>
 		</getCwd>
-		<setCwd public="1" set="method" line="107" static="1">
+		<setCwd public="1" set="method" line="109" static="1">
 			<f a="s">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Change the current working directory.</haxe_doc>
 		</setCwd>
-		<systemName public="1" set="method" line="111" static="1">
+		<systemName public="1" set="method" line="113" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the name of the system you are running on. For instance :
 			"Windows", "Linux", "BSD" and "Mac" depending on your desktop OS.</haxe_doc>
 		</systemName>
-		<command public="1" set="method" line="115" static="1">
+		<command public="1" set="method" line="117" static="1">
 			<f a="cmd:?args">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -3730,12 +3771,12 @@
 
 		Read the `sys.io.Process` api for a more complete way to start background processes.</haxe_doc>
 		</command>
-		<executablePath public="1" set="method" line="135" static="1">
+		<executablePath public="1" set="method" line="137" static="1">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":deprecated"><e>"Use programPath instead"</e></m></meta>
 			<haxe_doc>Returns the path to the current executable that we are running.</haxe_doc>
 		</executablePath>
-		<programPath public="1" set="method" line="139" static="1">
+		<programPath public="1" set="method" line="141" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the absolute path to the current program file that we are running.
 		Concretely, for an executable binary, it returns the path to the binary.
@@ -3744,21 +3785,21 @@
 		<sys_program_path expr="{
 	var hlFile = sys_hl_file();
 	if (hlFile == null) makePath(sys_exe_path()) else sys.FileSystem.fullPath(makePath(hlFile));
-}" line="142" static="1">
+}" line="144" static="1">
 			<c path="String"/>
 			<meta><m n=":value"><e>{
 	var hlFile = sys_hl_file();
 	if (hlFile == null) makePath(sys_exe_path()) else sys.FileSystem.fullPath(makePath(hlFile));
 }</e></m></meta>
 		</sys_program_path>
-		<sys_utf8_path set="method" line="150" static="1">
+		<sys_utf8_path set="method" line="152" static="1">
 			<f a=""><x path="Bool"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"sys_utf8_path"</e>
 </m></meta>
 		</sys_utf8_path>
-		<time public="1" set="method" line="152" static="1">
+		<time public="1" set="method" line="154" static="1">
 			<f a=""><x path="Float"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
@@ -3766,7 +3807,7 @@
 </m></meta>
 			<haxe_doc>Gives the most precise timestamp value (in seconds).</haxe_doc>
 		</time>
-		<exit public="1" set="method" line="153" static="1">
+		<exit public="1" set="method" line="155" static="1">
 			<f a="code">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -3780,7 +3821,7 @@
 		(macro)(eval) Being invoked in a macro or eval context (e.g. with `-x` or `--run`) immediately terminates
 		the compilation process also preventing the execution of any `--next` section of compilation arguments.</haxe_doc>
 		</exit>
-		<cpuTime public="1" set="method" line="154" static="1">
+		<cpuTime public="1" set="method" line="156" static="1">
 			<f a=""><x path="Float"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
@@ -3788,7 +3829,7 @@
 </m></meta>
 			<haxe_doc>Gives the most precise timestamp value (in seconds) but only account for the actual time spent running on the CPU for the current thread/process.</haxe_doc>
 		</cpuTime>
-		<getChar public="1" set="method" line="155" static="1">
+		<getChar public="1" set="method" line="157" static="1">
 			<f a="echo">
 				<x path="Bool"/>
 				<x path="Int"/>
@@ -3799,7 +3840,7 @@
 </m></meta>
 			<haxe_doc>Read a single input character from the standard input and returns it. Setting `echo` to true will also display it on the output.</haxe_doc>
 		</getChar>
-		<sys_print set="method" line="157" static="1">
+		<sys_print set="method" line="159" static="1">
 			<f a="v">
 				<x path="hl.Bytes"/>
 				<x path="Void"/>
@@ -3809,35 +3850,35 @@
 	<e>"sys_print"</e>
 </m></meta>
 		</sys_print>
-		<file_stdin set="method" line="158" static="1">
+		<file_stdin set="method" line="160" static="1">
 			<f a=""><e path="sys.io.FileHandle"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"file_stdin"</e>
 </m></meta>
 		</file_stdin>
-		<file_stdout set="method" line="159" static="1">
+		<file_stdout set="method" line="161" static="1">
 			<f a=""><e path="sys.io.FileHandle"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"file_stdout"</e>
 </m></meta>
 		</file_stdout>
-		<file_stderr set="method" line="160" static="1">
+		<file_stderr set="method" line="162" static="1">
 			<f a=""><e path="sys.io.FileHandle"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"file_stderr"</e>
 </m></meta>
 		</file_stderr>
-		<sys_args set="method" line="161" static="1">
+		<sys_args set="method" line="163" static="1">
 			<f a=""><x path="hl.NativeArray"><x path="hl.Bytes"/></x></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"sys_args"</e>
 </m></meta>
 		</sys_args>
-		<get_env set="method" line="162" static="1">
+		<get_env set="method" line="164" static="1">
 			<f a="key">
 				<x path="hl.Bytes"/>
 				<x path="hl.Bytes"/>
@@ -3847,7 +3888,7 @@
 	<e>"sys_get_env"</e>
 </m></meta>
 		</get_env>
-		<put_env set="method" line="163" static="1">
+		<put_env set="method" line="165" static="1">
 			<f a="key:val">
 				<x path="hl.Bytes"/>
 				<x path="hl.Bytes"/>
@@ -3858,14 +3899,14 @@
 	<e>"sys_put_env"</e>
 </m></meta>
 		</put_env>
-		<sys_env set="method" line="164" static="1">
+		<sys_env set="method" line="166" static="1">
 			<f a=""><x path="hl.NativeArray"><x path="hl.Bytes"/></x></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"sys_env"</e>
 </m></meta>
 		</sys_env>
-		<set_time_locale set="method" line="165" static="1">
+		<set_time_locale set="method" line="167" static="1">
 			<f a="loc">
 				<x path="hl.Bytes"/>
 				<x path="Bool"/>
@@ -3875,14 +3916,14 @@
 	<e>"sys_set_time_locale"</e>
 </m></meta>
 		</set_time_locale>
-		<get_cwd set="method" line="166" static="1">
+		<get_cwd set="method" line="168" static="1">
 			<f a=""><x path="hl.Bytes"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"sys_get_cwd"</e>
 </m></meta>
 		</get_cwd>
-		<set_cwd set="method" line="167" static="1">
+		<set_cwd set="method" line="169" static="1">
 			<f a="path">
 				<x path="hl.Bytes"/>
 				<x path="Bool"/>
@@ -3892,7 +3933,7 @@
 	<e>"sys_set_cwd"</e>
 </m></meta>
 		</set_cwd>
-		<sys_command set="method" line="168" static="1">
+		<sys_command set="method" line="170" static="1">
 			<f a="cmd">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -3902,21 +3943,21 @@
 	<e>"sys_command"</e>
 </m></meta>
 		</sys_command>
-		<sys_exe_path set="method" line="169" static="1">
+		<sys_exe_path set="method" line="171" static="1">
 			<f a=""><x path="hl.Bytes"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"sys_exe_path"</e>
 </m></meta>
 		</sys_exe_path>
-		<sys_hl_file set="method" line="170" static="1">
+		<sys_hl_file set="method" line="172" static="1">
 			<f a=""><x path="hl.Bytes"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"sys_hl_file"</e>
 </m></meta>
 		</sys_hl_file>
-		<sys_string set="method" line="171" static="1">
+		<sys_string set="method" line="173" static="1">
 			<f a=""><x path="hl.Bytes"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
@@ -26852,7 +26893,7 @@
 			</f>
 			<meta><m n=":value"><e>{ strict : false }</e></m></meta>
 			<haxe_doc>Parses the String into an XML Document. Set strict parsing to true in order to enable a strict check of XML attributes and entities.
-		
+
 		@throws haxe.xml.XmlParserException</haxe_doc>
 		</parse>
 		<doParse set="method" line="125" static="1">

@@ -2488,6 +2488,41 @@
 			<m n=":coreApi"/>
 		</meta>
 	</class>
+	<class path="haxe.SysTools" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/SysTools.hx">
+		<winMetaCharacters final="1" public="1" set="null" expr="[&quot; &quot;.code, &quot;(&quot;.code, &quot;)&quot;.code, &quot;%&quot;.code, &quot;!&quot;.code, &quot;^&quot;.code, &quot;\&quot;&quot;.code, &quot;&lt;&quot;.code, &quot;&gt;&quot;.code, &quot;&amp;&quot;.code, &quot;|&quot;.code, &quot;\n&quot;.code, &quot;\r&quot;.code, &quot;,&quot;.code, &quot;;&quot;.code]" line="10" static="1">
+			<x path="haxe.ds.ReadOnlyArray"><x path="Int"/></x>
+			<meta><m n=":value"><e><![CDATA[[" ".code, "(".code, ")".code, "%".code, "!".code, "^".code, "\"".code, "<".code, ">".code, "&".code, "|".code, "\n".code, "\r".code, ",".code, ";".code]]]></e></m></meta>
+			<haxe_doc>Character codes of the characters that will be escaped by `quoteWinArg(_, true)`.</haxe_doc>
+		</winMetaCharacters>
+		<quoteUnixArg public="1" set="method" line="17" static="1">
+			<f a="argument">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a String that can be used as a single command line argument
+		on Unix.
+		The input will be quoted, or escaped if necessary.</haxe_doc>
+		</quoteUnixArg>
+		<quoteWinArg public="1" set="method" line="45" static="1">
+			<f a="argument:escapeMetaCharacters">
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a String that can be used as a single command line argument
+		on Windows.
+		The input will be quoted, or escaped if necessary, such that the output
+		will be parsed as a single argument using the rule specified in
+		http://msdn.microsoft.com/en-us/library/ms880421
+
+		Examples:
+		```haxe
+		quoteWinArg("abc") == "abc";
+		quoteWinArg("ab c") == '"ab c"';
+		```</haxe_doc>
+		</quoteWinArg>
+		<meta><m n=":hxGen"/></meta>
+	</class>
 	<class path="StringTools" params="" file="/home/travis/build/HaxeFoundation/haxe/std/StringTools.hx">
 		<urlEncode public="1" set="method" line="37" static="1">
 			<f a="s">
@@ -2718,31 +2753,38 @@
 			<meta><m n=":noUsing"/></meta>
 			<haxe_doc>Tells if `c` represents the end-of-file (EOF) character.</haxe_doc>
 		</isEof>
-		<quoteUnixArg public="1" set="method" line="520" static="1">
+		<quoteUnixArg public="1" set="method" line="517" static="1">
 			<f a="argument">
 				<c path="String"/>
 				<c path="String"/>
 			</f>
-			<meta><m n=":noCompletion"/></meta>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":deprecated"><e>"StringTools.quoteUnixArg() is deprecated. Use haxe.SysTools.quoteUnixArg() instead."</e></m>
+			</meta>
 			<haxe_doc>Returns a String that can be used as a single command line argument
 		on Unix.
 		The input will be quoted, or escaped if necessary.</haxe_doc>
 		</quoteUnixArg>
-		<winMetaCharacters public="1" expr="[&quot; &quot;.code, &quot;(&quot;.code, &quot;)&quot;.code, &quot;%&quot;.code, &quot;!&quot;.code, &quot;^&quot;.code, &quot;\&quot;&quot;.code, &quot;&lt;&quot;.code, &quot;&gt;&quot;.code, &quot;&amp;&quot;.code, &quot;|&quot;.code, &quot;\n&quot;.code, &quot;\r&quot;.code, &quot;,&quot;.code, &quot;;&quot;.code]" line="539" static="1">
+		<winMetaCharacters public="1" expr="cast haxe.SysTools.winMetaCharacters" line="526" static="1">
 			<c path="Array"><x path="Int"/></c>
 			<meta>
-				<m n=":value"><e><![CDATA[[" ".code, "(".code, ")".code, "%".code, "!".code, "^".code, "\"".code, "<".code, ">".code, "&".code, "|".code, "\n".code, "\r".code, ",".code, ";".code]]]></e></m>
+				<m n=":value"><e>cast haxe.SysTools.winMetaCharacters</e></m>
 				<m n=":noCompletion"/>
+				<m n=":deprecated"><e>"StringTools.winMetaCharacters is deprecated. Use haxe.SysTools.winMetaCharacters instead."</e></m>
 			</meta>
 			<haxe_doc>Character codes of the characters that will be escaped by `quoteWinArg(_, true)`.</haxe_doc>
 		</winMetaCharacters>
-		<quoteWinArg public="1" set="method" line="555" static="1">
+		<quoteWinArg public="1" set="method" line="543" static="1">
 			<f a="argument:escapeMetaCharacters">
 				<c path="String"/>
 				<x path="Bool"/>
 				<c path="String"/>
 			</f>
-			<meta><m n=":noCompletion"/></meta>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":deprecated"><e>"StringTools.quoteWinArg() is deprecated. Use haxe.SysTools.quoteWinArg() instead."</e></m>
+			</meta>
 			<haxe_doc>Returns a String that can be used as a single command line argument
 		on Windows.
 		The input will be quoted, or escaped if necessary, such that the output
@@ -2755,7 +2797,7 @@
 		quoteWinArg("ab c") == '"ab c"';
 		```</haxe_doc>
 		</quoteWinArg>
-		<_charAt get="inline" set="null" line="618" static="1"><f a="str:idx">
+		<_charAt get="inline" set="null" line="548" static="1"><f a="str:idx">
 	<c path="String"/>
 	<x path="Int"/>
 	<x path="java.Char16"/>
@@ -27549,7 +27591,7 @@
 			</f>
 			<meta><m n=":value"><e>{ strict : false }</e></m></meta>
 			<haxe_doc>Parses the String into an XML Document. Set strict parsing to true in order to enable a strict check of XML attributes and entities.
-		
+
 		@throws haxe.xml.XmlParserException</haxe_doc>
 		</parse>
 		<doParse set="method" line="125" static="1">
@@ -72167,7 +72209,7 @@
 		</meta>
 	</enum>
 	<class path="sys.io.Process" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/sys/io/Process.hx">
-		<createProcessBuilder set="method" line="39" static="1">
+		<createProcessBuilder set="method" line="41" static="1">
 			<f a="cmd:?args">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -72188,11 +72230,11 @@
 			<haxe_doc>Standard input. The stream data going into a process.</haxe_doc>
 		</stdin>
 		<proc><c path="java.lang.Process"/></proc>
-		<getPid public="1" set="method" line="89">
+		<getPid public="1" set="method" line="91">
 			<f a=""><x path="Int"/></f>
 			<haxe_doc>Return the process ID.</haxe_doc>
 		</getPid>
-		<exitCode public="1" set="method" line="96">
+		<exitCode public="1" set="method" line="98">
 			<f a="?block" v="true">
 				<x path="Bool"/>
 				<x path="Null"><x path="Int"/></x>
@@ -72203,16 +72245,16 @@
 		If `block` is false, it will return either the process exit code if it's already terminated or null if it's still running.
 		If the process has already exited, return the exit code immediately.</haxe_doc>
 		</exitCode>
-		<close public="1" set="method" line="116">
+		<close public="1" set="method" line="118">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Close the process handle and release the associated resources.
 		All `Process` fields should not be used after `close()` is called.</haxe_doc>
 		</close>
-		<kill public="1" set="method" line="121">
+		<kill public="1" set="method" line="123">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Kill the process.</haxe_doc>
 		</kill>
-		<new public="1" set="method" line="80">
+		<new public="1" set="method" line="82">
 			<f a="cmd:?args:?detached">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -72241,15 +72283,15 @@
 	<class path="sys.io._Process.ProcessInput" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/_std/sys/io/Process.hx" private="1" module="sys.io.Process">
 		<extends path="java.io.NativeInput"/>
 		<chained><c path="haxe.io.BytesInput"/></chained>
-		<bufferContents public="1" set="method" line="133"><f a=""><x path="Void"/></f></bufferContents>
-		<readByte public="1" set="method" line="140" override="1"><f a=""><x path="Int"/></f></readByte>
-		<readBytes public="1" set="method" line="157" override="1"><f a="s:pos:len">
+		<bufferContents public="1" set="method" line="135"><f a=""><x path="Void"/></f></bufferContents>
+		<readByte public="1" set="method" line="142" override="1"><f a=""><x path="Int"/></f></readByte>
+		<readBytes public="1" set="method" line="159" override="1"><f a="s:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></readBytes>
-		<close public="1" set="method" line="181" override="1"><f a=""><x path="Void"/></f></close>
+		<close public="1" set="method" line="183" override="1"><f a=""><x path="Void"/></f></close>
 		<meta><m n=":hxGen"/></meta>
 	</class>
 	<class path="sys.net.Address" params="" file="/home/travis/build/HaxeFoundation/haxe/std/sys/net/Address.hx">
