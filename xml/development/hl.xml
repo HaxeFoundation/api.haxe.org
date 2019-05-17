@@ -28475,7 +28475,22 @@
 </m></meta>
 			<haxe_doc>Decode PNG data into the target buffer.</haxe_doc>
 		</decodePNG>
-		<scaleImage public="1" set="method" line="65" static="1">
+		<decodeIMG public="1" set="method" line="65" static="1">
+			<f a="src:srcLen:dst:width:height">
+				<x path="hl.Bytes"/>
+				<x path="Int"/>
+				<x path="hl.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"fmt"</e>
+	<e>"img_decode"</e>
+</m></meta>
+			<haxe_doc>Decode any image data into ARGB pixels</haxe_doc>
+		</decodeIMG>
+		<scaleImage public="1" set="method" line="75" static="1">
 			<f a="out:outPos:outStride:outWidth:outHeight:_in:inPos:inStride:inWidth:inHeight:flags">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -28497,7 +28512,7 @@
 			<haxe_doc>Upscale/downscale an image.
 		Currently supported flag bits: 1 = bilinear filtering</haxe_doc>
 		</scaleImage>
-		<digest public="1" set="method" line="74" static="1">
+		<digest public="1" set="method" line="84" static="1">
 			<f a="out:src:srcLen:algorithm">
 				<x path="hl.Bytes"/>
 				<x path="hl.Bytes"/>
@@ -28516,7 +28531,7 @@
 		<haxe_doc>These are the bindings for the HL `fmt.hdll` library, which contains various low level formats handling.</haxe_doc>
 	</class>
 	<class path="hl.Mikktspace" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/Format.hx" module="hl.Format">
-		<_compute set="method" line="98" static="1">
+		<_compute set="method" line="107" static="1">
 			<f a="m:threshold">
 				<d/>
 				<x path="Float"/>
@@ -28537,14 +28552,14 @@
 		<tangentPos public="1"><x path="Int"/></tangentPos>
 		<indexes public="1"><x path="hl.BytesAccess"><x path="Int"/></x></indexes>
 		<indices public="1"><x path="Int"/></indices>
-		<compute public="1" set="method" line="94">
+		<compute public="1" set="method" line="103">
 			<f a="?threshold" v="180.">
 				<x path="Float"/>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":value"><e>{ threshold : 180. }</e></m></meta>
 		</compute>
-		<new public="1" set="method" line="91"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="100"><f a=""><x path="Void"/></f></new>
 	</class>
 	<enum path="hl.GcFlag" params="" file="/home/travis/build/HaxeFoundation/haxe/std/hl/Gc.hx" module="hl.Gc">
 		<Profile><haxe_doc>Activate profiling: regularly print on stdout gc allocation stats</haxe_doc></Profile>
