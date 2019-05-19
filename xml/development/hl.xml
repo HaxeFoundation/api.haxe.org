@@ -2289,7 +2289,7 @@
 		If `code` is negative or has another invalid value, the result is
 		unspecified.</haxe_doc>
 		</fromCharCode>
-		<__alloc__ get="inline" set="null" line="217" static="1">
+		<__alloc__ get="inline" set="null" line="221" static="1">
 			<f a="b:length">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -2300,28 +2300,28 @@
 				<m n=":keep"/>
 			</meta>
 		</__alloc__>
-		<call_toString set="method" line="224" static="1">
+		<call_toString set="method" line="228" static="1">
 			<f a="v">
 				<d/>
 				<x path="hl.Bytes"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</call_toString>
-		<fromUCS2 get="inline" set="null" line="229" static="1">
+		<fromUCS2 get="inline" set="null" line="233" static="1">
 			<f a="b">
 				<x path="hl.Bytes"/>
 				<c path="String"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</fromUCS2>
-		<fromUTF8 set="method" line="236" static="1">
+		<fromUTF8 set="method" line="240" static="1">
 			<f a="b">
 				<x path="hl.Bytes"/>
 				<c path="String"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</fromUTF8>
-		<__add__ set="method" line="242" static="1">
+		<__add__ set="method" line="246" static="1">
 			<f a="a:b">
 				<c path="String"/>
 				<c path="String"/>
@@ -3134,7 +3134,22 @@
 				</m>
 			</meta>
 		</compare>
-		<find public="1" set="method" line="95" static="1">
+		<compare16 public="1" set="method" line="96" static="1">
+			<f a="this:bytes:size">
+				<x path="hl.Bytes"/>
+				<x path="hl.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":hlNative">
+					<e>"std"</e>
+					<e>"bytes_compare16"</e>
+				</m>
+			</meta>
+		</compare16>
+		<find public="1" set="method" line="102" static="1">
 			<f a="this:pos:size:bytes:bytesPos:bytesSize">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -3152,7 +3167,7 @@
 				</m>
 			</meta>
 		</find>
-		<fill public="1" set="method" line="100" static="1">
+		<fill public="1" set="method" line="107" static="1">
 			<f a="this:pos:size:v">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -3168,7 +3183,7 @@
 				</m>
 			</meta>
 		</fill>
-		<sortI32 public="1" set="method" line="104" static="1">
+		<sortI32 public="1" set="method" line="111" static="1">
 			<f a="this:pos:length:f">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -3188,7 +3203,7 @@
 				</m>
 			</meta>
 		</sortI32>
-		<sortF64 public="1" set="method" line="108" static="1">
+		<sortF64 public="1" set="method" line="115" static="1">
 			<f a="this:pos:length:f">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -3208,7 +3223,7 @@
 				</m>
 			</meta>
 		</sortF64>
-		<offset public="1" set="method" line="116" static="1">
+		<offset public="1" set="method" line="123" static="1">
 			<f a="this:delta">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -3223,7 +3238,7 @@
 			</meta>
 			<haxe_doc>Please note that you need to retain the original unoffset'ed Bytes so it does not get garbage collected, unless the pointer was not GC allocated.</haxe_doc>
 		</offset>
-		<subtract public="1" set="method" line="124" static="1">
+		<subtract public="1" set="method" line="131" static="1">
 			<f a="this:other">
 				<x path="hl.Bytes"/>
 				<x path="hl.Bytes"/>
@@ -3238,7 +3253,7 @@
 			</meta>
 			<haxe_doc>Returns an offset between the two pointers. This might overflow in 64 bits if the addresses of the two pointers differs by more than 4GB</haxe_doc>
 		</subtract>
-		<get_address set="method" line="129" static="1">
+		<get_address set="method" line="136" static="1">
 			<f a="b:high">
 				<x path="hl.Bytes"/>
 				<x path="hl.Ref"><x path="Int"/></x>
@@ -3249,7 +3264,7 @@
 	<e>"bytes_address"</e>
 </m></meta>
 		</get_address>
-		<from_address set="method" line="134" static="1">
+		<from_address set="method" line="141" static="1">
 			<f a="low:high">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -3260,14 +3275,14 @@
 	<e>"bytes_from_address"</e>
 </m></meta>
 		</from_address>
-		<fromAddress public="1" get="inline" set="null" line="141" static="1">
+		<fromAddress public="1" get="inline" set="null" line="148" static="1">
 			<f a="h">
 				<x path="haxe.Int64"/>
 				<x path="hl.Bytes"/>
 			</f>
 			<haxe_doc>Creates an pointer at a given memory address (highly unsafe)</haxe_doc>
 		</fromAddress>
-		<address public="1" set="method" line="148" static="1">
+		<address public="1" set="method" line="155" static="1">
 			<f a="this">
 				<x path="hl.Bytes"/>
 				<x path="haxe.Int64"/>
@@ -3275,7 +3290,7 @@
 			<meta><m n=":impl"/></meta>
 			<haxe_doc>Returns the address value of the bytes. On 32 bit system the upper 32 bits will always be 0</haxe_doc>
 		</address>
-		<sub public="1" set="method" line="154" static="1">
+		<sub public="1" set="method" line="161" static="1">
 			<f a="this:pos:size">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -3284,7 +3299,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</sub>
-		<ucs2Length public="1" set="method" line="161" static="1">
+		<ucs2Length public="1" set="method" line="168" static="1">
 			<f a="this:bytePos">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -3298,7 +3313,7 @@
 				</m>
 			</meta>
 		</ucs2Length>
-		<hash set="method" line="166" static="1">
+		<hash set="method" line="173" static="1">
 			<f a="this">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -3311,7 +3326,7 @@
 				</m>
 			</meta>
 		</hash>
-		<utf8ToUtf16 public="1" set="method" line="171" static="1">
+		<utf8ToUtf16 public="1" set="method" line="178" static="1">
 			<f a="this:bytePos:outSize">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -3326,7 +3341,7 @@
 				</m>
 			</meta>
 		</utf8ToUtf16>
-		<utf16ToUtf8 public="1" set="method" line="176" static="1">
+		<utf16ToUtf8 public="1" set="method" line="183" static="1">
 			<f a="this:bytePos:outSize">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -3341,7 +3356,7 @@
 				</m>
 			</meta>
 		</utf16ToUtf8>
-		<ucs2Upper set="method" line="181" static="1">
+		<ucs2Upper set="method" line="188" static="1">
 			<f a="this:bytePos:size">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -3356,7 +3371,7 @@
 				</m>
 			</meta>
 		</ucs2Upper>
-		<ucs2Lower set="method" line="186" static="1">
+		<ucs2Lower set="method" line="193" static="1">
 			<f a="this:bytePos:size">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -3371,7 +3386,7 @@
 				</m>
 			</meta>
 		</ucs2Lower>
-		<urlEncode set="method" line="191" static="1">
+		<urlEncode set="method" line="198" static="1">
 			<f a="this:outSize">
 				<x path="hl.Bytes"/>
 				<x path="hl.Ref"><x path="Int"/></x>
@@ -3385,7 +3400,7 @@
 				</m>
 			</meta>
 		</urlEncode>
-		<urlDecode set="method" line="196" static="1">
+		<urlDecode set="method" line="203" static="1">
 			<f a="this:outSize">
 				<x path="hl.Bytes"/>
 				<x path="hl.Ref"><x path="Int"/></x>
@@ -3399,7 +3414,7 @@
 				</m>
 			</meta>
 		</urlDecode>
-		<fromValue public="1" set="method" line="201" static="1">
+		<fromValue public="1" set="method" line="208" static="1">
 			<f a="v:length">
 				<d/>
 				<x path="hl.Ref"><x path="Int"/></x>
@@ -3410,7 +3425,7 @@
 	<e>"value_to_string"</e>
 </m></meta>
 		</fromValue>
-		<getArray public="1" params="T" get="inline" set="null" line="208" static="1">
+		<getArray public="1" params="T" get="inline" set="null" line="215" static="1">
 			<f a="a">
 				<c path="Array"><c path="getArray.T"/></c>
 				<x path="hl.Bytes"/>
@@ -3418,14 +3433,14 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Get the bytes reference from an array of basic types (no copy occurs)</haxe_doc>
 		</getArray>
-		<fromBytes public="1" get="inline" set="null" line="213" static="1">
+		<fromBytes public="1" get="inline" set="null" line="220" static="1">
 			<f a="bytes">
 				<c path="haxe.io.Bytes"/>
 				<x path="hl.Bytes"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromBytes>
-		<toBytes public="1" get="inline" set="null" line="217" static="1">
+		<toBytes public="1" get="inline" set="null" line="224" static="1">
 			<f a="this:len">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -27790,7 +27805,22 @@
 			</m>
 		</meta>
 	</compare>
-	<find public="1" set="method" line="95" static="1">
+	<compare16 public="1" set="method" line="96" static="1">
+		<f a="this:bytes:size">
+			<x path="hl.Bytes"/>
+			<x path="hl.Bytes"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":hlNative">
+				<e>"std"</e>
+				<e>"bytes_compare16"</e>
+			</m>
+		</meta>
+	</compare16>
+	<find public="1" set="method" line="102" static="1">
 		<f a="this:pos:size:bytes:bytesPos:bytesSize">
 			<x path="hl.Bytes"/>
 			<x path="Int"/>
@@ -27808,7 +27838,7 @@
 			</m>
 		</meta>
 	</find>
-	<fill public="1" set="method" line="100" static="1">
+	<fill public="1" set="method" line="107" static="1">
 		<f a="this:pos:size:v">
 			<x path="hl.Bytes"/>
 			<x path="Int"/>
@@ -27824,7 +27854,7 @@
 			</m>
 		</meta>
 	</fill>
-	<sortI32 public="1" set="method" line="104" static="1">
+	<sortI32 public="1" set="method" line="111" static="1">
 		<f a="this:pos:length:f">
 			<x path="hl.Bytes"/>
 			<x path="Int"/>
@@ -27844,7 +27874,7 @@
 			</m>
 		</meta>
 	</sortI32>
-	<sortF64 public="1" set="method" line="108" static="1">
+	<sortF64 public="1" set="method" line="115" static="1">
 		<f a="this:pos:length:f">
 			<x path="hl.Bytes"/>
 			<x path="Int"/>
@@ -27864,7 +27894,7 @@
 			</m>
 		</meta>
 	</sortF64>
-	<offset public="1" set="method" line="116" static="1">
+	<offset public="1" set="method" line="123" static="1">
 		<f a="this:delta">
 			<x path="hl.Bytes"/>
 			<x path="Int"/>
@@ -27879,7 +27909,7 @@
 		</meta>
 		<haxe_doc>Please note that you need to retain the original unoffset'ed Bytes so it does not get garbage collected, unless the pointer was not GC allocated.</haxe_doc>
 	</offset>
-	<subtract public="1" set="method" line="124" static="1">
+	<subtract public="1" set="method" line="131" static="1">
 		<f a="this:other">
 			<x path="hl.Bytes"/>
 			<x path="hl.Bytes"/>
@@ -27894,7 +27924,7 @@
 		</meta>
 		<haxe_doc>Returns an offset between the two pointers. This might overflow in 64 bits if the addresses of the two pointers differs by more than 4GB</haxe_doc>
 	</subtract>
-	<get_address set="method" line="129" static="1">
+	<get_address set="method" line="136" static="1">
 		<f a="b:high">
 			<x path="hl.Bytes"/>
 			<x path="hl.Ref"><x path="Int"/></x>
@@ -27905,7 +27935,7 @@
 	<e>"bytes_address"</e>
 </m></meta>
 	</get_address>
-	<from_address set="method" line="134" static="1">
+	<from_address set="method" line="141" static="1">
 		<f a="low:high">
 			<x path="Int"/>
 			<x path="Int"/>
@@ -27916,14 +27946,14 @@
 	<e>"bytes_from_address"</e>
 </m></meta>
 	</from_address>
-	<fromAddress public="1" get="inline" set="null" line="141" static="1">
+	<fromAddress public="1" get="inline" set="null" line="148" static="1">
 		<f a="h">
 			<x path="haxe.Int64"/>
 			<x path="hl.Bytes"/>
 		</f>
 		<haxe_doc>Creates an pointer at a given memory address (highly unsafe)</haxe_doc>
 	</fromAddress>
-	<address public="1" set="method" line="148" static="1">
+	<address public="1" set="method" line="155" static="1">
 		<f a="this">
 			<x path="hl.Bytes"/>
 			<x path="haxe.Int64"/>
@@ -27931,7 +27961,7 @@
 		<meta><m n=":impl"/></meta>
 		<haxe_doc>Returns the address value of the bytes. On 32 bit system the upper 32 bits will always be 0</haxe_doc>
 	</address>
-	<sub public="1" set="method" line="154" static="1">
+	<sub public="1" set="method" line="161" static="1">
 		<f a="this:pos:size">
 			<x path="hl.Bytes"/>
 			<x path="Int"/>
@@ -27940,7 +27970,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</sub>
-	<ucs2Length public="1" set="method" line="161" static="1">
+	<ucs2Length public="1" set="method" line="168" static="1">
 		<f a="this:bytePos">
 			<x path="hl.Bytes"/>
 			<x path="Int"/>
@@ -27954,7 +27984,7 @@
 			</m>
 		</meta>
 	</ucs2Length>
-	<hash set="method" line="166" static="1">
+	<hash set="method" line="173" static="1">
 		<f a="this">
 			<x path="hl.Bytes"/>
 			<x path="Int"/>
@@ -27967,7 +27997,7 @@
 			</m>
 		</meta>
 	</hash>
-	<utf8ToUtf16 public="1" set="method" line="171" static="1">
+	<utf8ToUtf16 public="1" set="method" line="178" static="1">
 		<f a="this:bytePos:outSize">
 			<x path="hl.Bytes"/>
 			<x path="Int"/>
@@ -27982,7 +28012,7 @@
 			</m>
 		</meta>
 	</utf8ToUtf16>
-	<utf16ToUtf8 public="1" set="method" line="176" static="1">
+	<utf16ToUtf8 public="1" set="method" line="183" static="1">
 		<f a="this:bytePos:outSize">
 			<x path="hl.Bytes"/>
 			<x path="Int"/>
@@ -27997,7 +28027,7 @@
 			</m>
 		</meta>
 	</utf16ToUtf8>
-	<ucs2Upper set="method" line="181" static="1">
+	<ucs2Upper set="method" line="188" static="1">
 		<f a="this:bytePos:size">
 			<x path="hl.Bytes"/>
 			<x path="Int"/>
@@ -28012,7 +28042,7 @@
 			</m>
 		</meta>
 	</ucs2Upper>
-	<ucs2Lower set="method" line="186" static="1">
+	<ucs2Lower set="method" line="193" static="1">
 		<f a="this:bytePos:size">
 			<x path="hl.Bytes"/>
 			<x path="Int"/>
@@ -28027,7 +28057,7 @@
 			</m>
 		</meta>
 	</ucs2Lower>
-	<urlEncode set="method" line="191" static="1">
+	<urlEncode set="method" line="198" static="1">
 		<f a="this:outSize">
 			<x path="hl.Bytes"/>
 			<x path="hl.Ref"><x path="Int"/></x>
@@ -28041,7 +28071,7 @@
 			</m>
 		</meta>
 	</urlEncode>
-	<urlDecode set="method" line="196" static="1">
+	<urlDecode set="method" line="203" static="1">
 		<f a="this:outSize">
 			<x path="hl.Bytes"/>
 			<x path="hl.Ref"><x path="Int"/></x>
@@ -28055,7 +28085,7 @@
 			</m>
 		</meta>
 	</urlDecode>
-	<fromValue public="1" set="method" line="201" static="1">
+	<fromValue public="1" set="method" line="208" static="1">
 		<f a="v:length">
 			<d/>
 			<x path="hl.Ref"><x path="Int"/></x>
@@ -28066,7 +28096,7 @@
 	<e>"value_to_string"</e>
 </m></meta>
 	</fromValue>
-	<getArray public="1" params="T" get="inline" set="null" line="208" static="1">
+	<getArray public="1" params="T" get="inline" set="null" line="215" static="1">
 		<f a="a">
 			<c path="Array"><c path="getArray.T"/></c>
 			<x path="hl.Bytes"/>
@@ -28074,14 +28104,14 @@
 		<meta><m n=":has_untyped"/></meta>
 		<haxe_doc>Get the bytes reference from an array of basic types (no copy occurs)</haxe_doc>
 	</getArray>
-	<fromBytes public="1" get="inline" set="null" line="213" static="1">
+	<fromBytes public="1" get="inline" set="null" line="220" static="1">
 		<f a="bytes">
 			<c path="haxe.io.Bytes"/>
 			<x path="hl.Bytes"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromBytes>
-	<toBytes public="1" get="inline" set="null" line="217" static="1">
+	<toBytes public="1" get="inline" set="null" line="224" static="1">
 		<f a="this:len">
 			<x path="hl.Bytes"/>
 			<x path="Int"/>
