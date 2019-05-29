@@ -2067,12 +2067,13 @@
 		</meta>
 	</class>
 	<class path="Std" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/_std/Std.hx">
-		<instance public="1" params="T:S" get="inline" set="null" line="34" static="1">
+		<downcast public="1" params="T:S" set="method" line="35" static="1">
 			<f a="value:c">
-				<c path="instance.T"/>
-				<x path="Class"><c path="instance.S"/></x>
-				<c path="instance.S"/>
+				<c path="downcast.T"/>
+				<x path="Class"><c path="downcast.S"/></x>
+				<c path="downcast.S"/>
 			</f>
+			<meta><m n=":access"><e>python.Boot</e></m></meta>
 			<haxe_doc>Checks if object `value` is an instance of class `c`.
 
 		Compiles only if the class specified by `c` can be assigned to the type
@@ -2087,8 +2088,16 @@
 
 		If `value` is null, the result is null. If `c` is null, the result is
 		unspecified.</haxe_doc>
+		</downcast>
+		<instance public="1" params="T:S" get="inline" set="null" line="44" static="1">
+			<f a="value:c">
+				<c path="instance.T"/>
+				<x path="Class"><c path="instance.S"/></x>
+				<c path="instance.S"/>
+			</f>
+			<meta><m n=":deprecated"><e>"Std.instance() is deprecated. Use Std.downcast() instead."</e></m></meta>
 		</instance>
-		<isMetaType get="inline" set="null" line="43" static="1">
+		<isMetaType get="inline" set="null" line="49" static="1">
 			<f a="v:t">
 				<d/>
 				<d/>
@@ -2096,7 +2105,7 @@
 			</f>
 			<meta><m n=":access"><e>python.Boot</e></m></meta>
 		</isMetaType>
-		<is public="1" set="method" line="49" static="1">
+		<is public="1" set="method" line="55" static="1">
 			<f a="v:t">
 				<d/>
 				<d/>
@@ -2109,7 +2118,7 @@
 			</meta>
 			<haxe_doc>Tells if a value `v` is of the type `t`. Returns `false` if `v` or `t` are null.</haxe_doc>
 		</is>
-		<string public="1" set="method" line="132" static="1">
+		<string public="1" set="method" line="111" static="1">
 			<f a="s">
 				<d/>
 				<c path="String"/>
@@ -2132,7 +2141,7 @@
 
 		If s is null, "null" is returned.</haxe_doc>
 		</string>
-		<int public="1" get="inline" set="null" line="137" static="1">
+		<int public="1" get="inline" set="null" line="116" static="1">
 			<f a="x">
 				<x path="Float"/>
 				<x path="Int"/>
@@ -2141,7 +2150,7 @@
 
 		If `x` is outside of the signed Int32 range, or is `NaN`, `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`, the result is unspecified.</haxe_doc>
 		</int>
-		<parseInt public="1" set="method" line="146" static="1">
+		<parseInt public="1" set="method" line="125" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Null"><x path="Int"/></x>
@@ -2166,11 +2175,11 @@
 		If `x` is null, the result is unspecified.
 		If `x` cannot be parsed as integer, the result is `null`.</haxe_doc>
 		</parseInt>
-		<shortenPossibleNumber set="method" line="175" static="1"><f a="x">
+		<shortenPossibleNumber set="method" line="154" static="1"><f a="x">
 	<c path="String"/>
 	<c path="String"/>
 </f></shortenPossibleNumber>
-		<parseFloat public="1" set="method" line="198" static="1">
+		<parseFloat public="1" set="method" line="177" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Float"/>
@@ -2182,7 +2191,7 @@
 
 		Additionally, decimal notation may contain a single `.` to denote the start of the fractions.</haxe_doc>
 		</parseFloat>
-		<random public="1" get="inline" set="null" line="214" static="1">
+		<random public="1" get="inline" set="null" line="193" static="1">
 			<f a="x">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -3194,6 +3203,13 @@
 	<d/>
 	<c path="String"/>
 </f></getsourcefile>
+		<isInterface public="1" get="inline" set="null" line="34" static="1">
+			<f a="cls">
+				<x path="Class"><d/></x>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</isInterface>
 		<meta><m n=":pythonImport"><e>"inspect"</e></m></meta>
 	</class>
 	<class path="haxe.IMap" params="K:V" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/Constraints.hx" module="haxe.Constraints" interface="1">
@@ -27570,6 +27586,14 @@
 	<c path="String"/>
 	<c path="String"/>
 </f></unhandleKeywords>
+		<implementsInterface get="inline" set="null" line="458" static="1">
+			<f a="value:cls">
+				<d/>
+				<x path="Class"><d/></x>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</implementsInterface>
 		<meta><m n=":dox"><e>hide</e></m></meta>
 	</class>
 	<class path="python.Bytes" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/Bytes.hx" extern="1">

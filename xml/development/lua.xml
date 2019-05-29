@@ -2121,11 +2121,11 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Tells if a value `v` is of the type `t`. Returns `false` if `v` or `t` are null.</haxe_doc>
 		</is>
-		<instance public="1" params="T:S" get="inline" set="null" line="32" static="1">
+		<downcast public="1" params="T:S" get="inline" set="null" line="32" static="1">
 			<f a="value:c">
-				<c path="instance.T"/>
-				<x path="Class"><c path="instance.S"/></x>
-				<c path="instance.S"/>
+				<c path="downcast.T"/>
+				<x path="Class"><c path="downcast.S"/></x>
+				<c path="downcast.S"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Checks if object `value` is an instance of class `c`.
@@ -2142,8 +2142,16 @@
 
 		If `value` is null, the result is null. If `c` is null, the result is
 		unspecified.</haxe_doc>
+		</downcast>
+		<instance public="1" params="T:S" get="inline" set="null" line="37" static="1">
+			<f a="value:c">
+				<c path="instance.T"/>
+				<x path="Class"><c path="instance.S"/></x>
+				<c path="instance.S"/>
+			</f>
+			<meta><m n=":deprecated"><e>"Std.instance() is deprecated. Use Std.downcast() instead."</e></m></meta>
 		</instance>
-		<string public="1" set="method" line="37" static="1">
+		<string public="1" set="method" line="42" static="1">
 			<f a="s">
 				<d/>
 				<c path="String"/>
@@ -2169,7 +2177,7 @@
 
 		If s is null, "null" is returned.</haxe_doc>
 		</string>
-		<int public="1" set="method" line="41" static="1">
+		<int public="1" set="method" line="46" static="1">
 			<f a="x">
 				<x path="Float"/>
 				<x path="Int"/>
@@ -2178,7 +2186,7 @@
 
 		If `x` is outside of the signed Int32 range, or is `NaN`, `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`, the result is unspecified.</haxe_doc>
 		</int>
-		<parseInt public="1" set="method" line="46" static="1">
+		<parseInt public="1" set="method" line="51" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Null"><x path="Int"/></x>
@@ -2203,7 +2211,7 @@
 		If `x` is null, the result is unspecified.
 		If `x` cannot be parsed as integer, the result is `null`.</haxe_doc>
 		</parseInt>
-		<parseFloat public="1" set="method" line="61" static="1">
+		<parseFloat public="1" set="method" line="66" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Float"/>
@@ -2215,7 +2223,7 @@
 
 		Additionally, decimal notation may contain a single `.` to denote the start of the fractions.</haxe_doc>
 		</parseFloat>
-		<random public="1" set="method" line="79" static="1">
+		<random public="1" set="method" line="84" static="1">
 			<f a="x">
 				<x path="Int"/>
 				<x path="Int"/>

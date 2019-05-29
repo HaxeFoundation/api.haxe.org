@@ -1759,11 +1759,11 @@
 			</f>
 			<haxe_doc>Tells if a value `v` is of the type `t`. Returns `false` if `v` or `t` are null.</haxe_doc>
 		</is>
-		<instance public="1" params="T:S" set="method" static="1">
+		<downcast public="1" params="T:S" set="method" static="1">
 			<f a="value:c">
-				<c path="instance.T"/>
-				<x path="Class"><c path="instance.S"/></x>
-				<c path="instance.S"/>
+				<c path="downcast.T"/>
+				<x path="Class"><c path="downcast.S"/></x>
+				<c path="downcast.S"/>
 			</f>
 			<haxe_doc>Checks if object `value` is an instance of class `c`.
 
@@ -1779,6 +1779,14 @@
 
 		If `value` is null, the result is null. If `c` is null, the result is
 		unspecified.</haxe_doc>
+		</downcast>
+		<instance public="1" params="T:S" set="method" static="1">
+			<f a="value:c">
+				<c path="instance.T"/>
+				<x path="Class"><c path="instance.S"/></x>
+				<c path="instance.S"/>
+			</f>
+			<meta><m n=":deprecated"><e>"Std.instance() is deprecated. Use Std.downcast() instead."</e></m></meta>
 		</instance>
 		<string public="1" set="method" static="1">
 			<f a="s">
