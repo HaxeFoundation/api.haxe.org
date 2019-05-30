@@ -7330,6 +7330,164 @@
 			</meta>
 		</toFloat>
 	</class>
+	<abstract path="UnicodeString" params="" file="/home/travis/build/HaxeFoundation/haxe/std/UnicodeString.hx">
+		<from><icast><c path="String"/></icast></from>
+		<this><c path="String"/></this>
+		<to><icast><c path="String"/></icast></to>
+		<haxe_doc>This abstract provides consistent cross-target unicode support.
+
+	@see https://haxe.org/manual/std-UnicodeString.html</haxe_doc>
+		<meta>
+			<m n=":forward"/>
+			<m n=":access"><e>StringTools</e></m>
+		</meta>
+		<impl><class path="_UnicodeString.UnicodeString_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/UnicodeString.hx" private="1" module="UnicodeString">
+	<validate public="1" set="method" line="40" static="1">
+		<f a="b:encoding">
+			<c path="haxe.io.Bytes"/>
+			<e path="haxe.io.Encoding"/>
+			<x path="Bool"/>
+		</f>
+		<haxe_doc>Tells if `b` is a correctly encoded UTF8 byte sequence.</haxe_doc>
+	</validate>
+	<length public="1" get="accessor" set="null" static="1">
+		<x path="Int"/>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>The number of characters in `this` String.</haxe_doc>
+	</length>
+	<_new public="1" get="inline" set="null" line="116" static="1">
+		<f a="string">
+			<c path="String"/>
+			<x path="UnicodeString"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+		<haxe_doc>Creates an instance of UnicodeString.</haxe_doc>
+	</_new>
+	<charAt public="1" get="inline" set="null" line="126" static="1">
+		<f a="this:index">
+			<c path="String"/>
+			<x path="Int"/>
+			<c path="String"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns the character at position `index` of `this` String.
+
+		If `index` is negative or exceeds `this.length`, the empty String `""`
+		is returned.</haxe_doc>
+	</charAt>
+	<charCodeAt public="1" get="inline" set="null" line="153" static="1">
+		<f a="this:index">
+			<c path="String"/>
+			<x path="Int"/>
+			<x path="Null"><x path="Int"/></x>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns the character code at position `index` of `this` String.
+
+		If `index` is negative or exceeds `this.length`, `null` is returned.</haxe_doc>
+	</charCodeAt>
+	<iterator public="1" get="inline" set="null" line="178" static="1">
+		<f a="this">
+			<c path="String"/>
+			<c path="haxe.iterators.StringIteratorUnicode"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns an iterator of the unicode code points.</haxe_doc>
+	</iterator>
+	<keyValueIterator public="1" get="inline" set="null" line="185" static="1">
+		<f a="this">
+			<c path="String"/>
+			<c path="haxe.iterators.StringKeyValueIteratorUnicode"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns an iterator of the code point indices and unicode code points.</haxe_doc>
+	</keyValueIterator>
+	<get_length get="inline" set="null" line="189" static="1">
+		<f a="this">
+			<c path="String"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_length>
+	<meta><m n=":access"><e>StringTools</e></m></meta>
+</class></impl>
+	</abstract>
+	<class path="_UnicodeString.UnicodeString_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/UnicodeString.hx" private="1" module="UnicodeString">
+		<validate public="1" set="method" line="40" static="1">
+			<f a="b:encoding">
+				<c path="haxe.io.Bytes"/>
+				<e path="haxe.io.Encoding"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Tells if `b` is a correctly encoded UTF8 byte sequence.</haxe_doc>
+		</validate>
+		<length public="1" get="accessor" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>The number of characters in `this` String.</haxe_doc>
+		</length>
+		<_new public="1" get="inline" set="null" line="116" static="1">
+			<f a="string">
+				<c path="String"/>
+				<x path="UnicodeString"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+			<haxe_doc>Creates an instance of UnicodeString.</haxe_doc>
+		</_new>
+		<charAt public="1" get="inline" set="null" line="126" static="1">
+			<f a="this:index">
+				<c path="String"/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns the character at position `index` of `this` String.
+
+		If `index` is negative or exceeds `this.length`, the empty String `""`
+		is returned.</haxe_doc>
+		</charAt>
+		<charCodeAt public="1" get="inline" set="null" line="153" static="1">
+			<f a="this:index">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Null"><x path="Int"/></x>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns the character code at position `index` of `this` String.
+
+		If `index` is negative or exceeds `this.length`, `null` is returned.</haxe_doc>
+		</charCodeAt>
+		<iterator public="1" get="inline" set="null" line="178" static="1">
+			<f a="this">
+				<c path="String"/>
+				<c path="haxe.iterators.StringIteratorUnicode"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns an iterator of the unicode code points.</haxe_doc>
+		</iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="185" static="1">
+			<f a="this">
+				<c path="String"/>
+				<c path="haxe.iterators.StringKeyValueIteratorUnicode"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns an iterator of the code point indices and unicode code points.</haxe_doc>
+		</keyValueIterator>
+		<get_length get="inline" set="null" line="189" static="1">
+			<f a="this">
+				<c path="String"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_length>
+		<meta><m n=":access"><e>StringTools</e></m></meta>
+	</class>
 	<abstract path="XmlType" params="" file="/home/travis/build/HaxeFoundation/haxe/std/Xml.hx" module="Xml">
 		<this><x path="Int"/></this>
 		<haxe_doc>Xml node types.
@@ -11165,107 +11323,6 @@
 	<x path="Enum"><d/></x>
 </f></resolveEnum>
 		<new set="method" line="484"><f a=""><x path="Void"/></f></new>
-	</class>
-	<class path="haxe.Utf8" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/_std/haxe/Utf8.hx">
-		<encode public="1" set="method" line="43" static="1">
-			<f a="s">
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Encode the input ISO string into the corresponding UTF8 one.</haxe_doc>
-		</encode>
-		<decode public="1" set="method" line="47" static="1">
-			<f a="s">
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Decode an UTF8 string back to an ISO string.
-		Throw an exception if a given UTF8 character is not supported by the decoder.</haxe_doc>
-		</decode>
-		<iter public="1" set="method" line="51" static="1">
-			<f a="s:chars">
-				<c path="String"/>
-				<f a="">
-					<x path="Int"/>
-					<x path="Void"/>
-				</f>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Call the `chars` function for each UTF8 char of the string.</haxe_doc>
-		</iter>
-		<charCodeAt public="1" set="method" line="58" static="1">
-			<f a="s:index">
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Similar to `String.charCodeAt` but uses the UTF8 character position.</haxe_doc>
-		</charCodeAt>
-		<uchr set="method" line="62" static="1"><f a="i">
-	<x path="Int"/>
-	<c path="String"/>
-</f></uchr>
-		<uord set="method" line="66" static="1"><f a="s">
-	<c path="String"/>
-	<x path="Int"/>
-</f></uord>
-		<validate public="1" set="method" line="71" static="1">
-			<f a="s">
-				<c path="String"/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Tells if the String is correctly encoded as UTF8.</haxe_doc>
-		</validate>
-		<length public="1" set="method" line="75" static="1">
-			<f a="s">
-				<c path="String"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Returns the number of UTF8 chars of the String.</haxe_doc>
-		</length>
-		<compare public="1" set="method" line="79" static="1">
-			<f a="a:b">
-				<c path="String"/>
-				<c path="String"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Compare two UTF8 strings, character by character.</haxe_doc>
-		</compare>
-		<sub public="1" set="method" line="83" static="1">
-			<f a="s:pos:len">
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>This is similar to `String.substr` but the `pos` and `len` parts are considering UTF8 characters.</haxe_doc>
-		</sub>
-		<enc get="inline" set="null" expr="&quot;UTF-8&quot;" line="87" static="1">
-			<c path="String"/>
-			<meta><m n=":value"><e>"UTF-8"</e></m></meta>
-		</enc>
-		<__b><c path="String"/></__b>
-		<addChar public="1" set="method" line="35">
-			<f a="c">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Add the given UTF8 character code to the buffer.</haxe_doc>
-		</addChar>
-		<toString public="1" set="method" line="39">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>Returns the buffer converted to a String.</haxe_doc>
-		</toString>
-		<new public="1" set="method" line="31">
-			<f a="?size">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Allocate a new Utf8 buffer using an optional bytes size.</haxe_doc>
-		</new>
-		<haxe_doc>Since not all platforms guarantee that `String` always uses UTF-8 encoding, you
-	can use this cross-platform API to perform operations on such strings.</haxe_doc>
-		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="haxe.crypto.Adler32" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/crypto/Adler32.hx">
 		<read public="1" set="method" line="60" static="1"><f a="i">
@@ -15549,10 +15606,6 @@
 	<c path="String"/>
 	<x path="Void"/>
 </f></quote>
-		<quoteUtf8 set="method" line="240"><f a="s">
-	<c path="String"/>
-	<x path="Void"/>
-</f></quoteUtf8>
 		<new set="method" line="56"><f a="replacer:space">
 	<f a="key:value">
 		<d/>
