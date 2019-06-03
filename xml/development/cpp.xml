@@ -4430,12 +4430,7 @@
 		</f>
 		<haxe_doc>Tells if `b` is a correctly encoded UTF8 byte sequence.</haxe_doc>
 	</validate>
-	<length public="1" get="accessor" set="null" static="1">
-		<x path="Int"/>
-		<meta><m n=":impl"/></meta>
-		<haxe_doc>The number of characters in `this` String.</haxe_doc>
-	</length>
-	<_new public="1" get="inline" set="null" line="116" static="1">
+	<_new public="1" get="inline" set="null" line="111" static="1">
 		<f a="string">
 			<c path="String"/>
 			<x path="UnicodeString"/>
@@ -4446,7 +4441,28 @@
 		</meta>
 		<haxe_doc>Creates an instance of UnicodeString.</haxe_doc>
 	</_new>
-	<charAt public="1" set="method" line="127" static="1">
+	<iterator public="1" get="inline" set="null" line="118" static="1">
+		<f a="this">
+			<c path="String"/>
+			<c path="haxe.iterators.StringIteratorUnicode"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns an iterator of the unicode code points.</haxe_doc>
+	</iterator>
+	<keyValueIterator public="1" get="inline" set="null" line="125" static="1">
+		<f a="this">
+			<c path="String"/>
+			<c path="haxe.iterators.StringKeyValueIteratorUnicode"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns an iterator of the code point indices and unicode code points.</haxe_doc>
+	</keyValueIterator>
+	<length public="1" get="accessor" set="null" static="1">
+		<x path="Int"/>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>The number of characters in `this` String.</haxe_doc>
+	</length>
+	<charAt public="1" set="method" line="142" static="1">
 		<f a="this:index">
 			<c path="String"/>
 			<x path="Int"/>
@@ -4458,7 +4474,7 @@
 		If `index` is negative or exceeds `this.length`, the empty String `""`
 		is returned.</haxe_doc>
 	</charAt>
-	<charCodeAt public="1" set="method" line="154" static="1">
+	<charCodeAt public="1" set="method" line="164" static="1">
 		<f a="this:index">
 			<c path="String"/>
 			<x path="Int"/>
@@ -4469,23 +4485,7 @@
 
 		If `index` is negative or exceeds `this.length`, `null` is returned.</haxe_doc>
 	</charCodeAt>
-	<iterator public="1" get="inline" set="null" line="178" static="1">
-		<f a="this">
-			<c path="String"/>
-			<c path="haxe.iterators.StringIteratorUnicode"/>
-		</f>
-		<meta><m n=":impl"/></meta>
-		<haxe_doc>Returns an iterator of the unicode code points.</haxe_doc>
-	</iterator>
-	<keyValueIterator public="1" get="inline" set="null" line="185" static="1">
-		<f a="this">
-			<c path="String"/>
-			<c path="haxe.iterators.StringKeyValueIteratorUnicode"/>
-		</f>
-		<meta><m n=":impl"/></meta>
-		<haxe_doc>Returns an iterator of the code point indices and unicode code points.</haxe_doc>
-	</keyValueIterator>
-	<get_length set="method" line="190" static="1">
+	<get_length set="method" line="181" static="1">
 		<f a="this">
 			<c path="String"/>
 			<x path="Int"/>
@@ -4504,12 +4504,7 @@
 			</f>
 			<haxe_doc>Tells if `b` is a correctly encoded UTF8 byte sequence.</haxe_doc>
 		</validate>
-		<length public="1" get="accessor" set="null" static="1">
-			<x path="Int"/>
-			<meta><m n=":impl"/></meta>
-			<haxe_doc>The number of characters in `this` String.</haxe_doc>
-		</length>
-		<_new public="1" get="inline" set="null" line="116" static="1">
+		<_new public="1" get="inline" set="null" line="111" static="1">
 			<f a="string">
 				<c path="String"/>
 				<x path="UnicodeString"/>
@@ -4520,7 +4515,28 @@
 			</meta>
 			<haxe_doc>Creates an instance of UnicodeString.</haxe_doc>
 		</_new>
-		<charAt public="1" set="method" line="127" static="1">
+		<iterator public="1" get="inline" set="null" line="118" static="1">
+			<f a="this">
+				<c path="String"/>
+				<c path="haxe.iterators.StringIteratorUnicode"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns an iterator of the unicode code points.</haxe_doc>
+		</iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="125" static="1">
+			<f a="this">
+				<c path="String"/>
+				<c path="haxe.iterators.StringKeyValueIteratorUnicode"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns an iterator of the code point indices and unicode code points.</haxe_doc>
+		</keyValueIterator>
+		<length public="1" get="accessor" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>The number of characters in `this` String.</haxe_doc>
+		</length>
+		<charAt public="1" set="method" line="142" static="1">
 			<f a="this:index">
 				<c path="String"/>
 				<x path="Int"/>
@@ -4532,7 +4548,7 @@
 		If `index` is negative or exceeds `this.length`, the empty String `""`
 		is returned.</haxe_doc>
 		</charAt>
-		<charCodeAt public="1" set="method" line="154" static="1">
+		<charCodeAt public="1" set="method" line="164" static="1">
 			<f a="this:index">
 				<c path="String"/>
 				<x path="Int"/>
@@ -4543,23 +4559,7 @@
 
 		If `index` is negative or exceeds `this.length`, `null` is returned.</haxe_doc>
 		</charCodeAt>
-		<iterator public="1" get="inline" set="null" line="178" static="1">
-			<f a="this">
-				<c path="String"/>
-				<c path="haxe.iterators.StringIteratorUnicode"/>
-			</f>
-			<meta><m n=":impl"/></meta>
-			<haxe_doc>Returns an iterator of the unicode code points.</haxe_doc>
-		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="185" static="1">
-			<f a="this">
-				<c path="String"/>
-				<c path="haxe.iterators.StringKeyValueIteratorUnicode"/>
-			</f>
-			<meta><m n=":impl"/></meta>
-			<haxe_doc>Returns an iterator of the code point indices and unicode code points.</haxe_doc>
-		</keyValueIterator>
-		<get_length set="method" line="190" static="1">
+		<get_length set="method" line="181" static="1">
 			<f a="this">
 				<c path="String"/>
 				<x path="Int"/>
