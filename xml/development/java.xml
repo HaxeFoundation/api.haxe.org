@@ -4228,7 +4228,89 @@
 
 		If `index` is negative or exceeds `this.length`, `null` is returned.</haxe_doc>
 	</charCodeAt>
-	<get_length set="method" line="181" static="1">
+	<indexOf public="1" set="method" line="196" static="1">
+		<f a="this:str:?startIndex">
+			<c path="String"/>
+			<c path="String"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns the position of the leftmost occurrence of `str` within `this`
+		String.
+
+		If `startIndex` is given, the search is performed within the substring
+		of `this` String starting from `startIndex` (if `startIndex` is posivite
+		or 0) or `max(this.length + startIndex, 0)` (if `startIndex` is negative).
+
+		If `startIndex` exceeds `this.length`, -1 is returned.
+
+		Otherwise the search is performed within `this` String. In either case,
+		the returned position is relative to the beginning of `this` String.
+
+		If `str` cannot be found, -1 is returned.</haxe_doc>
+	</indexOf>
+	<lastIndexOf public="1" set="method" line="252" static="1">
+		<f a="this:str:?startIndex">
+			<c path="String"/>
+			<c path="String"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns the position of the rightmost occurrence of `str` within `this`
+		String.
+
+		If `startIndex` is given, the search is performed within the substring
+		of `this` String from 0 to `startIndex + str.length`. Otherwise the search
+		is performed within `this` String. In either case, the returned position
+		is relative to the beginning of `this` String.
+
+		If `str` cannot be found, -1 is returned.</haxe_doc>
+	</lastIndexOf>
+	<substr public="1" set="method" line="311" static="1">
+		<f a="this:pos:?len">
+			<c path="String"/>
+			<x path="Int"/>
+			<x path="Int"/>
+			<c path="String"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns `len` characters of `this` String, starting at position `pos`.
+
+		If `len` is omitted, all characters from position `pos` to the end of
+		`this` String are included.
+
+		If `pos` is negative, its value is calculated from the end of `this`
+		String by `this.length + pos`. If this yields a negative value, 0 is
+		used instead.
+
+		If the calculated position + `len` exceeds `this.length`, the characters
+		from that position to the end of `this` String are returned.
+
+		If `len` is negative, the result is unspecified.</haxe_doc>
+	</substr>
+	<substring public="1" set="method" line="365" static="1">
+		<f a="this:startIndex:?endIndex">
+			<c path="String"/>
+			<x path="Int"/>
+			<x path="Int"/>
+			<c path="String"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns the part of `this` String from `startIndex` to but not including `endIndex`.
+
+		If `startIndex` or `endIndex` are negative, 0 is used instead.
+
+		If `startIndex` exceeds `endIndex`, they are swapped.
+
+		If the (possibly swapped) `endIndex` is omitted or exceeds
+		`this.length`, `this.length` is used instead.
+
+		If the (possibly swapped) `startIndex` exceeds `this.length`, the empty
+		String `""` is returned.</haxe_doc>
+	</substring>
+	<get_length set="method" line="410" static="1">
 		<f a="this">
 			<c path="String"/>
 			<x path="Int"/>
@@ -4305,7 +4387,89 @@
 
 		If `index` is negative or exceeds `this.length`, `null` is returned.</haxe_doc>
 		</charCodeAt>
-		<get_length set="method" line="181" static="1">
+		<indexOf public="1" set="method" line="196" static="1">
+			<f a="this:str:?startIndex">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns the position of the leftmost occurrence of `str` within `this`
+		String.
+
+		If `startIndex` is given, the search is performed within the substring
+		of `this` String starting from `startIndex` (if `startIndex` is posivite
+		or 0) or `max(this.length + startIndex, 0)` (if `startIndex` is negative).
+
+		If `startIndex` exceeds `this.length`, -1 is returned.
+
+		Otherwise the search is performed within `this` String. In either case,
+		the returned position is relative to the beginning of `this` String.
+
+		If `str` cannot be found, -1 is returned.</haxe_doc>
+		</indexOf>
+		<lastIndexOf public="1" set="method" line="252" static="1">
+			<f a="this:str:?startIndex">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns the position of the rightmost occurrence of `str` within `this`
+		String.
+
+		If `startIndex` is given, the search is performed within the substring
+		of `this` String from 0 to `startIndex + str.length`. Otherwise the search
+		is performed within `this` String. In either case, the returned position
+		is relative to the beginning of `this` String.
+
+		If `str` cannot be found, -1 is returned.</haxe_doc>
+		</lastIndexOf>
+		<substr public="1" set="method" line="311" static="1">
+			<f a="this:pos:?len">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns `len` characters of `this` String, starting at position `pos`.
+
+		If `len` is omitted, all characters from position `pos` to the end of
+		`this` String are included.
+
+		If `pos` is negative, its value is calculated from the end of `this`
+		String by `this.length + pos`. If this yields a negative value, 0 is
+		used instead.
+
+		If the calculated position + `len` exceeds `this.length`, the characters
+		from that position to the end of `this` String are returned.
+
+		If `len` is negative, the result is unspecified.</haxe_doc>
+		</substr>
+		<substring public="1" set="method" line="365" static="1">
+			<f a="this:startIndex:?endIndex">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns the part of `this` String from `startIndex` to but not including `endIndex`.
+
+		If `startIndex` or `endIndex` are negative, 0 is used instead.
+
+		If `startIndex` exceeds `endIndex`, they are swapped.
+
+		If the (possibly swapped) `endIndex` is omitted or exceeds
+		`this.length`, `this.length` is used instead.
+
+		If the (possibly swapped) `startIndex` exceeds `this.length`, the empty
+		String `""` is returned.</haxe_doc>
+		</substring>
+		<get_length set="method" line="410" static="1">
 			<f a="this">
 				<c path="String"/>
 				<x path="Int"/>
