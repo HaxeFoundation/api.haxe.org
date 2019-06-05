@@ -2344,24 +2344,6 @@
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the String itself.</haxe_doc>
 		</toString>
-		<iterator public="1" get="inline" set="null" line="55">
-			<f a=""><c path="haxe.iterators.StringIterator"/></f>
-			<meta><m n=":runtime"/></meta>
-			<haxe_doc>Returns an iterator of the char codes.
-
-		Note that char codes may differ across platforms because of different
-		internal encoding of strings in different of runtimes.
-		For the consistent cross-platform UTF8 char codes see `haxe.iterators.StringIteratorUnicode`.</haxe_doc>
-		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="59">
-			<f a=""><c path="haxe.iterators.StringKeyValueIterator"/></f>
-			<meta><m n=":runtime"/></meta>
-			<haxe_doc>Returns an iterator of the char indexes and codes.
-
-		Note that char codes may differ across platforms because of different
-		internal encoding of strings in different of runtimes.
-		For the consistent cross-platform UTF8 char codes see `haxe.iterators.StringKeyValueIteratorUnicode`.</haxe_doc>
-		</keyValueIterator>
 		<compareTo set="method"><f a="anotherString">
 	<c path="String"/>
 	<x path="Int"/>
@@ -2532,25 +2514,25 @@
 		<meta><m n=":hxGen"/></meta>
 	</class>
 	<class path="StringTools" params="" file="/home/travis/build/HaxeFoundation/haxe/std/StringTools.hx">
-		<urlEncode public="1" set="method" line="37" static="1">
+		<urlEncode public="1" set="method" line="42" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Encode an URL by using the standard format.</haxe_doc>
 		</urlEncode>
-		<postProcessUrlEncode set="method" line="69" static="1"><f a="s">
+		<postProcessUrlEncode set="method" line="74" static="1"><f a="s">
 	<c path="String"/>
 	<c path="String"/>
 </f></postProcessUrlEncode>
-		<urlDecode public="1" set="method" line="107" static="1">
+		<urlDecode public="1" set="method" line="112" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Decode an URL using the standard format.</haxe_doc>
 		</urlDecode>
-		<htmlEscape public="1" set="method" line="153" static="1">
+		<htmlEscape public="1" set="method" line="158" static="1">
 			<f a="s:?quotes">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -2569,7 +2551,7 @@
 		- `"` becomes `&quot`;
 		- `'` becomes `&#039`;]]></haxe_doc>
 		</htmlEscape>
-		<htmlUnescape public="1" set="method" line="182" static="1">
+		<htmlUnescape public="1" set="method" line="187" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="String"/>
@@ -2587,7 +2569,7 @@
 		- `&quot;` becomes `"`
 		- `&#039;` becomes `'`]]></haxe_doc>
 		</htmlUnescape>
-		<contains public="1" get="inline" set="null" line="191" static="1">
+		<contains public="1" get="inline" set="null" line="196" static="1">
 			<f a="s:value">
 				<c path="String"/>
 				<c path="String"/>
@@ -2597,7 +2579,7 @@
 
 		When `value` is `null`, the result is unspecified.</haxe_doc>
 		</contains>
-		<startsWith public="1" get="inline" set="null" line="202" static="1">
+		<startsWith public="1" get="inline" set="null" line="207" static="1">
 			<f a="s:start">
 				<c path="String"/>
 				<c path="String"/>
@@ -2609,7 +2591,7 @@
 
 		If `start` is the empty String `""`, the result is true.</haxe_doc>
 		</startsWith>
-		<endsWith public="1" get="inline" set="null" line="232" static="1">
+		<endsWith public="1" get="inline" set="null" line="237" static="1">
 			<f a="s:end">
 				<c path="String"/>
 				<c path="String"/>
@@ -2621,7 +2603,7 @@
 
 		If `end` is the empty String `""`, the result is true.</haxe_doc>
 		</endsWith>
-		<isSpace public="1" set="method" line="268" static="1">
+		<isSpace public="1" set="method" line="273" static="1">
 			<f a="s:pos">
 				<c path="String"/>
 				<x path="Int"/>
@@ -2635,7 +2617,7 @@
 		If `s` is the empty String `""`, or if pos is not a valid position within
 		`s`, the result is false.</haxe_doc>
 		</isSpace>
-		<ltrim public="1" set="method" line="285" static="1">
+		<ltrim public="1" set="method" line="290" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="String"/>
@@ -2648,7 +2630,7 @@
 		If `s` is the empty String `""` or consists only of space characters, the
 		result is the empty String `""`.</haxe_doc>
 		</ltrim>
-		<rtrim public="1" set="method" line="310" static="1">
+		<rtrim public="1" set="method" line="315" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="String"/>
@@ -2661,17 +2643,16 @@
 		If `s` is the empty String `""` or consists only of space characters, the
 		result is the empty String `""`.</haxe_doc>
 		</rtrim>
-		<trim public="1" get="inline" set="null" line="332" static="1">
+		<trim public="1" get="inline" set="null" line="337" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="String"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Removes leading and trailing space characters of `s`.
 
 		This is a convenience function for `ltrim(rtrim(s))`.</haxe_doc>
 		</trim>
-		<lpad public="1" set="method" line="354" static="1">
+		<lpad public="1" set="method" line="359" static="1">
 			<f a="s:c:l">
 				<c path="String"/>
 				<c path="String"/>
@@ -2689,7 +2670,7 @@
 
 		If `c` is null, the result is unspecified.</haxe_doc>
 		</lpad>
-		<rpad public="1" set="method" line="379" static="1">
+		<rpad public="1" set="method" line="384" static="1">
 			<f a="s:c:l">
 				<c path="String"/>
 				<c path="String"/>
@@ -2707,7 +2688,7 @@
 
 		If `c` is null, the result is unspecified.</haxe_doc>
 		</rpad>
-		<replace public="1" set="method" line="401" static="1">
+		<replace public="1" set="method" line="406" static="1">
 			<f a="s:sub:by">
 				<c path="String"/>
 				<c path="String"/>
@@ -2723,7 +2704,7 @@
 
 		If `sub` or `by` are null, the result is unspecified.</haxe_doc>
 		</replace>
-		<hex public="1" set="method" line="423" static="1">
+		<hex public="1" set="method" line="428" static="1">
 			<f a="n:?digits">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -2734,7 +2715,7 @@
 		If `digits` is specified, the resulting String is padded with "0" until
 		its `length` equals `digits`.</haxe_doc>
 		</hex>
-		<fastCodeAt public="1" get="inline" set="null" line="465" static="1">
+		<fastCodeAt public="1" get="inline" set="null" line="470" static="1">
 			<f a="s:index">
 				<c path="String"/>
 				<x path="Int"/>
@@ -2753,7 +2734,29 @@
 		This operation is not guaranteed to work if `s` contains the `\0`
 		character.</haxe_doc>
 		</fastCodeAt>
-		<isEof public="1" get="inline" set="null" line="496" static="1">
+		<iterator public="1" get="inline" set="null" line="505" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="haxe.iterators.StringIterator"/>
+			</f>
+			<haxe_doc>Returns an iterator of the char codes.
+
+		Note that char codes may differ across platforms because of different
+		internal encoding of strings in different runtimes.
+		For the consistent cross-platform UTF8 char codes see `haxe.iterators.StringIteratorUnicode`.</haxe_doc>
+		</iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="516" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="haxe.iterators.StringKeyValueIterator"/>
+			</f>
+			<haxe_doc>Returns an iterator of the char indexes and codes.
+
+		Note that char codes may differ across platforms because of different
+		internal encoding of strings in different of runtimes.
+		For the consistent cross-platform UTF8 char codes see `haxe.iterators.StringKeyValueIteratorUnicode`.</haxe_doc>
+		</keyValueIterator>
+		<isEof public="1" get="inline" set="null" line="523" static="1">
 			<f a="c">
 				<x path="Int"/>
 				<x path="Bool"/>
@@ -2761,7 +2764,7 @@
 			<meta><m n=":noUsing"/></meta>
 			<haxe_doc>Tells if `c` represents the end-of-file (EOF) character.</haxe_doc>
 		</isEof>
-		<quoteUnixArg public="1" set="method" line="517" static="1">
+		<quoteUnixArg public="1" set="method" line="544" static="1">
 			<f a="argument">
 				<c path="String"/>
 				<c path="String"/>
@@ -2774,7 +2777,7 @@
 		on Unix.
 		The input will be quoted, or escaped if necessary.</haxe_doc>
 		</quoteUnixArg>
-		<winMetaCharacters public="1" expr="cast haxe.SysTools.winMetaCharacters" line="526" static="1">
+		<winMetaCharacters public="1" expr="cast haxe.SysTools.winMetaCharacters" line="553" static="1">
 			<c path="Array"><x path="Int"/></c>
 			<meta>
 				<m n=":value"><e>cast haxe.SysTools.winMetaCharacters</e></m>
@@ -2783,7 +2786,7 @@
 			</meta>
 			<haxe_doc>Character codes of the characters that will be escaped by `quoteWinArg(_, true)`.</haxe_doc>
 		</winMetaCharacters>
-		<quoteWinArg public="1" set="method" line="543" static="1">
+		<quoteWinArg public="1" set="method" line="570" static="1">
 			<f a="argument:escapeMetaCharacters">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -2805,16 +2808,16 @@
 		quoteWinArg("ab c") == '"ab c"';
 		```</haxe_doc>
 		</quoteWinArg>
-		<_charAt get="inline" set="null" line="548" static="1"><f a="str:idx">
+		<_charAt get="inline" set="null" line="575" static="1"><f a="str:idx">
 	<c path="String"/>
 	<x path="Int"/>
 	<x path="java.Char16"/>
 </f></_charAt>
-		<MIN_SURROGATE_CODE_POINT get="inline" set="null" expr="65536" line="557" static="1">
+		<MIN_SURROGATE_CODE_POINT get="inline" set="null" expr="65536" line="584" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>65536</e></m></meta>
 		</MIN_SURROGATE_CODE_POINT>
-		<utf16CodePointAt get="inline" set="null" line="558" static="1"><f a="s:index">
+		<utf16CodePointAt get="inline" set="null" line="585" static="1"><f a="s:index">
 	<c path="String"/>
 	<x path="Int"/>
 	<x path="Int"/>
@@ -23102,10 +23105,7 @@
 
 	Note that char codes may differ across platforms because of different
 	internal encoding of strings in different of runtimes.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":hxGen"/>
-		</meta>
+		<meta><m n=":hxGen"/></meta>
 	</class>
 	<class path="haxe.iterators.StringIteratorUnicode" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/iterators/StringIteratorUnicode.hx">
 		<unicodeIterator public="1" get="inline" set="null" line="69" static="1">
@@ -23172,10 +23172,7 @@
 
 	Note that char codes may differ across platforms because of different
 	internal encoding of strings in different runtimes.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":hxGen"/>
-		</meta>
+		<meta><m n=":hxGen"/></meta>
 	</class>
 	<class path="haxe.iterators.StringKeyValueIteratorUnicode" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/iterators/StringKeyValueIteratorUnicode.hx">
 		<unicodeKeyValueIterator public="1" get="inline" set="null" line="72" static="1">
@@ -30955,7 +30952,7 @@
 		<meta><m n=":nativeGen"/></meta>
 	</typedef>
 	<class path="java.internal._StringExt.StringExt" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/internal/StringExt.hx" private="1" module="java.internal.StringExt">
-		<charAt public="1" set="method" line="38" static="1">
+		<charAt public="1" set="method" line="36" static="1">
 			<f a="me:index">
 				<t path="java.internal._StringExt.NativeString"/>
 				<x path="Int"/>
@@ -30963,7 +30960,7 @@
 			</f>
 			<meta><m n=":functionCode"><e><![CDATA["\n\t\t\tif ( index >= me.length() || index < 0 )\n\t\t\t\treturn \"\";\n\t\t\telse\n\t\t\t\treturn java.lang.Character.toString(me.charAt(index));\n\t"]]></e></m></meta>
 		</charAt>
-		<charCodeAt public="1" set="method" line="49" static="1">
+		<charCodeAt public="1" set="method" line="47" static="1">
 			<f a="me:index">
 				<t path="java.internal._StringExt.NativeString"/>
 				<x path="Int"/>
@@ -30971,7 +30968,7 @@
 			</f>
 			<meta><m n=":functionCode"><e><![CDATA["\n\t\t\tif ( index >= me.length() || index < 0 )\n\t\t\t\treturn null;\n\t\t\telse\n\t\t\t\treturn (int) me.charAt(index);\n\t"]]></e></m></meta>
 		</charCodeAt>
-		<indexOf public="1" set="method" line="60" static="1">
+		<indexOf public="1" set="method" line="58" static="1">
 			<f a="me:str:?startIndex">
 				<t path="java.internal._StringExt.NativeString"/>
 				<t path="java.internal._StringExt.NativeString"/>
@@ -30980,7 +30977,7 @@
 			</f>
 			<meta><m n=":functionCode"><e><![CDATA["\n\t\t\tint sIndex = (startIndex != null ) ? (haxe.lang.Runtime.toInt(startIndex)) : 0;\n\t\t\tif (sIndex >= me.length() || sIndex < 0)\n\t\t\t\treturn -1;\n\t\t\treturn me.indexOf(str, sIndex);\n\t"]]></e></m></meta>
 		</indexOf>
-		<lastIndexOf public="1" set="method" line="73" static="1">
+		<lastIndexOf public="1" set="method" line="71" static="1">
 			<f a="me:str:?startIndex">
 				<t path="java.internal._StringExt.NativeString"/>
 				<t path="java.internal._StringExt.NativeString"/>
@@ -30989,7 +30986,7 @@
 			</f>
 			<meta><m n=":functionCode"><e><![CDATA["\n\t\t\tint sIndex = (startIndex != null ) ? (haxe.lang.Runtime.toInt(startIndex)) : (me.length() - 1);\n\t\t\tif (sIndex > me.length() || sIndex < 0)\n\t\t\t\tsIndex = me.length() - 1;\n\t\t\telse if (sIndex < 0)\n\t\t\t\treturn -1;\n\t\t\treturn me.lastIndexOf(str, sIndex);\n\t"]]></e></m></meta>
 		</lastIndexOf>
-		<split public="1" set="method" line="105" static="1">
+		<split public="1" set="method" line="103" static="1">
 			<f a="me:delimiter">
 				<t path="java.internal._StringExt.NativeString"/>
 				<t path="java.internal._StringExt.NativeString"/>
@@ -30997,7 +30994,7 @@
 			</f>
 			<meta><m n=":functionCode"><e><![CDATA["\n\t\t\tArray<java.lang.String> ret = new Array<java.lang.String>();\n\n\t\t\tint slen = delimiter.length();\n\t\t\tif (slen == 0)\n\t\t\t{\n\t\t\t\tint len = me.length();\n\t\t\t\tfor (int i = 0; i < len; i++)\n\t\t\t\t{\n\t\t\t\t\tret.push(me.substring(i, i + 1));\n\t\t\t\t}\n\t\t\t} else {\n\t\t\t\tint start = 0;\n\t\t\t\tint pos = me.indexOf(delimiter, start);\n\n\t\t\t\twhile (pos >= 0)\n\t\t\t\t{\n\t\t\t\t\tret.push(me.substring(start, pos));\n\n\t\t\t\t\tstart = pos + slen;\n\t\t\t\t\tpos = me.indexOf(delimiter, start);\n\t\t\t\t}\n\n\t\t\t\tret.push(me.substring(start));\n\t\t\t}\n\t\t\treturn ret;\n\t"]]></e></m></meta>
 		</split>
-		<substr public="1" set="method" line="138" static="1">
+		<substr public="1" set="method" line="136" static="1">
 			<f a="me:pos:?len">
 				<t path="java.internal._StringExt.NativeString"/>
 				<x path="Int"/>
@@ -31006,7 +31003,7 @@
 			</f>
 			<meta><m n=":functionCode"><e><![CDATA["\n\t\t\tint meLen = me.length();\n\t\t\tint targetLen = meLen;\n\t\t\tif (len != null)\n\t\t\t{\n\t\t\t\ttargetLen = haxe.lang.Runtime.toInt(len);\n\t\t\t\tif (targetLen == 0)\n\t\t\t\t\treturn \"\";\n\t\t\t\tif( pos != 0 && targetLen < 0 ){\n\t\t\t\t\treturn \"\";\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tif( pos < 0 ){\n\t\t\t\tpos = meLen + pos;\n\t\t\t\tif( pos < 0 ) pos = 0;\n\t\t\t} else if( targetLen < 0 ){\n\t\t\t\ttargetLen = meLen + targetLen - pos;\n\t\t\t}\n\n\t\t\tif( pos + targetLen > meLen ){\n\t\t\t\ttargetLen = meLen - pos;\n\t\t\t}\n\n\t\t\tif ( pos < 0 || targetLen <= 0 ) return \"\";\n\n\t\t\treturn me.substring(pos, pos + targetLen);\n\t"]]></e></m></meta>
 		</substr>
-		<substring public="1" set="method" line="169" static="1">
+		<substring public="1" set="method" line="167" static="1">
 			<f a="me:startIndex:?endIndex">
 				<t path="java.internal._StringExt.NativeString"/>
 				<x path="Int"/>
@@ -31015,40 +31012,32 @@
 			</f>
 			<meta><m n=":functionCode"><e><![CDATA["\n\t\tint endIdx;\n\t\tint len = me.length();\n\t\tif ( endIndex == null) {\n\t\t\tendIdx = len;\n\t\t} else if ( (endIdx = haxe.lang.Runtime.toInt(endIndex)) < 0 ) {\n\t\t\tendIdx = 0;\n\t\t} else if ( endIdx > len ) {\n\t\t\tendIdx = len;\n\t\t}\n\n\t\tif ( startIndex < 0 ) {\n\t\t\tstartIndex = 0;\n\t\t} else if ( startIndex > len ) {\n\t\t\tstartIndex = len;\n\t\t}\n\n\t\tif ( startIndex > endIdx ) {\n\t\t\tint tmp = startIndex;\n\t\t\tstartIndex = endIdx;\n\t\t\tendIdx = tmp;\n\t\t}\n\n\t\treturn me.substring(startIndex, endIdx);\n\n\t"]]></e></m></meta>
 		</substring>
-		<toString public="1" set="method" line="174" static="1"><f a="me">
+		<toString public="1" set="method" line="172" static="1"><f a="me">
 	<t path="java.internal._StringExt.NativeString"/>
 	<t path="java.internal._StringExt.NativeString"/>
 </f></toString>
-		<toLowerCase public="1" set="method" line="182" static="1">
+		<toLowerCase public="1" set="method" line="180" static="1">
 			<f a="me">
 				<t path="java.internal._StringExt.NativeString"/>
 				<t path="java.internal._StringExt.NativeString"/>
 			</f>
 			<meta><m n=":functionCode"><e>"\n\t\t\treturn me.toLowerCase();\n\t"</e></m></meta>
 		</toLowerCase>
-		<toUpperCase public="1" set="method" line="190" static="1">
+		<toUpperCase public="1" set="method" line="188" static="1">
 			<f a="me">
 				<t path="java.internal._StringExt.NativeString"/>
 				<t path="java.internal._StringExt.NativeString"/>
 			</f>
 			<meta><m n=":functionCode"><e>"\n\t\t\treturn me.toUpperCase();\n\t"</e></m></meta>
 		</toUpperCase>
-		<toNativeString public="1" set="method" line="195" static="1"><f a="me">
+		<toNativeString public="1" set="method" line="193" static="1"><f a="me">
 	<t path="java.internal._StringExt.NativeString"/>
 	<t path="java.internal._StringExt.NativeString"/>
 </f></toNativeString>
-		<fromCharCode public="1" set="method" line="200" static="1"><f a="code">
+		<fromCharCode public="1" set="method" line="198" static="1"><f a="code">
 	<x path="Int"/>
 	<c path="String"/>
 </f></fromCharCode>
-		<iterator public="1" set="method" line="205" static="1"><f a="me">
-	<t path="java.internal._StringExt.NativeString"/>
-	<c path="haxe.iterators.StringIterator"/>
-</f></iterator>
-		<keyValueIterator public="1" set="method" line="210" static="1"><f a="me">
-	<t path="java.internal._StringExt.NativeString"/>
-	<c path="haxe.iterators.StringKeyValueIterator"/>
-</f></keyValueIterator>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":nativeGen"/>
@@ -31058,17 +31047,17 @@
 		</meta>
 	</class>
 	<class path="java.internal._StringExt.StringRefl" params="" file="/home/travis/build/HaxeFoundation/haxe/std/java/internal/StringExt.hx" private="1" module="java.internal.StringExt">
-		<fields public="1" expr="[&quot;length&quot;, &quot;toUpperCase&quot;, &quot;toLowerCase&quot;, &quot;charAt&quot;, &quot;charCodeAt&quot;, &quot;indexOf&quot;, &quot;lastIndexOf&quot;, &quot;split&quot;, &quot;substr&quot;, &quot;substring&quot;]" line="218" static="1">
+		<fields public="1" expr="[&quot;length&quot;, &quot;toUpperCase&quot;, &quot;toLowerCase&quot;, &quot;charAt&quot;, &quot;charCodeAt&quot;, &quot;indexOf&quot;, &quot;lastIndexOf&quot;, &quot;split&quot;, &quot;substr&quot;, &quot;substring&quot;]" line="206" static="1">
 			<c path="Array"><c path="String"/></c>
 			<meta><m n=":value"><e>["length", "toUpperCase", "toLowerCase", "charAt", "charCodeAt", "indexOf", "lastIndexOf", "split", "substr", "substring"]</e></m></meta>
 		</fields>
-		<handleGetField public="1" set="method" line="220" static="1"><f a="str:f:throwErrors">
+		<handleGetField public="1" set="method" line="208" static="1"><f a="str:f:throwErrors">
 	<t path="java.internal._StringExt.NativeString"/>
 	<t path="java.internal._StringExt.NativeString"/>
 	<x path="Bool"/>
 	<d/>
 </f></handleGetField>
-		<handleCallField public="1" set="method" line="235" static="1"><f a="str:f:args">
+		<handleCallField public="1" set="method" line="223" static="1"><f a="str:f:args">
 	<t path="java.internal._StringExt.NativeString"/>
 	<t path="java.internal._StringExt.NativeString"/>
 	<c path="java.NativeArray"><d/></c>
