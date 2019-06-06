@@ -226,6 +226,10 @@
 	<x path="Int"/>
 	<c path="Array"><c path="new1.T"/></c>
 </f></new1>
+		<__hx_toString_depth expr="0" line="94" static="1">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</__hx_toString_depth>
 		<__a><c path="neko.NativeArray"><c path="Array.T"/></c></__a>
 		<length public="1" set="null">
 			<x path="Int"/>
@@ -300,7 +304,7 @@
 
 		If `sep` is null, the result is unspecified.</haxe_doc>
 		</join>
-		<toString public="1" set="method" line="94">
+		<toString public="1" set="method" line="96">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns a string representation of `this` Array.
 
@@ -309,7 +313,7 @@
 		use `Std.string()` to get a String representation that is consistent
 		across platforms.</haxe_doc>
 		</toString>
-		<pop public="1" set="method" line="107">
+		<pop public="1" set="method" line="119">
 			<f a=""><x path="Null"><c path="Array.T"/></x></f>
 			<haxe_doc>Removes the last element of `this` Array and returns it.
 
@@ -320,7 +324,7 @@
 		If `this` is the empty Array `[]`, null is returned and the length
 		remains 0.</haxe_doc>
 		</pop>
-		<push public="1" set="method" line="116">
+		<push public="1" set="method" line="128">
 			<f a="x">
 				<c path="Array.T"/>
 				<x path="Int"/>
@@ -332,7 +336,7 @@
 
 		`this.length` increases by 1.</haxe_doc>
 		</push>
-		<unshift public="1" set="method" line="123">
+		<unshift public="1" set="method" line="135">
 			<f a="x">
 				<c path="Array.T"/>
 				<x path="Void"/>
@@ -343,7 +347,7 @@
 
 		`this.length` and the index of each Array element increases by 1.</haxe_doc>
 		</unshift>
-		<remove public="1" set="method" line="131">
+		<remove public="1" set="method" line="143">
 			<f a="x">
 				<c path="Array.T"/>
 				<x path="Bool"/>
@@ -359,7 +363,7 @@
 		If `x` is not found, `this` Array is not changed and the function
 		returns false.</haxe_doc>
 		</remove>
-		<indexOf public="1" set="method" line="148">
+		<indexOf public="1" set="method" line="160">
 			<f a="x:?fromIndex">
 				<c path="Array.T"/>
 				<x path="Int"/>
@@ -377,7 +381,7 @@
 		starting index is less than 0, the whole array will be searched, if it is greater than
 		or equal to the length of `this` Array, the function returns -1.</haxe_doc>
 		</indexOf>
-		<lastIndexOf public="1" set="method" line="165">
+		<lastIndexOf public="1" set="method" line="177">
 			<f a="x:?fromIndex">
 				<c path="Array.T"/>
 				<x path="Int"/>
@@ -395,7 +399,7 @@
 		given or computed starting index is greater than or equal to the length of `this` Array,
 		the whole array will be searched, if it is less than 0, the function returns -1.</haxe_doc>
 		</lastIndexOf>
-		<reverse public="1" set="method" line="182">
+		<reverse public="1" set="method" line="194">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc><![CDATA[Reverse the order of elements of `this` Array.
 
@@ -403,7 +407,7 @@
 
 		If `this.length < 2`, `this` remains unchanged.]]></haxe_doc>
 		</reverse>
-		<shift public="1" set="method" line="196">
+		<shift public="1" set="method" line="208">
 			<f a=""><x path="Null"><c path="Array.T"/></x></f>
 			<haxe_doc>Removes the first element of `this` Array and returns it.
 
@@ -415,7 +419,7 @@
 		If `this` is the empty Array `[]`, `null` is returned and the length
 		remains 0.</haxe_doc>
 		</shift>
-		<slice public="1" set="method" line="209">
+		<slice public="1" set="method" line="221">
 			<f a="pos:?end">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -438,7 +442,7 @@
 		If `pos` exceeds `this.length` or if `end` is less than or equals
 		`pos`, the result is `[]`.</haxe_doc>
 		</slice>
-		<sort public="1" set="method" line="226">
+		<sort public="1" set="method" line="238">
 			<f a="f">
 				<f a=":">
 					<c path="Array.T"/>
@@ -459,7 +463,7 @@
 
 		If `f` is null, the result is unspecified.]]></haxe_doc>
 		</sort>
-		<splice public="1" set="method" line="249">
+		<splice public="1" set="method" line="261">
 			<f a="pos:len">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -486,7 +490,7 @@
 		words, each element of the original `this` Array either remains in
 		`this` Array or becomes an element of the returned Array.]]></haxe_doc>
 		</splice>
-		<map public="1" params="S" set="method" line="272">
+		<map public="1" params="S" set="method" line="284">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -500,7 +504,7 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</map>
-		<filter public="1" set="method" line="279">
+		<filter public="1" set="method" line="291">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -515,7 +519,7 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</filter>
-		<resize public="1" set="method" line="287">
+		<resize public="1" set="method" line="299">
 			<f a="len">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -531,20 +535,20 @@
 		- 0, 0.0 or false for Int, Float and Bool respectively on static targets
 		- null for other types on static targets</haxe_doc>
 		</resize>
-		<__get set="method" line="301"><f a="pos">
+		<__get set="method" line="313"><f a="pos">
 	<x path="Int"/>
 	<c path="Array.T"/>
 </f></__get>
-		<__set set="method" line="305"><f a="pos:v">
+		<__set set="method" line="317"><f a="pos:v">
 	<x path="Int"/>
 	<c path="Array.T"/>
 	<c path="Array.T"/>
 </f></__set>
-		<__grow set="method" line="326"><f a="l">
+		<__grow set="method" line="338"><f a="l">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></__grow>
-		<__neko set="method" line="341"><f a=""><c path="neko.NativeArray"><c path="Array.T"/></c></f></__neko>
+		<__neko set="method" line="353"><f a=""><c path="neko.NativeArray"><c path="Array.T"/></c></f></__neko>
 		<new public="1" set="method" line="27">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new Array.</haxe_doc>
