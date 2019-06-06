@@ -26756,6 +26756,14 @@
 			</f>
 			<haxe_doc>Adds the named property described by a given descriptor to an object.</haxe_doc>
 		</defineProperty>
+		<entries public="1" set="method" static="1">
+			<f a="obj">
+				<a/>
+				<c path="Array"><x path="js.lib.ObjectEntry"/></c>
+			</f>
+			<haxe_doc>Returns an array containing all of the [key, value] pairs of a given
+		object's own enumerable string properties.</haxe_doc>
+		</entries>
 		<freeze public="1" params="T" set="method" static="1">
 			<f a="obj">
 				<c path="freeze.T"/>
@@ -26763,6 +26771,14 @@
 			</f>
 			<haxe_doc>Freezes an object: other code can't delete or change any properties.</haxe_doc>
 		</freeze>
+		<fromEntries public="1" params="T" set="method" static="1">
+			<f a="iterable">
+				<x path="Any"/>
+				<c path="fromEntries.T"/>
+			</f>
+			<haxe_doc>Returns a new object from an iterable of key-value pairs
+		(reverses Object.entries).</haxe_doc>
+		</fromEntries>
 		<getOwnPropertyDescriptor public="1" set="method" static="1">
 			<f a="obj:prop">
 				<a/>
@@ -26854,6 +26870,14 @@
 			</f>
 			<haxe_doc>Sets the prototype (i.e., the internal Prototype property).</haxe_doc>
 		</setPrototypeOf>
+		<values public="1" set="method" static="1">
+			<f a="obj">
+				<a/>
+				<c path="Array"><x path="Any"/></c>
+			</f>
+			<haxe_doc>Returns an array containing the values that correspond to all of
+		a given object's own enumerable string properties.</haxe_doc>
+		</values>
 		<prototype public="1" set="null" static="1">
 			<t path="js.lib.ObjectPrototype"/>
 			<haxe_doc>Allows the addition of properties to all objects of type Object.</haxe_doc>
@@ -77638,6 +77662,29 @@
 		</new>
 		<meta><m n=":native"><e>"Int8Array"</e></m></meta>
 	</class>
+	<class path="js.lib.Intl" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Intl.hx" extern="1">
+		<getCanonicalLocales public="1" set="method" static="1">
+			<f a="locales">
+				<c path="String"/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>Returns canonical locale names.</haxe_doc>
+			<overloads><getCanonicalLocales public="1" set="method">
+	<f a="locales">
+		<c path="Array"><c path="String"/></c>
+		<c path="Array"><c path="String"/></c>
+	</f>
+	<haxe_doc>Returns canonical locale names.</haxe_doc>
+</getCanonicalLocales></overloads>
+		</getCanonicalLocales>
+		<haxe_doc>The `Intl` object is the namespace for the ECMAScript Internationalization API,
+	which provides language sensitive string comparison, number formatting,and date and time formatting.
+	The INTL object provides access to several constructors as well as functionality common to
+	the internationalization constructors and other language sensitive functions.
+
+	Documentation [Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"Intl"</e></m></meta>
+	</class>
 	<typedef path="js.lib.Iterator" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Iterator.hx"><a><next set="method"><f a=""><t path="js.lib.IteratorStep"><c path="js.lib.Iterator.T"/></t></f></next></a></typedef>
 	<typedef path="js.lib.IteratorStep" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Iterator.hx" module="js.lib.Iterator"><a>
 	<value>
@@ -77798,6 +77845,311 @@
 			<meta><m n=":impl"/></meta>
 		</get_value>
 	</class>
+	<class path="js.lib.Math" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Math.hx" extern="1">
+		<E public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>Euler's constant and the base of natural logarithms, approximately 2.718.</haxe_doc>
+		</E>
+		<LN2 public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>Natural logarithm of 2, approximately 0.693.</haxe_doc>
+		</LN2>
+		<LN10 public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>Natural logarithm of 10, approximately 2.303.</haxe_doc>
+		</LN10>
+		<LOG2E public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>Base 2 logarithm of E, approximately 1.443.</haxe_doc>
+		</LOG2E>
+		<LOG10E public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>Base 10 logarithm of E, approximately 0.434.</haxe_doc>
+		</LOG10E>
+		<PI public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>Ratio of the circumference of a circle to its diameter, approximately 3.14159.</haxe_doc>
+		</PI>
+		<SQRT1_2 public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>Square root of 1/2; equivalently, 1 over the square root of 2, approximately 0.707.</haxe_doc>
+		</SQRT1_2>
+		<SQRT2 public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>Square root of 2, approximately 1.414.</haxe_doc>
+		</SQRT2>
+		<abs public="1" set="method" static="1">
+			<f a="x">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the absolute value of a number.</haxe_doc>
+			<overloads><abs public="1" set="method">
+	<f a="x">
+		<x path="Float"/>
+		<x path="Float"/>
+	</f>
+	<haxe_doc>Returns the absolute value of a number.</haxe_doc>
+</abs></overloads>
+		</abs>
+		<acos public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the arccosine of a number.</haxe_doc>
+		</acos>
+		<acosh public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the hyperbolic arccosine of a number.</haxe_doc>
+		</acosh>
+		<asin public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the arcsine of a number.</haxe_doc>
+		</asin>
+		<asinh public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the hyperbolic arcsine of a number.</haxe_doc>
+		</asinh>
+		<atan public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the arctangent of a number.</haxe_doc>
+		</atan>
+		<atanh public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the hyperbolic arctangent of a number.</haxe_doc>
+		</atanh>
+		<atan2 public="1" set="method" static="1">
+			<f a="y:x">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the arctangent of the quotient of its arguments.</haxe_doc>
+		</atan2>
+		<cbrt public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the cube root of a number.</haxe_doc>
+		</cbrt>
+		<ceil public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the smallest integer greater than or equal to a number.</haxe_doc>
+		</ceil>
+		<clz32 public="1" set="method" static="1">
+			<f a="x">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the number of leading zeroes of a 32-bit integer.</haxe_doc>
+		</clz32>
+		<cos public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the cosine of a number.</haxe_doc>
+		</cos>
+		<cosh public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the hyperbolic cosine of a number.</haxe_doc>
+		</cosh>
+		<exp public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns Ex, where x is the argument, and E is Euler's constant (2.718…), the base of the natural logarithm.</haxe_doc>
+		</exp>
+		<expm1 public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns subtracting 1 from exp(x).</haxe_doc>
+		</expm1>
+		<floor public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the largest integer less than or equal to a number.</haxe_doc>
+		</floor>
+		<fround public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the nearest single precision float representation of a number.</haxe_doc>
+		</fround>
+		<hypot public="1" set="method" static="1">
+			<f a="args">
+				<x path="haxe.extern.Rest"><x path="Float"/></x>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the square root of the sum of squares of its arguments.</haxe_doc>
+		</hypot>
+		<imul public="1" set="method" static="1">
+			<f a="x:y">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the result of a 32-bit integer multiplication.</haxe_doc>
+		</imul>
+		<log public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the natural logarithm (loge, also ln) of a number.</haxe_doc>
+		</log>
+		<log1p public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the natural logarithm (loge, also ln) of 1 + x for a number x.</haxe_doc>
+		</log1p>
+		<log10 public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the base 10 logarithm of a number.</haxe_doc>
+		</log10>
+		<log2 public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the base 2 logarithm of a number.</haxe_doc>
+		</log2>
+		<max public="1" set="method" static="1">
+			<f a="args">
+				<x path="haxe.extern.Rest"><x path="Int"/></x>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the largest of zero or more numbers.</haxe_doc>
+			<overloads><max public="1" set="method">
+	<f a="args">
+		<x path="haxe.extern.Rest"><x path="Float"/></x>
+		<x path="Float"/>
+	</f>
+	<haxe_doc>Returns the largest of zero or more numbers.</haxe_doc>
+</max></overloads>
+		</max>
+		<min public="1" set="method" static="1">
+			<f a="args">
+				<x path="haxe.extern.Rest"><x path="Int"/></x>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the smallest of zero or more numbers.</haxe_doc>
+			<overloads><min public="1" set="method">
+	<f a="args">
+		<x path="haxe.extern.Rest"><x path="Float"/></x>
+		<x path="Float"/>
+	</f>
+	<haxe_doc>Returns the smallest of zero or more numbers.</haxe_doc>
+</min></overloads>
+		</min>
+		<pow public="1" set="method" static="1">
+			<f a="x:y">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns base to the exponent power, that is, baseexponent.</haxe_doc>
+		</pow>
+		<random public="1" set="method" static="1">
+			<f a=""><x path="Float"/></f>
+			<haxe_doc>Returns a pseudo-random number between 0 and 1.</haxe_doc>
+		</random>
+		<round public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the value of a number rounded to the nearest integer.</haxe_doc>
+		</round>
+		<sign public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the sign of the x, indicating whether x is positive, negative or zero.</haxe_doc>
+		</sign>
+		<sin public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the sine of a number.</haxe_doc>
+		</sin>
+		<sinh public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the hyperbolic sine of a number.</haxe_doc>
+		</sinh>
+		<sqrt public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the positive square root of a number.</haxe_doc>
+		</sqrt>
+		<tan public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the tangent of a number.</haxe_doc>
+		</tan>
+		<tanh public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the hyperbolic tangent of a number.</haxe_doc>
+		</tanh>
+		<trunc public="1" set="method" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the integer part of the number x, removing any fractional digits.</haxe_doc>
+		</trunc>
+		<haxe_doc>Math is a built-in object that has properties and methods for mathematical constants and functions.
+	Not a function object.
+
+	Documentation [Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"Math"</e></m></meta>
+	</class>
 	<typedef path="js.lib.ObjectPrototype" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Object.hx" module="js.lib.Object">
 		<a>
 			<valueOf set="null">
@@ -77887,6 +78239,58 @@
 		</a>
 		<haxe_doc><![CDATA[@see <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty>]]></haxe_doc>
 	</typedef>
+	<abstract path="js.lib.ObjectEntry" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Object.hx" module="js.lib.Object">
+		<this><c path="Array"><x path="Any"/></c></this>
+		<haxe_doc>Key/value access helper for `js.lib.Object.entries()`.</haxe_doc>
+		<impl><class path="js.lib._Object.ObjectEntry_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Object.hx" private="1" module="js.lib.Object">
+	<key public="1" get="accessor" set="null" static="1">
+		<c path="String"/>
+		<meta><m n=":impl"/></meta>
+	</key>
+	<value public="1" get="accessor" set="null" static="1">
+		<x path="Any"/>
+		<meta><m n=":impl"/></meta>
+	</value>
+	<get_key get="inline" set="null" line="250" static="1">
+		<f a="this">
+			<c path="Array"><x path="Any"/></c>
+			<c path="String"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_key>
+	<get_value get="inline" set="null" line="251" static="1">
+		<f a="this">
+			<c path="Array"><x path="Any"/></c>
+			<x path="Any"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_value>
+</class></impl>
+	</abstract>
+	<class path="js.lib._Object.ObjectEntry_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Object.hx" private="1" module="js.lib.Object">
+		<key public="1" get="accessor" set="null" static="1">
+			<c path="String"/>
+			<meta><m n=":impl"/></meta>
+		</key>
+		<value public="1" get="accessor" set="null" static="1">
+			<x path="Any"/>
+			<meta><m n=":impl"/></meta>
+		</value>
+		<get_key get="inline" set="null" line="250" static="1">
+			<f a="this">
+				<c path="Array"><x path="Any"/></c>
+				<c path="String"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_key>
+		<get_value get="inline" set="null" line="251" static="1">
+			<f a="this">
+				<c path="Array"><x path="Any"/></c>
+				<x path="Any"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_value>
+	</class>
 	<class path="js.lib.Promise" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Promise.hx" extern="1">
 		<resolve public="1" params="T" set="method" static="1">
 			<f a="thenable">
@@ -78039,6 +78443,305 @@
 	</x>
 	<x path="js.lib.Thenable"><c path="then.TOut"/></x>
 </f></then></a></typedef>
+	<class path="js.lib.Proxy" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Proxy.hx" extern="1">
+		<revocable public="1" params="T" set="method" static="1">
+			<f a="target:handler">
+				<c path="revocable.T"/>
+				<t path="js.lib.ProxyHandler"><c path="revocable.T"/></t>
+				<t path="js.lib.RevocableProxy"><c path="revocable.T"/></t>
+			</f>
+			<haxe_doc>Creates a revocable `Proxy` object.</haxe_doc>
+		</revocable>
+		<new public="1" set="method"><f a="target:handler">
+	<c path="js.lib.Proxy.T"/>
+	<t path="js.lib.ProxyHandler"><c path="js.lib.Proxy.T"/></t>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>The `Proxy` object is used to define custom behavior for fundamental operations
+	(e.g. property lookup, assignment, enumeration, function invocation, etc).
+
+	Documentation [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"Proxy"</e></m></meta>
+	</class>
+	<typedef path="js.lib.ProxyHandler" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Proxy.hx" module="js.lib.Proxy"><a>
+	<setPrototypeOf>
+		<x path="Null"><f a="target:prototype">
+	<c path="js.lib.ProxyHandler.T"/>
+	<x path="Null"><a/></x>
+	<x path="Bool"/>
+</f></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>A trap for `Object.setPrototypeOf`.</haxe_doc>
+	</setPrototypeOf>
+	<set>
+		<x path="Null"><f a="target:property:value:receiver">
+	<c path="js.lib.ProxyHandler.T"/>
+	<c path="String"/>
+	<x path="Any"/>
+	<x path="Null"><a/></x>
+	<x path="Bool"/>
+</f></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>A trap for setting property values.</haxe_doc>
+	</set>
+	<preventExtensions>
+		<x path="Null"><f a="target">
+	<c path="js.lib.ProxyHandler.T"/>
+	<x path="Bool"/>
+</f></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>A trap for `Object.preventExtensions`.</haxe_doc>
+	</preventExtensions>
+	<ownKeys>
+		<x path="Null"><f a="target">
+	<c path="js.lib.ProxyHandler.T"/>
+	<c path="Array"><c path="String"/></c>
+</f></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>A trap for `Object.getOwnPropertyNames` and `Object.getOwnPropertySymbols`.</haxe_doc>
+	</ownKeys>
+	<isExtensible>
+		<x path="Null"><f a="target">
+	<c path="js.lib.ProxyHandler.T"/>
+	<x path="Bool"/>
+</f></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>A trap for `Object.isExtensible`.</haxe_doc>
+	</isExtensible>
+	<has>
+		<x path="Null"><f a="target:prop">
+	<c path="js.lib.ProxyHandler.T"/>
+	<c path="String"/>
+	<x path="Bool"/>
+</f></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>A trap for the `in` operator.</haxe_doc>
+	</has>
+	<getPrototypeOf>
+		<x path="Null"><f a="target">
+	<c path="js.lib.ProxyHandler.T"/>
+	<x path="Null"><a/></x>
+</f></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>A trap for `Object.getPrototypeOf`.</haxe_doc>
+	</getPrototypeOf>
+	<getOwnPropertyDescriptor>
+		<x path="Null"><f a="target:prop">
+	<c path="js.lib.ProxyHandler.T"/>
+	<c path="String"/>
+	<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+</f></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>A trap for `Object.getOwnPropertyDescriptor`.</haxe_doc>
+	</getOwnPropertyDescriptor>
+	<get>
+		<x path="Null"><f a="target:property:receiver">
+	<c path="js.lib.ProxyHandler.T"/>
+	<c path="String"/>
+	<x path="Null"><a/></x>
+	<x path="Any"/>
+</f></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>A trap for getting property values.</haxe_doc>
+	</get>
+	<deleteProperty>
+		<x path="Null"><f a="target:property">
+	<c path="js.lib.ProxyHandler.T"/>
+	<c path="String"/>
+	<x path="Bool"/>
+</f></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>A trap for the `delete` operator.</haxe_doc>
+	</deleteProperty>
+	<defineProperty>
+		<x path="Null"><f a="target:property:descriptor">
+	<c path="js.lib.ProxyHandler.T"/>
+	<c path="String"/>
+	<t path="js.lib.ObjectPropertyDescriptor"/>
+	<x path="Bool"/>
+</f></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>A trap for `Object.defineProperty`.</haxe_doc>
+	</defineProperty>
+	<construct>
+		<x path="Null"><f a="target:argumentsList:newTarget">
+	<x path="Class"><c path="js.lib.ProxyHandler.T"/></x>
+	<c path="Array"><x path="Any"/></c>
+	<x path="Class"><x path="Any"/></x>
+	<x path="Void"/>
+</f></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>A trap for the `new` operator.</haxe_doc>
+	</construct>
+	<apply>
+		<x path="Null"><f a="target:thisArg:argumentsList">
+	<c path="js.lib.ProxyHandler.T"/>
+	<a/>
+	<c path="Array"><x path="Any"/></c>
+	<x path="Any"/>
+</f></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>A trap a function call.</haxe_doc>
+	</apply>
+</a></typedef>
+	<typedef path="js.lib.RevocableProxy" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Proxy.hx" module="js.lib.Proxy"><a>
+	<revoke set="method">
+		<f a=""><x path="Void"/></f>
+		<haxe_doc>A function with no argument to invalidate (switch off) the `proxy`.</haxe_doc>
+	</revoke>
+	<proxy final="1" set="null">
+		<c path="js.lib.Proxy"><c path="js.lib.RevocableProxy.T"/></c>
+		<haxe_doc>A Proxy object created with `new Proxy(target, handler)` call.</haxe_doc>
+	</proxy>
+</a></typedef>
+	<class path="js.lib.Reflect" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Reflect.hx" extern="1">
+		<apply public="1" params="T" set="method" static="1">
+			<f a="target:thisArgument:argumentsList">
+				<x path="haxe.Function"/>
+				<a/>
+				<c path="Array"><x path="Any"/></c>
+				<c path="apply.T"/>
+			</f>
+			<haxe_doc>Calls a target function with arguments as specified by the args parameter.
+		See also `Function.prototype.apply()`.</haxe_doc>
+		</apply>
+		<construct public="1" params="T:S" set="method" static="1">
+			<f a="target:argumentsList:?newTarget">
+				<x path="Class"><c path="construct.T"/></x>
+				<c path="Array"><x path="Any"/></c>
+				<x path="Class"><c path="construct.S"/></x>
+				<c path="construct.T"/>
+			</f>
+			<haxe_doc>The `new` operator as a function. Equivalent to calling `new target(...args)`.
+		Provides also the optional possibility to specify a different prototype.</haxe_doc>
+		</construct>
+		<defineProperty public="1" set="method" static="1">
+			<f a="target:propertyKey:attributes">
+				<a/>
+				<c path="String"/>
+				<t path="js.lib.ObjectPropertyDescriptor"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Similar to `Object.defineProperty()`. Returns a Bool.</haxe_doc>
+		</defineProperty>
+		<deleteProperty public="1" set="method" static="1">
+			<f a="target:propertyKey">
+				<a/>
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>The `delete` operator as a function. Equivalent to calling `delete target[name]`.</haxe_doc>
+			<overloads><deleteProperty public="1" params="T" set="method">
+	<f a="target:propertyKey">
+		<c path="Array"><c path="deleteProperty.T"/></c>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<haxe_doc>The `delete` operator as a function. Equivalent to calling `delete target[name]`.</haxe_doc>
+</deleteProperty></overloads>
+		</deleteProperty>
+		<get public="1" params="T" set="method" static="1">
+			<f a="target:propertyKey:?receiver">
+				<a/>
+				<c path="String"/>
+				<a/>
+				<x path="Null"><c path="get.T"/></x>
+			</f>
+			<haxe_doc>A function that returns the value of properties.</haxe_doc>
+			<overloads><get public="1" params="T" set="method">
+	<f a="target:propertyKey:?receiver">
+		<c path="Array"><c path="get.T"/></c>
+		<x path="Int"/>
+		<a/>
+		<x path="Null"><c path="get.T"/></x>
+	</f>
+	<haxe_doc>A function that returns the value of properties.</haxe_doc>
+</get></overloads>
+		</get>
+		<getOwnPropertyDescriptor public="1" set="method" static="1">
+			<f a="target:propertyKey">
+				<a/>
+				<c path="String"/>
+				<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+			</f>
+			<haxe_doc>Similar to `Object.getOwnPropertyDescriptor()`.
+		Returns a property descriptor of the given property if it exists on the object,
+		`undefined` otherwise.</haxe_doc>
+		</getOwnPropertyDescriptor>
+		<getPrototypeOf public="1" params="TProto" set="method" static="1">
+			<f a="target">
+				<a/>
+				<x path="Null"><c path="getPrototypeOf.TProto"/></x>
+			</f>
+			<haxe_doc>Same as `Object.getPrototypeOf()`.</haxe_doc>
+		</getPrototypeOf>
+		<has public="1" set="method" static="1">
+			<f a="target:propertyKey">
+				<a/>
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>The `in` operator as function. Returns a boolean indicating whether an own
+		or inherited property exists.</haxe_doc>
+		</has>
+		<isExtensible public="1" set="method" static="1">
+			<f a="target">
+				<a/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Same as `Object.isExtensible()`.</haxe_doc>
+		</isExtensible>
+		<ownKeys public="1" set="method" static="1">
+			<f a="target">
+				<a/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>Returns an array of the target object's own (not inherited) property keys.</haxe_doc>
+		</ownKeys>
+		<preventExtensions public="1" set="method" static="1">
+			<f a="obj">
+				<a/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Similar to `Object.preventExtensions()`. Returns a Bool.</haxe_doc>
+		</preventExtensions>
+		<set public="1" params="T" set="method" static="1">
+			<f a="target:propertyKey:value:?receiver">
+				<a/>
+				<c path="String"/>
+				<c path="set.T"/>
+				<a/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>A function that assigns values to properties. Returns a Bool that is true
+		if the update was successful.</haxe_doc>
+			<overloads><set public="1" params="T" set="method">
+	<f a="target:propertyKey:value:?receiver">
+		<c path="Array"><c path="set.T"/></c>
+		<x path="Int"/>
+		<c path="set.T"/>
+		<a/>
+		<x path="Bool"/>
+	</f>
+	<haxe_doc>A function that assigns values to properties. Returns a Bool that is true
+		if the update was successful.</haxe_doc>
+</set></overloads>
+		</set>
+		<setPrototypeOf public="1" params="TProto" set="method" static="1">
+			<f a="target:prototype">
+				<a/>
+				<c path="setPrototypeOf.TProto"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>A function that sets the prototype of an object.</haxe_doc>
+		</setPrototypeOf>
+		<haxe_doc>`Reflect` is a built-in object that provides methods for interceptable JavaScript operations.
+	The methods are the same as those of [proxy handlers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler).
+	Reflect is not a function object, so it's not constructible.
+
+	Documentation [Reflect](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"Reflect"</e></m></meta>
+	</class>
 	<class path="js.lib.RegExpMatch" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/RegExp.hx" module="js.lib.RegExp" extern="1">
 		<extends path="Array"><c path="String"/></extends>
 		<index public="1"><x path="Int"/></index>
@@ -78881,5 +79584,3361 @@
 			</overloads>
 		</new>
 		<meta><m n=":native"><e>"Uint8ClampedArray"</e></m></meta>
+	</class>
+	<class path="js.lib.WeakMap" params="T" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/WeakMap.hx" extern="1">
+		<length final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<haxe_doc>The value of the `length` property is 0.</haxe_doc>
+		</length>
+		<delete public="1" set="method">
+			<f a="key">
+				<a/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Removes any value associated to the `key`. `has(key)` will return `false` afterwards.</haxe_doc>
+		</delete>
+		<get public="1" set="method">
+			<f a="key">
+				<a/>
+				<c path="js.lib.WeakMap.T"/>
+			</f>
+			<haxe_doc>Returns the value associated to the `key`, or `undefined` if there is none.</haxe_doc>
+		</get>
+		<has public="1" set="method">
+			<f a="key">
+				<a/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Returns a Boolean asserting whether a value has been associated to the `key` in the `WeakMap` object or not.</haxe_doc>
+		</has>
+		<set public="1" set="method">
+			<f a="key:value">
+				<a/>
+				<c path="js.lib.WeakMap.T"/>
+				<c path="js.lib.WeakMap"><c path="js.lib.WeakMap.T"/></c>
+			</f>
+			<haxe_doc>Sets the value for the `key` in the `WeakMap` object. Returns the `WeakMap` object.</haxe_doc>
+		</set>
+		<new public="1" set="method">
+			<f a="?iterable">
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>If an iterable object is passed, all of its elements will be added to the new WeakSet.
+		null is treated as undefined.</haxe_doc>
+		</new>
+		<haxe_doc>The `WeakMap` object is a collection of key/value pairs in which the keys are weakly referenced.
+	The keys must be objects and the values can be arbitrary values.
+
+	You can learn more about WeakMaps in the section [WeakMap object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Keyed_collections#WeakMap_object)
+	in [Keyed collections](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Keyed_collections).
+
+	Documentation [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"WeakMap"</e></m></meta>
+	</class>
+	<class path="js.lib.WeakSet" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/WeakSet.hx" extern="1">
+		<length final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<haxe_doc>The value of the `length` property is 0.</haxe_doc>
+		</length>
+		<add public="1" set="method">
+			<f a="value">
+				<a/>
+				<c path="js.lib.WeakSet"/>
+			</f>
+			<haxe_doc>Appends a new object with the given value to the `WeakSet` object.</haxe_doc>
+		</add>
+		<delete public="1" set="method">
+			<f a="value">
+				<a/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Removes the element associated to the `value`.
+		`has(value)` will return `false` afterwards.</haxe_doc>
+		</delete>
+		<has public="1" set="method">
+			<f a="value">
+				<a/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Returns a boolean asserting whether an element is present with the given value
+		in the `WeakSet` object or not.</haxe_doc>
+		</has>
+		<new public="1" set="method">
+			<f a="?iterable">
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>If an iterable object is passed, all of its elements will be added to the new WeakSet.
+		null is treated as undefined.</haxe_doc>
+		</new>
+		<haxe_doc>The `WeakSet` object lets you store weakly held objects in a collection.
+
+	Documentation [WeakSet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"WeakSet"</e></m></meta>
+	</class>
+	<class path="js.lib.WebAssembly" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/WebAssembly.hx" extern="1">
+		<instantiate public="1" set="method" static="1">
+			<f a="bufferSource:importObject">
+				<c path="js.lib.ArrayBuffer"/>
+				<a/>
+				<c path="js.lib.Promise"><t path="js.lib.WebAssemblyInstantiatedSource"/></c>
+			</f>
+			<haxe_doc>The `WebAssembly.instantiate()` function allows you to compile and instantiate WebAssembly code.
+		This function has two overloads:
+
+		- The primary overload takes the WebAssembly binary code, in the form of a typed array or ArrayBuffer,
+		  and performs both compilation and instantiation in one step. The returned Promise resolves to both
+		  a compiled WebAssembly.Module and its first WebAssembly.Instance.
+    	- The secondary overload takes an already-compiled WebAssembly.Module and returns a Promise that resolves
+		  to an Instance of that Module. This overload is useful if the Module has already been compiled.</haxe_doc>
+			<overloads>
+				<instantiate public="1" set="method">
+					<f a="bufferSource:importObject">
+						<c path="js.lib.Int8Array"/>
+						<a/>
+						<c path="js.lib.Promise"><t path="js.lib.WebAssemblyInstantiatedSource"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.instantiate()` function allows you to compile and instantiate WebAssembly code.
+		This function has two overloads:
+
+		- The primary overload takes the WebAssembly binary code, in the form of a typed array or ArrayBuffer,
+		  and performs both compilation and instantiation in one step. The returned Promise resolves to both
+		  a compiled WebAssembly.Module and its first WebAssembly.Instance.
+    	- The secondary overload takes an already-compiled WebAssembly.Module and returns a Promise that resolves
+		  to an Instance of that Module. This overload is useful if the Module has already been compiled.</haxe_doc>
+				</instantiate>
+				<instantiate public="1" set="method">
+					<f a="bufferSource:importObject">
+						<c path="js.lib.Uint8Array"/>
+						<a/>
+						<c path="js.lib.Promise"><t path="js.lib.WebAssemblyInstantiatedSource"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.instantiate()` function allows you to compile and instantiate WebAssembly code.
+		This function has two overloads:
+
+		- The primary overload takes the WebAssembly binary code, in the form of a typed array or ArrayBuffer,
+		  and performs both compilation and instantiation in one step. The returned Promise resolves to both
+		  a compiled WebAssembly.Module and its first WebAssembly.Instance.
+    	- The secondary overload takes an already-compiled WebAssembly.Module and returns a Promise that resolves
+		  to an Instance of that Module. This overload is useful if the Module has already been compiled.</haxe_doc>
+				</instantiate>
+				<instantiate public="1" set="method">
+					<f a="bufferSource:importObject">
+						<c path="js.lib.Uint8ClampedArray"/>
+						<a/>
+						<c path="js.lib.Promise"><t path="js.lib.WebAssemblyInstantiatedSource"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.instantiate()` function allows you to compile and instantiate WebAssembly code.
+		This function has two overloads:
+
+		- The primary overload takes the WebAssembly binary code, in the form of a typed array or ArrayBuffer,
+		  and performs both compilation and instantiation in one step. The returned Promise resolves to both
+		  a compiled WebAssembly.Module and its first WebAssembly.Instance.
+    	- The secondary overload takes an already-compiled WebAssembly.Module and returns a Promise that resolves
+		  to an Instance of that Module. This overload is useful if the Module has already been compiled.</haxe_doc>
+				</instantiate>
+				<instantiate public="1" set="method">
+					<f a="bufferSource:importObject">
+						<c path="js.lib.Int16Array"/>
+						<a/>
+						<c path="js.lib.Promise"><t path="js.lib.WebAssemblyInstantiatedSource"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.instantiate()` function allows you to compile and instantiate WebAssembly code.
+		This function has two overloads:
+
+		- The primary overload takes the WebAssembly binary code, in the form of a typed array or ArrayBuffer,
+		  and performs both compilation and instantiation in one step. The returned Promise resolves to both
+		  a compiled WebAssembly.Module and its first WebAssembly.Instance.
+    	- The secondary overload takes an already-compiled WebAssembly.Module and returns a Promise that resolves
+		  to an Instance of that Module. This overload is useful if the Module has already been compiled.</haxe_doc>
+				</instantiate>
+				<instantiate public="1" set="method">
+					<f a="bufferSource:importObject">
+						<c path="js.lib.Uint16Array"/>
+						<a/>
+						<c path="js.lib.Promise"><t path="js.lib.WebAssemblyInstantiatedSource"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.instantiate()` function allows you to compile and instantiate WebAssembly code.
+		This function has two overloads:
+
+		- The primary overload takes the WebAssembly binary code, in the form of a typed array or ArrayBuffer,
+		  and performs both compilation and instantiation in one step. The returned Promise resolves to both
+		  a compiled WebAssembly.Module and its first WebAssembly.Instance.
+    	- The secondary overload takes an already-compiled WebAssembly.Module and returns a Promise that resolves
+		  to an Instance of that Module. This overload is useful if the Module has already been compiled.</haxe_doc>
+				</instantiate>
+				<instantiate public="1" set="method">
+					<f a="bufferSource:importObject">
+						<c path="js.lib.Int32Array"/>
+						<a/>
+						<c path="js.lib.Promise"><t path="js.lib.WebAssemblyInstantiatedSource"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.instantiate()` function allows you to compile and instantiate WebAssembly code.
+		This function has two overloads:
+
+		- The primary overload takes the WebAssembly binary code, in the form of a typed array or ArrayBuffer,
+		  and performs both compilation and instantiation in one step. The returned Promise resolves to both
+		  a compiled WebAssembly.Module and its first WebAssembly.Instance.
+    	- The secondary overload takes an already-compiled WebAssembly.Module and returns a Promise that resolves
+		  to an Instance of that Module. This overload is useful if the Module has already been compiled.</haxe_doc>
+				</instantiate>
+				<instantiate public="1" set="method">
+					<f a="bufferSource:importObject">
+						<c path="js.lib.Uint32Array"/>
+						<a/>
+						<c path="js.lib.Promise"><t path="js.lib.WebAssemblyInstantiatedSource"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.instantiate()` function allows you to compile and instantiate WebAssembly code.
+		This function has two overloads:
+
+		- The primary overload takes the WebAssembly binary code, in the form of a typed array or ArrayBuffer,
+		  and performs both compilation and instantiation in one step. The returned Promise resolves to both
+		  a compiled WebAssembly.Module and its first WebAssembly.Instance.
+    	- The secondary overload takes an already-compiled WebAssembly.Module and returns a Promise that resolves
+		  to an Instance of that Module. This overload is useful if the Module has already been compiled.</haxe_doc>
+				</instantiate>
+				<instantiate public="1" set="method">
+					<f a="bufferSource:importObject">
+						<c path="js.lib.Float32Array"/>
+						<a/>
+						<c path="js.lib.Promise"><t path="js.lib.WebAssemblyInstantiatedSource"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.instantiate()` function allows you to compile and instantiate WebAssembly code.
+		This function has two overloads:
+
+		- The primary overload takes the WebAssembly binary code, in the form of a typed array or ArrayBuffer,
+		  and performs both compilation and instantiation in one step. The returned Promise resolves to both
+		  a compiled WebAssembly.Module and its first WebAssembly.Instance.
+    	- The secondary overload takes an already-compiled WebAssembly.Module and returns a Promise that resolves
+		  to an Instance of that Module. This overload is useful if the Module has already been compiled.</haxe_doc>
+				</instantiate>
+				<instantiate public="1" set="method">
+					<f a="bufferSource:importObject">
+						<c path="js.lib.Float64Array"/>
+						<a/>
+						<c path="js.lib.Promise"><t path="js.lib.WebAssemblyInstantiatedSource"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.instantiate()` function allows you to compile and instantiate WebAssembly code.
+		This function has two overloads:
+
+		- The primary overload takes the WebAssembly binary code, in the form of a typed array or ArrayBuffer,
+		  and performs both compilation and instantiation in one step. The returned Promise resolves to both
+		  a compiled WebAssembly.Module and its first WebAssembly.Instance.
+    	- The secondary overload takes an already-compiled WebAssembly.Module and returns a Promise that resolves
+		  to an Instance of that Module. This overload is useful if the Module has already been compiled.</haxe_doc>
+				</instantiate>
+				<instantiate public="1" set="method">
+					<f a="module:importObject">
+						<c path="js.lib.webassembly.Module"/>
+						<a/>
+						<c path="js.lib.Promise"><c path="js.lib.webassembly.Instance"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.instantiate()` function allows you to compile and instantiate WebAssembly code.
+		This function has two overloads:
+
+		- The primary overload takes the WebAssembly binary code, in the form of a typed array or ArrayBuffer,
+		  and performs both compilation and instantiation in one step. The returned Promise resolves to both
+		  a compiled WebAssembly.Module and its first WebAssembly.Instance.
+    	- The secondary overload takes an already-compiled WebAssembly.Module and returns a Promise that resolves
+		  to an Instance of that Module. This overload is useful if the Module has already been compiled.</haxe_doc>
+				</instantiate>
+			</overloads>
+		</instantiate>
+		<instantiateStreaming public="1" set="method" static="1">
+			<f a="source:importObject">
+				<c path="js.html.Response"/>
+				<a/>
+				<c path="js.lib.Promise"><t path="js.lib.WebAssemblyInstantiatedSource"/></c>
+			</f>
+			<haxe_doc>The `WebAssembly.instantiateStreaming()` function compiles and instantiates a WebAssembly module
+		directly from a streamed underlying source. This is the most efficient, optimized way to load wasm code.</haxe_doc>
+		</instantiateStreaming>
+		<compile public="1" set="method" static="1">
+			<f a="bufferSource">
+				<c path="js.lib.ArrayBuffer"/>
+				<c path="js.lib.Promise"><c path="js.lib.webassembly.Module"/></c>
+			</f>
+			<haxe_doc>The `WebAssembly.compile()` function compiles a WebAssembly `Module` from WebAssembly binary code.
+		This function is useful if it is necessary to a compile a module before it can be instantiated
+		(otherwise, the `WebAssembly.instantiate()` function should be used).</haxe_doc>
+			<overloads>
+				<compile public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Int8Array"/>
+						<c path="js.lib.Promise"><c path="js.lib.webassembly.Module"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.compile()` function compiles a WebAssembly `Module` from WebAssembly binary code.
+		This function is useful if it is necessary to a compile a module before it can be instantiated
+		(otherwise, the `WebAssembly.instantiate()` function should be used).</haxe_doc>
+				</compile>
+				<compile public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Uint8Array"/>
+						<c path="js.lib.Promise"><c path="js.lib.webassembly.Module"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.compile()` function compiles a WebAssembly `Module` from WebAssembly binary code.
+		This function is useful if it is necessary to a compile a module before it can be instantiated
+		(otherwise, the `WebAssembly.instantiate()` function should be used).</haxe_doc>
+				</compile>
+				<compile public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Uint8ClampedArray"/>
+						<c path="js.lib.Promise"><c path="js.lib.webassembly.Module"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.compile()` function compiles a WebAssembly `Module` from WebAssembly binary code.
+		This function is useful if it is necessary to a compile a module before it can be instantiated
+		(otherwise, the `WebAssembly.instantiate()` function should be used).</haxe_doc>
+				</compile>
+				<compile public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Int16Array"/>
+						<c path="js.lib.Promise"><c path="js.lib.webassembly.Module"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.compile()` function compiles a WebAssembly `Module` from WebAssembly binary code.
+		This function is useful if it is necessary to a compile a module before it can be instantiated
+		(otherwise, the `WebAssembly.instantiate()` function should be used).</haxe_doc>
+				</compile>
+				<compile public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Uint16Array"/>
+						<c path="js.lib.Promise"><c path="js.lib.webassembly.Module"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.compile()` function compiles a WebAssembly `Module` from WebAssembly binary code.
+		This function is useful if it is necessary to a compile a module before it can be instantiated
+		(otherwise, the `WebAssembly.instantiate()` function should be used).</haxe_doc>
+				</compile>
+				<compile public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Int32Array"/>
+						<c path="js.lib.Promise"><c path="js.lib.webassembly.Module"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.compile()` function compiles a WebAssembly `Module` from WebAssembly binary code.
+		This function is useful if it is necessary to a compile a module before it can be instantiated
+		(otherwise, the `WebAssembly.instantiate()` function should be used).</haxe_doc>
+				</compile>
+				<compile public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Uint32Array"/>
+						<c path="js.lib.Promise"><c path="js.lib.webassembly.Module"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.compile()` function compiles a WebAssembly `Module` from WebAssembly binary code.
+		This function is useful if it is necessary to a compile a module before it can be instantiated
+		(otherwise, the `WebAssembly.instantiate()` function should be used).</haxe_doc>
+				</compile>
+				<compile public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Float32Array"/>
+						<c path="js.lib.Promise"><c path="js.lib.webassembly.Module"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.compile()` function compiles a WebAssembly `Module` from WebAssembly binary code.
+		This function is useful if it is necessary to a compile a module before it can be instantiated
+		(otherwise, the `WebAssembly.instantiate()` function should be used).</haxe_doc>
+				</compile>
+				<compile public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Float64Array"/>
+						<c path="js.lib.Promise"><c path="js.lib.webassembly.Module"/></c>
+					</f>
+					<haxe_doc>The `WebAssembly.compile()` function compiles a WebAssembly `Module` from WebAssembly binary code.
+		This function is useful if it is necessary to a compile a module before it can be instantiated
+		(otherwise, the `WebAssembly.instantiate()` function should be used).</haxe_doc>
+				</compile>
+			</overloads>
+		</compile>
+		<compileStreaming public="1" set="method" static="1">
+			<f a="source">
+				<c path="js.html.Response"/>
+				<c path="js.lib.Promise"><c path="js.lib.webassembly.Module"/></c>
+			</f>
+			<haxe_doc>The `WebAssembly.compileStreaming()` function compiles a WebAssembly `Module` directly from a streamed
+		underlying source. This function is useful if it is necessary to a compile a module before it can
+		be instantiated (otherwise, the `WebAssembly.instantiateStreaming()` function should be used).</haxe_doc>
+		</compileStreaming>
+		<validate public="1" set="method" static="1">
+			<f a="bufferSource">
+				<c path="js.lib.ArrayBuffer"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>The `WebAssembly.validate()` function validates a given typed array of WebAssembly binary code,
+		returning whether the bytes form a valid wasm module (`true`) or not (`false`).</haxe_doc>
+			<overloads>
+				<validate public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Int8Array"/>
+						<x path="Bool"/>
+					</f>
+					<haxe_doc>The `WebAssembly.validate()` function validates a given typed array of WebAssembly binary code,
+		returning whether the bytes form a valid wasm module (`true`) or not (`false`).</haxe_doc>
+				</validate>
+				<validate public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Uint8Array"/>
+						<x path="Bool"/>
+					</f>
+					<haxe_doc>The `WebAssembly.validate()` function validates a given typed array of WebAssembly binary code,
+		returning whether the bytes form a valid wasm module (`true`) or not (`false`).</haxe_doc>
+				</validate>
+				<validate public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Uint8ClampedArray"/>
+						<x path="Bool"/>
+					</f>
+					<haxe_doc>The `WebAssembly.validate()` function validates a given typed array of WebAssembly binary code,
+		returning whether the bytes form a valid wasm module (`true`) or not (`false`).</haxe_doc>
+				</validate>
+				<validate public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Int16Array"/>
+						<x path="Bool"/>
+					</f>
+					<haxe_doc>The `WebAssembly.validate()` function validates a given typed array of WebAssembly binary code,
+		returning whether the bytes form a valid wasm module (`true`) or not (`false`).</haxe_doc>
+				</validate>
+				<validate public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Uint16Array"/>
+						<x path="Bool"/>
+					</f>
+					<haxe_doc>The `WebAssembly.validate()` function validates a given typed array of WebAssembly binary code,
+		returning whether the bytes form a valid wasm module (`true`) or not (`false`).</haxe_doc>
+				</validate>
+				<validate public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Int32Array"/>
+						<x path="Bool"/>
+					</f>
+					<haxe_doc>The `WebAssembly.validate()` function validates a given typed array of WebAssembly binary code,
+		returning whether the bytes form a valid wasm module (`true`) or not (`false`).</haxe_doc>
+				</validate>
+				<validate public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Uint32Array"/>
+						<x path="Bool"/>
+					</f>
+					<haxe_doc>The `WebAssembly.validate()` function validates a given typed array of WebAssembly binary code,
+		returning whether the bytes form a valid wasm module (`true`) or not (`false`).</haxe_doc>
+				</validate>
+				<validate public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Float32Array"/>
+						<x path="Bool"/>
+					</f>
+					<haxe_doc>The `WebAssembly.validate()` function validates a given typed array of WebAssembly binary code,
+		returning whether the bytes form a valid wasm module (`true`) or not (`false`).</haxe_doc>
+				</validate>
+				<validate public="1" set="method">
+					<f a="bufferSource">
+						<c path="js.lib.Float64Array"/>
+						<x path="Bool"/>
+					</f>
+					<haxe_doc>The `WebAssembly.validate()` function validates a given typed array of WebAssembly binary code,
+		returning whether the bytes form a valid wasm module (`true`) or not (`false`).</haxe_doc>
+				</validate>
+			</overloads>
+		</validate>
+		<haxe_doc>The WebAssembly JavaScript object acts as the namespace for all WebAssembly-related functionality.
+
+	Documentation [WebAssembly](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"WebAssembly"</e></m></meta>
+	</class>
+	<typedef path="js.lib.WebAssemblyInstantiatedSource" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/WebAssembly.hx" module="js.lib.WebAssembly"><a>
+	<module final="1" set="null"><c path="js.lib.webassembly.Module"/></module>
+	<instance final="1" set="null"><c path="js.lib.webassembly.Instance"/></instance>
+</a></typedef>
+	<class path="js.lib.intl.Collator" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/Collator.hx" extern="1">
+		<supportedLocalesOf public="1" set="method" static="1">
+			<f a="locales:?options">
+				<c path="String"/>
+				<t path="js.lib.intl.CollatorSupportedLocalesOfOptions"/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>Returns an array containing those of the provided locales that are supported
+		without having to fall back to the runtime's default locale.
+		@param locales A string with a BCP 47 language tag, or an array of such strings.</haxe_doc>
+			<overloads><supportedLocalesOf public="1" set="method">
+	<f a="locales:?options">
+		<c path="Array"><c path="String"/></c>
+		<t path="js.lib.intl.CollatorSupportedLocalesOfOptions"/>
+		<c path="Array"><c path="String"/></c>
+	</f>
+	<haxe_doc>Returns an array containing those of the provided locales that are supported
+		without having to fall back to the runtime's default locale.
+		@param locales A string with a BCP 47 language tag, or an array of such strings.</haxe_doc>
+</supportedLocalesOf></overloads>
+		</supportedLocalesOf>
+		<compare public="1" set="method">
+			<f a="string1:string2">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Getter function that compares two strings according to the sort order of this `Collator` object.</haxe_doc>
+		</compare>
+		<resolvedOptions public="1" set="method">
+			<f a=""><t path="js.lib.intl.CollatorResolvedOptions"/></f>
+			<haxe_doc>Returns a new object with properties reflecting the locale and collation options computed
+		during initialization of the object.</haxe_doc>
+		</resolvedOptions>
+		<new public="1" set="method">
+			<f a="?locales:?options">
+				<c path="String"/>
+				<t path="js.lib.intl.CollatorOptions"/>
+				<x path="Void"/>
+			</f>
+			<overloads><new public="1" set="method"><f a="?locales:?options">
+	<c path="Array"><c path="String"/></c>
+	<t path="js.lib.intl.CollatorOptions"/>
+	<x path="Void"/>
+</f></new></overloads>
+		</new>
+		<haxe_doc>The `Collator` object is a constructor for collators, objects that enable language
+	sensitive string comparison.
+
+	Documentation [Collator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Collator) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"Intl.Collator"</e></m></meta>
+	</class>
+	<typedef path="js.lib.intl.CollatorOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/Collator.hx" module="js.lib.intl.Collator"><a>
+	<usage>
+		<x path="Null"><x path="js.lib.intl.Usage"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>Whether the comparison is for sorting or for searching for matching strings.
+		The default is `Sort`.</haxe_doc>
+	</usage>
+	<sensitivity>
+		<x path="Null"><x path="js.lib.intl.Sensitivity"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>Which differences in the strings should lead to non-zero result values.
+		The default is `Variant` for usage `Sort`; it's locale dependent for usage `Search`.</haxe_doc>
+	</sensitivity>
+	<numeric>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc><![CDATA[Whether numeric collation should be used, such that "1" < "2" < "10".
+		The default is `false`.
+		This option can be set through an `options` property or through a Unicode extension key;
+		if both are provided, the `options` property takes precedence.
+		Implementations are not required to support this property.]]></haxe_doc>
+	</numeric>
+	<localeMatcher>
+		<x path="Null"><x path="js.lib.intl.LocaleMatcher"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The locale matching algorithm to use.
+		The default is `BestFit`.
+		For information about this option, see the [Intl page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_negotiation).</haxe_doc>
+	</localeMatcher>
+	<ignorePunctuation>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>Whether punctuation should be ignored.
+		The default is `false`.</haxe_doc>
+	</ignorePunctuation>
+	<caseFirst>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>Whether upper case or lower case should sort first.
+		The default is "false".
+		This option can be set through an options property or through a Unicode extension key;
+		if both are provided, the `options` property takes precedence.
+		Implementations are not required to support this property.</haxe_doc>
+	</caseFirst>
+</a></typedef>
+	<typedef path="js.lib.intl.CollatorResolvedOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/Collator.hx" module="js.lib.intl.Collator"><a>
+	<usage final="1" set="null"><x path="js.lib.intl.Usage"/></usage>
+	<sensitivity final="1" set="null"><x path="js.lib.intl.Sensitivity"/></sensitivity>
+	<numeric final="1" set="null"><x path="Bool"/></numeric>
+	<locale final="1" set="null">
+		<c path="String"/>
+		<haxe_doc>The BCP 47 language tag for the locale actually used.
+		If any Unicode extension values were requested in the input BCP 47 language tag
+		that led to this locale, the key-value pairs that were requested and are supported
+		for this locale are included in `locale`.</haxe_doc>
+	</locale>
+	<ignorePunctuation final="1" set="null">
+		<x path="Bool"/>
+		<haxe_doc>The values provided for these properties in the `options` argument or filled in as defaults.</haxe_doc>
+	</ignorePunctuation>
+	<collation final="1" set="null">
+		<x path="js.lib.intl.Collation"/>
+		<haxe_doc>he value requested using the Unicode extension key `"co"`, if it is supported for `Locale`,
+		or `Default`.</haxe_doc>
+	</collation>
+	<caseFirst final="1" set="null">
+		<x path="js.lib.intl.CaseFirst"/>
+		<haxe_doc>The values requested for these properties in the options argument or using the
+		Unicode extension keys `"kn"` and `"kf"` or filled in as defaults.
+		If the implementation does not support these properties, they are omitted.</haxe_doc>
+	</caseFirst>
+</a></typedef>
+	<abstract path="js.lib.intl.Usage" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/Collator.hx" module="js.lib.intl.Collator">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._Collator.Usage_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/Collator.hx" private="1" module="js.lib.intl.Collator" extern="1">
+	<Sort public="1" get="inline" set="null" expr="cast &quot;sort&quot;" line="135" static="1">
+		<x path="js.lib.intl.Usage"/>
+		<meta>
+			<m n=":value"><e>cast "sort"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Sort>
+	<Search public="1" get="inline" set="null" expr="cast &quot;search&quot;" line="136" static="1">
+		<x path="js.lib.intl.Usage"/>
+		<meta>
+			<m n=":value"><e>cast "search"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Search>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._Collator.Usage_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/Collator.hx" private="1" module="js.lib.intl.Collator" extern="1">
+		<Sort public="1" get="inline" set="null" expr="cast &quot;sort&quot;" line="135" static="1">
+			<x path="js.lib.intl.Usage"/>
+			<meta>
+				<m n=":value"><e>cast "sort"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Sort>
+		<Search public="1" get="inline" set="null" expr="cast &quot;search&quot;" line="136" static="1">
+			<x path="js.lib.intl.Usage"/>
+			<meta>
+				<m n=":value"><e>cast "search"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Search>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.lib.intl.Sensitivity" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/Collator.hx" module="js.lib.intl.Collator">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._Collator.Sensitivity_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/Collator.hx" private="1" module="js.lib.intl.Collator" extern="1">
+	<Base public="1" get="inline" set="null" expr="cast &quot;base&quot;" line="144" static="1">
+		<x path="js.lib.intl.Sensitivity"/>
+		<meta>
+			<m n=":value"><e>cast "base"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>Only strings that differ in base letters compare as unequal.
+		Examples: a ≠ b, a = á, a = A.</haxe_doc>
+	</Base>
+	<Accent public="1" get="inline" set="null" expr="cast &quot;accent&quot;" line="150" static="1">
+		<x path="js.lib.intl.Sensitivity"/>
+		<meta>
+			<m n=":value"><e>cast "accent"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>Only strings that differ in base letters or accents and other diacritic marks compare as unequal.
+		Examples: a ≠ b, a ≠ á, a = A.</haxe_doc>
+	</Accent>
+	<Case public="1" get="inline" set="null" expr="cast &quot;case&quot;" line="156" static="1">
+		<x path="js.lib.intl.Sensitivity"/>
+		<meta>
+			<m n=":value"><e>cast "case"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>Only strings that differ in base letters or case compare as unequal.
+		Examples: a ≠ b, a = á, a ≠ A.</haxe_doc>
+	</Case>
+	<Variant public="1" get="inline" set="null" expr="cast &quot;variant&quot;" line="163" static="1">
+		<x path="js.lib.intl.Sensitivity"/>
+		<meta>
+			<m n=":value"><e>cast "variant"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>Strings that differ in base letters, accents and other diacritic marks, or case compare as unequal.
+		Other differences may also be taken into consideration.
+		Examples: a ≠ b, a ≠ á, a ≠ A.</haxe_doc>
+	</Variant>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._Collator.Sensitivity_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/Collator.hx" private="1" module="js.lib.intl.Collator" extern="1">
+		<Base public="1" get="inline" set="null" expr="cast &quot;base&quot;" line="144" static="1">
+			<x path="js.lib.intl.Sensitivity"/>
+			<meta>
+				<m n=":value"><e>cast "base"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>Only strings that differ in base letters compare as unequal.
+		Examples: a ≠ b, a = á, a = A.</haxe_doc>
+		</Base>
+		<Accent public="1" get="inline" set="null" expr="cast &quot;accent&quot;" line="150" static="1">
+			<x path="js.lib.intl.Sensitivity"/>
+			<meta>
+				<m n=":value"><e>cast "accent"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>Only strings that differ in base letters or accents and other diacritic marks compare as unequal.
+		Examples: a ≠ b, a ≠ á, a = A.</haxe_doc>
+		</Accent>
+		<Case public="1" get="inline" set="null" expr="cast &quot;case&quot;" line="156" static="1">
+			<x path="js.lib.intl.Sensitivity"/>
+			<meta>
+				<m n=":value"><e>cast "case"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>Only strings that differ in base letters or case compare as unequal.
+		Examples: a ≠ b, a = á, a ≠ A.</haxe_doc>
+		</Case>
+		<Variant public="1" get="inline" set="null" expr="cast &quot;variant&quot;" line="163" static="1">
+			<x path="js.lib.intl.Sensitivity"/>
+			<meta>
+				<m n=":value"><e>cast "variant"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>Strings that differ in base letters, accents and other diacritic marks, or case compare as unequal.
+		Other differences may also be taken into consideration.
+		Examples: a ≠ b, a ≠ á, a ≠ A.</haxe_doc>
+		</Variant>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.lib.intl.CaseFirst" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/Collator.hx" module="js.lib.intl.Collator">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._Collator.CaseFirst_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/Collator.hx" private="1" module="js.lib.intl.Collator" extern="1">
+	<Upper public="1" get="inline" set="null" expr="cast &quot;upper&quot;" line="167" static="1">
+		<x path="js.lib.intl.CaseFirst"/>
+		<meta>
+			<m n=":value"><e>cast "upper"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Upper>
+	<Lower public="1" get="inline" set="null" expr="cast &quot;lower&quot;" line="168" static="1">
+		<x path="js.lib.intl.CaseFirst"/>
+		<meta>
+			<m n=":value"><e>cast "lower"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Lower>
+	<False public="1" get="inline" set="null" expr="cast &quot;false&quot;" line="169" static="1">
+		<x path="js.lib.intl.CaseFirst"/>
+		<meta>
+			<m n=":value"><e>cast "false"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</False>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._Collator.CaseFirst_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/Collator.hx" private="1" module="js.lib.intl.Collator" extern="1">
+		<Upper public="1" get="inline" set="null" expr="cast &quot;upper&quot;" line="167" static="1">
+			<x path="js.lib.intl.CaseFirst"/>
+			<meta>
+				<m n=":value"><e>cast "upper"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Upper>
+		<Lower public="1" get="inline" set="null" expr="cast &quot;lower&quot;" line="168" static="1">
+			<x path="js.lib.intl.CaseFirst"/>
+			<meta>
+				<m n=":value"><e>cast "lower"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Lower>
+		<False public="1" get="inline" set="null" expr="cast &quot;false&quot;" line="169" static="1">
+			<x path="js.lib.intl.CaseFirst"/>
+			<meta>
+				<m n=":value"><e>cast "false"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</False>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.lib.intl.Collation" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/Collator.hx" module="js.lib.intl.Collator">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._Collator.Collation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/Collator.hx" private="1" module="js.lib.intl.Collator" extern="1">
+	<Locale public="1" get="inline" set="null" expr="cast &quot;locale&quot;" line="173" static="1">
+		<x path="js.lib.intl.Collation"/>
+		<meta>
+			<m n=":value"><e>cast "locale"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Locale>
+	<Default public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="174" static="1">
+		<x path="js.lib.intl.Collation"/>
+		<meta>
+			<m n=":value"><e>cast "default"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Default>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._Collator.Collation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/Collator.hx" private="1" module="js.lib.intl.Collator" extern="1">
+		<Locale public="1" get="inline" set="null" expr="cast &quot;locale&quot;" line="173" static="1">
+			<x path="js.lib.intl.Collation"/>
+			<meta>
+				<m n=":value"><e>cast "locale"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Locale>
+		<Default public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="174" static="1">
+			<x path="js.lib.intl.Collation"/>
+			<meta>
+				<m n=":value"><e>cast "default"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Default>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<typedef path="js.lib.intl.CollatorSupportedLocalesOfOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/Collator.hx" module="js.lib.intl.Collator"><a><localeMatcher>
+	<x path="Null"><x path="js.lib.intl.LocaleMatcher"/></x>
+	<meta><m n=":optional"/></meta>
+	<haxe_doc>The locale matching algorithm to use.
+		The default is `BestFit`.</haxe_doc>
+</localeMatcher></a></typedef>
+	<class path="js.lib.intl.DateTimeFormat" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" extern="1">
+		<supportedLocalesOf public="1" set="method" static="1">
+			<f a="locales:?options">
+				<c path="String"/>
+				<t path="js.lib.intl.DateTimeFormatSupportedLocalesOfOptions"/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>Returns an array containing those of the provided locales that are supported
+		without having to fall back to the runtime's default locale.</haxe_doc>
+			<overloads><supportedLocalesOf public="1" set="method">
+	<f a="locales:?options">
+		<c path="Array"><c path="String"/></c>
+		<t path="js.lib.intl.DateTimeFormatSupportedLocalesOfOptions"/>
+		<c path="Array"><c path="String"/></c>
+	</f>
+	<haxe_doc>Returns an array containing those of the provided locales that are supported
+		without having to fall back to the runtime's default locale.</haxe_doc>
+</supportedLocalesOf></overloads>
+		</supportedLocalesOf>
+		<format public="1" set="method">
+			<f a="date">
+				<c path="js.lib.Date"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Getter function that formats a date according to the locale and formatting options
+		of this `DateTimeFormat` object.</haxe_doc>
+			<overloads><format public="1" set="method">
+	<f a="date">
+		<c path="js.lib.Date"/>
+		<c path="String"/>
+	</f>
+	<haxe_doc>Getter function that formats a date according to the locale and formatting options
+		of this `DateTimeFormat` object.</haxe_doc>
+</format></overloads>
+		</format>
+		<formatToParts public="1" set="method">
+			<f a="date">
+				<c path="js.lib.Date"/>
+				<c path="Array"><t path="js.lib.intl.DateTimeFormatPart"/></c>
+			</f>
+			<haxe_doc>Returns an `Array` of objects representing the date string in parts that can be used
+		for custom locale-aware formatting.</haxe_doc>
+			<overloads><formatToParts public="1" set="method">
+	<f a="date">
+		<c path="js.lib.Date"/>
+		<c path="Array"><t path="js.lib.intl.DateTimeFormatPart"/></c>
+	</f>
+	<haxe_doc>Returns an `Array` of objects representing the date string in parts that can be used
+		for custom locale-aware formatting.</haxe_doc>
+</formatToParts></overloads>
+		</formatToParts>
+		<resolvedOptions public="1" set="method">
+			<f a=""><t path="js.lib.intl.DateTimeFormatResolvedOptions"/></f>
+			<haxe_doc>Returns a new object with properties reflecting the locale and formatting options
+		computed during initialization of the object.</haxe_doc>
+		</resolvedOptions>
+		<new public="1" set="method">
+			<f a="?locales:?options">
+				<c path="String"/>
+				<t path="js.lib.intl.DateTimeFormatOptions"/>
+				<x path="Void"/>
+			</f>
+			<overloads><new public="1" set="method"><f a="?locales:?options">
+	<c path="Array"><c path="String"/></c>
+	<t path="js.lib.intl.DateTimeFormatOptions"/>
+	<x path="Void"/>
+</f></new></overloads>
+		</new>
+		<haxe_doc>The `DateTimeFormat` object is a constructor for objects that enable language-sensitive
+	date and time formatting.
+
+	Documentation [DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"Intl.DateTimeFormat"</e></m></meta>
+	</class>
+	<typedef path="js.lib.intl.DateTimeFormatOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" module="js.lib.intl.DateTimeFormat"><a>
+	<year>
+		<x path="Null"><x path="js.lib.intl.YearRepresentation"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The representation of the year.</haxe_doc>
+	</year>
+	<weekday>
+		<x path="Null"><x path="js.lib.intl.WeekdayRepresentation"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The representation of the weekday.</haxe_doc>
+	</weekday>
+	<timeZoneName>
+		<x path="Null"><x path="js.lib.intl.TimeZoneName"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The representation of the time zone name.</haxe_doc>
+	</timeZoneName>
+	<timeZone>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The time zone to use. The only value implementations must recognize is `"UTC"`;
+		the default is the runtime's default time zone. Implementations may also recognize
+		the time zone names of the [IANA time zone database](https://www.iana.org/time-zones),
+		such as `"Asia/Shanghai"`, `"Asia/Kolkata"`, `"America/New_York"`.</haxe_doc>
+	</timeZone>
+	<second>
+		<x path="Null"><x path="js.lib.intl.SecondRepresentation"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The representation of the second.</haxe_doc>
+	</second>
+	<month>
+		<x path="Null"><x path="js.lib.intl.MonthRepresentation"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The representation of the month.</haxe_doc>
+	</month>
+	<minute>
+		<x path="Null"><x path="js.lib.intl.MinuteRepresentation"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The representation of the minute.</haxe_doc>
+	</minute>
+	<localeMatcher>
+		<x path="Null"><x path="js.lib.intl.LocaleMatcher"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The locale matching algorithm to use.
+		The default is `BestFit`.</haxe_doc>
+	</localeMatcher>
+	<hourCycle>
+		<x path="Null"><x path="js.lib.intl.HourCycle"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The hour cycle to use. This option overrides the `hc` language tag, if both are present,
+		and the `Hour12` option takes precedence in case both options have been specified.</haxe_doc>
+	</hourCycle>
+	<hour12>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>Whether to use 12-hour time (as opposed to 24-hour time).
+		The default is locale dependent.
+		This option overrides the hc language tag and/or the `hourCycle` option in case both are present.</haxe_doc>
+	</hour12>
+	<hour>
+		<x path="Null"><x path="js.lib.intl.HourRepresentation"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The representation of the hour.</haxe_doc>
+	</hour>
+	<formatMatcher>
+		<x path="Null"><x path="js.lib.intl.FormatMatcher"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The format matching algorithm to use.
+		The default is `BestFit`.
+		See the following paragraphs for information about the use of this property.</haxe_doc>
+	</formatMatcher>
+	<era>
+		<x path="Null"><x path="js.lib.intl.EraRepresentation"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The representation of the era.</haxe_doc>
+	</era>
+	<day>
+		<x path="Null"><x path="js.lib.intl.DayRepresentation"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The representation of the day.</haxe_doc>
+	</day>
+</a></typedef>
+	<typedef path="js.lib.intl.DateTimeFormatResolvedOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" module="js.lib.intl.DateTimeFormat"><a>
+	<year final="1" set="null"><x path="js.lib.intl.YearRepresentation"/></year>
+	<weekday final="1" set="null"><x path="js.lib.intl.WeekdayRepresentation"/></weekday>
+	<timeZoneName final="1" set="null">
+		<x path="js.lib.intl.TimeZoneName"/>
+		<haxe_doc>The values resulting from format matching between the corresponding properties in the `options` argument
+		and the available combinations and representations for date-time formatting in the selected locale.
+		Some of these properties may not be present, indicating that the corresponding components will not be
+		represented in formatted output.</haxe_doc>
+	</timeZoneName>
+	<timeZone final="1" set="null">
+		<x path="Null"><c path="String"/></x>
+		<haxe_doc>The value provided for this property in the options argument; `undefined` (representing the runtime's
+		default time zone) if none was provided.
+		Warning: Applications should not rely on `undefined` being returned, as future versions may return
+		a String value identifying the runtime’s default time zone instead.</haxe_doc>
+	</timeZone>
+	<second final="1" set="null"><x path="js.lib.intl.SecondRepresentation"/></second>
+	<numberingSystem final="1" set="null">
+		<c path="String"/>
+		<haxe_doc>The values requested using the Unicode extension keys "ca" and "nu" or filled in as default values.</haxe_doc>
+	</numberingSystem>
+	<month final="1" set="null"><x path="js.lib.intl.MonthRepresentation"/></month>
+	<minute final="1" set="null"><x path="js.lib.intl.MinuteRepresentation"/></minute>
+	<locale final="1" set="null">
+		<c path="String"/>
+		<haxe_doc>The BCP 47 language tag for the locale actually used.
+		If any Unicode extension values were requested in the input BCP 47 language tag that led to this locale,
+		the key-value pairs that were requested and are supported for this locale are included in `locale`.</haxe_doc>
+	</locale>
+	<hour12 final="1" set="null">
+		<x path="Bool"/>
+		<haxe_doc>The value provided for this property in the `options` argument or filled in as a default.</haxe_doc>
+	</hour12>
+	<hour final="1" set="null"><x path="js.lib.intl.HourRepresentation"/></hour>
+	<era final="1" set="null"><x path="js.lib.intl.EraRepresentation"/></era>
+	<day final="1" set="null"><x path="js.lib.intl.DayRepresentation"/></day>
+	<calendar final="1" set="null">
+		<c path="String"/>
+		<haxe_doc>E.g. "gregory"</haxe_doc>
+	</calendar>
+</a></typedef>
+	<abstract path="js.lib.intl.HourCycle" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" module="js.lib.intl.DateTimeFormat">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._DateTimeFormat.HourCycle_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+	<H11 public="1" get="inline" set="null" expr="cast &quot;h11&quot;" line="201" static="1">
+		<x path="js.lib.intl.HourCycle"/>
+		<meta>
+			<m n=":value"><e>cast "h11"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</H11>
+	<H12 public="1" get="inline" set="null" expr="cast &quot;h12&quot;" line="202" static="1">
+		<x path="js.lib.intl.HourCycle"/>
+		<meta>
+			<m n=":value"><e>cast "h12"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</H12>
+	<H23 public="1" get="inline" set="null" expr="cast &quot;h23&quot;" line="203" static="1">
+		<x path="js.lib.intl.HourCycle"/>
+		<meta>
+			<m n=":value"><e>cast "h23"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</H23>
+	<H24 public="1" get="inline" set="null" expr="cast &quot;h24&quot;" line="204" static="1">
+		<x path="js.lib.intl.HourCycle"/>
+		<meta>
+			<m n=":value"><e>cast "h24"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</H24>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._DateTimeFormat.HourCycle_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+		<H11 public="1" get="inline" set="null" expr="cast &quot;h11&quot;" line="201" static="1">
+			<x path="js.lib.intl.HourCycle"/>
+			<meta>
+				<m n=":value"><e>cast "h11"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</H11>
+		<H12 public="1" get="inline" set="null" expr="cast &quot;h12&quot;" line="202" static="1">
+			<x path="js.lib.intl.HourCycle"/>
+			<meta>
+				<m n=":value"><e>cast "h12"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</H12>
+		<H23 public="1" get="inline" set="null" expr="cast &quot;h23&quot;" line="203" static="1">
+			<x path="js.lib.intl.HourCycle"/>
+			<meta>
+				<m n=":value"><e>cast "h23"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</H23>
+		<H24 public="1" get="inline" set="null" expr="cast &quot;h24&quot;" line="204" static="1">
+			<x path="js.lib.intl.HourCycle"/>
+			<meta>
+				<m n=":value"><e>cast "h24"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</H24>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.lib.intl.FormatMatcher" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" module="js.lib.intl.DateTimeFormat">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._DateTimeFormat.FormatMatcher_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+	<Basic public="1" get="inline" set="null" expr="cast &quot;basic&quot;" line="208" static="1">
+		<x path="js.lib.intl.FormatMatcher"/>
+		<meta>
+			<m n=":value"><e>cast "basic"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Basic>
+	<BestFit public="1" get="inline" set="null" expr="cast &quot;best fit&quot;" line="209" static="1">
+		<x path="js.lib.intl.FormatMatcher"/>
+		<meta>
+			<m n=":value"><e>cast "best fit"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</BestFit>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._DateTimeFormat.FormatMatcher_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+		<Basic public="1" get="inline" set="null" expr="cast &quot;basic&quot;" line="208" static="1">
+			<x path="js.lib.intl.FormatMatcher"/>
+			<meta>
+				<m n=":value"><e>cast "basic"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Basic>
+		<BestFit public="1" get="inline" set="null" expr="cast &quot;best fit&quot;" line="209" static="1">
+			<x path="js.lib.intl.FormatMatcher"/>
+			<meta>
+				<m n=":value"><e>cast "best fit"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</BestFit>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.lib.intl.WeekdayRepresentation" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" module="js.lib.intl.DateTimeFormat">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._DateTimeFormat.WeekdayRepresentation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+	<Long public="1" get="inline" set="null" expr="cast &quot;long&quot;" line="216" static="1">
+		<x path="js.lib.intl.WeekdayRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "long"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., Thursday)</haxe_doc>
+	</Long>
+	<Short public="1" get="inline" set="null" expr="cast &quot;short&quot;" line="221" static="1">
+		<x path="js.lib.intl.WeekdayRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "short"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., Thu)</haxe_doc>
+	</Short>
+	<Narrow public="1" get="inline" set="null" expr="cast &quot;narrow&quot;" line="226" static="1">
+		<x path="js.lib.intl.WeekdayRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "narrow"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., T). Two weekdays may have the same narrow style for some locales (e.g. Tuesday's narrow style is also T).</haxe_doc>
+	</Narrow>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._DateTimeFormat.WeekdayRepresentation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+		<Long public="1" get="inline" set="null" expr="cast &quot;long&quot;" line="216" static="1">
+			<x path="js.lib.intl.WeekdayRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "long"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., Thursday)</haxe_doc>
+		</Long>
+		<Short public="1" get="inline" set="null" expr="cast &quot;short&quot;" line="221" static="1">
+			<x path="js.lib.intl.WeekdayRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "short"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., Thu)</haxe_doc>
+		</Short>
+		<Narrow public="1" get="inline" set="null" expr="cast &quot;narrow&quot;" line="226" static="1">
+			<x path="js.lib.intl.WeekdayRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "narrow"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., T). Two weekdays may have the same narrow style for some locales (e.g. Tuesday's narrow style is also T).</haxe_doc>
+		</Narrow>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.lib.intl.EraRepresentation" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" module="js.lib.intl.DateTimeFormat">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._DateTimeFormat.EraRepresentation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+	<Long public="1" get="inline" set="null" expr="cast &quot;long&quot;" line="233" static="1">
+		<x path="js.lib.intl.EraRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "long"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., Anno Domini)</haxe_doc>
+	</Long>
+	<Short public="1" get="inline" set="null" expr="cast &quot;short&quot;" line="238" static="1">
+		<x path="js.lib.intl.EraRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "short"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., AD)</haxe_doc>
+	</Short>
+	<Narrow public="1" get="inline" set="null" expr="cast &quot;narrow&quot;" line="243" static="1">
+		<x path="js.lib.intl.EraRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "narrow"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., A)</haxe_doc>
+	</Narrow>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._DateTimeFormat.EraRepresentation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+		<Long public="1" get="inline" set="null" expr="cast &quot;long&quot;" line="233" static="1">
+			<x path="js.lib.intl.EraRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "long"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., Anno Domini)</haxe_doc>
+		</Long>
+		<Short public="1" get="inline" set="null" expr="cast &quot;short&quot;" line="238" static="1">
+			<x path="js.lib.intl.EraRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "short"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., AD)</haxe_doc>
+		</Short>
+		<Narrow public="1" get="inline" set="null" expr="cast &quot;narrow&quot;" line="243" static="1">
+			<x path="js.lib.intl.EraRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "narrow"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., A)</haxe_doc>
+		</Narrow>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.lib.intl.YearRepresentation" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" module="js.lib.intl.DateTimeFormat">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._DateTimeFormat.YearRepresentation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+	<Numeric public="1" get="inline" set="null" expr="cast &quot;numeric&quot;" line="250" static="1">
+		<x path="js.lib.intl.YearRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "numeric"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., 2012)</haxe_doc>
+	</Numeric>
+	<TwoDigit public="1" get="inline" set="null" expr="cast &quot;2-digit&quot;" line="255" static="1">
+		<x path="js.lib.intl.YearRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "2-digit"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., 12)</haxe_doc>
+	</TwoDigit>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._DateTimeFormat.YearRepresentation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+		<Numeric public="1" get="inline" set="null" expr="cast &quot;numeric&quot;" line="250" static="1">
+			<x path="js.lib.intl.YearRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "numeric"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., 2012)</haxe_doc>
+		</Numeric>
+		<TwoDigit public="1" get="inline" set="null" expr="cast &quot;2-digit&quot;" line="255" static="1">
+			<x path="js.lib.intl.YearRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "2-digit"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., 12)</haxe_doc>
+		</TwoDigit>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.lib.intl.MonthRepresentation" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" module="js.lib.intl.DateTimeFormat">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._DateTimeFormat.MonthRepresentation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+	<Numeric public="1" get="inline" set="null" expr="cast &quot;numeric&quot;" line="262" static="1">
+		<x path="js.lib.intl.MonthRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "numeric"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., 2)</haxe_doc>
+	</Numeric>
+	<TwoDigit public="1" get="inline" set="null" expr="cast &quot;2-digit&quot;" line="267" static="1">
+		<x path="js.lib.intl.MonthRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "2-digit"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., 02)</haxe_doc>
+	</TwoDigit>
+	<Long public="1" get="inline" set="null" expr="cast &quot;long&quot;" line="272" static="1">
+		<x path="js.lib.intl.MonthRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "long"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., March)</haxe_doc>
+	</Long>
+	<Short public="1" get="inline" set="null" expr="cast &quot;short&quot;" line="277" static="1">
+		<x path="js.lib.intl.MonthRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "short"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., Mar)</haxe_doc>
+	</Short>
+	<Narrow public="1" get="inline" set="null" expr="cast &quot;narrow&quot;" line="282" static="1">
+		<x path="js.lib.intl.MonthRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "narrow"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., M). Two months may have the same narrow style for some locales (e.g. May's narrow style is also M).</haxe_doc>
+	</Narrow>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._DateTimeFormat.MonthRepresentation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+		<Numeric public="1" get="inline" set="null" expr="cast &quot;numeric&quot;" line="262" static="1">
+			<x path="js.lib.intl.MonthRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "numeric"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., 2)</haxe_doc>
+		</Numeric>
+		<TwoDigit public="1" get="inline" set="null" expr="cast &quot;2-digit&quot;" line="267" static="1">
+			<x path="js.lib.intl.MonthRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "2-digit"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., 02)</haxe_doc>
+		</TwoDigit>
+		<Long public="1" get="inline" set="null" expr="cast &quot;long&quot;" line="272" static="1">
+			<x path="js.lib.intl.MonthRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "long"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., March)</haxe_doc>
+		</Long>
+		<Short public="1" get="inline" set="null" expr="cast &quot;short&quot;" line="277" static="1">
+			<x path="js.lib.intl.MonthRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "short"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., Mar)</haxe_doc>
+		</Short>
+		<Narrow public="1" get="inline" set="null" expr="cast &quot;narrow&quot;" line="282" static="1">
+			<x path="js.lib.intl.MonthRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "narrow"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., M). Two months may have the same narrow style for some locales (e.g. May's narrow style is also M).</haxe_doc>
+		</Narrow>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.lib.intl.DayRepresentation" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" module="js.lib.intl.DateTimeFormat">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._DateTimeFormat.DayRepresentation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+	<Numeric public="1" get="inline" set="null" expr="cast &quot;numeric&quot;" line="289" static="1">
+		<x path="js.lib.intl.DayRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "numeric"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., 1)</haxe_doc>
+	</Numeric>
+	<TwoDigit public="1" get="inline" set="null" expr="cast &quot;2-digit&quot;" line="294" static="1">
+		<x path="js.lib.intl.DayRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "2-digit"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., 01)</haxe_doc>
+	</TwoDigit>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._DateTimeFormat.DayRepresentation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+		<Numeric public="1" get="inline" set="null" expr="cast &quot;numeric&quot;" line="289" static="1">
+			<x path="js.lib.intl.DayRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "numeric"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., 1)</haxe_doc>
+		</Numeric>
+		<TwoDigit public="1" get="inline" set="null" expr="cast &quot;2-digit&quot;" line="294" static="1">
+			<x path="js.lib.intl.DayRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "2-digit"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., 01)</haxe_doc>
+		</TwoDigit>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.lib.intl.HourRepresentation" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" module="js.lib.intl.DateTimeFormat">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._DateTimeFormat.HourRepresentation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+	<Numeric public="1" get="inline" set="null" expr="cast &quot;numeric&quot;" line="298" static="1">
+		<x path="js.lib.intl.HourRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "numeric"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Numeric>
+	<TwoDigit public="1" get="inline" set="null" expr="cast &quot;2-digit&quot;" line="299" static="1">
+		<x path="js.lib.intl.HourRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "2-digit"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</TwoDigit>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._DateTimeFormat.HourRepresentation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+		<Numeric public="1" get="inline" set="null" expr="cast &quot;numeric&quot;" line="298" static="1">
+			<x path="js.lib.intl.HourRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "numeric"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Numeric>
+		<TwoDigit public="1" get="inline" set="null" expr="cast &quot;2-digit&quot;" line="299" static="1">
+			<x path="js.lib.intl.HourRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "2-digit"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</TwoDigit>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.lib.intl.MinuteRepresentation" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" module="js.lib.intl.DateTimeFormat">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._DateTimeFormat.MinuteRepresentation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+	<Numeric public="1" get="inline" set="null" expr="cast &quot;numeric&quot;" line="303" static="1">
+		<x path="js.lib.intl.MinuteRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "numeric"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Numeric>
+	<TwoDigit public="1" get="inline" set="null" expr="cast &quot;2-digit&quot;" line="304" static="1">
+		<x path="js.lib.intl.MinuteRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "2-digit"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</TwoDigit>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._DateTimeFormat.MinuteRepresentation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+		<Numeric public="1" get="inline" set="null" expr="cast &quot;numeric&quot;" line="303" static="1">
+			<x path="js.lib.intl.MinuteRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "numeric"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Numeric>
+		<TwoDigit public="1" get="inline" set="null" expr="cast &quot;2-digit&quot;" line="304" static="1">
+			<x path="js.lib.intl.MinuteRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "2-digit"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</TwoDigit>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.lib.intl.SecondRepresentation" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" module="js.lib.intl.DateTimeFormat">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._DateTimeFormat.SecondRepresentation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+	<Numeric public="1" get="inline" set="null" expr="cast &quot;numeric&quot;" line="308" static="1">
+		<x path="js.lib.intl.SecondRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "numeric"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Numeric>
+	<TwoDigit public="1" get="inline" set="null" expr="cast &quot;2-digit&quot;" line="309" static="1">
+		<x path="js.lib.intl.SecondRepresentation"/>
+		<meta>
+			<m n=":value"><e>cast "2-digit"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</TwoDigit>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._DateTimeFormat.SecondRepresentation_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+		<Numeric public="1" get="inline" set="null" expr="cast &quot;numeric&quot;" line="308" static="1">
+			<x path="js.lib.intl.SecondRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "numeric"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Numeric>
+		<TwoDigit public="1" get="inline" set="null" expr="cast &quot;2-digit&quot;" line="309" static="1">
+			<x path="js.lib.intl.SecondRepresentation"/>
+			<meta>
+				<m n=":value"><e>cast "2-digit"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</TwoDigit>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.lib.intl.TimeZoneName" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" module="js.lib.intl.DateTimeFormat">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._DateTimeFormat.TimeZoneName_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+	<Long public="1" get="inline" set="null" expr="cast &quot;long&quot;" line="316" static="1">
+		<x path="js.lib.intl.TimeZoneName"/>
+		<meta>
+			<m n=":value"><e>cast "long"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., British Summer Time)</haxe_doc>
+	</Long>
+	<Short public="1" get="inline" set="null" expr="cast &quot;short&quot;" line="321" static="1">
+		<x path="js.lib.intl.TimeZoneName"/>
+		<meta>
+			<m n=":value"><e>cast "short"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., GMT+1)</haxe_doc>
+	</Short>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._DateTimeFormat.TimeZoneName_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+		<Long public="1" get="inline" set="null" expr="cast &quot;long&quot;" line="316" static="1">
+			<x path="js.lib.intl.TimeZoneName"/>
+			<meta>
+				<m n=":value"><e>cast "long"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., British Summer Time)</haxe_doc>
+		</Long>
+		<Short public="1" get="inline" set="null" expr="cast &quot;short&quot;" line="321" static="1">
+			<x path="js.lib.intl.TimeZoneName"/>
+			<meta>
+				<m n=":value"><e>cast "short"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., GMT+1)</haxe_doc>
+		</Short>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<typedef path="js.lib.intl.DateTimeFormatPart" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" module="js.lib.intl.DateTimeFormat"><a>
+	<value set="null"><c path="String"/></value>
+	<type set="null"><x path="js.lib.intl.DateTimeFormatPartType"/></type>
+</a></typedef>
+	<abstract path="js.lib.intl.DateTimeFormatPartType" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" module="js.lib.intl.DateTimeFormat">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._DateTimeFormat.DateTimeFormatPartType_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+	<Day public="1" get="inline" set="null" expr="cast &quot;day&quot;" line="333" static="1">
+		<x path="js.lib.intl.DateTimeFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "day"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The string used for the day, for example "17".</haxe_doc>
+	</Day>
+	<DayPeriod public="1" get="inline" set="null" expr="cast &quot;dayPeriod&quot;" line="338" static="1">
+		<x path="js.lib.intl.DateTimeFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "dayPeriod"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The string used for the day period, for example, "AM" or "PM".</haxe_doc>
+	</DayPeriod>
+	<Era public="1" get="inline" set="null" expr="cast &quot;era&quot;" line="343" static="1">
+		<x path="js.lib.intl.DateTimeFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "era"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The string used for the era, for example "BC" or "AD".</haxe_doc>
+	</Era>
+	<Hour public="1" get="inline" set="null" expr="cast &quot;hour&quot;" line="348" static="1">
+		<x path="js.lib.intl.DateTimeFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "hour"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The string used for the hour, for example "3" or "03".</haxe_doc>
+	</Hour>
+	<Literal public="1" get="inline" set="null" expr="cast &quot;literal&quot;" line="353" static="1">
+		<x path="js.lib.intl.DateTimeFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "literal"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The string used for separating date and time values, for example "/", ",", "o'clock", "de", etc.</haxe_doc>
+	</Literal>
+	<Minute public="1" get="inline" set="null" expr="cast &quot;minute&quot;" line="358" static="1">
+		<x path="js.lib.intl.DateTimeFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "minute"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The string used for the minute, for example "00".</haxe_doc>
+	</Minute>
+	<Month public="1" get="inline" set="null" expr="cast &quot;month&quot;" line="363" static="1">
+		<x path="js.lib.intl.DateTimeFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "month"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The string used for the month, for example "12".</haxe_doc>
+	</Month>
+	<Second public="1" get="inline" set="null" expr="cast &quot;second&quot;" line="368" static="1">
+		<x path="js.lib.intl.DateTimeFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "second"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The string used for the second, for example "07" or "42".</haxe_doc>
+	</Second>
+	<TimeZoneName public="1" get="inline" set="null" expr="cast &quot;timeZoneName&quot;" line="373" static="1">
+		<x path="js.lib.intl.DateTimeFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "timeZoneName"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The string used for the name of the time zone, for example "UTC".</haxe_doc>
+	</TimeZoneName>
+	<Weekday public="1" get="inline" set="null" expr="cast &quot;weekday&quot;" line="378" static="1">
+		<x path="js.lib.intl.DateTimeFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "weekday"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The string used for the weekday, for example "M", "Monday", or "Montag".</haxe_doc>
+	</Weekday>
+	<Year public="1" get="inline" set="null" expr="cast &quot;year&quot;" line="383" static="1">
+		<x path="js.lib.intl.DateTimeFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "year"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The string used for the year, for example "2012" or "96".</haxe_doc>
+	</Year>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._DateTimeFormat.DateTimeFormatPartType_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" private="1" module="js.lib.intl.DateTimeFormat" extern="1">
+		<Day public="1" get="inline" set="null" expr="cast &quot;day&quot;" line="333" static="1">
+			<x path="js.lib.intl.DateTimeFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "day"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The string used for the day, for example "17".</haxe_doc>
+		</Day>
+		<DayPeriod public="1" get="inline" set="null" expr="cast &quot;dayPeriod&quot;" line="338" static="1">
+			<x path="js.lib.intl.DateTimeFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "dayPeriod"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The string used for the day period, for example, "AM" or "PM".</haxe_doc>
+		</DayPeriod>
+		<Era public="1" get="inline" set="null" expr="cast &quot;era&quot;" line="343" static="1">
+			<x path="js.lib.intl.DateTimeFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "era"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The string used for the era, for example "BC" or "AD".</haxe_doc>
+		</Era>
+		<Hour public="1" get="inline" set="null" expr="cast &quot;hour&quot;" line="348" static="1">
+			<x path="js.lib.intl.DateTimeFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "hour"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The string used for the hour, for example "3" or "03".</haxe_doc>
+		</Hour>
+		<Literal public="1" get="inline" set="null" expr="cast &quot;literal&quot;" line="353" static="1">
+			<x path="js.lib.intl.DateTimeFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "literal"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The string used for separating date and time values, for example "/", ",", "o'clock", "de", etc.</haxe_doc>
+		</Literal>
+		<Minute public="1" get="inline" set="null" expr="cast &quot;minute&quot;" line="358" static="1">
+			<x path="js.lib.intl.DateTimeFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "minute"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The string used for the minute, for example "00".</haxe_doc>
+		</Minute>
+		<Month public="1" get="inline" set="null" expr="cast &quot;month&quot;" line="363" static="1">
+			<x path="js.lib.intl.DateTimeFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "month"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The string used for the month, for example "12".</haxe_doc>
+		</Month>
+		<Second public="1" get="inline" set="null" expr="cast &quot;second&quot;" line="368" static="1">
+			<x path="js.lib.intl.DateTimeFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "second"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The string used for the second, for example "07" or "42".</haxe_doc>
+		</Second>
+		<TimeZoneName public="1" get="inline" set="null" expr="cast &quot;timeZoneName&quot;" line="373" static="1">
+			<x path="js.lib.intl.DateTimeFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "timeZoneName"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The string used for the name of the time zone, for example "UTC".</haxe_doc>
+		</TimeZoneName>
+		<Weekday public="1" get="inline" set="null" expr="cast &quot;weekday&quot;" line="378" static="1">
+			<x path="js.lib.intl.DateTimeFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "weekday"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The string used for the weekday, for example "M", "Monday", or "Montag".</haxe_doc>
+		</Weekday>
+		<Year public="1" get="inline" set="null" expr="cast &quot;year&quot;" line="383" static="1">
+			<x path="js.lib.intl.DateTimeFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "year"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The string used for the year, for example "2012" or "96".</haxe_doc>
+		</Year>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<typedef path="js.lib.intl.DateTimeFormatSupportedLocalesOfOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/DateTimeFormat.hx" module="js.lib.intl.DateTimeFormat"><a><localeMatcher>
+	<x path="Null"><x path="js.lib.intl.LocaleMatcher"/></x>
+	<meta><m n=":optional"/></meta>
+	<haxe_doc>The locale matching algorithm to use.
+		The default is `BestFit`.</haxe_doc>
+</localeMatcher></a></typedef>
+	<abstract path="js.lib.intl.LocaleMatcher" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/LocaleMatcher.hx">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._LocaleMatcher.LocaleMatcher_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/LocaleMatcher.hx" private="1" module="js.lib.intl.LocaleMatcher" extern="1">
+	<Lookup public="1" get="inline" set="null" expr="cast &quot;lookup&quot;" line="25" static="1">
+		<x path="js.lib.intl.LocaleMatcher"/>
+		<meta>
+			<m n=":value"><e>cast "lookup"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Lookup>
+	<BestFit public="1" get="inline" set="null" expr="cast &quot;best fit&quot;" line="26" static="1">
+		<x path="js.lib.intl.LocaleMatcher"/>
+		<meta>
+			<m n=":value"><e>cast "best fit"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</BestFit>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._LocaleMatcher.LocaleMatcher_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/LocaleMatcher.hx" private="1" module="js.lib.intl.LocaleMatcher" extern="1">
+		<Lookup public="1" get="inline" set="null" expr="cast &quot;lookup&quot;" line="25" static="1">
+			<x path="js.lib.intl.LocaleMatcher"/>
+			<meta>
+				<m n=":value"><e>cast "lookup"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Lookup>
+		<BestFit public="1" get="inline" set="null" expr="cast &quot;best fit&quot;" line="26" static="1">
+			<x path="js.lib.intl.LocaleMatcher"/>
+			<meta>
+				<m n=":value"><e>cast "best fit"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</BestFit>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<class path="js.lib.intl.NumberFormat" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/NumberFormat.hx" extern="1">
+		<supportedLocalesOf public="1" set="method" static="1">
+			<f a="locales:?options">
+				<c path="String"/>
+				<t path="js.lib.intl.NumberFormatSupportedLocalesOfOptions"/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>Returns an array containing those of the provided locales that are supported
+		without having to fall back to the runtime's default locale.</haxe_doc>
+			<overloads><supportedLocalesOf public="1" set="method">
+	<f a="locales:?options">
+		<c path="Array"><c path="String"/></c>
+		<t path="js.lib.intl.NumberFormatSupportedLocalesOfOptions"/>
+		<c path="Array"><c path="String"/></c>
+	</f>
+	<haxe_doc>Returns an array containing those of the provided locales that are supported
+		without having to fall back to the runtime's default locale.</haxe_doc>
+</supportedLocalesOf></overloads>
+		</supportedLocalesOf>
+		<format public="1" set="method">
+			<f a="number">
+				<x path="Float"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Getter function that formats a number according to the locale
+		and formatting options of this `NumberFormat` object.</haxe_doc>
+		</format>
+		<formatToParts public="1" set="method">
+			<f a="?number">
+				<x path="Float"/>
+				<c path="Array"><t path="js.lib.intl.NumberFormatPart"/></c>
+			</f>
+			<haxe_doc>Returns an `Array` of objects representing the number string in parts
+		that can be used for custom locale-aware formatting.</haxe_doc>
+		</formatToParts>
+		<resolvedOptions public="1" set="method">
+			<f a=""><t path="js.lib.intl.NumberFormatResolvedOption"/></f>
+			<haxe_doc>Returns a new object with properties reflecting the locale and collation options
+		computed during initialization of the object.</haxe_doc>
+		</resolvedOptions>
+		<new public="1" set="method">
+			<f a="?locales:?options">
+				<c path="String"/>
+				<t path="js.lib.intl.NumberFormatOptions"/>
+				<x path="Void"/>
+			</f>
+			<overloads><new public="1" set="method"><f a="?locales:?options">
+	<c path="Array"><c path="String"/></c>
+	<t path="js.lib.intl.NumberFormatOptions"/>
+	<x path="Void"/>
+</f></new></overloads>
+		</new>
+		<haxe_doc>The `NumberFormat` object is a constructor for objects that enable language sensitive number formatting.
+
+	Documentation [NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"Intl.NumberFormat"</e></m></meta>
+	</class>
+	<typedef path="js.lib.intl.NumberFormatOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/NumberFormat.hx" module="js.lib.intl.NumberFormat"><a>
+	<useGrouping>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>Whether to use grouping separators, such as thousands separators or thousand/lakh/crore separators.
+		The default is `true`.</haxe_doc>
+	</useGrouping>
+	<style>
+		<x path="Null"><x path="js.lib.intl.NumberFormatStyle"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The formatting style to use.
+		The default is `Decimal`.</haxe_doc>
+	</style>
+	<minimumSignificantDigits>
+		<x path="Null"><x path="Int"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The minimum number of significant digits to use.
+		Possible values are from 1 to 21; the default is 1.</haxe_doc>
+	</minimumSignificantDigits>
+	<minimumIntegerDigits>
+		<x path="Null"><x path="Int"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The minimum number of integer digits to use.
+		Possible values are from 1 to 21; the default is 1.</haxe_doc>
+	</minimumIntegerDigits>
+	<minimumFractionDigits>
+		<x path="Null"><x path="Int"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The minimum number of fraction digits to use.
+		Possible values are from 0 to 20; the default for plain number and percent formatting is 0;
+		the default for currency formatting is the number of minor unit digits provided by the
+		[ISO 4217 currency code list](http://www.currency-iso.org/en/home/tables/table-a1.html)
+		(2 if the list doesn't provide that information).</haxe_doc>
+	</minimumFractionDigits>
+	<maximumSignificantDigits>
+		<x path="Null"><x path="Int"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The maximum number of significant digits to use.
+		Possible values are from 1 to 21; the default is 21.</haxe_doc>
+	</maximumSignificantDigits>
+	<maximumFractionDigits>
+		<x path="Null"><x path="Int"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The maximum number of fraction digits to use.
+		Possible values are from 0 to 20; the default for plain number formatting is the larger of
+		minimumFractionDigits and 3; the default for currency formatting is the larger of minimumFractionDigits
+		and the number of minor unit digits provided by the [ISO 4217 currency code list](http://www.currency-iso.org/en/home/tables/table-a1.html)
+		(2 if the list doesn't provide that information); the default for percent formatting is the larger of
+		minimumFractionDigits and 0.</haxe_doc>
+	</maximumFractionDigits>
+	<localeMatcher>
+		<x path="Null"><x path="js.lib.intl.LocaleMatcher"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The locale matching algorithm to use.
+		The default is `BestFit`.
+		For information about this option, see the [Intl page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_negotiation).</haxe_doc>
+	</localeMatcher>
+	<currencyDisplay>
+		<x path="Null"><x path="js.lib.intl.CurrencyDisplay"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>How to display the currency in currency formatting.
+		The default is `Symbol`.</haxe_doc>
+	</currencyDisplay>
+	<currency>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc><![CDATA[The currency to use in currency formatting. Possible values are the ISO 4217 currency codes,
+		such as "USD" for the US dollar, "EUR" for the euro, or "CNY" for the Chinese RMB — see the
+		[Current currency & funds code list](https://www.currency-iso.org/en/home/tables/table-a1.html).
+		There is no default value; if the style is "currency", the currency property must be provided.]]></haxe_doc>
+	</currency>
+</a></typedef>
+	<typedef path="js.lib.intl.NumberFormatResolvedOption" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/NumberFormat.hx" module="js.lib.intl.NumberFormat"><a>
+	<useGrouping final="1" set="null">
+		<c path="String"/>
+		<haxe_doc>The values provided for these properties in the `options` argument or filled in as defaults.</haxe_doc>
+	</useGrouping>
+	<style final="1" set="null"><x path="js.lib.intl.NumberFormatStyle"/></style>
+	<numberingSystem final="1" set="null">
+		<c path="String"/>
+		<haxe_doc>The value requested using the Unicode extension key `"nu"` or filled in as a default.</haxe_doc>
+	</numberingSystem>
+	<minimumSignificantDigits final="1" set="null"><x path="Int"/></minimumSignificantDigits>
+	<minimumIntegerDigits final="1" set="null"><x path="Int"/></minimumIntegerDigits>
+	<minimumFractionDigits final="1" set="null"><x path="Int"/></minimumFractionDigits>
+	<maximumSignificantDigits final="1" set="null">
+		<x path="Int"/>
+		<haxe_doc>The values provided for these properties in the `options` argument or filled in as defaults.
+		These properties are present only if at least one of them was provided in the `options` argument.</haxe_doc>
+	</maximumSignificantDigits>
+	<maximumFractionDigits final="1" set="null">
+		<x path="Int"/>
+		<haxe_doc>The values provided for these properties in the `options` argument or filled in as defaults.
+		These properties are present only if neither m`inimumSignificantDigits` nor `maximumSignificantDigits`
+		was provided in the `options` argument.</haxe_doc>
+	</maximumFractionDigits>
+	<locale final="1" set="null">
+		<c path="String"/>
+		<haxe_doc>The BCP 47 language tag for the locale actually used. If any Unicode extension values were
+		requested in the input BCP 47 language tag that led to this locale, the key-value pairs that
+		were requested and are supported for this locale are included in `locale`.</haxe_doc>
+	</locale>
+	<currencyDisplay final="1" set="null">
+		<c path="String"/>
+		<haxe_doc>The values provided for these properties in the `options` argument or filled in as defaults.
+		These properties are only present if `style` is `"currency"`.</haxe_doc>
+	</currencyDisplay>
+	<currency final="1" set="null"><c path="String"/></currency>
+</a></typedef>
+	<abstract path="js.lib.intl.NumberFormatStyle" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/NumberFormat.hx" module="js.lib.intl.NumberFormat">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._NumberFormat.NumberFormatStyle_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/NumberFormat.hx" private="1" module="js.lib.intl.NumberFormat" extern="1">
+	<Decimal public="1" get="inline" set="null" expr="cast &quot;decimal&quot;" line="184" static="1">
+		<x path="js.lib.intl.NumberFormatStyle"/>
+		<meta>
+			<m n=":value"><e>cast "decimal"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>plain number formatting</haxe_doc>
+	</Decimal>
+	<Currency public="1" get="inline" set="null" expr="cast &quot;currency&quot;" line="189" static="1">
+		<x path="js.lib.intl.NumberFormatStyle"/>
+		<meta>
+			<m n=":value"><e>cast "currency"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>currency formatting</haxe_doc>
+	</Currency>
+	<Percent public="1" get="inline" set="null" expr="cast &quot;percent&quot;" line="194" static="1">
+		<x path="js.lib.intl.NumberFormatStyle"/>
+		<meta>
+			<m n=":value"><e>cast "percent"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>percent formatting</haxe_doc>
+	</Percent>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._NumberFormat.NumberFormatStyle_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/NumberFormat.hx" private="1" module="js.lib.intl.NumberFormat" extern="1">
+		<Decimal public="1" get="inline" set="null" expr="cast &quot;decimal&quot;" line="184" static="1">
+			<x path="js.lib.intl.NumberFormatStyle"/>
+			<meta>
+				<m n=":value"><e>cast "decimal"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>plain number formatting</haxe_doc>
+		</Decimal>
+		<Currency public="1" get="inline" set="null" expr="cast &quot;currency&quot;" line="189" static="1">
+			<x path="js.lib.intl.NumberFormatStyle"/>
+			<meta>
+				<m n=":value"><e>cast "currency"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>currency formatting</haxe_doc>
+		</Currency>
+		<Percent public="1" get="inline" set="null" expr="cast &quot;percent&quot;" line="194" static="1">
+			<x path="js.lib.intl.NumberFormatStyle"/>
+			<meta>
+				<m n=":value"><e>cast "percent"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>percent formatting</haxe_doc>
+		</Percent>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.lib.intl.CurrencyDisplay" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/NumberFormat.hx" module="js.lib.intl.NumberFormat">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._NumberFormat.CurrencyDisplay_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/NumberFormat.hx" private="1" module="js.lib.intl.NumberFormat" extern="1">
+	<Symbol public="1" get="inline" set="null" expr="cast &quot;symbol&quot;" line="201" static="1">
+		<x path="js.lib.intl.CurrencyDisplay"/>
+		<meta>
+			<m n=":value"><e>cast "symbol"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>To use a localized currency symbol such as €.</haxe_doc>
+	</Symbol>
+	<Code public="1" get="inline" set="null" expr="cast &quot;code&quot;" line="206" static="1">
+		<x path="js.lib.intl.CurrencyDisplay"/>
+		<meta>
+			<m n=":value"><e>cast "code"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>To use the ISO currency code.</haxe_doc>
+	</Code>
+	<Name public="1" get="inline" set="null" expr="cast &quot;name&quot;" line="211" static="1">
+		<x path="js.lib.intl.CurrencyDisplay"/>
+		<meta>
+			<m n=":value"><e>cast "name"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>To use a localized currency name such as "dollar".</haxe_doc>
+	</Name>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._NumberFormat.CurrencyDisplay_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/NumberFormat.hx" private="1" module="js.lib.intl.NumberFormat" extern="1">
+		<Symbol public="1" get="inline" set="null" expr="cast &quot;symbol&quot;" line="201" static="1">
+			<x path="js.lib.intl.CurrencyDisplay"/>
+			<meta>
+				<m n=":value"><e>cast "symbol"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>To use a localized currency symbol such as €.</haxe_doc>
+		</Symbol>
+		<Code public="1" get="inline" set="null" expr="cast &quot;code&quot;" line="206" static="1">
+			<x path="js.lib.intl.CurrencyDisplay"/>
+			<meta>
+				<m n=":value"><e>cast "code"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>To use the ISO currency code.</haxe_doc>
+		</Code>
+		<Name public="1" get="inline" set="null" expr="cast &quot;name&quot;" line="211" static="1">
+			<x path="js.lib.intl.CurrencyDisplay"/>
+			<meta>
+				<m n=":value"><e>cast "name"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>To use a localized currency name such as "dollar".</haxe_doc>
+		</Name>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<typedef path="js.lib.intl.NumberFormatPart" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/NumberFormat.hx" module="js.lib.intl.NumberFormat"><a>
+	<value final="1" set="null"><c path="String"/></value>
+	<type final="1" set="null"><x path="js.lib.intl.NumberFormatPartType"/></type>
+</a></typedef>
+	<abstract path="js.lib.intl.NumberFormatPartType" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/NumberFormat.hx" module="js.lib.intl.NumberFormat">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._NumberFormat.NumberFormatPartType_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/NumberFormat.hx" private="1" module="js.lib.intl.NumberFormat" extern="1">
+	<Currency public="1" get="inline" set="null" expr="cast &quot;currency&quot;" line="224" static="1">
+		<x path="js.lib.intl.NumberFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "currency"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The currency string, such as the symbols "$" and "€" or the name "Dollar", "Euro" depending
+		on how currencyDisplay is specified.</haxe_doc>
+	</Currency>
+	<Decimal public="1" get="inline" set="null" expr="cast &quot;decimal&quot;" line="229" static="1">
+		<x path="js.lib.intl.NumberFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "decimal"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The decimal separator string (".").</haxe_doc>
+	</Decimal>
+	<Fraction public="1" get="inline" set="null" expr="cast &quot;fraction&quot;" line="234" static="1">
+		<x path="js.lib.intl.NumberFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "fraction"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The fraction number.</haxe_doc>
+	</Fraction>
+	<group public="1" get="inline" set="null" expr="cast &quot;group&quot;" line="239" static="1">
+		<x path="js.lib.intl.NumberFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "group"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The group separator string (",").</haxe_doc>
+	</group>
+	<infinity public="1" get="inline" set="null" expr="cast &quot;infinity&quot;" line="244" static="1">
+		<x path="js.lib.intl.NumberFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "infinity"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The Infinity string ("∞").</haxe_doc>
+	</infinity>
+	<integer public="1" get="inline" set="null" expr="cast &quot;integer&quot;" line="249" static="1">
+		<x path="js.lib.intl.NumberFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "integer"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The integer number.</haxe_doc>
+	</integer>
+	<literal public="1" get="inline" set="null" expr="cast &quot;literal&quot;" line="254" static="1">
+		<x path="js.lib.intl.NumberFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "literal"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>Any literal strings or whitespace in the formatted number.</haxe_doc>
+	</literal>
+	<minusSign public="1" get="inline" set="null" expr="cast &quot;minusSign&quot;" line="259" static="1">
+		<x path="js.lib.intl.NumberFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "minusSign"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The minus sign string ("-").</haxe_doc>
+	</minusSign>
+	<nan public="1" get="inline" set="null" expr="cast &quot;nan&quot;" line="264" static="1">
+		<x path="js.lib.intl.NumberFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "nan"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The NaN string ("NaN").</haxe_doc>
+	</nan>
+	<plusSign public="1" get="inline" set="null" expr="cast &quot;plusSign&quot;" line="269" static="1">
+		<x path="js.lib.intl.NumberFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "plusSign"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The plus sign string ("+").</haxe_doc>
+	</plusSign>
+	<percentSign public="1" get="inline" set="null" expr="cast &quot;percentSign&quot;" line="274" static="1">
+		<x path="js.lib.intl.NumberFormatPartType"/>
+		<meta>
+			<m n=":value"><e>cast "percentSign"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The percent sign string ("%").</haxe_doc>
+	</percentSign>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._NumberFormat.NumberFormatPartType_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/NumberFormat.hx" private="1" module="js.lib.intl.NumberFormat" extern="1">
+		<Currency public="1" get="inline" set="null" expr="cast &quot;currency&quot;" line="224" static="1">
+			<x path="js.lib.intl.NumberFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "currency"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The currency string, such as the symbols "$" and "€" or the name "Dollar", "Euro" depending
+		on how currencyDisplay is specified.</haxe_doc>
+		</Currency>
+		<Decimal public="1" get="inline" set="null" expr="cast &quot;decimal&quot;" line="229" static="1">
+			<x path="js.lib.intl.NumberFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "decimal"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The decimal separator string (".").</haxe_doc>
+		</Decimal>
+		<Fraction public="1" get="inline" set="null" expr="cast &quot;fraction&quot;" line="234" static="1">
+			<x path="js.lib.intl.NumberFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "fraction"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The fraction number.</haxe_doc>
+		</Fraction>
+		<group public="1" get="inline" set="null" expr="cast &quot;group&quot;" line="239" static="1">
+			<x path="js.lib.intl.NumberFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "group"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The group separator string (",").</haxe_doc>
+		</group>
+		<infinity public="1" get="inline" set="null" expr="cast &quot;infinity&quot;" line="244" static="1">
+			<x path="js.lib.intl.NumberFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "infinity"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The Infinity string ("∞").</haxe_doc>
+		</infinity>
+		<integer public="1" get="inline" set="null" expr="cast &quot;integer&quot;" line="249" static="1">
+			<x path="js.lib.intl.NumberFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "integer"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The integer number.</haxe_doc>
+		</integer>
+		<literal public="1" get="inline" set="null" expr="cast &quot;literal&quot;" line="254" static="1">
+			<x path="js.lib.intl.NumberFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "literal"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>Any literal strings or whitespace in the formatted number.</haxe_doc>
+		</literal>
+		<minusSign public="1" get="inline" set="null" expr="cast &quot;minusSign&quot;" line="259" static="1">
+			<x path="js.lib.intl.NumberFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "minusSign"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The minus sign string ("-").</haxe_doc>
+		</minusSign>
+		<nan public="1" get="inline" set="null" expr="cast &quot;nan&quot;" line="264" static="1">
+			<x path="js.lib.intl.NumberFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "nan"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The NaN string ("NaN").</haxe_doc>
+		</nan>
+		<plusSign public="1" get="inline" set="null" expr="cast &quot;plusSign&quot;" line="269" static="1">
+			<x path="js.lib.intl.NumberFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "plusSign"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The plus sign string ("+").</haxe_doc>
+		</plusSign>
+		<percentSign public="1" get="inline" set="null" expr="cast &quot;percentSign&quot;" line="274" static="1">
+			<x path="js.lib.intl.NumberFormatPartType"/>
+			<meta>
+				<m n=":value"><e>cast "percentSign"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The percent sign string ("%").</haxe_doc>
+		</percentSign>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<typedef path="js.lib.intl.NumberFormatSupportedLocalesOfOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/NumberFormat.hx" module="js.lib.intl.NumberFormat"><a><localeMatcher>
+	<x path="Null"><x path="js.lib.intl.LocaleMatcher"/></x>
+	<meta><m n=":optional"/></meta>
+	<haxe_doc>The locale matching algorithm to use.
+		The default is `BestFit`.</haxe_doc>
+</localeMatcher></a></typedef>
+	<class path="js.lib.intl.PluralRules" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/PluralRules.hx" extern="1">
+		<supportedLocalesOf public="1" set="method" static="1">
+			<f a="locales:?options">
+				<c path="String"/>
+				<t path="js.lib.intl.PluralRulesSupportedLocalesOfOptions"/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>Returns an array containing those of the provided locales that are supported
+		without having to fall back to the runtime's default locale.</haxe_doc>
+			<overloads><supportedLocalesOf public="1" set="method">
+	<f a="locales:?options">
+		<c path="Array"><c path="String"/></c>
+		<t path="js.lib.intl.PluralRulesSupportedLocalesOfOptions"/>
+		<c path="Array"><c path="String"/></c>
+	</f>
+	<haxe_doc>Returns an array containing those of the provided locales that are supported
+		without having to fall back to the runtime's default locale.</haxe_doc>
+</supportedLocalesOf></overloads>
+		</supportedLocalesOf>
+		<resolvedOptions public="1" set="method">
+			<f a=""><t path="js.lib.intl.PluralRulesResolvedOptions"/></f>
+			<haxe_doc>Returns a new object with properties reflecting the locale and collation options computed during initialization of the object.</haxe_doc>
+		</resolvedOptions>
+		<select public="1" set="method">
+			<f a="number">
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a String indicating which plurar rule to use for locale-aware formatting.</haxe_doc>
+		</select>
+		<new public="1" set="method">
+			<f a="?locales:?options">
+				<c path="String"/>
+				<t path="js.lib.intl.PluralRulesOptions"/>
+				<x path="Void"/>
+			</f>
+			<overloads><new public="1" set="method"><f a="?locales:?options">
+	<c path="Array"><c path="String"/></c>
+	<t path="js.lib.intl.PluralRulesOptions"/>
+	<x path="Void"/>
+</f></new></overloads>
+		</new>
+		<haxe_doc>The `PluralRules` object is a constructor for objects that enable plural sensitive formatting
+	and plural language rules.
+
+	Documentation [PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/PluralRules) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"Intl.PluralRules"</e></m></meta>
+	</class>
+	<typedef path="js.lib.intl.PluralRulesOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/PluralRules.hx" module="js.lib.intl.PluralRules"><a>
+	<type>
+		<x path="Null"><x path="js.lib.intl.PluralRulesType"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The type to use.
+		The default is `Cardinal`.</haxe_doc>
+	</type>
+	<localeMatcher>
+		<x path="Null"><x path="js.lib.intl.LocaleMatcher"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The locale matching algorithm to use.
+		The default is "best fit".
+		For information about this option, see the [Intl page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_negotiation).</haxe_doc>
+	</localeMatcher>
+</a></typedef>
+	<typedef path="js.lib.intl.PluralRulesResolvedOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/PluralRules.hx" module="js.lib.intl.PluralRules"><a>
+	<type final="1" set="null">
+		<x path="js.lib.intl.PluralRulesType"/>
+		<haxe_doc>The type used (cardinal or ordinal).</haxe_doc>
+	</type>
+	<pluralCategories final="1" set="null">
+		<c path="Array"><c path="String"/></c>
+		<haxe_doc>An `Array` of plural rules used by the given language.</haxe_doc>
+	</pluralCategories>
+	<minimumSignificantDigits final="1" set="null"><x path="Int"/></minimumSignificantDigits>
+	<minimumIntegerDigits final="1" set="null"><x path="Int"/></minimumIntegerDigits>
+	<minimumFractionDigits final="1" set="null"><x path="Int"/></minimumFractionDigits>
+	<maximumSignificantDigits final="1" set="null">
+		<x path="Int"/>
+		<haxe_doc>The values provided for these properties in the `options` argument or filled in as defaults.
+		These properties are present only if at least one of them was provided in the `options` argument.</haxe_doc>
+	</maximumSignificantDigits>
+	<maximumFractionDigits final="1" set="null">
+		<x path="Int"/>
+		<haxe_doc>The values provided for these properties in the `options` argument or filled in as defaults.
+		These properties are present only if neither `minimumSignificantDigits` nor `maximumSignificantDigits`
+		was provided in the options argument.</haxe_doc>
+	</maximumFractionDigits>
+	<locale final="1" set="null">
+		<c path="String"/>
+		<haxe_doc>The BCP 47 language tag for the locale actually used. If any Unicode extension values were requested in
+		the input BCP 47 language tag that led to this locale, the key-value pairs that were requested and are
+		supported for this locale are included in `locale`.</haxe_doc>
+	</locale>
+</a></typedef>
+	<abstract path="js.lib.intl.PluralRulesType" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/PluralRules.hx" module="js.lib.intl.PluralRules">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._PluralRules.PluralRulesType_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/PluralRules.hx" private="1" module="js.lib.intl.PluralRules" extern="1">
+	<Cardinal public="1" get="inline" set="null" expr="cast &quot;cardinal&quot;" line="109" static="1">
+		<x path="js.lib.intl.PluralRulesType"/>
+		<meta>
+			<m n=":value"><e>cast "cardinal"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>For cardinal numbers (refering to the quantity of things).</haxe_doc>
+	</Cardinal>
+	<Ordinal public="1" get="inline" set="null" expr="cast &quot;ordinal&quot;" line="113" static="1">
+		<x path="js.lib.intl.PluralRulesType"/>
+		<meta>
+			<m n=":value"><e>cast "ordinal"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>For ordinal number (refering to the ordering or ranking of things, e.g. "1st", "2nd", "3rd" in English).</haxe_doc>
+	</Ordinal>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._PluralRules.PluralRulesType_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/PluralRules.hx" private="1" module="js.lib.intl.PluralRules" extern="1">
+		<Cardinal public="1" get="inline" set="null" expr="cast &quot;cardinal&quot;" line="109" static="1">
+			<x path="js.lib.intl.PluralRulesType"/>
+			<meta>
+				<m n=":value"><e>cast "cardinal"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>For cardinal numbers (refering to the quantity of things).</haxe_doc>
+		</Cardinal>
+		<Ordinal public="1" get="inline" set="null" expr="cast &quot;ordinal&quot;" line="113" static="1">
+			<x path="js.lib.intl.PluralRulesType"/>
+			<meta>
+				<m n=":value"><e>cast "ordinal"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>For ordinal number (refering to the ordering or ranking of things, e.g. "1st", "2nd", "3rd" in English).</haxe_doc>
+		</Ordinal>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<typedef path="js.lib.intl.PluralRulesSupportedLocalesOfOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/PluralRules.hx" module="js.lib.intl.PluralRules"><a><localeMatcher>
+	<x path="Null"><x path="js.lib.intl.LocaleMatcher"/></x>
+	<meta><m n=":optional"/></meta>
+	<haxe_doc>The locale matching algorithm to use.
+		The default is `BestFit`.</haxe_doc>
+</localeMatcher></a></typedef>
+	<class path="js.lib.intl.RelativeTimeFormat" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/RelativeTimeFormat.hx" extern="1">
+		<supportedLocalesOf public="1" set="method" static="1">
+			<f a="locales:?options">
+				<c path="String"/>
+				<t path="js.lib.intl.RelativeTimeFormatSupportedLocalesOfOptions"/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>Returns an array containing those of the provided locales that are supported
+		without having to fall back to the runtime's default locale.</haxe_doc>
+			<overloads><supportedLocalesOf public="1" set="method">
+	<f a="locales:?options">
+		<c path="Array"><c path="String"/></c>
+		<t path="js.lib.intl.RelativeTimeFormatSupportedLocalesOfOptions"/>
+		<c path="Array"><c path="String"/></c>
+	</f>
+	<haxe_doc>Returns an array containing those of the provided locales that are supported
+		without having to fall back to the runtime's default locale.</haxe_doc>
+</supportedLocalesOf></overloads>
+		</supportedLocalesOf>
+		<format public="1" set="method">
+			<f a="value:unit">
+				<x path="Float"/>
+				<x path="js.lib.intl.RelativeTimeUnit"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Formats a value and a unit according to the locale and formatting options
+		of the given Intl.RelativeTimeFormat object.</haxe_doc>
+		</format>
+		<formatToParts public="1" set="method">
+			<f a="value:unit">
+				<x path="Float"/>
+				<x path="js.lib.intl.RelativeTimeUnit"/>
+				<c path="Array"><t path="js.lib.intl.RelativeTimeFormatPart"/></c>
+			</f>
+			<haxe_doc>Returns an Array of objects representing the relative time format in parts
+		that can be used for custom locale-aware formatting.</haxe_doc>
+		</formatToParts>
+		<resolvedOptions public="1" set="method">
+			<f a=""><t path="js.lib.intl.RelativeTimeFormatResolvedOptions"/></f>
+			<haxe_doc>Returns a new object with properties reflecting the locale and formatting options
+		computed during initialization of the object.</haxe_doc>
+		</resolvedOptions>
+		<new public="1" set="method">
+			<f a="?locales:?options">
+				<c path="String"/>
+				<t path="js.lib.intl.RelativeTimeFormatOptions"/>
+				<x path="Void"/>
+			</f>
+			<overloads><new public="1" set="method"><f a="?locales:?options">
+	<c path="Array"><c path="String"/></c>
+	<t path="js.lib.intl.RelativeTimeFormatOptions"/>
+	<x path="Void"/>
+</f></new></overloads>
+		</new>
+		<haxe_doc>The `RelativeTimeFormat` object is a constructor for objects that enable language-sensitive
+	relative time formatting.
+
+	Documentation [RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RelativeTimeFormat) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"Intl.RelativeTimeFormat"</e></m></meta>
+	</class>
+	<typedef path="js.lib.intl.RelativeTimeFormatOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/RelativeTimeFormat.hx" module="js.lib.intl.RelativeTimeFormat"><a>
+	<style>
+		<x path="Null"><x path="js.lib.intl.RelativeTimeFormatStyle"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The length of the internationalized message.
+		The default value is `Long`.
+		The `Narrow` style could be similar to the short style for some locales.</haxe_doc>
+	</style>
+	<numeric>
+		<x path="Null"><x path="js.lib.intl.RelativeTimeNumeric"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The format of output message.
+		The default value is `Always`.
+		The `Auto` value allows to not always have to use numeric values in the output.</haxe_doc>
+	</numeric>
+	<localeMatcher>
+		<x path="Null"><x path="js.lib.intl.LocaleMatcher"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The locale matching algorithm to use.
+		The default is `BestFit`.
+		For information about this option, see [Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_negotiation).</haxe_doc>
+	</localeMatcher>
+</a></typedef>
+	<typedef path="js.lib.intl.RelativeTimeFormatResolvedOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/RelativeTimeFormat.hx" module="js.lib.intl.RelativeTimeFormat"><a>
+	<style final="1" set="null">
+		<x path="js.lib.intl.RelativeTimeFormatStyle"/>
+		<haxe_doc>The length of the internationalized message.</haxe_doc>
+	</style>
+	<numeric final="1" set="null">
+		<x path="js.lib.intl.RelativeTimeNumeric"/>
+		<haxe_doc>The format of output message.</haxe_doc>
+	</numeric>
+	<numberingSystem final="1" set="null">
+		<c path="String"/>
+		<haxe_doc>The value requested using the Unicode extension key `"nu"` or filled in as a default.</haxe_doc>
+	</numberingSystem>
+	<locale final="1" set="null">
+		<c path="String"/>
+		<haxe_doc>The BCP 47 language tag for the locale actually used. If any Unicode extension values were requested in
+		the input BCP 47 language tag that led to this locale, the key-value pairs that were requested and are
+		supported for this locale are included in `locale`.</haxe_doc>
+	</locale>
+</a></typedef>
+	<abstract path="js.lib.intl.RelativeTimeNumeric" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/RelativeTimeFormat.hx" module="js.lib.intl.RelativeTimeFormat">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._RelativeTimeFormat.RelativeTimeNumeric_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/RelativeTimeFormat.hx" private="1" module="js.lib.intl.RelativeTimeFormat" extern="1">
+	<Always public="1" get="inline" set="null" expr="cast &quot;always&quot;" line="112" static="1">
+		<x path="js.lib.intl.RelativeTimeNumeric"/>
+		<meta>
+			<m n=":value"><e>cast "always"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., 1 day ago),</haxe_doc>
+	</Always>
+	<Auto public="1" get="inline" set="null" expr="cast &quot;auto&quot;" line="117" static="1">
+		<x path="js.lib.intl.RelativeTimeNumeric"/>
+		<meta>
+			<m n=":value"><e>cast "auto"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., yesterday).</haxe_doc>
+	</Auto>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._RelativeTimeFormat.RelativeTimeNumeric_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/RelativeTimeFormat.hx" private="1" module="js.lib.intl.RelativeTimeFormat" extern="1">
+		<Always public="1" get="inline" set="null" expr="cast &quot;always&quot;" line="112" static="1">
+			<x path="js.lib.intl.RelativeTimeNumeric"/>
+			<meta>
+				<m n=":value"><e>cast "always"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., 1 day ago),</haxe_doc>
+		</Always>
+		<Auto public="1" get="inline" set="null" expr="cast &quot;auto&quot;" line="117" static="1">
+			<x path="js.lib.intl.RelativeTimeNumeric"/>
+			<meta>
+				<m n=":value"><e>cast "auto"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., yesterday).</haxe_doc>
+		</Auto>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.lib.intl.RelativeTimeFormatStyle" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/RelativeTimeFormat.hx" module="js.lib.intl.RelativeTimeFormat">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._RelativeTimeFormat.RelativeTimeFormatStyle_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/RelativeTimeFormat.hx" private="1" module="js.lib.intl.RelativeTimeFormat" extern="1">
+	<Long public="1" get="inline" set="null" expr="cast &quot;long&quot;" line="124" static="1">
+		<x path="js.lib.intl.RelativeTimeFormatStyle"/>
+		<meta>
+			<m n=":value"><e>cast "long"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., in 1 month)</haxe_doc>
+	</Long>
+	<Short public="1" get="inline" set="null" expr="cast &quot;short&quot;" line="129" static="1">
+		<x path="js.lib.intl.RelativeTimeFormatStyle"/>
+		<meta>
+			<m n=":value"><e>cast "short"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., in 1 mo.)</haxe_doc>
+	</Short>
+	<Narrow public="1" get="inline" set="null" expr="cast &quot;narrow&quot;" line="134" static="1">
+		<x path="js.lib.intl.RelativeTimeFormatStyle"/>
+		<meta>
+			<m n=":value"><e>cast "narrow"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>(e.g., in 1 mo.)</haxe_doc>
+	</Narrow>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._RelativeTimeFormat.RelativeTimeFormatStyle_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/RelativeTimeFormat.hx" private="1" module="js.lib.intl.RelativeTimeFormat" extern="1">
+		<Long public="1" get="inline" set="null" expr="cast &quot;long&quot;" line="124" static="1">
+			<x path="js.lib.intl.RelativeTimeFormatStyle"/>
+			<meta>
+				<m n=":value"><e>cast "long"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., in 1 month)</haxe_doc>
+		</Long>
+		<Short public="1" get="inline" set="null" expr="cast &quot;short&quot;" line="129" static="1">
+			<x path="js.lib.intl.RelativeTimeFormatStyle"/>
+			<meta>
+				<m n=":value"><e>cast "short"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., in 1 mo.)</haxe_doc>
+		</Short>
+		<Narrow public="1" get="inline" set="null" expr="cast &quot;narrow&quot;" line="134" static="1">
+			<x path="js.lib.intl.RelativeTimeFormatStyle"/>
+			<meta>
+				<m n=":value"><e>cast "narrow"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>(e.g., in 1 mo.)</haxe_doc>
+		</Narrow>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="js.lib.intl.RelativeTimeUnit" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/RelativeTimeFormat.hx" module="js.lib.intl.RelativeTimeFormat">
+		<from><icast><c path="String"/></icast></from>
+		<this><c path="String"/></this>
+		<to><icast><c path="String"/></icast></to>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.intl._RelativeTimeFormat.RelativeTimeUnit_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/RelativeTimeFormat.hx" private="1" module="js.lib.intl.RelativeTimeFormat" extern="1">
+	<Year public="1" get="inline" set="null" expr="cast &quot;year&quot;" line="138" static="1">
+		<x path="js.lib.intl.RelativeTimeUnit"/>
+		<meta>
+			<m n=":value"><e>cast "year"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Year>
+	<Quarter public="1" get="inline" set="null" expr="cast &quot;quarter&quot;" line="139" static="1">
+		<x path="js.lib.intl.RelativeTimeUnit"/>
+		<meta>
+			<m n=":value"><e>cast "quarter"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Quarter>
+	<Month public="1" get="inline" set="null" expr="cast &quot;month&quot;" line="140" static="1">
+		<x path="js.lib.intl.RelativeTimeUnit"/>
+		<meta>
+			<m n=":value"><e>cast "month"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Month>
+	<Week public="1" get="inline" set="null" expr="cast &quot;week&quot;" line="141" static="1">
+		<x path="js.lib.intl.RelativeTimeUnit"/>
+		<meta>
+			<m n=":value"><e>cast "week"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Week>
+	<Day public="1" get="inline" set="null" expr="cast &quot;day&quot;" line="142" static="1">
+		<x path="js.lib.intl.RelativeTimeUnit"/>
+		<meta>
+			<m n=":value"><e>cast "day"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Day>
+	<Hour public="1" get="inline" set="null" expr="cast &quot;hour&quot;" line="143" static="1">
+		<x path="js.lib.intl.RelativeTimeUnit"/>
+		<meta>
+			<m n=":value"><e>cast "hour"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Hour>
+	<Minute public="1" get="inline" set="null" expr="cast &quot;minute&quot;" line="144" static="1">
+		<x path="js.lib.intl.RelativeTimeUnit"/>
+		<meta>
+			<m n=":value"><e>cast "minute"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Minute>
+	<Second public="1" get="inline" set="null" expr="cast &quot;second&quot;" line="145" static="1">
+		<x path="js.lib.intl.RelativeTimeUnit"/>
+		<meta>
+			<m n=":value"><e>cast "second"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Second>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.intl._RelativeTimeFormat.RelativeTimeUnit_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/RelativeTimeFormat.hx" private="1" module="js.lib.intl.RelativeTimeFormat" extern="1">
+		<Year public="1" get="inline" set="null" expr="cast &quot;year&quot;" line="138" static="1">
+			<x path="js.lib.intl.RelativeTimeUnit"/>
+			<meta>
+				<m n=":value"><e>cast "year"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Year>
+		<Quarter public="1" get="inline" set="null" expr="cast &quot;quarter&quot;" line="139" static="1">
+			<x path="js.lib.intl.RelativeTimeUnit"/>
+			<meta>
+				<m n=":value"><e>cast "quarter"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Quarter>
+		<Month public="1" get="inline" set="null" expr="cast &quot;month&quot;" line="140" static="1">
+			<x path="js.lib.intl.RelativeTimeUnit"/>
+			<meta>
+				<m n=":value"><e>cast "month"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Month>
+		<Week public="1" get="inline" set="null" expr="cast &quot;week&quot;" line="141" static="1">
+			<x path="js.lib.intl.RelativeTimeUnit"/>
+			<meta>
+				<m n=":value"><e>cast "week"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Week>
+		<Day public="1" get="inline" set="null" expr="cast &quot;day&quot;" line="142" static="1">
+			<x path="js.lib.intl.RelativeTimeUnit"/>
+			<meta>
+				<m n=":value"><e>cast "day"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Day>
+		<Hour public="1" get="inline" set="null" expr="cast &quot;hour&quot;" line="143" static="1">
+			<x path="js.lib.intl.RelativeTimeUnit"/>
+			<meta>
+				<m n=":value"><e>cast "hour"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Hour>
+		<Minute public="1" get="inline" set="null" expr="cast &quot;minute&quot;" line="144" static="1">
+			<x path="js.lib.intl.RelativeTimeUnit"/>
+			<meta>
+				<m n=":value"><e>cast "minute"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Minute>
+		<Second public="1" get="inline" set="null" expr="cast &quot;second&quot;" line="145" static="1">
+			<x path="js.lib.intl.RelativeTimeUnit"/>
+			<meta>
+				<m n=":value"><e>cast "second"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Second>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<typedef path="js.lib.intl.RelativeTimeFormatPart" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/RelativeTimeFormat.hx" module="js.lib.intl.RelativeTimeFormat"><a>
+	<value final="1" set="null"><c path="String"/></value>
+	<unit final="1" set="null">
+		<x path="Null"><x path="js.lib.intl.RelativeTimeUnit"/></x>
+		<meta><m n=":optional"/></meta>
+	</unit>
+	<type final="1" set="null"><t path="js.lib.intl.RelativeTimeFormatPartType"/></type>
+</a></typedef>
+	<typedef path="js.lib.intl.RelativeTimeFormatPartType" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/RelativeTimeFormat.hx" module="js.lib.intl.RelativeTimeFormat"><x path="js.lib.intl.NumberFormatPartType"/></typedef>
+	<typedef path="js.lib.intl.RelativeTimeFormatSupportedLocalesOfOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/intl/RelativeTimeFormat.hx" module="js.lib.intl.RelativeTimeFormat"><a><localeMatcher>
+	<x path="Null"><x path="js.lib.intl.LocaleMatcher"/></x>
+	<meta><m n=":optional"/></meta>
+	<haxe_doc>The locale matching algorithm to use.
+		The default is `BestFit`.</haxe_doc>
+</localeMatcher></a></typedef>
+	<class path="js.lib.webassembly.CompileError" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/CompileError.hx" extern="1">
+		<extends path="js.lib.Error"/>
+		<new public="1" set="method"><f a="?message">
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>A WebAssembly `CompileError` object indicates an error during WebAssembly
+	decoding or validation.
+
+	Documentation [CompileError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/CompileError) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"WebAssembly.CompileError"</e></m></meta>
+	</class>
+	<class path="js.lib.webassembly.Global" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Global.hx" extern="1">
+		<value public="1">
+			<x path="Any"/>
+			<haxe_doc>The value contained inside the global variable — this can be used to directly set
+		and get the global's value.</haxe_doc>
+		</value>
+		<valueOf public="1" set="method">
+			<f a=""><x path="Any"/></f>
+			<haxe_doc>Old-style method that returns the value contained inside the global variable.</haxe_doc>
+		</valueOf>
+		<new public="1" set="method"><f a="descriptor:value">
+	<t path="js.lib.webassembly.GlobalDescriptor"/>
+	<x path="Any"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>A WebAssembly `Global` object represents a global variable instance, accessible from
+	both JavaScript and importable/exportable across one or more WebAssembly `Module` instances.
+	This allows dynamic linking of multiple modules.
+
+	Documentation [Global](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Global) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"WebAssembly.Global"</e></m></meta>
+	</class>
+	<typedef path="js.lib.webassembly.GlobalDescriptor" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Global.hx" module="js.lib.webassembly.Global"><a>
+	<value><x path="js.lib.webassembly.ValueType"/></value>
+	<mutable>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>By default, this is false.</haxe_doc>
+	</mutable>
+</a></typedef>
+	<abstract path="js.lib.webassembly.ValueType" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Global.hx" module="js.lib.webassembly.Global">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.webassembly._Global.ValueType_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Global.hx" private="1" module="js.lib.webassembly.Global" extern="1">
+	<I32 public="1" get="inline" set="null" expr="cast &quot;i32&quot;" line="57" static="1">
+		<x path="js.lib.webassembly.ValueType"/>
+		<meta>
+			<m n=":value"><e>cast "i32"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</I32>
+	<I64 public="1" get="inline" set="null" expr="cast &quot;i64&quot;" line="58" static="1">
+		<x path="js.lib.webassembly.ValueType"/>
+		<meta>
+			<m n=":value"><e>cast "i64"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</I64>
+	<F32 public="1" get="inline" set="null" expr="cast &quot;f32&quot;" line="59" static="1">
+		<x path="js.lib.webassembly.ValueType"/>
+		<meta>
+			<m n=":value"><e>cast "f32"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</F32>
+	<F64 public="1" get="inline" set="null" expr="cast &quot;f64&quot;" line="60" static="1">
+		<x path="js.lib.webassembly.ValueType"/>
+		<meta>
+			<m n=":value"><e>cast "f64"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</F64>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.webassembly._Global.ValueType_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Global.hx" private="1" module="js.lib.webassembly.Global" extern="1">
+		<I32 public="1" get="inline" set="null" expr="cast &quot;i32&quot;" line="57" static="1">
+			<x path="js.lib.webassembly.ValueType"/>
+			<meta>
+				<m n=":value"><e>cast "i32"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</I32>
+		<I64 public="1" get="inline" set="null" expr="cast &quot;i64&quot;" line="58" static="1">
+			<x path="js.lib.webassembly.ValueType"/>
+			<meta>
+				<m n=":value"><e>cast "i64"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</I64>
+		<F32 public="1" get="inline" set="null" expr="cast &quot;f32&quot;" line="59" static="1">
+			<x path="js.lib.webassembly.ValueType"/>
+			<meta>
+				<m n=":value"><e>cast "f32"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</F32>
+		<F64 public="1" get="inline" set="null" expr="cast &quot;f64&quot;" line="60" static="1">
+			<x path="js.lib.webassembly.ValueType"/>
+			<meta>
+				<m n=":value"><e>cast "f64"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</F64>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<class path="js.lib.webassembly.Instance" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Instance.hx" extern="1">
+		<exports public="1" set="null">
+			<d><x path="haxe.Function"/></d>
+			<haxe_doc>Returns an object containing as its members all the functions exported from
+		the WebAssembly module instance, to allow them to be accessed and used by JavaScript.</haxe_doc>
+		</exports>
+		<new public="1" set="method"><f a="module:?importObject">
+	<c path="js.lib.webassembly.Module"/>
+	<a/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>A WebAssembly `Instance` object is a stateful, executable instance of a WebAssembly `Module`.
+	Instance objects contain all the [Exported WebAssembly functions](https://developer.mozilla.org/en-US/docs/WebAssembly/Exported_functions)
+	that allow calling into WebAssembly code from JavaScript.
+
+	Documentation [Instance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Instance) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"WebAssembly.Instance"</e></m></meta>
+	</class>
+	<class path="js.lib.webassembly.LinkError" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/LinkError.hx" extern="1">
+		<extends path="js.lib.Error"/>
+		<new public="1" set="method"><f a="?message">
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>A WebAssembly `LinkError` object indicates an error during module instantiation
+	(besides [traps](http://webassembly.org/docs/semantics/#traps) from the start function).
+
+	Documentation [LinkError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/LinkError) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"WebAssembly.LinkError"</e></m></meta>
+	</class>
+	<class path="js.lib.webassembly.Memory" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Memory.hx" extern="1">
+		<buffer final="1" public="1">
+			<c path="js.lib.ArrayBuffer"/>
+			<haxe_doc>An accessor property that returns the buffer contained in the memory.</haxe_doc>
+		</buffer>
+		<grow public="1" set="method">
+			<f a="number">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Increases the size of the memory instance by a specified number of WebAssembly pages
+		(each one is 64KB in size).</haxe_doc>
+		</grow>
+		<new public="1" set="method"><f a="memoryDescriptor">
+	<t path="js.lib.webassembly.MemoryDescriptor"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>A new WebAssembly `Memory` object which is a resizable ArrayBuffer that holds the raw bytes of memory
+	accessed by a WebAssembly WebAssembly `Instance`.
+
+	A memory created by JavaScript or in WebAssembly code will be accessible and mutable from
+	both JavaScript and WebAssembly.
+
+	Documentation [Memory](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"WebAssembly.Memory"</e></m></meta>
+	</class>
+	<typedef path="js.lib.webassembly.MemoryDescriptor" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Memory.hx" module="js.lib.webassembly.Memory"><a>
+	<maximum>
+		<x path="Null"><x path="Int"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The maximum size the WebAssembly Memory is allowed to grow to, in units of WebAssembly pages.
+		When present, the `maximum` parameter acts as a hint to the engine to reserve memory up front.
+		However, the engine may ignore or clamp this reservation request.
+		In general, most WebAssembly modules shouldn't need to set a `maximum`.</haxe_doc>
+	</maximum>
+	<initial>
+		<x path="Int"/>
+		<haxe_doc>The initial size of the WebAssembly Memory, in units of WebAssembly pages.</haxe_doc>
+	</initial>
+</a></typedef>
+	<class path="js.lib.webassembly.Module" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Module.hx" extern="1">
+		<customSections public="1" set="method" static="1">
+			<f a="module:sectionName">
+				<c path="js.lib.webassembly.Module"/>
+				<c path="String"/>
+				<c path="Array"><c path="js.lib.ArrayBuffer"/></c>
+			</f>
+			<haxe_doc>Given a `Module` and string, returns a copy of the contents of all custom sections
+		in the module with the given string name.</haxe_doc>
+		</customSections>
+		<exports public="1" set="method" static="1">
+			<f a="module">
+				<c path="js.lib.webassembly.Module"/>
+				<c path="Array"><t path="js.lib.webassembly.ModuleExportDescriptor"/></c>
+			</f>
+			<haxe_doc>Given a `Module`, returns an array containing descriptions of all the declared exports.</haxe_doc>
+		</exports>
+		<imports public="1" set="method" static="1">
+			<f a="module">
+				<c path="js.lib.webassembly.Module"/>
+				<c path="Array"><t path="js.lib.webassembly.ModuleImportDescriptor"/></c>
+			</f>
+			<haxe_doc>Given a `Module`, returns an array containing descriptions of all the declared imports.</haxe_doc>
+		</imports>
+		<new public="1" set="method">
+			<f a="bufferSource">
+				<c path="js.lib.ArrayBuffer"/>
+				<x path="Void"/>
+			</f>
+			<overloads>
+				<new public="1" set="method"><f a="bufferSource">
+	<c path="js.lib.Int8Array"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="bufferSource">
+	<c path="js.lib.Uint8Array"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="bufferSource">
+	<c path="js.lib.Uint8ClampedArray"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="bufferSource">
+	<c path="js.lib.Int16Array"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="bufferSource">
+	<c path="js.lib.Uint16Array"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="bufferSource">
+	<c path="js.lib.Int32Array"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="bufferSource">
+	<c path="js.lib.Uint32Array"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="bufferSource">
+	<c path="js.lib.Float32Array"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="bufferSource">
+	<c path="js.lib.Float64Array"/>
+	<x path="Void"/>
+</f></new>
+			</overloads>
+		</new>
+		<haxe_doc>A WebAssembly `Module` object contains stateless WebAssembly code that has already
+	been compiled by the browser and can be efficiently [shared with Workers](https://developer.mozilla.org/en-US/docs/Web/API/Worker/postMessage),
+	and instantiated multiple times. To instantiate the module, call
+	[the secondary overload of `WebAssembly.instantiate()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/instantiate#Secondary_overload_%E2%80%94_taking_a_module_object_instance).
+
+	Documentation [Module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"WebAssembly.Module"</e></m></meta>
+	</class>
+	<typedef path="js.lib.webassembly.ModuleExportDescriptor" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Module.hx" module="js.lib.webassembly.Module"><a>
+	<name><c path="String"/></name>
+	<kind><x path="js.lib.webassembly.ImportExportKind"/></kind>
+</a></typedef>
+	<typedef path="js.lib.webassembly.ModuleImportDescriptor" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Module.hx" module="js.lib.webassembly.Module"><a>
+	<name><c path="String"/></name>
+	<module><c path="String"/></module>
+	<kind><x path="js.lib.webassembly.ImportExportKind"/></kind>
+</a></typedef>
+	<abstract path="js.lib.webassembly.ImportExportKind" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Module.hx" module="js.lib.webassembly.Module">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.webassembly._Module.ImportExportKind_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Module.hx" private="1" module="js.lib.webassembly.Module" extern="1">
+	<Function public="1" get="inline" set="null" expr="cast &quot;function&quot;" line="85" static="1">
+		<x path="js.lib.webassembly.ImportExportKind"/>
+		<meta>
+			<m n=":value"><e>cast "function"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Function>
+	<Table public="1" get="inline" set="null" expr="cast &quot;table&quot;" line="86" static="1">
+		<x path="js.lib.webassembly.ImportExportKind"/>
+		<meta>
+			<m n=":value"><e>cast "table"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Table>
+	<Memory public="1" get="inline" set="null" expr="cast &quot;memory&quot;" line="87" static="1">
+		<x path="js.lib.webassembly.ImportExportKind"/>
+		<meta>
+			<m n=":value"><e>cast "memory"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Memory>
+	<Global public="1" get="inline" set="null" expr="cast &quot;global&quot;" line="88" static="1">
+		<x path="js.lib.webassembly.ImportExportKind"/>
+		<meta>
+			<m n=":value"><e>cast "global"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Global>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.webassembly._Module.ImportExportKind_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Module.hx" private="1" module="js.lib.webassembly.Module" extern="1">
+		<Function public="1" get="inline" set="null" expr="cast &quot;function&quot;" line="85" static="1">
+			<x path="js.lib.webassembly.ImportExportKind"/>
+			<meta>
+				<m n=":value"><e>cast "function"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Function>
+		<Table public="1" get="inline" set="null" expr="cast &quot;table&quot;" line="86" static="1">
+			<x path="js.lib.webassembly.ImportExportKind"/>
+			<meta>
+				<m n=":value"><e>cast "table"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Table>
+		<Memory public="1" get="inline" set="null" expr="cast &quot;memory&quot;" line="87" static="1">
+			<x path="js.lib.webassembly.ImportExportKind"/>
+			<meta>
+				<m n=":value"><e>cast "memory"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Memory>
+		<Global public="1" get="inline" set="null" expr="cast &quot;global&quot;" line="88" static="1">
+			<x path="js.lib.webassembly.ImportExportKind"/>
+			<meta>
+				<m n=":value"><e>cast "global"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Global>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<class path="js.lib.webassembly.RuntimeError" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/RuntimeError.hx" extern="1">
+		<extends path="js.lib.Error"/>
+		<new public="1" set="method"><f a="?message">
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>A WebAssembly `RuntimeError` object is thrown whenever WebAssembly specifies a
+	[trap](http://webassembly.org/docs/semantics/#traps).
+
+	Documentation [RuntimeError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/RuntimeError) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"WebAssembly.RuntimeError"</e></m></meta>
+	</class>
+	<class path="js.lib.webassembly.Table" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Table.hx" extern="1">
+		<length public="1">
+			<x path="Int"/>
+			<haxe_doc>Returns the length of the table, i.e. the number of elements.</haxe_doc>
+		</length>
+		<get public="1" set="method">
+			<f a="index">
+				<x path="Int"/>
+				<x path="haxe.Function"/>
+			</f>
+			<haxe_doc>Accessor function — gets the element stored at a given index.</haxe_doc>
+		</get>
+		<grow public="1" set="method">
+			<f a="number">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Increases the size of the Table instance by a specified number of elements.</haxe_doc>
+		</grow>
+		<set public="1" set="method">
+			<f a="index:value">
+				<x path="Int"/>
+				<x path="haxe.Function"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets an element stored at a given index to a given value.</haxe_doc>
+		</set>
+		<new public="1" set="method"><f a="tableDescriptor">
+	<t path="js.lib.webassembly.TableDescriptor"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>A Table object of the given size and element type.
+
+	This is a JavaScript wrapper object — an array-like structure representing a WebAssembly Table,
+	which stores function references. A table created by JavaScript or in WebAssembly code will be
+	accessible and mutable from both JavaScript and WebAssembly.
+
+	Documentation [Table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Table) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"WebAssembly.Table"</e></m></meta>
+	</class>
+	<typedef path="js.lib.webassembly.TableDescriptor" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Table.hx" module="js.lib.webassembly.Table"><a>
+	<maximum>
+		<x path="Null"><x path="Int"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The maximum number of elements the WebAssembly Table is allowed to grow to.</haxe_doc>
+	</maximum>
+	<initial>
+		<x path="Int"/>
+		<haxe_doc>The initial number of elements of the WebAssembly Table.</haxe_doc>
+	</initial>
+	<element>
+		<x path="js.lib.webassembly.TableKind"/>
+		<haxe_doc>A string representing the type of value to be stored in the table.
+		At the moment this can only have a value of `Anyfunc` (functions).</haxe_doc>
+	</element>
+</a></typedef>
+	<abstract path="js.lib.webassembly.TableKind" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Table.hx" module="js.lib.webassembly.Table">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib.webassembly._Table.TableKind_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Table.hx" private="1" module="js.lib.webassembly.Table" extern="1">
+	<Anyfunc public="1" get="inline" set="null" expr="cast &quot;anyfunc&quot;" line="79" static="1">
+		<x path="js.lib.webassembly.TableKind"/>
+		<meta>
+			<m n=":value"><e>cast "anyfunc"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Anyfunc>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib.webassembly._Table.TableKind_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/webassembly/Table.hx" private="1" module="js.lib.webassembly.Table" extern="1">
+		<Anyfunc public="1" get="inline" set="null" expr="cast &quot;anyfunc&quot;" line="79" static="1">
+			<x path="js.lib.webassembly.TableKind"/>
+			<meta>
+				<m n=":value"><e>cast "anyfunc"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Anyfunc>
+		<meta><m n=":enum"/></meta>
 	</class>
 </haxe>
