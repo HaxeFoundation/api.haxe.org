@@ -21421,7 +21421,7 @@
 
 		If `path` is `null`, the result is unspecified.</haxe_doc>
 		</normalize>
-		<addTrailingSlash public="1" set="method" line="264" static="1">
+		<addTrailingSlash public="1" set="method" line="269" static="1">
 			<f a="path">
 				<c path="String"/>
 				<c path="String"/>
@@ -21437,7 +21437,7 @@
 
 		If `path` is `null`, the result is unspecified.</haxe_doc>
 		</addTrailingSlash>
-		<removeTrailingSlashes public="1" set="method" line="288" static="1">
+		<removeTrailingSlashes public="1" set="method" line="293" static="1">
 			<f a="path">
 				<c path="String"/>
 				<c path="String"/>
@@ -21451,18 +21451,18 @@
 
 		If `path` is `null`, the result is unspecified.</haxe_doc>
 		</removeTrailingSlashes>
-		<isAbsolute public="1" set="method" line="301" static="1">
+		<isAbsolute public="1" set="method" line="306" static="1">
 			<f a="path">
 				<c path="String"/>
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>Returns `true` if the path is an absolute path, and `false` otherwise.</haxe_doc>
 		</isAbsolute>
-		<unescape set="method" line="308" static="1"><f a="path">
+		<unescape set="method" line="313" static="1"><f a="path">
 	<c path="String"/>
 	<c path="String"/>
 </f></unescape>
-		<escape set="method" line="313" static="1">
+		<escape set="method" line="318" static="1">
 			<f a="path:?allowSlashes" v=":false">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -28163,28 +28163,64 @@
 		</get>
 	</class>
 	<typedef path="python.PySys" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/Lib.hx" module="python.Lib"><c path="python.lib.Sys"/></typedef>
+	<class path="python.lib.Sys" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/lib/Sys.hx" extern="1">
+		<argv public="1" set="null" static="1"><c path="Array"><c path="String"/></c></argv>
+		<executable public="1" set="null" static="1"><c path="String"/></executable>
+		<exit public="1" set="method" static="1"><f a="x">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></exit>
+		<getfilesystemencoding public="1" set="method" static="1"><f a=""><c path="String"/></f></getfilesystemencoding>
+		<version public="1" static="1"><c path="String"/></version>
+		<platform public="1" static="1"><c path="String"/></platform>
+		<stdout public="1" set="null" static="1"><c path="python.lib.io.TextIOBase"/></stdout>
+		<stdin public="1" set="null" static="1"><c path="python.lib.io.TextIOBase"/></stdin>
+		<stderr public="1" set="null" static="1"><c path="python.lib.io.TextIOBase"/></stderr>
+		<getsizeof public="1" set="method" static="1"><f a="t">
+	<d/>
+	<x path="Int"/>
+</f></getsizeof>
+		<maxsize public="1" static="1"><x path="Int"/></maxsize>
+		<exc_info public="1" params="T" set="method" static="1"><f a=""><c path="python.Tuple3">
+	<x path="Class"><c path="exc_info.T"/></x>
+	<c path="exc_info.T"/>
+	<c path="python.lib.TB"/>
+</c></f></exc_info>
+		<version_info public="1" static="1"><c path="python.Tuple5">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<c path="String"/>
+	<x path="Int"/>
+</c></version_info>
+		<meta><m n=":pythonImport"><e>"sys"</e></m></meta>
+	</class>
 	<class path="python.Lib" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/Lib.hx">
+		<lineEnd expr="Sys.systemName() == &quot;Windows&quot; ? &quot;\r\n&quot; : &quot;\n&quot;" line="37" static="1">
+			<c path="String"/>
+			<meta><m n=":value"><e>Sys.systemName() == "Windows" ? "\r\n" : "\n"</e></m></meta>
+		</lineEnd>
 		<__name__ public="1" get="accessor" set="null" static="1"><c path="String"/></__name__>
-		<get___name__ get="inline" set="null" line="38" static="1"><f a=""><c path="String"/></f></get___name__>
-		<print public="1" get="inline" set="null" line="43" static="1">
+		<get___name__ get="inline" set="null" line="39" static="1"><f a=""><c path="String"/></f></get___name__>
+		<print public="1" get="inline" set="null" line="44" static="1">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Print the specified value on the default output.</haxe_doc>
 		</print>
-		<printString set="method" line="47" static="1"><f a="str">
+		<printString set="method" line="48" static="1"><f a="str">
 	<c path="String"/>
 	<x path="Void"/>
 </f></printString>
-		<println public="1" get="inline" set="null" line="55" static="1">
+		<println public="1" get="inline" set="null" line="56" static="1">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Print the specified value on the default output followed by a newline character.</haxe_doc>
 		</println>
-		<dictToAnon public="1" set="method" line="63" static="1">
+		<dictToAnon public="1" set="method" line="64" static="1">
 			<f a="v">
 				<c path="python.Dict">
 					<c path="String"/>
@@ -28194,7 +28230,7 @@
 			</f>
 			<haxe_doc>Returns an anonymous Object which holds the same data as the Dictionary `v`.</haxe_doc>
 		</dictToAnon>
-		<anonToDict public="1" set="method" line="72" static="1">
+		<anonToDict public="1" set="method" line="73" static="1">
 			<f a="o">
 				<a/>
 				<c path="python.Dict">
@@ -28205,7 +28241,7 @@
 			<meta><m n=":access"><e>python.Boot.isAnonObject</e></m></meta>
 			<haxe_doc>Returns a flat copy of the underlying Dictionary of `o`.</haxe_doc>
 		</anonToDict>
-		<anonAsDict public="1" set="method" line="86" static="1">
+		<anonAsDict public="1" set="method" line="87" static="1">
 			<f a="o">
 				<a/>
 				<c path="python.Dict">
@@ -28217,7 +28253,7 @@
 			<haxe_doc>Returns the underlying Dictionary of the anonymous object `o`.
 	 	Modifications to this dictionary are reflected in the anonymous Object too.</haxe_doc>
 		</anonAsDict>
-		<dictAsAnon public="1" get="inline" set="null" line="98" static="1">
+		<dictAsAnon public="1" get="inline" set="null" line="99" static="1">
 			<f a="d">
 				<c path="python.Dict">
 					<c path="String"/>
@@ -28228,21 +28264,21 @@
 			<haxe_doc>Returns the Dictionary `d` as an anonymous Object.
 	 	Modifications to the object are reflected in the Dictionary too.</haxe_doc>
 		</dictAsAnon>
-		<toPythonIterable public="1" params="T" set="method" line="105" static="1">
+		<toPythonIterable public="1" params="T" set="method" line="106" static="1">
 			<f a="it">
 				<t path="Iterable"><c path="toPythonIterable.T"/></t>
 				<x path="python.NativeIterable"><c path="toPythonIterable.T"/></x>
 			</f>
 			<haxe_doc>Return Python native iterable from Haxe iterable.</haxe_doc>
 		</toPythonIterable>
-		<toHaxeIterable public="1" params="T" get="inline" set="null" line="128" static="1">
+		<toHaxeIterable public="1" params="T" get="inline" set="null" line="129" static="1">
 			<f a="it">
 				<x path="python.NativeIterable"><c path="toHaxeIterable.T"/></x>
 				<c path="python.HaxeIterable"><c path="toHaxeIterable.T"/></c>
 			</f>
 			<haxe_doc>Return Haxe iterable from Python native iterable.</haxe_doc>
 		</toHaxeIterable>
-		<toHaxeIterator public="1" params="T" get="inline" set="null" line="135" static="1">
+		<toHaxeIterator public="1" params="T" get="inline" set="null" line="136" static="1">
 			<f a="it">
 				<x path="python.NativeIterator"><c path="toHaxeIterator.T"/></x>
 				<c path="python.HaxeIterator"><c path="toHaxeIterator.T"/></c>
@@ -30982,38 +31018,6 @@
 	</class>
 	<class path="python.lib.TB" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/lib/Sys.hx" module="python.lib.Sys" extern="1"/>
 	<class path="python.lib.Frame" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/lib/Sys.hx" module="python.lib.Sys" extern="1"/>
-	<class path="python.lib.Sys" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/lib/Sys.hx" extern="1">
-		<argv public="1" set="null" static="1"><c path="Array"><c path="String"/></c></argv>
-		<executable public="1" set="null" static="1"><c path="String"/></executable>
-		<exit public="1" set="method" static="1"><f a="x">
-	<x path="Int"/>
-	<x path="Void"/>
-</f></exit>
-		<getfilesystemencoding public="1" set="method" static="1"><f a=""><c path="String"/></f></getfilesystemencoding>
-		<version public="1" static="1"><c path="String"/></version>
-		<platform public="1" static="1"><c path="String"/></platform>
-		<stdout public="1" set="null" static="1"><c path="python.lib.io.TextIOBase"/></stdout>
-		<stdin public="1" set="null" static="1"><c path="python.lib.io.TextIOBase"/></stdin>
-		<stderr public="1" set="null" static="1"><c path="python.lib.io.TextIOBase"/></stderr>
-		<getsizeof public="1" set="method" static="1"><f a="t">
-	<d/>
-	<x path="Int"/>
-</f></getsizeof>
-		<maxsize public="1" static="1"><x path="Int"/></maxsize>
-		<exc_info public="1" params="T" set="method" static="1"><f a=""><c path="python.Tuple3">
-	<x path="Class"><c path="exc_info.T"/></x>
-	<c path="exc_info.T"/>
-	<c path="python.lib.TB"/>
-</c></f></exc_info>
-		<version_info public="1" static="1"><c path="python.Tuple5">
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Int"/>
-	<c path="String"/>
-	<x path="Int"/>
-</c></version_info>
-		<meta><m n=":pythonImport"><e>"sys"</e></m></meta>
-	</class>
 	<class path="python.lib.Tempfile" params="" file="/home/travis/build/HaxeFoundation/haxe/std/python/lib/Tempfile.hx" extern="1">
 		<gettempdir public="1" set="method" static="1"><f a=""><c path="String"/></f></gettempdir>
 		<meta><m n=":pythonImport"><e>"tempfile"</e></m></meta>

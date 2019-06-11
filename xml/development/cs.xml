@@ -18858,6 +18858,7 @@
 			<meta><m n=":overload"/></meta>
 		</SetWindowSize>
 		<meta>
+			<m n=":directlyUsed"/>
 			<m n=":nativeGen"/>
 			<m n=":abstract"/>
 			<m n=":libType"/>
@@ -59731,6 +59732,265 @@
 			<m n=":native"><e>"System.Text.StringBuilder"</e></m>
 		</meta>
 	</class>
+	<class path="cs.system.text.UTF8Encoding_UTF8Encoder" params="" file="/home/travis/haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.text.UTF8Encoding" module="cs.system.text.UTF8Encoding" extern="1">
+		<extends path="cs.system.text.Encoder"/>
+		<GetByteCount public="1" set="method" override="1">
+			<f a="chars:index:count:flush">
+				<c path="cs.NativeArray"><t path="cs.types.Char16"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><GetByteCount public="1" set="method">
+	<f a="chars:count:flush">
+		<x path="cs.Pointer"><t path="cs.types.Char16"/></x>
+		<x path="Int"/>
+		<x path="Bool"/>
+		<x path="Int"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</GetByteCount></overloads>
+		</GetByteCount>
+		<GetBytes public="1" set="method" override="1">
+			<f a="chars:charIndex:charCount:bytes:byteIndex:flush">
+				<c path="cs.NativeArray"><t path="cs.types.Char16"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+				<x path="Int"/>
+				<x path="Bool"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><GetBytes public="1" set="method">
+	<f a="chars:charCount:bytes:byteCount:flush">
+		<x path="cs.Pointer"><t path="cs.types.Char16"/></x>
+		<x path="Int"/>
+		<x path="cs.Pointer"><t path="cs.types.UInt8"/></x>
+		<x path="Int"/>
+		<x path="Bool"/>
+		<x path="Int"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</GetBytes></overloads>
+		</GetBytes>
+		<new final="1" public="1" set="method">
+			<f a="fallback:emitIdentifier">
+				<c path="cs.system.text.EncoderFallback"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</new>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":csNative"/>
+			<m n=":native"><e>"System.Text.UTF8Encoding.UTF8Encoder"</e></m>
+		</meta>
+	</class>
+	<class path="cs.system.text.UTF8Encoding_UTF8Decoder" params="" file="/home/travis/haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.text.UTF8Encoding" module="cs.system.text.UTF8Encoding" extern="1">
+		<extends path="cs.system.text.Decoder"/>
+		<GetCharCount public="1" set="method" override="1">
+			<f a="bytes:index:count">
+				<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</GetCharCount>
+		<GetChars public="1" set="method" override="1">
+			<f a="bytes:byteIndex:byteCount:chars:charIndex">
+				<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="cs.NativeArray"><t path="cs.types.Char16"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</GetChars>
+		<new final="1" public="1" set="method">
+			<f a="fallback">
+				<c path="cs.system.text.DecoderFallback"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</new>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":csNative"/>
+			<m n=":native"><e>"System.Text.UTF8Encoding.UTF8Decoder"</e></m>
+		</meta>
+	</class>
+	<class path="cs.system.text.UTF8Encoding" params="" file="/home/travis/haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.text.UTF8Encoding" extern="1">
+		<extends path="cs.system.text.Encoding"/>
+		<GetByteCount public="1" set="method" override="1">
+			<f a="chars:index:count">
+				<c path="cs.NativeArray"><t path="cs.types.Char16"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<GetByteCount public="1" set="method">
+					<f a="chars">
+						<c path="String"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</GetByteCount>
+				<GetByteCount public="1" set="method">
+					<f a="chars:count">
+						<x path="cs.Pointer"><t path="cs.types.Char16"/></x>
+						<x path="Int"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</GetByteCount>
+			</overloads>
+		</GetByteCount>
+		<GetBytes public="1" set="method" override="1">
+			<f a="chars:charIndex:charCount:bytes:byteIndex">
+				<c path="cs.NativeArray"><t path="cs.types.Char16"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<GetBytes public="1" set="method">
+					<f a="chars:charCount:bytes:byteCount">
+						<x path="cs.Pointer"><t path="cs.types.Char16"/></x>
+						<x path="Int"/>
+						<x path="cs.Pointer"><t path="cs.types.UInt8"/></x>
+						<x path="Int"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</GetBytes>
+				<GetBytes public="1" set="method">
+					<f a="s:charIndex:charCount:bytes:byteIndex">
+						<c path="String"/>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</GetBytes>
+			</overloads>
+		</GetBytes>
+		<GetCharCount public="1" set="method" override="1">
+			<f a="bytes:index:count">
+				<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><GetCharCount public="1" set="method">
+	<f a="bytes:count">
+		<x path="cs.Pointer"><t path="cs.types.UInt8"/></x>
+		<x path="Int"/>
+		<x path="Int"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</GetCharCount></overloads>
+		</GetCharCount>
+		<GetChars public="1" set="method" override="1">
+			<f a="bytes:byteIndex:byteCount:chars:charIndex">
+				<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="cs.NativeArray"><t path="cs.types.Char16"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><GetChars public="1" set="method">
+	<f a="bytes:byteCount:chars:charCount">
+		<x path="cs.Pointer"><t path="cs.types.UInt8"/></x>
+		<x path="Int"/>
+		<x path="cs.Pointer"><t path="cs.types.Char16"/></x>
+		<x path="Int"/>
+		<x path="Int"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</GetChars></overloads>
+		</GetChars>
+		<GetMaxByteCount public="1" set="method" override="1">
+			<f a="charCount">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</GetMaxByteCount>
+		<GetMaxCharCount public="1" set="method" override="1">
+			<f a="byteCount">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</GetMaxCharCount>
+		<GetDecoder public="1" set="method" override="1">
+			<f a=""><c path="cs.system.text.Decoder"/></f>
+			<meta><m n=":overload"/></meta>
+		</GetDecoder>
+		<GetEncoder public="1" set="method" override="1">
+			<f a=""><c path="cs.system.text.Encoder"/></f>
+			<meta><m n=":overload"/></meta>
+		</GetEncoder>
+		<GetPreamble public="1" set="method" override="1">
+			<f a=""><c path="cs.NativeArray"><t path="cs.types.UInt8"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</GetPreamble>
+		<GetString public="1" set="method" override="1">
+			<f a="bytes:index:count">
+				<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</GetString>
+		<new final="1" public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<new final="1" public="1" set="method">
+					<f a="encoderShouldEmitUTF8Identifier:throwOnInvalidBytes">
+						<x path="Bool"/>
+						<x path="Bool"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</new>
+				<new final="1" public="1" set="method">
+					<f a="encoderShouldEmitUTF8Identifier">
+						<x path="Bool"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</new>
+			</overloads>
+		</new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":csNative"/>
+			<m n=":native"><e>"System.Text.UTF8Encoding"</e></m>
+		</meta>
+	</class>
 	<class path="cs.system.text.regularexpressions.Capture" params="" file="/home/travis/haxelib/hxcs/git/netlib/net-20/System.dll @ cs.system.text.regularexpressions.Capture" extern="1">
 		<Value public="1" get="accessor" set="null"><c path="String"/></Value>
 		<Length public="1" get="accessor" set="null"><x path="Int"/></Length>
@@ -78740,7 +79000,7 @@
 
 		If `path` is `null`, the result is unspecified.</haxe_doc>
 		</normalize>
-		<addTrailingSlash public="1" set="method" line="264" static="1">
+		<addTrailingSlash public="1" set="method" line="269" static="1">
 			<f a="path">
 				<c path="String"/>
 				<c path="String"/>
@@ -78756,7 +79016,7 @@
 
 		If `path` is `null`, the result is unspecified.</haxe_doc>
 		</addTrailingSlash>
-		<removeTrailingSlashes public="1" set="method" line="288" static="1">
+		<removeTrailingSlashes public="1" set="method" line="293" static="1">
 			<f a="path">
 				<c path="String"/>
 				<c path="String"/>
@@ -78770,18 +79030,18 @@
 
 		If `path` is `null`, the result is unspecified.</haxe_doc>
 		</removeTrailingSlashes>
-		<isAbsolute public="1" set="method" line="301" static="1">
+		<isAbsolute public="1" set="method" line="306" static="1">
 			<f a="path">
 				<c path="String"/>
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>Returns `true` if the path is an absolute path, and `false` otherwise.</haxe_doc>
 		</isAbsolute>
-		<unescape set="method" line="308" static="1"><f a="path">
+		<unescape set="method" line="313" static="1"><f a="path">
 	<c path="String"/>
 	<c path="String"/>
 </f></unescape>
-		<escape set="method" line="313" static="1">
+		<escape set="method" line="318" static="1">
 			<f a="path:?allowSlashes" v=":false">
 				<c path="String"/>
 				<x path="Bool"/>

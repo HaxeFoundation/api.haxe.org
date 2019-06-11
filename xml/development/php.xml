@@ -6091,37 +6091,41 @@
 		</meta>
 	</class>
 	<class path="Sys" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/_std/Sys.hx">
-		<customEnvVars expr="new NativeAssocArray&lt;String&gt;()" line="30" static="1">
+		<lineEnd expr="Sys.systemName() == &quot;Windows&quot; ? &quot;\r\n&quot; : &quot;\n&quot;" line="29" static="1">
+			<c path="String"/>
+			<meta><m n=":value"><e>Sys.systemName() == "Windows" ? "\r\n" : "\n"</e></m></meta>
+		</lineEnd>
+		<customEnvVars expr="new NativeAssocArray&lt;String&gt;()" line="32" static="1">
 			<x path="php.NativeAssocArray"><c path="String"/></x>
 			<meta><m n=":value"><e><![CDATA[new NativeAssocArray<String>()]]></e></m></meta>
 			<haxe_doc>Environment variables set by `Sys.putEnv()`</haxe_doc>
 		</customEnvVars>
-		<print public="1" get="inline" set="null" line="32" static="1">
+		<print public="1" get="inline" set="null" line="34" static="1">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Print any value on the standard output.</haxe_doc>
 		</print>
-		<println public="1" get="inline" set="null" line="36" static="1">
+		<println public="1" get="inline" set="null" line="38" static="1">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Print any value on the standard output, followed by a newline.</haxe_doc>
 		</println>
-		<args public="1" set="method" line="40" static="1">
+		<args public="1" set="method" line="42" static="1">
 			<f a=""><c path="Array"><c path="String"/></c></f>
 			<haxe_doc>Returns all the arguments that were passed by the command line.</haxe_doc>
 		</args>
-		<getEnv public="1" set="method" line="48" static="1">
+		<getEnv public="1" set="method" line="50" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Returns the value of the given environment variable.</haxe_doc>
 		</getEnv>
-		<putEnv public="1" set="method" line="53" static="1">
+		<putEnv public="1" set="method" line="55" static="1">
 			<f a="s:v">
 				<c path="String"/>
 				<c path="String"/>
@@ -6129,14 +6133,14 @@
 			</f>
 			<haxe_doc>Set the value of the given environment variable.</haxe_doc>
 		</putEnv>
-		<sleep public="1" get="inline" set="null" line="58" static="1">
+		<sleep public="1" get="inline" set="null" line="60" static="1">
 			<f a="seconds">
 				<x path="Float"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Suspend the current execution for the given time (in seconds).</haxe_doc>
 		</sleep>
-		<setTimeLocale public="1" get="inline" set="null" line="62" static="1">
+		<setTimeLocale public="1" get="inline" set="null" line="64" static="1">
 			<f a="loc">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -6144,23 +6148,23 @@
 			<haxe_doc>Change the current time locale, which will affect `DateTools.format` date formating.
 		Returns true if the locale was successfully changed</haxe_doc>
 		</setTimeLocale>
-		<getCwd public="1" set="method" line="66" static="1">
+		<getCwd public="1" set="method" line="68" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Get the current working directory (usually the one in which the program was started)</haxe_doc>
 		</getCwd>
-		<setCwd public="1" get="inline" set="null" line="73" static="1">
+		<setCwd public="1" get="inline" set="null" line="75" static="1">
 			<f a="s">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Change the current working directory.</haxe_doc>
 		</setCwd>
-		<systemName public="1" set="method" line="77" static="1">
+		<systemName public="1" set="method" line="79" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the name of the system you are running on. For instance :
 			"Windows", "Linux", "BSD" and "Mac" depending on your desktop OS.</haxe_doc>
 		</systemName>
-		<command public="1" set="method" line="83" static="1">
+		<command public="1" set="method" line="85" static="1">
 			<f a="cmd:?args">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -6179,7 +6183,7 @@
 
 		Read the `sys.io.Process` api for a more complete way to start background processes.</haxe_doc>
 		</command>
-		<exit public="1" get="inline" set="null" line="100" static="1">
+		<exit public="1" get="inline" set="null" line="102" static="1">
 			<f a="code">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -6189,49 +6193,49 @@
 		(macro)(eval) Being invoked in a macro or eval context (e.g. with `-x` or `--run`) immediately terminates
 		the compilation process also preventing the execution of any `--next` section of compilation arguments.</haxe_doc>
 		</exit>
-		<time public="1" get="inline" set="null" line="104" static="1">
+		<time public="1" get="inline" set="null" line="106" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Gives the most precise timestamp value (in seconds).</haxe_doc>
 		</time>
-		<cpuTime public="1" set="method" line="108" static="1">
+		<cpuTime public="1" set="method" line="110" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Gives the most precise timestamp value (in seconds) but only account for the actual time spent running on the CPU for the current thread/process.</haxe_doc>
 		</cpuTime>
-		<executablePath public="1" get="inline" set="null" line="112" static="1">
+		<executablePath public="1" get="inline" set="null" line="114" static="1">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":deprecated"><e>"Use programPath instead"</e></m></meta>
 			<haxe_doc>Returns the path to the current executable that we are running.</haxe_doc>
 		</executablePath>
-		<_programPath expr="sys.FileSystem.fullPath(SuperGlobal._SERVER[&quot;SCRIPT_FILENAME&quot;])" line="117" static="1">
+		<_programPath expr="sys.FileSystem.fullPath(SuperGlobal._SERVER[&quot;SCRIPT_FILENAME&quot;])" line="119" static="1">
 			<c path="String"/>
 			<meta><m n=":value"><e>sys.FileSystem.fullPath(SuperGlobal._SERVER["SCRIPT_FILENAME"])</e></m></meta>
 		</_programPath>
-		<programPath public="1" set="method" line="118" static="1">
+		<programPath public="1" set="method" line="120" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the absolute path to the current program file that we are running.
 		Concretely, for an executable binary, it returns the path to the binary.
 		For a script (e.g. a PHP file), it returns the path to the script.</haxe_doc>
 		</programPath>
-		<environment public="1" set="method" line="122" static="1">
+		<environment public="1" set="method" line="124" static="1">
 			<f a=""><t path="Map">
 	<c path="String"/>
 	<c path="String"/>
 </t></f>
 			<haxe_doc>Returns all environment variables.</haxe_doc>
 		</environment>
-		<stdin public="1" set="method" line="130" static="1">
+		<stdin public="1" set="method" line="132" static="1">
 			<f a=""><c path="haxe.io.Input"/></f>
 			<haxe_doc>Returns the process standard input, from which you can read what user enters. Usually it will block until the user send a full input line. See `getChar` for an alternative.</haxe_doc>
 		</stdin>
-		<stdout public="1" set="method" line="135" static="1">
+		<stdout public="1" set="method" line="137" static="1">
 			<f a=""><c path="haxe.io.Output"/></f>
 			<haxe_doc>Returns the process standard output on which you can write.</haxe_doc>
 		</stdout>
-		<stderr public="1" set="method" line="140" static="1">
+		<stderr public="1" set="method" line="142" static="1">
 			<f a=""><c path="haxe.io.Output"/></f>
 			<haxe_doc>Returns the process standard error on which you can write.</haxe_doc>
 		</stderr>
-		<getChar public="1" set="method" line="145" static="1">
+		<getChar public="1" set="method" line="147" static="1">
 			<f a="echo">
 				<x path="Bool"/>
 				<x path="Int"/>
@@ -23712,7 +23716,7 @@
 
 		If `path` is `null`, the result is unspecified.</haxe_doc>
 		</normalize>
-		<addTrailingSlash public="1" set="method" line="264" static="1">
+		<addTrailingSlash public="1" set="method" line="269" static="1">
 			<f a="path">
 				<c path="String"/>
 				<c path="String"/>
@@ -23728,7 +23732,7 @@
 
 		If `path` is `null`, the result is unspecified.</haxe_doc>
 		</addTrailingSlash>
-		<removeTrailingSlashes public="1" set="method" line="288" static="1">
+		<removeTrailingSlashes public="1" set="method" line="293" static="1">
 			<f a="path">
 				<c path="String"/>
 				<c path="String"/>
@@ -23742,18 +23746,18 @@
 
 		If `path` is `null`, the result is unspecified.</haxe_doc>
 		</removeTrailingSlashes>
-		<isAbsolute public="1" set="method" line="301" static="1">
+		<isAbsolute public="1" set="method" line="306" static="1">
 			<f a="path">
 				<c path="String"/>
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>Returns `true` if the path is an absolute path, and `false` otherwise.</haxe_doc>
 		</isAbsolute>
-		<unescape set="method" line="308" static="1"><f a="path">
+		<unescape set="method" line="313" static="1"><f a="path">
 	<c path="String"/>
 	<c path="String"/>
 </f></unescape>
-		<escape set="method" line="313" static="1">
+		<escape set="method" line="318" static="1">
 			<f a="path:?allowSlashes" v=":false">
 				<c path="String"/>
 				<x path="Bool"/>
