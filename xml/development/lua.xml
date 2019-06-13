@@ -8387,7 +8387,15 @@
 			<c path="haxe.io.Bytes"/>
 			<meta><m n=":value"><e>haxe.io.Bytes.ofString(CHARS)</e></m></meta>
 		</BYTES>
-		<encode public="1" set="method" line="32" static="1">
+		<URL_CHARS public="1" set="null" expr="&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_&quot;" line="32" static="1">
+			<c path="String"/>
+			<meta><m n=":value"><e>"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"</e></m></meta>
+		</URL_CHARS>
+		<URL_BYTES public="1" set="null" expr="haxe.io.Bytes.ofString(URL_CHARS)" line="33" static="1">
+			<c path="haxe.io.Bytes"/>
+			<meta><m n=":value"><e>haxe.io.Bytes.ofString(URL_CHARS)</e></m></meta>
+		</URL_BYTES>
+		<encode public="1" set="method" line="35" static="1">
 			<f a="bytes:?complement" v=":true">
 				<c path="haxe.io.Bytes"/>
 				<x path="Bool"/>
@@ -8395,7 +8403,7 @@
 			</f>
 			<meta><m n=":value"><e>{ complement : true }</e></m></meta>
 		</encode>
-		<decode public="1" set="method" line="45" static="1">
+		<decode public="1" set="method" line="48" static="1">
 			<f a="str:?complement" v=":true">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -8403,6 +8411,22 @@
 			</f>
 			<meta><m n=":value"><e>{ complement : true }</e></m></meta>
 		</decode>
+		<urlEncode public="1" set="method" line="55" static="1">
+			<f a="bytes:?complement" v=":false">
+				<c path="haxe.io.Bytes"/>
+				<x path="Bool"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":value"><e>{ complement : false }</e></m></meta>
+		</urlEncode>
+		<urlDecode public="1" set="method" line="68" static="1">
+			<f a="str:?complement" v=":false">
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="haxe.io.Bytes"/>
+			</f>
+			<meta><m n=":value"><e>{ complement : false }</e></m></meta>
+		</urlDecode>
 		<haxe_doc>Allows one to encode/decode String and bytes using Base64 encoding.</haxe_doc>
 	</class>
 	<class path="haxe.crypto.BaseCode" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/crypto/BaseCode.hx">
