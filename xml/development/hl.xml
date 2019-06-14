@@ -3161,6 +3161,21 @@
 				</m>
 			</meta>
 		</compare>
+		<compare16 public="1" set="method" line="96" static="1">
+			<f a="this:bytes:size">
+				<x path="hl.Bytes"/>
+				<x path="hl.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":hlNative">
+					<e>"std"</e>
+					<e>"bytes_compare16"</e>
+				</m>
+			</meta>
+		</compare16>
 		<find public="1" set="method" line="102" static="1">
 			<f a="this:pos:size:bytes:bytesPos:bytesSize">
 				<x path="hl.Bytes"/>
@@ -28165,6 +28180,21 @@
 			</m>
 		</meta>
 	</compare>
+	<compare16 public="1" set="method" line="96" static="1">
+		<f a="this:bytes:size">
+			<x path="hl.Bytes"/>
+			<x path="hl.Bytes"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":hlNative">
+				<e>"std"</e>
+				<e>"bytes_compare16"</e>
+			</m>
+		</meta>
+	</compare16>
 	<find public="1" set="method" line="102" static="1">
 		<f a="this:pos:size:bytes:bytesPos:bytesSize">
 			<x path="hl.Bytes"/>
@@ -28846,6 +28876,21 @@
 </m></meta>
 			<haxe_doc>Decode PNG data into the target buffer.</haxe_doc>
 		</decodePNG>
+		<decodeDXT public="1" set="method" line="65" static="1">
+			<f a="src:dst:width:height:dxtFormat">
+				<x path="hl.Bytes"/>
+				<x path="hl.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"fmt"</e>
+	<e>"dxt_decode"</e>
+</m></meta>
+			<haxe_doc>Decode any image data into ARGB pixels</haxe_doc>
+		</decodeDXT>
 		<scaleImage public="1" set="method" line="75" static="1">
 			<f a="out:outPos:outStride:outWidth:outHeight:_in:inPos:inStride:inWidth:inHeight:flags">
 				<x path="hl.Bytes"/>
@@ -28865,7 +28910,8 @@
 	<e>"fmt"</e>
 	<e>"img_scale"</e>
 </m></meta>
-			<haxe_doc>Decode any image data into ARGB pixels</haxe_doc>
+			<haxe_doc>Upscale/downscale an image.
+		Currently supported flag bits: 1 = bilinear filtering</haxe_doc>
 		</scaleImage>
 		<digest public="1" set="method" line="84" static="1">
 			<f a="out:src:srcLen:algorithm">
