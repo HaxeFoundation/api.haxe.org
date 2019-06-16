@@ -7934,19 +7934,8 @@
 		<haxe_doc>String binary encoding supported by Haxe I/O</haxe_doc>
 		<meta><m n=":flatEnum"/></meta>
 	</enum>
-	<class path="js.lib.ArrayBufferView" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/ArrayBufferView.hx" extern="1" interface="1">
-		<buffer public="1" set="null"><c path="js.lib.ArrayBuffer"/></buffer>
-		<byteOffset public="1" set="null"><x path="Int"/></byteOffset>
-		<byteLength public="1" set="null"><x path="Int"/></byteLength>
-		<haxe_doc><![CDATA[`ArrayBufferView` is a helper type representing any of the following JavaScript `TypedArray` types:
-
-	Documentation [ArrayBufferView](https://developer.mozilla.org/en-US/docs/Web/API/ArrayBufferView) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/ArrayBufferView$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
-
-	@see <https://developer.mozilla.org/en-US/docs/Web/API/ArrayBufferView>]]></haxe_doc>
-	</class>
 	<class path="js.lib.Uint8Array" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Uint8Array.hx" extern="1">
-		<implements path="js.lib.ArrayBufferView"/>
-		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="1" line="29" static="1">
+		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="1" line="26" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>1</e></m></meta>
 		</BYTES_PER_ELEMENT>
@@ -7964,14 +7953,14 @@
 	<d/>
 	<c path="js.lib.Uint8Array"/>
 </f></from>
-		<BYTES_PER_ELEMENT_ public="1" set="null">
+		<BYTES_PER_ELEMENT_ final="1" public="1">
 			<x path="Int"/>
 			<meta><m n=":native"><e>"BYTES_PER_ELEMENT"</e></m></meta>
 		</BYTES_PER_ELEMENT_>
-		<length public="1" set="null"><x path="Int"/></length>
-		<buffer public="1" set="null"><c path="js.lib.ArrayBuffer"/></buffer>
-		<byteOffset public="1" set="null"><x path="Int"/></byteOffset>
-		<byteLength public="1" set="null"><x path="Int"/></byteLength>
+		<length final="1" public="1"><x path="Int"/></length>
+		<buffer final="1" public="1"><c path="js.lib.ArrayBuffer"/></buffer>
+		<byteOffset final="1" public="1"><x path="Int"/></byteOffset>
+		<byteLength final="1" public="1"><x path="Int"/></byteLength>
 		<set public="1" set="method">
 			<f a="array:?offset">
 				<c path="Array"><x path="Int"/></c>
@@ -14141,7 +14130,7 @@
 		</NetworkAuthenticationRequired>
 		<meta><m n=":enum"/></meta>
 	</class>
-	<typedef path="haxe.io.ArrayBufferViewData" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/_std/haxe/io/ArrayBufferView.hx" module="haxe.io.ArrayBufferView"><c path="js.lib.ArrayBufferView"/></typedef>
+	<typedef path="haxe.io.ArrayBufferViewData" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/_std/haxe/io/ArrayBufferView.hx" module="haxe.io.ArrayBufferView"><x path="js.lib.ArrayBufferView"/></typedef>
 	<abstract path="haxe.io.ArrayBufferView" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/_std/haxe/io/ArrayBufferView.hx">
 		<this><t path="haxe.io.ArrayBufferViewData"/></this>
 		<impl><class path="haxe.io._ArrayBufferView.ArrayBufferView_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/_std/haxe/io/ArrayBufferView.hx" private="1" module="haxe.io.ArrayBufferView">
@@ -14749,7 +14738,7 @@
 	<d/>
 	<x path="Bool"/>
 </f></isView>
-		<byteLength public="1" set="null"><x path="Int"/></byteLength>
+		<byteLength final="1" public="1"><x path="Int"/></byteLength>
 		<slice public="1" set="method"><f a="begin:?end">
 	<x path="Int"/>
 	<x path="Int"/>
@@ -14765,10 +14754,9 @@
 		<meta><m n=":native"><e>"ArrayBuffer"</e></m></meta>
 	</class>
 	<class path="js.lib.DataView" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/DataView.hx" extern="1">
-		<implements path="js.lib.ArrayBufferView"/>
-		<buffer public="1" set="null"><c path="js.lib.ArrayBuffer"/></buffer>
-		<byteOffset public="1" set="null"><x path="Int"/></byteOffset>
-		<byteLength public="1" set="null"><x path="Int"/></byteLength>
+		<buffer final="1" public="1"><c path="js.lib.ArrayBuffer"/></buffer>
+		<byteOffset final="1" public="1"><x path="Int"/></byteOffset>
+		<byteLength final="1" public="1"><x path="Int"/></byteLength>
 		<getInt8 public="1" set="method"><f a="byteOffset">
 	<x path="Int"/>
 	<x path="Int"/>
@@ -29195,7 +29183,7 @@
 		<meta><m n=":deprecated"/></meta>
 	</typedef>
 	<typedef path="js.html.ArrayBufferView" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/ArrayBufferView.hx">
-		<c path="js.lib.ArrayBufferView"/>
+		<x path="js.lib.ArrayBufferView"/>
 		<meta><m n=":deprecated"/></meta>
 	</typedef>
 	<typedef path="js.html.AssignedNodesOptions" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/AssignedNodesOptions.hx"><a><flatten>
@@ -29782,7 +29770,7 @@
 				<c path="Array"><x path="haxe.extern.EitherType">
 	<c path="js.lib.ArrayBuffer"/>
 	<x path="haxe.extern.EitherType">
-		<c path="js.lib.ArrayBufferView"/>
+		<x path="js.lib.ArrayBufferView"/>
 		<x path="haxe.extern.EitherType">
 			<c path="js.html.Blob"/>
 			<c path="String"/>
@@ -34963,8 +34951,8 @@
 		</subtle>
 		<getRandomValues public="1" set="method">
 			<f a="array">
-				<c path="js.lib.ArrayBufferView"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 			</f>
 			<haxe_doc>Fills the passed `TypedArray` with cryptographically sound random values.
 		@throws DOMError</haxe_doc>
@@ -36416,7 +36404,7 @@
 				</createImageBitmap>
 				<createImageBitmap public="1" set="method">
 					<f a="aImage">
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<c path="js.lib.Promise"><c path="js.html.ImageBitmap"/></c>
 					</f>
 					<haxe_doc>@throws DOMError</haxe_doc>
@@ -36496,7 +36484,7 @@
 				</createImageBitmap>
 				<createImageBitmap public="1" set="method">
 					<f a="aImage:aSx:aSy:aSw:aSh">
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<x path="Int"/>
 						<x path="Int"/>
 						<x path="Int"/>
@@ -36584,7 +36572,7 @@
 				</createImageBitmap>
 				<createImageBitmap public="1" set="method">
 					<f a="aImage:aOffset:aLength:aFormat:aLayout">
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<x path="Int"/>
 						<x path="Int"/>
 						<x path="js.html.ImageBitmapFormat"/>
@@ -39054,7 +39042,7 @@
 			<f a="fileBits:fileName:?options">
 				<c path="Array"><x path="haxe.extern.EitherType">
 	<x path="haxe.extern.EitherType">
-		<c path="js.lib.ArrayBufferView"/>
+		<x path="js.lib.ArrayBufferView"/>
 		<c path="js.lib.ArrayBuffer"/>
 	</x>
 	<x path="haxe.extern.EitherType">
@@ -39773,7 +39761,7 @@
 				<new public="1" set="method">
 					<f a="family:source:?descriptors">
 						<c path="String"/>
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<t path="js.html.FontFaceDescriptors"/>
 						<c path="js.html.FontFace"/>
 					</f>
@@ -46422,7 +46410,7 @@
 				<sendBeacon public="1" set="method">
 					<f a="url:?data">
 						<c path="String"/>
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<x path="Bool"/>
 					</f>
 					<haxe_doc>@throws DOMError</haxe_doc>
@@ -50110,7 +50098,7 @@
 	<c path="js.html.Blob"/>
 	<x path="haxe.extern.EitherType">
 		<x path="haxe.extern.EitherType">
-			<c path="js.lib.ArrayBufferView"/>
+			<x path="js.lib.ArrayBufferView"/>
 			<c path="js.lib.ArrayBuffer"/>
 		</x>
 		<x path="haxe.extern.EitherType">
@@ -50336,7 +50324,7 @@
 			<overloads>
 				<new public="1" set="method">
 					<f a="?body:?init">
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<t path="js.html.ResponseInit"/>
 						<c path="js.html.Response"/>
 					</f>
@@ -51964,7 +51952,7 @@
 		</onabort>
 		<appendBuffer public="1" set="method">
 			<f a="data">
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Appends media segment data from an `ArrayBuffer` or `ArrayBufferView` object to the `SourceBuffer`.
@@ -53285,7 +53273,7 @@
 				</x>
 				<c path="js.html.CryptoKey"/>
 				<x path="haxe.extern.EitherType">
-					<c path="js.lib.ArrayBufferView"/>
+					<x path="js.lib.ArrayBufferView"/>
 					<c path="js.lib.ArrayBuffer"/>
 				</x>
 				<c path="js.lib.Promise"><d/></c>
@@ -53301,7 +53289,7 @@
 				</x>
 				<c path="js.html.CryptoKey"/>
 				<x path="haxe.extern.EitherType">
-					<c path="js.lib.ArrayBufferView"/>
+					<x path="js.lib.ArrayBufferView"/>
 					<c path="js.lib.ArrayBuffer"/>
 				</x>
 				<c path="js.lib.Promise"><d/></c>
@@ -53317,7 +53305,7 @@
 				</x>
 				<c path="js.html.CryptoKey"/>
 				<x path="haxe.extern.EitherType">
-					<c path="js.lib.ArrayBufferView"/>
+					<x path="js.lib.ArrayBufferView"/>
 					<c path="js.lib.ArrayBuffer"/>
 				</x>
 				<c path="js.lib.Promise"><d/></c>
@@ -53333,11 +53321,11 @@
 				</x>
 				<c path="js.html.CryptoKey"/>
 				<x path="haxe.extern.EitherType">
-					<c path="js.lib.ArrayBufferView"/>
+					<x path="js.lib.ArrayBufferView"/>
 					<c path="js.lib.ArrayBuffer"/>
 				</x>
 				<x path="haxe.extern.EitherType">
-					<c path="js.lib.ArrayBufferView"/>
+					<x path="js.lib.ArrayBufferView"/>
 					<c path="js.lib.ArrayBuffer"/>
 				</x>
 				<c path="js.lib.Promise"><d/></c>
@@ -53352,7 +53340,7 @@
 					<c path="String"/>
 				</x>
 				<x path="haxe.extern.EitherType">
-					<c path="js.lib.ArrayBufferView"/>
+					<x path="js.lib.ArrayBufferView"/>
 					<c path="js.lib.ArrayBuffer"/>
 				</x>
 				<c path="js.lib.Promise"><d/></c>
@@ -53477,7 +53465,7 @@
 			<f a="format:wrappedKey:unwrappingKey:unwrapAlgorithm:unwrappedKeyAlgorithm:extractable:keyUsages">
 				<c path="String"/>
 				<x path="haxe.extern.EitherType">
-					<c path="js.lib.ArrayBufferView"/>
+					<x path="js.lib.ArrayBufferView"/>
 					<c path="js.lib.ArrayBuffer"/>
 				</x>
 				<c path="js.html.CryptoKey"/>
@@ -53973,7 +53961,7 @@
 		</ignoreBOM>
 		<decode public="1" set="method">
 			<f a="?input:?options">
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<t path="js.html.TextDecodeOptions"/>
 				<c path="String"/>
 			</f>
@@ -55544,7 +55532,7 @@
 		</close>
 		<send public="1" set="method">
 			<f a="data">
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>@throws DOMError</haxe_doc>
@@ -56511,7 +56499,7 @@
 				</createImageBitmap>
 				<createImageBitmap public="1" set="method">
 					<f a="aImage">
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<c path="js.lib.Promise"><c path="js.html.ImageBitmap"/></c>
 					</f>
 					<haxe_doc>@throws DOMError</haxe_doc>
@@ -56591,7 +56579,7 @@
 				</createImageBitmap>
 				<createImageBitmap public="1" set="method">
 					<f a="aImage:aSx:aSy:aSw:aSh">
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<x path="Int"/>
 						<x path="Int"/>
 						<x path="Int"/>
@@ -56679,7 +56667,7 @@
 				</createImageBitmap>
 				<createImageBitmap public="1" set="method">
 					<f a="aImage:aOffset:aLength:aFormat:aLayout">
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<x path="Int"/>
 						<x path="Int"/>
 						<x path="js.html.ImageBitmapFormat"/>
@@ -57049,7 +57037,7 @@
 				</send>
 				<send public="1" set="method">
 					<f a="?body">
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<x path="Void"/>
 					</f>
 					<haxe_doc>Sends the request. If the request is asynchronous (which is the default), this method returns as soon as the request is sent.
@@ -60142,7 +60130,7 @@
 		<generateRequest public="1" set="method">
 			<f a="initDataType:initData">
 				<c path="String"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<c path="js.lib.Promise"><x path="Void"/></c>
 			</f>
 			<haxe_doc>Returns a `Promise` after generating a media request based on initialization data.</haxe_doc>
@@ -60164,7 +60152,7 @@
 		</load>
 		<update public="1" set="method">
 			<f a="response">
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<c path="js.lib.Promise"><x path="Void"/></c>
 			</f>
 			<haxe_doc>Returns a `Promise` after loading messages and licenses to the CDM.</haxe_doc>
@@ -60240,7 +60228,7 @@
 		</size>
 		<has public="1" set="method">
 			<f a="keyId">
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>Returns a boolean asserting whether a value has been associated with the given key.</haxe_doc>
@@ -60254,7 +60242,7 @@
 		</has>
 		<get public="1" set="method">
 			<f a="keyId">
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<d/>
 			</f>
 			<haxe_doc>Returns the value associated with the given key, or `undefined` if there is none.
@@ -60384,7 +60372,7 @@
 		</createSession>
 		<setServerCertificate public="1" set="method">
 			<f a="serverCertificate">
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<c path="js.lib.Promise"><x path="Void"/></c>
 			</f>
 			<haxe_doc>Returns a `Promise` to a server certificate to be used to encrypt messages to the license server.</haxe_doc>
@@ -60786,7 +60774,7 @@
 				</write>
 				<write public="1" set="method">
 					<f a="value">
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<c path="js.html.idb.FileRequest"/>
 					</f>
 					<haxe_doc>@throws DOMError</haxe_doc>
@@ -60816,7 +60804,7 @@
 				</append>
 				<append public="1" set="method">
 					<f a="value">
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<c path="js.html.idb.FileRequest"/>
 					</f>
 					<haxe_doc>@throws DOMError</haxe_doc>
@@ -61979,7 +61967,7 @@
 	<data>
 		<x path="Null"><x path="haxe.extern.EitherType">
 	<x path="haxe.extern.EitherType">
-		<c path="js.lib.ArrayBufferView"/>
+		<x path="js.lib.ArrayBufferView"/>
 		<c path="js.lib.ArrayBuffer"/>
 	</x>
 	<c path="String"/>
@@ -62174,7 +62162,7 @@
 	</authSecret>
 	<appServerKey>
 		<x path="Null"><x path="haxe.extern.EitherType">
-	<c path="js.lib.ArrayBufferView"/>
+	<x path="js.lib.ArrayBufferView"/>
 	<c path="js.lib.ArrayBuffer"/>
 </x></x>
 		<meta><m n=":optional"/></meta>
@@ -62207,7 +62195,7 @@
 	<typedef path="js.html.push.PushSubscriptionOptionsInit" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/html/push/PushSubscriptionOptionsInit.hx"><a><applicationServerKey>
 	<x path="Null"><x path="haxe.extern.EitherType">
 	<x path="haxe.extern.EitherType">
-		<c path="js.lib.ArrayBufferView"/>
+		<x path="js.lib.ArrayBufferView"/>
 		<c path="js.lib.ArrayBuffer"/>
 	</x>
 	<c path="String"/>
@@ -62388,7 +62376,7 @@
 		<close public="1" set="method"><f a=""><x path="Void"/></f></close>
 		<send public="1" set="method">
 			<f a="data">
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>@throws DOMError</haxe_doc>
@@ -69080,7 +69068,7 @@
 		<bufferData public="1" set="method">
 			<f a="target:data:usage">
 				<x path="Int"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
@@ -69110,7 +69098,7 @@
 			<f a="target:offset:data">
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Updates buffer data starting at a passed offset.</haxe_doc>
@@ -69132,7 +69120,7 @@
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Specifies a 2D texture image in a compressed format.</haxe_doc>
@@ -69146,7 +69134,7 @@
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Specifies a 2D texture sub-image in a compressed format.</haxe_doc>
@@ -69159,7 +69147,7 @@
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Reads a block of pixels from the `WebGLFrameBuffer`.
@@ -69188,7 +69176,7 @@
 						<x path="Int"/>
 						<x path="Int"/>
 						<x path="Int"/>
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<x path="Void"/>
 					</f>
 					<haxe_doc>Specifies a 2D texture image.
@@ -69272,7 +69260,7 @@
 						<x path="Int"/>
 						<x path="Int"/>
 						<x path="Int"/>
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<x path="Void"/>
 					</f>
 					<haxe_doc>Updates a sub-rectangle of the current `WebGLTexture`.
@@ -72701,7 +72689,7 @@
 		<bufferData public="1" set="method" override="1">
 			<f a="target:srcData:usage:srcOffset:?length" v="::::0">
 				<x path="Int"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Int"/>
@@ -72731,7 +72719,7 @@
 				<bufferData public="1" set="method">
 					<f a="target:srcData:usage">
 						<x path="Int"/>
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<x path="Int"/>
 						<x path="Void"/>
 					</f>
@@ -72743,7 +72731,7 @@
 			<f a="target:dstByteOffset:srcData:srcOffset:?length" v="::::0">
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Void"/>
@@ -72764,7 +72752,7 @@
 					<f a="target:offset:srcData">
 						<x path="Int"/>
 						<x path="Int"/>
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<x path="Void"/>
 					</f>
 					<haxe_doc>Updates a subset of a buffer object's data store.</haxe_doc>
@@ -72786,7 +72774,7 @@
 			<f a="target:srcByteOffset:dstData:?dstOffset:?length" v=":::0:0">
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Void"/>
@@ -72904,7 +72892,7 @@
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
@@ -72920,7 +72908,7 @@
 						<x path="Int"/>
 						<x path="Int"/>
 						<x path="Int"/>
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<x path="Void"/>
 					</f>
 					<haxe_doc>@throws DOMError</haxe_doc>
@@ -73087,7 +73075,7 @@
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
@@ -73103,7 +73091,7 @@
 						<x path="Int"/>
 						<x path="Int"/>
 						<x path="Int"/>
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<x path="Void"/>
 					</f>
 					<haxe_doc>@throws DOMError</haxe_doc>
@@ -73276,7 +73264,7 @@
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
@@ -73396,7 +73384,7 @@
 						<x path="Int"/>
 						<x path="Int"/>
 						<x path="Int"/>
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<x path="Void"/>
 					</f>
 					<haxe_doc>Specifies a three-dimensional texture image.
@@ -73416,7 +73404,7 @@
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
@@ -73557,7 +73545,7 @@
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Void"/>
@@ -73584,7 +73572,7 @@
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Void"/>
@@ -73616,7 +73604,7 @@
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Void"/>
@@ -73646,7 +73634,7 @@
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Void"/>
@@ -74243,7 +74231,7 @@
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="js.lib.ArrayBufferView"/>
+				<x path="js.lib.ArrayBufferView"/>
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
@@ -74257,7 +74245,7 @@
 						<x path="Int"/>
 						<x path="Int"/>
 						<x path="Int"/>
-						<c path="js.lib.ArrayBufferView"/>
+						<x path="js.lib.ArrayBufferView"/>
 						<x path="Void"/>
 					</f>
 					<haxe_doc>@throws DOMError</haxe_doc>
@@ -76105,13 +76093,72 @@
 	<loseContext set="method"><f a=""><x path="Void"/></f></loseContext>
 </a></typedef>
 	<class path="js.lib._ArrayBuffer.ArrayBufferCompat" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/ArrayBuffer.hx" private="1" module="js.lib.ArrayBuffer">
-		<sliceImpl set="method" line="41" static="1"><f a="begin:?end">
+		<sliceImpl set="method" line="39" static="1"><f a="begin:?end">
 	<x path="Null"><x path="Int"/></x>
 	<x path="Int"/>
 	<c path="js.lib.ArrayBuffer"/>
 </f></sliceImpl>
 		<meta><m n=":ifFeature"><e>"js.lib.ArrayBuffer.slice"</e></m></meta>
 	</class>
+	<abstract path="js.lib.ArrayBufferView" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/ArrayBufferView.hx">
+		<from>
+			<icast><c path="js.lib.DataView"/></icast>
+			<icast><c path="js.lib.Float64Array"/></icast>
+			<icast><c path="js.lib.Float32Array"/></icast>
+			<icast><c path="js.lib.Uint32Array"/></icast>
+			<icast><c path="js.lib.Int32Array"/></icast>
+			<icast><c path="js.lib.Uint16Array"/></icast>
+			<icast><c path="js.lib.Int16Array"/></icast>
+			<icast><c path="js.lib.Uint8ClampedArray"/></icast>
+			<icast><c path="js.lib.Uint8Array"/></icast>
+			<icast><c path="js.lib.Int8Array"/></icast>
+		</from>
+		<this><t path="js.lib._ArrayBufferView._ArrayBufferView"/></this>
+		<haxe_doc><![CDATA[`ArrayBufferView` is a helper type representing any of the following JavaScript `TypedArray` types:
+
+	Documentation [ArrayBufferView](https://developer.mozilla.org/en-US/docs/Web/API/ArrayBufferView) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/ArrayBufferView$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/ArrayBufferView>]]></haxe_doc>
+		<meta><m n=":forward"/></meta>
+		<impl><class path="js.lib._ArrayBufferView.ArrayBufferView_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/ArrayBufferView.hx" private="1" module="js.lib.ArrayBufferView" extern="1"/></impl>
+	</abstract>
+	<class path="js.lib._ArrayBufferView.ArrayBufferView_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/ArrayBufferView.hx" private="1" module="js.lib.ArrayBufferView" extern="1"/>
+	<typedef path="js.lib._ArrayBufferView._ArrayBufferView" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/ArrayBufferView.hx" private="1" module="js.lib.ArrayBufferView"><a>
+	<byteOffset final="1" set="null"><x path="Int"/></byteOffset>
+	<byteLength final="1" set="null"><x path="Int"/></byteLength>
+	<buffer final="1" set="null"><c path="js.lib.ArrayBuffer"/></buffer>
+</a></typedef>
+	<abstract path="js.lib.BufferSource" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/BufferSource.hx">
+		<from>
+			<icast><c path="js.lib.ArrayBuffer"/></icast>
+			<icast field="fromBufferView"><x path="js.lib.ArrayBufferView"/></icast>
+		</from>
+		<this><c path="js.lib.ArrayBuffer"/></this>
+		<to><icast><c path="js.lib.ArrayBuffer"/></icast></to>
+		<haxe_doc><![CDATA[`BufferSource` is a typedef used to represent objects that are either themselves an [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer),
+	or which are a [TypedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) providing an [ArrayBufferView](https://developer.mozilla.org/en-US/docs/Web/API/ArrayBufferView).
+
+	This is a helper type to simplify the specification. It isn't an interface and there are no objects implementing it.
+
+	Documentation [BufferSource](https://developer.mozilla.org/en-US/docs/Web/API/BufferSource) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/BufferSource$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/BufferSource>]]></haxe_doc>
+		<meta><m n=":forward"/></meta>
+		<impl><class path="js.lib._BufferSource.BufferSource_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/BufferSource.hx" private="1" module="js.lib.BufferSource"><fromBufferView public="1" get="inline" set="null" line="38" static="1">
+	<f a="view">
+		<x path="js.lib.ArrayBufferView"/>
+		<x path="js.lib.BufferSource"/>
+	</f>
+	<meta><m n=":from"/></meta>
+</fromBufferView></class></impl>
+	</abstract>
+	<class path="js.lib._BufferSource.BufferSource_Impl_" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/BufferSource.hx" private="1" module="js.lib.BufferSource"><fromBufferView public="1" get="inline" set="null" line="38" static="1">
+	<f a="view">
+		<x path="js.lib.ArrayBufferView"/>
+		<x path="js.lib.BufferSource"/>
+	</f>
+	<meta><m n=":from"/></meta>
+</fromBufferView></class>
 	<class path="js.lib.Date" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Date.hx" extern="1">
 		<fromHaxeDate public="1" get="inline" set="null" line="40" static="1">
 			<f a="date">
@@ -76465,8 +76512,7 @@
 		<meta><m n=":native"><e>"URIError"</e></m></meta>
 	</class>
 	<class path="js.lib.Float32Array" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Float32Array.hx" extern="1">
-		<implements path="js.lib.ArrayBufferView"/>
-		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="4" line="29" static="1">
+		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="4" line="26" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>4</e></m></meta>
 		</BYTES_PER_ELEMENT>
@@ -76484,14 +76530,14 @@
 	<d/>
 	<c path="js.lib.Float32Array"/>
 </f></from>
-		<BYTES_PER_ELEMENT_ public="1" set="null">
+		<BYTES_PER_ELEMENT_ final="1" public="1">
 			<x path="Int"/>
 			<meta><m n=":native"><e>"BYTES_PER_ELEMENT"</e></m></meta>
 		</BYTES_PER_ELEMENT_>
-		<length public="1" set="null"><x path="Int"/></length>
-		<buffer public="1" set="null"><c path="js.lib.ArrayBuffer"/></buffer>
-		<byteOffset public="1" set="null"><x path="Int"/></byteOffset>
-		<byteLength public="1" set="null"><x path="Int"/></byteLength>
+		<length final="1" public="1"><x path="Int"/></length>
+		<buffer final="1" public="1"><c path="js.lib.ArrayBuffer"/></buffer>
+		<byteOffset final="1" public="1"><x path="Int"/></byteOffset>
+		<byteLength final="1" public="1"><x path="Int"/></byteLength>
 		<set public="1" set="method">
 			<f a="array:?offset">
 				<c path="Array"><x path="Float"/></c>
@@ -76700,8 +76746,7 @@
 		<meta><m n=":native"><e>"Float32Array"</e></m></meta>
 	</class>
 	<class path="js.lib.Float64Array" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Float64Array.hx" extern="1">
-		<implements path="js.lib.ArrayBufferView"/>
-		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="8" line="29" static="1">
+		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="8" line="26" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>8</e></m></meta>
 		</BYTES_PER_ELEMENT>
@@ -76719,14 +76764,14 @@
 	<d/>
 	<c path="js.lib.Float64Array"/>
 </f></from>
-		<BYTES_PER_ELEMENT_ public="1" set="null">
+		<BYTES_PER_ELEMENT_ final="1" public="1">
 			<x path="Int"/>
 			<meta><m n=":native"><e>"BYTES_PER_ELEMENT"</e></m></meta>
 		</BYTES_PER_ELEMENT_>
-		<length public="1" set="null"><x path="Int"/></length>
-		<buffer public="1" set="null"><c path="js.lib.ArrayBuffer"/></buffer>
-		<byteOffset public="1" set="null"><x path="Int"/></byteOffset>
-		<byteLength public="1" set="null"><x path="Int"/></byteLength>
+		<length final="1" public="1"><x path="Int"/></length>
+		<buffer final="1" public="1"><c path="js.lib.ArrayBuffer"/></buffer>
+		<byteOffset final="1" public="1"><x path="Int"/></byteOffset>
+		<byteLength final="1" public="1"><x path="Int"/></byteLength>
 		<set public="1" set="method">
 			<f a="array:?offset">
 				<c path="Array"><x path="Float"/></c>
@@ -76983,8 +77028,7 @@
 		<meta><m n=":native"><e>"Function"</e></m></meta>
 	</class>
 	<class path="js.lib.Int16Array" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Int16Array.hx" extern="1">
-		<implements path="js.lib.ArrayBufferView"/>
-		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="2" line="29" static="1">
+		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="2" line="26" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>2</e></m></meta>
 		</BYTES_PER_ELEMENT>
@@ -77002,14 +77046,14 @@
 	<d/>
 	<c path="js.lib.Int16Array"/>
 </f></from>
-		<BYTES_PER_ELEMENT_ public="1" set="null">
+		<BYTES_PER_ELEMENT_ final="1" public="1">
 			<x path="Int"/>
 			<meta><m n=":native"><e>"BYTES_PER_ELEMENT"</e></m></meta>
 		</BYTES_PER_ELEMENT_>
-		<length public="1" set="null"><x path="Int"/></length>
-		<buffer public="1" set="null"><c path="js.lib.ArrayBuffer"/></buffer>
-		<byteOffset public="1" set="null"><x path="Int"/></byteOffset>
-		<byteLength public="1" set="null"><x path="Int"/></byteLength>
+		<length final="1" public="1"><x path="Int"/></length>
+		<buffer final="1" public="1"><c path="js.lib.ArrayBuffer"/></buffer>
+		<byteOffset final="1" public="1"><x path="Int"/></byteOffset>
+		<byteLength final="1" public="1"><x path="Int"/></byteLength>
 		<set public="1" set="method">
 			<f a="array:?offset">
 				<c path="Array"><x path="Int"/></c>
@@ -77218,8 +77262,7 @@
 		<meta><m n=":native"><e>"Int16Array"</e></m></meta>
 	</class>
 	<class path="js.lib.Int32Array" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Int32Array.hx" extern="1">
-		<implements path="js.lib.ArrayBufferView"/>
-		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="4" line="29" static="1">
+		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="4" line="26" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>4</e></m></meta>
 		</BYTES_PER_ELEMENT>
@@ -77237,14 +77280,14 @@
 	<d/>
 	<c path="js.lib.Int32Array"/>
 </f></from>
-		<BYTES_PER_ELEMENT_ public="1" set="null">
+		<BYTES_PER_ELEMENT_ final="1" public="1">
 			<x path="Int"/>
 			<meta><m n=":native"><e>"BYTES_PER_ELEMENT"</e></m></meta>
 		</BYTES_PER_ELEMENT_>
-		<length public="1" set="null"><x path="Int"/></length>
-		<buffer public="1" set="null"><c path="js.lib.ArrayBuffer"/></buffer>
-		<byteOffset public="1" set="null"><x path="Int"/></byteOffset>
-		<byteLength public="1" set="null"><x path="Int"/></byteLength>
+		<length final="1" public="1"><x path="Int"/></length>
+		<buffer final="1" public="1"><c path="js.lib.ArrayBuffer"/></buffer>
+		<byteOffset final="1" public="1"><x path="Int"/></byteOffset>
+		<byteLength final="1" public="1"><x path="Int"/></byteLength>
 		<set public="1" set="method">
 			<f a="array:?offset">
 				<c path="Array"><x path="Int"/></c>
@@ -77453,8 +77496,7 @@
 		<meta><m n=":native"><e>"Int32Array"</e></m></meta>
 	</class>
 	<class path="js.lib.Int8Array" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Int8Array.hx" extern="1">
-		<implements path="js.lib.ArrayBufferView"/>
-		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="1" line="29" static="1">
+		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="1" line="26" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>1</e></m></meta>
 		</BYTES_PER_ELEMENT>
@@ -77472,14 +77514,14 @@
 	<d/>
 	<c path="js.lib.Int8Array"/>
 </f></from>
-		<BYTES_PER_ELEMENT_ public="1" set="null">
+		<BYTES_PER_ELEMENT_ final="1" public="1">
 			<x path="Int"/>
 			<meta><m n=":native"><e>"BYTES_PER_ELEMENT"</e></m></meta>
 		</BYTES_PER_ELEMENT_>
-		<length public="1" set="null"><x path="Int"/></length>
-		<buffer public="1" set="null"><c path="js.lib.ArrayBuffer"/></buffer>
-		<byteOffset public="1" set="null"><x path="Int"/></byteOffset>
-		<byteLength public="1" set="null"><x path="Int"/></byteLength>
+		<length final="1" public="1"><x path="Int"/></length>
+		<buffer final="1" public="1"><c path="js.lib.ArrayBuffer"/></buffer>
+		<byteOffset final="1" public="1"><x path="Int"/></byteOffset>
+		<byteLength final="1" public="1"><x path="Int"/></byteLength>
 		<set public="1" set="method">
 			<f a="array:?offset">
 				<c path="Array"><x path="Int"/></c>
@@ -78906,8 +78948,7 @@
 		<meta><m n=":native"><e>"Symbol"</e></m></meta>
 	</class>
 	<class path="js.lib.Uint16Array" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Uint16Array.hx" extern="1">
-		<implements path="js.lib.ArrayBufferView"/>
-		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="2" line="29" static="1">
+		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="2" line="26" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>2</e></m></meta>
 		</BYTES_PER_ELEMENT>
@@ -78925,14 +78966,14 @@
 	<d/>
 	<c path="js.lib.Uint16Array"/>
 </f></from>
-		<BYTES_PER_ELEMENT_ public="1" set="null">
+		<BYTES_PER_ELEMENT_ final="1" public="1">
 			<x path="Int"/>
 			<meta><m n=":native"><e>"BYTES_PER_ELEMENT"</e></m></meta>
 		</BYTES_PER_ELEMENT_>
-		<length public="1" set="null"><x path="Int"/></length>
-		<buffer public="1" set="null"><c path="js.lib.ArrayBuffer"/></buffer>
-		<byteOffset public="1" set="null"><x path="Int"/></byteOffset>
-		<byteLength public="1" set="null"><x path="Int"/></byteLength>
+		<length final="1" public="1"><x path="Int"/></length>
+		<buffer final="1" public="1"><c path="js.lib.ArrayBuffer"/></buffer>
+		<byteOffset final="1" public="1"><x path="Int"/></byteOffset>
+		<byteLength final="1" public="1"><x path="Int"/></byteLength>
 		<set public="1" set="method">
 			<f a="array:?offset">
 				<c path="Array"><x path="Int"/></c>
@@ -79141,8 +79182,7 @@
 		<meta><m n=":native"><e>"Uint16Array"</e></m></meta>
 	</class>
 	<class path="js.lib.Uint32Array" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Uint32Array.hx" extern="1">
-		<implements path="js.lib.ArrayBufferView"/>
-		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="4" line="29" static="1">
+		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="4" line="26" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>4</e></m></meta>
 		</BYTES_PER_ELEMENT>
@@ -79160,14 +79200,14 @@
 	<d/>
 	<c path="js.lib.Uint32Array"/>
 </f></from>
-		<BYTES_PER_ELEMENT_ public="1" set="null">
+		<BYTES_PER_ELEMENT_ final="1" public="1">
 			<x path="Int"/>
 			<meta><m n=":native"><e>"BYTES_PER_ELEMENT"</e></m></meta>
 		</BYTES_PER_ELEMENT_>
-		<length public="1" set="null"><x path="Int"/></length>
-		<buffer public="1" set="null"><c path="js.lib.ArrayBuffer"/></buffer>
-		<byteOffset public="1" set="null"><x path="Int"/></byteOffset>
-		<byteLength public="1" set="null"><x path="Int"/></byteLength>
+		<length final="1" public="1"><x path="Int"/></length>
+		<buffer final="1" public="1"><c path="js.lib.ArrayBuffer"/></buffer>
+		<byteOffset final="1" public="1"><x path="Int"/></byteOffset>
+		<byteLength final="1" public="1"><x path="Int"/></byteLength>
 		<set public="1" set="method">
 			<f a="array:?offset">
 				<c path="Array"><x path="Int"/></c>
@@ -79376,8 +79416,7 @@
 		<meta><m n=":native"><e>"Uint32Array"</e></m></meta>
 	</class>
 	<class path="js.lib.Uint8ClampedArray" params="" file="/home/travis/build/HaxeFoundation/haxe/std/js/lib/Uint8ClampedArray.hx" extern="1">
-		<implements path="js.lib.ArrayBufferView"/>
-		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="1" line="29" static="1">
+		<BYTES_PER_ELEMENT public="1" get="inline" set="null" expr="1" line="26" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>1</e></m></meta>
 		</BYTES_PER_ELEMENT>
@@ -79395,14 +79434,14 @@
 	<d/>
 	<c path="js.lib.Uint8ClampedArray"/>
 </f></from>
-		<BYTES_PER_ELEMENT_ public="1" set="null">
+		<BYTES_PER_ELEMENT_ final="1" public="1">
 			<x path="Int"/>
 			<meta><m n=":native"><e>"BYTES_PER_ELEMENT"</e></m></meta>
 		</BYTES_PER_ELEMENT_>
-		<length public="1" set="null"><x path="Int"/></length>
-		<buffer public="1" set="null"><c path="js.lib.ArrayBuffer"/></buffer>
-		<byteOffset public="1" set="null"><x path="Int"/></byteOffset>
-		<byteLength public="1" set="null"><x path="Int"/></byteLength>
+		<length final="1" public="1"><x path="Int"/></length>
+		<buffer final="1" public="1"><c path="js.lib.ArrayBuffer"/></buffer>
+		<byteOffset final="1" public="1"><x path="Int"/></byteOffset>
+		<byteLength final="1" public="1"><x path="Int"/></byteLength>
 		<set public="1" set="method">
 			<f a="array:?offset">
 				<c path="Array"><x path="Int"/></c>
