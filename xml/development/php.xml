@@ -5753,10 +5753,7 @@
 		<base64_encode public="1" set="method" static="1">
 			<f a="data">
 				<c path="String"/>
-				<x path="haxe.extern.EitherType">
-					<c path="String"/>
-					<x path="Bool"/>
-				</x>
+				<c path="String"/>
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.base64-encode.php</haxe_doc>
 		</base64_encode>
@@ -11579,15 +11576,31 @@
 </f></new>
 	</class>
 	<class path="haxe.crypto.Base64" params="" file="/home/travis/build/HaxeFoundation/haxe/std/php/_std/haxe/crypto/Base64.hx">
-		<CHARS public="1" set="null" expr="&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;" line="29" static="1">
+		<CHARS public="1" set="null" expr="&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;" line="31" static="1">
 			<c path="String"/>
 			<meta><m n=":value"><e>"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"</e></m></meta>
 		</CHARS>
-		<BYTES public="1" set="null" expr="haxe.io.Bytes.ofString(CHARS)" line="30" static="1">
+		<BYTES public="1" set="null" expr="haxe.io.Bytes.ofString(CHARS)" line="32" static="1">
 			<c path="haxe.io.Bytes"/>
 			<meta><m n=":value"><e>haxe.io.Bytes.ofString(CHARS)</e></m></meta>
 		</BYTES>
-		<encode public="1" get="inline" set="null" line="32" static="1">
+		<URL_CHARS public="1" set="null" expr="&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_&quot;" line="34" static="1">
+			<c path="String"/>
+			<meta><m n=":value"><e>"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"</e></m></meta>
+		</URL_CHARS>
+		<URL_BYTES public="1" set="null" expr="haxe.io.Bytes.ofString(URL_CHARS)" line="35" static="1">
+			<c path="haxe.io.Bytes"/>
+			<meta><m n=":value"><e>haxe.io.Bytes.ofString(URL_CHARS)</e></m></meta>
+		</URL_BYTES>
+		<NORMAL_62_63 final="1" set="null" expr="Syntax.arrayDecl(&quot;+&quot;, &quot;/&quot;)" line="37" static="1">
+			<x path="php.NativeArray"/>
+			<meta><m n=":value"><e>Syntax.arrayDecl("+", "/")</e></m></meta>
+		</NORMAL_62_63>
+		<URL_62_63 final="1" set="null" expr="Syntax.arrayDecl(&quot;-&quot;, &quot;_&quot;)" line="38" static="1">
+			<x path="php.NativeArray"/>
+			<meta><m n=":value"><e>Syntax.arrayDecl("-", "_")</e></m></meta>
+		</URL_62_63>
+		<encode public="1" get="inline" set="null" line="40" static="1">
 			<f a="bytes:?complement" v=":true">
 				<c path="haxe.io.Bytes"/>
 				<x path="Bool"/>
@@ -11595,7 +11608,7 @@
 			</f>
 			<meta><m n=":value"><e>{ complement : true }</e></m></meta>
 		</encode>
-		<decode public="1" get="inline" set="null" line="37" static="1">
+		<decode public="1" get="inline" set="null" line="45" static="1">
 			<f a="str:?complement" v=":true">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -11603,6 +11616,22 @@
 			</f>
 			<meta><m n=":value"><e>{ complement : true }</e></m></meta>
 		</decode>
+		<urlEncode public="1" get="inline" set="null" line="58" static="1">
+			<f a="bytes:?complement" v=":true">
+				<c path="haxe.io.Bytes"/>
+				<x path="Bool"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":value"><e>{ complement : true }</e></m></meta>
+		</urlEncode>
+		<urlDecode public="1" get="inline" set="null" line="63" static="1">
+			<f a="str:?complement" v=":true">
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="haxe.io.Bytes"/>
+			</f>
+			<meta><m n=":value"><e>{ complement : true }</e></m></meta>
+		</urlDecode>
 	</class>
 	<class path="haxe.crypto.BaseCode" params="" file="/home/travis/build/HaxeFoundation/haxe/std/haxe/crypto/BaseCode.hx">
 		<encode public="1" set="method" line="127" static="1"><f a="s:base">
