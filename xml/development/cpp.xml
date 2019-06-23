@@ -5676,6 +5676,13 @@
 	<c path="cpp.RawConstPointer"><c path="fromRaw.T"/></c>
 	<c path="cpp.ConstPointer"><c path="fromRaw.T"/></c>
 </f></fromRaw>
+		<fromStar public="1" params="T" set="method" static="1">
+			<f a="star">
+				<t path="cpp.Star"><c path="fromStar.T"/></t>
+				<c path="cpp.ConstPointer"><c path="fromStar.T"/></c>
+			</f>
+			<meta><m n=":native"><e>"::cpp::Pointer_obj::fromRaw"</e></m></meta>
+		</fromStar>
 		<fromPointer public="1" params="T" set="method" static="1"><f a="inNativePointer">
 	<d/>
 	<c path="cpp.ConstPointer"><c path="fromPointer.T"/></c>
@@ -8257,6 +8264,13 @@
 	<c path="cpp.RawPointer"><c path="fromRaw.T"/></c>
 	<c path="cpp.Pointer"><c path="fromRaw.T"/></c>
 </f></fromRaw>
+		<fromStar public="1" params="T" set="method" static="1">
+			<f a="star">
+				<t path="cpp.Star"><c path="fromStar.T"/></t>
+				<c path="cpp.Pointer"><c path="fromStar.T"/></c>
+			</f>
+			<meta><m n=":native"><e>"::cpp::Pointer_obj::fromRaw"</e></m></meta>
+		</fromStar>
 		<nativeFromHandle public="1" params="T" set="method" static="1">
 			<f a="inHandle:?inKind">
 				<d/>
@@ -8265,7 +8279,7 @@
 			</f>
 			<meta><m n=":native"><e>"::cpp::Pointer_obj::fromHandle"</e></m></meta>
 		</nativeFromHandle>
-		<fromHandle public="1" params="T" get="inline" set="null" line="41" static="1"><f a="inHandle:?inKind">
+		<fromHandle public="1" params="T" get="inline" set="null" line="44" static="1"><f a="inHandle:?inKind">
 	<d/>
 	<c path="String"/>
 	<c path="cpp.Pointer"><c path="fromHandle.T"/></c>
@@ -8290,7 +8304,7 @@
 			</f>
 			<meta><m n=":native"><e>"::cpp::Pointer_obj::arrayElem"</e></m></meta>
 		</nativeArrayElem>
-		<arrayElem public="1" params="T" get="inline" set="null" line="54" static="1"><f a="array:inElem">
+		<arrayElem public="1" params="T" get="inline" set="null" line="57" static="1"><f a="array:inElem">
 	<c path="Array"><c path="arrayElem.T"/></c>
 	<x path="Int"/>
 	<c path="cpp.Pointer"><c path="arrayElem.T"/></c>
@@ -8302,7 +8316,7 @@
 			</f>
 			<meta><m n=":native"><e>"::cpp::Pointer_obj::ofArray"</e></m></meta>
 		</nativeOfArray>
-		<ofArray public="1" params="T" get="inline" set="null" line="61" static="1"><f a="array">
+		<ofArray public="1" params="T" get="inline" set="null" line="64" static="1"><f a="array">
 	<c path="Array"><c path="ofArray.T"/></c>
 	<c path="cpp.Pointer"><c path="ofArray.T"/></c>
 </f></ofArray>
@@ -8317,11 +8331,11 @@
 	<c path="cpp.Pointer.T"/>
 	<x path="Void"/>
 </f></setAt>
-		<toUnmanagedArray public="1" get="inline" set="null" line="66"><f a="elementCount">
+		<toUnmanagedArray public="1" get="inline" set="null" line="69"><f a="elementCount">
 	<x path="Int"/>
 	<c path="Array"><c path="cpp.Pointer.T"/></c>
 </f></toUnmanagedArray>
-		<toUnmanagedVector public="1" get="inline" set="null" line="73"><f a="elementCount">
+		<toUnmanagedVector public="1" get="inline" set="null" line="76"><f a="elementCount">
 	<x path="Int"/>
 	<x path="haxe.ds.Vector"><c path="cpp.Pointer.T"/></x>
 </f></toUnmanagedVector>
