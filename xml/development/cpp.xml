@@ -6975,7 +6975,10 @@
 			</f>
 			<meta><m n=":native"><e>"_hx_std_process_close"</e></m></meta>
 		</process_close>
-		<meta><m n=":buildXml"><e><![CDATA["<include name=\"${HXCPP}/src/hx/libs/std/Build.xml\"/>"]]></e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":buildXml"><e><![CDATA["<include name=\"${HXCPP}/src/hx/libs/std/Build.xml\"/>"]]></e></m>
+		</meta>
 	</class>
 	<class path="cpp.NativeRandom" params="" file="/home/vsts/work/1/s/std/cpp/NativeRandom.hx" extern="1">
 		<random_new public="1" set="method" static="1">
@@ -36134,58 +36137,103 @@
 	</enum>
 	<class path="sys.io._Process.Stdin" params="" file="/home/vsts/work/1/s/std/cpp/_std/sys/io/Process.hx" private="1" module="sys.io.Process">
 		<extends path="haxe.io.Output"/>
-		<p><d/></p>
-		<buf><c path="haxe.io.Bytes"/></buf>
-		<close public="1" set="method" line="36" override="1"><f a=""><x path="Void"/></f></close>
-		<writeByte public="1" set="method" line="41" override="1"><f a="c">
-	<x path="Int"/>
-	<x path="Void"/>
-</f></writeByte>
-		<writeBytes public="1" set="method" line="46" override="1"><f a="buf:pos:len">
-	<c path="haxe.io.Bytes"/>
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></writeBytes>
-		<new public="1" set="method" line="31"><f a="p">
-	<d/>
-	<x path="Void"/>
-</f></new>
+		<p>
+			<d/>
+			<meta><m n=":keep"/></meta>
+		</p>
+		<buf>
+			<c path="haxe.io.Bytes"/>
+			<meta><m n=":keep"/></meta>
+		</buf>
+		<close public="1" set="method" line="36" override="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</close>
+		<writeByte public="1" set="method" line="41" override="1">
+			<f a="c">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</writeByte>
+		<writeBytes public="1" set="method" line="46" override="1">
+			<f a="buf:pos:len">
+				<c path="haxe.io.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</writeBytes>
+		<new public="1" set="method" line="31">
+			<f a="p">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</new>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="sys.io._Process.Stdout" params="" file="/home/vsts/work/1/s/std/cpp/_std/sys/io/Process.hx" private="1" module="sys.io.Process">
 		<extends path="haxe.io.Input"/>
-		<p><d/></p>
-		<out><x path="Bool"/></out>
-		<buf><c path="haxe.io.Bytes"/></buf>
-		<readByte public="1" set="method" line="67" override="1"><f a=""><x path="Int"/></f></readByte>
-		<readBytes public="1" set="method" line="73" override="1"><f a="str:pos:len">
-	<c path="haxe.io.Bytes"/>
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></readBytes>
-		<new public="1" set="method" line="61"><f a="p:out">
-	<d/>
-	<x path="Bool"/>
-	<x path="Void"/>
-</f></new>
+		<p>
+			<d/>
+			<meta><m n=":keep"/></meta>
+		</p>
+		<out>
+			<x path="Bool"/>
+			<meta><m n=":keep"/></meta>
+		</out>
+		<buf>
+			<c path="haxe.io.Bytes"/>
+			<meta><m n=":keep"/></meta>
+		</buf>
+		<readByte public="1" set="method" line="67" override="1">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":keep"/></meta>
+		</readByte>
+		<readBytes public="1" set="method" line="73" override="1">
+			<f a="str:pos:len">
+				<c path="haxe.io.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</readBytes>
+		<new public="1" set="method" line="61">
+			<f a="p:out">
+				<d/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</new>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="sys.io.Process" params="" file="/home/vsts/work/1/s/std/cpp/_std/sys/io/Process.hx">
-		<p><d/></p>
+		<p>
+			<d/>
+			<meta><m n=":keep"/></meta>
+		</p>
 		<stdout public="1" set="null">
 			<c path="haxe.io.Input"/>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Standard output. The output stream where a process writes its output data.</haxe_doc>
 		</stdout>
 		<stderr public="1" set="null">
 			<c path="haxe.io.Input"/>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Standard error. The output stream to output error messages or diagnostics.</haxe_doc>
 		</stderr>
 		<stdin public="1" set="null">
 			<c path="haxe.io.Output"/>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Standard input. The stream data going into a process.</haxe_doc>
 		</stdin>
 		<getPid public="1" set="method" line="103">
 			<f a=""><x path="Int"/></f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Return the process ID.</haxe_doc>
 		</getPid>
 		<exitCode public="1" set="method" line="107">
@@ -36193,7 +36241,10 @@
 				<x path="Bool"/>
 				<x path="Null"><x path="Int"/></x>
 			</f>
-			<meta><m n=":value"><e>{ block : true }</e></m></meta>
+			<meta>
+				<m n=":value"><e>{ block : true }</e></m>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Query the exit code of the process.
 		If `block` is true or not specified, it will block until the process terminates.
 		If `block` is false, it will return either the process exit code if it's already terminated or null if it's still running.
@@ -36201,11 +36252,13 @@
 		</exitCode>
 		<close public="1" set="method" line="113">
 			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Close the process handle and release the associated resources.
 		All `Process` fields should not be used after `close()` is called.</haxe_doc>
 		</close>
 		<kill public="1" set="method" line="117">
 			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Kill the process.</haxe_doc>
 		</kill>
 		<new public="1" set="method" line="94">
@@ -36215,6 +36268,7 @@
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Construct a `Process` object, which run the given command immediately.
 
 		Command arguments can be passed in two ways: 1. using `args`, 2. appending to `cmd` and leaving `args` as `null`.
