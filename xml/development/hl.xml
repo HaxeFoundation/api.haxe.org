@@ -408,43 +408,43 @@
 		</meta>
 	</abstract>
 	<class path="Date" params="" file="/home/vsts/work/1/s/std/hl/_std/Date.hx">
-		<now public="1" set="method" line="84" static="1">
+		<now public="1" set="method" line="137" static="1">
 			<f a=""><c path="Date"/></f>
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Returns a Date representing the current local time.</haxe_doc>
 		</now>
-		<fromInt set="method" line="90" static="1">
+		<fromInt set="method" line="143" static="1">
 			<f a="t">
 				<x path="Int"/>
 				<c path="Date"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</fromInt>
-		<fromTime public="1" set="method" line="96" static="1">
+		<fromTime public="1" set="method" line="149" static="1">
 			<f a="t">
 				<x path="Float"/>
 				<c path="Date"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Returns a Date from timestamp (in milliseconds) `t`.</haxe_doc>
+			<haxe_doc>Creates a Date from the timestamp (in milliseconds) `t`.</haxe_doc>
 		</fromTime>
-		<fromString public="1" set="method" line="102" static="1">
+		<fromString public="1" set="method" line="155" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="Date"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Returns a Date from a formatted string `s`, with the following accepted
-		formats:
+			<haxe_doc>Creates a Date from the formatted string `s`. The following formats are
+		accepted by the function:
 
 		- `"YYYY-MM-DD hh:mm:ss"`
 		- `"YYYY-MM-DD"`
 		- `"hh:mm:ss"`
 
-		The first two formats are expressed in local time, the third in UTC
-		Epoch.</haxe_doc>
+		The first two formats expressed a date in local time. The third is a time
+		relative to the UTC epoch.</haxe_doc>
 		</fromString>
-		<date_new set="method" line="109" static="1">
+		<date_new set="method" line="162" static="1">
 			<f a="year:month:day:hours:minutes:seconds">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -456,18 +456,18 @@
 			</f>
 			<meta><m n=":hlNative"/></meta>
 		</date_new>
-		<date_now set="method" line="114" static="1">
+		<date_now set="method" line="167" static="1">
 			<f a=""><x path="Int"/></f>
 			<meta><m n=":hlNative"/></meta>
 		</date_now>
-		<date_from_time set="method" line="119" static="1">
+		<date_from_time set="method" line="172" static="1">
 			<f a="t">
 				<x path="Float"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":hlNative"/></meta>
 		</date_from_time>
-		<date_from_string set="method" line="124" static="1">
+		<date_from_string set="method" line="177" static="1">
 			<f a="b:len">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -475,14 +475,14 @@
 			</f>
 			<meta><m n=":hlNative"/></meta>
 		</date_from_string>
-		<date_get_time set="method" line="129" static="1">
+		<date_get_time set="method" line="182" static="1">
 			<f a="t">
 				<x path="Int"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":hlNative"/></meta>
 		</date_get_time>
-		<date_get_inf set="method" line="134" static="1">
+		<date_get_inf set="method" line="187" static="1">
 			<f a="t:year:month:day:hours:minutes:seconds:wday">
 				<x path="Int"/>
 				<x path="hl.Ref"><x path="Int"/></x>
@@ -496,7 +496,21 @@
 			</f>
 			<meta><m n=":hlNative"/></meta>
 		</date_get_inf>
-		<date_to_string set="method" line="137" static="1">
+		<date_get_utc_inf set="method" line="190" static="1">
+			<f a="t:year:month:day:hours:minutes:seconds:wday">
+				<x path="Int"/>
+				<x path="hl.Ref"><x path="Int"/></x>
+				<x path="hl.Ref"><x path="Int"/></x>
+				<x path="hl.Ref"><x path="Int"/></x>
+				<x path="hl.Ref"><x path="Int"/></x>
+				<x path="hl.Ref"><x path="Int"/></x>
+				<x path="hl.Ref"><x path="Int"/></x>
+				<x path="hl.Ref"><x path="Int"/></x>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":hlNative"/></meta>
+		</date_get_utc_inf>
+		<date_to_string set="method" line="193" static="1">
 			<f a="t:outLen">
 				<x path="Int"/>
 				<x path="hl.Ref"><x path="Int"/></x>
@@ -507,46 +521,89 @@
 		<t><x path="Int"/></t>
 		<getTime public="1" set="method" line="32">
 			<f a=""><x path="Float"/></f>
-			<haxe_doc>Returns the timestamp (in milliseconds) of the date. It might
-		only have a per-second precision depending on the platforms.
+			<haxe_doc>Returns the timestamp (in milliseconds) of `this` date.
+		On cpp and neko, this function only has a second resolution, so the
+		result will always be a multiple of `1000.0`, e.g. `1454698271000.0`.
+		To obtain the current timestamp with better precision on cpp and neko,
+		see the `Sys.time` API.
 
 		For measuring time differences with millisecond accuracy on
 		all platforms, see `haxe.Timer.stamp`.</haxe_doc>
 		</getTime>
 		<getFullYear public="1" set="method" line="36">
 			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the full year of `this` Date (4-digits).</haxe_doc>
+			<haxe_doc>Returns the full year of `this` Date (4 digits) in the local timezone.</haxe_doc>
 		</getFullYear>
 		<getMonth public="1" set="method" line="42">
 			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the month of `this` Date (0-11 range).</haxe_doc>
+			<haxe_doc>Returns the month of `this` Date (0-11 range) in the local timezone.
+		Note that the month number is zero-based.</haxe_doc>
 		</getMonth>
 		<getDate public="1" set="method" line="48">
 			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the day of `this` Date (1-31 range).</haxe_doc>
+			<haxe_doc>Returns the day of `this` Date (1-31 range) in the local timezone.</haxe_doc>
 		</getDate>
 		<getHours public="1" set="method" line="54">
 			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the hours of `this` Date (0-23 range).</haxe_doc>
+			<haxe_doc>Returns the hours of `this` Date (0-23 range) in the local timezone.</haxe_doc>
 		</getHours>
 		<getMinutes public="1" set="method" line="60">
 			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the minutes of `this` Date (0-59 range).</haxe_doc>
+			<haxe_doc>Returns the minutes of `this` Date (0-59 range) in the local timezone.</haxe_doc>
 		</getMinutes>
 		<getSeconds public="1" set="method" line="66">
 			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the seconds of `this` Date (0-59 range).</haxe_doc>
+			<haxe_doc>Returns the seconds of `this` Date (0-59 range) in the local timezone.</haxe_doc>
 		</getSeconds>
 		<getDay public="1" set="method" line="72">
 			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the day of the week of `this` Date (0-6 range) where `0` is Sunday.</haxe_doc>
+			<haxe_doc>Returns the day of the week of `this` Date (0-6 range, where `0` is Sunday)
+		in the local timezone.</haxe_doc>
 		</getDay>
-		<toString public="1" set="method" line="78">
+		<getUTCFullYear public="1" set="method" line="78">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the full year of `this` Date (4 digits) in UTC.</haxe_doc>
+		</getUTCFullYear>
+		<getUTCMonth public="1" set="method" line="84">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the month of `this` Date (0-11 range) in UTC.
+		Note that the month number is zero-based.</haxe_doc>
+		</getUTCMonth>
+		<getUTCDate public="1" set="method" line="90">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the day of `this` Date (1-31 range) in UTC.</haxe_doc>
+		</getUTCDate>
+		<getUTCHours public="1" set="method" line="96">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the hours of `this` Date (0-23 range) in UTC.</haxe_doc>
+		</getUTCHours>
+		<getUTCMinutes public="1" set="method" line="102">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the minutes of `this` Date (0-59 range) in UTC.</haxe_doc>
+		</getUTCMinutes>
+		<getUTCSeconds public="1" set="method" line="108">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the seconds of `this` Date (0-59 range) in UTC.</haxe_doc>
+		</getUTCSeconds>
+		<getUTCDay public="1" set="method" line="114">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the day of the week of `this` Date (0-6 range, where `0` is Sunday)
+		in UTC.</haxe_doc>
+		</getUTCDay>
+		<getTimezoneOffset public="1" set="method" line="120">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the time zone difference of `this` Date in the current locale
+		to UTC, in minutes.
+
+		Assuming the function is executed on a machine in a UTC+2 timezone,
+		`Date.now().getTimezoneOffset()` will return `-120`.</haxe_doc>
+		</getTimezoneOffset>
+		<toString public="1" set="method" line="131">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":keep"/></meta>
-			<haxe_doc>Returns a string representation of `this` Date, by using the
-		standard format [YYYY-MM-DD HH:MM:SS]. See `DateTools.format` for
-		other formating rules.</haxe_doc>
+			<haxe_doc>Returns a string representation of `this` Date in the local timezone
+		using the standard format `YYYY-MM-DD HH:MM:SS`. See `DateTools.format` for
+		other formatting rules.</haxe_doc>
 		</toString>
 		<new public="1" set="method" line="28">
 			<f a="year:month:day:hour:min:sec">
@@ -563,7 +620,7 @@
 		The behaviour of a Date instance is only consistent across platforms if
 		the the arguments describe a valid date.
 
-		- month: 0 to 11
+		- month: 0 to 11 (note that this is zero-based)
 		- day: 1 to 31
 		- hour: 0 to 23
 		- min: 0 to 59
@@ -580,7 +637,14 @@
 	There are some extra functions available in the `DateTools` class.
 
 	In the context of Haxe dates, a timestamp is defined as the number of
-	milliseconds elapsed since 1st January 1970.</haxe_doc>
+	milliseconds elapsed since 1st January 1970 UTC.
+
+	## Supported range
+
+	Due to platform limitations, only dates in the range 1970 through 2038 are
+	supported consistently. Some targets may support dates outside this range,
+	depending on the OS at runtime. The `Date.fromTime` method will not work with
+	timestamps outside the range on any target.</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="DateTools" params="" file="/home/vsts/work/1/s/std/DateTools.hx">

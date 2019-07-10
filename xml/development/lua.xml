@@ -413,78 +413,122 @@
 		</meta>
 	</abstract>
 	<class path="Date" params="" file="/home/vsts/work/1/s/std/lua/_std/Date.hx">
-		<now public="1" get="inline" set="null" line="66" static="1">
+		<now public="1" get="inline" set="null" line="94" static="1">
 			<f a=""><c path="Date"/></f>
 			<haxe_doc>Returns a Date representing the current local time.</haxe_doc>
 		</now>
-		<fromTime public="1" get="inline" set="null" line="70" static="1">
+		<fromTime public="1" get="inline" set="null" line="98" static="1">
 			<f a="t">
 				<x path="Float"/>
 				<c path="Date"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Returns a Date from timestamp (in milliseconds) `t`.</haxe_doc>
+			<haxe_doc>Creates a Date from the timestamp (in milliseconds) `t`.</haxe_doc>
 		</fromTime>
-		<fromString public="1" get="inline" set="null" line="80" static="1">
+		<fromString public="1" get="inline" set="null" line="109" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="Date"/>
 			</f>
-			<haxe_doc>Returns a Date from a formatted string `s`, with the following accepted
-		formats:
+			<haxe_doc>Creates a Date from the formatted string `s`. The following formats are
+		accepted by the function:
 
 		- `"YYYY-MM-DD hh:mm:ss"`
 		- `"YYYY-MM-DD"`
 		- `"hh:mm:ss"`
 
-		The first two formats are expressed in local time, the third in UTC
-		Epoch.</haxe_doc>
+		The first two formats expressed a date in local time. The third is a time
+		relative to the UTC epoch.</haxe_doc>
 		</fromString>
 		<d><t path="lua.DateType"/></d>
+		<dUTC><t path="lua.DateType"/></dUTC>
 		<t><t path="lua.Time"/></t>
-		<getTime public="1" set="method" line="38">
+		<getTime public="1" set="method" line="40">
 			<f a=""><x path="Float"/></f>
-			<haxe_doc>Returns the timestamp (in milliseconds) of the date. It might
-		only have a per-second precision depending on the platforms.
+			<haxe_doc>Returns the timestamp (in milliseconds) of `this` date.
+		On cpp and neko, this function only has a second resolution, so the
+		result will always be a multiple of `1000.0`, e.g. `1454698271000.0`.
+		To obtain the current timestamp with better precision on cpp and neko,
+		see the `Sys.time` API.
 
 		For measuring time differences with millisecond accuracy on
 		all platforms, see `haxe.Timer.stamp`.</haxe_doc>
 		</getTime>
-		<getHours public="1" set="method" line="41">
+		<getHours public="1" set="method" line="43">
 			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the hours of `this` Date (0-23 range).</haxe_doc>
+			<haxe_doc>Returns the hours of `this` Date (0-23 range) in the local timezone.</haxe_doc>
 		</getHours>
-		<getMinutes public="1" set="method" line="44">
+		<getMinutes public="1" set="method" line="46">
 			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the minutes of `this` Date (0-59 range).</haxe_doc>
+			<haxe_doc>Returns the minutes of `this` Date (0-59 range) in the local timezone.</haxe_doc>
 		</getMinutes>
-		<getSeconds public="1" set="method" line="47">
+		<getSeconds public="1" set="method" line="49">
 			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the seconds of `this` Date (0-59 range).</haxe_doc>
+			<haxe_doc>Returns the seconds of `this` Date (0-59 range) in the local timezone.</haxe_doc>
 		</getSeconds>
-		<getFullYear public="1" set="method" line="50">
+		<getFullYear public="1" set="method" line="52">
 			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the full year of `this` Date (4-digits).</haxe_doc>
+			<haxe_doc>Returns the full year of `this` Date (4 digits) in the local timezone.</haxe_doc>
 		</getFullYear>
-		<getMonth public="1" set="method" line="53">
+		<getMonth public="1" set="method" line="55">
 			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the month of `this` Date (0-11 range).</haxe_doc>
+			<haxe_doc>Returns the month of `this` Date (0-11 range) in the local timezone.
+		Note that the month number is zero-based.</haxe_doc>
 		</getMonth>
-		<getDate public="1" set="method" line="56">
+		<getDate public="1" set="method" line="58">
 			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the day of `this` Date (1-31 range).</haxe_doc>
+			<haxe_doc>Returns the day of `this` Date (1-31 range) in the local timezone.</haxe_doc>
 		</getDate>
-		<getDay public="1" set="method" line="59">
+		<getDay public="1" set="method" line="61">
 			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the day of the week of `this` Date (0-6 range) where `0` is Sunday.</haxe_doc>
+			<haxe_doc>Returns the day of the week of `this` Date (0-6 range, where `0` is Sunday)
+		in the local timezone.</haxe_doc>
 		</getDay>
-		<toString public="1" get="inline" set="null" line="62">
+		<getUTCHours public="1" set="method" line="64">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the hours of `this` Date (0-23 range) in UTC.</haxe_doc>
+		</getUTCHours>
+		<getUTCMinutes public="1" set="method" line="67">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the minutes of `this` Date (0-59 range) in UTC.</haxe_doc>
+		</getUTCMinutes>
+		<getUTCSeconds public="1" set="method" line="70">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the seconds of `this` Date (0-59 range) in UTC.</haxe_doc>
+		</getUTCSeconds>
+		<getUTCFullYear public="1" set="method" line="73">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the full year of `this` Date (4 digits) in UTC.</haxe_doc>
+		</getUTCFullYear>
+		<getUTCMonth public="1" set="method" line="76">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the month of `this` Date (0-11 range) in UTC.
+		Note that the month number is zero-based.</haxe_doc>
+		</getUTCMonth>
+		<getUTCDate public="1" set="method" line="79">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the day of `this` Date (1-31 range) in UTC.</haxe_doc>
+		</getUTCDate>
+		<getUTCDay public="1" set="method" line="82">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the day of the week of `this` Date (0-6 range, where `0` is Sunday)
+		in UTC.</haxe_doc>
+		</getUTCDay>
+		<getTimezoneOffset public="1" set="method" line="85">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the time zone difference of `this` Date in the current locale
+		to UTC, in minutes.
+
+		Assuming the function is executed on a machine in a UTC+2 timezone,
+		`Date.now().getTimezoneOffset()` will return `-120`.</haxe_doc>
+		</getTimezoneOffset>
+		<toString public="1" get="inline" set="null" line="90">
 			<f a=""><c path="String"/></f>
-			<haxe_doc>Returns a string representation of `this` Date, by using the
-		standard format [YYYY-MM-DD HH:MM:SS]. See `DateTools.format` for
-		other formating rules.</haxe_doc>
+			<haxe_doc>Returns a string representation of `this` Date in the local timezone
+		using the standard format `YYYY-MM-DD HH:MM:SS`. See `DateTools.format` for
+		other formatting rules.</haxe_doc>
 		</toString>
-		<new public="1" set="method" line="26">
+		<new public="1" set="method" line="27">
 			<f a="year:month:day:hour:min:sec">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -499,7 +543,7 @@
 		The behaviour of a Date instance is only consistent across platforms if
 		the the arguments describe a valid date.
 
-		- month: 0 to 11
+		- month: 0 to 11 (note that this is zero-based)
 		- day: 1 to 31
 		- hour: 0 to 23
 		- min: 0 to 59
@@ -516,7 +560,14 @@
 	There are some extra functions available in the `DateTools` class.
 
 	In the context of Haxe dates, a timestamp is defined as the number of
-	milliseconds elapsed since 1st January 1970.</haxe_doc>
+	milliseconds elapsed since 1st January 1970 UTC.
+
+	## Supported range
+
+	Due to platform limitations, only dates in the range 1970 through 2038 are
+	supported consistently. Some targets may support dates outside this range,
+	depending on the OS at runtime. The `Date.fromTime` method will not work with
+	timestamps outside the range on any target.</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="DateTools" params="" file="/home/vsts/work/1/s/std/DateTools.hx">
@@ -26995,7 +27046,7 @@
 			</f>
 			<haxe_doc>Create a standard date object from a lua string representation</haxe_doc>
 		</strDate>
-		<extendsOrImplements public="1" set="method" line="350" static="1">
+		<extendsOrImplements public="1" set="method" line="342" static="1">
 			<f a="cl1:cl2">
 				<x path="Class"><d/></x>
 				<x path="Class"><d/></x>
@@ -27004,7 +27055,7 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Helper method to determine if class cl1 extends, implements, or otherwise equals cl2</haxe_doc>
 		</extendsOrImplements>
-		<shellEscapeCmd public="1" set="method" line="370" static="1">
+		<shellEscapeCmd public="1" set="method" line="362" static="1">
 			<f a="cmd:?args">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -27012,11 +27063,11 @@
 			</f>
 			<haxe_doc>Returns a shell escaped version of "cmd" along with any args</haxe_doc>
 		</shellEscapeCmd>
-		<tempFile public="1" set="method" line="388" static="1">
+		<tempFile public="1" set="method" line="380" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns a temp file path that can be used for reading and writing</haxe_doc>
 		</tempFile>
-		<fieldIterator public="1" set="method" line="397" static="1">
+		<fieldIterator public="1" set="method" line="389" static="1">
 			<f a="o">
 				<c path="lua.Table">
 					<c path="String"/>
@@ -27026,14 +27077,14 @@
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</fieldIterator>
-		<os_patterns expr="[&quot;Windows&quot; =&gt; [&quot;windows&quot;, &quot;^mingw&quot;, &quot;^cygwin&quot;], &quot;Linux&quot; =&gt; [&quot;linux&quot;], &quot;Mac&quot; =&gt; [&quot;mac&quot;, &quot;darwin&quot;, &quot;osx&quot;], &quot;BSD&quot; =&gt; [&quot;bsd$&quot;], &quot;Solaris&quot; =&gt; [&quot;SunOS&quot;]]" line="423" static="1">
+		<os_patterns expr="[&quot;Windows&quot; =&gt; [&quot;windows&quot;, &quot;^mingw&quot;, &quot;^cygwin&quot;], &quot;Linux&quot; =&gt; [&quot;linux&quot;], &quot;Mac&quot; =&gt; [&quot;mac&quot;, &quot;darwin&quot;, &quot;osx&quot;], &quot;BSD&quot; =&gt; [&quot;bsd$&quot;], &quot;Solaris&quot; =&gt; [&quot;SunOS&quot;]]" line="415" static="1">
 			<x path="haxe.ds.Map">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
 			</x>
 			<meta><m n=":value"><e><![CDATA[["Windows" => ["windows", "^mingw", "^cygwin"], "Linux" => ["linux"], "Mac" => ["mac", "darwin", "osx"], "BSD" => ["bsd$"], "Solaris" => ["SunOS"]]]]></e></m></meta>
 		</os_patterns>
-		<systemName public="1" set="method" line="431" static="1">
+		<systemName public="1" set="method" line="423" static="1">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":has_untyped"/></meta>
 		</systemName>
@@ -28666,12 +28717,12 @@
 	</class>
 	<typedef path="lua.TimeParam" params="" file="/home/vsts/work/1/s/std/lua/Os.hx" module="lua.Os">
 		<a>
-			<year><x path="Float"/></year>
+			<year><x path="Int"/></year>
 			<sec>
 				<x path="Null"><x path="Int"/></x>
 				<meta><m n=":optional"/></meta>
 			</sec>
-			<month><x path="Float"/></month>
+			<month><x path="Int"/></month>
 			<min>
 				<x path="Null"><x path="Int"/></x>
 				<meta><m n=":optional"/></meta>
@@ -28684,7 +28735,7 @@
 				<x path="Null"><x path="Int"/></x>
 				<meta><m n=":optional"/></meta>
 			</hour>
-			<day><x path="Float"/></day>
+			<day><x path="Int"/></day>
 		</a>
 		<haxe_doc>A typedef that matches the date parameter `Os.time()` will accept.</haxe_doc>
 	</typedef>
