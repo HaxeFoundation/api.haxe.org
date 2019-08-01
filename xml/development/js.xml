@@ -34609,6 +34609,41 @@
 	@see <https://developer.mozilla.org/en-US/docs/Web/API/Clients>]]></haxe_doc>
 		<meta><m n=":native"><e>"Clients"</e></m></meta>
 	</class>
+	<class path="js.html.Clipboard" params="" file="/home/vsts/work/1/s/std/js/html/Clipboard.hx" extern="1">
+		<extends path="js.html.EventTarget"/>
+		<read public="1" set="method">
+			<f a=""><c path="js.lib.Promise"><c path="js.html.DataTransfer"/></c></f>
+			<haxe_doc>Requests arbitrary data (such as images) from the clipboard, returning a `Promise`. When the data has been retrieved, the promise is resolved with a `DataTransfer` object that provides the data.
+		@throws DOMError</haxe_doc>
+		</read>
+		<readText public="1" set="method">
+			<f a=""><c path="js.lib.Promise"><c path="String"/></c></f>
+			<haxe_doc>Requests text from the system clipboard; returns a `Promise` which is resolved with a `DOMString` containing the clipboard's text once it's available.
+		@throws DOMError</haxe_doc>
+		</readText>
+		<write public="1" set="method">
+			<f a="data">
+				<c path="js.html.DataTransfer"/>
+				<c path="js.lib.Promise"><x path="Void"/></c>
+			</f>
+			<haxe_doc>Writes arbitrary data to the system clipboard. This asynchronous operation signals that it's finished by resolving the returned `Promise`.
+		@throws DOMError</haxe_doc>
+		</write>
+		<writeText public="1" set="method">
+			<f a="data">
+				<c path="String"/>
+				<c path="js.lib.Promise"><x path="Void"/></c>
+			</f>
+			<haxe_doc>Writes text to the system clipboard, returning a `Promise` which is resolved once the text is fully copied into the clipboard.
+		@throws DOMError</haxe_doc>
+		</writeText>
+		<haxe_doc><![CDATA[The `Clipboard` interface implements the Clipboard API, providing—if the user grants permission—both read and write access to the contents of the system clipboard.
+
+	Documentation [Clipboard](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/Clipboard>]]></haxe_doc>
+		<meta><m n=":native"><e>"Clipboard"</e></m></meta>
+	</class>
 	<class path="js.html.ClipboardEvent" params="" file="/home/vsts/work/1/s/std/js/html/ClipboardEvent.hx" extern="1">
 		<extends path="js.html.Event"/>
 		<clipboardData public="1" set="null">
@@ -46962,6 +46997,7 @@
 			<c path="js.html.ServiceWorkerContainer"/>
 			<haxe_doc>Returns a `ServiceWorkerContainer` object, which provides access to registration, removal, upgrade, and communication with the `ServiceWorker` objects for the associated document.</haxe_doc>
 		</serviceWorker>
+		<clipboard public="1" set="null"><c path="js.html.Clipboard"/></clipboard>
 		<hardwareConcurrency public="1" set="null"><x path="Int"/></hardwareConcurrency>
 		<geolocation public="1" set="null">
 			<t path="js.html.Geolocation"/>
