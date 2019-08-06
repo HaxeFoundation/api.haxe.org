@@ -67175,6 +67175,2728 @@
 		<haxe_doc>Creates a Sha256 of a String.</haxe_doc>
 		<meta><m n=":hxGen"/></meta>
 	</class>
+	<class path="haxe.display.DisplayMethods" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<Completion public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;CompletionParams,CompletionResult&gt;(&quot;display/completion&quot;)" line="39" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<t path="haxe.display.CompletionParams"/>
+				<t path="haxe.display.CompletionResult"/>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<CompletionParams,CompletionResult>("display/completion")]]></e></m></meta>
+			<haxe_doc>The completion request is sent from the client to Haxe to request code completion.
+		Haxe automatically determines the type of completion to use based on the passed position, see `CompletionResultKind`.</haxe_doc>
+		</Completion>
+		<CompletionItemResolve public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;CompletionItemResolveParams,CompletionItemResolveResult&gt;(&quot;display/completionItem/resolve&quot;)" line="44" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<t path="haxe.display.CompletionItemResolveParams"/>
+				<t path="haxe.display.CompletionItemResolveResult"/>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<CompletionItemResolveParams,CompletionItemResolveResult>("display/completionItem/resolve")]]></e></m></meta>
+			<haxe_doc>The request is sent from the client to Haxe to resolve additional information for a given completion item.</haxe_doc>
+		</CompletionItemResolve>
+		<FindReferences public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;PositionParams,GotoDefinitionResult&gt;(&quot;display/references&quot;)" line="49" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<t path="haxe.display.PositionParams"/>
+				<t path="haxe.display.GotoDefinitionResult"/>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<PositionParams,GotoDefinitionResult>("display/references")]]></e></m></meta>
+			<haxe_doc>The find references request is sent from the client to Haxe to find locations that reference the symbol at a given text document position.</haxe_doc>
+		</FindReferences>
+		<GotoDefinition public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;PositionParams,GotoDefinitionResult&gt;(&quot;display/definition&quot;)" line="54" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<t path="haxe.display.PositionParams"/>
+				<t path="haxe.display.GotoDefinitionResult"/>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<PositionParams,GotoDefinitionResult>("display/definition")]]></e></m></meta>
+			<haxe_doc>The goto definition request is sent from the client to Haxe to resolve the definition location(s) of a symbol at a given text document position.</haxe_doc>
+		</GotoDefinition>
+		<GotoTypeDefinition public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;PositionParams,GotoTypeDefinitionResult&gt;(&quot;display/typeDefinition&quot;)" line="59" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<t path="haxe.display.PositionParams"/>
+				<t path="haxe.display.GotoTypeDefinitionResult"/>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<PositionParams,GotoTypeDefinitionResult>("display/typeDefinition")]]></e></m></meta>
+			<haxe_doc>The goto type definition request is sent from the client to Haxe to resolve the type definition location(s) of a symbol at a given text document position.</haxe_doc>
+		</GotoTypeDefinition>
+		<Hover public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;PositionParams,HoverResult&gt;(&quot;display/hover&quot;)" line="64" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<t path="haxe.display.PositionParams"/>
+				<t path="haxe.display.HoverResult"/>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<PositionParams,HoverResult>("display/hover")]]></e></m></meta>
+			<haxe_doc>The hover request is sent from the client to Haxe to request hover information at a given text document position.</haxe_doc>
+		</Hover>
+		<DeterminePackage public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;FileParams,DeterminePackageResult&gt;(&quot;display/package&quot;)" line="69" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<t path="haxe.display.FileParams"/>
+				<t path="haxe.display.DeterminePackageResult"/>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<FileParams,DeterminePackageResult>("display/package")]]></e></m></meta>
+			<haxe_doc>This request is sent from the client to Haxe to determine the package for a given file, based on class paths configuration.</haxe_doc>
+		</DeterminePackage>
+		<SignatureHelp public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;SignatureHelpParams,SignatureHelpResult&gt;(&quot;display/signatureHelp&quot;)" line="74" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<t path="haxe.display.SignatureHelpParams"/>
+				<t path="haxe.display.SignatureHelpResult"/>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<SignatureHelpParams,SignatureHelpResult>("display/signatureHelp")]]></e></m></meta>
+			<haxe_doc>The signature help request is sent from the client to Haxe to request signature information at a given cursor position.</haxe_doc>
+		</SignatureHelp>
+		<haxe_doc>Methods of the JSON-RPC-based `--display` protocol in Haxe 4.
+	A lot of the methods are *inspired* by the Language Server Protocol, but there is **no** intention to be directly compatible with it.</haxe_doc>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":publicFields"/>
+		</meta>
+	</class>
+	<typedef path="haxe.display.CompletionParams" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<wasAutoTriggered><x path="Bool"/></wasAutoTriggered>
+			<offset>
+				<x path="Int"/>
+				<haxe_doc>Unicode character offset in the file.</haxe_doc>
+			</offset>
+			<meta>
+				<x path="Null"><c path="Array"><c path="String"/></c></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>list of metas to include in responses</haxe_doc>
+			</meta>
+			<file><x path="haxe.display.FsPath"/></file>
+			<contents>
+				<x path="Null"><c path="String"/></x>
+				<meta><m n=":optional"/></meta>
+			</contents>
+		</a>
+		<haxe_doc>Completion</haxe_doc>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.FieldResolution" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<qualifier>
+				<c path="String"/>
+				<haxe_doc>The qualifier that has to be inserted to use the field if `!isQualified`.
+		Can either be `this` or `super` for instance fields for the type name for `static` fields.</haxe_doc>
+			</qualifier>
+			<isQualified>
+				<x path="Bool"/>
+				<haxe_doc>Whether it's valid to use the unqualified name of the field or not.
+		This is `false` if the identifier is shadowed.</haxe_doc>
+			</isQualified>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.DisplayLocal" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<type><t path="haxe.display.JsonType"><c path="haxe.display.DisplayLocal.T"/></t></type>
+			<pos><t path="haxe.display.JsonPos"/></pos>
+			<origin><x path="haxe.display.LocalOrigin"/></origin>
+			<name><c path="String"/></name>
+			<meta><t path="haxe.display.JsonMetadata"/></meta>
+			<isInline><x path="Bool"/></isInline>
+			<isFinal><x path="Bool"/></isFinal>
+			<id><x path="Int"/></id>
+			<extra>
+				<x path="Null"><a>
+	<params><c path="Array"><t path="haxe.display.JsonTypeParameter"/></c></params>
+	<expr><t path="haxe.display.JsonExpr"/></expr>
+</a></x>
+				<meta><m n=":optional"/></meta>
+			</extra>
+			<capture><x path="Bool"/></capture>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<abstract path="haxe.display.LocalOrigin" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><x path="Int"/></this>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":enum"/>
+		</meta>
+		<impl><class path="haxe.display._Display.LocalOrigin_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+	<LocalVariable public="1" get="inline" set="null" expr="cast 0" line="1" static="1">
+		<x path="haxe.display.LocalOrigin"/>
+		<meta>
+			<m n=":value"><e>cast 0</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</LocalVariable>
+	<Argument public="1" get="inline" set="null" expr="cast 1" line="1" static="1">
+		<x path="haxe.display.LocalOrigin"/>
+		<meta>
+			<m n=":value"><e>cast 1</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Argument>
+	<ForVariable public="1" get="inline" set="null" expr="cast 2" line="1" static="1">
+		<x path="haxe.display.LocalOrigin"/>
+		<meta>
+			<m n=":value"><e>cast 2</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</ForVariable>
+	<PatternVariable public="1" get="inline" set="null" expr="cast 3" line="1" static="1">
+		<x path="haxe.display.LocalOrigin"/>
+		<meta>
+			<m n=":value"><e>cast 3</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</PatternVariable>
+	<CatchVariable public="1" get="inline" set="null" expr="cast 4" line="1" static="1">
+		<x path="haxe.display.LocalOrigin"/>
+		<meta>
+			<m n=":value"><e>cast 4</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</CatchVariable>
+	<LocalFunction public="1" get="inline" set="null" expr="cast 5" line="1" static="1">
+		<x path="haxe.display.LocalOrigin"/>
+		<meta>
+			<m n=":value"><e>cast 5</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</LocalFunction>
+	<meta>
+		<m n=":hxGen"/>
+		<m n=":enum"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._Display.LocalOrigin_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+		<LocalVariable public="1" get="inline" set="null" expr="cast 0" line="1" static="1">
+			<x path="haxe.display.LocalOrigin"/>
+			<meta>
+				<m n=":value"><e>cast 0</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</LocalVariable>
+		<Argument public="1" get="inline" set="null" expr="cast 1" line="1" static="1">
+			<x path="haxe.display.LocalOrigin"/>
+			<meta>
+				<m n=":value"><e>cast 1</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Argument>
+		<ForVariable public="1" get="inline" set="null" expr="cast 2" line="1" static="1">
+			<x path="haxe.display.LocalOrigin"/>
+			<meta>
+				<m n=":value"><e>cast 2</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</ForVariable>
+		<PatternVariable public="1" get="inline" set="null" expr="cast 3" line="1" static="1">
+			<x path="haxe.display.LocalOrigin"/>
+			<meta>
+				<m n=":value"><e>cast 3</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</PatternVariable>
+		<CatchVariable public="1" get="inline" set="null" expr="cast 4" line="1" static="1">
+			<x path="haxe.display.LocalOrigin"/>
+			<meta>
+				<m n=":value"><e>cast 4</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</CatchVariable>
+		<LocalFunction public="1" get="inline" set="null" expr="cast 5" line="1" static="1">
+			<x path="haxe.display.LocalOrigin"/>
+			<meta>
+				<m n=":value"><e>cast 5</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</LocalFunction>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":enum"/>
+		</meta>
+	</class>
+	<abstract path="haxe.display.ClassFieldOriginKind" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><x path="Int"/></this>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":enum"/>
+		</meta>
+		<impl><class path="haxe.display._Display.ClassFieldOriginKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+	<Self public="1" get="inline" set="null" expr="cast 0" line="1" static="1">
+		<x path="haxe.display.ClassFieldOriginKind"><t path="haxe.display.JsonModuleType"><c path="haxe.display.ClassFieldOriginKind.T"/></t></x>
+		<meta>
+			<m n=":value"><e>cast 0</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The field is declared on the current type itself.</haxe_doc>
+	</Self>
+	<StaticImport public="1" get="inline" set="null" expr="cast 1" line="1" static="1">
+		<x path="haxe.display.ClassFieldOriginKind"><t path="haxe.display.JsonModuleType"><c path="haxe.display.ClassFieldOriginKind.T"/></t></x>
+		<meta>
+			<m n=":value"><e>cast 1</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The field is a static field brought into context via a static import
+		(`import pack.Module.Type.field`).</haxe_doc>
+	</StaticImport>
+	<Parent public="1" get="inline" set="null" expr="cast 2" line="1" static="1">
+		<x path="haxe.display.ClassFieldOriginKind"><t path="haxe.display.JsonModuleType"><c path="haxe.display.ClassFieldOriginKind.T"/></t></x>
+		<meta>
+			<m n=":value"><e>cast 2</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The field is declared on a parent type, such as:
+		- a super class field that is not overriden
+		- a forwarded abstract field</haxe_doc>
+	</Parent>
+	<StaticExtension public="1" get="inline" set="null" expr="cast 3" line="1" static="1">
+		<x path="haxe.display.ClassFieldOriginKind"><t path="haxe.display.JsonModuleType"><c path="haxe.display.ClassFieldOriginKind.T"/></t></x>
+		<meta>
+			<m n=":value"><e>cast 3</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The field is a static extension method brought
+		into context with the `using` keyword.</haxe_doc>
+	</StaticExtension>
+	<AnonymousStructure public="1" get="inline" set="null" expr="cast 4" line="1" static="1">
+		<x path="haxe.display.ClassFieldOriginKind"><t path="haxe.display.JsonAnon"/></x>
+		<meta>
+			<m n=":value"><e>cast 4</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>This field doesn't belong to any named type, just an anonymous structure.</haxe_doc>
+	</AnonymousStructure>
+	<BuiltIn public="1" get="inline" set="null" expr="cast 5" line="1" static="1">
+		<x path="haxe.display.ClassFieldOriginKind"><e path="haxe.display.NoData"/></x>
+		<meta>
+			<m n=":value"><e>cast 5</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>Special fields built into the compiler, such as:
+		- `code` on single-character Strings
+		- `bind()` on functions.</haxe_doc>
+	</BuiltIn>
+	<Unknown public="1" get="inline" set="null" expr="cast 6" line="1" static="1">
+		<x path="haxe.display.ClassFieldOriginKind"><e path="haxe.display.NoData"/></x>
+		<meta>
+			<m n=":value"><e>cast 6</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The origin of this class field is unknown.</haxe_doc>
+	</Unknown>
+	<meta>
+		<m n=":hxGen"/>
+		<m n=":enum"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._Display.ClassFieldOriginKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+		<Self public="1" get="inline" set="null" expr="cast 0" line="1" static="1">
+			<x path="haxe.display.ClassFieldOriginKind"><t path="haxe.display.JsonModuleType"><c path="haxe.display.ClassFieldOriginKind.T"/></t></x>
+			<meta>
+				<m n=":value"><e>cast 0</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The field is declared on the current type itself.</haxe_doc>
+		</Self>
+		<StaticImport public="1" get="inline" set="null" expr="cast 1" line="1" static="1">
+			<x path="haxe.display.ClassFieldOriginKind"><t path="haxe.display.JsonModuleType"><c path="haxe.display.ClassFieldOriginKind.T"/></t></x>
+			<meta>
+				<m n=":value"><e>cast 1</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The field is a static field brought into context via a static import
+		(`import pack.Module.Type.field`).</haxe_doc>
+		</StaticImport>
+		<Parent public="1" get="inline" set="null" expr="cast 2" line="1" static="1">
+			<x path="haxe.display.ClassFieldOriginKind"><t path="haxe.display.JsonModuleType"><c path="haxe.display.ClassFieldOriginKind.T"/></t></x>
+			<meta>
+				<m n=":value"><e>cast 2</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The field is declared on a parent type, such as:
+		- a super class field that is not overriden
+		- a forwarded abstract field</haxe_doc>
+		</Parent>
+		<StaticExtension public="1" get="inline" set="null" expr="cast 3" line="1" static="1">
+			<x path="haxe.display.ClassFieldOriginKind"><t path="haxe.display.JsonModuleType"><c path="haxe.display.ClassFieldOriginKind.T"/></t></x>
+			<meta>
+				<m n=":value"><e>cast 3</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The field is a static extension method brought
+		into context with the `using` keyword.</haxe_doc>
+		</StaticExtension>
+		<AnonymousStructure public="1" get="inline" set="null" expr="cast 4" line="1" static="1">
+			<x path="haxe.display.ClassFieldOriginKind"><t path="haxe.display.JsonAnon"/></x>
+			<meta>
+				<m n=":value"><e>cast 4</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>This field doesn't belong to any named type, just an anonymous structure.</haxe_doc>
+		</AnonymousStructure>
+		<BuiltIn public="1" get="inline" set="null" expr="cast 5" line="1" static="1">
+			<x path="haxe.display.ClassFieldOriginKind"><e path="haxe.display.NoData"/></x>
+			<meta>
+				<m n=":value"><e>cast 5</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>Special fields built into the compiler, such as:
+		- `code` on single-character Strings
+		- `bind()` on functions.</haxe_doc>
+		</BuiltIn>
+		<Unknown public="1" get="inline" set="null" expr="cast 6" line="1" static="1">
+			<x path="haxe.display.ClassFieldOriginKind"><e path="haxe.display.NoData"/></x>
+			<meta>
+				<m n=":value"><e>cast 6</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The origin of this class field is unknown.</haxe_doc>
+		</Unknown>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":enum"/>
+		</meta>
+	</class>
+	<typedef path="haxe.display.ClassFieldOrigin" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<kind><x path="haxe.display.ClassFieldOriginKind"><c path="haxe.display.ClassFieldOrigin.T"/></x></kind>
+			<args>
+				<x path="Null"><c path="haxe.display.ClassFieldOrigin.T"/></x>
+				<meta><m n=":optional"/></meta>
+			</args>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.ClassFieldOccurrence" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<resolution><t path="haxe.display.FieldResolution"/></resolution>
+			<origin>
+				<x path="Null"><t path="haxe.display.ClassFieldOrigin"><c path="haxe.display.ClassFieldOccurrence.T"/></t></x>
+				<meta><m n=":optional"/></meta>
+			</origin>
+			<field><t path="haxe.display.JsonClassField"/></field>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<abstract path="haxe.display.EnumFieldOriginKind" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><x path="Int"/></this>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":enum"/>
+		</meta>
+		<impl><class path="haxe.display._Display.EnumFieldOriginKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+	<Self public="1" get="inline" set="null" expr="cast 0" line="1" static="1">
+		<x path="haxe.display.EnumFieldOriginKind"><t path="haxe.display.JsonModuleType"><c path="haxe.display.EnumFieldOriginKind.T"/></t></x>
+		<meta>
+			<m n=":value"><e>cast 0</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The enum value is declared on the current type itself.</haxe_doc>
+	</Self>
+	<StaticImport public="1" get="inline" set="null" expr="cast 1" line="1" static="1">
+		<x path="haxe.display.EnumFieldOriginKind"><t path="haxe.display.JsonModuleType"><c path="haxe.display.EnumFieldOriginKind.T"/></t></x>
+		<meta>
+			<m n=":value"><e>cast 1</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>The enum value is brought into context via a static import
+		(`import pack.Module.Enum.Value`).</haxe_doc>
+	</StaticImport>
+	<meta>
+		<m n=":hxGen"/>
+		<m n=":enum"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._Display.EnumFieldOriginKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+		<Self public="1" get="inline" set="null" expr="cast 0" line="1" static="1">
+			<x path="haxe.display.EnumFieldOriginKind"><t path="haxe.display.JsonModuleType"><c path="haxe.display.EnumFieldOriginKind.T"/></t></x>
+			<meta>
+				<m n=":value"><e>cast 0</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The enum value is declared on the current type itself.</haxe_doc>
+		</Self>
+		<StaticImport public="1" get="inline" set="null" expr="cast 1" line="1" static="1">
+			<x path="haxe.display.EnumFieldOriginKind"><t path="haxe.display.JsonModuleType"><c path="haxe.display.EnumFieldOriginKind.T"/></t></x>
+			<meta>
+				<m n=":value"><e>cast 1</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>The enum value is brought into context via a static import
+		(`import pack.Module.Enum.Value`).</haxe_doc>
+		</StaticImport>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":enum"/>
+		</meta>
+	</class>
+	<typedef path="haxe.display.EnumFieldOrigin" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<kind><x path="haxe.display.EnumFieldOriginKind"><c path="haxe.display.EnumFieldOrigin.T"/></x></kind>
+			<args>
+				<x path="Null"><c path="haxe.display.EnumFieldOrigin.T"/></x>
+				<meta><m n=":optional"/></meta>
+			</args>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.EnumFieldOccurrence" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<resolution><t path="haxe.display.FieldResolution"/></resolution>
+			<origin>
+				<x path="Null"><t path="haxe.display.EnumFieldOrigin"><c path="haxe.display.EnumFieldOccurrence.T"/></t></x>
+				<meta><m n=":optional"/></meta>
+			</origin>
+			<field><t path="haxe.display.JsonEnumField"/></field>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<abstract path="haxe.display.Literal" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><c path="String"/></this>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":enum"/>
+		</meta>
+		<impl><class path="haxe.display._Display.Literal_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+	<Null public="1" get="inline" set="null" expr="cast &quot;null&quot;" line="212" static="1">
+		<x path="haxe.display.Literal"/>
+		<meta>
+			<m n=":value"><e>cast "null"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Null>
+	<True public="1" get="inline" set="null" expr="cast &quot;true&quot;" line="213" static="1">
+		<x path="haxe.display.Literal"/>
+		<meta>
+			<m n=":value"><e>cast "true"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</True>
+	<False public="1" get="inline" set="null" expr="cast &quot;false&quot;" line="214" static="1">
+		<x path="haxe.display.Literal"/>
+		<meta>
+			<m n=":value"><e>cast "false"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</False>
+	<This public="1" get="inline" set="null" expr="cast &quot;this&quot;" line="215" static="1">
+		<x path="haxe.display.Literal"/>
+		<meta>
+			<m n=":value"><e>cast "this"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</This>
+	<Trace public="1" get="inline" set="null" expr="cast &quot;trace&quot;" line="216" static="1">
+		<x path="haxe.display.Literal"/>
+		<meta>
+			<m n=":value"><e>cast "trace"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Trace>
+	<meta>
+		<m n=":nativeGen"/>
+		<m n=":enum"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._Display.Literal_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+		<Null public="1" get="inline" set="null" expr="cast &quot;null&quot;" line="212" static="1">
+			<x path="haxe.display.Literal"/>
+			<meta>
+				<m n=":value"><e>cast "null"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Null>
+		<True public="1" get="inline" set="null" expr="cast &quot;true&quot;" line="213" static="1">
+			<x path="haxe.display.Literal"/>
+			<meta>
+				<m n=":value"><e>cast "true"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</True>
+		<False public="1" get="inline" set="null" expr="cast &quot;false&quot;" line="214" static="1">
+			<x path="haxe.display.Literal"/>
+			<meta>
+				<m n=":value"><e>cast "false"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</False>
+		<This public="1" get="inline" set="null" expr="cast &quot;this&quot;" line="215" static="1">
+			<x path="haxe.display.Literal"/>
+			<meta>
+				<m n=":value"><e>cast "this"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</This>
+		<Trace public="1" get="inline" set="null" expr="cast &quot;trace&quot;" line="216" static="1">
+			<x path="haxe.display.Literal"/>
+			<meta>
+				<m n=":value"><e>cast "trace"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Trace>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":enum"/>
+		</meta>
+	</class>
+	<abstract path="haxe.display.DisplayModuleTypeKind" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><x path="Int"/></this>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":enum"/>
+		</meta>
+		<impl><class path="haxe.display._Display.DisplayModuleTypeKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+	<Class public="1" get="inline" set="null" expr="cast 0" line="1" static="1">
+		<x path="haxe.display.DisplayModuleTypeKind"/>
+		<meta>
+			<m n=":value"><e>cast 0</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Class>
+	<Interface public="1" get="inline" set="null" expr="cast 1" line="1" static="1">
+		<x path="haxe.display.DisplayModuleTypeKind"/>
+		<meta>
+			<m n=":value"><e>cast 1</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Interface>
+	<Enum public="1" get="inline" set="null" expr="cast 2" line="1" static="1">
+		<x path="haxe.display.DisplayModuleTypeKind"/>
+		<meta>
+			<m n=":value"><e>cast 2</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Enum>
+	<Abstract public="1" get="inline" set="null" expr="cast 3" line="1" static="1">
+		<x path="haxe.display.DisplayModuleTypeKind"/>
+		<meta>
+			<m n=":value"><e>cast 3</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Abstract>
+	<EnumAbstract public="1" get="inline" set="null" expr="cast 4" line="1" static="1">
+		<x path="haxe.display.DisplayModuleTypeKind"/>
+		<meta>
+			<m n=":value"><e>cast 4</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</EnumAbstract>
+	<TypeAlias public="1" get="inline" set="null" expr="cast 5" line="1" static="1">
+		<x path="haxe.display.DisplayModuleTypeKind"/>
+		<meta>
+			<m n=":value"><e>cast 5</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>A `typedef` that is just an alias for another type.</haxe_doc>
+	</TypeAlias>
+	<Struct public="1" get="inline" set="null" expr="cast 6" line="1" static="1">
+		<x path="haxe.display.DisplayModuleTypeKind"/>
+		<meta>
+			<m n=":value"><e>cast 6</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>A `typedef` that is an alias for an anonymous structure.</haxe_doc>
+	</Struct>
+	<meta>
+		<m n=":hxGen"/>
+		<m n=":enum"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._Display.DisplayModuleTypeKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+		<Class public="1" get="inline" set="null" expr="cast 0" line="1" static="1">
+			<x path="haxe.display.DisplayModuleTypeKind"/>
+			<meta>
+				<m n=":value"><e>cast 0</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Class>
+		<Interface public="1" get="inline" set="null" expr="cast 1" line="1" static="1">
+			<x path="haxe.display.DisplayModuleTypeKind"/>
+			<meta>
+				<m n=":value"><e>cast 1</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Interface>
+		<Enum public="1" get="inline" set="null" expr="cast 2" line="1" static="1">
+			<x path="haxe.display.DisplayModuleTypeKind"/>
+			<meta>
+				<m n=":value"><e>cast 2</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Enum>
+		<Abstract public="1" get="inline" set="null" expr="cast 3" line="1" static="1">
+			<x path="haxe.display.DisplayModuleTypeKind"/>
+			<meta>
+				<m n=":value"><e>cast 3</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Abstract>
+		<EnumAbstract public="1" get="inline" set="null" expr="cast 4" line="1" static="1">
+			<x path="haxe.display.DisplayModuleTypeKind"/>
+			<meta>
+				<m n=":value"><e>cast 4</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</EnumAbstract>
+		<TypeAlias public="1" get="inline" set="null" expr="cast 5" line="1" static="1">
+			<x path="haxe.display.DisplayModuleTypeKind"/>
+			<meta>
+				<m n=":value"><e>cast 5</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>A `typedef` that is just an alias for another type.</haxe_doc>
+		</TypeAlias>
+		<Struct public="1" get="inline" set="null" expr="cast 6" line="1" static="1">
+			<x path="haxe.display.DisplayModuleTypeKind"/>
+			<meta>
+				<m n=":value"><e>cast 6</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>A `typedef` that is an alias for an anonymous structure.</haxe_doc>
+		</Struct>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":enum"/>
+		</meta>
+	</class>
+	<typedef path="haxe.display.DisplayModuleType" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<pos><t path="haxe.display.JsonPos"/></pos>
+			<path><t path="haxe.display.JsonTypePath"/></path>
+			<params><c path="Array"><t path="haxe.display.DisplayModuleTypeParameter"/></c></params>
+			<meta><t path="haxe.display.JsonMetadata"/></meta>
+			<kind><x path="haxe.display.DisplayModuleTypeKind"/></kind>
+			<isPrivate><x path="Bool"/></isPrivate>
+			<isFinal><x path="Bool"/></isFinal>
+			<isExtern><x path="Bool"/></isExtern>
+			<doc><t path="haxe.display.JsonDoc"/></doc>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.DisplayModuleTypeParameter" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<name><c path="String"/></name>
+			<meta><t path="haxe.display.JsonMetadata"/></meta>
+			<constraints><c path="Array"><t path="haxe.display.JsonType"><d/></t></c></constraints>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.DisplayLiteral" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a><name><c path="String"/></name></a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<abstract path="haxe.display.MetadataTarget" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><c path="String"/></this>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":enum"/>
+		</meta>
+		<impl><class path="haxe.display._Display.MetadataTarget_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+	<Class public="1" get="inline" set="null" expr="cast &quot;TClass&quot;" line="259" static="1">
+		<x path="haxe.display.MetadataTarget"/>
+		<meta>
+			<m n=":value"><e>cast "TClass"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Class>
+	<ClassField public="1" get="inline" set="null" expr="cast &quot;TClassField&quot;" line="260" static="1">
+		<x path="haxe.display.MetadataTarget"/>
+		<meta>
+			<m n=":value"><e>cast "TClassField"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</ClassField>
+	<Abstract public="1" get="inline" set="null" expr="cast &quot;TAbstract&quot;" line="261" static="1">
+		<x path="haxe.display.MetadataTarget"/>
+		<meta>
+			<m n=":value"><e>cast "TAbstract"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Abstract>
+	<AbstractField public="1" get="inline" set="null" expr="cast &quot;TAbstractField&quot;" line="262" static="1">
+		<x path="haxe.display.MetadataTarget"/>
+		<meta>
+			<m n=":value"><e>cast "TAbstractField"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</AbstractField>
+	<Enum public="1" get="inline" set="null" expr="cast &quot;TEnum&quot;" line="263" static="1">
+		<x path="haxe.display.MetadataTarget"/>
+		<meta>
+			<m n=":value"><e>cast "TEnum"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Enum>
+	<Typedef public="1" get="inline" set="null" expr="cast &quot;TTypedef&quot;" line="264" static="1">
+		<x path="haxe.display.MetadataTarget"/>
+		<meta>
+			<m n=":value"><e>cast "TTypedef"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Typedef>
+	<AnyField public="1" get="inline" set="null" expr="cast &quot;TAnyField&quot;" line="265" static="1">
+		<x path="haxe.display.MetadataTarget"/>
+		<meta>
+			<m n=":value"><e>cast "TAnyField"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</AnyField>
+	<Expr public="1" get="inline" set="null" expr="cast &quot;TExpr&quot;" line="266" static="1">
+		<x path="haxe.display.MetadataTarget"/>
+		<meta>
+			<m n=":value"><e>cast "TExpr"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Expr>
+	<TypeParameter public="1" get="inline" set="null" expr="cast &quot;TTypeParameter&quot;" line="267" static="1">
+		<x path="haxe.display.MetadataTarget"/>
+		<meta>
+			<m n=":value"><e>cast "TTypeParameter"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</TypeParameter>
+	<meta>
+		<m n=":nativeGen"/>
+		<m n=":enum"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._Display.MetadataTarget_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+		<Class public="1" get="inline" set="null" expr="cast &quot;TClass&quot;" line="259" static="1">
+			<x path="haxe.display.MetadataTarget"/>
+			<meta>
+				<m n=":value"><e>cast "TClass"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Class>
+		<ClassField public="1" get="inline" set="null" expr="cast &quot;TClassField&quot;" line="260" static="1">
+			<x path="haxe.display.MetadataTarget"/>
+			<meta>
+				<m n=":value"><e>cast "TClassField"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</ClassField>
+		<Abstract public="1" get="inline" set="null" expr="cast &quot;TAbstract&quot;" line="261" static="1">
+			<x path="haxe.display.MetadataTarget"/>
+			<meta>
+				<m n=":value"><e>cast "TAbstract"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Abstract>
+		<AbstractField public="1" get="inline" set="null" expr="cast &quot;TAbstractField&quot;" line="262" static="1">
+			<x path="haxe.display.MetadataTarget"/>
+			<meta>
+				<m n=":value"><e>cast "TAbstractField"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</AbstractField>
+		<Enum public="1" get="inline" set="null" expr="cast &quot;TEnum&quot;" line="263" static="1">
+			<x path="haxe.display.MetadataTarget"/>
+			<meta>
+				<m n=":value"><e>cast "TEnum"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Enum>
+		<Typedef public="1" get="inline" set="null" expr="cast &quot;TTypedef&quot;" line="264" static="1">
+			<x path="haxe.display.MetadataTarget"/>
+			<meta>
+				<m n=":value"><e>cast "TTypedef"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Typedef>
+		<AnyField public="1" get="inline" set="null" expr="cast &quot;TAnyField&quot;" line="265" static="1">
+			<x path="haxe.display.MetadataTarget"/>
+			<meta>
+				<m n=":value"><e>cast "TAnyField"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</AnyField>
+		<Expr public="1" get="inline" set="null" expr="cast &quot;TExpr&quot;" line="266" static="1">
+			<x path="haxe.display.MetadataTarget"/>
+			<meta>
+				<m n=":value"><e>cast "TExpr"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Expr>
+		<TypeParameter public="1" get="inline" set="null" expr="cast &quot;TTypeParameter&quot;" line="267" static="1">
+			<x path="haxe.display.MetadataTarget"/>
+			<meta>
+				<m n=":value"><e>cast "TTypeParameter"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</TypeParameter>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":enum"/>
+		</meta>
+	</class>
+	<abstract path="haxe.display.Platform" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><c path="String"/></this>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":enum"/>
+		</meta>
+		<impl><class path="haxe.display._Display.Platform_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+	<Cross public="1" get="inline" set="null" expr="cast &quot;cross&quot;" line="271" static="1">
+		<x path="haxe.display.Platform"/>
+		<meta>
+			<m n=":value"><e>cast "cross"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Cross>
+	<Js public="1" get="inline" set="null" expr="cast &quot;js&quot;" line="272" static="1">
+		<x path="haxe.display.Platform"/>
+		<meta>
+			<m n=":value"><e>cast "js"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Js>
+	<Lua public="1" get="inline" set="null" expr="cast &quot;lua&quot;" line="273" static="1">
+		<x path="haxe.display.Platform"/>
+		<meta>
+			<m n=":value"><e>cast "lua"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Lua>
+	<Neko public="1" get="inline" set="null" expr="cast &quot;neko&quot;" line="274" static="1">
+		<x path="haxe.display.Platform"/>
+		<meta>
+			<m n=":value"><e>cast "neko"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Neko>
+	<Flash public="1" get="inline" set="null" expr="cast &quot;flash&quot;" line="275" static="1">
+		<x path="haxe.display.Platform"/>
+		<meta>
+			<m n=":value"><e>cast "flash"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Flash>
+	<Php public="1" get="inline" set="null" expr="cast &quot;php&quot;" line="276" static="1">
+		<x path="haxe.display.Platform"/>
+		<meta>
+			<m n=":value"><e>cast "php"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Php>
+	<Cpp public="1" get="inline" set="null" expr="cast &quot;cpp&quot;" line="277" static="1">
+		<x path="haxe.display.Platform"/>
+		<meta>
+			<m n=":value"><e>cast "cpp"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Cpp>
+	<Cs public="1" get="inline" set="null" expr="cast &quot;cs&quot;" line="278" static="1">
+		<x path="haxe.display.Platform"/>
+		<meta>
+			<m n=":value"><e>cast "cs"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Cs>
+	<Java public="1" get="inline" set="null" expr="cast &quot;java&quot;" line="279" static="1">
+		<x path="haxe.display.Platform"/>
+		<meta>
+			<m n=":value"><e>cast "java"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Java>
+	<Python public="1" get="inline" set="null" expr="cast &quot;python&quot;" line="280" static="1">
+		<x path="haxe.display.Platform"/>
+		<meta>
+			<m n=":value"><e>cast "python"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Python>
+	<Hl public="1" get="inline" set="null" expr="cast &quot;hl&quot;" line="281" static="1">
+		<x path="haxe.display.Platform"/>
+		<meta>
+			<m n=":value"><e>cast "hl"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Hl>
+	<Eval public="1" get="inline" set="null" expr="cast &quot;eval&quot;" line="282" static="1">
+		<x path="haxe.display.Platform"/>
+		<meta>
+			<m n=":value"><e>cast "eval"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Eval>
+	<meta>
+		<m n=":nativeGen"/>
+		<m n=":enum"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._Display.Platform_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+		<Cross public="1" get="inline" set="null" expr="cast &quot;cross&quot;" line="271" static="1">
+			<x path="haxe.display.Platform"/>
+			<meta>
+				<m n=":value"><e>cast "cross"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Cross>
+		<Js public="1" get="inline" set="null" expr="cast &quot;js&quot;" line="272" static="1">
+			<x path="haxe.display.Platform"/>
+			<meta>
+				<m n=":value"><e>cast "js"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Js>
+		<Lua public="1" get="inline" set="null" expr="cast &quot;lua&quot;" line="273" static="1">
+			<x path="haxe.display.Platform"/>
+			<meta>
+				<m n=":value"><e>cast "lua"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Lua>
+		<Neko public="1" get="inline" set="null" expr="cast &quot;neko&quot;" line="274" static="1">
+			<x path="haxe.display.Platform"/>
+			<meta>
+				<m n=":value"><e>cast "neko"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Neko>
+		<Flash public="1" get="inline" set="null" expr="cast &quot;flash&quot;" line="275" static="1">
+			<x path="haxe.display.Platform"/>
+			<meta>
+				<m n=":value"><e>cast "flash"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Flash>
+		<Php public="1" get="inline" set="null" expr="cast &quot;php&quot;" line="276" static="1">
+			<x path="haxe.display.Platform"/>
+			<meta>
+				<m n=":value"><e>cast "php"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Php>
+		<Cpp public="1" get="inline" set="null" expr="cast &quot;cpp&quot;" line="277" static="1">
+			<x path="haxe.display.Platform"/>
+			<meta>
+				<m n=":value"><e>cast "cpp"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Cpp>
+		<Cs public="1" get="inline" set="null" expr="cast &quot;cs&quot;" line="278" static="1">
+			<x path="haxe.display.Platform"/>
+			<meta>
+				<m n=":value"><e>cast "cs"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Cs>
+		<Java public="1" get="inline" set="null" expr="cast &quot;java&quot;" line="279" static="1">
+			<x path="haxe.display.Platform"/>
+			<meta>
+				<m n=":value"><e>cast "java"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Java>
+		<Python public="1" get="inline" set="null" expr="cast &quot;python&quot;" line="280" static="1">
+			<x path="haxe.display.Platform"/>
+			<meta>
+				<m n=":value"><e>cast "python"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Python>
+		<Hl public="1" get="inline" set="null" expr="cast &quot;hl&quot;" line="281" static="1">
+			<x path="haxe.display.Platform"/>
+			<meta>
+				<m n=":value"><e>cast "hl"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Hl>
+		<Eval public="1" get="inline" set="null" expr="cast &quot;eval&quot;" line="282" static="1">
+			<x path="haxe.display.Platform"/>
+			<meta>
+				<m n=":value"><e>cast "eval"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Eval>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":enum"/>
+		</meta>
+	</class>
+	<typedef path="haxe.display.Metadata" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<targets><c path="Array"><x path="haxe.display.MetadataTarget"/></c></targets>
+			<platforms><c path="Array"><x path="haxe.display.Platform"/></c></platforms>
+			<parameters><c path="Array"><c path="String"/></c></parameters>
+			<name><c path="String"/></name>
+			<internal><x path="Bool"/></internal>
+			<doc><t path="haxe.display.JsonDoc"/></doc>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.Keyword" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a><name><x path="haxe.display.KeywordKind"/></name></a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<abstract path="haxe.display.KeywordKind" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><c path="String"/></this>
+		<to><icast><c path="String"/></icast></to>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":enum"/>
+		</meta>
+		<impl><class path="haxe.display._Display.KeywordKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+	<Implements public="1" get="inline" set="null" expr="cast &quot;implements&quot;" line="299" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "implements"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Implements>
+	<Extends public="1" get="inline" set="null" expr="cast &quot;extends&quot;" line="300" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "extends"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Extends>
+	<Function public="1" get="inline" set="null" expr="cast &quot;function&quot;" line="301" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "function"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Function>
+	<Var public="1" get="inline" set="null" expr="cast &quot;var&quot;" line="302" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "var"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Var>
+	<If public="1" get="inline" set="null" expr="cast &quot;if&quot;" line="303" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "if"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</If>
+	<Else public="1" get="inline" set="null" expr="cast &quot;else&quot;" line="304" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "else"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Else>
+	<While public="1" get="inline" set="null" expr="cast &quot;while&quot;" line="305" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "while"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</While>
+	<Do public="1" get="inline" set="null" expr="cast &quot;do&quot;" line="306" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "do"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Do>
+	<For public="1" get="inline" set="null" expr="cast &quot;for&quot;" line="307" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "for"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</For>
+	<Break public="1" get="inline" set="null" expr="cast &quot;break&quot;" line="308" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "break"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Break>
+	<Return public="1" get="inline" set="null" expr="cast &quot;return&quot;" line="309" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "return"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Return>
+	<Continue public="1" get="inline" set="null" expr="cast &quot;continue&quot;" line="310" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "continue"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Continue>
+	<Switch public="1" get="inline" set="null" expr="cast &quot;switch&quot;" line="311" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "switch"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Switch>
+	<Case public="1" get="inline" set="null" expr="cast &quot;case&quot;" line="312" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "case"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Case>
+	<Default public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="313" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "default"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Default>
+	<Try public="1" get="inline" set="null" expr="cast &quot;try&quot;" line="314" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "try"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Try>
+	<Catch public="1" get="inline" set="null" expr="cast &quot;catch&quot;" line="315" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "catch"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Catch>
+	<New public="1" get="inline" set="null" expr="cast &quot;new&quot;" line="316" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "new"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</New>
+	<Throw public="1" get="inline" set="null" expr="cast &quot;throw&quot;" line="317" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "throw"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Throw>
+	<Untyped public="1" get="inline" set="null" expr="cast &quot;untyped&quot;" line="318" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "untyped"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Untyped>
+	<Cast public="1" get="inline" set="null" expr="cast &quot;cast&quot;" line="319" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "cast"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Cast>
+	<Macro public="1" get="inline" set="null" expr="cast &quot;macro&quot;" line="320" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "macro"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Macro>
+	<Package public="1" get="inline" set="null" expr="cast &quot;package&quot;" line="321" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "package"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Package>
+	<Import public="1" get="inline" set="null" expr="cast &quot;import&quot;" line="322" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "import"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Import>
+	<Using public="1" get="inline" set="null" expr="cast &quot;using&quot;" line="323" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "using"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Using>
+	<Public public="1" get="inline" set="null" expr="cast &quot;public&quot;" line="324" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "public"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Public>
+	<Private public="1" get="inline" set="null" expr="cast &quot;private&quot;" line="325" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "private"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Private>
+	<Static public="1" get="inline" set="null" expr="cast &quot;static&quot;" line="326" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "static"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Static>
+	<Extern public="1" get="inline" set="null" expr="cast &quot;extern&quot;" line="327" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "extern"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Extern>
+	<Dynamic public="1" get="inline" set="null" expr="cast &quot;dynamic&quot;" line="328" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "dynamic"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Dynamic>
+	<Override public="1" get="inline" set="null" expr="cast &quot;override&quot;" line="329" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "override"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Override>
+	<Class public="1" get="inline" set="null" expr="cast &quot;class&quot;" line="330" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "class"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Class>
+	<Interface public="1" get="inline" set="null" expr="cast &quot;interface&quot;" line="331" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "interface"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Interface>
+	<Enum public="1" get="inline" set="null" expr="cast &quot;enum&quot;" line="332" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "enum"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Enum>
+	<Abstract public="1" get="inline" set="null" expr="cast &quot;abstract&quot;" line="333" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "abstract"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Abstract>
+	<Typedef public="1" get="inline" set="null" expr="cast &quot;typedef&quot;" line="334" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "typedef"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Typedef>
+	<Final public="1" get="inline" set="null" expr="cast &quot;final&quot;" line="335" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "final"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Final>
+	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="336" static="1">
+		<x path="haxe.display.KeywordKind"/>
+		<meta>
+			<m n=":value"><e>cast "inline"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Inline>
+	<meta>
+		<m n=":nativeGen"/>
+		<m n=":enum"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._Display.KeywordKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+		<Implements public="1" get="inline" set="null" expr="cast &quot;implements&quot;" line="299" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "implements"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Implements>
+		<Extends public="1" get="inline" set="null" expr="cast &quot;extends&quot;" line="300" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "extends"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Extends>
+		<Function public="1" get="inline" set="null" expr="cast &quot;function&quot;" line="301" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "function"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Function>
+		<Var public="1" get="inline" set="null" expr="cast &quot;var&quot;" line="302" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "var"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Var>
+		<If public="1" get="inline" set="null" expr="cast &quot;if&quot;" line="303" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "if"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</If>
+		<Else public="1" get="inline" set="null" expr="cast &quot;else&quot;" line="304" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "else"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Else>
+		<While public="1" get="inline" set="null" expr="cast &quot;while&quot;" line="305" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "while"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</While>
+		<Do public="1" get="inline" set="null" expr="cast &quot;do&quot;" line="306" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "do"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Do>
+		<For public="1" get="inline" set="null" expr="cast &quot;for&quot;" line="307" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "for"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</For>
+		<Break public="1" get="inline" set="null" expr="cast &quot;break&quot;" line="308" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "break"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Break>
+		<Return public="1" get="inline" set="null" expr="cast &quot;return&quot;" line="309" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "return"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Return>
+		<Continue public="1" get="inline" set="null" expr="cast &quot;continue&quot;" line="310" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "continue"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Continue>
+		<Switch public="1" get="inline" set="null" expr="cast &quot;switch&quot;" line="311" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "switch"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Switch>
+		<Case public="1" get="inline" set="null" expr="cast &quot;case&quot;" line="312" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "case"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Case>
+		<Default public="1" get="inline" set="null" expr="cast &quot;default&quot;" line="313" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "default"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Default>
+		<Try public="1" get="inline" set="null" expr="cast &quot;try&quot;" line="314" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "try"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Try>
+		<Catch public="1" get="inline" set="null" expr="cast &quot;catch&quot;" line="315" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "catch"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Catch>
+		<New public="1" get="inline" set="null" expr="cast &quot;new&quot;" line="316" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "new"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</New>
+		<Throw public="1" get="inline" set="null" expr="cast &quot;throw&quot;" line="317" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "throw"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Throw>
+		<Untyped public="1" get="inline" set="null" expr="cast &quot;untyped&quot;" line="318" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "untyped"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Untyped>
+		<Cast public="1" get="inline" set="null" expr="cast &quot;cast&quot;" line="319" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "cast"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Cast>
+		<Macro public="1" get="inline" set="null" expr="cast &quot;macro&quot;" line="320" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "macro"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Macro>
+		<Package public="1" get="inline" set="null" expr="cast &quot;package&quot;" line="321" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "package"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Package>
+		<Import public="1" get="inline" set="null" expr="cast &quot;import&quot;" line="322" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "import"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Import>
+		<Using public="1" get="inline" set="null" expr="cast &quot;using&quot;" line="323" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "using"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Using>
+		<Public public="1" get="inline" set="null" expr="cast &quot;public&quot;" line="324" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "public"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Public>
+		<Private public="1" get="inline" set="null" expr="cast &quot;private&quot;" line="325" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "private"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Private>
+		<Static public="1" get="inline" set="null" expr="cast &quot;static&quot;" line="326" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "static"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Static>
+		<Extern public="1" get="inline" set="null" expr="cast &quot;extern&quot;" line="327" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "extern"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Extern>
+		<Dynamic public="1" get="inline" set="null" expr="cast &quot;dynamic&quot;" line="328" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "dynamic"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Dynamic>
+		<Override public="1" get="inline" set="null" expr="cast &quot;override&quot;" line="329" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "override"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Override>
+		<Class public="1" get="inline" set="null" expr="cast &quot;class&quot;" line="330" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "class"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Class>
+		<Interface public="1" get="inline" set="null" expr="cast &quot;interface&quot;" line="331" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "interface"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Interface>
+		<Enum public="1" get="inline" set="null" expr="cast &quot;enum&quot;" line="332" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "enum"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Enum>
+		<Abstract public="1" get="inline" set="null" expr="cast &quot;abstract&quot;" line="333" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "abstract"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Abstract>
+		<Typedef public="1" get="inline" set="null" expr="cast &quot;typedef&quot;" line="334" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "typedef"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Typedef>
+		<Final public="1" get="inline" set="null" expr="cast &quot;final&quot;" line="335" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "final"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Final>
+		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="336" static="1">
+			<x path="haxe.display.KeywordKind"/>
+			<meta>
+				<m n=":value"><e>cast "inline"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Inline>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":enum"/>
+		</meta>
+	</class>
+	<typedef path="haxe.display.Package" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a><path><t path="haxe.display.JsonPackagePath"/></path></a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.Module" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a><path><t path="haxe.display.JsonModulePath"/></path></a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<abstract path="haxe.display.DisplayItemKind" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><c path="String"/></this>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":enum"/>
+		</meta>
+		<impl><class path="haxe.display._Display.DisplayItemKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+	<Local public="1" get="inline" set="null" expr="cast &quot;Local&quot;" line="1" static="1">
+		<x path="haxe.display.DisplayItemKind"><t path="haxe.display.DisplayLocal"><d/></t></x>
+		<meta>
+			<m n=":value"><e>cast "Local"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Local>
+	<ClassField public="1" get="inline" set="null" expr="cast &quot;ClassField&quot;" line="1" static="1">
+		<x path="haxe.display.DisplayItemKind"><t path="haxe.display.ClassFieldOccurrence"><d/></t></x>
+		<meta>
+			<m n=":value"><e>cast "ClassField"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</ClassField>
+	<EnumField public="1" get="inline" set="null" expr="cast &quot;EnumField&quot;" line="1" static="1">
+		<x path="haxe.display.DisplayItemKind"><t path="haxe.display.EnumFieldOccurrence"><d/></t></x>
+		<meta>
+			<m n=":value"><e>cast "EnumField"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</EnumField>
+	<EnumAbstractField public="1" get="inline" set="null" expr="cast &quot;EnumAbstractField&quot;" line="1" static="1">
+		<x path="haxe.display.DisplayItemKind"><t path="haxe.display.ClassFieldOccurrence"><d/></t></x>
+		<meta>
+			<m n=":value"><e>cast "EnumAbstractField"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>Only for the enum values in enum abstracts, other fields use `ClassField`.</haxe_doc>
+	</EnumAbstractField>
+	<Type public="1" get="inline" set="null" expr="cast &quot;Type&quot;" line="1" static="1">
+		<x path="haxe.display.DisplayItemKind"><t path="haxe.display.DisplayModuleType"/></x>
+		<meta>
+			<m n=":value"><e>cast "Type"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Type>
+	<Package public="1" get="inline" set="null" expr="cast &quot;Package&quot;" line="1" static="1">
+		<x path="haxe.display.DisplayItemKind"><t path="haxe.display.Package"/></x>
+		<meta>
+			<m n=":value"><e>cast "Package"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Package>
+	<Module public="1" get="inline" set="null" expr="cast &quot;Module&quot;" line="1" static="1">
+		<x path="haxe.display.DisplayItemKind"><t path="haxe.display.Module"/></x>
+		<meta>
+			<m n=":value"><e>cast "Module"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Module>
+	<Literal public="1" get="inline" set="null" expr="cast &quot;Literal&quot;" line="1" static="1">
+		<x path="haxe.display.DisplayItemKind"><t path="haxe.display.DisplayLiteral"><d/></t></x>
+		<meta>
+			<m n=":value"><e>cast "Literal"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Literal>
+	<Metadata public="1" get="inline" set="null" expr="cast &quot;Metadata&quot;" line="1" static="1">
+		<x path="haxe.display.DisplayItemKind"><t path="haxe.display.Metadata"/></x>
+		<meta>
+			<m n=":value"><e>cast "Metadata"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Metadata>
+	<Keyword public="1" get="inline" set="null" expr="cast &quot;Keyword&quot;" line="1" static="1">
+		<x path="haxe.display.DisplayItemKind"><t path="haxe.display.Keyword"/></x>
+		<meta>
+			<m n=":value"><e>cast "Keyword"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Keyword>
+	<AnonymousStructure public="1" get="inline" set="null" expr="cast &quot;AnonymousStructure&quot;" line="1" static="1">
+		<x path="haxe.display.DisplayItemKind"><t path="haxe.display.JsonAnon"/></x>
+		<meta>
+			<m n=":value"><e>cast "AnonymousStructure"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</AnonymousStructure>
+	<Expression public="1" get="inline" set="null" expr="cast &quot;Expression&quot;" line="1" static="1">
+		<x path="haxe.display.DisplayItemKind"><t path="haxe.display.JsonTExpr"/></x>
+		<meta>
+			<m n=":value"><e>cast "Expression"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Expression>
+	<TypeParameter public="1" get="inline" set="null" expr="cast &quot;TypeParameter&quot;" line="1" static="1">
+		<x path="haxe.display.DisplayItemKind"><t path="haxe.display.DisplayModuleTypeParameter"/></x>
+		<meta>
+			<m n=":value"><e>cast "TypeParameter"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</TypeParameter>
+	<meta>
+		<m n=":nativeGen"/>
+		<m n=":enum"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._Display.DisplayItemKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+		<Local public="1" get="inline" set="null" expr="cast &quot;Local&quot;" line="1" static="1">
+			<x path="haxe.display.DisplayItemKind"><t path="haxe.display.DisplayLocal"><d/></t></x>
+			<meta>
+				<m n=":value"><e>cast "Local"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Local>
+		<ClassField public="1" get="inline" set="null" expr="cast &quot;ClassField&quot;" line="1" static="1">
+			<x path="haxe.display.DisplayItemKind"><t path="haxe.display.ClassFieldOccurrence"><d/></t></x>
+			<meta>
+				<m n=":value"><e>cast "ClassField"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</ClassField>
+		<EnumField public="1" get="inline" set="null" expr="cast &quot;EnumField&quot;" line="1" static="1">
+			<x path="haxe.display.DisplayItemKind"><t path="haxe.display.EnumFieldOccurrence"><d/></t></x>
+			<meta>
+				<m n=":value"><e>cast "EnumField"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</EnumField>
+		<EnumAbstractField public="1" get="inline" set="null" expr="cast &quot;EnumAbstractField&quot;" line="1" static="1">
+			<x path="haxe.display.DisplayItemKind"><t path="haxe.display.ClassFieldOccurrence"><d/></t></x>
+			<meta>
+				<m n=":value"><e>cast "EnumAbstractField"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>Only for the enum values in enum abstracts, other fields use `ClassField`.</haxe_doc>
+		</EnumAbstractField>
+		<Type public="1" get="inline" set="null" expr="cast &quot;Type&quot;" line="1" static="1">
+			<x path="haxe.display.DisplayItemKind"><t path="haxe.display.DisplayModuleType"/></x>
+			<meta>
+				<m n=":value"><e>cast "Type"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Type>
+		<Package public="1" get="inline" set="null" expr="cast &quot;Package&quot;" line="1" static="1">
+			<x path="haxe.display.DisplayItemKind"><t path="haxe.display.Package"/></x>
+			<meta>
+				<m n=":value"><e>cast "Package"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Package>
+		<Module public="1" get="inline" set="null" expr="cast &quot;Module&quot;" line="1" static="1">
+			<x path="haxe.display.DisplayItemKind"><t path="haxe.display.Module"/></x>
+			<meta>
+				<m n=":value"><e>cast "Module"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Module>
+		<Literal public="1" get="inline" set="null" expr="cast &quot;Literal&quot;" line="1" static="1">
+			<x path="haxe.display.DisplayItemKind"><t path="haxe.display.DisplayLiteral"><d/></t></x>
+			<meta>
+				<m n=":value"><e>cast "Literal"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Literal>
+		<Metadata public="1" get="inline" set="null" expr="cast &quot;Metadata&quot;" line="1" static="1">
+			<x path="haxe.display.DisplayItemKind"><t path="haxe.display.Metadata"/></x>
+			<meta>
+				<m n=":value"><e>cast "Metadata"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Metadata>
+		<Keyword public="1" get="inline" set="null" expr="cast &quot;Keyword&quot;" line="1" static="1">
+			<x path="haxe.display.DisplayItemKind"><t path="haxe.display.Keyword"/></x>
+			<meta>
+				<m n=":value"><e>cast "Keyword"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Keyword>
+		<AnonymousStructure public="1" get="inline" set="null" expr="cast &quot;AnonymousStructure&quot;" line="1" static="1">
+			<x path="haxe.display.DisplayItemKind"><t path="haxe.display.JsonAnon"/></x>
+			<meta>
+				<m n=":value"><e>cast "AnonymousStructure"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</AnonymousStructure>
+		<Expression public="1" get="inline" set="null" expr="cast &quot;Expression&quot;" line="1" static="1">
+			<x path="haxe.display.DisplayItemKind"><t path="haxe.display.JsonTExpr"/></x>
+			<meta>
+				<m n=":value"><e>cast "Expression"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Expression>
+		<TypeParameter public="1" get="inline" set="null" expr="cast &quot;TypeParameter&quot;" line="1" static="1">
+			<x path="haxe.display.DisplayItemKind"><t path="haxe.display.DisplayModuleTypeParameter"/></x>
+			<meta>
+				<m n=":value"><e>cast "TypeParameter"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</TypeParameter>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":enum"/>
+		</meta>
+	</class>
+	<typedef path="haxe.display.DisplayItem" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<type>
+				<x path="Null"><t path="haxe.display.JsonType"><d/></t></x>
+				<meta><m n=":optional"/></meta>
+			</type>
+			<kind><x path="haxe.display.DisplayItemKind"><c path="haxe.display.DisplayItem.T"/></x></kind>
+			<args><c path="haxe.display.DisplayItem.T"/></args>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.DisplayItemOccurrence" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<range><t path="haxe.display.Range"/></range>
+			<moduleTypeFollowed>
+				<x path="Null"><t path="haxe.display.JsonModuleType"><d/></t></x>
+				<meta><m n=":optional"/></meta>
+			</moduleTypeFollowed>
+			<moduleType>
+				<x path="Null"><t path="haxe.display.JsonModuleType"><d/></t></x>
+				<meta><m n=":optional"/></meta>
+			</moduleType>
+			<item><t path="haxe.display.DisplayItem"><c path="haxe.display.DisplayItemOccurrence.T"/></t></item>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.FieldCompletionSubject" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<range><t path="haxe.display.Range"/></range>
+			<moduleTypeFollowed>
+				<x path="Null"><t path="haxe.display.JsonModuleType"><d/></t></x>
+				<meta><m n=":optional"/></meta>
+			</moduleTypeFollowed>
+			<moduleType>
+				<x path="Null"><t path="haxe.display.JsonModuleType"><d/></t></x>
+				<meta><m n=":optional"/></meta>
+			</moduleType>
+			<keyValueIterator>
+				<x path="Null"><a>
+	<value><t path="haxe.display.JsonType"><d/></t></value>
+	<key><t path="haxe.display.JsonType"><d/></t></key>
+</a></x>
+				<meta><m n=":optional"/></meta>
+			</keyValueIterator>
+			<iterator>
+				<x path="Null"><a><type><t path="haxe.display.JsonType"><d/></t></type></a></x>
+				<meta><m n=":optional"/></meta>
+			</iterator>
+			<item><t path="haxe.display.DisplayItem"><c path="haxe.display.FieldCompletionSubject.T"/></t></item>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.ToplevelCompletion" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<expectedTypeFollowed>
+				<x path="Null"><t path="haxe.display.JsonType"><c path="haxe.display.ToplevelCompletion.T"/></t></x>
+				<meta><m n=":optional"/></meta>
+			</expectedTypeFollowed>
+			<expectedType>
+				<x path="Null"><t path="haxe.display.JsonType"><c path="haxe.display.ToplevelCompletion.T"/></t></x>
+				<meta><m n=":optional"/></meta>
+			</expectedType>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.StructExtensionCompletion" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a><isIntersectionType><x path="Bool"/></isIntersectionType></a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.PatternCompletion" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<isOutermostPattern><x path="Bool"/></isOutermostPattern>
+			<expectedTypeFollowed>
+				<x path="Null"><t path="haxe.display.JsonType"><c path="haxe.display.PatternCompletion.T"/></t></x>
+				<meta><m n=":optional"/></meta>
+			</expectedTypeFollowed>
+			<expectedType>
+				<x path="Null"><t path="haxe.display.JsonType"><c path="haxe.display.PatternCompletion.T"/></t></x>
+				<meta><m n=":optional"/></meta>
+			</expectedType>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<abstract path="haxe.display.CompletionModeKind" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><x path="Int"/></this>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":enum"/>
+		</meta>
+		<impl><class path="haxe.display._Display.CompletionModeKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+	<Field public="1" get="inline" set="null" expr="cast 0" line="1" static="1">
+		<x path="haxe.display.CompletionModeKind"><t path="haxe.display.FieldCompletionSubject"><d/></t></x>
+		<meta>
+			<m n=":value"><e>cast 0</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Field>
+	<StructureField public="1" get="inline" set="null" expr="cast 1" line="1" static="1">
+		<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+		<meta>
+			<m n=":value"><e>cast 1</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</StructureField>
+	<Toplevel public="1" get="inline" set="null" expr="cast 2" line="1" static="1">
+		<x path="haxe.display.CompletionModeKind"><t path="haxe.display.ToplevelCompletion"><d/></t></x>
+		<meta>
+			<m n=":value"><e>cast 2</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Toplevel>
+	<Metadata public="1" get="inline" set="null" expr="cast 3" line="1" static="1">
+		<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+		<meta>
+			<m n=":value"><e>cast 3</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Metadata>
+	<TypeHint public="1" get="inline" set="null" expr="cast 4" line="1" static="1">
+		<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+		<meta>
+			<m n=":value"><e>cast 4</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</TypeHint>
+	<Extends public="1" get="inline" set="null" expr="cast 5" line="1" static="1">
+		<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+		<meta>
+			<m n=":value"><e>cast 5</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Extends>
+	<Implements public="1" get="inline" set="null" expr="cast 6" line="1" static="1">
+		<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+		<meta>
+			<m n=":value"><e>cast 6</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Implements>
+	<StructExtension public="1" get="inline" set="null" expr="cast 7" line="1" static="1">
+		<x path="haxe.display.CompletionModeKind"><t path="haxe.display.StructExtensionCompletion"/></x>
+		<meta>
+			<m n=":value"><e>cast 7</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</StructExtension>
+	<Import public="1" get="inline" set="null" expr="cast 8" line="1" static="1">
+		<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+		<meta>
+			<m n=":value"><e>cast 8</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Import>
+	<Using public="1" get="inline" set="null" expr="cast 9" line="1" static="1">
+		<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+		<meta>
+			<m n=":value"><e>cast 9</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Using>
+	<New public="1" get="inline" set="null" expr="cast 10" line="1" static="1">
+		<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+		<meta>
+			<m n=":value"><e>cast 10</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</New>
+	<Pattern public="1" get="inline" set="null" expr="cast 11" line="1" static="1">
+		<x path="haxe.display.CompletionModeKind"><t path="haxe.display.PatternCompletion"><d/></t></x>
+		<meta>
+			<m n=":value"><e>cast 11</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Pattern>
+	<Override public="1" get="inline" set="null" expr="cast 12" line="1" static="1">
+		<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+		<meta>
+			<m n=":value"><e>cast 12</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Override>
+	<TypeRelation public="1" get="inline" set="null" expr="cast 13" line="1" static="1">
+		<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+		<meta>
+			<m n=":value"><e>cast 13</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</TypeRelation>
+	<TypeDeclaration public="1" get="inline" set="null" expr="cast 14" line="1" static="1">
+		<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+		<meta>
+			<m n=":value"><e>cast 14</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</TypeDeclaration>
+	<meta>
+		<m n=":hxGen"/>
+		<m n=":enum"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._Display.CompletionModeKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+		<Field public="1" get="inline" set="null" expr="cast 0" line="1" static="1">
+			<x path="haxe.display.CompletionModeKind"><t path="haxe.display.FieldCompletionSubject"><d/></t></x>
+			<meta>
+				<m n=":value"><e>cast 0</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Field>
+		<StructureField public="1" get="inline" set="null" expr="cast 1" line="1" static="1">
+			<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+			<meta>
+				<m n=":value"><e>cast 1</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</StructureField>
+		<Toplevel public="1" get="inline" set="null" expr="cast 2" line="1" static="1">
+			<x path="haxe.display.CompletionModeKind"><t path="haxe.display.ToplevelCompletion"><d/></t></x>
+			<meta>
+				<m n=":value"><e>cast 2</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Toplevel>
+		<Metadata public="1" get="inline" set="null" expr="cast 3" line="1" static="1">
+			<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+			<meta>
+				<m n=":value"><e>cast 3</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Metadata>
+		<TypeHint public="1" get="inline" set="null" expr="cast 4" line="1" static="1">
+			<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+			<meta>
+				<m n=":value"><e>cast 4</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</TypeHint>
+		<Extends public="1" get="inline" set="null" expr="cast 5" line="1" static="1">
+			<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+			<meta>
+				<m n=":value"><e>cast 5</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Extends>
+		<Implements public="1" get="inline" set="null" expr="cast 6" line="1" static="1">
+			<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+			<meta>
+				<m n=":value"><e>cast 6</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Implements>
+		<StructExtension public="1" get="inline" set="null" expr="cast 7" line="1" static="1">
+			<x path="haxe.display.CompletionModeKind"><t path="haxe.display.StructExtensionCompletion"/></x>
+			<meta>
+				<m n=":value"><e>cast 7</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</StructExtension>
+		<Import public="1" get="inline" set="null" expr="cast 8" line="1" static="1">
+			<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+			<meta>
+				<m n=":value"><e>cast 8</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Import>
+		<Using public="1" get="inline" set="null" expr="cast 9" line="1" static="1">
+			<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+			<meta>
+				<m n=":value"><e>cast 9</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Using>
+		<New public="1" get="inline" set="null" expr="cast 10" line="1" static="1">
+			<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+			<meta>
+				<m n=":value"><e>cast 10</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</New>
+		<Pattern public="1" get="inline" set="null" expr="cast 11" line="1" static="1">
+			<x path="haxe.display.CompletionModeKind"><t path="haxe.display.PatternCompletion"><d/></t></x>
+			<meta>
+				<m n=":value"><e>cast 11</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Pattern>
+		<Override public="1" get="inline" set="null" expr="cast 12" line="1" static="1">
+			<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+			<meta>
+				<m n=":value"><e>cast 12</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Override>
+		<TypeRelation public="1" get="inline" set="null" expr="cast 13" line="1" static="1">
+			<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+			<meta>
+				<m n=":value"><e>cast 13</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</TypeRelation>
+		<TypeDeclaration public="1" get="inline" set="null" expr="cast 14" line="1" static="1">
+			<x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionModeKind.T"/></x>
+			<meta>
+				<m n=":value"><e>cast 14</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</TypeDeclaration>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":enum"/>
+		</meta>
+	</class>
+	<typedef path="haxe.display.CompletionMode" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<kind><x path="haxe.display.CompletionModeKind"><c path="haxe.display.CompletionMode.T"/></x></kind>
+			<args>
+				<x path="Null"><c path="haxe.display.CompletionMode.T"/></x>
+				<meta><m n=":optional"/></meta>
+			</args>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.CompletionResponse" params="T1:T2" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<replaceRange>
+				<x path="Null"><t path="haxe.display.Range"/></x>
+				<meta><m n=":optional"/></meta>
+			</replaceRange>
+			<mode><t path="haxe.display.CompletionMode"><c path="haxe.display.CompletionResponse.T2"/></t></mode>
+			<items><c path="Array"><t path="haxe.display.DisplayItem"><c path="haxe.display.CompletionResponse.T1"/></t></c></items>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.CompletionResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<t path="haxe.display.Response"><x path="Null"><t path="haxe.display.CompletionResponse">
+	<d/>
+	<d/>
+</t></x></t>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.CompletionItemResolveParams" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a><index><x path="Int"/></index></a>
+		<haxe_doc>CompletionItem Resolve</haxe_doc>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.CompletionItemResolveResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<t path="haxe.display.Response"><a><item><t path="haxe.display.DisplayItem"><d/></t></item></a></t>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.GotoDefinitionResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<t path="haxe.display.Response"><c path="Array"><t path="haxe.display.Location"/></c></t>
+		<haxe_doc>GotoDefinition</haxe_doc>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.GotoTypeDefinitionResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<t path="haxe.display.Response"><c path="Array"><t path="haxe.display.Location"/></c></t>
+		<haxe_doc>GotoTypeDefinition</haxe_doc>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.HoverResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<t path="haxe.display.Response"><x path="Null"><t path="haxe.display.HoverDisplayItemOccurence"><d/></t></x></t>
+		<haxe_doc>Hover</haxe_doc>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.HoverDisplayItemOccurence" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<range><t path="haxe.display.Range"/></range>
+			<moduleTypeFollowed>
+				<x path="Null"><t path="haxe.display.JsonModuleType"><d/></t></x>
+				<meta><m n=":optional"/></meta>
+			</moduleTypeFollowed>
+			<moduleType>
+				<x path="Null"><t path="haxe.display.JsonModuleType"><d/></t></x>
+				<meta><m n=":optional"/></meta>
+			</moduleType>
+			<item><t path="haxe.display.DisplayItem"><c path="haxe.display.HoverDisplayItemOccurence.T"/></t></item>
+			<expected>
+				<x path="Null"><a>
+	<type>
+		<x path="Null"><t path="haxe.display.JsonType"><d/></t></x>
+		<meta><m n=":optional"/></meta>
+	</type>
+	<name>
+		<x path="Null"><a>
+	<name><c path="String"/></name>
+	<kind><x path="haxe.display.HoverExpectedNameKind"/></kind>
+</a></x>
+		<meta><m n=":optional"/></meta>
+	</name>
+</a></x>
+				<meta><m n=":optional"/></meta>
+			</expected>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<abstract path="haxe.display.HoverExpectedNameKind" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><x path="Int"/></this>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":enum"/>
+		</meta>
+		<impl><class path="haxe.display._Display.HoverExpectedNameKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+	<FunctionArgument public="1" get="inline" set="null" expr="cast 0" line="1" static="1">
+		<x path="haxe.display.HoverExpectedNameKind"/>
+		<meta>
+			<m n=":value"><e>cast 0</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</FunctionArgument>
+	<StructureField public="1" get="inline" set="null" expr="cast 1" line="1" static="1">
+		<x path="haxe.display.HoverExpectedNameKind"/>
+		<meta>
+			<m n=":value"><e>cast 1</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</StructureField>
+	<meta>
+		<m n=":hxGen"/>
+		<m n=":enum"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._Display.HoverExpectedNameKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+		<FunctionArgument public="1" get="inline" set="null" expr="cast 0" line="1" static="1">
+			<x path="haxe.display.HoverExpectedNameKind"/>
+			<meta>
+				<m n=":value"><e>cast 0</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</FunctionArgument>
+		<StructureField public="1" get="inline" set="null" expr="cast 1" line="1" static="1">
+			<x path="haxe.display.HoverExpectedNameKind"/>
+			<meta>
+				<m n=":value"><e>cast 1</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</StructureField>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":enum"/>
+		</meta>
+	</class>
+	<typedef path="haxe.display.DeterminePackageResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<t path="haxe.display.Response"><c path="Array"><c path="String"/></c></t>
+		<haxe_doc>DeterminePackage</haxe_doc>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.SignatureHelpParams" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<wasAutoTriggered><x path="Bool"/></wasAutoTriggered>
+			<offset>
+				<x path="Int"/>
+				<haxe_doc>Unicode character offset in the file.</haxe_doc>
+			</offset>
+			<file><x path="haxe.display.FsPath"/></file>
+			<contents>
+				<x path="Null"><c path="String"/></x>
+				<meta><m n=":optional"/></meta>
+			</contents>
+		</a>
+		<haxe_doc>SignatureHelp</haxe_doc>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.SignatureInformation" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<ret><t path="haxe.display.JsonType"><d/></t></ret>
+			<documentation>
+				<x path="Null"><c path="String"/></x>
+				<meta><m n=":optional"/></meta>
+			</documentation>
+			<args><c path="Array"><t path="haxe.display.JsonFunctionArgument"/></c></args>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<abstract path="haxe.display.SignatureItemKind" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><x path="Int"/></this>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":enum"/>
+		</meta>
+		<impl><class path="haxe.display._Display.SignatureItemKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+	<Call public="1" get="inline" set="null" expr="cast 0" line="1" static="1">
+		<x path="haxe.display.SignatureItemKind"/>
+		<meta>
+			<m n=":value"><e>cast 0</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Call>
+	<ArrayAccess public="1" get="inline" set="null" expr="cast 1" line="1" static="1">
+		<x path="haxe.display.SignatureItemKind"/>
+		<meta>
+			<m n=":value"><e>cast 1</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</ArrayAccess>
+	<meta>
+		<m n=":hxGen"/>
+		<m n=":enum"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._Display.SignatureItemKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1">
+		<Call public="1" get="inline" set="null" expr="cast 0" line="1" static="1">
+			<x path="haxe.display.SignatureItemKind"/>
+			<meta>
+				<m n=":value"><e>cast 0</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Call>
+		<ArrayAccess public="1" get="inline" set="null" expr="cast 1" line="1" static="1">
+			<x path="haxe.display.SignatureItemKind"/>
+			<meta>
+				<m n=":value"><e>cast 1</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</ArrayAccess>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":enum"/>
+		</meta>
+	</class>
+	<typedef path="haxe.display.SignatureItem" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<signatures><c path="Array"><t path="haxe.display.SignatureInformation"/></c></signatures>
+			<kind><x path="haxe.display.SignatureItemKind"/></kind>
+			<activeSignature><x path="Int"/></activeSignature>
+			<activeParameter><x path="Int"/></activeParameter>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.SignatureHelpResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<t path="haxe.display.Response"><x path="Null"><t path="haxe.display.SignatureItem"/></x></t>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.PositionParams" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<offset>
+				<x path="Int"/>
+				<haxe_doc>Unicode character offset in the file.</haxe_doc>
+			</offset>
+			<file><x path="haxe.display.FsPath"/></file>
+			<contents>
+				<x path="Null"><c path="String"/></x>
+				<meta><m n=":optional"/></meta>
+			</contents>
+		</a>
+		<haxe_doc>General types</haxe_doc>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<abstract path="haxe.display.DocumentUri" params="" file="/home/vsts/work/1/s/std/haxe/display/DocumentUri.hx">
+		<this><c path="String"/></this>
+		<haxe_doc>A tagging type for string properties that are actually URIs.</haxe_doc>
+		<meta><m n=":nativeGen"/></meta>
+		<impl><class path="haxe.display._DocumentUri.DocumentUri_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/DocumentUri.hx" private="1" module="haxe.display.DocumentUri">
+	<_new public="1" get="inline" set="null" line="29" static="1">
+		<f a="uri">
+			<c path="String"/>
+			<x path="haxe.display.DocumentUri"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</_new>
+	<toString public="1" get="inline" set="null" line="33" static="1">
+		<f a="this">
+			<c path="String"/>
+			<c path="String"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</toString>
+	<meta><m n=":nativeGen"/></meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._DocumentUri.DocumentUri_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/DocumentUri.hx" private="1" module="haxe.display.DocumentUri">
+		<_new public="1" get="inline" set="null" line="29" static="1">
+			<f a="uri">
+				<c path="String"/>
+				<x path="haxe.display.DocumentUri"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</_new>
+		<toString public="1" get="inline" set="null" line="33" static="1">
+			<f a="this">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</toString>
+		<meta><m n=":nativeGen"/></meta>
+	</class>
+	<abstract path="haxe.display.FsPath" params="" file="/home/vsts/work/1/s/std/haxe/display/FsPath.hx">
+		<this><c path="String"/></this>
+		<meta><m n=":nativeGen"/></meta>
+		<impl><class path="haxe.display._FsPath.FsPath_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/FsPath.hx" private="1" module="haxe.display.FsPath">
+	<upperCaseDriveRe final="1" set="null" expr="~/^(/)?([A-Z]:)/" line="28" static="1">
+		<c path="EReg"/>
+		<meta><m n=":value"><e>~/^(/)?([A-Z]:)/</e></m></meta>
+	</upperCaseDriveRe>
+	<_new public="1" get="inline" set="null" line="30" static="1">
+		<f a="path">
+			<c path="String"/>
+			<x path="haxe.display.FsPath"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</_new>
+	<toUri public="1" set="method" line="35" static="1">
+		<f a="this">
+			<c path="String"/>
+			<x path="haxe.display.DocumentUri"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>ported from VSCode sources</haxe_doc>
+	</toUri>
+	<toString public="1" get="inline" set="null" line="60" static="1">
+		<f a="this">
+			<c path="String"/>
+			<c path="String"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</toString>
+	<meta><m n=":nativeGen"/></meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._FsPath.FsPath_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/FsPath.hx" private="1" module="haxe.display.FsPath">
+		<upperCaseDriveRe final="1" set="null" expr="~/^(/)?([A-Z]:)/" line="28" static="1">
+			<c path="EReg"/>
+			<meta><m n=":value"><e>~/^(/)?([A-Z]:)/</e></m></meta>
+		</upperCaseDriveRe>
+		<_new public="1" get="inline" set="null" line="30" static="1">
+			<f a="path">
+				<c path="String"/>
+				<x path="haxe.display.FsPath"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</_new>
+		<toUri public="1" set="method" line="35" static="1">
+			<f a="this">
+				<c path="String"/>
+				<x path="haxe.display.DocumentUri"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>ported from VSCode sources</haxe_doc>
+		</toUri>
+		<toString public="1" get="inline" set="null" line="60" static="1">
+			<f a="this">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</toString>
+		<meta><m n=":nativeGen"/></meta>
+	</class>
+	<class path="haxe.display._FsPath.UrlEncoder" params="" file="/home/vsts/work/1/s/std/haxe/display/FsPath.hx" private="1" module="haxe.display.FsPath">
+		<urlEncode2 public="1" set="method" line="66" static="1"><f a="s">
+	<c path="String"/>
+	<c path="String"/>
+</f></urlEncode2>
+		<meta><m n=":hxGen"/></meta>
+	</class>
 	<typedef path="haxe.display.JsonTodo" params="" file="/home/vsts/work/1/s/std/haxe/display/JsonModuleTypes.hx" module="haxe.display.JsonModuleTypes">
 		<d/>
 		<meta><m n=":nativeGen"/></meta>
@@ -69106,6 +71828,523 @@
 			<file><c path="String"/></file>
 		</a>
 		<haxe_doc>Represents a location inside a resource, such as a line inside a text file.</haxe_doc>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<class path="haxe.display.Methods" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" module="haxe.display.Protocol">
+		<Initialize public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;InitializeParams,InitializeResult&gt;(&quot;initialize&quot;)" line="32" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<t path="haxe.display.InitializeParams"/>
+				<t path="haxe.display.InitializeResult"/>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<InitializeParams,InitializeResult>("initialize")]]></e></m></meta>
+			<haxe_doc>The initialize request is sent from the client to Haxe to determine the capabilities.</haxe_doc>
+		</Initialize>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":publicFields"/>
+		</meta>
+	</class>
+	<typedef path="haxe.display.InitializeParams" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" module="haxe.display.Protocol">
+		<a>
+			<supportsResolve final="1" set="null">
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</supportsResolve>
+			<exclude final="1" set="null">
+				<x path="Null"><c path="Array"><c path="String"/></c></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>dot paths to exclude from readClassPaths / toplevel completion</haxe_doc>
+			</exclude>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.Version" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" module="haxe.display.Protocol">
+		<a>
+			<pre final="1" set="null"><c path="String"/></pre>
+			<patch final="1" set="null"><x path="Int"/></patch>
+			<minor final="1" set="null"><x path="Int"/></minor>
+			<major final="1" set="null"><x path="Int"/></major>
+			<build final="1" set="null"><c path="String"/></build>
+		</a>
+		<haxe_doc>Represents a semantic version, see https://semver.org/.</haxe_doc>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.InitializeResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" module="haxe.display.Protocol">
+		<t path="haxe.display.Response"><a>
+	<protocolVersion final="1" set="null"><t path="haxe.display.Version"/></protocolVersion>
+	<methods final="1" set="null"><c path="Array"><c path="String"/></c></methods>
+	<haxeVersion final="1" set="null"><t path="haxe.display.Version"/></haxeVersion>
+</a></t>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.Timer" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" module="haxe.display.Protocol">
+		<a>
+			<time final="1" set="null"><x path="Float"/></time>
+			<percentTotal final="1" set="null">
+				<x path="Null"><x path="Float"/></x>
+				<meta><m n=":optional"/></meta>
+			</percentTotal>
+			<percentParent final="1" set="null">
+				<x path="Null"><x path="Float"/></x>
+				<meta><m n=":optional"/></meta>
+			</percentParent>
+			<path final="1" set="null">
+				<x path="Null"><c path="String"/></x>
+				<meta><m n=":optional"/></meta>
+			</path>
+			<name final="1" set="null"><c path="String"/></name>
+			<info final="1" set="null">
+				<x path="Null"><c path="String"/></x>
+				<meta><m n=":optional"/></meta>
+			</info>
+			<children final="1" set="null">
+				<x path="Null"><c path="Array"><t path="haxe.display.Timer"/></c></x>
+				<meta><m n=":optional"/></meta>
+			</children>
+			<calls final="1" set="null">
+				<x path="Null"><x path="Int"/></x>
+				<meta><m n=":optional"/></meta>
+			</calls>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.Response" params="T" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" module="haxe.display.Protocol">
+		<a>
+			<timestamp final="1" set="null">
+				<x path="Null"><x path="Float"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>UNIX timestamp at the moment the data was sent.</haxe_doc>
+			</timestamp>
+			<timers final="1" set="null">
+				<x path="Null"><t path="haxe.display.Timer"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>Only sent if `--times` is enabled.</haxe_doc>
+			</timers>
+			<result final="1" set="null">
+				<x path="Null"><c path="haxe.display.Response.T"/></x>
+				<meta><m n=":optional"/></meta>
+			</result>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.FileParams" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" module="haxe.display.Protocol">
+		<a><file><x path="haxe.display.FsPath"/></file></a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<abstract path="haxe.display.HaxeRequestMethod" params="TParams:TResponse" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" module="haxe.display.Protocol">
+		<this><c path="String"/></this>
+		<to><icast><c path="String"/></icast></to>
+		<meta><m n=":nativeGen"/></meta>
+		<impl><class path="haxe.display._Protocol.HaxeRequestMethod_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol">
+	<_new public="1" get="inline" set="null" line="87" static="1">
+		<f a="method">
+			<c path="String"/>
+			<x path="haxe.display.HaxeRequestMethod">
+				<c path="haxe.display.HaxeRequestMethod.TParams"/>
+				<c path="haxe.display.HaxeRequestMethod.TResponse"/>
+			</x>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</_new>
+	<meta><m n=":nativeGen"/></meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._Protocol.HaxeRequestMethod_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol">
+		<_new public="1" get="inline" set="null" line="87" static="1">
+			<f a="method">
+				<c path="String"/>
+				<x path="haxe.display.HaxeRequestMethod">
+					<c path="haxe.display.HaxeRequestMethod.TParams"/>
+					<c path="haxe.display.HaxeRequestMethod.TResponse"/>
+				</x>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</_new>
+		<meta><m n=":nativeGen"/></meta>
+	</class>
+	<abstract path="haxe.display.HaxeNotificationMethod" params="TParams" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" module="haxe.display.Protocol">
+		<this><c path="String"/></this>
+		<to><icast><c path="String"/></icast></to>
+		<meta><m n=":nativeGen"/></meta>
+		<impl><class path="haxe.display._Protocol.HaxeNotificationMethod_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol">
+	<_new public="1" get="inline" set="null" line="92" static="1">
+		<f a="method">
+			<c path="String"/>
+			<x path="haxe.display.HaxeNotificationMethod"><c path="haxe.display.HaxeNotificationMethod.TParams"/></x>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</_new>
+	<meta><m n=":nativeGen"/></meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._Protocol.HaxeNotificationMethod_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol">
+		<_new public="1" get="inline" set="null" line="92" static="1">
+			<f a="method">
+				<c path="String"/>
+				<x path="haxe.display.HaxeNotificationMethod"><c path="haxe.display.HaxeNotificationMethod.TParams"/></x>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</_new>
+		<meta><m n=":nativeGen"/></meta>
+	</class>
+	<typedef path="haxe.display.HaxeResponseErrorData" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" module="haxe.display.Protocol">
+		<c path="Array"><a>
+	<severity><x path="haxe.display.HaxeResponseErrorSeverity"/></severity>
+	<message><c path="String"/></message>
+	<location>
+		<x path="Null"><t path="haxe.display.Location"/></x>
+		<meta><m n=":optional"/></meta>
+	</location>
+</a></c>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<abstract path="haxe.display.HaxeResponseErrorSeverity" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" module="haxe.display.Protocol">
+		<this><x path="Int"/></this>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":enum"/>
+		</meta>
+		<impl><class path="haxe.display._Protocol.HaxeResponseErrorSeverity_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol" extern="1">
+	<Error public="1" get="inline" set="null" expr="cast 1" line="103" static="1">
+		<x path="haxe.display.HaxeResponseErrorSeverity"/>
+		<meta>
+			<m n=":value"><e>cast 1</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Error>
+	<Warning public="1" get="inline" set="null" expr="cast 2" line="1" static="1">
+		<x path="haxe.display.HaxeResponseErrorSeverity"/>
+		<meta>
+			<m n=":value"><e>cast 2</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Warning>
+	<Hint public="1" get="inline" set="null" expr="cast 3" line="1" static="1">
+		<x path="haxe.display.HaxeResponseErrorSeverity"/>
+		<meta>
+			<m n=":value"><e>cast 3</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</Hint>
+	<meta>
+		<m n=":hxGen"/>
+		<m n=":enum"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._Protocol.HaxeResponseErrorSeverity_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol" extern="1">
+		<Error public="1" get="inline" set="null" expr="cast 1" line="103" static="1">
+			<x path="haxe.display.HaxeResponseErrorSeverity"/>
+			<meta>
+				<m n=":value"><e>cast 1</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Error>
+		<Warning public="1" get="inline" set="null" expr="cast 2" line="1" static="1">
+			<x path="haxe.display.HaxeResponseErrorSeverity"/>
+			<meta>
+				<m n=":value"><e>cast 2</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Warning>
+		<Hint public="1" get="inline" set="null" expr="cast 3" line="1" static="1">
+			<x path="haxe.display.HaxeResponseErrorSeverity"/>
+			<meta>
+				<m n=":value"><e>cast 3</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</Hint>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":enum"/>
+		</meta>
+	</class>
+	<enum path="haxe.display.NoData" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" module="haxe.display.Protocol"><meta>
+	<m n=":hxGen"/>
+	<m n=":flatEnum"/>
+</meta></enum>
+	<class path="haxe.display.ServerMethods" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server">
+		<ReadClassPaths public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;NoData,Response&lt;{ @:optional}&gt;&gt;(&quot;server/readClassPaths&quot;)" line="34" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<e path="haxe.display.NoData"/>
+				<t path="haxe.display.Response"><a><files>
+	<x path="Null"><x path="Int"/></x>
+	<meta><m n=":optional"/></meta>
+</files></a></t>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<NoData,Response<{ @:optional}>>("server/readClassPaths")]]></e></m></meta>
+			<haxe_doc>This request is sent from the client to Haxe to explore the class paths. This effectively creates a cache for toplevel completion.</haxe_doc>
+		</ReadClassPaths>
+		<Configure public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ConfigureParams,Response&lt;NoData&gt;&gt;(&quot;server/configure&quot;)" line="36" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<t path="haxe.display.ConfigureParams"/>
+				<t path="haxe.display.Response"><e path="haxe.display.NoData"/></t>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<ConfigureParams,Response<NoData>>("server/configure")]]></e></m></meta>
+		</Configure>
+		<Invalidate public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;FileParams,Response&lt;NoData&gt;&gt;(&quot;server/invalidate&quot;)" line="37" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<t path="haxe.display.FileParams"/>
+				<t path="haxe.display.Response"><e path="haxe.display.NoData"/></t>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<FileParams,Response<NoData>>("server/invalidate")]]></e></m></meta>
+		</Invalidate>
+		<Contexts public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;NoData,Response&lt;Array&lt;HaxeServerContext&gt;&gt;&gt;(&quot;server/contexts&quot;)" line="38" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<e path="haxe.display.NoData"/>
+				<t path="haxe.display.Response"><c path="Array"><t path="haxe.display.HaxeServerContext"/></c></t>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<NoData,Response<Array<HaxeServerContext>>>("server/contexts")]]></e></m></meta>
+		</Contexts>
+		<Memory public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;NoData,Response&lt;HaxeMemoryResult&gt;&gt;(&quot;server/memory&quot;)" line="39" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<e path="haxe.display.NoData"/>
+				<t path="haxe.display.Response"><t path="haxe.display.HaxeMemoryResult"/></t>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<NoData,Response<HaxeMemoryResult>>("server/memory")]]></e></m></meta>
+		</Memory>
+		<Modules public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ContextParams,Response&lt;Array&lt;String&gt;&gt;&gt;(&quot;server/modules&quot;)" line="40" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<t path="haxe.display.ContextParams"/>
+				<t path="haxe.display.Response"><c path="Array"><c path="String"/></c></t>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<ContextParams,Response<Array<String>>>("server/modules")]]></e></m></meta>
+		</Modules>
+		<Module public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ModuleParams,Response&lt;JsonModule&gt;&gt;(&quot;server/module&quot;)" line="41" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<t path="haxe.display.ModuleParams"/>
+				<t path="haxe.display.Response"><t path="haxe.display.JsonModule"/></t>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<ModuleParams,Response<JsonModule>>("server/module")]]></e></m></meta>
+		</Module>
+		<Files public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ContextParams,Response&lt;Array&lt;JsonServerFile&gt;&gt;&gt;(&quot;server/files&quot;)" line="42" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<t path="haxe.display.ContextParams"/>
+				<t path="haxe.display.Response"><c path="Array"><t path="haxe.display.JsonServerFile"/></c></t>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<ContextParams,Response<Array<JsonServerFile>>>("server/files")]]></e></m></meta>
+		</Files>
+		<ModuleCreated public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;FileParams,NoData&gt;(&quot;server/moduleCreated&quot;)" line="43" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<t path="haxe.display.FileParams"/>
+				<e path="haxe.display.NoData"/>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<FileParams,NoData>("server/moduleCreated")]]></e></m></meta>
+		</ModuleCreated>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":publicFields"/>
+		</meta>
+	</class>
+	<typedef path="haxe.display.ConfigurePrintParams" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server">
+		<a>
+			<unchangedContent>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</unchangedContent>
+			<uncaughtError>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</uncaughtError>
+			<stats>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</stats>
+			<socketMessage>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</socketMessage>
+			<skippingDep>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</skippingDep>
+			<signature>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</signature>
+			<reusing>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</reusing>
+			<removedDirectory>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</removedDirectory>
+			<parsed>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</parsed>
+			<notCached>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</notCached>
+			<newContext>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</newContext>
+			<modulePathChanged>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</modulePathChanged>
+			<message>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</message>
+			<foundDirectories>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</foundDirectories>
+			<displayPosition>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</displayPosition>
+			<defines>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</defines>
+			<completion>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</completion>
+			<changedDirectories>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</changedDirectories>
+			<cachedModules>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</cachedModules>
+			<arguments>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</arguments>
+			<addedDirectory>
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</addedDirectory>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.ConfigureParams" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server">
+		<a>
+			<print final="1" set="null">
+				<x path="Null"><t path="haxe.display.ConfigurePrintParams"/></x>
+				<meta><m n=":optional"/></meta>
+			</print>
+			<noModuleChecks final="1" set="null">
+				<x path="Null"><x path="Bool"/></x>
+				<meta><m n=":optional"/></meta>
+			</noModuleChecks>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.HaxeServerContext" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server">
+		<a>
+			<signature final="1" set="null"><c path="String"/></signature>
+			<platform final="1" set="null"><c path="String"/></platform>
+			<index final="1" set="null"><x path="Int"/></index>
+			<desc final="1" set="null"><c path="String"/></desc>
+			<defines final="1" set="null"><c path="Array"><a>
+	<value><c path="String"/></value>
+	<key><c path="String"/></key>
+</a></c></defines>
+			<classPaths final="1" set="null"><c path="Array"><c path="String"/></c></classPaths>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.ModuleId" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server">
+		<a>
+			<sign final="1" set="null"><c path="String"/></sign>
+			<path final="1" set="null"><c path="String"/></path>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.JsonModule" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server">
+		<a>
+			<types final="1" set="null"><c path="Array"><t path="haxe.display.JsonTypePath"/></c></types>
+			<sign final="1" set="null"><c path="String"/></sign>
+			<path final="1" set="null"><t path="haxe.display.JsonModulePath"/></path>
+			<id final="1" set="null"><x path="Int"/></id>
+			<file final="1" set="null"><c path="String"/></file>
+			<dependencies final="1" set="null"><c path="Array"><t path="haxe.display.ModuleId"/></c></dependencies>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.JsonServerFile" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server">
+		<a>
+			<time final="1" set="null"><x path="Float"/></time>
+			<pack final="1" set="null"><c path="String"/></pack>
+			<moduleName final="1" set="null"><x path="Null"><c path="String"/></x></moduleName>
+			<file final="1" set="null"><c path="String"/></file>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.HaxeMemoryResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server">
+		<a>
+			<memory final="1" set="null"><a>
+	<totalCache final="1" set="null"><x path="Int"/></totalCache>
+	<parserCache final="1" set="null"><x path="Int"/></parserCache>
+	<moduleCache final="1" set="null"><x path="Int"/></moduleCache>
+	<haxelibCache final="1" set="null"><x path="Int"/></haxelibCache>
+</a></memory>
+			<contexts final="1" set="null"><c path="Array"><a>
+	<size final="1" set="null"><x path="Int"/></size>
+	<modules final="1" set="null"><c path="Array"><t path="haxe.display.ModulesSizeResult"/></c></modules>
+	<context final="1" set="null"><x path="Null"><t path="haxe.display.HaxeServerContext"/></x></context>
+</a></c></contexts>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.SizeResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server">
+		<a>
+			<size final="1" set="null"><x path="Int"/></size>
+			<path final="1" set="null"><c path="String"/></path>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.ModuleTypeSizeResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server">
+		<a>
+			<size final="1" set="null"><x path="Int"/></size>
+			<path final="1" set="null"><c path="String"/></path>
+			<fields final="1" set="null"><c path="Array"><t path="haxe.display.SizeResult"/></c></fields>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.ModulesSizeResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server">
+		<a>
+			<types final="1" set="null"><c path="Array"><t path="haxe.display.ModuleTypeSizeResult"/></c></types>
+			<size final="1" set="null"><x path="Int"/></size>
+			<path final="1" set="null"><c path="String"/></path>
+		</a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.ContextParams" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server">
+		<a><signature final="1" set="null"><c path="String"/></signature></a>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<typedef path="haxe.display.ModuleParams" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server">
+		<a>
+			<signature final="1" set="null"><c path="String"/></signature>
+			<path final="1" set="null"><c path="String"/></path>
+		</a>
 		<meta><m n=":nativeGen"/></meta>
 	</typedef>
 	<class path="haxe.ds.ArraySort" params="" file="/home/vsts/work/1/s/std/haxe/ds/ArraySort.hx">
