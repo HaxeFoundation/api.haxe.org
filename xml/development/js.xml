@@ -16282,11 +16282,18 @@
 		can be changed in order to send the same request to different target
 		Urls.</haxe_doc>
 		</url>
-		<responseData public="1" set="null"><x path="Null"><c path="String"/></x></responseData>
-		<postData><c path="String"/></postData>
+		<responseData public="1" get="accessor" set="null"><x path="Null"><c path="String"/></x></responseData>
+		<responseBytes public="1" set="null"><x path="Null"><c path="haxe.io.Bytes"/></x></responseBytes>
+		<responseAsString><x path="Null"><c path="String"/></x></responseAsString>
+		<postData><x path="Null"><c path="String"/></x></postData>
+		<postBytes><x path="Null"><c path="haxe.io.Bytes"/></x></postBytes>
 		<headers><c path="Array"><t path="haxe.http._HttpBase.StringKeyValue"/></c></headers>
 		<params><c path="Array"><t path="haxe.http._HttpBase.StringKeyValue"/></c></params>
-		<setHeader public="1" set="method" line="77">
+		<emptyOnData final="1"><f a="">
+	<c path="String"/>
+	<x path="Void"/>
+</f></emptyOnData>
+		<setHeader public="1" set="method" line="85">
 			<f a="name:value">
 				<c path="String"/>
 				<c path="String"/>
@@ -16298,12 +16305,12 @@
 
 		This method provides a fluent interface.</haxe_doc>
 		</setHeader>
-		<addHeader public="1" set="method" line="90"><f a="header:value">
+		<addHeader public="1" set="method" line="98"><f a="header:value">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></addHeader>
-		<setParameter public="1" set="method" line="104">
+		<setParameter public="1" set="method" line="112">
 			<f a="name:value">
 				<c path="String"/>
 				<c path="String"/>
@@ -16315,26 +16322,40 @@
 
 		This method provides a fluent interface.</haxe_doc>
 		</setParameter>
-		<addParameter public="1" set="method" line="117"><f a="name:value">
+		<addParameter public="1" set="method" line="125"><f a="name:value">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></addParameter>
-		<setPostData public="1" set="method" line="134">
+		<setPostData public="1" set="method" line="142">
 			<f a="data">
-				<c path="String"/>
+				<x path="Null"><c path="String"/></x>
 				<x path="Void"/>
 			</f>
-			<haxe_doc>Sets the post data of `this` Http request to `data`.
+			<haxe_doc>Sets the post data of `this` Http request to `data` string.
 
-		There can only be one post data per request. Subsequent calls overwrite
-		the previously set value.
+		There can only be one post data per request. Subsequent calls to
+		this method or to `setPostBytes()` overwrite the previously set value.
 
 		If `data` is null, the post data is considered to be absent.
 
 		This method provides a fluent interface.</haxe_doc>
 		</setPostData>
-		<request public="1" set="method" line="158">
+		<setPostBytes public="1" set="method" line="160">
+			<f a="data">
+				<x path="Null"><c path="haxe.io.Bytes"/></x>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the post data of `this` Http request to `data` bytes.
+
+		There can only be one post data per request. Subsequent calls to
+		this method or to `setPostData()` overwrite the previously set value.
+
+		If `data` is null, the post data is considered to be absent.
+
+		This method provides a fluent interface.</haxe_doc>
+		</setPostBytes>
+		<request public="1" set="method" line="185">
 			<f a="?post">
 				<x path="Bool"/>
 				<x path="Void"/>
@@ -16345,7 +16366,7 @@
 		sent as GET request.
 
 		Depending on the outcome of the request, this method calls the
-		`onStatus()`, `onError()` or `onData()` callback functions.
+		`onStatus()`, `onError()`, `onData()` or `onBytes()` callback functions.
 
 		If `this.url` is null, the result is unspecified.
 
@@ -16355,7 +16376,7 @@
 		[js] If `this.async` is false, the callback functions are called before
 		this method returns.</haxe_doc>
 		</request>
-		<onData public="1" set="dynamic" line="169">
+		<onData public="1" set="dynamic" line="196">
 			<f a="data">
 				<c path="String"/>
 				<x path="Void"/>
@@ -16366,7 +16387,18 @@
 		The intended usage is to bind it to a custom function:
 		`httpInstance.onData = function(data) { // handle result }`</haxe_doc>
 		</onData>
-		<onError public="1" set="dynamic" line="178">
+		<onBytes public="1" set="dynamic" line="205">
+			<f a="data">
+				<c path="haxe.io.Bytes"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>This method is called upon a successful request, with `data` containing
+		the result String.
+
+		The intended usage is to bind it to a custom function:
+		`httpInstance.onBytes = function(data) { // handle result }`</haxe_doc>
+		</onBytes>
+		<onError public="1" set="dynamic" line="214">
 			<f a="msg">
 				<c path="String"/>
 				<x path="Void"/>
@@ -16377,7 +16409,7 @@
 		The intended usage is to bind it to a custom function:
 		`httpInstance.onError = function(msg) { // handle error }`</haxe_doc>
 		</onError>
-		<onStatus public="1" set="dynamic" line="187">
+		<onStatus public="1" set="dynamic" line="223">
 			<f a="status">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -16388,7 +16420,16 @@
 		The intended usage is to bind it to a custom function:
 		`httpInstance.onStatus = function(status) { // handle status }`</haxe_doc>
 		</onStatus>
-		<new public="1" set="method" line="64">
+		<hasOnData set="method" line="228">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>Override this if extending `haxe.Http` with overriding `onData`</haxe_doc>
+		</hasOnData>
+		<success set="method" line="232"><f a="data">
+	<c path="haxe.io.Bytes"/>
+	<x path="Void"/>
+</f></success>
+		<get_responseData set="method" line="240"><f a=""><x path="Null"><c path="String"/></x></f></get_responseData>
+		<new public="1" set="method" line="71">
 			<f a="url">
 				<c path="String"/>
 				<x path="Void"/>
@@ -16413,7 +16454,7 @@
 	</class>
 	<class path="haxe.http.HttpJs" params="" file="/home/vsts/work/1/s/std/haxe/http/HttpJs.hx">
 		<extends path="haxe.http.HttpBase"/>
-		<requestUrl public="1" set="method" line="135" static="1">
+		<requestUrl public="1" set="method" line="146" static="1">
 			<f a="url">
 				<c path="String"/>
 				<c path="String"/>
@@ -16428,16 +16469,16 @@
 		<async public="1"><x path="Bool"/></async>
 		<withCredentials public="1"><x path="Bool"/></withCredentials>
 		<req><c path="js.html.XMLHttpRequest"/></req>
-		<cancel public="1" set="method" line="42">
+		<cancel public="1" set="method" line="46">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Cancels `this` Http request if `request` has been called and a response
 		has not yet been received.</haxe_doc>
 		</cancel>
-		<request public="1" set="method" line="49" override="1"><f a="?post">
+		<request public="1" set="method" line="53" override="1"><f a="?post">
 	<x path="Bool"/>
 	<x path="Void"/>
 </f></request>
-		<new public="1" set="method" line="32"><f a="url">
+		<new public="1" set="method" line="36"><f a="url">
 	<c path="String"/>
 	<x path="Void"/>
 </f></new>
