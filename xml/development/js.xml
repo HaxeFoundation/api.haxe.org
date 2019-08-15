@@ -11093,6 +11093,10 @@
 		<meta><m n=":optional"/></meta>
 	</type>
 	<kind><x path="haxe.display.DisplayItemKind"><c path="haxe.display.DisplayItem.T"/></x></kind>
+	<index>
+		<x path="Null"><x path="Int"/></x>
+		<meta><m n=":optional"/></meta>
+	</index>
 	<args><c path="haxe.display.DisplayItem.T"/></args>
 </a></typedef>
 	<typedef path="haxe.display.DisplayItemOccurrence" params="T" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
@@ -11416,6 +11420,10 @@
 	</replaceRange>
 	<mode><t path="haxe.display.CompletionMode"><c path="haxe.display.CompletionResponse.T2"/></t></mode>
 	<items><c path="Array"><t path="haxe.display.DisplayItem"><c path="haxe.display.CompletionResponse.T1"/></t></c></items>
+	<isIncomplete>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</isIncomplete>
 </a></typedef>
 	<typedef path="haxe.display.CompletionResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display"><t path="haxe.display.Response"><x path="Null"><t path="haxe.display.CompletionResponse">
 	<d/>
@@ -13360,6 +13368,11 @@
 		<x path="Null"><x path="Bool"/></x>
 		<meta><m n=":optional"/></meta>
 	</supportsResolve>
+	<maxCompletionItems final="1" set="null">
+		<x path="Null"><x path="Int"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The maximum number of completion items to return</haxe_doc>
+	</maxCompletionItems>
 	<exclude final="1" set="null">
 		<x path="Null"><c path="Array"><c path="String"/></c></x>
 		<meta><m n=":optional"/></meta>
@@ -13429,7 +13442,7 @@
 	<abstract path="haxe.display.HaxeRequestMethod" params="TParams:TResponse" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" module="haxe.display.Protocol">
 		<this><c path="String"/></this>
 		<to><icast><c path="String"/></icast></to>
-		<impl><class path="haxe.display._Protocol.HaxeRequestMethod_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol"><_new public="1" get="inline" set="null" line="87" static="1">
+		<impl><class path="haxe.display._Protocol.HaxeRequestMethod_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol"><_new public="1" get="inline" set="null" line="90" static="1">
 	<f a="method">
 		<c path="String"/>
 		<x path="haxe.display.HaxeRequestMethod">
@@ -13443,7 +13456,7 @@
 	</meta>
 </_new></class></impl>
 	</abstract>
-	<class path="haxe.display._Protocol.HaxeRequestMethod_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol"><_new public="1" get="inline" set="null" line="87" static="1">
+	<class path="haxe.display._Protocol.HaxeRequestMethod_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol"><_new public="1" get="inline" set="null" line="90" static="1">
 	<f a="method">
 		<c path="String"/>
 		<x path="haxe.display.HaxeRequestMethod">
@@ -13459,7 +13472,7 @@
 	<abstract path="haxe.display.HaxeNotificationMethod" params="TParams" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" module="haxe.display.Protocol">
 		<this><c path="String"/></this>
 		<to><icast><c path="String"/></icast></to>
-		<impl><class path="haxe.display._Protocol.HaxeNotificationMethod_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol"><_new public="1" get="inline" set="null" line="92" static="1">
+		<impl><class path="haxe.display._Protocol.HaxeNotificationMethod_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol"><_new public="1" get="inline" set="null" line="95" static="1">
 	<f a="method">
 		<c path="String"/>
 		<x path="haxe.display.HaxeNotificationMethod"><c path="haxe.display.HaxeNotificationMethod.TParams"/></x>
@@ -13470,7 +13483,7 @@
 	</meta>
 </_new></class></impl>
 	</abstract>
-	<class path="haxe.display._Protocol.HaxeNotificationMethod_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol"><_new public="1" get="inline" set="null" line="92" static="1">
+	<class path="haxe.display._Protocol.HaxeNotificationMethod_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol"><_new public="1" get="inline" set="null" line="95" static="1">
 	<f a="method">
 		<c path="String"/>
 		<x path="haxe.display.HaxeNotificationMethod"><c path="haxe.display.HaxeNotificationMethod.TParams"/></x>
@@ -13492,7 +13505,7 @@
 		<this><x path="Int"/></this>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="haxe.display._Protocol.HaxeResponseErrorSeverity_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol" extern="1">
-	<Error public="1" get="inline" set="null" expr="cast 1" line="103" static="1">
+	<Error public="1" get="inline" set="null" expr="cast 1" line="106" static="1">
 		<x path="haxe.display.HaxeResponseErrorSeverity"/>
 		<meta>
 			<m n=":value"><e>cast 1</e></m>
@@ -13520,7 +13533,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.display._Protocol.HaxeResponseErrorSeverity_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Protocol.hx" private="1" module="haxe.display.Protocol" extern="1">
-		<Error public="1" get="inline" set="null" expr="cast 1" line="103" static="1">
+		<Error public="1" get="inline" set="null" expr="cast 1" line="106" static="1">
 			<x path="haxe.display.HaxeResponseErrorSeverity"/>
 			<meta>
 				<m n=":value"><e>cast 1</e></m>
