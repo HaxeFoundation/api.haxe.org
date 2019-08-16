@@ -32161,6 +32161,11 @@
 </f></select>
 		<close public="1" set="method"><f a=""><x path="Void"/></f></close>
 		<getsockname public="1" set="method"><f a=""><c path="lua.lib.luasocket.socket.AddrInfo"/></f></getsockname>
+		<settimeout public="1" set="method"><f a="value:?mode">
+	<x path="Float"/>
+	<x path="lua.lib.luasocket.socket.TimeoutMode"/>
+	<x path="Void"/>
+</f></settimeout>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":luaRequire"><e>"socket"</e></m>
@@ -32310,7 +32315,7 @@
 	<x path="lua.lib.luasocket.socket.ShutdownMode"/>
 	<c path="lua.Result"><x path="Int"/></c>
 </f></shutdown>
-		<settimeout public="1" set="method"><f a="value:?mode">
+		<settimeout public="1" set="method" override="1"><f a="value:?mode">
 	<x path="Float"/>
 	<x path="lua.lib.luasocket.socket.TimeoutMode"/>
 	<x path="Void"/>
@@ -32421,7 +32426,7 @@
 	<class path="lua.lib.luasocket.socket.TcpServer" params="" file="/home/vsts/work/1/s/std/lua/lib/luasocket/socket/TcpServer.hx" extern="1">
 		<extends path="lua.lib.luasocket.Socket"/>
 		<accept public="1" set="method"><f a=""><c path="lua.Result"><c path="lua.lib.luasocket.socket.TcpClient"/></c></f></accept>
-		<settimeout public="1" set="method"><f a="value:?mode">
+		<settimeout public="1" set="method" override="1"><f a="value:?mode">
 	<x path="Int"/>
 	<x path="lua.lib.luasocket.socket.TimeoutMode"/>
 	<x path="Void"/>
@@ -34074,7 +34079,7 @@
 			</a>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</PROXY>
-		<requestUrl public="1" set="method" line="489" static="1">
+		<requestUrl public="1" set="method" line="486" static="1">
 			<f a="url">
 				<c path="String"/>
 				<c path="String"/>
@@ -34138,7 +34143,7 @@
 	<c path="String"/>
 	<x path="Void"/>
 </f></customRequest>
-		<writeBody set="method" line="256"><f a="body:fileInput:fileSize:boundary:sock">
+		<writeBody set="method" line="253"><f a="body:fileInput:fileSize:boundary:sock">
 	<x path="Null"><c path="haxe.io.BytesOutput"/></x>
 	<x path="Null"><c path="haxe.io.Input"/></x>
 	<x path="Int"/>
@@ -34146,12 +34151,12 @@
 	<c path="sys.net.Socket"/>
 	<x path="Void"/>
 </f></writeBody>
-		<readHttpResponse set="method" line="281"><f a="api:sock">
+		<readHttpResponse set="method" line="278"><f a="api:sock">
 	<c path="haxe.io.Output"/>
 	<c path="sys.net.Socket"/>
 	<x path="Void"/>
 </f></readHttpResponse>
-		<readChunk set="method" line="423"><f a="chunk_re:api:buf:len">
+		<readChunk set="method" line="420"><f a="chunk_re:api:buf:len">
 	<c path="EReg"/>
 	<c path="haxe.io.Output"/>
 	<c path="haxe.io.Bytes"/>
@@ -34615,7 +34620,7 @@
 		<meta><m n=":coreapi"/></meta>
 	</class>
 	<class path="sys.net.Socket" params="" file="/home/vsts/work/1/s/std/lua/_std/sys/net/Socket.hx">
-		<select public="1" set="method" line="208" static="1">
+		<select public="1" set="method" line="214" static="1">
 			<f a="read:write:others:?timeout">
 				<c path="Array"><c path="sys.net.Socket"/></c>
 				<c path="Array"><c path="sys.net.Socket"/></c>
@@ -34656,22 +34661,26 @@
 			<x path="Bool"/>
 			<meta><m n=":value"><e>false</e></m></meta>
 		</blocking>
-		<close public="1" set="method" line="67">
+		<timeout expr="null">
+			<x path="Float"/>
+			<meta><m n=":value"><e>null</e></m></meta>
+		</timeout>
+		<close public="1" set="method" line="68">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Closes the socket : make sure to properly close all your sockets or you will crash when you run out of file descriptors.</haxe_doc>
 		</close>
-		<read public="1" set="method" line="74">
+		<read public="1" set="method" line="75">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Read the whole data available on the socket.</haxe_doc>
 		</read>
-		<write public="1" set="method" line="81">
+		<write public="1" set="method" line="82">
 			<f a="content">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Write the whole data to the socket output.</haxe_doc>
 		</write>
-		<connect public="1" set="method" line="88">
+		<connect public="1" set="method" line="89">
 			<f a="host:port">
 				<c path="sys.net.Host"/>
 				<x path="Int"/>
@@ -34679,14 +34688,14 @@
 			</f>
 			<haxe_doc>Connect to the given server host/port. Throw an exception in case we couldn't successfully connect.</haxe_doc>
 		</connect>
-		<listen public="1" set="method" line="100">
+		<listen public="1" set="method" line="102">
 			<f a="connections">
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Allow the socket to listen for incoming questions. The parameter tells how many pending connections we can have until they get refused. Use `accept()` to accept incoming connections.</haxe_doc>
 		</listen>
-		<shutdown public="1" set="method" line="111">
+		<shutdown public="1" set="method" line="114">
 			<f a="read:write">
 				<x path="Bool"/>
 				<x path="Bool"/>
@@ -34694,7 +34703,7 @@
 			</f>
 			<haxe_doc>Shutdown the socket, either for reading or writing.</haxe_doc>
 		</shutdown>
-		<bind public="1" set="method" line="128">
+		<bind public="1" set="method" line="131">
 			<f a="host:port">
 				<c path="sys.net.Host"/>
 				<x path="Int"/>
@@ -34702,50 +34711,50 @@
 			</f>
 			<haxe_doc>Bind the socket to the given host/port so it can afterwards listen for connections there.</haxe_doc>
 		</bind>
-		<accept public="1" set="method" line="138">
+		<accept public="1" set="method" line="141">
 			<f a=""><c path="sys.net.Socket"/></f>
 			<haxe_doc>Accept a new connected client. This will return a connected socket on which you can read/write some data.</haxe_doc>
 		</accept>
-		<peer public="1" set="method" line="153">
+		<peer public="1" set="method" line="156">
 			<f a=""><a>
 	<port><x path="Int"/></port>
 	<host><c path="sys.net.Host"/></host>
 </a></f>
 			<haxe_doc>Return the information about the other side of a connected socket.</haxe_doc>
 		</peer>
-		<host public="1" set="method" line="163">
+		<host public="1" set="method" line="166">
 			<f a=""><a>
 	<port><x path="Int"/></port>
 	<host><c path="sys.net.Host"/></host>
 </a></f>
 			<haxe_doc>Return the information about our side of a connected socket.</haxe_doc>
 		</host>
-		<setTimeout public="1" get="inline" set="null" line="173">
+		<setTimeout public="1" get="inline" set="null" line="176">
 			<f a="timeout">
 				<x path="Float"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Gives a timeout after which blocking socket operations (such as reading and writing) will abort and throw an exception.</haxe_doc>
 		</setTimeout>
-		<waitForRead public="1" set="method" line="181">
+		<waitForRead public="1" set="method" line="187">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Block until some data is available for read on the socket.</haxe_doc>
 		</waitForRead>
-		<setBlocking public="1" set="method" line="188">
+		<setBlocking public="1" set="method" line="194">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Change the blocking mode of the socket. A blocking socket is the default behavior. A non-blocking socket will abort blocking operations immediately by throwing a haxe.io.Error.Blocked value.</haxe_doc>
 		</setBlocking>
-		<setFastSend public="1" set="method" line="195">
+		<setFastSend public="1" set="method" line="201">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Allows the socket to immediately send the data when written to its output : this will cause less ping but might increase the number of packets / data size, especially when doing a lot of small writes.</haxe_doc>
 		</setFastSend>
-		<new public="1" set="method" line="62">
+		<new public="1" set="method" line="63">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new unconnected socket.</haxe_doc>
 		</new>
@@ -34754,14 +34763,14 @@
 	<class path="sys.net._Socket.SocketInput" params="" file="/home/vsts/work/1/s/std/lua/_std/sys/net/Socket.hx" private="1" module="sys.net.Socket">
 		<extends path="haxe.io.Input"/>
 		<tcp><c path="lua.lib.luasocket.socket.TcpClient"/></tcp>
-		<readByte public="1" set="method" line="234" override="1"><f a=""><x path="Int"/></f></readByte>
-		<readBytes public="1" set="method" line="244" override="1"><f a="s:pos:len">
+		<readByte public="1" set="method" line="240" override="1"><f a=""><x path="Int"/></f></readByte>
+		<readBytes public="1" set="method" line="250" override="1"><f a="s:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></readBytes>
-		<new public="1" set="method" line="230"><f a="tcp">
+		<new public="1" set="method" line="236"><f a="tcp">
 	<c path="lua.lib.luasocket.socket.TcpClient"/>
 	<x path="Void"/>
 </f></new>
@@ -34769,17 +34778,17 @@
 	<class path="sys.net._Socket.SocketOutput" params="" file="/home/vsts/work/1/s/std/lua/_std/sys/net/Socket.hx" private="1" module="sys.net.Socket">
 		<extends path="haxe.io.Output"/>
 		<tcp><c path="lua.lib.luasocket.socket.TcpClient"/></tcp>
-		<writeByte public="1" set="method" line="274" override="1"><f a="c">
+		<writeByte public="1" set="method" line="280" override="1"><f a="c">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></writeByte>
-		<writeBytes public="1" set="method" line="282" override="1"><f a="s:pos:len">
+		<writeBytes public="1" set="method" line="288" override="1"><f a="s:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></writeBytes>
-		<new public="1" set="method" line="270"><f a="tcp">
+		<new public="1" set="method" line="276"><f a="tcp">
 	<c path="lua.lib.luasocket.socket.TcpClient"/>
 	<x path="Void"/>
 </f></new>
