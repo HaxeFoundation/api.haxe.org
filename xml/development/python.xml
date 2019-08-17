@@ -35478,7 +35478,7 @@
 		<meta><m n=":pythonImport"><e>"xml.etree.ElementTree"</e></m></meta>
 	</class>
 	<class path="sys.net.Socket" params="" file="/home/vsts/work/1/s/std/python/_std/sys/net/Socket.hx">
-		<select public="1" set="method" line="262" static="1">
+		<select public="1" set="method" line="196" static="1">
 			<f a="read:write:others:?timeout">
 				<c path="Array"><c path="sys.net.Socket"/></c>
 				<c path="Array"><c path="sys.net.Socket"/></c>
@@ -35490,12 +35490,14 @@
 					<others><c path="Array"><c path="sys.net.Socket"/></c></others>
 				</a>
 			</f>
-			<haxe_doc>Wait until one of the sockets groups is ready for the given operation :
-		- `read` contains sockets on which we want to wait for available data to be read,
-		- `write` contains sockets on which we want to wait until we are allowed to write some data to their output buffers,
-		- `others` contains sockets on which we want to wait for exceptional conditions.
-		- `select` will block until one of the condition is met, in which case it will return the sockets for which the condition was true.
-		In case a `timeout` (in seconds) is specified, select might wait at worse until the timeout expires.</haxe_doc>
+			<haxe_doc>Wait until one of the sockets group is ready for the given operation:
+
+		 - `read` contains sockets on which we want to wait for available data to be read,
+		 - `write` contains sockets on which we want to wait until we are allowed to write some data to their output buffers,
+		 - `others` contains sockets on which we want to wait for exceptional conditions.
+		 - `select` will block until one of the condition is met, in which case it will return the sockets for which the condition was true.
+
+		In case a `timeout` (in seconds) is specified, select might wait at worst until the timeout expires.</haxe_doc>
 		</select>
 		<__s><t path="python.lib.socket._Socket.PSocket"/></__s>
 		<input public="1" set="null">
@@ -35505,30 +35507,37 @@
 		</input>
 		<output public="1" set="null">
 			<c path="haxe.io.Output"/>
-			<haxe_doc>The stream on which you can send data. Please note that in case the output buffer you will block while writing the data, use [setBlocking(false)] or [setTimeout] to prevent that.</haxe_doc>
+			<haxe_doc>The stream on which you can send data. Please note that in case the output buffer you will block while writing the data, use `setBlocking(false)` or `setTimeout` to prevent that.</haxe_doc>
 		</output>
 		<custom public="1">
 			<d/>
 			<haxe_doc>A custom value that can be associated with the socket. Can be used to retrieve your custom infos after a `select`.
 	*</haxe_doc>
 		</custom>
-		<__initSocket set="method" line="141"><f a=""><x path="Void"/></f></__initSocket>
-		<close public="1" set="method" line="148">
+		<__initSocket set="method" line="125"><f a=""><x path="Void"/></f></__initSocket>
+		<close public="1" set="method" line="129">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Closes the socket : make sure to properly close all your sockets or you will crash when you run out of file descriptors.</haxe_doc>
 		</close>
-		<read public="1" set="method" line="155">
+		<read public="1" set="method" line="133">
 			<f a=""><c path="String"/></f>
-			<haxe_doc>Read the whole data available on the socket.</haxe_doc>
+			<haxe_doc>Read the whole data available on the socket.
+
+		*Note*: this is **not** meant to be used together with `setBlocking(false)`,
+		as it will always throw `haxe.io.Error.Blocked`. `input` methods should be used directly instead.</haxe_doc>
 		</read>
-		<write public="1" set="method" line="162">
+		<write public="1" set="method" line="137">
 			<f a="content">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<haxe_doc>Write the whole data to the socket output.</haxe_doc>
+			<haxe_doc>Write the whole data to the socket output.
+
+		*Note*: this is **not** meant to be used together with `setBlocking(false)`, as
+		`haxe.io.Error.Blocked` may be thrown mid-write with no indication of how many bytes have been written.
+		`output.writeBytes()` should be used instead as it returns this information.</haxe_doc>
 		</write>
-		<connect public="1" set="method" line="169">
+		<connect public="1" set="method" line="141">
 			<f a="host:port">
 				<c path="sys.net.Host"/>
 				<x path="Int"/>
@@ -35536,14 +35545,14 @@
 			</f>
 			<haxe_doc>Connect to the given server host/port. Throw an exception in case we couldn't successfully connect.</haxe_doc>
 		</connect>
-		<listen public="1" set="method" line="177">
+		<listen public="1" set="method" line="146">
 			<f a="connections">
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Allow the socket to listen for incoming questions. The parameter tells how many pending connections we can have until they get refused. Use `accept()` to accept incoming connections.</haxe_doc>
 		</listen>
-		<shutdown public="1" set="method" line="184">
+		<shutdown public="1" set="method" line="150">
 			<f a="read:write">
 				<x path="Bool"/>
 				<x path="Bool"/>
@@ -35551,7 +35560,7 @@
 			</f>
 			<haxe_doc>Shutdown the socket, either for reading or writing.</haxe_doc>
 		</shutdown>
-		<bind public="1" set="method" line="190">
+		<bind public="1" set="method" line="153">
 			<f a="host:port">
 				<c path="sys.net.Host"/>
 				<x path="Int"/>
@@ -35559,54 +35568,54 @@
 			</f>
 			<haxe_doc>Bind the socket to the given host/port so it can afterwards listen for connections there.</haxe_doc>
 		</bind>
-		<accept public="1" set="method" line="198">
+		<accept public="1" set="method" line="158">
 			<f a=""><c path="sys.net.Socket"/></f>
 			<haxe_doc>Accept a new connected client. This will return a connected socket on which you can read/write some data.</haxe_doc>
 		</accept>
-		<peer public="1" set="method" line="210">
+		<peer public="1" set="method" line="167">
 			<f a=""><a>
 	<port><x path="Int"/></port>
 	<host><c path="sys.net.Host"/></host>
 </a></f>
 			<haxe_doc>Return the information about the other side of a connected socket.</haxe_doc>
 		</peer>
-		<host public="1" set="method" line="218">
+		<host public="1" set="method" line="172">
 			<f a=""><a>
 	<port><x path="Int"/></port>
 	<host><c path="sys.net.Host"/></host>
 </a></f>
 			<haxe_doc>Return the information about our side of a connected socket.</haxe_doc>
 		</host>
-		<setTimeout public="1" set="method" line="226">
+		<setTimeout public="1" set="method" line="177">
 			<f a="timeout">
 				<x path="Float"/>
 				<x path="Void"/>
 			</f>
-			<haxe_doc>Gives a timeout after which blocking socket operations (such as reading and writing) will abort and throw an exception.</haxe_doc>
+			<haxe_doc>Gives a timeout (in seconds) after which blocking socket operations (such as reading and writing) will abort and throw an exception.</haxe_doc>
 		</setTimeout>
-		<waitForRead public="1" set="method" line="233">
+		<waitForRead public="1" set="method" line="181">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Block until some data is available for read on the socket.</haxe_doc>
 		</waitForRead>
-		<setBlocking public="1" set="method" line="240">
+		<setBlocking public="1" set="method" line="185">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Change the blocking mode of the socket. A blocking socket is the default behavior. A non-blocking socket will abort blocking operations immediately by throwing a haxe.io.Error.Blocked value.</haxe_doc>
 		</setBlocking>
-		<setFastSend public="1" set="method" line="247">
+		<setFastSend public="1" set="method" line="189">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Allows the socket to immediately send the data when written to its output : this will cause less ping but might increase the number of packets / data size, especially when doing a lot of small writes.</haxe_doc>
 		</setFastSend>
-		<fileno set="method" line="251">
+		<fileno set="method" line="193">
 			<f a=""><x path="Int"/></f>
 			<meta><m n=":keep"/></meta>
 		</fileno>
-		<new public="1" set="method" line="135">
+		<new public="1" set="method" line="119">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new unconnected socket.</haxe_doc>
 		</new>
@@ -35853,10 +35862,21 @@
 </f></getFloatResult>
 		<getFieldsNames public="1" set="method"><f a=""><x path="Null"><c path="Array"><c path="String"/></c></x></f></getFieldsNames>
 	</class>
-	<class path="sys.db.Sqlite" params="" file="/home/vsts/work/1/s/std/sys/db/Sqlite.hx"><open public="1" set="method" line="26" static="1"><f a="file">
-	<c path="String"/>
-	<c path="sys.db.Connection"/>
-</f></open></class>
+	<class path="sys.db.Sqlite" params="" file="/home/vsts/work/1/s/std/sys/db/Sqlite.hx"><open public="1" set="method" line="37" static="1">
+	<f a="file">
+		<c path="String"/>
+		<c path="sys.db.Connection"/>
+	</f>
+	<haxe_doc>Opens a new SQLite connection on the specified path.
+
+		(cs) You will need a SQLite ADO.NET Provider
+		(see http://www.mono-project.com/docs/database-access/providers/sqlite/).
+		Also note that this will try to open an assembly named `Mono.Data.Sqlite`
+		if it wasn't loaded yet.
+
+		(java) You will need a SQLite JDBC driver (e.g. 
+		https://bitbucket.org/xerial/sqlite-jdbc).</haxe_doc>
+</open></class>
 	<class path="sys.io.File" params="" file="/home/vsts/work/1/s/std/python/_std/sys/io/File.hx">
 		<getContent public="1" set="method" line="30" static="1">
 			<f a="path">

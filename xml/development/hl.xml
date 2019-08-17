@@ -15016,11 +15016,17 @@
 		</remove>
 		<keys public="1" set="method" line="49">
 			<f a=""><t path="Iterator"><x path="Int"/></t></f>
-			<haxe_doc>See `Map.keys`</haxe_doc>
+			<haxe_doc>See `Map.keys`
+
+		(cs, java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</keys>
 		<iterator public="1" set="method" line="53">
 			<f a=""><t path="Iterator"><c path="haxe.ds.IntMap.T"/></t></f>
-			<haxe_doc>See `Map.iterator`</haxe_doc>
+			<haxe_doc>See `Map.iterator`
+
+		(cs, java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</iterator>
 		<keyValueIterator public="1" get="inline" set="null" line="57">
 			<f a=""><t path="KeyValueIterator">
@@ -15870,11 +15876,17 @@
 		</remove>
 		<keys public="1" set="method" line="49">
 			<f a=""><t path="Iterator"><c path="haxe.ds.ObjectMap.K"/></t></f>
-			<haxe_doc>See `Map.keys`</haxe_doc>
+			<haxe_doc>See `Map.keys`
+
+		(cs, java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</keys>
 		<iterator public="1" set="method" line="53">
 			<f a=""><t path="Iterator"><c path="haxe.ds.ObjectMap.T"/></t></f>
-			<haxe_doc>See `Map.iterator`</haxe_doc>
+			<haxe_doc>See `Map.iterator`
+
+		(cs, java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</iterator>
 		<keyValueIterator public="1" get="inline" set="null" line="57">
 			<f a=""><t path="KeyValueIterator">
@@ -16037,11 +16049,17 @@
 		</remove>
 		<keys public="1" set="method" line="76">
 			<f a=""><t path="Iterator"><c path="String"/></t></f>
-			<haxe_doc>See `Map.keys`</haxe_doc>
+			<haxe_doc>See `Map.keys`
+
+		(cs, java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</keys>
 		<iterator public="1" set="method" line="80">
 			<f a=""><t path="Iterator"><c path="haxe.ds.StringMap.T"/></t></f>
-			<haxe_doc>See `Map.iterator`</haxe_doc>
+			<haxe_doc>See `Map.iterator`
+
+		(cs, java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</iterator>
 		<keyValueIterator public="1" get="inline" set="null" line="84">
 			<f a=""><t path="KeyValueIterator">
@@ -35727,10 +35745,21 @@
 		<meta><m n=":access"><e>String</e></m></meta>
 	</class>
 	<class path="sys.db.Sqlite" params="" file="/home/vsts/work/1/s/std/hl/_std/sys/db/Sqlite.hx">
-		<open public="1" set="method" line="268" static="1"><f a="file">
-	<c path="String"/>
-	<c path="sys.db.Connection"/>
-</f></open>
+		<open public="1" set="method" line="268" static="1">
+			<f a="file">
+				<c path="String"/>
+				<c path="sys.db.Connection"/>
+			</f>
+			<haxe_doc>Opens a new SQLite connection on the specified path.
+
+		(cs) You will need a SQLite ADO.NET Provider
+		(see http://www.mono-project.com/docs/database-access/providers/sqlite/).
+		Also note that this will try to open an assembly named `Mono.Data.Sqlite`
+		if it wasn't loaded yet.
+
+		(java) You will need a SQLite JDBC driver (e.g. 
+		https://bitbucket.org/xerial/sqlite-jdbc).</haxe_doc>
+		</open>
 		<meta><m n=":coreApi"/></meta>
 	</class>
 	<enum path="sys.io.FileHandle" params="" file="/home/vsts/work/1/s/std/hl/_std/sys/io/File.hx" module="sys.io.File"><meta><m n=":flatEnum"/></meta></enum>
@@ -36255,7 +36284,7 @@
 		 2. When `args` is not given or is `null`, command arguments can be appended to `cmd`. No automatic quoting/escaping will be performed. `cmd` should be formatted exactly as it would be when typed at the command line.
 		It can run executables, as well as shell commands that are not executables (e.g. on Windows: `dir`, `cd`, `echo` etc).
 
-		`detached` allows the created process to be standalone. You cannot communicate with it but you can look at its exit code.
+		`detached` allows the created process to be standalone. You cannot communicate with it but you can look at its exit code. Not supported on php.
 
 		`close()` should be called when the `Process` is no longer used.</haxe_doc>
 		</new>
@@ -36461,12 +36490,14 @@
 					<others><c path="Array"><c path="sys.net.Socket"/></c></others>
 				</a>
 			</f>
-			<haxe_doc>Wait until one of the sockets groups is ready for the given operation :
-		 - `read`contains sockets on which we want to wait for available data to be read,
+			<haxe_doc>Wait until one of the sockets group is ready for the given operation:
+
+		 - `read` contains sockets on which we want to wait for available data to be read,
 		 - `write` contains sockets on which we want to wait until we are allowed to write some data to their output buffers,
 		 - `others` contains sockets on which we want to wait for exceptional conditions.
 		 - `select` will block until one of the condition is met, in which case it will return the sockets for which the condition was true.
-		In case a `timeout` (in seconds) is specified, select might wait at worse until the timeout expires.</haxe_doc>
+
+		In case a `timeout` (in seconds) is specified, select might wait at worst until the timeout expires.</haxe_doc>
 		</select>
 		<socket_init set="method" line="278" static="1">
 			<f a=""><x path="Void"/></f>
@@ -37836,7 +37867,10 @@
 		Set the tls value to `null` before exiting the thread
 		or the memory will never be collected.</haxe_doc>
 		</new>
-		<haxe_doc>Creates thread local storage.</haxe_doc>
+		<haxe_doc>Creates thread local storage.
+
+	(hl) Warning: At the moment `Tls` does not protect the value from being
+	garbage collected. Keep the value reachable to avoid crashes.</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
 </haxe>

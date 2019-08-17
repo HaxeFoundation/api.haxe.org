@@ -13906,13 +13906,19 @@
 		</remove>
 		<keys public="1" set="method">
 			<f a=""><t path="Iterator"><x path="Int"/></t></f>
-			<haxe_doc>See `Map.keys`</haxe_doc>
+			<haxe_doc>See `Map.keys`
+
+		(cs, java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</keys>
 		<iterator public="1" set="method">
 			<f a=""><t path="Iterator"><c path="haxe.ds.IntMap.T"/></t></f>
-			<haxe_doc>See `Map.iterator`</haxe_doc>
+			<haxe_doc>See `Map.iterator`
+
+		(cs, java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="72">
+		<keyValueIterator public="1" get="inline" set="null" line="78">
 			<f a=""><t path="KeyValueIterator">
 	<x path="Int"/>
 	<c path="haxe.ds.IntMap.T"/>
@@ -14758,13 +14764,19 @@
 		</remove>
 		<keys public="1" set="method">
 			<f a=""><t path="Iterator"><c path="haxe.ds.ObjectMap.K"/></t></f>
-			<haxe_doc>See `Map.keys`</haxe_doc>
+			<haxe_doc>See `Map.keys`
+
+		(cs, java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</keys>
 		<iterator public="1" set="method">
 			<f a=""><t path="Iterator"><c path="haxe.ds.ObjectMap.V"/></t></f>
-			<haxe_doc>See `Map.iterator`</haxe_doc>
+			<haxe_doc>See `Map.iterator`
+
+		(cs, java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="75">
+		<keyValueIterator public="1" get="inline" set="null" line="81">
 			<f a=""><t path="KeyValueIterator">
 	<c path="haxe.ds.ObjectMap.K"/>
 	<c path="haxe.ds.ObjectMap.V"/>
@@ -14912,13 +14924,19 @@
 		</remove>
 		<keys public="1" set="method">
 			<f a=""><t path="Iterator"><c path="String"/></t></f>
-			<haxe_doc>See `Map.keys`</haxe_doc>
+			<haxe_doc>See `Map.keys`
+
+		(cs, java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</keys>
 		<iterator public="1" set="method">
 			<f a=""><t path="Iterator"><c path="haxe.ds.StringMap.T"/></t></f>
-			<haxe_doc>See `Map.iterator`</haxe_doc>
+			<haxe_doc>See `Map.iterator`
+
+		(cs, java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="72">
+		<keyValueIterator public="1" get="inline" set="null" line="78">
 			<f a=""><t path="KeyValueIterator">
 	<c path="String"/>
 	<c path="haxe.ds.StringMap.T"/>
@@ -31281,7 +31299,7 @@
 		 2. When `args` is not given or is `null`, command arguments can be appended to `cmd`. No automatic quoting/escaping will be performed. `cmd` should be formatted exactly as it would be when typed at the command line.
 		It can run executables, as well as shell commands that are not executables (e.g. on Windows: `dir`, `cd`, `echo` etc).
 
-		`detached` allows the created process to be standalone. You cannot communicate with it but you can look at its exit code.
+		`detached` allows the created process to be standalone. You cannot communicate with it but you can look at its exit code. Not supported on php.
 
 		`close()` should be called when the `Process` is no longer used.</haxe_doc>
 		</new>
@@ -31446,12 +31464,14 @@
 					<others><c path="Array"><c path="sys.net.Socket"/></c></others>
 				</a>
 			</f>
-			<haxe_doc>Wait until one of the sockets groups is ready for the given operation :
-		 - `read`contains sockets on which we want to wait for available data to be read,
+			<haxe_doc>Wait until one of the sockets group is ready for the given operation:
+
+		 - `read` contains sockets on which we want to wait for available data to be read,
 		 - `write` contains sockets on which we want to wait until we are allowed to write some data to their output buffers,
 		 - `others` contains sockets on which we want to wait for exceptional conditions.
 		 - `select` will block until one of the condition is met, in which case it will return the sockets for which the condition was true.
-		In case a `timeout` (in seconds) is specified, select might wait at worse until the timeout expires.</haxe_doc>
+
+		In case a `timeout` (in seconds) is specified, select might wait at worst until the timeout expires.</haxe_doc>
 		</select>
 		<input public="1" set="null">
 			<c path="haxe.io.Input"/>
@@ -32012,6 +32032,9 @@
 		Set the tls value to `null` before exiting the thread
 		or the memory will never be collected.</haxe_doc>
 		</new>
-		<haxe_doc>Creates thread local storage.</haxe_doc>
+		<haxe_doc>Creates thread local storage.
+
+	(hl) Warning: At the moment `Tls` does not protect the value from being
+	garbage collected. Keep the value reachable to avoid crashes.</haxe_doc>
 	</class>
 </haxe>
