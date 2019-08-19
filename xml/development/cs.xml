@@ -84570,6 +84570,17 @@
 		<haxe_doc>Represents the field of an object declaration.</haxe_doc>
 		<meta><m n=":nativeGen"/></meta>
 	</typedef>
+	<enum path="haxe.macro.FunctionKind" params="" file="/home/vsts/work/1/s/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
+		<FAnonymous><haxe_doc>Anonymous function</haxe_doc></FAnonymous>
+		<FNamed a="name:inlined">
+			<c path="String"/>
+			<x path="Bool"/>
+			<haxe_doc>Named function</haxe_doc>
+		</FNamed>
+		<FArrow><haxe_doc>Arrow function</haxe_doc></FArrow>
+		<haxe_doc>Represents function kind in the AST</haxe_doc>
+		<meta><m n=":hxGen"/></meta>
+	</enum>
 	<enum path="haxe.macro.ExprDef" params="" file="/home/vsts/work/1/s/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
 		<EConst a="c">
 			<e path="haxe.macro.Constant"/>
@@ -84631,8 +84642,8 @@
 			<c path="Array"><t path="haxe.macro.Var"/></c>
 			<haxe_doc>Variable declarations.</haxe_doc>
 		</EVars>
-		<EFunction a="name:f">
-			<x path="Null"><c path="String"/></x>
+		<EFunction a="kind:f">
+			<e path="haxe.macro.FunctionKind"/>
 			<t path="haxe.macro.Function"/>
 			<haxe_doc>A function declaration.</haxe_doc>
 		</EFunction>
@@ -85072,11 +85083,11 @@
 			<t path="haxe.macro.Position"/>
 			<haxe_doc>The position of the error.</haxe_doc>
 		</pos>
-		<toString set="method" line="972">
+		<toString set="method" line="990">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the string representation of the error.</haxe_doc>
 		</toString>
-		<new public="1" set="method" line="964">
+		<new public="1" set="method" line="982">
 			<f a="m:p">
 				<c path="String"/>
 				<t path="haxe.macro.Position"/>
