@@ -13361,28 +13361,42 @@
 			</x>
 			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<NoData,Response<HaxeMemoryResult>>("server/memory")]]></e></m></meta>
 		</Memory>
-		<Modules public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ContextParams,Response&lt;Array&lt;String&gt;&gt;&gt;(&quot;server/modules&quot;)" line="40" static="1">
+		<ContextMemory public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ContextParams,Response&lt;HaxeContextMemoryResult&gt;&gt;(&quot;server/memory/context&quot;)" line="40" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<t path="haxe.display.ContextParams"/>
+				<t path="haxe.display.Response"><t path="haxe.display.HaxeContextMemoryResult"/></t>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<ContextParams,Response<HaxeContextMemoryResult>>("server/memory/context")]]></e></m></meta>
+		</ContextMemory>
+		<ModuleMemory public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ModuleParams,Response&lt;HaxeModuleMemoryResult&gt;&gt;(&quot;server/memory/module&quot;)" line="41" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<t path="haxe.display.ModuleParams"/>
+				<t path="haxe.display.Response"><t path="haxe.display.HaxeModuleMemoryResult"/></t>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<ModuleParams,Response<HaxeModuleMemoryResult>>("server/memory/module")]]></e></m></meta>
+		</ModuleMemory>
+		<Modules public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ContextParams,Response&lt;Array&lt;String&gt;&gt;&gt;(&quot;server/modules&quot;)" line="42" static="1">
 			<x path="haxe.display.HaxeRequestMethod">
 				<t path="haxe.display.ContextParams"/>
 				<t path="haxe.display.Response"><c path="Array"><c path="String"/></c></t>
 			</x>
 			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<ContextParams,Response<Array<String>>>("server/modules")]]></e></m></meta>
 		</Modules>
-		<Module public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ModuleParams,Response&lt;JsonModule&gt;&gt;(&quot;server/module&quot;)" line="41" static="1">
+		<Module public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ModuleParams,Response&lt;JsonModule&gt;&gt;(&quot;server/module&quot;)" line="43" static="1">
 			<x path="haxe.display.HaxeRequestMethod">
 				<t path="haxe.display.ModuleParams"/>
 				<t path="haxe.display.Response"><t path="haxe.display.JsonModule"/></t>
 			</x>
 			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<ModuleParams,Response<JsonModule>>("server/module")]]></e></m></meta>
 		</Module>
-		<Files public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ContextParams,Response&lt;Array&lt;JsonServerFile&gt;&gt;&gt;(&quot;server/files&quot;)" line="42" static="1">
+		<Files public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ContextParams,Response&lt;Array&lt;JsonServerFile&gt;&gt;&gt;(&quot;server/files&quot;)" line="44" static="1">
 			<x path="haxe.display.HaxeRequestMethod">
 				<t path="haxe.display.ContextParams"/>
 				<t path="haxe.display.Response"><c path="Array"><t path="haxe.display.JsonServerFile"/></c></t>
 			</x>
 			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<ContextParams,Response<Array<JsonServerFile>>>("server/files")]]></e></m></meta>
 		</Files>
-		<ModuleCreated public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;FileParams,Response&lt;NoData&gt;&gt;(&quot;server/moduleCreated&quot;)" line="43" static="1">
+		<ModuleCreated public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;FileParams,Response&lt;NoData&gt;&gt;(&quot;server/moduleCreated&quot;)" line="45" static="1">
 			<x path="haxe.display.HaxeRequestMethod">
 				<t path="haxe.display.FileParams"/>
 				<t path="haxe.display.Response"><e path="haxe.display.NoData"/></t>
@@ -13519,12 +13533,10 @@
 	<typedef path="haxe.display.HaxeMemoryResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server"><a>
 	<memory final="1" set="null"><a>
 	<totalCache final="1" set="null"><x path="Int"/></totalCache>
-	<parserCache final="1" set="null"><x path="Int"/></parserCache>
 	<nativeLibCache final="1" set="null"><x path="Int"/></nativeLibCache>
-	<moduleCache final="1" set="null"><x path="Int"/></moduleCache>
-	<macroInterpreter final="1" set="null"><x path="Int"/></macroInterpreter>
 	<haxelibCache final="1" set="null"><x path="Int"/></haxelibCache>
-	<completionResult final="1" set="null"><x path="Int"/></completionResult>
+	<directoryCache final="1" set="null"><x path="Int"/></directoryCache>
+	<contextCache final="1" set="null"><x path="Int"/></contextCache>
 	<additionalSizes final="1" set="null">
 		<x path="Null"><c path="Array"><a>
 	<size><x path="Int"/></size>
@@ -13535,23 +13547,36 @@
 </a></memory>
 	<contexts final="1" set="null"><c path="Array"><a>
 	<size final="1" set="null"><x path="Int"/></size>
-	<modules final="1" set="null"><c path="Array"><t path="haxe.display.ModulesSizeResult"/></c></modules>
-	<context final="1" set="null"><x path="Null"><t path="haxe.display.HaxeServerContext"/></x></context>
+	<context final="1" set="null"><t path="haxe.display.HaxeServerContext"/></context>
 </a></c></contexts>
 </a></typedef>
-	<typedef path="haxe.display.SizeResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server"><a>
+	<typedef path="haxe.display.HaxeContextMemoryResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server"><a>
+	<syntaxCache final="1" set="null"><a><size final="1" set="null"><x path="Int"/></size></a></syntaxCache>
+	<moduleCache final="1" set="null"><a>
+	<size final="1" set="null"><x path="Int"/></size>
+	<list final="1" set="null"><c path="Array"><a>
 	<size final="1" set="null"><x path="Int"/></size>
 	<path final="1" set="null"><c path="String"/></path>
+</a></c></list>
+</a></moduleCache>
+	<leaks final="1" set="null">
+		<x path="Null"><c path="Array"><a>
+	<path final="1" set="null"><c path="String"/></path>
+	<leaks final="1" set="null"><c path="Array"><a><path final="1" set="null"><c path="String"/></path></a></c></leaks>
+</a></c></x>
+		<meta><m n=":optional"/></meta>
+	</leaks>
 </a></typedef>
-	<typedef path="haxe.display.ModuleTypeSizeResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server"><a>
+	<typedef path="haxe.display.HaxeModuleMemoryResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server"><a>
+	<types final="1" set="null"><c path="Array"><a>
 	<size final="1" set="null"><x path="Int"/></size>
-	<path final="1" set="null"><c path="String"/></path>
-	<fields final="1" set="null"><c path="Array"><t path="haxe.display.SizeResult"/></c></fields>
-</a></typedef>
-	<typedef path="haxe.display.ModulesSizeResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server"><a>
-	<types final="1" set="null"><c path="Array"><t path="haxe.display.ModuleTypeSizeResult"/></c></types>
+	<name final="1" set="null"><c path="String"/></name>
+	<fields final="1" set="null"><c path="Array"><a>
 	<size final="1" set="null"><x path="Int"/></size>
-	<path final="1" set="null"><c path="String"/></path>
+	<name final="1" set="null"><c path="String"/></name>
+</a></c></fields>
+</a></c></types>
+	<moduleExtra final="1" set="null"><x path="Int"/></moduleExtra>
 </a></typedef>
 	<typedef path="haxe.display.ContextParams" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server"><a><signature final="1" set="null"><c path="String"/></signature></a></typedef>
 	<typedef path="haxe.display.ModuleParams" params="" file="/home/vsts/work/1/s/std/haxe/display/Server.hx" module="haxe.display.Server"><a>
