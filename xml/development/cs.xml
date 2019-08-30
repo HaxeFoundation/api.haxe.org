@@ -63281,6 +63281,7 @@
 	<c path="haxe.IMap.V"/>
 </c></f></copy>
 		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
+		<clear public="1" set="method"><f a=""><x path="Void"/></f></clear>
 		<meta><m n=":hxGen"/></meta>
 	</class>
 	<abstract path="haxe.DynamicAccess" params="T" file="/home/vsts/work/1/s/std/haxe/DynamicAccess.hx">
@@ -72708,6 +72709,10 @@
 	<x path="Int"/>
 </f></compare>
 		<toString public="1" set="method" line="229"><f a=""><c path="String"/></f></toString>
+		<clear public="1" set="method" line="236">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Removes all keys from `this` BalancedTree.</haxe_doc>
+		</clear>
 		<new public="1" set="method" line="41">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new BalancedTree, which is initially empty.</haxe_doc>
@@ -72734,9 +72739,9 @@
 		<key public="1"><c path="haxe.ds.TreeNode.K"/></key>
 		<value public="1"><c path="haxe.ds.TreeNode.V"/></value>
 		<_height><x path="Int"/></_height>
-		<get_height public="1" get="inline" set="null" line="259"><f a=""><x path="Int"/></f></get_height>
-		<toString public="1" set="method" line="262"><f a=""><c path="String"/></f></toString>
-		<new public="1" set="method" line="248">
+		<get_height public="1" get="inline" set="null" line="266"><f a=""><x path="Int"/></f></get_height>
+		<toString public="1" set="method" line="269"><f a=""><c path="String"/></f></toString>
+		<new public="1" set="method" line="255">
 			<f a="l:k:v:r:?h" v="::::-1">
 				<c path="haxe.ds.TreeNode">
 					<c path="haxe.ds.TreeNode.K"/>
@@ -72982,6 +72987,17 @@
 		<meta><m n=":impl"/></meta>
 		<haxe_doc>See `Map.iterator`</haxe_doc>
 	</iterator>
+	<clear public="1" get="inline" set="null" line="97" static="1">
+		<f a="this">
+			<c path="haxe.ds._HashMap.HashMapData">
+				<c path="haxe.ds.HashMap.K"/>
+				<c path="haxe.ds.HashMap.V"/>
+			</c>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>See `Map.clear`</haxe_doc>
+	</clear>
 	<meta><m n=":hxGen"/></meta>
 </class></impl>
 	</abstract>
@@ -73082,12 +73098,23 @@
 			<meta><m n=":impl"/></meta>
 			<haxe_doc>See `Map.iterator`</haxe_doc>
 		</iterator>
+		<clear public="1" get="inline" set="null" line="97" static="1">
+			<f a="this">
+				<c path="haxe.ds._HashMap.HashMapData">
+					<c path="haxe.ds.HashMap.K"/>
+					<c path="haxe.ds.HashMap.V"/>
+				</c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>See `Map.clear`</haxe_doc>
+		</clear>
 		<meta><m n=":hxGen"/></meta>
 	</class>
 	<class path="haxe.ds._HashMap.HashMapData" params="K:V" file="/home/vsts/work/1/s/std/haxe/ds/HashMap.hx" private="1" module="haxe.ds.HashMap">
 		<keys public="1"><c path="haxe.ds.IntMap"><c path="haxe.ds._HashMap.HashMapData.K"/></c></keys>
 		<values public="1"><c path="haxe.ds.IntMap"><c path="haxe.ds._HashMap.HashMapData.V"/></c></values>
-		<new public="1" get="inline" set="null" line="99"><f a=""><x path="Void"/></f></new>
+		<new public="1" get="inline" set="null" line="107"><f a=""><x path="Void"/></f></new>
 		<meta><m n=":hxGen"/></meta>
 	</class>
 	<class path="haxe.ds.IntMap" params="T" file="/home/vsts/work/1/s/std/cs/_std/haxe/ds/IntMap.hx">
@@ -73099,12 +73126,12 @@
 			<x path="Float"/>
 			<meta><m n=":value"><e>0.7</e></m></meta>
 		</HASH_UPPER>
-		<assert get="inline" set="null" line="380" static="1"><f a="x">
+		<assert get="inline" set="null" line="394" static="1"><f a="x">
 	<x path="Bool"/>
 	<x path="Void"/>
 </f></assert>
-		<defaultK get="inline" set="null" line="387" static="1"><f a=""><x path="Int"/></f></defaultK>
-		<arrayCopy get="inline" set="null" line="390" static="1"><f a="sourceArray:sourceIndex:destinationArray:destinationIndex:length">
+		<defaultK get="inline" set="null" line="401" static="1"><f a=""><x path="Int"/></f></defaultK>
+		<arrayCopy get="inline" set="null" line="404" static="1"><f a="sourceArray:sourceIndex:destinationArray:destinationIndex:length">
 	<c path="cs.system.Array"/>
 	<x path="Int"/>
 	<c path="cs.system.Array"/>
@@ -73112,57 +73139,57 @@
 	<x path="Int"/>
 	<x path="Void"/>
 </f></arrayCopy>
-		<getInc get="inline" set="null" line="395" static="1"><f a="k:mask">
+		<getInc get="inline" set="null" line="409" static="1"><f a="k:mask">
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></getInc>
-		<hash get="inline" set="null" line="399" static="1"><f a="i">
+		<hash get="inline" set="null" line="413" static="1"><f a="i">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></hash>
-		<getFlag get="inline" set="null" line="409" static="1"><f a="flags:i">
+		<getFlag get="inline" set="null" line="423" static="1"><f a="flags:i">
 	<c path="cs.NativeArray"><x path="Int"/></c>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></getFlag>
-		<isDel get="inline" set="null" line="413" static="1"><f a="flag">
+		<isDel get="inline" set="null" line="427" static="1"><f a="flag">
 	<x path="Int"/>
 	<x path="Bool"/>
 </f></isDel>
-		<isEmpty get="inline" set="null" line="417" static="1"><f a="flag">
+		<isEmpty get="inline" set="null" line="431" static="1"><f a="flag">
 	<x path="Int"/>
 	<x path="Bool"/>
 </f></isEmpty>
-		<isEither get="inline" set="null" line="421" static="1"><f a="flag">
+		<isEither get="inline" set="null" line="435" static="1"><f a="flag">
 	<x path="Int"/>
 	<x path="Bool"/>
 </f></isEither>
-		<setIsDelFalse get="inline" set="null" line="425" static="1"><f a="flags:i">
+		<setIsDelFalse get="inline" set="null" line="439" static="1"><f a="flags:i">
 	<c path="cs.NativeArray"><x path="Int"/></c>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></setIsDelFalse>
-		<setIsEmptyFalse get="inline" set="null" line="429" static="1"><f a="flags:i">
+		<setIsEmptyFalse get="inline" set="null" line="443" static="1"><f a="flags:i">
 	<c path="cs.NativeArray"><x path="Int"/></c>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></setIsEmptyFalse>
-		<setIsBothFalse get="inline" set="null" line="433" static="1"><f a="flags:i">
+		<setIsBothFalse get="inline" set="null" line="447" static="1"><f a="flags:i">
 	<c path="cs.NativeArray"><x path="Int"/></c>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></setIsBothFalse>
-		<setIsDelTrue get="inline" set="null" line="437" static="1"><f a="flags:i">
+		<setIsDelTrue get="inline" set="null" line="451" static="1"><f a="flags:i">
 	<c path="cs.NativeArray"><x path="Int"/></c>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></setIsDelTrue>
-		<roundUp get="inline" set="null" line="441" static="1"><f a="x">
+		<roundUp get="inline" set="null" line="455" static="1"><f a="x">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></roundUp>
-		<flagsSize get="inline" set="null" line="451" static="1"><f a="m">
+		<flagsSize get="inline" set="null" line="465" static="1"><f a="m">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></flagsSize>
@@ -73247,6 +73274,10 @@
 			<f a=""><c path="String"/></f>
 			<haxe_doc>See `Map.toString`</haxe_doc>
 		</toString>
+		<clear public="1" set="method" line="380">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>See `Map.clear`</haxe_doc>
+		</clear>
 		<new public="1" set="method" line="51">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new IntMap.</haxe_doc>
@@ -73265,9 +73296,9 @@
 		<m><c path="haxe.ds.IntMap"><c path="haxe.ds._IntMap.IntMapKeyIterator.T"/></c></m>
 		<i><x path="Int"/></i>
 		<len><x path="Int"/></len>
-		<hasNext public="1" set="method" line="468"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" set="method" line="478"><f a=""><x path="Int"/></f></next>
-		<new public="1" set="method" line="462"><f a="m">
+		<hasNext public="1" set="method" line="482"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" set="method" line="492"><f a=""><x path="Int"/></f></next>
+		<new public="1" set="method" line="476"><f a="m">
 	<c path="haxe.ds.IntMap"><c path="haxe.ds._IntMap.IntMapKeyIterator.T"/></c>
 	<x path="Void"/>
 </f></new>
@@ -73280,9 +73311,9 @@
 		<m><c path="haxe.ds.IntMap"><c path="haxe.ds._IntMap.IntMapValueIterator.T"/></c></m>
 		<i><x path="Int"/></i>
 		<len><x path="Int"/></len>
-		<hasNext public="1" set="method" line="501"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" get="inline" set="null" line="511"><f a=""><c path="haxe.ds._IntMap.IntMapValueIterator.T"/></f></next>
-		<new public="1" set="method" line="495"><f a="m">
+		<hasNext public="1" set="method" line="515"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="525"><f a=""><c path="haxe.ds._IntMap.IntMapValueIterator.T"/></f></next>
+		<new public="1" set="method" line="509"><f a="m">
 	<c path="haxe.ds.IntMap"><c path="haxe.ds._IntMap.IntMapValueIterator.T"/></c>
 	<x path="Void"/>
 </f></new>
@@ -73699,7 +73730,18 @@
 
 		The exact representation depends on the platform and key-type.</haxe_doc>
 	</toString>
-	<arrayWrite public="1" get="inline" set="null" line="157" static="1">
+	<clear public="1" get="inline" set="null" line="160" static="1">
+		<f a="this">
+			<c path="haxe.IMap">
+				<c path="haxe.ds.Map.K"/>
+				<c path="haxe.ds.Map.V"/>
+			</c>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Removes all keys from `this` Map.</haxe_doc>
+	</clear>
+	<arrayWrite public="1" get="inline" set="null" line="164" static="1">
 		<f a="this:k:v">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -73715,7 +73757,7 @@
 			<m n=":noCompletion"/>
 		</meta>
 	</arrayWrite>
-	<toStringMap params="K:V" get="inline" set="null" line="162" static="1">
+	<toStringMap params="K:V" get="inline" set="null" line="169" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toStringMap.K"/>
@@ -73728,7 +73770,7 @@
 			<m n=":to"/>
 		</meta>
 	</toStringMap>
-	<toIntMap params="K:V" get="inline" set="null" line="166" static="1">
+	<toIntMap params="K:V" get="inline" set="null" line="173" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toIntMap.K"/>
@@ -73741,7 +73783,7 @@
 			<m n=":to"/>
 		</meta>
 	</toIntMap>
-	<toEnumValueMapMap params="K:V" get="inline" set="null" line="170" static="1">
+	<toEnumValueMapMap params="K:V" get="inline" set="null" line="177" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toEnumValueMapMap.K"/>
@@ -73757,7 +73799,7 @@
 			<m n=":to"/>
 		</meta>
 	</toEnumValueMapMap>
-	<toObjectMap params="K:V" get="inline" set="null" line="174" static="1">
+	<toObjectMap params="K:V" get="inline" set="null" line="181" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toObjectMap.K"/>
@@ -73773,7 +73815,7 @@
 			<m n=":to"/>
 		</meta>
 	</toObjectMap>
-	<fromStringMap params="V" get="inline" set="null" line="178" static="1">
+	<fromStringMap params="V" get="inline" set="null" line="185" static="1">
 		<f a="map">
 			<c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c>
 			<x path="haxe.ds.Map">
@@ -73783,7 +73825,7 @@
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromStringMap>
-	<fromIntMap params="V" get="inline" set="null" line="182" static="1">
+	<fromIntMap params="V" get="inline" set="null" line="189" static="1">
 		<f a="map">
 			<c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c>
 			<x path="haxe.ds.Map">
@@ -73793,7 +73835,7 @@
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromIntMap>
-	<fromObjectMap params="K:V" get="inline" set="null" line="186" static="1">
+	<fromObjectMap params="K:V" get="inline" set="null" line="193" static="1">
 		<f a="map">
 			<c path="haxe.ds.ObjectMap">
 				<c path="fromObjectMap.K"/>
@@ -73976,7 +74018,18 @@
 
 		The exact representation depends on the platform and key-type.</haxe_doc>
 		</toString>
-		<arrayWrite public="1" get="inline" set="null" line="157" static="1">
+		<clear public="1" get="inline" set="null" line="160" static="1">
+			<f a="this">
+				<c path="haxe.IMap">
+					<c path="haxe.ds.Map.K"/>
+					<c path="haxe.ds.Map.V"/>
+				</c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Removes all keys from `this` Map.</haxe_doc>
+		</clear>
+		<arrayWrite public="1" get="inline" set="null" line="164" static="1">
 			<f a="this:k:v">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -73992,7 +74045,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</arrayWrite>
-		<toStringMap params="K:V" get="inline" set="null" line="162" static="1">
+		<toStringMap params="K:V" get="inline" set="null" line="169" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toStringMap.K"/>
@@ -74005,7 +74058,7 @@
 				<m n=":to"/>
 			</meta>
 		</toStringMap>
-		<toIntMap params="K:V" get="inline" set="null" line="166" static="1">
+		<toIntMap params="K:V" get="inline" set="null" line="173" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toIntMap.K"/>
@@ -74018,7 +74071,7 @@
 				<m n=":to"/>
 			</meta>
 		</toIntMap>
-		<toEnumValueMapMap params="K:V" get="inline" set="null" line="170" static="1">
+		<toEnumValueMapMap params="K:V" get="inline" set="null" line="177" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toEnumValueMapMap.K"/>
@@ -74034,7 +74087,7 @@
 				<m n=":to"/>
 			</meta>
 		</toEnumValueMapMap>
-		<toObjectMap params="K:V" get="inline" set="null" line="174" static="1">
+		<toObjectMap params="K:V" get="inline" set="null" line="181" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toObjectMap.K"/>
@@ -74050,7 +74103,7 @@
 				<m n=":to"/>
 			</meta>
 		</toObjectMap>
-		<fromStringMap params="V" get="inline" set="null" line="178" static="1">
+		<fromStringMap params="V" get="inline" set="null" line="185" static="1">
 			<f a="map">
 				<c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c>
 				<x path="haxe.ds.Map">
@@ -74060,7 +74113,7 @@
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromStringMap>
-		<fromIntMap params="V" get="inline" set="null" line="182" static="1">
+		<fromIntMap params="V" get="inline" set="null" line="189" static="1">
 			<f a="map">
 				<c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c>
 				<x path="haxe.ds.Map">
@@ -74070,7 +74123,7 @@
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromIntMap>
-		<fromObjectMap params="K:V" get="inline" set="null" line="186" static="1">
+		<fromObjectMap params="K:V" get="inline" set="null" line="193" static="1">
 			<f a="map">
 				<c path="haxe.ds.ObjectMap">
 					<c path="fromObjectMap.K"/>
@@ -74102,35 +74155,35 @@
 			<x path="Int"/>
 			<meta><m n=":value"><e>1</e></m></meta>
 		</FLAG_DEL>
-		<roundUp get="inline" set="null" line="394" static="1"><f a="x">
+		<roundUp get="inline" set="null" line="414" static="1"><f a="x">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></roundUp>
-		<getInc get="inline" set="null" line="404" static="1"><f a="k:mask">
+		<getInc get="inline" set="null" line="424" static="1"><f a="k:mask">
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></getInc>
-		<isEither get="inline" set="null" line="407" static="1"><f a="v">
+		<isEither get="inline" set="null" line="427" static="1"><f a="v">
 	<t path="haxe.ds._ObjectMap.HashType"/>
 	<x path="Bool"/>
 </f></isEither>
-		<isEmpty get="inline" set="null" line="410" static="1"><f a="v">
+		<isEmpty get="inline" set="null" line="430" static="1"><f a="v">
 	<t path="haxe.ds._ObjectMap.HashType"/>
 	<x path="Bool"/>
 </f></isEmpty>
-		<isDel get="inline" set="null" line="413" static="1"><f a="v">
+		<isDel get="inline" set="null" line="433" static="1"><f a="v">
 	<t path="haxe.ds._ObjectMap.HashType"/>
 	<x path="Bool"/>
 </f></isDel>
-		<hash params="K" get="inline" set="null" line="417" static="1">
+		<hash params="K" get="inline" set="null" line="437" static="1">
 			<f a="s">
 				<c path="hash.K"/>
 				<t path="haxe.ds._ObjectMap.HashType"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</hash>
-		<arrayCopy get="inline" set="null" line="443" static="1"><f a="sourceArray:sourceIndex:destinationArray:destinationIndex:length">
+		<arrayCopy get="inline" set="null" line="463" static="1"><f a="sourceArray:sourceIndex:destinationArray:destinationIndex:length">
 	<c path="cs.system.Array"/>
 	<x path="Int"/>
 	<c path="cs.system.Array"/>
@@ -74138,7 +74191,7 @@
 	<x path="Int"/>
 	<x path="Void"/>
 </f></arrayCopy>
-		<assert get="inline" set="null" line="447" static="1"><f a="x">
+		<assert get="inline" set="null" line="467" static="1"><f a="x">
 	<x path="Bool"/>
 	<x path="Void"/>
 </f></assert>
@@ -74234,6 +74287,10 @@
 			<f a=""><c path="String"/></f>
 			<haxe_doc>See `Map.toString`</haxe_doc>
 		</toString>
+		<clear public="1" set="method" line="394">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>See `Map.clear`</haxe_doc>
+		</clear>
 		<new public="1" set="method" line="62">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new ObjectMap.</haxe_doc>
@@ -74258,9 +74315,9 @@
 </c></m>
 		<i><x path="Int"/></i>
 		<len><x path="Int"/></len>
-		<hasNext public="1" set="method" line="467"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" set="method" line="477"><f a=""><c path="haxe.ds._ObjectMap.ObjectMapKeyIterator.T"/></f></next>
-		<new public="1" set="method" line="461"><f a="m">
+		<hasNext public="1" set="method" line="487"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" set="method" line="497"><f a=""><c path="haxe.ds._ObjectMap.ObjectMapKeyIterator.T"/></f></next>
+		<new public="1" set="method" line="481"><f a="m">
 	<c path="haxe.ds.ObjectMap">
 		<c path="haxe.ds._ObjectMap.ObjectMapKeyIterator.T"/>
 		<c path="haxe.ds._ObjectMap.ObjectMapKeyIterator.V"/>
@@ -74279,9 +74336,9 @@
 </c></m>
 		<i><x path="Int"/></i>
 		<len><x path="Int"/></len>
-		<hasNext public="1" set="method" line="502"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" get="inline" set="null" line="512"><f a=""><c path="haxe.ds._ObjectMap.ObjectMapValueIterator.T"/></f></next>
-		<new public="1" set="method" line="496"><f a="m">
+		<hasNext public="1" set="method" line="522"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="532"><f a=""><c path="haxe.ds._ObjectMap.ObjectMapValueIterator.T"/></f></next>
+		<new public="1" set="method" line="516"><f a="m">
 	<c path="haxe.ds.ObjectMap">
 		<c path="haxe.ds._ObjectMap.ObjectMapValueIterator.K"/>
 		<c path="haxe.ds._ObjectMap.ObjectMapValueIterator.T"/>
@@ -74400,30 +74457,30 @@
 			<x path="Int"/>
 			<meta><m n=":value"><e>1</e></m></meta>
 		</FLAG_DEL>
-		<roundUp get="inline" set="null" line="393" static="1"><f a="x">
+		<roundUp get="inline" set="null" line="413" static="1"><f a="x">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></roundUp>
-		<isEither get="inline" set="null" line="403" static="1"><f a="v">
+		<isEither get="inline" set="null" line="423" static="1"><f a="v">
 	<t path="haxe.ds._StringMap.HashType"/>
 	<x path="Bool"/>
 </f></isEither>
-		<isEmpty get="inline" set="null" line="406" static="1"><f a="v">
+		<isEmpty get="inline" set="null" line="426" static="1"><f a="v">
 	<t path="haxe.ds._StringMap.HashType"/>
 	<x path="Bool"/>
 </f></isEmpty>
-		<isDel get="inline" set="null" line="409" static="1"><f a="v">
+		<isDel get="inline" set="null" line="429" static="1"><f a="v">
 	<t path="haxe.ds._StringMap.HashType"/>
 	<x path="Bool"/>
 </f></isDel>
-		<hash get="inline" set="null" line="413" static="1">
+		<hash get="inline" set="null" line="433" static="1">
 			<f a="s">
 				<c path="String"/>
 				<t path="haxe.ds._StringMap.HashType"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</hash>
-		<arrayCopy get="inline" set="null" line="439" static="1"><f a="sourceArray:sourceIndex:destinationArray:destinationIndex:length">
+		<arrayCopy get="inline" set="null" line="459" static="1"><f a="sourceArray:sourceIndex:destinationArray:destinationIndex:length">
 	<c path="cs.system.Array"/>
 	<x path="Int"/>
 	<c path="cs.system.Array"/>
@@ -74431,7 +74488,7 @@
 	<x path="Int"/>
 	<x path="Void"/>
 </f></arrayCopy>
-		<assert get="inline" set="null" line="443" static="1"><f a="x">
+		<assert get="inline" set="null" line="463" static="1"><f a="x">
 	<x path="Bool"/>
 	<x path="Void"/>
 </f></assert>
@@ -74524,6 +74581,10 @@
 			<f a=""><c path="String"/></f>
 			<haxe_doc>See `Map.toString`</haxe_doc>
 		</toString>
+		<clear public="1" set="method" line="393">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>See `Map.clear`</haxe_doc>
+		</clear>
 		<new public="1" set="method" line="62">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new StringMap.</haxe_doc>
@@ -74547,9 +74608,9 @@
 		<m><c path="haxe.ds.StringMap"><c path="haxe.ds._StringMap.StringMapKeyIterator.T"/></c></m>
 		<i><x path="Int"/></i>
 		<len><x path="Int"/></len>
-		<hasNext public="1" set="method" line="465"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" set="method" line="475"><f a=""><c path="String"/></f></next>
-		<new public="1" set="method" line="459"><f a="m">
+		<hasNext public="1" set="method" line="485"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" set="method" line="495"><f a=""><c path="String"/></f></next>
+		<new public="1" set="method" line="479"><f a="m">
 	<c path="haxe.ds.StringMap"><c path="haxe.ds._StringMap.StringMapKeyIterator.T"/></c>
 	<x path="Void"/>
 </f></new>
@@ -74562,9 +74623,9 @@
 		<m><c path="haxe.ds.StringMap"><c path="haxe.ds._StringMap.StringMapValueIterator.T"/></c></m>
 		<i><x path="Int"/></i>
 		<len><x path="Int"/></len>
-		<hasNext public="1" set="method" line="498"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" get="inline" set="null" line="508"><f a=""><c path="haxe.ds._StringMap.StringMapValueIterator.T"/></f></next>
-		<new public="1" set="method" line="492"><f a="m">
+		<hasNext public="1" set="method" line="518"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="528"><f a=""><c path="haxe.ds._StringMap.StringMapValueIterator.T"/></f></next>
+		<new public="1" set="method" line="512"><f a="m">
 	<c path="haxe.ds.StringMap"><c path="haxe.ds._StringMap.StringMapValueIterator.T"/></c>
 	<x path="Void"/>
 </f></new>
@@ -75031,6 +75092,10 @@
 			<f a=""><c path="String"/></f>
 			<haxe_doc>See `Map.toString`</haxe_doc>
 		</toString>
+		<clear public="1" set="method" line="106">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>See `Map.clear`</haxe_doc>
+		</clear>
 		<new public="1" set="method" line="38">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new WeakMap.</haxe_doc>

@@ -4630,6 +4630,7 @@
 	<c path="haxe.IMap.V"/>
 </c></f></copy>
 		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
+		<clear public="1" set="method"><f a=""><x path="Void"/></f></clear>
 	</class>
 	<abstract path="haxe.DynamicAccess" params="T" file="/home/vsts/work/1/s/std/haxe/DynamicAccess.hx">
 		<from><icast><d><c path="haxe.DynamicAccess.T"/></d></icast></from>
@@ -13876,6 +13877,10 @@
 	<x path="Int"/>
 </f></compare>
 		<toString public="1" set="method" line="229"><f a=""><c path="String"/></f></toString>
+		<clear public="1" set="method" line="236">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Removes all keys from `this` BalancedTree.</haxe_doc>
+		</clear>
 		<new public="1" set="method" line="41">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new BalancedTree, which is initially empty.</haxe_doc>
@@ -13901,9 +13906,9 @@
 		<key public="1"><c path="haxe.ds.TreeNode.K"/></key>
 		<value public="1"><c path="haxe.ds.TreeNode.V"/></value>
 		<_height><x path="Int"/></_height>
-		<get_height public="1" get="inline" set="null" line="259"><f a=""><x path="Int"/></f></get_height>
-		<toString public="1" set="method" line="262"><f a=""><c path="String"/></f></toString>
-		<new public="1" set="method" line="248">
+		<get_height public="1" get="inline" set="null" line="266"><f a=""><x path="Int"/></f></get_height>
+		<toString public="1" set="method" line="269"><f a=""><c path="String"/></f></toString>
+		<new public="1" set="method" line="255">
 			<f a="l:k:v:r:?h" v="::::-1">
 				<c path="haxe.ds.TreeNode">
 					<c path="haxe.ds.TreeNode.K"/>
@@ -14144,6 +14149,17 @@
 		<meta><m n=":impl"/></meta>
 		<haxe_doc>See `Map.iterator`</haxe_doc>
 	</iterator>
+	<clear public="1" get="inline" set="null" line="97" static="1">
+		<f a="this">
+			<c path="haxe.ds._HashMap.HashMapData">
+				<c path="haxe.ds.HashMap.K"/>
+				<c path="haxe.ds.HashMap.V"/>
+			</c>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>See `Map.clear`</haxe_doc>
+	</clear>
 </class></impl>
 	</abstract>
 	<class path="haxe.ds._HashMap.HashMap_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/ds/HashMap.hx" private="1" module="haxe.ds.HashMap">
@@ -14243,11 +14259,22 @@
 			<meta><m n=":impl"/></meta>
 			<haxe_doc>See `Map.iterator`</haxe_doc>
 		</iterator>
+		<clear public="1" get="inline" set="null" line="97" static="1">
+			<f a="this">
+				<c path="haxe.ds._HashMap.HashMapData">
+					<c path="haxe.ds.HashMap.K"/>
+					<c path="haxe.ds.HashMap.V"/>
+				</c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>See `Map.clear`</haxe_doc>
+		</clear>
 	</class>
 	<class path="haxe.ds._HashMap.HashMapData" params="K:V" file="/home/vsts/work/1/s/std/haxe/ds/HashMap.hx" private="1" module="haxe.ds.HashMap">
 		<keys public="1"><c path="haxe.ds.IntMap"><c path="haxe.ds._HashMap.HashMapData.K"/></c></keys>
 		<values public="1"><c path="haxe.ds.IntMap"><c path="haxe.ds._HashMap.HashMapData.V"/></c></values>
-		<new public="1" get="inline" set="null" line="99"><f a=""><x path="Void"/></f></new>
+		<new public="1" get="inline" set="null" line="107"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="haxe.ds.IntMap" params="T" file="/home/vsts/work/1/s/std/lua/_std/haxe/ds/IntMap.hx">
 		<implements path="haxe.IMap">
@@ -14293,6 +14320,7 @@
 		</keyValueIterator>
 		<copy public="1" set="method" line="90"><f a=""><c path="haxe.ds.IntMap"><c path="haxe.ds.IntMap.T"/></c></f></copy>
 		<toString public="1" set="method" line="97"><f a=""><c path="String"/></f></toString>
+		<clear public="1" get="inline" set="null" line="112"><f a=""><x path="Void"/></f></clear>
 		<new public="1" get="inline" set="null" line="32"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="haxe.ds.List" params="T" file="/home/vsts/work/1/s/std/haxe/ds/List.hx">
@@ -14695,7 +14723,18 @@
 
 		The exact representation depends on the platform and key-type.</haxe_doc>
 	</toString>
-	<arrayWrite public="1" get="inline" set="null" line="157" static="1">
+	<clear public="1" get="inline" set="null" line="160" static="1">
+		<f a="this">
+			<c path="haxe.IMap">
+				<c path="haxe.ds.Map.K"/>
+				<c path="haxe.ds.Map.V"/>
+			</c>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Removes all keys from `this` Map.</haxe_doc>
+	</clear>
+	<arrayWrite public="1" get="inline" set="null" line="164" static="1">
 		<f a="this:k:v">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -14711,7 +14750,7 @@
 			<m n=":noCompletion"/>
 		</meta>
 	</arrayWrite>
-	<toStringMap params="K:V" get="inline" set="null" line="162" static="1">
+	<toStringMap params="K:V" get="inline" set="null" line="169" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toStringMap.K"/>
@@ -14724,7 +14763,7 @@
 			<m n=":to"/>
 		</meta>
 	</toStringMap>
-	<toIntMap params="K:V" get="inline" set="null" line="166" static="1">
+	<toIntMap params="K:V" get="inline" set="null" line="173" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toIntMap.K"/>
@@ -14737,7 +14776,7 @@
 			<m n=":to"/>
 		</meta>
 	</toIntMap>
-	<toEnumValueMapMap params="K:V" get="inline" set="null" line="170" static="1">
+	<toEnumValueMapMap params="K:V" get="inline" set="null" line="177" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toEnumValueMapMap.K"/>
@@ -14753,7 +14792,7 @@
 			<m n=":to"/>
 		</meta>
 	</toEnumValueMapMap>
-	<toObjectMap params="K:V" get="inline" set="null" line="174" static="1">
+	<toObjectMap params="K:V" get="inline" set="null" line="181" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toObjectMap.K"/>
@@ -14769,7 +14808,7 @@
 			<m n=":to"/>
 		</meta>
 	</toObjectMap>
-	<fromStringMap params="V" get="inline" set="null" line="178" static="1">
+	<fromStringMap params="V" get="inline" set="null" line="185" static="1">
 		<f a="map">
 			<c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c>
 			<x path="haxe.ds.Map">
@@ -14779,7 +14818,7 @@
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromStringMap>
-	<fromIntMap params="V" get="inline" set="null" line="182" static="1">
+	<fromIntMap params="V" get="inline" set="null" line="189" static="1">
 		<f a="map">
 			<c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c>
 			<x path="haxe.ds.Map">
@@ -14789,7 +14828,7 @@
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromIntMap>
-	<fromObjectMap params="K:V" get="inline" set="null" line="186" static="1">
+	<fromObjectMap params="K:V" get="inline" set="null" line="193" static="1">
 		<f a="map">
 			<c path="haxe.ds.ObjectMap">
 				<c path="fromObjectMap.K"/>
@@ -14971,7 +15010,18 @@
 
 		The exact representation depends on the platform and key-type.</haxe_doc>
 		</toString>
-		<arrayWrite public="1" get="inline" set="null" line="157" static="1">
+		<clear public="1" get="inline" set="null" line="160" static="1">
+			<f a="this">
+				<c path="haxe.IMap">
+					<c path="haxe.ds.Map.K"/>
+					<c path="haxe.ds.Map.V"/>
+				</c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Removes all keys from `this` Map.</haxe_doc>
+		</clear>
+		<arrayWrite public="1" get="inline" set="null" line="164" static="1">
 			<f a="this:k:v">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -14987,7 +15037,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</arrayWrite>
-		<toStringMap params="K:V" get="inline" set="null" line="162" static="1">
+		<toStringMap params="K:V" get="inline" set="null" line="169" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toStringMap.K"/>
@@ -15000,7 +15050,7 @@
 				<m n=":to"/>
 			</meta>
 		</toStringMap>
-		<toIntMap params="K:V" get="inline" set="null" line="166" static="1">
+		<toIntMap params="K:V" get="inline" set="null" line="173" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toIntMap.K"/>
@@ -15013,7 +15063,7 @@
 				<m n=":to"/>
 			</meta>
 		</toIntMap>
-		<toEnumValueMapMap params="K:V" get="inline" set="null" line="170" static="1">
+		<toEnumValueMapMap params="K:V" get="inline" set="null" line="177" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toEnumValueMapMap.K"/>
@@ -15029,7 +15079,7 @@
 				<m n=":to"/>
 			</meta>
 		</toEnumValueMapMap>
-		<toObjectMap params="K:V" get="inline" set="null" line="174" static="1">
+		<toObjectMap params="K:V" get="inline" set="null" line="181" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toObjectMap.K"/>
@@ -15045,7 +15095,7 @@
 				<m n=":to"/>
 			</meta>
 		</toObjectMap>
-		<fromStringMap params="V" get="inline" set="null" line="178" static="1">
+		<fromStringMap params="V" get="inline" set="null" line="185" static="1">
 			<f a="map">
 				<c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c>
 				<x path="haxe.ds.Map">
@@ -15055,7 +15105,7 @@
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromStringMap>
-		<fromIntMap params="V" get="inline" set="null" line="182" static="1">
+		<fromIntMap params="V" get="inline" set="null" line="189" static="1">
 			<f a="map">
 				<c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c>
 				<x path="haxe.ds.Map">
@@ -15065,7 +15115,7 @@
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromIntMap>
-		<fromObjectMap params="K:V" get="inline" set="null" line="186" static="1">
+		<fromObjectMap params="K:V" get="inline" set="null" line="193" static="1">
 			<f a="map">
 				<c path="haxe.ds.ObjectMap">
 					<c path="fromObjectMap.K"/>
@@ -15153,6 +15203,7 @@
 	<c path="haxe.ds.ObjectMap.B"/>
 </c></f></copy>
 		<toString public="1" set="method" line="101"><f a=""><c path="String"/></f></toString>
+		<clear public="1" get="inline" set="null" line="116"><f a=""><x path="Void"/></f></clear>
 		<new public="1" get="inline" set="null" line="39"><f a=""><x path="Void"/></f></new>
 	</class>
 	<enum path="haxe.ds.Option" params="T" file="/home/vsts/work/1/s/std/haxe/ds/Option.hx">
@@ -15291,6 +15342,7 @@
 		</keyValueIterator>
 		<copy public="1" set="method" line="94"><f a=""><c path="haxe.ds.StringMap"><c path="haxe.ds.StringMap.T"/></c></f></copy>
 		<toString public="1" set="method" line="101"><f a=""><c path="String"/></f></toString>
+		<clear public="1" get="inline" set="null" line="116"><f a=""><x path="Void"/></f></clear>
 		<new public="1" get="inline" set="null" line="32"><f a=""><x path="Void"/></f></new>
 	</class>
 	<typedef path="haxe.ds._Vector.VectorData" params="T" file="/home/vsts/work/1/s/std/haxe/ds/Vector.hx" private="1" module="haxe.ds.Vector"><c path="lua.Table">
@@ -15756,6 +15808,10 @@
 			<f a=""><c path="String"/></f>
 			<haxe_doc>See `Map.toString`</haxe_doc>
 		</toString>
+		<clear public="1" set="method" line="106">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>See `Map.clear`</haxe_doc>
+		</clear>
 		<new public="1" set="method" line="38">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new WeakMap.</haxe_doc>
