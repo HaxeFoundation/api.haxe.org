@@ -14285,6 +14285,143 @@
 		<values public="1"><c path="haxe.ds.IntMap"><c path="haxe.ds._HashMap.HashMapData.V"/></c></values>
 		<new public="1" get="inline" set="null" line="107"><f a=""><x path="Void"/></f></new>
 	</class>
+	<class path="lua.Table" params="A:B" file="/home/vsts/work/1/s/std/lua/Table.hx" extern="1">
+		<create public="1" params="A:B" set="method" static="1"><f a="?arr:?hsh">
+	<c path="Array"><c path="create.B"/></c>
+	<d/>
+	<c path="lua.Table">
+		<c path="create.A"/>
+		<c path="create.B"/>
+	</c>
+</f></create>
+		<fromArray public="1" params="T" get="inline" set="null" line="34" static="1"><f a="arr">
+	<c path="Array"><c path="fromArray.T"/></c>
+	<c path="lua.Table">
+		<x path="Int"/>
+		<c path="fromArray.T"/>
+	</c>
+</f></fromArray>
+		<fromMap public="1" params="A:B" get="inline" set="null" line="42" static="1">
+			<f a="map">
+				<t path="Map">
+					<c path="fromMap.A"/>
+					<c path="fromMap.B"/>
+				</t>
+				<c path="lua.Table">
+					<c path="fromMap.A"/>
+					<c path="fromMap.B"/>
+				</c>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</fromMap>
+		<fromDynamic public="1" params="A:B" get="inline" set="null" line="50" static="1">
+			<f a="dyn">
+				<d/>
+				<c path="lua.Table">
+					<c path="fromDynamic.A"/>
+					<c path="fromDynamic.B"/>
+				</c>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</fromDynamic>
+		<concat public="1" params="A:B" set="method" static="1">
+			<f a="table:?sep:?i:?j">
+				<c path="lua.Table">
+					<c path="concat.A"/>
+					<c path="concat.B"/>
+				</c>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<overloads><concat public="1" params="A:B" set="method"><f a="table">
+	<c path="lua.Table">
+		<c path="concat.A"/>
+		<c path="concat.B"/>
+	</c>
+	<x path="Void"/>
+</f></concat></overloads>
+		</concat>
+		<foreach public="1" params="A:B" set="method" static="1"><f a="table:f">
+	<c path="lua.Table">
+		<c path="foreach.A"/>
+		<c path="foreach.B"/>
+	</c>
+	<f a=":">
+		<c path="foreach.A"/>
+		<c path="foreach.B"/>
+		<x path="Void"/>
+	</f>
+	<x path="Void"/>
+</f></foreach>
+		<foreachi public="1" params="A:B" set="method" static="1"><f a="table:f">
+	<c path="lua.Table">
+		<c path="foreachi.A"/>
+		<c path="foreachi.B"/>
+	</c>
+	<f a="::">
+		<c path="foreachi.A"/>
+		<c path="foreachi.B"/>
+		<x path="Int"/>
+		<x path="Void"/>
+	</f>
+	<x path="Void"/>
+</f></foreachi>
+		<sort public="1" params="A:B" set="method" static="1"><f a="table:?order">
+	<c path="lua.Table">
+		<c path="sort.A"/>
+		<c path="sort.B"/>
+	</c>
+	<f a=":">
+		<c path="sort.A"/>
+		<c path="sort.A"/>
+		<x path="Bool"/>
+	</f>
+	<x path="Void"/>
+</f></sort>
+		<insert public="1" params="B" set="method" static="1">
+			<f a="table:pos:value">
+				<c path="lua.Table">
+					<x path="Int"/>
+					<c path="insert.B"/>
+				</c>
+				<x path="Int"/>
+				<c path="insert.B"/>
+				<x path="Void"/>
+			</f>
+			<overloads><insert public="1" params="B" set="method"><f a="table:value">
+	<c path="lua.Table">
+		<x path="Int"/>
+		<c path="insert.B"/>
+	</c>
+	<c path="insert.B"/>
+	<x path="Void"/>
+</f></insert></overloads>
+		</insert>
+		<remove public="1" params="B" set="method" static="1">
+			<f a="table:?pos">
+				<c path="lua.Table">
+					<x path="Int"/>
+					<c path="remove.B"/>
+				</c>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<overloads><remove public="1" params="B" set="method"><f a="table">
+	<c path="lua.Table">
+		<x path="Int"/>
+		<c path="remove.B"/>
+	</c>
+	<x path="Void"/>
+</f></remove></overloads>
+		</remove>
+		<haxe_doc>This library provides generic functions for table manipulation.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"_G.table"</e></m>
+		</meta>
+	</class>
 	<class path="haxe.ds.IntMap" params="T" file="/home/vsts/work/1/s/std/lua/_std/haxe/ds/IntMap.hx">
 		<implements path="haxe.IMap">
 			<x path="Int"/>
@@ -32132,149 +32269,6 @@
 		<result public="1"><c path="lua.Result.T"/></result>
 		<message public="1"><c path="String"/></message>
 		<meta><m n=":multiReturn"/></meta>
-	</class>
-	<class path="lua.Table" params="A:B" file="/home/vsts/work/1/s/std/lua/Table.hx" extern="1">
-		<create public="1" params="A:B" get="inline" set="null" line="33" static="1">
-			<f a="?arr:?hsh">
-				<c path="Array"><c path="create.B"/></c>
-				<d/>
-				<c path="lua.Table">
-					<c path="create.A"/>
-					<c path="create.B"/>
-				</c>
-			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":analyzer"><e>no_fusion</e></m>
-			</meta>
-		</create>
-		<fromArray public="1" params="T" get="inline" set="null" line="37" static="1"><f a="arr">
-	<c path="Array"><c path="fromArray.T"/></c>
-	<c path="lua.Table">
-		<x path="Int"/>
-		<c path="fromArray.T"/>
-	</c>
-</f></fromArray>
-		<fromMap public="1" params="A:B" get="inline" set="null" line="45" static="1">
-			<f a="map">
-				<t path="Map">
-					<c path="fromMap.A"/>
-					<c path="fromMap.B"/>
-				</t>
-				<c path="lua.Table">
-					<c path="fromMap.A"/>
-					<c path="fromMap.B"/>
-				</c>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</fromMap>
-		<fromDynamic public="1" params="A:B" get="inline" set="null" line="53" static="1">
-			<f a="dyn">
-				<d/>
-				<c path="lua.Table">
-					<c path="fromDynamic.A"/>
-					<c path="fromDynamic.B"/>
-				</c>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</fromDynamic>
-		<concat public="1" params="A:B" set="method" static="1">
-			<f a="table:?sep:?i:?j">
-				<c path="lua.Table">
-					<c path="concat.A"/>
-					<c path="concat.B"/>
-				</c>
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<c path="String"/>
-			</f>
-			<overloads><concat public="1" params="A:B" set="method"><f a="table">
-	<c path="lua.Table">
-		<c path="concat.A"/>
-		<c path="concat.B"/>
-	</c>
-	<x path="Void"/>
-</f></concat></overloads>
-		</concat>
-		<foreach public="1" params="A:B" set="method" static="1"><f a="table:f">
-	<c path="lua.Table">
-		<c path="foreach.A"/>
-		<c path="foreach.B"/>
-	</c>
-	<f a=":">
-		<c path="foreach.A"/>
-		<c path="foreach.B"/>
-		<x path="Void"/>
-	</f>
-	<x path="Void"/>
-</f></foreach>
-		<foreachi public="1" params="A:B" set="method" static="1"><f a="table:f">
-	<c path="lua.Table">
-		<c path="foreachi.A"/>
-		<c path="foreachi.B"/>
-	</c>
-	<f a="::">
-		<c path="foreachi.A"/>
-		<c path="foreachi.B"/>
-		<x path="Int"/>
-		<x path="Void"/>
-	</f>
-	<x path="Void"/>
-</f></foreachi>
-		<sort public="1" params="A:B" set="method" static="1"><f a="table:?order">
-	<c path="lua.Table">
-		<c path="sort.A"/>
-		<c path="sort.B"/>
-	</c>
-	<f a=":">
-		<c path="sort.A"/>
-		<c path="sort.A"/>
-		<x path="Bool"/>
-	</f>
-	<x path="Void"/>
-</f></sort>
-		<insert public="1" params="B" set="method" static="1">
-			<f a="table:pos:value">
-				<c path="lua.Table">
-					<x path="Int"/>
-					<c path="insert.B"/>
-				</c>
-				<x path="Int"/>
-				<c path="insert.B"/>
-				<x path="Void"/>
-			</f>
-			<overloads><insert public="1" params="B" set="method"><f a="table:value">
-	<c path="lua.Table">
-		<x path="Int"/>
-		<c path="insert.B"/>
-	</c>
-	<c path="insert.B"/>
-	<x path="Void"/>
-</f></insert></overloads>
-		</insert>
-		<remove public="1" params="B" set="method" static="1">
-			<f a="table:?pos">
-				<c path="lua.Table">
-					<x path="Int"/>
-					<c path="remove.B"/>
-				</c>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<overloads><remove public="1" params="B" set="method"><f a="table">
-	<c path="lua.Table">
-		<x path="Int"/>
-		<c path="remove.B"/>
-	</c>
-	<x path="Void"/>
-</f></remove></overloads>
-		</remove>
-		<haxe_doc>This library provides generic functions for table manipulation.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":native"><e>"_G.table"</e></m>
-		</meta>
 	</class>
 	<typedef path="lua.AnyTable" params="" file="/home/vsts/work/1/s/std/lua/Table.hx" module="lua.Table"><c path="lua.Table">
 	<d/>
