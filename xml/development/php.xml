@@ -36012,15 +36012,15 @@
 	</class>
 	<class path="php.net.Socket" params="" file="/home/vsts/work/1/s/std/php/net/Socket.hx">
 		<extends path="sys.net.Socket"/>
-		<getType set="method" line="132" static="1"><f a="isUdp">
+		<getType set="method" line="148" static="1"><f a="isUdp">
 	<x path="Bool"/>
 	<x path="Int"/>
 </f></getType>
-		<getProtocol set="method" line="136" static="1"><f a="protocol">
+		<getProtocol set="method" line="152" static="1"><f a="protocol">
 	<c path="String"/>
 	<x path="Int"/>
 </f></getProtocol>
-		<select public="1" set="method" line="140" static="1"><f a="read:write:others:?timeout">
+		<select public="1" set="method" line="156" static="1"><f a="read:write:others:?timeout">
 	<c path="Array"><c path="php.net.Socket"/></c>
 	<c path="Array"><c path="php.net.Socket"/></c>
 	<c path="Array"><c path="php.net.Socket"/></c>
@@ -36031,59 +36031,68 @@
 		<others><c path="Array"><c path="php.net.Socket"/></c></others>
 	</a>
 </f></select>
-		<checkError get="inline" set="null" line="146" static="1"><f a="r:code:msg">
+		<checkError get="inline" set="null" line="162" static="1"><f a="r:code:msg">
 	<x path="Bool"/>
 	<x path="Int"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></checkError>
-		<assignHandler set="method" line="38" override="1"><f a=""><x path="Void"/></f></assignHandler>
-		<close public="1" set="method" line="43" override="1"><f a=""><x path="Void"/></f></close>
-		<read public="1" set="method" line="51" override="1"><f a=""><c path="String"/></f></read>
-		<write public="1" set="method" line="58" override="1"><f a="content">
+		<connected expr="false">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>false</e></m></meta>
+		</connected>
+		<timeout expr="null">
+			<x path="Null"><x path="Float"/></x>
+			<meta><m n=":value"><e>null</e></m></meta>
+		</timeout>
+		<initSocket set="method" line="41" override="1"><f a=""><x path="Void"/></f></initSocket>
+		<assignHandler set="method" line="45" override="1"><f a=""><x path="Void"/></f></assignHandler>
+		<close public="1" set="method" line="54" override="1"><f a=""><x path="Void"/></f></close>
+		<read public="1" set="method" line="63" override="1"><f a=""><c path="String"/></f></read>
+		<write public="1" set="method" line="70" override="1"><f a="content">
 	<c path="String"/>
 	<x path="Void"/>
 </f></write>
-		<connect public="1" set="method" line="62" override="1"><f a="host:port">
+		<connect public="1" set="method" line="74" override="1"><f a="host:port">
 	<c path="sys.net.Host"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></connect>
-		<listen public="1" set="method" line="71" override="1"><f a="connections">
+		<listen public="1" set="method" line="83" override="1"><f a="connections">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></listen>
-		<shutdown public="1" set="method" line="79" override="1"><f a="read:write">
+		<shutdown public="1" set="method" line="91" override="1"><f a="read:write">
 	<x path="Bool"/>
 	<x path="Bool"/>
 	<x path="Void"/>
 </f></shutdown>
-		<bind public="1" set="method" line="85" override="1"><f a="host:port">
+		<bind public="1" set="method" line="97" override="1"><f a="host:port">
 	<c path="sys.net.Host"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></bind>
-		<accept public="1" set="method" line="95" override="1"><f a=""><c path="php.net.Socket"/></f></accept>
-		<hpOfString set="method" line="104"><f a="s">
+		<accept public="1" set="method" line="107" override="1"><f a=""><c path="php.net.Socket"/></f></accept>
+		<hpOfString set="method" line="116"><f a="s">
 	<c path="String"/>
 	<a>
 		<port><x path="Int"/></port>
 		<host><c path="sys.net.Host"/></host>
 	</a>
 </f></hpOfString>
-		<peer public="1" set="method" line="113" override="1"><f a=""><a>
+		<peer public="1" set="method" line="125" override="1"><f a=""><a>
 	<port><x path="Int"/></port>
 	<host><c path="sys.net.Host"/></host>
 </a></f></peer>
-		<host public="1" set="method" line="119" override="1"><f a=""><a>
+		<host public="1" set="method" line="131" override="1"><f a=""><a>
 	<port><x path="Int"/></port>
 	<host><c path="sys.net.Host"/></host>
 </a></f></host>
-		<setTimeout public="1" set="method" line="125" override="1"><f a="timeout">
+		<setTimeout public="1" set="method" line="137" override="1"><f a="timeout">
 	<x path="Float"/>
 	<x path="Void"/>
 </f></setTimeout>
-		<new public="1" set="method" line="33"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="36"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="php.net.SslSocket" params="" file="/home/vsts/work/1/s/std/php/net/SslSocket.hx">
 		<extends path="php.net.Socket"/>
