@@ -81836,6 +81836,22 @@
 		</new>
 		<meta><m n=":native"><e>"Function"</e></m></meta>
 	</class>
+	<class path="js.lib.HaxeIterator" params="T" file="/home/vsts/work/1/s/std/js/lib/HaxeIterator.hx">
+		<iterator public="1" params="T" get="inline" set="null" line="49" static="1"><f a="jsIterator">
+	<t path="js.lib.Iterator"><c path="iterator.T"/></t>
+	<c path="js.lib.HaxeIterator"><c path="iterator.T"/></c>
+</f></iterator>
+		<jsIterator final="1"><t path="js.lib.Iterator"><c path="js.lib.HaxeIterator.T"/></t></jsIterator>
+		<lastStep><t path="js.lib.IteratorStep"><c path="js.lib.HaxeIterator.T"/></t></lastStep>
+		<hasNext public="1" get="inline" set="null" line="39"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="43"><f a=""><c path="js.lib.HaxeIterator.T"/></f></next>
+		<new public="1" get="inline" set="null" line="34"><f a="jsIterator">
+	<t path="js.lib.Iterator"><c path="js.lib.HaxeIterator.T"/></t>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>`HaxeIterator` wraps a JavaScript native iterator object to enable for-in iteration in haxe.
+	It can be used directly: `new HaxeIterator(jsIterator)` or via using: `using HaxeIterator`.</haxe_doc>
+	</class>
 	<class path="js.lib.Int16Array" params="" file="/home/vsts/work/1/s/std/js/lib/Int16Array.hx" extern="1">
 		<implements path="js.lib.ArrayBufferView"/>
 		<BYTES_PER_ELEMENT final="1" public="1" set="null" static="1">
@@ -84093,7 +84109,12 @@
 	Documentation [Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
 		<meta><m n=":native"><e>"Intl"</e></m></meta>
 	</class>
-	<typedef path="js.lib.Iterator" params="T" file="/home/vsts/work/1/s/std/js/lib/Iterator.hx"><a><next set="method"><f a=""><t path="js.lib.IteratorStep"><c path="js.lib.Iterator.T"/></t></f></next></a></typedef>
+	<typedef path="js.lib.Iterator" params="T" file="/home/vsts/work/1/s/std/js/lib/Iterator.hx">
+		<a><next set="method"><f a=""><t path="js.lib.IteratorStep"><c path="js.lib.Iterator.T"/></t></f></next></a>
+		<haxe_doc>Native JavaScript iterator structure. To enable haxe for-in iteration, use `js.lib.HaxeIterator`, for example `for (v in new js.lib.HaxeIterator(jsIterator))` or add `using js.lib.HaxeIterator;` to your module
+
+	See [Iteration Protocols](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)</haxe_doc>
+	</typedef>
 	<typedef path="js.lib.IteratorStep" params="T" file="/home/vsts/work/1/s/std/js/lib/Iterator.hx" module="js.lib.Iterator"><a>
 	<value>
 		<x path="Null"><c path="js.lib.IteratorStep.T"/></x>
@@ -84184,6 +84205,11 @@
 			<haxe_doc>Returns a new `Iterator` object that contains an array of `MapEntry`
 		for each element in the `js.Map` object in insertion order.</haxe_doc>
 		</entries>
+		<iterator public="1" get="inline" set="null" line="103"><f a=""><c path="js.lib.HaxeIterator"><c path="js.lib.Map.V"/></c></f></iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="107"><f a=""><c path="js.lib.HaxeIterator"><x path="js.lib.MapEntry">
+	<c path="js.lib.Map.K"/>
+	<c path="js.lib.Map.V"/>
+</x></c></f></keyValueIterator>
 		<new public="1" set="method">
 			<f a="?iterable">
 				<x path="Any"/>
@@ -84213,14 +84239,14 @@
 		<c path="js.lib.MapEntry.V"/>
 		<meta><m n=":impl"/></meta>
 	</value>
-	<get_key get="inline" set="null" line="113" static="1">
+	<get_key get="inline" set="null" line="120" static="1">
 		<f a="this">
 			<c path="Array"><x path="Any"/></c>
 			<c path="js.lib.MapEntry.K"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_key>
-	<get_value get="inline" set="null" line="116" static="1">
+	<get_value get="inline" set="null" line="123" static="1">
 		<f a="this">
 			<c path="Array"><x path="Any"/></c>
 			<c path="js.lib.MapEntry.V"/>
@@ -84238,14 +84264,14 @@
 			<c path="js.lib.MapEntry.V"/>
 			<meta><m n=":impl"/></meta>
 		</value>
-		<get_key get="inline" set="null" line="113" static="1">
+		<get_key get="inline" set="null" line="120" static="1">
 			<f a="this">
 				<c path="Array"><x path="Any"/></c>
 				<c path="js.lib.MapEntry.K"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_key>
-		<get_value get="inline" set="null" line="116" static="1">
+		<get_value get="inline" set="null" line="123" static="1">
 			<f a="this">
 				<c path="Array"><x path="Any"/></c>
 				<c path="js.lib.MapEntry.V"/>
@@ -85227,6 +85253,8 @@
 		This is kept similar to the `js.Map` object, so that each entry has the
 		same value for its key and value here.</haxe_doc>
 		</entries>
+		<iterator public="1" get="inline" set="null" line="100"><f a=""><c path="js.lib.HaxeIterator"><c path="js.lib.Set.T"/></c></f></iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="104"><f a=""><c path="js.lib.SetKeyValueIterator"><c path="js.lib.Set.T"/></c></f></keyValueIterator>
 		<new public="1" set="method">
 			<f a="?iterable">
 				<x path="Any"/>
@@ -85240,6 +85268,24 @@
 
 	Documentation [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
 		<meta><m n=":native"><e>"Set"</e></m></meta>
+	</class>
+	<class path="js.lib.SetKeyValueIterator" params="T" file="/home/vsts/work/1/s/std/js/lib/Set.hx" module="js.lib.Set">
+		<set final="1"><c path="js.lib.Set"><c path="js.lib.SetKeyValueIterator.T"/></c></set>
+		<values final="1"><c path="js.lib.HaxeIterator"><c path="js.lib.SetKeyValueIterator.T"/></c></values>
+		<index expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</index>
+		<hasNext public="1" get="inline" set="null" line="124"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="128"><f a=""><a>
+	<value><c path="js.lib.SetKeyValueIterator.T"/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new public="1" get="inline" set="null" line="119"><f a="set">
+	<c path="js.lib.Set"><c path="js.lib.SetKeyValueIterator.T"/></c>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc><![CDATA[key => value iterator for js.lib.Set, tracking the entry index for the key to match the behavior of haxe.ds.List]]></haxe_doc>
 	</class>
 	<class path="js.lib.Symbol" params="" file="/home/vsts/work/1/s/std/js/lib/Symbol.hx" extern="1">
 		<for_ public="1" set="method" static="1">
