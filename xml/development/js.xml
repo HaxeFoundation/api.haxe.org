@@ -84122,6 +84122,58 @@
 	</value>
 	<done><x path="Bool"/></done>
 </a></typedef>
+	<abstract path="js.lib.KeyValue" params="K:V" file="/home/vsts/work/1/s/std/js/lib/KeyValue.hx">
+		<this><c path="Array"><x path="Any"/></c></this>
+		<haxe_doc>Key/value access helper.</haxe_doc>
+		<impl><class path="js.lib._KeyValue.KeyValue_Impl_" params="" file="/home/vsts/work/1/s/std/js/lib/KeyValue.hx" private="1" module="js.lib.KeyValue">
+	<key public="1" get="accessor" set="null" static="1">
+		<c path="js.lib.KeyValue.K"/>
+		<meta><m n=":impl"/></meta>
+	</key>
+	<value public="1" get="accessor" set="null" static="1">
+		<c path="js.lib.KeyValue.V"/>
+		<meta><m n=":impl"/></meta>
+	</value>
+	<get_key get="inline" set="null" line="32" static="1">
+		<f a="this">
+			<c path="Array"><x path="Any"/></c>
+			<c path="js.lib.KeyValue.K"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_key>
+	<get_value get="inline" set="null" line="36" static="1">
+		<f a="this">
+			<c path="Array"><x path="Any"/></c>
+			<c path="js.lib.KeyValue.V"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_value>
+</class></impl>
+	</abstract>
+	<class path="js.lib._KeyValue.KeyValue_Impl_" params="" file="/home/vsts/work/1/s/std/js/lib/KeyValue.hx" private="1" module="js.lib.KeyValue">
+		<key public="1" get="accessor" set="null" static="1">
+			<c path="js.lib.KeyValue.K"/>
+			<meta><m n=":impl"/></meta>
+		</key>
+		<value public="1" get="accessor" set="null" static="1">
+			<c path="js.lib.KeyValue.V"/>
+			<meta><m n=":impl"/></meta>
+		</value>
+		<get_key get="inline" set="null" line="32" static="1">
+			<f a="this">
+				<c path="Array"><x path="Any"/></c>
+				<c path="js.lib.KeyValue.K"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_key>
+		<get_value get="inline" set="null" line="36" static="1">
+			<f a="this">
+				<c path="Array"><x path="Any"/></c>
+				<c path="js.lib.KeyValue.V"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_value>
+	</class>
 	<class path="js.lib.Map" params="K:V" file="/home/vsts/work/1/s/std/js/lib/Map.hx" extern="1">
 		<size public="1" set="null">
 			<x path="Int"/>
@@ -84198,15 +84250,15 @@
 		element in the `js.Map` object in insertion order.</haxe_doc>
 		</values>
 		<entries public="1" set="method">
-			<f a=""><t path="js.lib.Iterator"><x path="js.lib.MapEntry">
+			<f a=""><t path="js.lib.Iterator"><x path="js.lib.KeyValue">
 	<c path="js.lib.Map.K"/>
 	<c path="js.lib.Map.V"/>
 </x></t></f>
-			<haxe_doc>Returns a new `Iterator` object that contains an array of `MapEntry`
+			<haxe_doc>Returns a new `Iterator` object that contains an array of `KeyValue`
 		for each element in the `js.Map` object in insertion order.</haxe_doc>
 		</entries>
 		<iterator public="1" get="inline" set="null" line="103"><f a=""><c path="js.lib.HaxeIterator"><c path="js.lib.Map.V"/></c></f></iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="107"><f a=""><c path="js.lib.HaxeIterator"><x path="js.lib.MapEntry">
+		<keyValueIterator public="1" get="inline" set="null" line="107"><f a=""><c path="js.lib.HaxeIterator"><x path="js.lib.KeyValue">
 	<c path="js.lib.Map.K"/>
 	<c path="js.lib.Map.V"/>
 </x></c></f></keyValueIterator>
@@ -84226,58 +84278,6 @@
 
 	Documentation [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
 		<meta><m n=":native"><e>"Map"</e></m></meta>
-	</class>
-	<abstract path="js.lib.MapEntry" params="K:V" file="/home/vsts/work/1/s/std/js/lib/Map.hx" module="js.lib.Map">
-		<this><c path="Array"><x path="Any"/></c></this>
-		<haxe_doc>Key/value access helper for `js.Map.entries()` and `js.Set.entries()`.</haxe_doc>
-		<impl><class path="js.lib._Map.MapEntry_Impl_" params="" file="/home/vsts/work/1/s/std/js/lib/Map.hx" private="1" module="js.lib.Map">
-	<key public="1" get="accessor" set="null" static="1">
-		<c path="js.lib.MapEntry.K"/>
-		<meta><m n=":impl"/></meta>
-	</key>
-	<value public="1" get="accessor" set="null" static="1">
-		<c path="js.lib.MapEntry.V"/>
-		<meta><m n=":impl"/></meta>
-	</value>
-	<get_key get="inline" set="null" line="120" static="1">
-		<f a="this">
-			<c path="Array"><x path="Any"/></c>
-			<c path="js.lib.MapEntry.K"/>
-		</f>
-		<meta><m n=":impl"/></meta>
-	</get_key>
-	<get_value get="inline" set="null" line="123" static="1">
-		<f a="this">
-			<c path="Array"><x path="Any"/></c>
-			<c path="js.lib.MapEntry.V"/>
-		</f>
-		<meta><m n=":impl"/></meta>
-	</get_value>
-</class></impl>
-	</abstract>
-	<class path="js.lib._Map.MapEntry_Impl_" params="" file="/home/vsts/work/1/s/std/js/lib/Map.hx" private="1" module="js.lib.Map">
-		<key public="1" get="accessor" set="null" static="1">
-			<c path="js.lib.MapEntry.K"/>
-			<meta><m n=":impl"/></meta>
-		</key>
-		<value public="1" get="accessor" set="null" static="1">
-			<c path="js.lib.MapEntry.V"/>
-			<meta><m n=":impl"/></meta>
-		</value>
-		<get_key get="inline" set="null" line="120" static="1">
-			<f a="this">
-				<c path="Array"><x path="Any"/></c>
-				<c path="js.lib.MapEntry.K"/>
-			</f>
-			<meta><m n=":impl"/></meta>
-		</get_key>
-		<get_value get="inline" set="null" line="123" static="1">
-			<f a="this">
-				<c path="Array"><x path="Any"/></c>
-				<c path="js.lib.MapEntry.V"/>
-			</f>
-			<meta><m n=":impl"/></meta>
-		</get_value>
 	</class>
 	<class path="js.lib.Math" params="" file="/home/vsts/work/1/s/std/js/lib/Math.hx" extern="1">
 		<E public="1" set="null" static="1">
@@ -85243,7 +85243,7 @@
 		element in the `js.Set` object in insertion order.</haxe_doc>
 		</values>
 		<entries public="1" set="method">
-			<f a=""><t path="js.lib.Iterator"><x path="js.lib.MapEntry">
+			<f a=""><t path="js.lib.Iterator"><x path="js.lib.KeyValue">
 	<c path="js.lib.Set.T"/>
 	<c path="js.lib.Set.T"/>
 </x></t></f>
@@ -85253,8 +85253,8 @@
 		This is kept similar to the `js.Map` object, so that each entry has the
 		same value for its key and value here.</haxe_doc>
 		</entries>
-		<iterator public="1" get="inline" set="null" line="100"><f a=""><c path="js.lib.HaxeIterator"><c path="js.lib.Set.T"/></c></f></iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="104"><f a=""><c path="js.lib.SetKeyValueIterator"><c path="js.lib.Set.T"/></c></f></keyValueIterator>
+		<iterator public="1" get="inline" set="null" line="98"><f a=""><c path="js.lib.HaxeIterator"><c path="js.lib.Set.T"/></c></f></iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="102"><f a=""><c path="js.lib.SetKeyValueIterator"><c path="js.lib.Set.T"/></c></f></keyValueIterator>
 		<new public="1" set="method">
 			<f a="?iterable">
 				<x path="Any"/>
@@ -85276,12 +85276,12 @@
 			<x path="Int"/>
 			<meta><m n=":value"><e>0</e></m></meta>
 		</index>
-		<hasNext public="1" get="inline" set="null" line="124"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" get="inline" set="null" line="128"><f a=""><a>
+		<hasNext public="1" get="inline" set="null" line="120"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="124"><f a=""><a>
 	<value><c path="js.lib.SetKeyValueIterator.T"/></value>
 	<key><x path="Int"/></key>
 </a></f></next>
-		<new public="1" get="inline" set="null" line="119"><f a="set">
+		<new public="1" get="inline" set="null" line="115"><f a="set">
 	<c path="js.lib.Set"><c path="js.lib.SetKeyValueIterator.T"/></c>
 	<x path="Void"/>
 </f></new>
