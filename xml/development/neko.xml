@@ -27030,7 +27030,25 @@
 
 		Has no effect if the compilation cache is not used.</haxe_doc>
 		</registerModuleDependency>
-		<registerModuleReuseCall public="1" set="method" line="589" static="1">
+		<timer public="1" set="method" line="602" static="1">
+			<f a="id">
+				<c path="String"/>
+				<f a=""><x path="Void"/></f>
+			</f>
+			<haxe_doc>Creates a timer which will be printed in the compilation report
+		if `--times` compilation argument is set.
+
+		Note that a timer may be omitted from the report if the amount of time
+		measured is too small.
+
+		This method immediately starts a timer and returns a function to stop it:
+		```
+		var stopTimer = haxe.macro.Context.timer("my heavy task");
+		runTask();
+		stopTimer();
+		```</haxe_doc>
+		</timer>
+		<registerModuleReuseCall public="1" set="method" line="607" static="1">
 			<f a="modulePath:macroCall">
 				<c path="String"/>
 				<c path="String"/>
@@ -27038,14 +27056,14 @@
 			</f>
 			<meta><m n=":deprecated"/></meta>
 		</registerModuleReuseCall>
-		<onMacroContextReused public="1" set="method" line="594" static="1">
+		<onMacroContextReused public="1" set="method" line="612" static="1">
 			<f a="callb">
 				<f a=""><x path="Bool"/></f>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":deprecated"/></meta>
 		</onMacroContextReused>
-		<load set="method" line="602" static="1">
+		<load set="method" line="620" static="1">
 			<f a="f:nargs">
 				<c path="String"/>
 				<x path="Int"/>
@@ -27058,12 +27076,12 @@
 				<m n=":allow"><e>haxe.macro.PositionTools</e></m>
 			</meta>
 		</load>
-		<includeFile set="method" line="612" static="1"><f a="file:position">
+		<includeFile set="method" line="630" static="1"><f a="file:position">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></includeFile>
-		<sExpr set="method" line="616" static="1"><f a="e:pretty">
+		<sExpr set="method" line="634" static="1"><f a="e:pretty">
 	<t path="haxe.macro.TypedExpr"/>
 	<x path="Bool"/>
 	<c path="String"/>
