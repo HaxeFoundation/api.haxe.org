@@ -4467,17 +4467,14 @@
 	</enum>
 	<class path="haxe.CallStack" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx">
 		<lastException static="1"><c path="js.lib.Error"/></lastException>
-		<getStack set="method" line="43" static="1">
-			<f a="e">
-				<c path="js.lib.Error"/>
-				<c path="Array"><e path="haxe.StackItem"/></c>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</getStack>
+		<getStack set="method" line="43" static="1"><f a="e">
+	<c path="js.lib.Error"/>
+	<c path="Array"><e path="haxe.StackItem"/></c>
+</f></getStack>
 		<wrapCallSite public="1" static="1">
 			<f a="">
-				<d/>
-				<d/>
+				<t path="haxe.V8CallSite"/>
+				<t path="haxe.V8CallSite"/>
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</wrapCallSite>
@@ -4509,6 +4506,20 @@
 </f></makeStack>
 		<haxe_doc>Get information about the call stack.</haxe_doc>
 	</class>
+	<class path="haxe._CallStack.V8Error" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx" private="1" module="haxe.CallStack" extern="1">
+		<prepareStackTrace public="1" static="1"><f a="error:structuredStackTrace">
+	<c path="js.lib.Error"/>
+	<c path="Array"><t path="haxe.V8CallSite"/></c>
+	<x path="Any"/>
+</f></prepareStackTrace>
+		<meta><m n=":native"><e>"Error"</e></m></meta>
+	</class>
+	<typedef path="haxe.V8CallSite" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx" module="haxe.CallStack"><a>
+	<getLineNumber set="method"><f a=""><x path="Int"/></f></getLineNumber>
+	<getFunctionName set="method"><f a=""><c path="String"/></f></getFunctionName>
+	<getFileName set="method"><f a=""><c path="String"/></f></getFileName>
+	<getColumnNumber set="method"><f a=""><x path="Int"/></f></getColumnNumber>
+</a></typedef>
 	<abstract path="haxe.Function" params="" file="/home/vsts/work/1/s/std/haxe/Constraints.hx" module="haxe.Constraints">
 		<this><d/></this>
 		<haxe_doc>This type unifies with any function type.
