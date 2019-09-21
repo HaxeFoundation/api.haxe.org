@@ -80,6 +80,14 @@
 			</meta>
 		</toString>
 	</class>
+	<class path="php.JsonSerializable" params="T" file="/home/vsts/work/1/s/std/php/JsonSerializable.hx" extern="1" interface="1">
+		<jsonSerialize set="method"><f a=""><c path="php.JsonSerializable.T"/></f></jsonSerialize>
+		<haxe_doc>@see https://www.php.net/manual/en/class.jsonserializable.php</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"JsonSerializable"</e></m>
+		</meta>
+	</class>
 	<class path="php.Traversable" params="" file="/home/vsts/work/1/s/std/php/Traversable.hx" extern="1" interface="1">
 		<haxe_doc>@see http://php.net/manual/en/class.traversable.php</haxe_doc>
 		<meta><m n=":native"><e>"Traversable"</e></m></meta>
@@ -122,12 +130,13 @@
 		</meta>
 	</class>
 	<class path="Array" params="T" file="/home/vsts/work/1/s/std/php/_std/Array.hx">
+		<implements path="php.JsonSerializable"><x path="php.NativeIndexedArray"><c path="Array.T"/></x></implements>
 		<implements path="php.IteratorAggregate"><c path="Array.T"/></implements>
 		<implements path="_Array.ArrayAccess">
 			<x path="Int"/>
 			<c path="Array.T"/>
 		</implements>
-		<wrap params="T" set="method" line="237" static="1"><f a="arr">
+		<wrap params="T" set="method" line="242" static="1"><f a="arr">
 	<x path="php.NativeIndexedArray"><c path="wrap.T"/></x>
 	<c path="Array"><c path="wrap.T"/></c>
 </f></wrap>
@@ -472,6 +481,13 @@
 				<m n=":keep"/>
 			</meta>
 		</getIterator>
+		<jsonSerialize set="method" line="238">
+			<f a=""><x path="php.NativeIndexedArray"><c path="Array.T"/></x></f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":keep"/>
+			</meta>
+		</jsonSerialize>
 		<new public="1" set="method" line="34">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new Array.</haxe_doc>
@@ -489,9 +505,9 @@
 	<class path="_Array.ArrayIterator" params="T" file="/home/vsts/work/1/s/std/php/_std/Array.hx" private="1" module="Array">
 		<idx><x path="Int"/></idx>
 		<arr><c path="Array"><c path="_Array.ArrayIterator.T"/></c></arr>
-		<hasNext public="1" get="inline" set="null" line="254"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" get="inline" set="null" line="258"><f a=""><c path="_Array.ArrayIterator.T"/></f></next>
-		<__get set="method" line="264">
+		<hasNext public="1" get="inline" set="null" line="259"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="263"><f a=""><c path="_Array.ArrayIterator.T"/></f></next>
+		<__get set="method" line="269">
 			<f a="method">
 				<c path="String"/>
 				<x path="Null"><c path="php._Boot.HxClosure"/></x>
@@ -501,7 +517,7 @@
 				<m n=":phpMagic"/>
 			</meta>
 		</__get>
-		<new public="1" get="inline" set="null" line="249"><f a="arr">
+		<new public="1" get="inline" set="null" line="254"><f a="arr">
 	<c path="Array"><c path="_Array.ArrayIterator.T"/></c>
 	<x path="Void"/>
 </f></new>
