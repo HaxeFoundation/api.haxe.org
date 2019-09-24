@@ -8480,6 +8480,20 @@
 		so that a later loadstring on this string returns a copy of the function.
 		function must be a Lua function without upvalues.</haxe_doc>
 		</dump>
+		<rep public="1" set="method" static="1">
+			<f a="s:n:?sep">
+				<c path="String"/>
+				<x path="Int"/>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a string that is the concatenation of n copies of
+        the string s separated by the string sep. The default value
+        for sep is the empty string (that is, no separator).
+        Returns the empty string if n is not positive.  (Note that
+        it is very easy to exhaust the memory of your machine with
+        a single call to this function.)</haxe_doc>
+		</rep>
 		<haxe_doc>These are all externs for the base Lua "string" class, which functions
 	as an additional set of string tools.
 
@@ -32755,9 +32769,6 @@
 	<c path="String"/>
 	<x path="Bool"/>
 </f></chdir>
-		<os_homedir public="1" set="method" static="1"><f a=""><c path="String"/></f></os_homedir>
-		<os_tmpdir public="1" set="method" static="1"><f a=""><c path="String"/></f></os_tmpdir>
-		<os_get_passwd public="1" set="method" static="1"><f a=""><c path="String"/></f></os_get_passwd>
 		<cpu_info public="1" set="method" static="1"><f a=""><c path="lua.Table">
 	<x path="Int"/>
 	<t path="lua.lib.luv.CpuInfo"/>
@@ -32768,15 +32779,6 @@
 		<get_total_memory public="1" set="method" static="1"><f a=""><x path="Int"/></f></get_total_memory>
 		<get_free_memory public="1" set="method" static="1"><f a=""><x path="Int"/></f></get_free_memory>
 		<getpid public="1" set="method" static="1"><f a=""><x path="Int"/></f></getpid>
-		<os_getenv public="1" set="method" static="1"><f a="env">
-	<c path="String"/>
-	<c path="String"/>
-</f></os_getenv>
-		<os_setenv public="1" set="method" static="1"><f a="env:value">
-	<c path="String"/>
-	<c path="String"/>
-	<x path="Void"/>
-</f></os_setenv>
 		<getuid public="1" set="method" static="1"><f a=""><x path="Int"/></f></getuid>
 		<setuid public="1" set="method" static="1"><f a="from:to">
 	<x path="Int"/>
@@ -32847,6 +32849,36 @@
 	<usec><x path="Int"/></usec>
 	<sec><x path="Int"/></sec>
 </a></typedef>
+	<class path="lua.lib.luv.Os" params="" file="/home/vsts/work/1/s/std/lua/lib/luv/Os.hx" extern="1">
+		<homedir public="1" set="method" static="1">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":native"><e>"os_homedir"</e></m></meta>
+		</homedir>
+		<tmpdir public="1" set="method" static="1">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":native"><e>"os_tmpdir"</e></m></meta>
+		</tmpdir>
+		<get_passwd public="1" set="method" static="1">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":native"><e>"os_get_passwd"</e></m></meta>
+		</get_passwd>
+		<getenv public="1" set="method" static="1">
+			<f a="env">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":native"><e>"os_getenv"</e></m></meta>
+		</getenv>
+		<setenv public="1" set="method" static="1">
+			<f a="env:value">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":native"><e>"os_setenv"</e></m></meta>
+		</setenv>
+		<meta><m n=":luaRequire"><e>"luv"</e></m></meta>
+	</class>
 	<class path="lua.lib.luv.Stream" params="" file="/home/vsts/work/1/s/std/lua/lib/luv/Stream.hx" extern="1">
 		<extends path="lua.lib.luv.Handle"/>
 		<shutdown public="1" set="method"><f a="?cb">
