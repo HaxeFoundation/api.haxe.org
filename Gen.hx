@@ -79,6 +79,9 @@ class Gen {
     ):Void {
         var dox = getDox();
         var latestVersion = getLatestVersion(versionInfo);
+        if (!exists('xml/$latestVersion')) {
+            throw 'Missing "xml/$latestVersion/"';
+        }
         deleteRecursive(htmlDir);
         createDirectory(htmlDir);
         for (item in readDirectory(xmlDir)) {
