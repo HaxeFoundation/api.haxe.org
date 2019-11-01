@@ -15710,34 +15710,53 @@
 			</meta>
 		</get>
 	</class>
-	<class path="haxe.ds._StringMap.StringMapIterator" params="T" file="/home/vsts/work/1/s/std/js/_std/haxe/ds/StringMap.hx" private="1" module="haxe.ds.StringMap">
-		<map><c path="haxe.ds.StringMap"><c path="haxe.ds._StringMap.StringMapIterator.T"/></c></map>
-		<keys><c path="Array"><c path="String"/></c></keys>
-		<index><x path="Int"/></index>
-		<count><x path="Int"/></count>
-		<hasNext public="1" get="inline" set="null" line="38"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" get="inline" set="null" line="42"><f a=""><x path="Null"><c path="haxe.ds._StringMap.StringMapIterator.T"/></x></f></next>
-		<new public="1" get="inline" set="null" line="31"><f a="map:keys">
-	<c path="haxe.ds.StringMap"><c path="haxe.ds._StringMap.StringMapIterator.T"/></c>
-	<c path="Array"><c path="String"/></c>
-	<x path="Void"/>
-</f></new>
-	</class>
 	<class path="haxe.ds.StringMap" params="T" file="/home/vsts/work/1/s/std/js/_std/haxe/ds/StringMap.hx">
 		<implements path="haxe.IMap">
 			<c path="String"/>
 			<c path="haxe.ds.StringMap.T"/>
 		</implements>
+		<keysIterator set="method" line="83" static="1"><f a="h">
+	<d/>
+	<t path="Iterator"><c path="String"/></t>
+</f></keysIterator>
+		<valueIterator params="T" set="method" line="91" static="1"><f a="h">
+	<d/>
+	<t path="Iterator"><c path="valueIterator.T"/></t>
+</f></valueIterator>
+		<kvIterator params="T" set="method" line="99" static="1"><f a="h">
+	<d/>
+	<t path="KeyValueIterator">
+		<c path="String"/>
+		<c path="kvIterator.T"/>
+	</t>
+</f></kvIterator>
+		<createCopy params="T" set="method" line="107" static="1"><f a="h">
+	<d/>
+	<c path="haxe.ds.StringMap"><c path="createCopy.T"/></c>
+</f></createCopy>
+		<stringify set="method" line="114" static="1">
+			<f a="h">
+				<d/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":analyzer"><e>no_optimize</e></m></meta>
+		</stringify>
 		<h><d/></h>
-		<rh><d/></rh>
-		<isReserved get="inline" set="null" line="55">
+		<exists public="1" get="inline" set="null" line="37">
 			<f a="key">
 				<c path="String"/>
 				<x path="Bool"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</isReserved>
-		<set public="1" get="inline" set="null" line="59">
+			<haxe_doc>See `Map.exists`</haxe_doc>
+		</exists>
+		<get public="1" get="inline" set="null" line="41">
+			<f a="key">
+				<c path="String"/>
+				<x path="Null"><c path="haxe.ds.StringMap.T"/></x>
+			</f>
+			<haxe_doc>See `Map.get`</haxe_doc>
+		</get>
+		<set public="1" get="inline" set="null" line="45">
 			<f a="key:value">
 				<c path="String"/>
 				<c path="haxe.ds.StringMap.T"/>
@@ -15745,79 +15764,47 @@
 			</f>
 			<haxe_doc>See `Map.set`</haxe_doc>
 		</set>
-		<get public="1" get="inline" set="null" line="66">
-			<f a="key">
-				<c path="String"/>
-				<x path="Null"><c path="haxe.ds.StringMap.T"/></x>
-			</f>
-			<haxe_doc>See `Map.get`</haxe_doc>
-		</get>
-		<exists public="1" get="inline" set="null" line="72">
-			<f a="key">
-				<c path="String"/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>See `Map.exists`</haxe_doc>
-		</exists>
-		<setReserved set="method" line="78"><f a="key:value">
-	<c path="String"/>
-	<c path="haxe.ds.StringMap.T"/>
-	<x path="Void"/>
-</f></setReserved>
-		<getReserved set="method" line="84"><f a="key">
-	<c path="String"/>
-	<x path="Null"><c path="haxe.ds.StringMap.T"/></x>
-</f></getReserved>
-		<existsReserved set="method" line="88"><f a="key">
-	<c path="String"/>
-	<x path="Bool"/>
-</f></existsReserved>
-		<remove public="1" set="method" line="94">
+		<remove public="1" get="inline" set="null" line="49">
 			<f a="key">
 				<c path="String"/>
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>See `Map.remove`</haxe_doc>
 		</remove>
-		<keys public="1" set="method" line="109">
+		<keys public="1" get="inline" set="null" line="57">
 			<f a=""><t path="Iterator"><c path="String"/></t></f>
 			<haxe_doc>See `Map.keys`
 
 		(cs, java) Implementation detail: Do not `set()` any new value while
 		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</keys>
-		<arrayKeys set="method" line="113">
-			<f a=""><c path="Array"><c path="String"/></c></f>
-			<meta><m n=":has_untyped"/></meta>
-		</arrayKeys>
-		<iterator public="1" get="inline" set="null" line="131">
+		<iterator public="1" get="inline" set="null" line="61">
 			<f a=""><t path="Iterator"><c path="haxe.ds.StringMap.T"/></t></f>
 			<haxe_doc>See `Map.iterator`
 
 		(cs, java) Implementation detail: Do not `set()` any new value while
 		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="135">
+		<keyValueIterator public="1" get="inline" set="null" line="65">
 			<f a=""><t path="KeyValueIterator">
 	<c path="String"/>
 	<c path="haxe.ds.StringMap.T"/>
 </t></f>
-			<meta><m n=":runtime"/></meta>
 			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
 		</keyValueIterator>
-		<copy public="1" set="method" line="139">
+		<copy public="1" get="inline" set="null" line="69">
 			<f a=""><c path="haxe.ds.StringMap"><c path="haxe.ds.StringMap.T"/></c></f>
 			<haxe_doc>See `Map.copy`</haxe_doc>
 		</copy>
-		<toString public="1" set="method" line="146">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>See `Map.toString`</haxe_doc>
-		</toString>
-		<clear public="1" get="inline" set="null" line="162">
+		<clear public="1" get="inline" set="null" line="73">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>See `Map.clear`</haxe_doc>
 		</clear>
-		<new public="1" get="inline" set="null" line="51">
+		<toString public="1" get="inline" set="null" line="77">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>See `Map.toString`</haxe_doc>
+		</toString>
+		<new public="1" get="inline" set="null" line="33">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new StringMap.</haxe_doc>
 		</new>
@@ -30053,6 +30040,179 @@
 	<x path="Void"/>
 </f></new>
 	</class>
+	<class path="js.lib.Object" params="" file="/home/vsts/work/1/s/std/js/lib/Object.hx" extern="1">
+		<assign public="1" params="T" set="method" static="1">
+			<f a="target:sources">
+				<c path="assign.T"/>
+				<x path="haxe.extern.Rest"><a/></x>
+				<c path="assign.T"/>
+			</f>
+			<haxe_doc>Copies the values of all enumerable own properties from one or more
+		source objects to a target object.</haxe_doc>
+		</assign>
+		<create public="1" params="T" set="method" static="1">
+			<f a="proto:?propertiesObject">
+				<a/>
+				<x path="haxe.DynamicAccess"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+				<c path="create.T"/>
+			</f>
+			<haxe_doc>Creates a new object with the specified prototype object and properties.</haxe_doc>
+		</create>
+		<defineProperties public="1" params="T" set="method" static="1">
+			<f a="obj:props">
+				<c path="defineProperties.T"/>
+				<x path="haxe.DynamicAccess"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+				<c path="defineProperties.T"/>
+			</f>
+			<haxe_doc>Adds the named properties described by the given descriptors to an object.</haxe_doc>
+		</defineProperties>
+		<defineProperty public="1" params="T" set="method" static="1">
+			<f a="obj:prop:descriptor">
+				<c path="defineProperty.T"/>
+				<c path="String"/>
+				<t path="js.lib.ObjectPropertyDescriptor"/>
+				<c path="defineProperty.T"/>
+			</f>
+			<haxe_doc>Adds the named property described by a given descriptor to an object.</haxe_doc>
+		</defineProperty>
+		<entries public="1" set="method" static="1">
+			<f a="obj">
+				<a/>
+				<c path="Array"><x path="js.lib.ObjectEntry"/></c>
+			</f>
+			<haxe_doc>Returns an array containing all of the [key, value] pairs of a given
+		object's own enumerable string properties.</haxe_doc>
+		</entries>
+		<freeze public="1" params="T" set="method" static="1">
+			<f a="obj">
+				<c path="freeze.T"/>
+				<c path="freeze.T"/>
+			</f>
+			<haxe_doc>Freezes an object: other code can't delete or change any properties.</haxe_doc>
+		</freeze>
+		<fromEntries public="1" params="T" set="method" static="1">
+			<f a="iterable">
+				<x path="Any"/>
+				<c path="fromEntries.T"/>
+			</f>
+			<haxe_doc>Returns a new object from an iterable of key-value pairs
+		(reverses Object.entries).</haxe_doc>
+		</fromEntries>
+		<getOwnPropertyDescriptor public="1" set="method" static="1">
+			<f a="obj:prop">
+				<a/>
+				<c path="String"/>
+				<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+			</f>
+			<haxe_doc>Returns a property descriptor for a named property on an object.</haxe_doc>
+		</getOwnPropertyDescriptor>
+		<getOwnPropertyNames public="1" set="method" static="1">
+			<f a="obj">
+				<a/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>Returns an array containing the names of all of the given object's own
+		enumerable and non-enumerable properties.</haxe_doc>
+		</getOwnPropertyNames>
+		<getOwnPropertySymbols public="1" set="method" static="1">
+			<f a="obj">
+				<a/>
+				<c path="Array"><c path="js.lib.Symbol"/></c>
+			</f>
+			<haxe_doc>Returns an array of all symbol properties found directly upon a given object.</haxe_doc>
+		</getOwnPropertySymbols>
+		<getPrototypeOf public="1" params="TProto" set="method" static="1">
+			<f a="obj">
+				<a/>
+				<x path="Null"><c path="getPrototypeOf.TProto"/></x>
+			</f>
+			<haxe_doc>Returns the prototype of the specified object.</haxe_doc>
+		</getPrototypeOf>
+		<is public="1" params="T" set="method" static="1">
+			<f a="value1:value2">
+				<c path="is.T"/>
+				<c path="is.T"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Compares if two values are the same value. Equates all NaN values
+		(which differs from both Abstract Equality Comparison and
+		Strict Equality Comparison).</haxe_doc>
+		</is>
+		<isExtensible public="1" set="method" static="1">
+			<f a="obj">
+				<a/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Determines if extending of an object is allowed.</haxe_doc>
+		</isExtensible>
+		<isFrozen public="1" set="method" static="1">
+			<f a="obj">
+				<a/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Determines if an object was frozen.</haxe_doc>
+		</isFrozen>
+		<isSealed public="1" set="method" static="1">
+			<f a="obj">
+				<a/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Determines if an object is sealed.</haxe_doc>
+		</isSealed>
+		<keys public="1" set="method" static="1">
+			<f a="obj">
+				<a/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>Returns an array containing the names of all of the given object's own
+		enumerable string properties.</haxe_doc>
+		</keys>
+		<preventExtensions public="1" params="T" set="method" static="1">
+			<f a="obj">
+				<c path="preventExtensions.T"/>
+				<c path="preventExtensions.T"/>
+			</f>
+			<haxe_doc>Prevents any extensions of an object.</haxe_doc>
+		</preventExtensions>
+		<seal public="1" params="T" set="method" static="1">
+			<f a="obj">
+				<c path="seal.T"/>
+				<c path="seal.T"/>
+			</f>
+			<haxe_doc>Prevents other code from deleting properties of an object.</haxe_doc>
+		</seal>
+		<setPrototypeOf public="1" params="T" set="method" static="1">
+			<f a="obj:prototype">
+				<c path="setPrototypeOf.T"/>
+				<x path="Null"><a/></x>
+				<c path="setPrototypeOf.T"/>
+			</f>
+			<haxe_doc>Sets the prototype (i.e., the internal Prototype property).</haxe_doc>
+		</setPrototypeOf>
+		<values public="1" set="method" static="1">
+			<f a="obj">
+				<a/>
+				<c path="Array"><x path="Any"/></c>
+			</f>
+			<haxe_doc>Returns an array containing the values that correspond to all of
+		a given object's own enumerable string properties.</haxe_doc>
+		</values>
+		<prototype public="1" set="null" static="1">
+			<t path="js.lib.ObjectPrototype"/>
+			<haxe_doc>Allows the addition of properties to all objects of type Object.</haxe_doc>
+		</prototype>
+		<new public="1" set="method">
+			<f a="?value">
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>The Object constructor creates an object wrapper.</haxe_doc>
+		</new>
+		<haxe_doc>The `js.lib.Object` constructor creates an object wrapper.
+
+	Documentation [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"Object"</e></m></meta>
+	</class>
 	<class path="haxe.xml.Parser" params="" file="/home/vsts/work/1/s/std/haxe/xml/Parser.hx">
 		<escapes expr="{
 	var h = new haxe.ds.StringMap();
@@ -30528,179 +30688,6 @@
 			<m n=":directlyUsed"/>
 			<m n=":native"><e>"Error"</e></m>
 		</meta>
-	</class>
-	<class path="js.lib.Object" params="" file="/home/vsts/work/1/s/std/js/lib/Object.hx" extern="1">
-		<assign public="1" params="T" set="method" static="1">
-			<f a="target:sources">
-				<c path="assign.T"/>
-				<x path="haxe.extern.Rest"><a/></x>
-				<c path="assign.T"/>
-			</f>
-			<haxe_doc>Copies the values of all enumerable own properties from one or more
-		source objects to a target object.</haxe_doc>
-		</assign>
-		<create public="1" params="T" set="method" static="1">
-			<f a="proto:?propertiesObject">
-				<a/>
-				<x path="haxe.DynamicAccess"><t path="js.lib.ObjectPropertyDescriptor"/></x>
-				<c path="create.T"/>
-			</f>
-			<haxe_doc>Creates a new object with the specified prototype object and properties.</haxe_doc>
-		</create>
-		<defineProperties public="1" params="T" set="method" static="1">
-			<f a="obj:props">
-				<c path="defineProperties.T"/>
-				<x path="haxe.DynamicAccess"><t path="js.lib.ObjectPropertyDescriptor"/></x>
-				<c path="defineProperties.T"/>
-			</f>
-			<haxe_doc>Adds the named properties described by the given descriptors to an object.</haxe_doc>
-		</defineProperties>
-		<defineProperty public="1" params="T" set="method" static="1">
-			<f a="obj:prop:descriptor">
-				<c path="defineProperty.T"/>
-				<c path="String"/>
-				<t path="js.lib.ObjectPropertyDescriptor"/>
-				<c path="defineProperty.T"/>
-			</f>
-			<haxe_doc>Adds the named property described by a given descriptor to an object.</haxe_doc>
-		</defineProperty>
-		<entries public="1" set="method" static="1">
-			<f a="obj">
-				<a/>
-				<c path="Array"><x path="js.lib.ObjectEntry"/></c>
-			</f>
-			<haxe_doc>Returns an array containing all of the [key, value] pairs of a given
-		object's own enumerable string properties.</haxe_doc>
-		</entries>
-		<freeze public="1" params="T" set="method" static="1">
-			<f a="obj">
-				<c path="freeze.T"/>
-				<c path="freeze.T"/>
-			</f>
-			<haxe_doc>Freezes an object: other code can't delete or change any properties.</haxe_doc>
-		</freeze>
-		<fromEntries public="1" params="T" set="method" static="1">
-			<f a="iterable">
-				<x path="Any"/>
-				<c path="fromEntries.T"/>
-			</f>
-			<haxe_doc>Returns a new object from an iterable of key-value pairs
-		(reverses Object.entries).</haxe_doc>
-		</fromEntries>
-		<getOwnPropertyDescriptor public="1" set="method" static="1">
-			<f a="obj:prop">
-				<a/>
-				<c path="String"/>
-				<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"/></x>
-			</f>
-			<haxe_doc>Returns a property descriptor for a named property on an object.</haxe_doc>
-		</getOwnPropertyDescriptor>
-		<getOwnPropertyNames public="1" set="method" static="1">
-			<f a="obj">
-				<a/>
-				<c path="Array"><c path="String"/></c>
-			</f>
-			<haxe_doc>Returns an array containing the names of all of the given object's own
-		enumerable and non-enumerable properties.</haxe_doc>
-		</getOwnPropertyNames>
-		<getOwnPropertySymbols public="1" set="method" static="1">
-			<f a="obj">
-				<a/>
-				<c path="Array"><c path="js.lib.Symbol"/></c>
-			</f>
-			<haxe_doc>Returns an array of all symbol properties found directly upon a given object.</haxe_doc>
-		</getOwnPropertySymbols>
-		<getPrototypeOf public="1" params="TProto" set="method" static="1">
-			<f a="obj">
-				<a/>
-				<x path="Null"><c path="getPrototypeOf.TProto"/></x>
-			</f>
-			<haxe_doc>Returns the prototype of the specified object.</haxe_doc>
-		</getPrototypeOf>
-		<is public="1" params="T" set="method" static="1">
-			<f a="value1:value2">
-				<c path="is.T"/>
-				<c path="is.T"/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Compares if two values are the same value. Equates all NaN values
-		(which differs from both Abstract Equality Comparison and
-		Strict Equality Comparison).</haxe_doc>
-		</is>
-		<isExtensible public="1" set="method" static="1">
-			<f a="obj">
-				<a/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Determines if extending of an object is allowed.</haxe_doc>
-		</isExtensible>
-		<isFrozen public="1" set="method" static="1">
-			<f a="obj">
-				<a/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Determines if an object was frozen.</haxe_doc>
-		</isFrozen>
-		<isSealed public="1" set="method" static="1">
-			<f a="obj">
-				<a/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Determines if an object is sealed.</haxe_doc>
-		</isSealed>
-		<keys public="1" set="method" static="1">
-			<f a="obj">
-				<a/>
-				<c path="Array"><c path="String"/></c>
-			</f>
-			<haxe_doc>Returns an array containing the names of all of the given object's own
-		enumerable string properties.</haxe_doc>
-		</keys>
-		<preventExtensions public="1" params="T" set="method" static="1">
-			<f a="obj">
-				<c path="preventExtensions.T"/>
-				<c path="preventExtensions.T"/>
-			</f>
-			<haxe_doc>Prevents any extensions of an object.</haxe_doc>
-		</preventExtensions>
-		<seal public="1" params="T" set="method" static="1">
-			<f a="obj">
-				<c path="seal.T"/>
-				<c path="seal.T"/>
-			</f>
-			<haxe_doc>Prevents other code from deleting properties of an object.</haxe_doc>
-		</seal>
-		<setPrototypeOf public="1" params="T" set="method" static="1">
-			<f a="obj:prototype">
-				<c path="setPrototypeOf.T"/>
-				<x path="Null"><a/></x>
-				<c path="setPrototypeOf.T"/>
-			</f>
-			<haxe_doc>Sets the prototype (i.e., the internal Prototype property).</haxe_doc>
-		</setPrototypeOf>
-		<values public="1" set="method" static="1">
-			<f a="obj">
-				<a/>
-				<c path="Array"><x path="Any"/></c>
-			</f>
-			<haxe_doc>Returns an array containing the values that correspond to all of
-		a given object's own enumerable string properties.</haxe_doc>
-		</values>
-		<prototype public="1" set="null" static="1">
-			<t path="js.lib.ObjectPrototype"/>
-			<haxe_doc>Allows the addition of properties to all objects of type Object.</haxe_doc>
-		</prototype>
-		<new public="1" set="method">
-			<f a="?value">
-				<x path="Any"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>The Object constructor creates an object wrapper.</haxe_doc>
-		</new>
-		<haxe_doc>The `js.lib.Object` constructor creates an object wrapper.
-
-	Documentation [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
-		<meta><m n=":native"><e>"Object"</e></m></meta>
 	</class>
 	<class path="js._Boot.HaxeError" params="" file="/home/vsts/work/1/s/std/js/Boot.hx" private="1" module="js.Boot">
 		<extends path="js.lib.Error"/>
