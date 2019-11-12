@@ -2883,22 +2883,22 @@
 </t></f>
 			<haxe_doc>Returns all environment variables.</haxe_doc>
 		</environment>
-		<executablePath public="1" set="method" line="97" static="1">
+		<executablePath public="1" set="method" line="83" static="1">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":deprecated"><e>"Use programPath instead"</e></m></meta>
 			<haxe_doc>Returns the path to the current executable that we are running.</haxe_doc>
 		</executablePath>
-		<programPath public="1" get="inline" set="null" line="101" static="1">
+		<programPath public="1" get="inline" set="null" line="87" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the absolute path to the current program file that we are running.
 		Concretely, for an executable binary, it returns the path to the binary.
 		For a script (e.g. a PHP file), it returns the path to the script.</haxe_doc>
 		</programPath>
-		<getCwd public="1" get="inline" set="null" line="105" static="1">
+		<getCwd public="1" get="inline" set="null" line="91" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Gets the current working directory (usually the one in which the program was started).</haxe_doc>
 		</getCwd>
-		<setCwd public="1" get="inline" set="null" line="108" static="1">
+		<setCwd public="1" get="inline" set="null" line="94" static="1">
 			<f a="s">
 				<c path="String"/>
 				<x path="Void"/>
@@ -2907,7 +2907,7 @@
 
 		(java) This functionality is not available on Java; calling this function will throw.</haxe_doc>
 		</setCwd>
-		<getEnv public="1" get="inline" set="null" line="111" static="1">
+		<getEnv public="1" get="inline" set="null" line="97" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="String"/>
@@ -2915,7 +2915,7 @@
 			<haxe_doc>Returns the value of the given environment variable, or `null` if it
 		doesn't exist.</haxe_doc>
 		</getEnv>
-		<putEnv public="1" get="inline" set="null" line="115" static="1">
+		<putEnv public="1" get="inline" set="null" line="101" static="1">
 			<f a="s:v">
 				<c path="String"/>
 				<c path="String"/>
@@ -2925,7 +2925,7 @@
 
 		(java) This functionality is not available on Java; calling this function will throw.</haxe_doc>
 		</putEnv>
-		<setTimeLocale public="1" get="inline" set="null" line="119" static="1">
+		<setTimeLocale public="1" get="inline" set="null" line="105" static="1">
 			<f a="loc">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -2933,28 +2933,28 @@
 			<haxe_doc>Changes the current time locale, which will affect `DateTools.format` date formating.
 		Returns `true` if the locale was successfully changed.</haxe_doc>
 		</setTimeLocale>
-		<sleep public="1" set="method" line="124" static="1">
+		<sleep public="1" set="method" line="110" static="1">
 			<f a="seconds">
 				<x path="Float"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Suspends execution for the given length of time (in seconds).</haxe_doc>
 		</sleep>
-		<stderr public="1" get="inline" set="null" line="127" static="1">
+		<stderr public="1" get="inline" set="null" line="113" static="1">
 			<f a=""><c path="haxe.io.Output"/></f>
 			<haxe_doc>Returns the standard error of the process, to which program errors can be written.</haxe_doc>
 		</stderr>
-		<stdin public="1" get="inline" set="null" line="130" static="1">
+		<stdin public="1" get="inline" set="null" line="116" static="1">
 			<f a=""><c path="haxe.io.Input"/></f>
 			<haxe_doc>Returns the standard input of the process, from which user input can be read.
 		Usually it will block until the user sends a full input line.
 		See `getChar` for an alternative.</haxe_doc>
 		</stdin>
-		<stdout public="1" get="inline" set="null" line="133" static="1">
+		<stdout public="1" get="inline" set="null" line="119" static="1">
 			<f a=""><c path="haxe.io.Output"/></f>
 			<haxe_doc>Returns the standard output of the process, to which program output can be written.</haxe_doc>
 		</stdout>
-		<time public="1" set="method" line="136" static="1">
+		<time public="1" set="method" line="122" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Gives the most precise timestamp value available (in seconds).</haxe_doc>
 		</time>
@@ -14327,14 +14327,14 @@
 		<c path="create.B"/>
 	</c>
 </f></create>
-		<fromArray public="1" params="T" get="inline" set="null" line="34" static="1"><f a="arr">
+		<fromArray public="1" params="T" get="inline" set="null" line="37" static="1"><f a="arr">
 	<c path="Array"><c path="fromArray.T"/></c>
 	<c path="lua.Table">
 		<x path="Int"/>
 		<c path="fromArray.T"/>
 	</c>
 </f></fromArray>
-		<fromMap public="1" params="A:B" get="inline" set="null" line="42" static="1">
+		<fromMap public="1" params="A:B" get="inline" set="null" line="45" static="1">
 			<f a="map">
 				<t path="Map">
 					<c path="fromMap.A"/>
@@ -14347,7 +14347,7 @@
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</fromMap>
-		<fromDynamic public="1" params="A:B" get="inline" set="null" line="50" static="1">
+		<fromDynamic public="1" params="A:B" get="inline" set="null" line="53" static="1">
 			<f a="dyn">
 				<d/>
 				<c path="lua.Table">
@@ -14357,6 +14357,23 @@
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</fromDynamic>
+		<toMap public="1" params="A:B" get="inline" set="null" line="61" static="1"><f a="tbl">
+	<c path="lua.Table">
+		<c path="toMap.A"/>
+		<c path="toMap.B"/>
+	</c>
+	<t path="Map">
+		<c path="toMap.A"/>
+		<c path="toMap.B"/>
+	</t>
+</f></toMap>
+		<toArray public="1" params="T" get="inline" set="null" line="70" static="1"><f a="tbl">
+	<c path="lua.Table">
+		<x path="Int"/>
+		<c path="toArray.T"/>
+	</c>
+	<c path="Array"><c path="toArray.T"/></c>
+</f></toArray>
 		<concat public="1" params="A:B" set="method" static="1">
 			<f a="table:?sep:?i:?j">
 				<c path="lua.Table">
@@ -14376,31 +14393,6 @@
 	<x path="Void"/>
 </f></concat></overloads>
 		</concat>
-		<foreach public="1" params="A:B" set="method" static="1"><f a="table:f">
-	<c path="lua.Table">
-		<c path="foreach.A"/>
-		<c path="foreach.B"/>
-	</c>
-	<f a=":">
-		<c path="foreach.A"/>
-		<c path="foreach.B"/>
-		<x path="Void"/>
-	</f>
-	<x path="Void"/>
-</f></foreach>
-		<foreachi public="1" params="A:B" set="method" static="1"><f a="table:f">
-	<c path="lua.Table">
-		<c path="foreachi.A"/>
-		<c path="foreachi.B"/>
-	</c>
-	<f a="::">
-		<c path="foreachi.A"/>
-		<c path="foreachi.B"/>
-		<x path="Int"/>
-		<x path="Void"/>
-	</f>
-	<x path="Void"/>
-</f></foreachi>
 		<sort public="1" params="A:B" set="method" static="1"><f a="table:?order">
 	<c path="lua.Table">
 		<c path="sort.A"/>
@@ -30140,27 +30132,27 @@
 	</class>
 	<class path="lua.Boot" params="" file="/home/vsts/work/1/s/std/lua/Boot.hx">
 		<_ static="1"><d/></_>
-		<_fid expr="0" line="32" static="1">
+		<_fid expr="0" line="31" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>0</e></m></meta>
 		</_fid>
-		<Max_Int32 expr="2147483647" line="34" static="1">
+		<Max_Int32 expr="2147483647" line="33" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>2147483647</e></m></meta>
 		</Max_Int32>
-		<Min_Int32 expr="-2147483648" line="35" static="1">
+		<Min_Int32 expr="-2147483648" line="34" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>-2147483648</e></m></meta>
 		</Min_Int32>
-		<MAXSTACKSIZE public="1" set="null" expr="1000" line="39" static="1">
+		<MAXSTACKSIZE public="1" set="null" expr="1000" line="38" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>1000</e></m></meta>
 		</MAXSTACKSIZE>
-		<platformBigEndian public="1" expr="NativeStringTools.byte(NativeStringTools.dump(function() { }), 7) &gt; 0" line="41" static="1">
+		<platformBigEndian public="1" expr="NativeStringTools.byte(NativeStringTools.dump(function() { }), 7) &gt; 0" line="40" static="1">
 			<x path="Bool"/>
 			<meta><m n=":value"><e><![CDATA[NativeStringTools.byte(NativeStringTools.dump(function() { }), 7) > 0]]></e></m></meta>
 		</platformBigEndian>
-		<hiddenFields expr="untyped __lua__(&quot;{__id__=true, hx__closures=true, super=true, prototype=true, __fields__=true, __ifields__=true, __class__=true, __properties__=true}&quot;)" line="44" static="1">
+		<hiddenFields expr="untyped __lua__(&quot;{__id__=true, hx__closures=true, super=true, prototype=true, __fields__=true, __ifields__=true, __class__=true, __properties__=true}&quot;)" line="43" static="1">
 			<c path="lua.Table">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -30170,11 +30162,11 @@
 				<m n=":value"><e>untyped __lua__("{__id__=true, hx__closures=true, super=true, prototype=true, __fields__=true, __ifields__=true, __class__=true, __properties__=true}")</e></m>
 			</meta>
 		</hiddenFields>
-		<__unhtml set="method" line="46" static="1"><f a="s">
+		<__unhtml set="method" line="45" static="1"><f a="s">
 	<c path="String"/>
 	<c path="String"/>
 </f></__unhtml>
-		<isClass public="1" get="inline" set="null" line="52" static="1">
+		<isClass public="1" get="inline" set="null" line="51" static="1">
 			<f a="o">
 				<d/>
 				<x path="Bool"/>
@@ -30182,7 +30174,7 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Indicates if the given object is a class.</haxe_doc>
 		</isClass>
-		<isEnum public="1" get="inline" set="null" line="62" static="1">
+		<isEnum public="1" get="inline" set="null" line="61" static="1">
 			<f a="e">
 				<d/>
 				<x path="Bool"/>
@@ -30190,7 +30182,7 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Indicates if the given object is a enum.</haxe_doc>
 		</isEnum>
-		<getClass public="1" get="inline" set="null" line="73" static="1">
+		<getClass public="1" get="inline" set="null" line="72" static="1">
 			<f a="o">
 				<d/>
 				<x path="Class"><d/></x>
@@ -30199,7 +30191,7 @@
 			<haxe_doc>Returns the class of a given object, and defines the getClass feature
 		for the given class.</haxe_doc>
 		</getClass>
-		<__instanceof set="method" line="91" static="1">
+		<__instanceof set="method" line="90" static="1">
 			<f a="o:cl">
 				<d/>
 				<d/>
@@ -30211,14 +30203,14 @@
 			</meta>
 			<haxe_doc>Indicates if the given object is an instance of the given Type</haxe_doc>
 		</__instanceof>
-		<isArray set="method" line="132" static="1">
+		<isArray set="method" line="131" static="1">
 			<f a="o">
 				<d/>
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</isArray>
-		<inheritsFrom set="method" line="140" static="1">
+		<inheritsFrom set="method" line="139" static="1">
 			<f a="o:cl">
 				<d/>
 				<x path="Class"><d/></x>
@@ -30227,7 +30219,7 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Indicates if the given object inherits from the given class</haxe_doc>
 		</inheritsFrom>
-		<__cast set="method" line="150" static="1">
+		<__cast set="method" line="149" static="1">
 			<f a="o:t">
 				<d/>
 				<d/>
@@ -30235,7 +30227,7 @@
 			</f>
 			<meta><m n=":ifFeature"><e>"typed_cast"</e></m></meta>
 		</__cast>
-		<printEnum set="method" line="160" static="1">
+		<printEnum set="method" line="159" static="1">
 			<f a="o:s">
 				<c path="Array"><d/></c>
 				<c path="String"/>
@@ -30243,7 +30235,7 @@
 			</f>
 			<haxe_doc>Helper method to generate a string representation of an enum</haxe_doc>
 		</printEnum>
-		<printClass get="inline" set="null" line="180" static="1">
+		<printClass get="inline" set="null" line="179" static="1">
 			<f a="c:s">
 				<c path="lua.Table">
 					<c path="String"/>
@@ -30254,7 +30246,7 @@
 			</f>
 			<haxe_doc>Helper method to generate a string representation of a class</haxe_doc>
 		</printClass>
-		<printClassRec set="method" line="187" static="1">
+		<printClassRec set="method" line="186" static="1">
 			<f a="c:?result:s" v=":&quot;&quot;:">
 				<c path="lua.Table">
 					<c path="String"/>
@@ -30270,7 +30262,7 @@
 			</meta>
 			<haxe_doc>Helper method to generate a string representation of a class</haxe_doc>
 		</printClassRec>
-		<__string_rec set="method" line="197" static="1">
+		<__string_rec set="method" line="196" static="1">
 			<f a="o:?s" v=":&quot;&quot;">
 				<d/>
 				<c path="String"/>
@@ -30283,7 +30275,7 @@
 			</meta>
 			<haxe_doc>Generate a string representation for arbitrary object.</haxe_doc>
 		</__string_rec>
-		<defArray public="1" params="T" get="inline" set="null" line="265" static="1">
+		<defArray public="1" params="T" get="inline" set="null" line="264" static="1">
 			<f a="tab:?length">
 				<c path="lua.Table">
 					<x path="Int"/>
@@ -30295,7 +30287,7 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Define an array from the given table</haxe_doc>
 		</defArray>
-		<tableToObject public="1" params="T" get="inline" set="null" line="284" static="1">
+		<tableToObject public="1" params="T" get="inline" set="null" line="283" static="1">
 			<f a="t">
 				<c path="lua.Table">
 					<c path="String"/>
@@ -30306,14 +30298,14 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Create a Haxe object from the given table structure</haxe_doc>
 		</tableToObject>
-		<dateStr public="1" set="method" line="291" static="1">
+		<dateStr public="1" set="method" line="290" static="1">
 			<f a="date">
 				<c path="Date"/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Get Date object as string representation</haxe_doc>
 		</dateStr>
-		<clampInt32 public="1" get="inline" set="null" line="304" static="1">
+		<clampInt32 public="1" get="inline" set="null" line="303" static="1">
 			<f a="x">
 				<x path="Float"/>
 				<x path="Int"/>
@@ -30321,14 +30313,14 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>A 32 bit clamp function for numbers</haxe_doc>
 		</clampInt32>
-		<strDate public="1" set="method" line="311" static="1">
+		<strDate public="1" set="method" line="310" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="Date"/>
 			</f>
 			<haxe_doc>Create a standard date object from a lua string representation</haxe_doc>
 		</strDate>
-		<extendsOrImplements public="1" set="method" line="332" static="1">
+		<extendsOrImplements public="1" set="method" line="331" static="1">
 			<f a="cl1:cl2">
 				<x path="Class"><d/></x>
 				<x path="Class"><d/></x>
@@ -30337,7 +30329,7 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Helper method to determine if class cl1 extends, implements, or otherwise equals cl2</haxe_doc>
 		</extendsOrImplements>
-		<shellEscapeCmd public="1" set="method" line="352" static="1">
+		<shellEscapeCmd public="1" set="method" line="351" static="1">
 			<f a="cmd:?args">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -30345,11 +30337,11 @@
 			</f>
 			<haxe_doc>Returns a shell escaped version of "cmd" along with any args</haxe_doc>
 		</shellEscapeCmd>
-		<tempFile public="1" set="method" line="370" static="1">
+		<tempFile public="1" set="method" line="369" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns a temp file path that can be used for reading and writing</haxe_doc>
 		</tempFile>
-		<fieldIterator public="1" set="method" line="379" static="1">
+		<fieldIterator public="1" set="method" line="378" static="1">
 			<f a="o">
 				<c path="lua.Table">
 					<c path="String"/>
@@ -30359,14 +30351,14 @@
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</fieldIterator>
-		<os_patterns expr="[&quot;Windows&quot; =&gt; [&quot;windows&quot;, &quot;^mingw&quot;, &quot;^cygwin&quot;], &quot;Linux&quot; =&gt; [&quot;linux&quot;], &quot;Mac&quot; =&gt; [&quot;mac&quot;, &quot;darwin&quot;, &quot;osx&quot;], &quot;BSD&quot; =&gt; [&quot;bsd$&quot;], &quot;Solaris&quot; =&gt; [&quot;SunOS&quot;]]" line="405" static="1">
+		<os_patterns expr="[&quot;Windows&quot; =&gt; [&quot;windows&quot;, &quot;^mingw&quot;, &quot;^cygwin&quot;], &quot;Linux&quot; =&gt; [&quot;linux&quot;], &quot;Mac&quot; =&gt; [&quot;mac&quot;, &quot;darwin&quot;, &quot;osx&quot;], &quot;BSD&quot; =&gt; [&quot;bsd$&quot;], &quot;Solaris&quot; =&gt; [&quot;SunOS&quot;]]" line="404" static="1">
 			<x path="haxe.ds.Map">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
 			</x>
 			<meta><m n=":value"><e><![CDATA[["Windows" => ["windows", "^mingw", "^cygwin"], "Linux" => ["linux"], "Mac" => ["mac", "darwin", "osx"], "BSD" => ["bsd$"], "Solaris" => ["SunOS"]]]]></e></m></meta>
 		</os_patterns>
-		<systemName public="1" set="method" line="413" static="1">
+		<systemName public="1" set="method" line="412" static="1">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":has_untyped"/></meta>
 		</systemName>
@@ -32328,7 +32320,8 @@
 	<t path="lua.AnyTable"/>
 	<x path="Int"/>
 </f></maxn>
-		<haxe_doc>This library provides generic functions for table manipulation.</haxe_doc>
+		<haxe_doc>This library is an extern for a polyfill library of common lua table
+    methods.</haxe_doc>
 		<meta><m n=":native"><e>"_hx_table"</e></m></meta>
 	</class>
 	<typedef path="lua.Time" params="" file="/home/vsts/work/1/s/std/lua/Time.hx"><x path="Float"/></typedef>
@@ -32369,10 +32362,7 @@
 	<x path="lua.lib.luasocket.socket.TimeoutMode"/>
 	<x path="Void"/>
 </f></settimeout>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":luaRequire"><e>"socket"</e></m>
-		</meta>
+		<meta><m n=":luaRequire"><e>"socket"</e></m></meta>
 	</class>
 	<class path="lua.lib.luasocket.socket.AddrInfo" params="" file="/home/vsts/work/1/s/std/lua/lib/luasocket/socket/AddrInfo.hx" extern="1">
 		<address public="1"><c path="String"/></address>
@@ -32792,6 +32782,23 @@
 		<get_total_memory public="1" set="method" static="1"><f a=""><x path="Int"/></f></get_total_memory>
 		<get_free_memory public="1" set="method" static="1"><f a=""><x path="Int"/></f></get_free_memory>
 		<getpid public="1" set="method" static="1"><f a=""><x path="Int"/></f></getpid>
+		<getrusage public="1" set="method" static="1"><f a=""><t path="lua.lib.luv.ResourceUsage"/></f></getrusage>
+		<guess_handle public="1" set="method" static="1"><f a="handle">
+	<x path="Int"/>
+	<c path="String"/>
+</f></guess_handle>
+		<hrtime public="1" set="method" static="1"><f a=""><x path="Float"/></f></hrtime>
+		<gettimeofday public="1" set="method" static="1"><f a=""><c path="lua.lib.luv.TimeOfDay"/></f></gettimeofday>
+		<interface_addresses public="1" set="method" static="1"><f a=""><d/></f></interface_addresses>
+		<loadavg public="1" set="method" static="1"><f a=""><x path="Float"/></f></loadavg>
+		<resident_set_memory public="1" set="method" static="1"><f a=""><x path="Int"/></f></resident_set_memory>
+		<set_process_title public="1" set="method" static="1"><f a="title">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></set_process_title>
+		<uptime public="1" set="method" static="1"><f a=""><x path="Int"/></f></uptime>
+		<version public="1" set="method" static="1"><f a=""><x path="Int"/></f></version>
+		<version_string public="1" set="method" static="1"><f a=""><c path="String"/></f></version_string>
 		<getuid public="1" set="method" static="1"><f a=""><x path="Int"/></f></getuid>
 		<setuid public="1" set="method" static="1"><f a="from:to">
 	<x path="Int"/>
@@ -32804,21 +32811,6 @@
 	<x path="Int"/>
 	<x path="Void"/>
 </f></setgid>
-		<getrusage public="1" set="method" static="1"><f a=""><t path="lua.lib.luv.ResourceUsage"/></f></getrusage>
-		<guess_handle public="1" set="method" static="1"><f a="handle">
-	<x path="Int"/>
-	<c path="String"/>
-</f></guess_handle>
-		<hrtime public="1" set="method" static="1"><f a=""><x path="Float"/></f></hrtime>
-		<loadavg public="1" set="method" static="1"><f a=""><x path="Float"/></f></loadavg>
-		<resident_set_memory public="1" set="method" static="1"><f a=""><x path="Int"/></f></resident_set_memory>
-		<set_process_title public="1" set="method" static="1"><f a="title">
-	<c path="String"/>
-	<x path="Bool"/>
-</f></set_process_title>
-		<uptime public="1" set="method" static="1"><f a=""><x path="Int"/></f></uptime>
-		<version public="1" set="method" static="1"><f a=""><x path="Int"/></f></version>
-		<version_string public="1" set="method" static="1"><f a=""><c path="String"/></f></version_string>
 		<print_all_handles public="1" set="method" static="1"><f a=""><c path="lua.Table">
 	<x path="Int"/>
 	<c path="String"/>
@@ -32827,7 +32819,10 @@
 	<x path="Int"/>
 	<c path="String"/>
 </c></f></print_active_handles>
-		<meta><m n=":luaRequire"><e>"luv"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":luaRequire"><e>"luv"</e></m>
+		</meta>
 	</class>
 	<typedef path="lua.lib.luv.CpuInfo" params="" file="/home/vsts/work/1/s/std/lua/lib/luv/Misc.hx" module="lua.lib.luv.Misc"><a>
 	<times><t path="lua.lib.luv.CpuTimes"/></times>
@@ -32862,6 +32857,11 @@
 	<usec><x path="Int"/></usec>
 	<sec><x path="Int"/></sec>
 </a></typedef>
+	<class path="lua.lib.luv.TimeOfDay" params="" file="/home/vsts/work/1/s/std/lua/lib/luv/Misc.hx" module="lua.lib.luv.Misc" extern="1">
+		<seconds public="1"><x path="Int"/></seconds>
+		<microseconds public="1"><x path="Int"/></microseconds>
+		<meta><m n=":multiReturn"/></meta>
+	</class>
 	<class path="lua.lib.luv.Os" params="" file="/home/vsts/work/1/s/std/lua/lib/luv/Os.hx" extern="1">
 		<homedir public="1" set="method" static="1">
 			<f a=""><c path="String"/></f>
@@ -32890,8 +32890,59 @@
 			</f>
 			<meta><m n=":native"><e>"os_setenv"</e></m></meta>
 		</setenv>
+		<unsetenv public="1" set="method" static="1">
+			<f a="env">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":native"><e>"os_unsetenv"</e></m></meta>
+		</unsetenv>
+		<gethostname public="1" set="method" static="1">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":native"><e>"os_gethostname"</e></m></meta>
+		</gethostname>
+		<environ public="1" set="method" static="1">
+			<f a=""><c path="lua.Table">
+	<c path="String"/>
+	<c path="String"/>
+</c></f>
+			<meta><m n=":native"><e>"os_environ"</e></m></meta>
+		</environ>
+		<uname public="1" set="method" static="1">
+			<f a=""><t path="lua.lib.luv.Uname"/></f>
+			<meta><m n=":native"><e>"os_uname"</e></m></meta>
+		</uname>
+		<getpid public="1" set="method" static="1">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":native"><e>"os_getpid"</e></m></meta>
+		</getpid>
+		<getppid public="1" set="method" static="1">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":native"><e>"os_getppid"</e></m></meta>
+		</getppid>
+		<getpriority public="1" set="method" static="1">
+			<f a="pid">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":native"><e>"os_getpriority"</e></m></meta>
+		</getpriority>
+		<setpriority public="1" set="method" static="1">
+			<f a="pid:priority">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":native"><e>"os_setpriority"</e></m></meta>
+		</setpriority>
 		<meta><m n=":luaRequire"><e>"luv"</e></m></meta>
 	</class>
+	<typedef path="lua.lib.luv.Uname" params="" file="/home/vsts/work/1/s/std/lua/lib/luv/Os.hx" module="lua.lib.luv.Os"><a>
+	<version><c path="String"/></version>
+	<sysname><c path="String"/></sysname>
+	<release><c path="String"/></release>
+	<machine><c path="String"/></machine>
+</a></typedef>
 	<class path="lua.lib.luv.Stream" params="" file="/home/vsts/work/1/s/std/lua/lib/luv/Stream.hx" extern="1">
 		<extends path="lua.lib.luv.Handle"/>
 		<shutdown public="1" set="method"><f a="?cb">
@@ -34045,7 +34096,7 @@
 				<t path="lua.lib.luv.net.AddrInfo"/>
 				<c path="lua.Result"><c path="String"/></c>
 			</f>
-			<overloads><getnameinfo public="1" set="method"><f a="ip:?port:?family:cb">
+			<overloads><getnameinfo public="1" set="method"><f a="ip:?port:?family:?cb">
 	<c path="String"/>
 	<x path="Int"/>
 	<c path="String"/>
@@ -34819,13 +34870,13 @@
 	It is used by `sys.net.UdpSocket`.</haxe_doc>
 	</class>
 	<class path="sys.net.Host" params="" file="/home/vsts/work/1/s/std/lua/_std/sys/net/Host.hx">
-		<localhost public="1" set="method" line="63" static="1"><f a=""><c path="String"/></f></localhost>
+		<localhost public="1" set="method" line="68" static="1"><f a=""><c path="String"/></f></localhost>
 		<host public="1" set="null"><c path="String"/></host>
 		<ip public="1" set="null"><x path="Int"/></ip>
 		<_ip><c path="String"/></_ip>
-		<toString public="1" set="method" line="55"><f a=""><c path="String"/></f></toString>
-		<reverse public="1" set="method" line="59"><f a=""><c path="String"/></f></reverse>
-		<new public="1" set="method" line="36"><f a="name">
+		<toString public="1" set="method" line="60"><f a=""><c path="String"/></f></toString>
+		<reverse public="1" set="method" line="64"><f a=""><c path="String"/></f></reverse>
+		<new public="1" set="method" line="41"><f a="name">
 	<c path="String"/>
 	<x path="Void"/>
 </f></new>
