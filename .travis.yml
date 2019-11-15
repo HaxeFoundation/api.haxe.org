@@ -3,6 +3,7 @@ haxe: "3.4.7"
 dist: bionic
 
 install:
+  - git config --global gc.auto 0 # we will call gc manually during deploy
   - haxelib install all --always
   - haxelib install hxcpp 4.0.52 --always
   - haxelib set hxcpp 4.0.52 --always
