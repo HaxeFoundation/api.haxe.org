@@ -226,7 +226,7 @@
 		ahead.</haxe_doc>
 		</insert>
 		<iterator public="1" get="inline" set="null" line="88">
-			<f a=""><t path="Iterator"><c path="Array.T"/></t></f>
+			<f a=""><c path="haxe.iterators.ArrayIterator"><c path="Array.T"/></c></f>
 			<meta><m n=":ifFeature">
 	<e>"dynamic_read.iterator"</e>
 	<e>"anon_optional_read.iterator"</e>
@@ -505,27 +505,6 @@
 			<m n=":directlyUsed"/>
 			<m n=":coreApi"/>
 		</meta>
-	</class>
-	<class path="_Array.ArrayIterator" params="T" file="/home/vsts/work/1/s/std/php/_std/Array.hx" private="1" module="Array">
-		<idx><x path="Int"/></idx>
-		<arr><c path="Array"><c path="_Array.ArrayIterator.T"/></c></arr>
-		<hasNext public="1" get="inline" set="null" line="259"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" get="inline" set="null" line="263"><f a=""><c path="_Array.ArrayIterator.T"/></f></next>
-		<__get set="method" line="269">
-			<f a="method">
-				<c path="String"/>
-				<x path="Null"><c path="php._Boot.HxClosure"/></x>
-			</f>
-			<meta>
-				<m n=":keep"/>
-				<m n=":phpMagic"/>
-			</meta>
-		</__get>
-		<new public="1" get="inline" set="null" line="254"><f a="arr">
-	<c path="Array"><c path="_Array.ArrayIterator.T"/></c>
-	<x path="Void"/>
-</f></new>
-		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<abstract path="Class" params="T" file="/home/vsts/work/1/s/std/Class.hx">
 		<this><x path="Class"><c path="Class.T"/></x></this>
@@ -10651,6 +10630,30 @@
 	<s><x path="Bool"/></s>
 	<p><c path="String"/></p>
 </a></typedef>
+	<class path="haxe.iterators.ArrayIterator" params="T" file="/home/vsts/work/1/s/std/haxe/iterators/ArrayIterator.hx">
+		<array final="1"><c path="Array"><c path="haxe.iterators.ArrayIterator.T"/></c></array>
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<hasNext public="1" get="inline" set="null" line="43">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>See `Iterator.hasNext`</haxe_doc>
+		</hasNext>
+		<next public="1" get="inline" set="null" line="51">
+			<f a=""><c path="haxe.iterators.ArrayIterator.T"/></f>
+			<haxe_doc>See `Iterator.next`</haxe_doc>
+		</next>
+		<new public="1" get="inline" set="null" line="35">
+			<f a="array">
+				<c path="Array"><c path="haxe.iterators.ArrayIterator.T"/></c>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Create a new `ArrayIterator`.</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[This iterator is used only when `Array<T>` is passed to `Iterable<T>`]]></haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
 	<class path="haxe.Template" params="" file="/home/vsts/work/1/s/std/haxe/Template.hx">
 		<splitter expr="~/(::[A-Za-z0-9_ ()&amp;|!+=/&gt;&lt;*.&quot;-]+::|\$\$([A-Za-z0-9_-]+)\()/" line="58" static="1">
 			<c path="EReg"/>
@@ -10683,7 +10686,7 @@
 		has lower priority than the context argument of `execute()`.</haxe_doc>
 		</globals>
 		<hxKeepArrayIterator expr="[].iterator()" line="71" static="1">
-			<t path="Iterator"><unknown/></t>
+			<c path="haxe.iterators.ArrayIterator"><unknown/></c>
 			<meta>
 				<m n=":value"><e>[].iterator()</e></m>
 				<m n=":ifFeature"><e>"haxe.Template.run"</e></m>

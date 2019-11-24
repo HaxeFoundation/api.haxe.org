@@ -335,11 +335,12 @@
 		`a[i] == a.copy()[i]` is true for any valid `i`. However,
 		`a == a.copy()` is always false.</haxe_doc>
 		</copy>
-		<iterator public="1" set="method">
-			<f a=""><t path="Iterator"><c path="Array.T"/></t></f>
+		<iterator public="1" get="inline" set="null" line="268">
+			<f a=""><c path="haxe.iterators.ArrayIterator"><c path="Array.T"/></c></f>
+			<meta><m n=":runtime"/></meta>
 			<haxe_doc>Returns an iterator of the Array values.</haxe_doc>
 		</iterator>
-		<map public="1" params="S" get="inline" set="null" line="277">
+		<map public="1" params="S" get="inline" set="null" line="279">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -354,7 +355,7 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</map>
-		<filter public="1" get="inline" set="null" line="295">
+		<filter public="1" get="inline" set="null" line="297">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -34201,6 +34202,30 @@
 	<s><x path="Bool"/></s>
 	<p><c path="String"/></p>
 </a></typedef>
+	<class path="haxe.iterators.ArrayIterator" params="T" file="/home/vsts/work/1/s/std/haxe/iterators/ArrayIterator.hx">
+		<array final="1"><c path="Array"><c path="haxe.iterators.ArrayIterator.T"/></c></array>
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<hasNext public="1" get="inline" set="null" line="43">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>See `Iterator.hasNext`</haxe_doc>
+		</hasNext>
+		<next public="1" get="inline" set="null" line="51">
+			<f a=""><c path="haxe.iterators.ArrayIterator.T"/></f>
+			<haxe_doc>See `Iterator.next`</haxe_doc>
+		</next>
+		<new public="1" get="inline" set="null" line="35">
+			<f a="array">
+				<c path="Array"><c path="haxe.iterators.ArrayIterator.T"/></c>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Create a new `ArrayIterator`.</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[This iterator is used only when `Array<T>` is passed to `Iterable<T>`]]></haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
 	<class path="haxe.Template" params="" file="/home/vsts/work/1/s/std/haxe/Template.hx">
 		<splitter expr="~/(::[A-Za-z0-9_ ()&amp;|!+=/&gt;&lt;*.&quot;-]+::|\$\$([A-Za-z0-9_-]+)\()/" line="58" static="1">
 			<c path="EReg"/>
@@ -34233,7 +34258,7 @@
 		has lower priority than the context argument of `execute()`.</haxe_doc>
 		</globals>
 		<hxKeepArrayIterator expr="[].iterator()" line="71" static="1">
-			<t path="Iterator"><unknown/></t>
+			<c path="haxe.iterators.ArrayIterator"><unknown/></c>
 			<meta>
 				<m n=":value"><e>[].iterator()</e></m>
 				<m n=":ifFeature"><e>"haxe.Template.run"</e></m>

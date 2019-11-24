@@ -367,7 +367,7 @@
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</filter>
 		<iterator public="1" get="inline" set="null" line="77">
-			<f a=""><t path="Iterator"><c path="Array.T"/></t></f>
+			<f a=""><c path="haxe.iterators.ArrayIterator"><c path="Array.T"/></c></f>
 			<meta><m n=":runtime"/></meta>
 			<haxe_doc>Returns an iterator of the Array values.</haxe_doc>
 		</iterator>
@@ -2045,7 +2045,7 @@
 		If `x` is null, the result is unspecified.
 		If `x` cannot be parsed as integer, the result is `null`.</haxe_doc>
 		</parseInt>
-		<parseFloat public="1" get="inline" set="null" line="64" static="1">
+		<parseFloat public="1" get="inline" set="null" line="65" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Float"/>
@@ -2058,7 +2058,7 @@
 
 		Additionally, decimal notation may contain a single `.` to denote the start of the fractions.</haxe_doc>
 		</parseFloat>
-		<random public="1" set="method" line="68" static="1">
+		<random public="1" set="method" line="69" static="1">
 			<f a="x">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -6936,6 +6936,30 @@
 	<s><x path="Bool"/></s>
 	<p><c path="String"/></p>
 </a></typedef>
+	<class path="haxe.iterators.ArrayIterator" params="T" file="/home/vsts/work/1/s/std/haxe/iterators/ArrayIterator.hx">
+		<array final="1"><c path="Array"><c path="haxe.iterators.ArrayIterator.T"/></c></array>
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<hasNext public="1" get="inline" set="null" line="43">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>See `Iterator.hasNext`</haxe_doc>
+		</hasNext>
+		<next public="1" get="inline" set="null" line="51">
+			<f a=""><c path="haxe.iterators.ArrayIterator.T"/></f>
+			<haxe_doc>See `Iterator.next`</haxe_doc>
+		</next>
+		<new public="1" get="inline" set="null" line="35">
+			<f a="array">
+				<c path="Array"><c path="haxe.iterators.ArrayIterator.T"/></c>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Create a new `ArrayIterator`.</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[This iterator is used only when `Array<T>` is passed to `Iterable<T>`]]></haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
 	<class path="haxe.Template" params="" file="/home/vsts/work/1/s/std/haxe/Template.hx">
 		<splitter expr="~/(::[A-Za-z0-9_ ()&amp;|!+=/&gt;&lt;*.&quot;-]+::|\$\$([A-Za-z0-9_-]+)\()/" line="58" static="1">
 			<c path="EReg"/>
@@ -6968,7 +6992,7 @@
 		has lower priority than the context argument of `execute()`.</haxe_doc>
 		</globals>
 		<hxKeepArrayIterator expr="[].iterator()" line="71" static="1">
-			<t path="Iterator"><unknown/></t>
+			<c path="haxe.iterators.ArrayIterator"><unknown/></c>
 			<meta>
 				<m n=":value"><e>[].iterator()</e></m>
 				<m n=":ifFeature"><e>"haxe.Template.run"</e></m>
@@ -30934,7 +30958,6 @@
 	<class path="js.Lib" params="" file="/home/vsts/work/1/s/std/js/Lib.hx">
 		<debug public="1" get="inline" set="null" line="33" static="1">
 			<f a=""><x path="Void"/></f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Inserts a 'debugger' statement that will make a breakpoint if a debugger is available.</haxe_doc>
 		</debug>
 		<alert public="1" set="method" line="42" static="1">
@@ -30942,32 +30965,41 @@
 				<d/>
 				<x path="Void"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":deprecated"><e>"Lib.alert() is deprecated, use Browser.alert() instead"</e></m>
-			</meta>
+			<meta><m n=":deprecated"><e>"Lib.alert() is deprecated, use Browser.alert() instead"</e></m></meta>
 			<haxe_doc>Display an alert message box containing the given message.
 		@deprecated Use Browser.alert() instead.</haxe_doc>
 		</alert>
-		<eval public="1" get="inline" set="null" line="46" static="1">
-			<f a="code">
-				<c path="String"/>
-				<d/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</eval>
+		<eval public="1" get="inline" set="null" line="46" static="1"><f a="code">
+	<c path="String"/>
+	<d/>
+</f></eval>
 		<require public="1" get="inline" set="null" line="57" static="1">
 			<f a="module">
 				<c path="String"/>
 				<d/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Inserts a `require` expression that loads JavaScript object from
 		a module or file specified in the `module` argument.
 
 		This is only supported in environments where `require` function
 		is available, such as Node.js or RequireJS.</haxe_doc>
 		</require>
+		<parseInt public="1" get="accessor" set="null" static="1">
+			<f a="string:?radix">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Native JavaScript `parseInt` function.
+
+		Its specification is different from `Std.parseInt`, so one
+		might want to access the native one.</haxe_doc>
+		</parseInt>
+		<get_parseInt get="inline" set="null" line="69" static="1"><f a=""><f a="string:?radix">
+	<c path="String"/>
+	<x path="Int"/>
+	<x path="Float"/>
+</f></f></get_parseInt>
 		<undefined public="1" get="accessor" set="null" static="1">
 			<d/>
 			<haxe_doc>Returns JavaScript `undefined` value.
@@ -30976,10 +31008,7 @@
 
 		In Haxe, `null` is used to represent the absence of a value.</haxe_doc>
 		</undefined>
-		<get_undefined get="inline" set="null" line="70" static="1">
-			<f a=""><d/></f>
-			<meta><m n=":has_untyped"/></meta>
-		</get_undefined>
+		<get_undefined get="inline" set="null" line="82" static="1"><f a=""><d/></f></get_undefined>
 		<nativeThis public="1" get="accessor" set="null" static="1">
 			<d/>
 			<haxe_doc>`nativeThis` is the JavaScript `this`, which is semantically different
@@ -30993,11 +31022,8 @@
 
 		Read more at https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this</haxe_doc>
 		</nativeThis>
-		<get_nativeThis get="inline" set="null" line="88" static="1">
-			<f a=""><d/></f>
-			<meta><m n=":has_untyped"/></meta>
-		</get_nativeThis>
-		<typeof public="1" get="inline" set="null" line="98" static="1">
+		<get_nativeThis get="inline" set="null" line="100" static="1"><f a=""><d/></f></get_nativeThis>
+		<typeof public="1" get="inline" set="null" line="110" static="1">
 			<f a="o">
 				<d/>
 				<c path="String"/>
@@ -31014,17 +31040,17 @@
 		Concretely, it is set as the first defined value in the list of
 		`window`, `global`, `self`, and `this` in the top-level of the compiled output.</haxe_doc>
 		</global>
-		<get_global get="inline" set="null" line="110" static="1">
+		<get_global get="inline" set="null" line="122" static="1">
 			<f a=""><d/></f>
 			<meta><m n=":has_untyped"/></meta>
 		</get_global>
-		<rethrow public="1" set="method" line="119" static="1">
+		<rethrow public="1" set="method" line="131" static="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Re-throw last cathed exception, preserving original stack information.
 
 		Calling this is only possible inside a catch statement.</haxe_doc>
 		</rethrow>
-		<getOriginalException public="1" set="method" line="130" static="1">
+		<getOriginalException public="1" set="method" line="142" static="1">
 			<f a=""><d/></f>
 			<haxe_doc>Get original caught exception object, before unwrapping the `js.Boot.HaxeError`.
 
@@ -31032,7 +31058,7 @@
 
 		Calling this is only possible inside a catch statement.</haxe_doc>
 		</getOriginalException>
-		<getNextHaxeUID get="inline" set="null" line="138" static="1">
+		<getNextHaxeUID get="inline" set="null" line="150" static="1">
 			<f a=""><x path="Int"/></f>
 			<meta>
 				<m n=":has_untyped"/>
