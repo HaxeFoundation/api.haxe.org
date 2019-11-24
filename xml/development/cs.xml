@@ -3470,7 +3470,6 @@
 				<c path="String"/>
 				<x path="Null"><x path="Int"/></x>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Converts a `String` to an `Int`.
 
 		Leading whitespaces are ignored.
@@ -3491,7 +3490,7 @@
 		If `x` is null, the result is unspecified.
 		If `x` cannot be parsed as integer, the result is `null`.</haxe_doc>
 		</parseInt>
-		<parseFloat public="1" set="method" line="143" static="1">
+		<parseFloat public="1" set="method" line="128" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Float"/>
@@ -3504,7 +3503,7 @@
 
 		Additionally, decimal notation may contain a single `.` to denote the start of the fractions.</haxe_doc>
 		</parseFloat>
-		<downcast public="1" params="T:S" get="inline" set="null" line="189" static="1">
+		<downcast public="1" params="T:S" get="inline" set="null" line="174" static="1">
 			<f a="value:c">
 				<c path="downcast.T"/>
 				<x path="Class"><c path="downcast.S"/></x>
@@ -3525,7 +3524,7 @@
 		If `value` is null, the result is null. If `c` is null, the result is
 		unspecified.</haxe_doc>
 		</downcast>
-		<instance public="1" params="T:S" get="inline" set="null" line="194" static="1">
+		<instance public="1" params="T:S" get="inline" set="null" line="179" static="1">
 			<f a="value:c">
 				<c path="instance.T"/>
 				<x path="Class"><c path="instance.S"/></x>
@@ -3533,7 +3532,7 @@
 			</f>
 			<meta><m n=":deprecated"><e>"Std.instance() is deprecated. Use Std.downcast() instead."</e></m></meta>
 		</instance>
-		<random public="1" set="method" line="198" static="1">
+		<random public="1" set="method" line="183" static="1">
 			<f a="x">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -17061,6 +17060,16 @@
 		</Remove>
 		<meta><m n=":nativeGen"/></meta>
 	</class>
+	<enum path="cs.system.Base64FormattingOptions" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.Base64FormattingOptions">
+		<None><meta><m n=":csNative"><e>0</e></m></meta></None>
+		<InsertLineBreaks><meta><m n=":csNative"><e>1</e></m></meta></InsertLineBreaks>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":flatEnum"/>
+			<m n=":native"><e>"System.Base64FormattingOptions"</e></m>
+			<m n=":csNative"/>
+		</meta>
+	</enum>
 	<class path="cs.system.BitConverter" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.BitConverter" extern="1">
 		<IsLittleEndian public="1" set="null" static="1">
 			<x path="Bool"/>
@@ -19405,6 +19414,2302 @@
 			<m n=":native"><e>"System.ContextBoundObject"</e></m>
 		</meta>
 	</class>
+	<class path="cs.system.Convert" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.Convert" extern="1">
+		<DBNull public="1" set="null" static="1">
+			<d/>
+			<meta><m n=":readOnly"/></meta>
+		</DBNull>
+		<FromBase64CharArray final="1" public="1" set="method" static="1">
+			<f a="inArray:offset:length">
+				<c path="cs.NativeArray"><t path="cs.types.Char16"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</FromBase64CharArray>
+		<FromBase64String final="1" public="1" set="method" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</FromBase64String>
+		<GetTypeCode final="1" public="1" set="method" static="1">
+			<f a="value">
+				<d/>
+				<e path="cs.system.TypeCode"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</GetTypeCode>
+		<IsDBNull final="1" public="1" set="method" static="1">
+			<f a="value">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</IsDBNull>
+		<ToBase64CharArray final="1" public="1" set="method" static="1">
+			<f a="inArray:offsetIn:length:outArray:offsetOut">
+				<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="cs.NativeArray"><t path="cs.types.Char16"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><ToBase64CharArray final="1" public="1" set="method">
+	<f a="inArray:offsetIn:length:outArray:offsetOut:options">
+		<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+		<x path="Int"/>
+		<x path="Int"/>
+		<c path="cs.NativeArray"><t path="cs.types.Char16"/></c>
+		<x path="Int"/>
+		<e path="cs.system.Base64FormattingOptions"/>
+		<x path="Int"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</ToBase64CharArray></overloads>
+		</ToBase64CharArray>
+		<ToBase64String final="1" public="1" set="method" static="1">
+			<f a="inArray">
+				<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+				<c path="String"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<ToBase64String final="1" public="1" set="method">
+					<f a="inArray:offset:length:options">
+						<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<e path="cs.system.Base64FormattingOptions"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBase64String>
+				<ToBase64String final="1" public="1" set="method">
+					<f a="inArray:options">
+						<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+						<e path="cs.system.Base64FormattingOptions"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBase64String>
+				<ToBase64String final="1" public="1" set="method">
+					<f a="inArray:offset:length">
+						<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBase64String>
+			</overloads>
+		</ToBase64String>
+		<ToBoolean final="1" public="1" set="method" static="1">
+			<f a="value">
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<ToBoolean final="1" public="1" set="method">
+					<f a="value:provider">
+						<d/>
+						<c path="cs.system.IFormatProvider"/>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBoolean>
+				<ToBoolean final="1" public="1" set="method">
+					<f a="value">
+						<d/>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBoolean>
+				<ToBoolean final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt16"/>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBoolean>
+				<ToBoolean final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt64"/>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBoolean>
+				<ToBoolean final="1" public="1" set="method">
+					<f a="value">
+						<x path="UInt"/>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBoolean>
+				<ToBoolean final="1" public="1" set="method">
+					<f a="value:provider">
+						<c path="String"/>
+						<c path="cs.system.IFormatProvider"/>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBoolean>
+				<ToBoolean final="1" public="1" set="method">
+					<f a="value">
+						<c path="String"/>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBoolean>
+				<ToBoolean final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int16"/>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBoolean>
+				<ToBoolean final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int8"/>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBoolean>
+				<ToBoolean final="1" public="1" set="method">
+					<f a="value">
+						<x path="haxe.Int64"/>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBoolean>
+				<ToBoolean final="1" public="1" set="method">
+					<f a="value">
+						<x path="Int"/>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBoolean>
+				<ToBoolean final="1" public="1" set="method">
+					<f a="value">
+						<x path="Single"/>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBoolean>
+				<ToBoolean final="1" public="1" set="method">
+					<f a="value">
+						<x path="Float"/>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBoolean>
+				<ToBoolean final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.Decimal"/>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBoolean>
+				<ToBoolean final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.DateTime"/>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBoolean>
+				<ToBoolean final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Char16"/>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBoolean>
+				<ToBoolean final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt8"/>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToBoolean>
+			</overloads>
+		</ToBoolean>
+		<ToByte final="1" public="1" set="method" static="1">
+			<f a="value">
+				<x path="Bool"/>
+				<t path="cs.types.UInt8"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<ToByte final="1" public="1" set="method">
+					<f a="value:provider">
+						<d/>
+						<c path="cs.system.IFormatProvider"/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+				<ToByte final="1" public="1" set="method">
+					<f a="value">
+						<d/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+				<ToByte final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt16"/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+				<ToByte final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt64"/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+				<ToByte final="1" public="1" set="method">
+					<f a="value">
+						<x path="UInt"/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+				<ToByte final="1" public="1" set="method">
+					<f a="value:fromBase">
+						<c path="String"/>
+						<x path="Int"/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+				<ToByte final="1" public="1" set="method">
+					<f a="value:provider">
+						<c path="String"/>
+						<c path="cs.system.IFormatProvider"/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+				<ToByte final="1" public="1" set="method">
+					<f a="value">
+						<c path="String"/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+				<ToByte final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int16"/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+				<ToByte final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int8"/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+				<ToByte final="1" public="1" set="method">
+					<f a="value">
+						<x path="haxe.Int64"/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+				<ToByte final="1" public="1" set="method">
+					<f a="value">
+						<x path="Int"/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+				<ToByte final="1" public="1" set="method">
+					<f a="value">
+						<x path="Single"/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+				<ToByte final="1" public="1" set="method">
+					<f a="value">
+						<x path="Float"/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+				<ToByte final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.Decimal"/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+				<ToByte final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.DateTime"/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+				<ToByte final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Char16"/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+				<ToByte final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt8"/>
+						<t path="cs.types.UInt8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToByte>
+			</overloads>
+		</ToByte>
+		<ToChar final="1" public="1" set="method" static="1">
+			<f a="value">
+				<x path="Bool"/>
+				<t path="cs.types.Char16"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<ToChar final="1" public="1" set="method">
+					<f a="value:provider">
+						<d/>
+						<c path="cs.system.IFormatProvider"/>
+						<t path="cs.types.Char16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToChar>
+				<ToChar final="1" public="1" set="method">
+					<f a="value">
+						<d/>
+						<t path="cs.types.Char16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToChar>
+				<ToChar final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt16"/>
+						<t path="cs.types.Char16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToChar>
+				<ToChar final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt64"/>
+						<t path="cs.types.Char16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToChar>
+				<ToChar final="1" public="1" set="method">
+					<f a="value">
+						<x path="UInt"/>
+						<t path="cs.types.Char16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToChar>
+				<ToChar final="1" public="1" set="method">
+					<f a="value:provider">
+						<c path="String"/>
+						<c path="cs.system.IFormatProvider"/>
+						<t path="cs.types.Char16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToChar>
+				<ToChar final="1" public="1" set="method">
+					<f a="value">
+						<c path="String"/>
+						<t path="cs.types.Char16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToChar>
+				<ToChar final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int16"/>
+						<t path="cs.types.Char16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToChar>
+				<ToChar final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int8"/>
+						<t path="cs.types.Char16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToChar>
+				<ToChar final="1" public="1" set="method">
+					<f a="value">
+						<x path="Single"/>
+						<t path="cs.types.Char16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToChar>
+				<ToChar final="1" public="1" set="method">
+					<f a="value">
+						<x path="haxe.Int64"/>
+						<t path="cs.types.Char16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToChar>
+				<ToChar final="1" public="1" set="method">
+					<f a="value">
+						<x path="Int"/>
+						<t path="cs.types.Char16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToChar>
+				<ToChar final="1" public="1" set="method">
+					<f a="value">
+						<x path="Float"/>
+						<t path="cs.types.Char16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToChar>
+				<ToChar final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.Decimal"/>
+						<t path="cs.types.Char16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToChar>
+				<ToChar final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.DateTime"/>
+						<t path="cs.types.Char16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToChar>
+				<ToChar final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Char16"/>
+						<t path="cs.types.Char16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToChar>
+				<ToChar final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt8"/>
+						<t path="cs.types.Char16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToChar>
+			</overloads>
+		</ToChar>
+		<ToDateTime final="1" public="1" set="method" static="1">
+			<f a="value">
+				<c path="String"/>
+				<c path="cs.system.DateTime"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<ToDateTime final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt64"/>
+						<c path="cs.system.DateTime"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDateTime>
+				<ToDateTime final="1" public="1" set="method">
+					<f a="value">
+						<x path="UInt"/>
+						<c path="cs.system.DateTime"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDateTime>
+				<ToDateTime final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt16"/>
+						<c path="cs.system.DateTime"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDateTime>
+				<ToDateTime final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int8"/>
+						<c path="cs.system.DateTime"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDateTime>
+				<ToDateTime final="1" public="1" set="method">
+					<f a="value:provider">
+						<d/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="cs.system.DateTime"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDateTime>
+				<ToDateTime final="1" public="1" set="method">
+					<f a="value">
+						<d/>
+						<c path="cs.system.DateTime"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDateTime>
+				<ToDateTime final="1" public="1" set="method">
+					<f a="value">
+						<x path="Single"/>
+						<c path="cs.system.DateTime"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDateTime>
+				<ToDateTime final="1" public="1" set="method">
+					<f a="value">
+						<x path="haxe.Int64"/>
+						<c path="cs.system.DateTime"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDateTime>
+				<ToDateTime final="1" public="1" set="method">
+					<f a="value">
+						<x path="Int"/>
+						<c path="cs.system.DateTime"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDateTime>
+				<ToDateTime final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int16"/>
+						<c path="cs.system.DateTime"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDateTime>
+				<ToDateTime final="1" public="1" set="method">
+					<f a="value">
+						<x path="Float"/>
+						<c path="cs.system.DateTime"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDateTime>
+				<ToDateTime final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.Decimal"/>
+						<c path="cs.system.DateTime"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDateTime>
+				<ToDateTime final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.DateTime"/>
+						<c path="cs.system.DateTime"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDateTime>
+				<ToDateTime final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Char16"/>
+						<c path="cs.system.DateTime"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDateTime>
+				<ToDateTime final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt8"/>
+						<c path="cs.system.DateTime"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDateTime>
+				<ToDateTime final="1" public="1" set="method">
+					<f a="value">
+						<x path="Bool"/>
+						<c path="cs.system.DateTime"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDateTime>
+				<ToDateTime final="1" public="1" set="method">
+					<f a="value:provider">
+						<c path="String"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="cs.system.DateTime"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDateTime>
+			</overloads>
+		</ToDateTime>
+		<ToDecimal final="1" public="1" set="method" static="1">
+			<f a="value">
+				<x path="Bool"/>
+				<c path="cs.system.Decimal"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<ToDecimal final="1" public="1" set="method">
+					<f a="value:provider">
+						<d/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="cs.system.Decimal"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDecimal>
+				<ToDecimal final="1" public="1" set="method">
+					<f a="value">
+						<d/>
+						<c path="cs.system.Decimal"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDecimal>
+				<ToDecimal final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt16"/>
+						<c path="cs.system.Decimal"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDecimal>
+				<ToDecimal final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt64"/>
+						<c path="cs.system.Decimal"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDecimal>
+				<ToDecimal final="1" public="1" set="method">
+					<f a="value">
+						<x path="UInt"/>
+						<c path="cs.system.Decimal"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDecimal>
+				<ToDecimal final="1" public="1" set="method">
+					<f a="value:provider">
+						<c path="String"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="cs.system.Decimal"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDecimal>
+				<ToDecimal final="1" public="1" set="method">
+					<f a="value">
+						<c path="String"/>
+						<c path="cs.system.Decimal"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDecimal>
+				<ToDecimal final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int16"/>
+						<c path="cs.system.Decimal"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDecimal>
+				<ToDecimal final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int8"/>
+						<c path="cs.system.Decimal"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDecimal>
+				<ToDecimal final="1" public="1" set="method">
+					<f a="value">
+						<x path="haxe.Int64"/>
+						<c path="cs.system.Decimal"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDecimal>
+				<ToDecimal final="1" public="1" set="method">
+					<f a="value">
+						<x path="Int"/>
+						<c path="cs.system.Decimal"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDecimal>
+				<ToDecimal final="1" public="1" set="method">
+					<f a="value">
+						<x path="Single"/>
+						<c path="cs.system.Decimal"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDecimal>
+				<ToDecimal final="1" public="1" set="method">
+					<f a="value">
+						<x path="Float"/>
+						<c path="cs.system.Decimal"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDecimal>
+				<ToDecimal final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.Decimal"/>
+						<c path="cs.system.Decimal"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDecimal>
+				<ToDecimal final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.DateTime"/>
+						<c path="cs.system.Decimal"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDecimal>
+				<ToDecimal final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Char16"/>
+						<c path="cs.system.Decimal"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDecimal>
+				<ToDecimal final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt8"/>
+						<c path="cs.system.Decimal"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDecimal>
+			</overloads>
+		</ToDecimal>
+		<ToDouble final="1" public="1" set="method" static="1">
+			<f a="value">
+				<x path="Bool"/>
+				<x path="Float"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<ToDouble final="1" public="1" set="method">
+					<f a="value:provider">
+						<d/>
+						<c path="cs.system.IFormatProvider"/>
+						<x path="Float"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDouble>
+				<ToDouble final="1" public="1" set="method">
+					<f a="value">
+						<d/>
+						<x path="Float"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDouble>
+				<ToDouble final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt16"/>
+						<x path="Float"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDouble>
+				<ToDouble final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt64"/>
+						<x path="Float"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDouble>
+				<ToDouble final="1" public="1" set="method">
+					<f a="value">
+						<x path="UInt"/>
+						<x path="Float"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDouble>
+				<ToDouble final="1" public="1" set="method">
+					<f a="value:provider">
+						<c path="String"/>
+						<c path="cs.system.IFormatProvider"/>
+						<x path="Float"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDouble>
+				<ToDouble final="1" public="1" set="method">
+					<f a="value">
+						<c path="String"/>
+						<x path="Float"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDouble>
+				<ToDouble final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int16"/>
+						<x path="Float"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDouble>
+				<ToDouble final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int8"/>
+						<x path="Float"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDouble>
+				<ToDouble final="1" public="1" set="method">
+					<f a="value">
+						<x path="haxe.Int64"/>
+						<x path="Float"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDouble>
+				<ToDouble final="1" public="1" set="method">
+					<f a="value">
+						<x path="Int"/>
+						<x path="Float"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDouble>
+				<ToDouble final="1" public="1" set="method">
+					<f a="value">
+						<x path="Single"/>
+						<x path="Float"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDouble>
+				<ToDouble final="1" public="1" set="method">
+					<f a="value">
+						<x path="Float"/>
+						<x path="Float"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDouble>
+				<ToDouble final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.Decimal"/>
+						<x path="Float"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDouble>
+				<ToDouble final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.DateTime"/>
+						<x path="Float"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDouble>
+				<ToDouble final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Char16"/>
+						<x path="Float"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDouble>
+				<ToDouble final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt8"/>
+						<x path="Float"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToDouble>
+			</overloads>
+		</ToDouble>
+		<ToInt16 final="1" public="1" set="method" static="1">
+			<f a="value">
+				<x path="Bool"/>
+				<t path="cs.types.Int16"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value:provider">
+						<d/>
+						<c path="cs.system.IFormatProvider"/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value">
+						<d/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt16"/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt64"/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value">
+						<x path="UInt"/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value:fromBase">
+						<c path="String"/>
+						<x path="Int"/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value:provider">
+						<c path="String"/>
+						<c path="cs.system.IFormatProvider"/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value">
+						<c path="String"/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int16"/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int8"/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value">
+						<x path="haxe.Int64"/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Int"/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Single"/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Float"/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.Decimal"/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.DateTime"/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Char16"/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+				<ToInt16 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt8"/>
+						<t path="cs.types.Int16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt16>
+			</overloads>
+		</ToInt16>
+		<ToInt32 final="1" public="1" set="method" static="1">
+			<f a="value">
+				<x path="Bool"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value:provider">
+						<d/>
+						<c path="cs.system.IFormatProvider"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value">
+						<d/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt16"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt64"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value">
+						<x path="UInt"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value:fromBase">
+						<c path="String"/>
+						<x path="Int"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value:provider">
+						<c path="String"/>
+						<c path="cs.system.IFormatProvider"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value">
+						<c path="String"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int16"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int8"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value">
+						<x path="haxe.Int64"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Int"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Single"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Float"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.Decimal"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.DateTime"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Char16"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+				<ToInt32 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt8"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt32>
+			</overloads>
+		</ToInt32>
+		<ToInt64 final="1" public="1" set="method" static="1">
+			<f a="value">
+				<x path="Bool"/>
+				<x path="haxe.Int64"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value:provider">
+						<d/>
+						<c path="cs.system.IFormatProvider"/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value">
+						<d/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt16"/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt64"/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value">
+						<x path="UInt"/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value:fromBase">
+						<c path="String"/>
+						<x path="Int"/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value:provider">
+						<c path="String"/>
+						<c path="cs.system.IFormatProvider"/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value">
+						<c path="String"/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int16"/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int8"/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value">
+						<x path="haxe.Int64"/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Int"/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Single"/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Float"/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.Decimal"/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.DateTime"/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Char16"/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+				<ToInt64 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt8"/>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToInt64>
+			</overloads>
+		</ToInt64>
+		<ToSByte final="1" public="1" set="method" static="1">
+			<f a="value">
+				<x path="Bool"/>
+				<t path="cs.types.Int8"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value:provider">
+						<d/>
+						<c path="cs.system.IFormatProvider"/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value">
+						<d/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt16"/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt64"/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value">
+						<x path="UInt"/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value:fromBase">
+						<c path="String"/>
+						<x path="Int"/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value:provider">
+						<c path="String"/>
+						<c path="cs.system.IFormatProvider"/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value">
+						<c path="String"/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int16"/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int8"/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value">
+						<x path="haxe.Int64"/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value">
+						<x path="Int"/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value">
+						<x path="Single"/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value">
+						<x path="Float"/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.Decimal"/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.DateTime"/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Char16"/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+				<ToSByte final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt8"/>
+						<t path="cs.types.Int8"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSByte>
+			</overloads>
+		</ToSByte>
+		<ToSingle final="1" public="1" set="method" static="1">
+			<f a="value">
+				<x path="Bool"/>
+				<x path="Single"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<ToSingle final="1" public="1" set="method">
+					<f a="value:provider">
+						<d/>
+						<c path="cs.system.IFormatProvider"/>
+						<x path="Single"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSingle>
+				<ToSingle final="1" public="1" set="method">
+					<f a="value">
+						<d/>
+						<x path="Single"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSingle>
+				<ToSingle final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt16"/>
+						<x path="Single"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSingle>
+				<ToSingle final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt64"/>
+						<x path="Single"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSingle>
+				<ToSingle final="1" public="1" set="method">
+					<f a="value">
+						<x path="UInt"/>
+						<x path="Single"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSingle>
+				<ToSingle final="1" public="1" set="method">
+					<f a="value:provider">
+						<c path="String"/>
+						<c path="cs.system.IFormatProvider"/>
+						<x path="Single"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSingle>
+				<ToSingle final="1" public="1" set="method">
+					<f a="value">
+						<c path="String"/>
+						<x path="Single"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSingle>
+				<ToSingle final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int16"/>
+						<x path="Single"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSingle>
+				<ToSingle final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int8"/>
+						<x path="Single"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSingle>
+				<ToSingle final="1" public="1" set="method">
+					<f a="value">
+						<x path="haxe.Int64"/>
+						<x path="Single"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSingle>
+				<ToSingle final="1" public="1" set="method">
+					<f a="value">
+						<x path="Int"/>
+						<x path="Single"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSingle>
+				<ToSingle final="1" public="1" set="method">
+					<f a="value">
+						<x path="Single"/>
+						<x path="Single"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSingle>
+				<ToSingle final="1" public="1" set="method">
+					<f a="value">
+						<x path="Float"/>
+						<x path="Single"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSingle>
+				<ToSingle final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.Decimal"/>
+						<x path="Single"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSingle>
+				<ToSingle final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.DateTime"/>
+						<x path="Single"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSingle>
+				<ToSingle final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Char16"/>
+						<x path="Single"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSingle>
+				<ToSingle final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt8"/>
+						<x path="Single"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToSingle>
+			</overloads>
+		</ToSingle>
+		<ToString final="1" public="1" set="method" static="1">
+			<f a="value">
+				<x path="Bool"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<ToString final="1" public="1" set="method">
+					<f a="value:provider">
+						<t path="cs.types.UInt16"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt16"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:provider">
+						<t path="cs.types.UInt64"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt64"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:provider">
+						<x path="UInt"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value">
+						<x path="UInt"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:provider">
+						<c path="String"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value">
+						<c path="String"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:provider">
+						<t path="cs.types.Int16"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:toBase">
+						<t path="cs.types.Int16"/>
+						<x path="Int"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int16"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:provider">
+						<t path="cs.types.Int8"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int8"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:provider">
+						<d/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value">
+						<d/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:provider">
+						<x path="haxe.Int64"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:toBase">
+						<x path="haxe.Int64"/>
+						<x path="Int"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value">
+						<x path="haxe.Int64"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:provider">
+						<x path="Int"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:toBase">
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value">
+						<x path="Int"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:provider">
+						<x path="Single"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value">
+						<x path="Single"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:provider">
+						<x path="Float"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value">
+						<x path="Float"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:provider">
+						<c path="cs.system.Decimal"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.Decimal"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:provider">
+						<c path="cs.system.DateTime"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.DateTime"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:provider">
+						<t path="cs.types.Char16"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Char16"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:toBase">
+						<t path="cs.types.UInt8"/>
+						<x path="Int"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:provider">
+						<t path="cs.types.UInt8"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt8"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+				<ToString final="1" public="1" set="method">
+					<f a="value:provider">
+						<x path="Bool"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToString>
+			</overloads>
+		</ToString>
+		<ToUInt16 final="1" public="1" set="method" static="1">
+			<f a="value">
+				<x path="Bool"/>
+				<t path="cs.types.UInt16"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value:provider">
+						<d/>
+						<c path="cs.system.IFormatProvider"/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value">
+						<d/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt16"/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt64"/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value">
+						<x path="UInt"/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value:fromBase">
+						<c path="String"/>
+						<x path="Int"/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value:provider">
+						<c path="String"/>
+						<c path="cs.system.IFormatProvider"/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value">
+						<c path="String"/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int16"/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int8"/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value">
+						<x path="haxe.Int64"/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Int"/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Single"/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Float"/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.Decimal"/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.DateTime"/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Char16"/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+				<ToUInt16 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt8"/>
+						<t path="cs.types.UInt16"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt16>
+			</overloads>
+		</ToUInt16>
+		<ToUInt32 final="1" public="1" set="method" static="1">
+			<f a="value">
+				<x path="Bool"/>
+				<x path="UInt"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value:provider">
+						<d/>
+						<c path="cs.system.IFormatProvider"/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value">
+						<d/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt16"/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt64"/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value">
+						<x path="UInt"/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value:fromBase">
+						<c path="String"/>
+						<x path="Int"/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value:provider">
+						<c path="String"/>
+						<c path="cs.system.IFormatProvider"/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value">
+						<c path="String"/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int16"/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int8"/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value">
+						<x path="haxe.Int64"/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Int"/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Single"/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Float"/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.Decimal"/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.DateTime"/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Char16"/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+				<ToUInt32 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt8"/>
+						<x path="UInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt32>
+			</overloads>
+		</ToUInt32>
+		<ToUInt64 final="1" public="1" set="method" static="1">
+			<f a="value">
+				<x path="Bool"/>
+				<t path="cs.types.UInt64"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value:provider">
+						<d/>
+						<c path="cs.system.IFormatProvider"/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value">
+						<d/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt16"/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt64"/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value">
+						<x path="UInt"/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value:fromBase">
+						<c path="String"/>
+						<x path="Int"/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value:provider">
+						<c path="String"/>
+						<c path="cs.system.IFormatProvider"/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value">
+						<c path="String"/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int16"/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int8"/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value">
+						<x path="haxe.Int64"/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Int"/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Single"/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value">
+						<x path="Float"/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.Decimal"/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value">
+						<c path="cs.system.DateTime"/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Char16"/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+				<ToUInt64 final="1" public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt8"/>
+						<t path="cs.types.UInt64"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ToUInt64>
+			</overloads>
+		</ToUInt64>
+		<ChangeType final="1" public="1" set="method" static="1">
+			<f a="value:conversionType">
+				<d/>
+				<c path="cs.system.Type"/>
+				<d/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<ChangeType final="1" public="1" set="method">
+					<f a="value:typeCode:provider">
+						<d/>
+						<e path="cs.system.TypeCode"/>
+						<c path="cs.system.IFormatProvider"/>
+						<d/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ChangeType>
+				<ChangeType final="1" public="1" set="method">
+					<f a="value:conversionType:provider">
+						<d/>
+						<c path="cs.system.Type"/>
+						<c path="cs.system.IFormatProvider"/>
+						<d/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ChangeType>
+				<ChangeType final="1" public="1" set="method">
+					<f a="value:typeCode">
+						<d/>
+						<e path="cs.system.TypeCode"/>
+						<d/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</ChangeType>
+			</overloads>
+		</ChangeType>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":csNative"/>
+			<m n=":native"><e>"System.Convert"</e></m>
+		</meta>
+	</class>
 	<class path="cs.system.Delegate_Converter_2" params="T0:T1" file="/home/vsts/work/1/s/extra/.haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.Converter_2" module="cs.system.Converter_2" extern="1">
 		<extends path="cs.system.MulticastDelegate"/>
 		<op_Addition public="1" params="T0:T1" set="method" static="1"><f a="arg1:arg2">
@@ -21278,6 +23583,47 @@
 			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta><m n=":nativeGen"/></meta>
+	</class>
+	<class path="cs.system.FormatException" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.FormatException" extern="1">
+		<extends path="cs.system.SystemException"/>
+		<new final="1" public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<new final="1" set="method">
+					<f a="info:context">
+						<c path="cs.system.runtime.serialization.SerializationInfo"/>
+						<c path="cs.system.runtime.serialization.StreamingContext"/>
+						<x path="Void"/>
+					</f>
+					<meta>
+						<m n=":protected"/>
+						<m n=":overload"/>
+					</meta>
+				</new>
+				<new final="1" public="1" set="method">
+					<f a="message:innerException">
+						<c path="String"/>
+						<c path="cs.system.Exception"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</new>
+				<new final="1" public="1" set="method">
+					<f a="message">
+						<c path="String"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</new>
+			</overloads>
+		</new>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":csNative"/>
+			<m n=":native"><e>"System.FormatException"</e></m>
+		</meta>
 	</class>
 	<class path="cs.system.Guid_GuidParser" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.Guid" module="cs.system.Guid" extern="1">
 		<Parse final="1" public="1" set="method">

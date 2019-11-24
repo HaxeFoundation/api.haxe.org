@@ -1980,12 +1980,11 @@
 
 		If `x` is outside of the signed Int32 range, or is `NaN`, `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`, the result is unspecified.</haxe_doc>
 		</int>
-		<parseInt public="1" set="method" line="132" static="1">
+		<parseInt public="1" set="method" line="62" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Null"><x path="Int"/></x>
 			</f>
-			<meta><m n=":functionCode"><e><![CDATA["\n\t\tif (x == null) return null;\n\n\t\tint ret = 0;\n\t\tint base = 10;\n\t\tint i = 0;\n\t\tint len = x.length();\n\n\t\tif (x.startsWith(\"0\") && len > 2)\n\t\t{\n\t\t\tchar c = x.charAt(1);\n\t\t\tif (c == 'x' || c == 'X')\n\t\t\t{\n\t\t\t\ti = 2;\n\t\t\t\tbase = 16;\n\t\t\t}\n\t\t}\n\n\t\tboolean foundAny = i != 0;\n\t\tboolean isNeg = false;\n\t\tfor (; i < len; i++)\n\t\t{\n\t\t\tchar c = x.charAt(i);\n\t\t\tif (!foundAny)\n\t\t\t{\n\t\t\t\tswitch(c)\n\t\t\t\t{\n\t\t\t\t\tcase '-':\n\t\t\t\t\t\tisNeg = true;\n\t\t\t\t\t\tcontinue;\n\t\t\t\t\tcase '+':\n\t\t\t\t\tcase '\\n':\n\t\t\t\t\tcase '\\t':\n\t\t\t\t\tcase '\\r':\n\t\t\t\t\tcase ' ':\n\t\t\t\t\t\tif (isNeg) return null;\n\t\t\t\t\t\tcontinue;\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tif (c >= '0' && c <= '9')\n\t\t\t{\n\t\t\t\tif (!foundAny && c == '0')\n\t\t\t\t{\n\t\t\t\t\tfoundAny = true;\n\t\t\t\t\tcontinue;\n\t\t\t\t}\n\t\t\t\tret *= base; foundAny = true;\n\n\t\t\t\tret += ((int) (c - '0'));\n\t\t\t} else if (base == 16) {\n\t\t\t\tif (c >= 'a' && c <= 'f') {\n\t\t\t\t\tret *= base; foundAny = true;\n\t\t\t\t\tret += ((int) (c - 'a')) + 10;\n\t\t\t\t} else if (c >= 'A' && c <= 'F') {\n\t\t\t\t\tret *= base; foundAny = true;\n\t\t\t\t\tret += ((int) (c - 'A')) + 10;\n\t\t\t\t} else {\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t} else {\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\n\t\tif (foundAny)\n\t\t\treturn isNeg ? -ret : ret;\n\t\telse\n\t\t\treturn null;\n\t"]]></e></m></meta>
 			<haxe_doc>Converts a `String` to an `Int`.
 
 		Leading whitespaces are ignored.
@@ -2006,7 +2005,7 @@
 		If `x` is null, the result is unspecified.
 		If `x` cannot be parsed as integer, the result is `null`.</haxe_doc>
 		</parseInt>
-		<parseFloat public="1" set="method" line="136" static="1">
+		<parseFloat public="1" set="method" line="112" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Float"/>
@@ -2019,7 +2018,7 @@
 
 		Additionally, decimal notation may contain a single `.` to denote the start of the fractions.</haxe_doc>
 		</parseFloat>
-		<downcast public="1" params="T:S" get="inline" set="null" line="183" static="1">
+		<downcast public="1" params="T:S" get="inline" set="null" line="159" static="1">
 			<f a="value:c">
 				<c path="downcast.T"/>
 				<x path="Class"><c path="downcast.S"/></x>
@@ -2040,7 +2039,7 @@
 		If `value` is null, the result is null. If `c` is null, the result is
 		unspecified.</haxe_doc>
 		</downcast>
-		<instance public="1" params="T:S" get="inline" set="null" line="188" static="1">
+		<instance public="1" params="T:S" get="inline" set="null" line="164" static="1">
 			<f a="value:c">
 				<c path="instance.T"/>
 				<x path="Class"><c path="instance.S"/></x>
@@ -2048,7 +2047,7 @@
 			</f>
 			<meta><m n=":deprecated"><e>"Std.instance() is deprecated. Use Std.downcast() instead."</e></m></meta>
 		</instance>
-		<random public="1" set="method" line="192" static="1">
+		<random public="1" set="method" line="168" static="1">
 			<f a="x">
 				<x path="Int"/>
 				<x path="Int"/>
