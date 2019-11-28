@@ -86468,15 +86468,6 @@
 		</meta>
 		<haxe_doc>Disable null safety.</haxe_doc>
 	</Off>
-	<Strict public="1" get="inline" set="null" expr="cast &quot;Strict&quot;" line="1" static="1">
-		<x path="haxe.macro.NullSafetyMode"/>
-		<meta>
-			<m n=":value"><e>cast "Strict"</e></m>
-			<m n=":enum"/>
-			<m n=":impl"/>
-		</meta>
-		<haxe_doc>Full scale null safety.</haxe_doc>
-	</Strict>
 	<Loose public="1" get="inline" set="null" expr="cast &quot;Loose&quot;" line="1" static="1">
 		<x path="haxe.macro.NullSafetyMode"/>
 		<meta>
@@ -86485,7 +86476,7 @@
 			<m n=":impl"/>
 		</meta>
 		<haxe_doc><![CDATA[Loose safety.
-		If an expression is checked ` != null`, then it's considered safe even if it could be modified after the check.
+		If an expression is checked `!= null`, then it's considered safe even if it could be modified after the check.
 		E.g.
 		```haxe
 		function example(o:{field:Null<String>}) {
@@ -86500,6 +86491,44 @@
 		}
 		```]]></haxe_doc>
 	</Loose>
+	<Strict public="1" get="inline" set="null" expr="cast &quot;Strict&quot;" line="1" static="1">
+		<x path="haxe.macro.NullSafetyMode"/>
+		<meta>
+			<m n=":value"><e>cast "Strict"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc><![CDATA[Full scale null safety.
+		If a field is checked `!= null` it stays safe until a call is made or any field of any object is reassigned,
+		because that could potentially alter an object of the checked field.
+		E.g.
+		```haxe
+		function example(o:{field:Null<String>}, b:{o:{field:Null<String>}}) {
+			if(o.field != null) {
+				var notNullable:String = o.field; //no error
+				someCall();
+				var notNullable:String = o.field; // Error!
+			}
+			if(o.field != null) {
+				var notNullable:String = o.field; //no error
+				b.o = {field:null};
+				var notNullable:String = o.field; // Error!
+			}
+		}
+		```]]></haxe_doc>
+	</Strict>
+	<StrictThreaded public="1" get="inline" set="null" expr="cast &quot;StrictThreaded&quot;" line="1" static="1">
+		<x path="haxe.macro.NullSafetyMode"/>
+		<meta>
+			<m n=":value"><e>cast "StrictThreaded"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>Full scale null safety for a multi-threaded environment.
+		With this mode checking a field `!= null` does not make it safe, because it could be changed from another thread
+		at the same time or immediately after the check.
+		The only nullable thing could be safe are local variables.</haxe_doc>
+	</StrictThreaded>
 	<meta>
 		<m n=":nativeGen"/>
 		<m n=":enum"/>
@@ -86516,15 +86545,6 @@
 			</meta>
 			<haxe_doc>Disable null safety.</haxe_doc>
 		</Off>
-		<Strict public="1" get="inline" set="null" expr="cast &quot;Strict&quot;" line="1" static="1">
-			<x path="haxe.macro.NullSafetyMode"/>
-			<meta>
-				<m n=":value"><e>cast "Strict"</e></m>
-				<m n=":enum"/>
-				<m n=":impl"/>
-			</meta>
-			<haxe_doc>Full scale null safety.</haxe_doc>
-		</Strict>
 		<Loose public="1" get="inline" set="null" expr="cast &quot;Loose&quot;" line="1" static="1">
 			<x path="haxe.macro.NullSafetyMode"/>
 			<meta>
@@ -86533,7 +86553,7 @@
 				<m n=":impl"/>
 			</meta>
 			<haxe_doc><![CDATA[Loose safety.
-		If an expression is checked ` != null`, then it's considered safe even if it could be modified after the check.
+		If an expression is checked `!= null`, then it's considered safe even if it could be modified after the check.
 		E.g.
 		```haxe
 		function example(o:{field:Null<String>}) {
@@ -86548,6 +86568,44 @@
 		}
 		```]]></haxe_doc>
 		</Loose>
+		<Strict public="1" get="inline" set="null" expr="cast &quot;Strict&quot;" line="1" static="1">
+			<x path="haxe.macro.NullSafetyMode"/>
+			<meta>
+				<m n=":value"><e>cast "Strict"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc><![CDATA[Full scale null safety.
+		If a field is checked `!= null` it stays safe until a call is made or any field of any object is reassigned,
+		because that could potentially alter an object of the checked field.
+		E.g.
+		```haxe
+		function example(o:{field:Null<String>}, b:{o:{field:Null<String>}}) {
+			if(o.field != null) {
+				var notNullable:String = o.field; //no error
+				someCall();
+				var notNullable:String = o.field; // Error!
+			}
+			if(o.field != null) {
+				var notNullable:String = o.field; //no error
+				b.o = {field:null};
+				var notNullable:String = o.field; // Error!
+			}
+		}
+		```]]></haxe_doc>
+		</Strict>
+		<StrictThreaded public="1" get="inline" set="null" expr="cast &quot;StrictThreaded&quot;" line="1" static="1">
+			<x path="haxe.macro.NullSafetyMode"/>
+			<meta>
+				<m n=":value"><e>cast "StrictThreaded"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>Full scale null safety for a multi-threaded environment.
+		With this mode checking a field `!= null` does not make it safe, because it could be changed from another thread
+		at the same time or immediately after the check.
+		The only nullable thing could be safe are local variables.</haxe_doc>
+		</StrictThreaded>
 		<meta>
 			<m n=":nativeGen"/>
 			<m n=":enum"/>
