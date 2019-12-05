@@ -30951,11 +30951,27 @@
 	<x path="Void"/>
 </f></new>
 	</class>
+	<class path="mbedtls.Certificate" params="" file="/home/vsts/work/1/s/std/eval/_std/mbedtls/Certificate.hx" extern="1">
+		<parse_file public="1" set="method"><f a="path">
+	<c path="String"/>
+	<x path="Int"/>
+</f></parse_file>
+		<parse_path public="1" set="method"><f a="path">
+	<c path="String"/>
+	<x path="Int"/>
+</f></parse_path>
+		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
+	</class>
 	<class path="mbedtls.Config" params="" file="/home/vsts/work/1/s/std/eval/_std/mbedtls/Config.hx" extern="1">
 		<authmode public="1" set="method"><f a="authmode">
 	<x path="mbedtls.SslAuthmode"/>
 	<x path="Void"/>
 </f></authmode>
+		<caChain public="1" set="method"><f a="ca_chain:?ca_crl">
+	<c path="mbedtls.Certificate"/>
+	<d/>
+	<x path="Void"/>
+</f></caChain>
 		<defaults public="1" set="method"><f a="endpoint:transport:preset">
 	<x path="mbedtls.SslEndpoint"/>
 	<x path="mbedtls.SslTransport"/>
@@ -30983,7 +30999,7 @@
 		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="mbedtls.Entropy" params="" file="/home/vsts/work/1/s/std/eval/_std/mbedtls/Entropy.hx" extern="1"><new public="1" set="method"><f a=""><x path="Void"/></f></new></class>
-	<class path="mbedtls.Mbedtls" params="" file="/home/vsts/work/1/s/std/eval/_std/mbedtls/Mbedtls.hx" extern="1"><strerror public="1" set="method" static="1"><f a="code">
+	<class path="mbedtls.Error" params="" file="/home/vsts/work/1/s/std/eval/_std/mbedtls/Error.hx"><strerror public="1" set="method" static="1"><f a="code">
 	<x path="Int"/>
 	<c path="String"/>
 </f></strerror></class>
@@ -32371,6 +32387,32 @@
 	<c path="sys.ssl.Key"/>
 </f></readDER>
 	</class>
+	<class path="sys.ssl.Mbedtls" params="" file="/home/vsts/work/1/s/std/eval/_std/sys/ssl/Mbedtls.hx">
+		<entropy public="1" expr="new Entropy()" line="7" static="1">
+			<c path="mbedtls.Entropy"/>
+			<meta><m n=":value"><e>new Entropy()</e></m></meta>
+		</entropy>
+		<ctr public="1" expr="{
+	var v = new CtrDrbg();
+	v.seed(entropy);
+	v;
+}" line="8" static="1">
+			<c path="mbedtls.CtrDrbg"/>
+			<meta><m n=":value"><e>{
+	var v = new CtrDrbg();
+	v.seed(entropy);
+	v;
+}</e></m></meta>
+		</ctr>
+		<loadDefaultCertificates public="1" set="method" line="14" static="1"><f a="certificate">
+	<c path="mbedtls.Certificate"/>
+	<x path="Void"/>
+</f></loadDefaultCertificates>
+		<loadDefaults set="method" static="1"><f a="certificate">
+	<c path="mbedtls.Certificate"/>
+	<x path="Int"/>
+</f></loadDefaults>
+	</class>
 	<class path="sys.ssl._Socket.SocketInput" params="" file="/home/vsts/work/1/s/std/eval/_std/sys/ssl/Socket.hx" private="1" module="sys.ssl.Socket">
 		<extends path="haxe.io.Input"/>
 		<socket>
@@ -32420,40 +32462,47 @@
 			<x path="Null"><x path="Bool"/></x>
 			<meta><m n=":value"><e>true</e></m></meta>
 		</DEFAULT_VERIFY_CERT>
+		<DEFAULT_CA public="1" static="1"><x path="Null"><c path="mbedtls.Certificate"/></x></DEFAULT_CA>
 		<conf><c path="mbedtls.Config"/></conf>
 		<ssl><c path="mbedtls.Ssl"/></ssl>
+		<verifyCert public="1"><x path="Null"><x path="Bool"/></x></verifyCert>
+		<caCert><x path="Null"><c path="mbedtls.Certificate"/></x></caCert>
 		<hostname><c path="String"/></hostname>
 		<handshakeDone><x path="Bool"/></handshakeDone>
 		<isBlocking expr="true">
 			<x path="Bool"/>
 			<meta><m n=":value"><e>true</e></m></meta>
 		</isBlocking>
-		<init set="method" line="101" override="1"><f a="socket">
+		<init set="method" line="99" override="1"><f a="socket">
 	<c path="sys.net.NativeSocket"/>
 	<x path="Void"/>
 </f></init>
-		<connect public="1" set="method" line="107" override="1"><f a="host:port">
+		<connect public="1" set="method" line="111" override="1"><f a="host:port">
 	<c path="sys.net.Host"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></connect>
-		<handshake public="1" set="method" line="122"><f a=""><x path="Void"/></f></handshake>
-		<setBlocking public="1" set="method" line="134" override="1"><f a="b">
+		<handshake public="1" set="method" line="126"><f a=""><x path="Void"/></f></handshake>
+		<setBlocking public="1" set="method" line="138" override="1"><f a="b">
 	<x path="Bool"/>
 	<x path="Void"/>
 </f></setBlocking>
-		<setHostname public="1" set="method" line="143"><f a="name">
+		<setCA public="1" set="method" line="143"><f a="cert">
+	<c path="mbedtls.Certificate"/>
+	<x path="Void"/>
+</f></setCA>
+		<setHostname public="1" set="method" line="147"><f a="name">
 	<c path="String"/>
 	<x path="Void"/>
 </f></setHostname>
-		<close public="1" set="method" line="152" override="1"><f a=""><x path="Void"/></f></close>
-		<bind public="1" set="method" line="173" override="1"><f a="host:port">
+		<close public="1" set="method" line="151" override="1"><f a=""><x path="Void"/></f></close>
+		<bind public="1" set="method" line="164" override="1"><f a="host:port">
 	<c path="sys.net.Host"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></bind>
-		<accept public="1" set="method" line="179" override="1"><f a=""><c path="sys.ssl.Socket"/></f></accept>
-		<buildConfig set="method" line="200"><f a="server">
+		<accept public="1" set="method" line="170" override="1"><f a=""><c path="sys.ssl.Socket"/></f></accept>
+		<buildConfig set="method" line="186"><f a="server">
 	<x path="Bool"/>
 	<c path="mbedtls.Config"/>
 </f></buildConfig>
