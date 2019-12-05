@@ -4626,6 +4626,74 @@
 		</stat>
 		<haxe_doc>Memory management control and statistics; finalised values.</haxe_doc>
 	</class>
+	<class path="eval.vm.NativeSocket" params="" file="/home/vsts/work/1/s/std/eval/vm/NativeSocket.hx" extern="1">
+		<select public="1" set="method" static="1"><f a="read:write:others:?timeout">
+	<c path="Array"><c path="sys.net.Socket"/></c>
+	<c path="Array"><c path="sys.net.Socket"/></c>
+	<c path="Array"><c path="sys.net.Socket"/></c>
+	<x path="Float"/>
+	<a>
+		<write><c path="Array"><c path="sys.net.Socket"/></c></write>
+		<read><c path="Array"><c path="sys.net.Socket"/></c></read>
+		<others><c path="Array"><c path="sys.net.Socket"/></c></others>
+	</a>
+</f></select>
+		<accept public="1" set="method"><f a=""><c path="eval.vm.NativeSocket"/></f></accept>
+		<bind public="1" set="method"><f a="host:port">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></bind>
+		<close public="1" set="method"><f a=""><x path="Void"/></f></close>
+		<connect public="1" set="method"><f a="host:port">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></connect>
+		<host public="1" set="method"><f a=""><a>
+	<port><x path="Int"/></port>
+	<ip><x path="Int"/></ip>
+</a></f></host>
+		<listen public="1" set="method"><f a="connections">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></listen>
+		<peer public="1" set="method"><f a=""><a>
+	<port><x path="Int"/></port>
+	<ip><x path="Int"/></ip>
+</a></f></peer>
+		<receive public="1" set="method"><f a="buf:pos:len">
+	<c path="haxe.io.Bytes"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></receive>
+		<receiveChar public="1" set="method"><f a=""><x path="Int"/></f></receiveChar>
+		<send public="1" set="method"><f a="buf:pos:len">
+	<c path="haxe.io.Bytes"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></send>
+		<sendChar public="1" set="method"><f a="char">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></sendChar>
+		<setFastSend public="1" set="method"><f a="b">
+	<x path="Bool"/>
+	<x path="Void"/>
+</f></setFastSend>
+		<setTimeout public="1" set="method"><f a="timeout">
+	<x path="Float"/>
+	<x path="Void"/>
+</f></setTimeout>
+		<shutdown public="1" set="method"><f a="read:write">
+	<x path="Bool"/>
+	<x path="Bool"/>
+	<x path="Void"/>
+</f></shutdown>
+		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
+	</class>
 	<class path="eval.vm.NativeThread" params="" file="/home/vsts/work/1/s/std/eval/vm/NativeThread.hx" extern="1">
 		<delay public="1" set="method" static="1">
 			<f a="f">
@@ -31005,7 +31073,7 @@
 </f></strerror></class>
 	<class path="mbedtls.Ssl" params="" file="/home/vsts/work/1/s/std/eval/_std/mbedtls/Ssl.hx" extern="1">
 		<setSocket public="1" set="method"><f a="socket">
-	<c path="sys.net.NativeSocket"/>
+	<c path="eval.vm.NativeSocket"/>
 	<x path="Int"/>
 </f></setSocket>
 		<free public="1" set="method"><f a=""><x path="Void"/></f></free>
@@ -31901,111 +31969,43 @@
 	<x path="Void"/>
 </f></new>
 	</class>
-	<class path="sys.net.NativeSocket" params="" file="/home/vsts/work/1/s/std/eval/_std/sys/net/NativeSocket.hx" extern="1">
-		<select public="1" set="method" static="1"><f a="read:write:others:?timeout">
-	<c path="Array"><c path="sys.net.Socket"/></c>
-	<c path="Array"><c path="sys.net.Socket"/></c>
-	<c path="Array"><c path="sys.net.Socket"/></c>
-	<x path="Float"/>
-	<a>
-		<write><c path="Array"><c path="sys.net.Socket"/></c></write>
-		<read><c path="Array"><c path="sys.net.Socket"/></c></read>
-		<others><c path="Array"><c path="sys.net.Socket"/></c></others>
-	</a>
-</f></select>
-		<accept public="1" set="method"><f a=""><c path="sys.net.NativeSocket"/></f></accept>
-		<bind public="1" set="method"><f a="host:port">
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Void"/>
-</f></bind>
-		<close public="1" set="method"><f a=""><x path="Void"/></f></close>
-		<connect public="1" set="method"><f a="host:port">
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Void"/>
-</f></connect>
-		<host public="1" set="method"><f a=""><a>
-	<port><x path="Int"/></port>
-	<ip><x path="Int"/></ip>
-</a></f></host>
-		<listen public="1" set="method"><f a="connections">
-	<x path="Int"/>
-	<x path="Void"/>
-</f></listen>
-		<peer public="1" set="method"><f a=""><a>
-	<port><x path="Int"/></port>
-	<ip><x path="Int"/></ip>
-</a></f></peer>
-		<receive public="1" set="method"><f a="buf:pos:len">
-	<c path="haxe.io.Bytes"/>
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></receive>
-		<receiveChar public="1" set="method"><f a=""><x path="Int"/></f></receiveChar>
-		<send public="1" set="method"><f a="buf:pos:len">
-	<c path="haxe.io.Bytes"/>
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></send>
-		<sendChar public="1" set="method"><f a="char">
-	<x path="Int"/>
-	<x path="Void"/>
-</f></sendChar>
-		<setFastSend public="1" set="method"><f a="b">
-	<x path="Bool"/>
-	<x path="Void"/>
-</f></setFastSend>
-		<setTimeout public="1" set="method"><f a="timeout">
-	<x path="Float"/>
-	<x path="Void"/>
-</f></setTimeout>
-		<shutdown public="1" set="method"><f a="read:write">
-	<x path="Bool"/>
-	<x path="Bool"/>
-	<x path="Void"/>
-</f></shutdown>
-		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
-	</class>
 	<class path="sys.net._Socket.SocketOutput" params="" file="/home/vsts/work/1/s/std/eval/_std/sys/net/Socket.hx" private="1" module="sys.net.Socket">
 		<extends path="haxe.io.Output"/>
-		<socket><c path="sys.net.NativeSocket"/></socket>
-		<writeByte public="1" set="method" line="34" override="1"><f a="c">
+		<socket><c path="eval.vm.NativeSocket"/></socket>
+		<writeByte public="1" set="method" line="35" override="1"><f a="c">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></writeByte>
-		<writeBytes public="1" set="method" line="47" override="1"><f a="buf:pos:len">
+		<writeBytes public="1" set="method" line="48" override="1"><f a="buf:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></writeBytes>
-		<close public="1" set="method" line="58" override="1"><f a=""><x path="Void"/></f></close>
-		<new public="1" set="method" line="30"><f a="socket">
-	<c path="sys.net.NativeSocket"/>
+		<close public="1" set="method" line="59" override="1"><f a=""><x path="Void"/></f></close>
+		<new public="1" set="method" line="31"><f a="socket">
+	<c path="eval.vm.NativeSocket"/>
 	<x path="Void"/>
 </f></new>
 	</class>
 	<class path="sys.net._Socket.SocketInput" params="" file="/home/vsts/work/1/s/std/eval/_std/sys/net/Socket.hx" private="1" module="sys.net.Socket">
 		<extends path="haxe.io.Input"/>
-		<socket><c path="sys.net.NativeSocket"/></socket>
-		<readByte public="1" set="method" line="71" override="1"><f a=""><x path="Int"/></f></readByte>
-		<readBytes public="1" set="method" line="82" override="1"><f a="buf:pos:len">
+		<socket><c path="eval.vm.NativeSocket"/></socket>
+		<readByte public="1" set="method" line="72" override="1"><f a=""><x path="Int"/></f></readByte>
+		<readBytes public="1" set="method" line="83" override="1"><f a="buf:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></readBytes>
-		<close public="1" set="method" line="97" override="1"><f a=""><x path="Void"/></f></close>
-		<new public="1" set="method" line="67"><f a="socket">
-	<c path="sys.net.NativeSocket"/>
+		<close public="1" set="method" line="98" override="1"><f a=""><x path="Void"/></f></close>
+		<new public="1" set="method" line="68"><f a="socket">
+	<c path="eval.vm.NativeSocket"/>
 	<x path="Void"/>
 </f></new>
 	</class>
 	<class path="sys.net.Socket" params="" file="/home/vsts/work/1/s/std/eval/_std/sys/net/Socket.hx">
-		<select public="1" set="method" line="186" static="1">
+		<select public="1" set="method" line="187" static="1">
 			<f a="read:write:others:?timeout">
 				<c path="Array"><c path="sys.net.Socket"/></c>
 				<c path="Array"><c path="sys.net.Socket"/></c>
@@ -32041,25 +32041,25 @@
 	*</haxe_doc>
 		</custom>
 		<socket>
-			<c path="sys.net.NativeSocket"/>
+			<c path="eval.vm.NativeSocket"/>
 			<meta><m n=":ifFeature"><e>"sys.net.Socket.select"</e></m></meta>
 		</socket>
-		<init set="method" line="115"><f a="socket">
-	<c path="sys.net.NativeSocket"/>
+		<init set="method" line="116"><f a="socket">
+	<c path="eval.vm.NativeSocket"/>
 	<x path="Void"/>
 </f></init>
-		<close public="1" set="method" line="121">
+		<close public="1" set="method" line="122">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Closes the socket : make sure to properly close all your sockets or you will crash when you run out of file descriptors.</haxe_doc>
 		</close>
-		<read public="1" set="method" line="125">
+		<read public="1" set="method" line="126">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Read the whole data available on the socket.
 
 		*Note*: this is **not** meant to be used together with `setBlocking(false)`,
 		as it will always throw `haxe.io.Error.Blocked`. `input` methods should be used directly instead.</haxe_doc>
 		</read>
-		<write public="1" set="method" line="129">
+		<write public="1" set="method" line="130">
 			<f a="content">
 				<c path="String"/>
 				<x path="Void"/>
@@ -32070,7 +32070,7 @@
 		`haxe.io.Error.Blocked` may be thrown mid-write with no indication of how many bytes have been written.
 		`output.writeBytes()` should be used instead as it returns this information.</haxe_doc>
 		</write>
-		<connect public="1" set="method" line="133">
+		<connect public="1" set="method" line="134">
 			<f a="host:port">
 				<c path="sys.net.Host"/>
 				<x path="Int"/>
@@ -32078,14 +32078,14 @@
 			</f>
 			<haxe_doc>Connect to the given server host/port. Throw an exception in case we couldn't successfully connect.</haxe_doc>
 		</connect>
-		<listen public="1" set="method" line="137">
+		<listen public="1" set="method" line="138">
 			<f a="connections">
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Allow the socket to listen for incoming questions. The parameter tells how many pending connections we can have until they get refused. Use `accept()` to accept incoming connections.</haxe_doc>
 		</listen>
-		<shutdown public="1" set="method" line="141">
+		<shutdown public="1" set="method" line="142">
 			<f a="read:write">
 				<x path="Bool"/>
 				<x path="Bool"/>
@@ -32093,7 +32093,7 @@
 			</f>
 			<haxe_doc>Shutdown the socket, either for reading or writing.</haxe_doc>
 		</shutdown>
-		<bind public="1" set="method" line="145">
+		<bind public="1" set="method" line="146">
 			<f a="host:port">
 				<c path="sys.net.Host"/>
 				<x path="Int"/>
@@ -32101,11 +32101,11 @@
 			</f>
 			<haxe_doc>Bind the socket to the given host/port so it can afterwards listen for connections there.</haxe_doc>
 		</bind>
-		<accept public="1" set="method" line="149">
+		<accept public="1" set="method" line="150">
 			<f a=""><c path="sys.net.Socket"/></f>
 			<haxe_doc>Accept a new connected client. This will return a connected socket on which you can read/write some data.</haxe_doc>
 		</accept>
-		<peer public="1" set="method" line="157">
+		<peer public="1" set="method" line="158">
 			<f a=""><a>
 	<port><x path="Int"/></port>
 	<host><c path="sys.net.Host"/></host>
@@ -32113,7 +32113,7 @@
 			<meta><m n=":access"><e>sys.net.Host.init</e></m></meta>
 			<haxe_doc>Return the information about the other side of a connected socket.</haxe_doc>
 		</peer>
-		<host public="1" set="method" line="165">
+		<host public="1" set="method" line="166">
 			<f a=""><a>
 	<port><x path="Int"/></port>
 	<host><c path="sys.net.Host"/></host>
@@ -32121,32 +32121,32 @@
 			<meta><m n=":access"><e>sys.net.Host.init</e></m></meta>
 			<haxe_doc>Return the information about our side of a connected socket.</haxe_doc>
 		</host>
-		<setTimeout public="1" set="method" line="172">
+		<setTimeout public="1" set="method" line="173">
 			<f a="timeout">
 				<x path="Float"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Gives a timeout (in seconds) after which blocking socket operations (such as reading and writing) will abort and throw an exception.</haxe_doc>
 		</setTimeout>
-		<waitForRead public="1" set="method" line="176">
+		<waitForRead public="1" set="method" line="177">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Block until some data is available for read on the socket.</haxe_doc>
 		</waitForRead>
-		<setBlocking public="1" set="method" line="180">
+		<setBlocking public="1" set="method" line="181">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Change the blocking mode of the socket. A blocking socket is the default behavior. A non-blocking socket will abort blocking operations immediately by throwing a haxe.io.Error.Blocked value.</haxe_doc>
 		</setBlocking>
-		<setFastSend public="1" set="method" line="182">
+		<setFastSend public="1" set="method" line="183">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Allows the socket to immediately send the data when written to its output : this will cause less ping but might increase the number of packets / data size, especially when doing a lot of small writes.</haxe_doc>
 		</setFastSend>
-		<new public="1" set="method" line="111">
+		<new public="1" set="method" line="112">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new unconnected socket.</haxe_doc>
 		</new>
@@ -32474,7 +32474,7 @@
 			<meta><m n=":value"><e>true</e></m></meta>
 		</isBlocking>
 		<init set="method" line="99" override="1"><f a="socket">
-	<c path="sys.net.NativeSocket"/>
+	<c path="eval.vm.NativeSocket"/>
 	<x path="Void"/>
 </f></init>
 		<connect public="1" set="method" line="111" override="1"><f a="host:port">
