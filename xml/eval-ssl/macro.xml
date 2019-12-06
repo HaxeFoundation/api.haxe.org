@@ -31046,7 +31046,6 @@
 	<x path="mbedtls.SslPreset"/>
 	<x path="Int"/>
 </f></defaults>
-		<free public="1" set="method"><f a=""><x path="Void"/></f></free>
 		<rng public="1" params="T" set="method"><f a="p_rng">
 	<c path="rng.T"/>
 	<x path="Void"/>
@@ -31072,11 +31071,6 @@
 	<c path="String"/>
 </f></strerror></class>
 	<class path="mbedtls.Ssl" params="" file="/home/vsts/work/1/s/std/eval/_std/mbedtls/Ssl.hx" extern="1">
-		<setSocket public="1" set="method"><f a="socket">
-	<c path="eval.vm.NativeSocket"/>
-	<x path="Int"/>
-</f></setSocket>
-		<free public="1" set="method"><f a=""><x path="Void"/></f></free>
 		<handshake public="1" set="method"><f a=""><x path="Int"/></f></handshake>
 		<read public="1" set="method"><f a="buf:pos:len">
 	<c path="haxe.io.Bytes"/>
@@ -32388,26 +32382,19 @@
 </f></readDER>
 	</class>
 	<class path="sys.ssl.Mbedtls" params="" file="/home/vsts/work/1/s/std/eval/_std/sys/ssl/Mbedtls.hx">
-		<entropy public="1" expr="new Entropy()" line="7" static="1">
-			<c path="mbedtls.Entropy"/>
-			<meta><m n=":value"><e>new Entropy()</e></m></meta>
-		</entropy>
-		<ctr public="1" expr="{
-	var v = new CtrDrbg();
-	v.seed(entropy);
-	v;
-}" line="8" static="1">
-			<c path="mbedtls.CtrDrbg"/>
-			<meta><m n=":value"><e>{
-	var v = new CtrDrbg();
-	v.seed(entropy);
-	v;
-}</e></m></meta>
-		</ctr>
-		<loadDefaultCertificates public="1" set="method" line="14" static="1"><f a="certificate">
+		<entropy static="1"><x path="Null"><c path="mbedtls.Entropy"/></x></entropy>
+		<ctr static="1"><x path="Null"><c path="mbedtls.CtrDrbg"/></x></ctr>
+		<getDefaultEntropy public="1" set="method" line="12" static="1"><f a=""><x path="Null"><c path="mbedtls.Entropy"/></x></f></getDefaultEntropy>
+		<getDefaultCtrDrbg public="1" set="method" line="19" static="1"><f a=""><x path="Null"><c path="mbedtls.CtrDrbg"/></x></f></getDefaultCtrDrbg>
+		<loadDefaultCertificates public="1" set="method" line="27" static="1"><f a="certificate">
 	<c path="mbedtls.Certificate"/>
 	<x path="Void"/>
 </f></loadDefaultCertificates>
+		<setSocket public="1" set="method" static="1"><f a="ssl:socket">
+	<c path="mbedtls.Ssl"/>
+	<c path="eval.vm.NativeSocket"/>
+	<x path="Int"/>
+</f></setSocket>
 		<loadDefaults set="method" static="1"><f a="certificate">
 	<c path="mbedtls.Certificate"/>
 	<x path="Int"/>
