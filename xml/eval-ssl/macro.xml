@@ -31085,6 +31085,7 @@
 	<c path="String"/>
 </f></strerror></class>
 	<class path="mbedtls.Ssl" params="" file="/home/vsts/work/1/s/std/eval/_std/mbedtls/Ssl.hx" extern="1">
+		<get_peer_cert public="1" set="method"><f a=""><x path="Null"><c path="mbedtls.X509Crt"/></x></f></get_peer_cert>
 		<handshake public="1" set="method"><f a=""><x path="Int"/></f></handshake>
 		<read public="1" set="method"><f a="buf:pos:len">
 	<c path="haxe.io.Bytes"/>
@@ -31312,6 +31313,10 @@
 	</class>
 	<class path="mbedtls.X509Crt" params="" file="/home/vsts/work/1/s/std/eval/_std/mbedtls/X509Crt.hx" extern="1">
 		<next public="1" set="method"><f a=""><x path="Null"><c path="mbedtls.X509Crt"/></x></f></next>
+		<parse public="1" set="method"><f a="buf">
+	<c path="haxe.io.Bytes"/>
+	<x path="Int"/>
+</f></parse>
 		<parse_file public="1" set="method"><f a="path">
 	<c path="String"/>
 	<x path="Int"/>
@@ -32206,19 +32211,19 @@
 		<haxe_doc>A UDP socket class</haxe_doc>
 	</class>
 	<class path="sys.ssl.Certificate" params="" file="/home/vsts/work/1/s/std/eval/_std/sys/ssl/Certificate.hx">
-		<loadFile public="1" set="method" line="36" static="1"><f a="file">
+		<loadFile public="1" set="method" line="37" static="1"><f a="file">
 	<c path="String"/>
 	<c path="sys.ssl.Certificate"/>
 </f></loadFile>
-		<loadPath public="1" set="method" line="42" static="1"><f a="path">
+		<loadPath public="1" set="method" line="43" static="1"><f a="path">
 	<c path="String"/>
 	<c path="sys.ssl.Certificate"/>
 </f></loadPath>
-		<fromString public="1" set="method" line="48" static="1"><f a="str">
+		<fromString public="1" set="method" line="49" static="1"><f a="str">
 	<c path="String"/>
 	<c path="sys.ssl.Certificate"/>
 </f></fromString>
-		<loadDefaults public="1" set="method" line="52" static="1"><f a=""><c path="sys.ssl.Certificate"/></f></loadDefaults>
+		<loadDefaults public="1" set="method" line="55" static="1"><f a=""><c path="sys.ssl.Certificate"/></f></loadDefaults>
 		<native><c path="mbedtls.X509Crt"/></native>
 		<commonName public="1" get="accessor" set="null"><x path="Null"><c path="String"/></x></commonName>
 		<altNames public="1" get="accessor" set="null"><c path="Array"><c path="String"/></c></altNames>
@@ -32232,21 +32237,21 @@
 	<c path="String"/>
 	<x path="Null"><c path="String"/></x>
 </f></issuer>
-		<next public="1" set="method" line="70"><f a=""><x path="Null"><c path="sys.ssl.Certificate"/></x></f></next>
-		<add public="1" set="method" line="78"><f a="pem">
+		<next public="1" set="method" line="73"><f a=""><x path="Null"><c path="sys.ssl.Certificate"/></x></f></next>
+		<add public="1" set="method" line="81"><f a="pem">
 	<c path="String"/>
 	<x path="Void"/>
 </f></add>
-		<addDER public="1" set="method" line="82"><f a="der">
+		<addDER public="1" set="method" line="85"><f a="der">
 	<c path="haxe.io.Bytes"/>
 	<x path="Void"/>
 </f></addDER>
-		<get_commonName set="method" line="86"><f a=""><x path="Null"><c path="String"/></x></f></get_commonName>
-		<get_altNames set="method" line="90"><f a=""><c path="Array"><c path="String"/></c></f></get_altNames>
+		<get_commonName set="method" line="89"><f a=""><x path="Null"><c path="String"/></x></f></get_commonName>
+		<get_altNames set="method"><f a=""><c path="Array"><c path="String"/></c></f></get_altNames>
 		<get_notBefore set="method"><f a=""><c path="Date"/></f></get_notBefore>
 		<get_notAfter set="method"><f a=""><c path="Date"/></f></get_notAfter>
-		<getNative get="inline" set="null" line="98"><f a=""><c path="mbedtls.X509Crt"/></f></getNative>
-		<new set="method" line="32"><f a="native">
+		<getNative get="inline" set="null" line="99"><f a=""><c path="mbedtls.X509Crt"/></f></getNative>
+		<new set="method" line="33"><f a="native">
 	<c path="mbedtls.X509Crt"/>
 	<x path="Void"/>
 </f></new>
