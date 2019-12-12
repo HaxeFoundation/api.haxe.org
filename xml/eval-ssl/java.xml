@@ -1923,7 +1923,19 @@
 		</meta>
 	</class>
 	<class path="Std" params="" file="/home/vsts/work/1/s/std/java/_std/Std.hx">
-		<is public="1" set="method" line="28" static="1">
+		<is public="1" get="inline" set="null" line="28" static="1">
+			<f a="v:t">
+				<d/>
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Tells if a value `v` is of the type `t`. Returns `false` if `v` or `t` are null.
+
+		If `t` is a class or interface with `@:generic` meta, the result is `false`.
+
+		DEPRECATED. Use `Std.isOfType(v, t)` instead.</haxe_doc>
+		</is>
+		<isOfType public="1" set="method" line="32" static="1">
 			<f a="v:t">
 				<d/>
 				<d/>
@@ -1933,8 +1945,8 @@
 			<haxe_doc>Tells if a value `v` is of the type `t`. Returns `false` if `v` or `t` are null.
 
 		If `t` is a class or interface with `@:generic` meta, the result is `false`.</haxe_doc>
-		</is>
-		<string public="1" set="method" line="54" static="1">
+		</isOfType>
+		<string public="1" set="method" line="58" static="1">
 			<f a="s">
 				<d/>
 				<c path="String"/>
@@ -1956,7 +1968,7 @@
 
 		If s is null, "null" is returned.</haxe_doc>
 		</string>
-		<int public="1" set="method" line="58" static="1">
+		<int public="1" set="method" line="62" static="1">
 			<f a="x">
 				<x path="Float"/>
 				<x path="Int"/>
@@ -1965,7 +1977,7 @@
 
 		If `x` is outside of the signed Int32 range, or is `NaN`, `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`, the result is unspecified.</haxe_doc>
 		</int>
-		<parseInt public="1" set="method" line="62" static="1">
+		<parseInt public="1" set="method" line="66" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Null"><x path="Int"/></x>
@@ -1990,7 +2002,7 @@
 		If `x` is null, the result is unspecified.
 		If `x` cannot be parsed as integer, the result is `null`.</haxe_doc>
 		</parseInt>
-		<parseFloat public="1" set="method" line="112" static="1">
+		<parseFloat public="1" set="method" line="116" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Float"/>
@@ -2003,7 +2015,7 @@
 
 		Additionally, decimal notation may contain a single `.` to denote the start of the fractions.</haxe_doc>
 		</parseFloat>
-		<downcast public="1" params="T:S" get="inline" set="null" line="159" static="1">
+		<downcast public="1" params="T:S" get="inline" set="null" line="163" static="1">
 			<f a="value:c">
 				<c path="downcast.T"/>
 				<x path="Class"><c path="downcast.S"/></x>
@@ -2024,7 +2036,7 @@
 		If `value` is null, the result is null. If `c` is null, the result is
 		unspecified.</haxe_doc>
 		</downcast>
-		<instance public="1" params="T:S" get="inline" set="null" line="164" static="1">
+		<instance public="1" params="T:S" get="inline" set="null" line="168" static="1">
 			<f a="value:c">
 				<c path="instance.T"/>
 				<x path="Class"><c path="instance.S"/></x>
@@ -2032,7 +2044,7 @@
 			</f>
 			<meta><m n=":deprecated"><e>"Std.instance() is deprecated. Use Std.downcast() instead."</e></m></meta>
 		</instance>
-		<random public="1" set="method" line="168" static="1">
+		<random public="1" set="method" line="172" static="1">
 			<f a="x">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -6274,14 +6286,21 @@
 		<haxe_doc>Returns an Int64 with the value of the Int `x`.
 		`x` is sign-extended to fill 64 bits.</haxe_doc>
 	</ofInt>
-	<is public="1" get="inline" set="null" line="67" static="1">
+	<is public="1" get="inline" set="null" line="68" static="1">
+		<f a="val">
+			<d/>
+			<x path="Bool"/>
+		</f>
+		<meta><m n=":deprecated"><e>"haxe.Int64.is() is deprecated. Use haxe.Int64.isInt64() instead"</e></m></meta>
+	</is>
+	<isInt64 public="1" get="inline" set="null" line="71" static="1">
 		<f a="val">
 			<d/>
 			<x path="Bool"/>
 		</f>
 		<haxe_doc>Returns whether the value `val` is of type `haxe.Int64`</haxe_doc>
-	</is>
-	<toInt public="1" get="inline" set="null" line="70" static="1">
+	</isInt64>
+	<toInt public="1" get="inline" set="null" line="74" static="1">
 		<f a="x">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -6289,35 +6308,35 @@
 		<haxe_doc>Returns an Int with the value of the Int64 `x`.
 		Throws an exception  if `x` cannot be represented in 32 bits.</haxe_doc>
 	</toInt>
-	<getHigh public="1" get="inline" set="null" line="76" static="1">
+	<getHigh public="1" get="inline" set="null" line="80" static="1">
 		<f a="x">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int32"/>
 		</f>
 		<haxe_doc>Returns the high 32-bit word of `x`.</haxe_doc>
 	</getHigh>
-	<getLow public="1" get="inline" set="null" line="79" static="1">
+	<getLow public="1" get="inline" set="null" line="83" static="1">
 		<f a="x">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int32"/>
 		</f>
 		<haxe_doc>Returns the low 32-bit word of `x`.</haxe_doc>
 	</getLow>
-	<isNeg public="1" get="inline" set="null" line="82" static="1">
+	<isNeg public="1" get="inline" set="null" line="86" static="1">
 		<f a="x">
 			<x path="haxe.Int64"/>
 			<x path="Bool"/>
 		</f>
 		<haxe_doc>Returns `true` if `x` is less than zero.</haxe_doc>
 	</isNeg>
-	<isZero public="1" get="inline" set="null" line="85" static="1">
+	<isZero public="1" get="inline" set="null" line="89" static="1">
 		<f a="x">
 			<x path="haxe.Int64"/>
 			<x path="Bool"/>
 		</f>
 		<haxe_doc>Returns `true` if `x` is exactly zero.</haxe_doc>
 	</isZero>
-	<compare public="1" get="inline" set="null" line="88" static="1">
+	<compare public="1" get="inline" set="null" line="92" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6327,7 +6346,7 @@
 		Returns a negative value if `a < b`, positive if `a > b`,
 		or 0 if `a == b`.]]></haxe_doc>
 	</compare>
-	<ucompare public="1" get="inline" set="null" line="96" static="1">
+	<ucompare public="1" get="inline" set="null" line="100" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6337,14 +6356,14 @@
 		Returns a negative value if `a < b`, positive if `a > b`,
 		or 0 if `a == b`.]]></haxe_doc>
 	</ucompare>
-	<toStr public="1" get="inline" set="null" line="102" static="1">
+	<toStr public="1" get="inline" set="null" line="106" static="1">
 		<f a="x">
 			<x path="haxe.Int64"/>
 			<c path="String"/>
 		</f>
 		<haxe_doc>Returns a signed decimal `String` representation of `x`.</haxe_doc>
 	</toStr>
-	<divMod public="1" get="inline" set="null" line="105" static="1">
+	<divMod public="1" get="inline" set="null" line="109" static="1">
 		<f a="dividend:divisor">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6356,22 +6375,22 @@
 		<haxe_doc>Performs signed integer divison of `dividend` by `divisor`.
 		Returns `{ quotient : Int64, modulus : Int64 }`.</haxe_doc>
 	</divMod>
-	<toString get="inline" set="null" line="108" static="1">
+	<toString get="inline" set="null" line="112" static="1">
 		<f a="this">
 			<t path="haxe._Int64.__Int64"/>
 			<c path="String"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</toString>
-	<parseString public="1" set="method" line="111" static="1"><f a="sParam">
+	<parseString public="1" set="method" line="115" static="1"><f a="sParam">
 	<c path="String"/>
 	<x path="haxe.Int64"/>
 </f></parseString>
-	<fromFloat public="1" set="method" line="116" static="1"><f a="f">
+	<fromFloat public="1" set="method" line="120" static="1"><f a="f">
 	<x path="Float"/>
 	<x path="haxe.Int64"/>
 </f></fromFloat>
-	<neg public="1" set="method" line="120" static="1">
+	<neg public="1" set="method" line="124" static="1">
 		<f a="x">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6379,7 +6398,7 @@
 		<meta><m n=":op"><e>-A</e></m></meta>
 		<haxe_doc>Returns the negative of `x`.</haxe_doc>
 	</neg>
-	<preIncrement get="inline" set="null" line="123" static="1">
+	<preIncrement get="inline" set="null" line="127" static="1">
 		<f a="this">
 			<t path="haxe._Int64.__Int64"/>
 			<x path="haxe.Int64"/>
@@ -6389,7 +6408,7 @@
 			<m n=":op"><e>++A</e></m>
 		</meta>
 	</preIncrement>
-	<postIncrement get="inline" set="null" line="126" static="1">
+	<postIncrement get="inline" set="null" line="130" static="1">
 		<f a="this">
 			<t path="haxe._Int64.__Int64"/>
 			<x path="haxe.Int64"/>
@@ -6399,7 +6418,7 @@
 			<m n=":op"><e>A++</e></m>
 		</meta>
 	</postIncrement>
-	<preDecrement get="inline" set="null" line="129" static="1">
+	<preDecrement get="inline" set="null" line="133" static="1">
 		<f a="this">
 			<t path="haxe._Int64.__Int64"/>
 			<x path="haxe.Int64"/>
@@ -6409,7 +6428,7 @@
 			<m n=":op"><e>--A</e></m>
 		</meta>
 	</preDecrement>
-	<postDecrement get="inline" set="null" line="132" static="1">
+	<postDecrement get="inline" set="null" line="136" static="1">
 		<f a="this">
 			<t path="haxe._Int64.__Int64"/>
 			<x path="haxe.Int64"/>
@@ -6419,7 +6438,7 @@
 			<m n=":op"><e>A--</e></m>
 		</meta>
 	</postDecrement>
-	<add public="1" get="inline" set="null" line="135" static="1">
+	<add public="1" get="inline" set="null" line="139" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6428,7 +6447,7 @@
 		<meta><m n=":op"><e>A + B</e></m></meta>
 		<haxe_doc>Returns the sum of `a` and `b`.</haxe_doc>
 	</add>
-	<addInt get="inline" set="null" line="138" static="1">
+	<addInt get="inline" set="null" line="142" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -6439,7 +6458,7 @@
 			<m n=":commutative"/>
 		</meta>
 	</addInt>
-	<sub public="1" get="inline" set="null" line="141" static="1">
+	<sub public="1" get="inline" set="null" line="145" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6448,7 +6467,7 @@
 		<meta><m n=":op"><e>A - B</e></m></meta>
 		<haxe_doc>Returns `a` minus `b`.</haxe_doc>
 	</sub>
-	<subInt get="inline" set="null" line="144" static="1">
+	<subInt get="inline" set="null" line="148" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -6456,7 +6475,7 @@
 		</f>
 		<meta><m n=":op"><e>A - B</e></m></meta>
 	</subInt>
-	<intSub get="inline" set="null" line="147" static="1">
+	<intSub get="inline" set="null" line="151" static="1">
 		<f a="a:b">
 			<x path="Int"/>
 			<x path="haxe.Int64"/>
@@ -6464,7 +6483,7 @@
 		</f>
 		<meta><m n=":op"><e>A - B</e></m></meta>
 	</intSub>
-	<mul public="1" get="inline" set="null" line="150" static="1">
+	<mul public="1" get="inline" set="null" line="154" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6473,7 +6492,7 @@
 		<meta><m n=":op"><e>A * B</e></m></meta>
 		<haxe_doc>Returns the product of `a` and `b`.</haxe_doc>
 	</mul>
-	<mulInt get="inline" set="null" line="153" static="1">
+	<mulInt get="inline" set="null" line="157" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -6484,7 +6503,7 @@
 			<m n=":commutative"/>
 		</meta>
 	</mulInt>
-	<div public="1" get="inline" set="null" line="156" static="1">
+	<div public="1" get="inline" set="null" line="160" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6493,7 +6512,7 @@
 		<meta><m n=":op"><e>A / B</e></m></meta>
 		<haxe_doc>Returns the quotient of `a` divided by `b`.</haxe_doc>
 	</div>
-	<divInt get="inline" set="null" line="159" static="1">
+	<divInt get="inline" set="null" line="163" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -6501,7 +6520,7 @@
 		</f>
 		<meta><m n=":op"><e>A / B</e></m></meta>
 	</divInt>
-	<intDiv get="inline" set="null" line="162" static="1">
+	<intDiv get="inline" set="null" line="166" static="1">
 		<f a="a:b">
 			<x path="Int"/>
 			<x path="haxe.Int64"/>
@@ -6509,7 +6528,7 @@
 		</f>
 		<meta><m n=":op"><e>A / B</e></m></meta>
 	</intDiv>
-	<mod public="1" get="inline" set="null" line="165" static="1">
+	<mod public="1" get="inline" set="null" line="169" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6518,7 +6537,7 @@
 		<meta><m n=":op"><e>A % B</e></m></meta>
 		<haxe_doc>Returns the modulus of `a` divided by `b`.</haxe_doc>
 	</mod>
-	<modInt get="inline" set="null" line="168" static="1">
+	<modInt get="inline" set="null" line="172" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -6526,7 +6545,7 @@
 		</f>
 		<meta><m n=":op"><e>A % B</e></m></meta>
 	</modInt>
-	<intMod get="inline" set="null" line="171" static="1">
+	<intMod get="inline" set="null" line="175" static="1">
 		<f a="a:b">
 			<x path="Int"/>
 			<x path="haxe.Int64"/>
@@ -6534,7 +6553,7 @@
 		</f>
 		<meta><m n=":op"><e>A % B</e></m></meta>
 	</intMod>
-	<eq public="1" get="inline" set="null" line="174" static="1">
+	<eq public="1" get="inline" set="null" line="178" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6543,7 +6562,7 @@
 		<meta><m n=":op"><e>A == B</e></m></meta>
 		<haxe_doc>Returns `true` if `a` is equal to `b`.</haxe_doc>
 	</eq>
-	<eqInt get="inline" set="null" line="177" static="1">
+	<eqInt get="inline" set="null" line="181" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -6554,7 +6573,7 @@
 			<m n=":commutative"/>
 		</meta>
 	</eqInt>
-	<neq public="1" get="inline" set="null" line="180" static="1">
+	<neq public="1" get="inline" set="null" line="184" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6563,7 +6582,7 @@
 		<meta><m n=":op"><e>A != B</e></m></meta>
 		<haxe_doc>Returns `true` if `a` is not equal to `b`.</haxe_doc>
 	</neq>
-	<neqInt get="inline" set="null" line="183" static="1">
+	<neqInt get="inline" set="null" line="187" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -6574,7 +6593,7 @@
 			<m n=":commutative"/>
 		</meta>
 	</neqInt>
-	<lt get="inline" set="null" line="186" static="1">
+	<lt get="inline" set="null" line="190" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6582,7 +6601,7 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A < B]]></e></m></meta>
 	</lt>
-	<ltInt get="inline" set="null" line="189" static="1">
+	<ltInt get="inline" set="null" line="193" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -6590,7 +6609,7 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A < B]]></e></m></meta>
 	</ltInt>
-	<intLt get="inline" set="null" line="192" static="1">
+	<intLt get="inline" set="null" line="196" static="1">
 		<f a="a:b">
 			<x path="Int"/>
 			<x path="haxe.Int64"/>
@@ -6598,7 +6617,7 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A < B]]></e></m></meta>
 	</intLt>
-	<lte get="inline" set="null" line="195" static="1">
+	<lte get="inline" set="null" line="199" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6606,7 +6625,7 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A <= B]]></e></m></meta>
 	</lte>
-	<lteInt get="inline" set="null" line="198" static="1">
+	<lteInt get="inline" set="null" line="202" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -6614,7 +6633,7 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A <= B]]></e></m></meta>
 	</lteInt>
-	<intLte get="inline" set="null" line="201" static="1">
+	<intLte get="inline" set="null" line="205" static="1">
 		<f a="a:b">
 			<x path="Int"/>
 			<x path="haxe.Int64"/>
@@ -6622,7 +6641,7 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A <= B]]></e></m></meta>
 	</intLte>
-	<gt get="inline" set="null" line="204" static="1">
+	<gt get="inline" set="null" line="208" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6630,7 +6649,7 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A > B]]></e></m></meta>
 	</gt>
-	<gtInt get="inline" set="null" line="207" static="1">
+	<gtInt get="inline" set="null" line="211" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -6638,7 +6657,7 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A > B]]></e></m></meta>
 	</gtInt>
-	<intGt get="inline" set="null" line="210" static="1">
+	<intGt get="inline" set="null" line="214" static="1">
 		<f a="a:b">
 			<x path="Int"/>
 			<x path="haxe.Int64"/>
@@ -6646,7 +6665,7 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A > B]]></e></m></meta>
 	</intGt>
-	<gte get="inline" set="null" line="213" static="1">
+	<gte get="inline" set="null" line="217" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6654,7 +6673,7 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A >= B]]></e></m></meta>
 	</gte>
-	<gteInt get="inline" set="null" line="216" static="1">
+	<gteInt get="inline" set="null" line="220" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -6662,7 +6681,7 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A >= B]]></e></m></meta>
 	</gteInt>
-	<intGte get="inline" set="null" line="219" static="1">
+	<intGte get="inline" set="null" line="223" static="1">
 		<f a="a:b">
 			<x path="Int"/>
 			<x path="haxe.Int64"/>
@@ -6670,14 +6689,14 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A >= B]]></e></m></meta>
 	</intGte>
-	<complement get="inline" set="null" line="222" static="1">
+	<complement get="inline" set="null" line="226" static="1">
 		<f a="x">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
 		</f>
 		<meta><m n=":op"><e>~A</e></m></meta>
 	</complement>
-	<and public="1" get="inline" set="null" line="225" static="1">
+	<and public="1" get="inline" set="null" line="229" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6686,7 +6705,7 @@
 		<meta><m n=":op"><e><![CDATA[A & B]]></e></m></meta>
 		<haxe_doc>Returns the bitwise AND of `a` and `b`.</haxe_doc>
 	</and>
-	<or public="1" get="inline" set="null" line="228" static="1">
+	<or public="1" get="inline" set="null" line="232" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6695,7 +6714,7 @@
 		<meta><m n=":op"><e>A | B</e></m></meta>
 		<haxe_doc>Returns the bitwise OR of `a` and `b`.</haxe_doc>
 	</or>
-	<xor public="1" get="inline" set="null" line="231" static="1">
+	<xor public="1" get="inline" set="null" line="235" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -6704,7 +6723,7 @@
 		<meta><m n=":op"><e>A ^ B</e></m></meta>
 		<haxe_doc>Returns the bitwise XOR of `a` and `b`.</haxe_doc>
 	</xor>
-	<shl public="1" get="inline" set="null" line="234" static="1">
+	<shl public="1" get="inline" set="null" line="238" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -6713,7 +6732,7 @@
 		<meta><m n=":op"><e><![CDATA[A << B]]></e></m></meta>
 		<haxe_doc>Returns `a` left-shifted by `b` bits.</haxe_doc>
 	</shl>
-	<shr public="1" get="inline" set="null" line="237" static="1">
+	<shr public="1" get="inline" set="null" line="241" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -6723,7 +6742,7 @@
 		<haxe_doc>Returns `a` right-shifted by `b` bits in signed mode.
 		`a` is sign-extended.</haxe_doc>
 	</shr>
-	<ushr public="1" get="inline" set="null" line="240" static="1">
+	<ushr public="1" get="inline" set="null" line="244" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -6817,14 +6836,21 @@
 			<haxe_doc>Returns an Int64 with the value of the Int `x`.
 		`x` is sign-extended to fill 64 bits.</haxe_doc>
 		</ofInt>
-		<is public="1" get="inline" set="null" line="67" static="1">
+		<is public="1" get="inline" set="null" line="68" static="1">
+			<f a="val">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":deprecated"><e>"haxe.Int64.is() is deprecated. Use haxe.Int64.isInt64() instead"</e></m></meta>
+		</is>
+		<isInt64 public="1" get="inline" set="null" line="71" static="1">
 			<f a="val">
 				<d/>
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>Returns whether the value `val` is of type `haxe.Int64`</haxe_doc>
-		</is>
-		<toInt public="1" get="inline" set="null" line="70" static="1">
+		</isInt64>
+		<toInt public="1" get="inline" set="null" line="74" static="1">
 			<f a="x">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -6832,35 +6858,35 @@
 			<haxe_doc>Returns an Int with the value of the Int64 `x`.
 		Throws an exception  if `x` cannot be represented in 32 bits.</haxe_doc>
 		</toInt>
-		<getHigh public="1" get="inline" set="null" line="76" static="1">
+		<getHigh public="1" get="inline" set="null" line="80" static="1">
 			<f a="x">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int32"/>
 			</f>
 			<haxe_doc>Returns the high 32-bit word of `x`.</haxe_doc>
 		</getHigh>
-		<getLow public="1" get="inline" set="null" line="79" static="1">
+		<getLow public="1" get="inline" set="null" line="83" static="1">
 			<f a="x">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int32"/>
 			</f>
 			<haxe_doc>Returns the low 32-bit word of `x`.</haxe_doc>
 		</getLow>
-		<isNeg public="1" get="inline" set="null" line="82" static="1">
+		<isNeg public="1" get="inline" set="null" line="86" static="1">
 			<f a="x">
 				<x path="haxe.Int64"/>
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>Returns `true` if `x` is less than zero.</haxe_doc>
 		</isNeg>
-		<isZero public="1" get="inline" set="null" line="85" static="1">
+		<isZero public="1" get="inline" set="null" line="89" static="1">
 			<f a="x">
 				<x path="haxe.Int64"/>
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>Returns `true` if `x` is exactly zero.</haxe_doc>
 		</isZero>
-		<compare public="1" get="inline" set="null" line="88" static="1">
+		<compare public="1" get="inline" set="null" line="92" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -6870,7 +6896,7 @@
 		Returns a negative value if `a < b`, positive if `a > b`,
 		or 0 if `a == b`.]]></haxe_doc>
 		</compare>
-		<ucompare public="1" get="inline" set="null" line="96" static="1">
+		<ucompare public="1" get="inline" set="null" line="100" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -6880,14 +6906,14 @@
 		Returns a negative value if `a < b`, positive if `a > b`,
 		or 0 if `a == b`.]]></haxe_doc>
 		</ucompare>
-		<toStr public="1" get="inline" set="null" line="102" static="1">
+		<toStr public="1" get="inline" set="null" line="106" static="1">
 			<f a="x">
 				<x path="haxe.Int64"/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Returns a signed decimal `String` representation of `x`.</haxe_doc>
 		</toStr>
-		<divMod public="1" get="inline" set="null" line="105" static="1">
+		<divMod public="1" get="inline" set="null" line="109" static="1">
 			<f a="dividend:divisor">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -6899,22 +6925,22 @@
 			<haxe_doc>Performs signed integer divison of `dividend` by `divisor`.
 		Returns `{ quotient : Int64, modulus : Int64 }`.</haxe_doc>
 		</divMod>
-		<toString get="inline" set="null" line="108" static="1">
+		<toString get="inline" set="null" line="112" static="1">
 			<f a="this">
 				<t path="haxe._Int64.__Int64"/>
 				<c path="String"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</toString>
-		<parseString public="1" set="method" line="111" static="1"><f a="sParam">
+		<parseString public="1" set="method" line="115" static="1"><f a="sParam">
 	<c path="String"/>
 	<x path="haxe.Int64"/>
 </f></parseString>
-		<fromFloat public="1" set="method" line="116" static="1"><f a="f">
+		<fromFloat public="1" set="method" line="120" static="1"><f a="f">
 	<x path="Float"/>
 	<x path="haxe.Int64"/>
 </f></fromFloat>
-		<neg public="1" set="method" line="120" static="1">
+		<neg public="1" set="method" line="124" static="1">
 			<f a="x">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -6922,7 +6948,7 @@
 			<meta><m n=":op"><e>-A</e></m></meta>
 			<haxe_doc>Returns the negative of `x`.</haxe_doc>
 		</neg>
-		<preIncrement get="inline" set="null" line="123" static="1">
+		<preIncrement get="inline" set="null" line="127" static="1">
 			<f a="this">
 				<t path="haxe._Int64.__Int64"/>
 				<x path="haxe.Int64"/>
@@ -6932,7 +6958,7 @@
 				<m n=":op"><e>++A</e></m>
 			</meta>
 		</preIncrement>
-		<postIncrement get="inline" set="null" line="126" static="1">
+		<postIncrement get="inline" set="null" line="130" static="1">
 			<f a="this">
 				<t path="haxe._Int64.__Int64"/>
 				<x path="haxe.Int64"/>
@@ -6942,7 +6968,7 @@
 				<m n=":op"><e>A++</e></m>
 			</meta>
 		</postIncrement>
-		<preDecrement get="inline" set="null" line="129" static="1">
+		<preDecrement get="inline" set="null" line="133" static="1">
 			<f a="this">
 				<t path="haxe._Int64.__Int64"/>
 				<x path="haxe.Int64"/>
@@ -6952,7 +6978,7 @@
 				<m n=":op"><e>--A</e></m>
 			</meta>
 		</preDecrement>
-		<postDecrement get="inline" set="null" line="132" static="1">
+		<postDecrement get="inline" set="null" line="136" static="1">
 			<f a="this">
 				<t path="haxe._Int64.__Int64"/>
 				<x path="haxe.Int64"/>
@@ -6962,7 +6988,7 @@
 				<m n=":op"><e>A--</e></m>
 			</meta>
 		</postDecrement>
-		<add public="1" get="inline" set="null" line="135" static="1">
+		<add public="1" get="inline" set="null" line="139" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -6971,7 +6997,7 @@
 			<meta><m n=":op"><e>A + B</e></m></meta>
 			<haxe_doc>Returns the sum of `a` and `b`.</haxe_doc>
 		</add>
-		<addInt get="inline" set="null" line="138" static="1">
+		<addInt get="inline" set="null" line="142" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -6982,7 +7008,7 @@
 				<m n=":commutative"/>
 			</meta>
 		</addInt>
-		<sub public="1" get="inline" set="null" line="141" static="1">
+		<sub public="1" get="inline" set="null" line="145" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -6991,7 +7017,7 @@
 			<meta><m n=":op"><e>A - B</e></m></meta>
 			<haxe_doc>Returns `a` minus `b`.</haxe_doc>
 		</sub>
-		<subInt get="inline" set="null" line="144" static="1">
+		<subInt get="inline" set="null" line="148" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -6999,7 +7025,7 @@
 			</f>
 			<meta><m n=":op"><e>A - B</e></m></meta>
 		</subInt>
-		<intSub get="inline" set="null" line="147" static="1">
+		<intSub get="inline" set="null" line="151" static="1">
 			<f a="a:b">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
@@ -7007,7 +7033,7 @@
 			</f>
 			<meta><m n=":op"><e>A - B</e></m></meta>
 		</intSub>
-		<mul public="1" get="inline" set="null" line="150" static="1">
+		<mul public="1" get="inline" set="null" line="154" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -7016,7 +7042,7 @@
 			<meta><m n=":op"><e>A * B</e></m></meta>
 			<haxe_doc>Returns the product of `a` and `b`.</haxe_doc>
 		</mul>
-		<mulInt get="inline" set="null" line="153" static="1">
+		<mulInt get="inline" set="null" line="157" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -7027,7 +7053,7 @@
 				<m n=":commutative"/>
 			</meta>
 		</mulInt>
-		<div public="1" get="inline" set="null" line="156" static="1">
+		<div public="1" get="inline" set="null" line="160" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -7036,7 +7062,7 @@
 			<meta><m n=":op"><e>A / B</e></m></meta>
 			<haxe_doc>Returns the quotient of `a` divided by `b`.</haxe_doc>
 		</div>
-		<divInt get="inline" set="null" line="159" static="1">
+		<divInt get="inline" set="null" line="163" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -7044,7 +7070,7 @@
 			</f>
 			<meta><m n=":op"><e>A / B</e></m></meta>
 		</divInt>
-		<intDiv get="inline" set="null" line="162" static="1">
+		<intDiv get="inline" set="null" line="166" static="1">
 			<f a="a:b">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
@@ -7052,7 +7078,7 @@
 			</f>
 			<meta><m n=":op"><e>A / B</e></m></meta>
 		</intDiv>
-		<mod public="1" get="inline" set="null" line="165" static="1">
+		<mod public="1" get="inline" set="null" line="169" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -7061,7 +7087,7 @@
 			<meta><m n=":op"><e>A % B</e></m></meta>
 			<haxe_doc>Returns the modulus of `a` divided by `b`.</haxe_doc>
 		</mod>
-		<modInt get="inline" set="null" line="168" static="1">
+		<modInt get="inline" set="null" line="172" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -7069,7 +7095,7 @@
 			</f>
 			<meta><m n=":op"><e>A % B</e></m></meta>
 		</modInt>
-		<intMod get="inline" set="null" line="171" static="1">
+		<intMod get="inline" set="null" line="175" static="1">
 			<f a="a:b">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
@@ -7077,7 +7103,7 @@
 			</f>
 			<meta><m n=":op"><e>A % B</e></m></meta>
 		</intMod>
-		<eq public="1" get="inline" set="null" line="174" static="1">
+		<eq public="1" get="inline" set="null" line="178" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -7086,7 +7112,7 @@
 			<meta><m n=":op"><e>A == B</e></m></meta>
 			<haxe_doc>Returns `true` if `a` is equal to `b`.</haxe_doc>
 		</eq>
-		<eqInt get="inline" set="null" line="177" static="1">
+		<eqInt get="inline" set="null" line="181" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -7097,7 +7123,7 @@
 				<m n=":commutative"/>
 			</meta>
 		</eqInt>
-		<neq public="1" get="inline" set="null" line="180" static="1">
+		<neq public="1" get="inline" set="null" line="184" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -7106,7 +7132,7 @@
 			<meta><m n=":op"><e>A != B</e></m></meta>
 			<haxe_doc>Returns `true` if `a` is not equal to `b`.</haxe_doc>
 		</neq>
-		<neqInt get="inline" set="null" line="183" static="1">
+		<neqInt get="inline" set="null" line="187" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -7117,7 +7143,7 @@
 				<m n=":commutative"/>
 			</meta>
 		</neqInt>
-		<lt get="inline" set="null" line="186" static="1">
+		<lt get="inline" set="null" line="190" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -7125,7 +7151,7 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A < B]]></e></m></meta>
 		</lt>
-		<ltInt get="inline" set="null" line="189" static="1">
+		<ltInt get="inline" set="null" line="193" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -7133,7 +7159,7 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A < B]]></e></m></meta>
 		</ltInt>
-		<intLt get="inline" set="null" line="192" static="1">
+		<intLt get="inline" set="null" line="196" static="1">
 			<f a="a:b">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
@@ -7141,7 +7167,7 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A < B]]></e></m></meta>
 		</intLt>
-		<lte get="inline" set="null" line="195" static="1">
+		<lte get="inline" set="null" line="199" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -7149,7 +7175,7 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A <= B]]></e></m></meta>
 		</lte>
-		<lteInt get="inline" set="null" line="198" static="1">
+		<lteInt get="inline" set="null" line="202" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -7157,7 +7183,7 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A <= B]]></e></m></meta>
 		</lteInt>
-		<intLte get="inline" set="null" line="201" static="1">
+		<intLte get="inline" set="null" line="205" static="1">
 			<f a="a:b">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
@@ -7165,7 +7191,7 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A <= B]]></e></m></meta>
 		</intLte>
-		<gt get="inline" set="null" line="204" static="1">
+		<gt get="inline" set="null" line="208" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -7173,7 +7199,7 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A > B]]></e></m></meta>
 		</gt>
-		<gtInt get="inline" set="null" line="207" static="1">
+		<gtInt get="inline" set="null" line="211" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -7181,7 +7207,7 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A > B]]></e></m></meta>
 		</gtInt>
-		<intGt get="inline" set="null" line="210" static="1">
+		<intGt get="inline" set="null" line="214" static="1">
 			<f a="a:b">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
@@ -7189,7 +7215,7 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A > B]]></e></m></meta>
 		</intGt>
-		<gte get="inline" set="null" line="213" static="1">
+		<gte get="inline" set="null" line="217" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -7197,7 +7223,7 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A >= B]]></e></m></meta>
 		</gte>
-		<gteInt get="inline" set="null" line="216" static="1">
+		<gteInt get="inline" set="null" line="220" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -7205,7 +7231,7 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A >= B]]></e></m></meta>
 		</gteInt>
-		<intGte get="inline" set="null" line="219" static="1">
+		<intGte get="inline" set="null" line="223" static="1">
 			<f a="a:b">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
@@ -7213,14 +7239,14 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A >= B]]></e></m></meta>
 		</intGte>
-		<complement get="inline" set="null" line="222" static="1">
+		<complement get="inline" set="null" line="226" static="1">
 			<f a="x">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
 			</f>
 			<meta><m n=":op"><e>~A</e></m></meta>
 		</complement>
-		<and public="1" get="inline" set="null" line="225" static="1">
+		<and public="1" get="inline" set="null" line="229" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -7229,7 +7255,7 @@
 			<meta><m n=":op"><e><![CDATA[A & B]]></e></m></meta>
 			<haxe_doc>Returns the bitwise AND of `a` and `b`.</haxe_doc>
 		</and>
-		<or public="1" get="inline" set="null" line="228" static="1">
+		<or public="1" get="inline" set="null" line="232" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -7238,7 +7264,7 @@
 			<meta><m n=":op"><e>A | B</e></m></meta>
 			<haxe_doc>Returns the bitwise OR of `a` and `b`.</haxe_doc>
 		</or>
-		<xor public="1" get="inline" set="null" line="231" static="1">
+		<xor public="1" get="inline" set="null" line="235" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -7247,7 +7273,7 @@
 			<meta><m n=":op"><e>A ^ B</e></m></meta>
 			<haxe_doc>Returns the bitwise XOR of `a` and `b`.</haxe_doc>
 		</xor>
-		<shl public="1" get="inline" set="null" line="234" static="1">
+		<shl public="1" get="inline" set="null" line="238" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -7256,7 +7282,7 @@
 			<meta><m n=":op"><e><![CDATA[A << B]]></e></m></meta>
 			<haxe_doc>Returns `a` left-shifted by `b` bits.</haxe_doc>
 		</shl>
-		<shr public="1" get="inline" set="null" line="237" static="1">
+		<shr public="1" get="inline" set="null" line="241" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -7266,7 +7292,7 @@
 			<haxe_doc>Returns `a` right-shifted by `b` bits in signed mode.
 		`a` is sign-extended.</haxe_doc>
 		</shr>
-		<ushr public="1" get="inline" set="null" line="240" static="1">
+		<ushr public="1" get="inline" set="null" line="244" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
