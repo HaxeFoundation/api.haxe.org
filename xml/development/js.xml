@@ -291,6 +291,16 @@
 		If `x` is not found, `this` Array is not changed and the function
 		returns false.</haxe_doc>
 		</remove>
+		<contains public="1" get="inline" set="null" line="47">
+			<f a="x">
+				<c path="Array.T"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Returns whether `this` Array contains `x`.
+
+		If `x` is found by checking standard equality, the function returns `true`, otherwise
+		the function returns `false`.</haxe_doc>
+		</contains>
 		<indexOf public="1" set="method">
 			<f a="x:?fromIndex">
 				<c path="Array.T"/>
@@ -327,7 +337,7 @@
 		given or computed starting index is greater than or equal to the length of `this` Array,
 		the whole array will be searched, if it is less than 0, the function returns -1.</haxe_doc>
 		</lastIndexOf>
-		<copy public="1" get="inline" set="null" line="61">
+		<copy public="1" get="inline" set="null" line="69">
 			<f a=""><c path="Array"><c path="Array.T"/></c></f>
 			<haxe_doc>Returns a shallow copy of `this` Array.
 
@@ -335,7 +345,7 @@
 		`a[i] == a.copy()[i]` is true for any valid `i`. However,
 		`a == a.copy()` is always false.</haxe_doc>
 		</copy>
-		<map public="1" params="S" get="inline" set="null" line="65">
+		<map public="1" params="S" get="inline" set="null" line="73">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -350,7 +360,7 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</map>
-		<filter public="1" get="inline" set="null" line="73">
+		<filter public="1" get="inline" set="null" line="81">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -366,12 +376,12 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</filter>
-		<iterator public="1" get="inline" set="null" line="77">
+		<iterator public="1" get="inline" set="null" line="85">
 			<f a=""><c path="haxe.iterators.ArrayIterator"><c path="Array.T"/></c></f>
 			<meta><m n=":runtime"/></meta>
 			<haxe_doc>Returns an iterator of the Array values.</haxe_doc>
 		</iterator>
-		<resize public="1" get="inline" set="null" line="81">
+		<resize public="1" get="inline" set="null" line="89">
 			<f a="len">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -1031,6 +1041,443 @@
 		This method is implemented in the compiler. This definition exists only
 		for documentation.</haxe_doc>
 </match></class>
+	<class path="js.Syntax" params="" file="/home/vsts/work/1/s/std/js/Syntax.hx" extern="1">
+		<code public="1" set="method" static="1">
+			<f a="code:args">
+				<c path="String"/>
+				<x path="haxe.extern.Rest"><d/></x>
+				<d/>
+			</f>
+			<haxe_doc>Inject `code` directly into generated source.
+
+		`code` must be a string constant.
+
+		Additional `args` are supported to provide code interpolation, for example:
+		```haxe
+		Syntax.code("console.log({0}, {1})", "hi", 42);
+		```
+		will generate
+		```haxe
+		console.log("hi", 42);
+		```
+
+		Emits a compilation error if the count of `args` does not match the count of placeholders in `code`.</haxe_doc>
+		</code>
+		<plainCode public="1" set="method" static="1">
+			<f a="code">
+				<c path="String"/>
+				<d/>
+			</f>
+			<haxe_doc>Inject `code` directly into generated source.
+		The same as `js.Syntax.code` except this one does not provide code interpolation.</haxe_doc>
+		</plainCode>
+		<construct public="1" params="T" set="method" static="1">
+			<f a="cl:args">
+				<x path="Class"><c path="construct.T"/></x>
+				<x path="haxe.extern.Rest"><d/></x>
+				<c path="construct.T"/>
+			</f>
+			<haxe_doc>Generate `new cl(...args)` expression.</haxe_doc>
+			<overloads><construct public="1" set="method">
+	<f a="cl:args">
+		<c path="String"/>
+		<x path="haxe.extern.Rest"><d/></x>
+		<d/>
+	</f>
+	<haxe_doc>Generate `new cl(...args)` expression.</haxe_doc>
+</construct></overloads>
+		</construct>
+		<instanceof public="1" set="method" static="1">
+			<f a="v:cl">
+				<d/>
+				<x path="Class"><d/></x>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Generate `v instanceof cl` expression.</haxe_doc>
+		</instanceof>
+		<typeof public="1" set="method" static="1">
+			<f a="o">
+				<d/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Generate `typeof o` expression.</haxe_doc>
+		</typeof>
+		<strictEq public="1" set="method" static="1">
+			<f a="a:b">
+				<d/>
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Genearte `a === b` expression.</haxe_doc>
+		</strictEq>
+		<strictNeq public="1" set="method" static="1">
+			<f a="a:b">
+				<d/>
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Genearte `a !== b` expression.</haxe_doc>
+		</strictNeq>
+		<delete public="1" set="method" static="1">
+			<f a="o:f">
+				<d/>
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Generate `delete o[f]` expression.</haxe_doc>
+			<overloads><delete public="1" set="method">
+	<f a="o:f">
+		<d/>
+		<x path="Int"/>
+		<x path="Bool"/>
+	</f>
+	<haxe_doc>Generate `delete o[f]` expression.</haxe_doc>
+</delete></overloads>
+		</delete>
+		<field public="1" set="method" static="1">
+			<f a="o:f">
+				<d/>
+				<c path="String"/>
+				<d/>
+			</f>
+			<haxe_doc>Generate `o.f` expression, if `f` is a constant string,
+		or `o[f]` if it's any other expression.</haxe_doc>
+		</field>
+		<haxe_doc>Generate JavaScript syntax not directly supported by Haxe.
+	Use only at low-level when specific target-specific code-generation is required.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":noClosure"/>
+		</meta>
+	</class>
+	<class path="js.lib.Date" params="" file="/home/vsts/work/1/s/std/js/lib/Date.hx" extern="1">
+		<fromHaxeDate public="1" get="inline" set="null" line="40" static="1">
+			<f a="date">
+				<t path="_Date.HaxeDate"/>
+				<c path="js.lib.Date"/>
+			</f>
+			<haxe_doc>Cast Haxe's Date to js.lib.Date.</haxe_doc>
+		</fromHaxeDate>
+		<toHaxeDate public="1" get="inline" set="null" line="47" static="1">
+			<f a="date">
+				<c path="js.lib.Date"/>
+				<t path="_Date.HaxeDate"/>
+			</f>
+			<haxe_doc>Cast js.lib.Date to Haxe's Date.</haxe_doc>
+		</toHaxeDate>
+		<now public="1" set="method" static="1">
+			<f a=""><x path="Float"/></f>
+			<haxe_doc>Returns the numeric value corresponding to the current time - the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC, with leap seconds ignored</haxe_doc>
+		</now>
+		<parse public="1" set="method" static="1">
+			<f a="str">
+				<c path="String"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Parses a string representation of a date and returns the number of milliseconds since 1 January, 1970, 00:00:00, UTC, with leap seconds ignored.</haxe_doc>
+		</parse>
+		<UTC public="1" set="method" static="1">
+			<f a="year:month:?day:?hours:?minutes:?seconds:?milliseconds">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the number of milliseconds since January 1, 1970, 00:00:00 UTC, with leap seconds ignored.</haxe_doc>
+		</UTC>
+		<getDate public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the day of the month (1-31) for the specified date according to local time.</haxe_doc>
+		</getDate>
+		<getDay public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the day of the week (0-6) for the specified date according to local time.</haxe_doc>
+		</getDay>
+		<getFullYear public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the year (4 digits for 4-digit years) of the specified date according to local time.</haxe_doc>
+		</getFullYear>
+		<getHours public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the hour (0-23) in the specified date according to local time.</haxe_doc>
+		</getHours>
+		<getMilliseconds public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the milliseconds (0-999) in the specified date according to local time.</haxe_doc>
+		</getMilliseconds>
+		<getMinutes public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the minutes (0-59) in the specified date according to local time.</haxe_doc>
+		</getMinutes>
+		<getMonth public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the month (0-11) in the specified date according to local time.</haxe_doc>
+		</getMonth>
+		<getSeconds public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the seconds (0-59) in the specified date according to local time.</haxe_doc>
+		</getSeconds>
+		<getTime public="1" set="method">
+			<f a=""><x path="Float"/></f>
+			<haxe_doc>Returns the numeric value of the specified date as the number of milliseconds since January 1, 1970, 00:00:00 UTC (negative for prior times).</haxe_doc>
+		</getTime>
+		<getTimezoneOffset public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the time-zone offset in minutes for the current locale.</haxe_doc>
+		</getTimezoneOffset>
+		<getUTCDate public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the day (date) of the month (1-31) in the specified date according to universal time.</haxe_doc>
+		</getUTCDate>
+		<getUTCDay public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the day of the week (0-6) in the specified date according to universal time.</haxe_doc>
+		</getUTCDay>
+		<getUTCFullYear public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the year (4 digits for 4-digit years) in the specified date according to universal time.</haxe_doc>
+		</getUTCFullYear>
+		<getUTCHours public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the hours (0-23) in the specified date according to universal time.</haxe_doc>
+		</getUTCHours>
+		<getUTCMilliseconds public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the milliseconds (0-999) in the specified date according to universal time.</haxe_doc>
+		</getUTCMilliseconds>
+		<getUTCMinutes public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the minutes (0-59) in the specified date according to universal time.</haxe_doc>
+		</getUTCMinutes>
+		<getUTCMonth public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the month (0-11) in the specified date according to universal time.</haxe_doc>
+		</getUTCMonth>
+		<getUTCSeconds public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Returns the seconds (0-59) in the specified date according to universal time.</haxe_doc>
+		</getUTCSeconds>
+		<setDate public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the day of the month for a specified date according to local time.</haxe_doc>
+		</setDate>
+		<setFullYear public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the full year (e.g. 4 digits for 4-digit years) for a specified date according to local time.</haxe_doc>
+		</setFullYear>
+		<setHours public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the hours for a specified date according to local time.</haxe_doc>
+		</setHours>
+		<setMilliseconds public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the milliseconds for a specified date according to local time.</haxe_doc>
+		</setMilliseconds>
+		<setMinutes public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the minutes for a specified date according to local time.</haxe_doc>
+		</setMinutes>
+		<setMonth public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the month for a specified date according to local time.</haxe_doc>
+		</setMonth>
+		<setSeconds public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the seconds for a specified date according to local time.</haxe_doc>
+		</setSeconds>
+		<setTime public="1" set="method">
+			<f a="value">
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the Date object to the time represented by a number of milliseconds since January 1, 1970, 00:00:00 UTC, allowing for negative numbers for times prior.</haxe_doc>
+		</setTime>
+		<setUTCDate public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the day of the month for a specified date according to universal time.</haxe_doc>
+		</setUTCDate>
+		<setUTCFullYear public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the full year (e.g. 4 digits for 4-digit years) for a specified date according to universal time.</haxe_doc>
+		</setUTCFullYear>
+		<setUTCHours public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the hour for a specified date according to universal time.</haxe_doc>
+		</setUTCHours>
+		<setUTCMilliseconds public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the milliseconds for a specified date according to universal time.</haxe_doc>
+		</setUTCMilliseconds>
+		<setUTCMinutes public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the minutes for a specified date according to universal time.</haxe_doc>
+		</setUTCMinutes>
+		<setUTCMonth public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the month for a specified date according to universal time.</haxe_doc>
+		</setUTCMonth>
+		<setUTCSeconds public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the seconds for a specified date according to universal time.</haxe_doc>
+		</setUTCSeconds>
+		<toDateString public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns the "date" portion of the Date as a human-readable string.</haxe_doc>
+		</toDateString>
+		<toISOString public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Converts a date to a string following the ISO 8601 Extended Format.</haxe_doc>
+		</toISOString>
+		<toJSON public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns a string representing the Date using toISOString(). Intended for use by JSON.stringify().</haxe_doc>
+		</toJSON>
+		<toLocaleDateString public="1" set="method">
+			<f a="?locales:?options">
+				<c path="String"/>
+				<d><d/></d>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a string with a locality sensitive representation of the date portion of this date based on system settings.</haxe_doc>
+			<overloads><toLocaleDateString public="1" set="method">
+	<f a="?locales:?options">
+		<c path="Array"><c path="String"/></c>
+		<d><d/></d>
+		<c path="String"/>
+	</f>
+	<haxe_doc>Returns a string with a locality sensitive representation of the date portion of this date based on system settings.</haxe_doc>
+</toLocaleDateString></overloads>
+		</toLocaleDateString>
+		<toLocaleFormat public="1" set="method">
+			<f a="format">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Converts a date to a string, using a format string.</haxe_doc>
+		</toLocaleFormat>
+		<toLocaleString public="1" set="method">
+			<f a="?locales:?options">
+				<c path="String"/>
+				<d><d/></d>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a string with a locality sensitive representation of this date. Overrides the Object.prototype.toLocaleString() method.</haxe_doc>
+			<overloads><toLocaleString public="1" set="method">
+	<f a="?locales:?options">
+		<c path="Array"><c path="String"/></c>
+		<d><d/></d>
+		<c path="String"/>
+	</f>
+	<haxe_doc>Returns a string with a locality sensitive representation of this date. Overrides the Object.prototype.toLocaleString() method.</haxe_doc>
+</toLocaleString></overloads>
+		</toLocaleString>
+		<toLocaleTimeString public="1" set="method">
+			<f a="?locales:?options">
+				<c path="String"/>
+				<d><d/></d>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a string with a locality sensitive representation of the time portion of this date based on system settings.</haxe_doc>
+			<overloads><toLocaleTimeString public="1" set="method">
+	<f a="?locales:?options">
+		<c path="Array"><c path="String"/></c>
+		<d><d/></d>
+		<c path="String"/>
+	</f>
+	<haxe_doc>Returns a string with a locality sensitive representation of the time portion of this date based on system settings.</haxe_doc>
+</toLocaleTimeString></overloads>
+		</toLocaleTimeString>
+		<toSource public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns a string representing the source for an equivalent Date object; you can use this value to create a new object. Overrides the Object.prototype.toSource() method.</haxe_doc>
+		</toSource>
+		<toString public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns a string representing the specified Date object. Overrides the Object.prototype.toString() method.</haxe_doc>
+		</toString>
+		<toTimeString public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns the "time" portion of the Date as a human-readable string.</haxe_doc>
+		</toTimeString>
+		<toUTCString public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Converts a date to a string using the UTC timezone.</haxe_doc>
+		</toUTCString>
+		<new public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<overloads>
+				<new public="1" set="method"><f a="value">
+	<x path="Float"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="dateString">
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="year:month:?day:?hours:?minutes:?seconds:?milliseconds">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></new>
+			</overloads>
+		</new>
+		<haxe_doc>Creates a JavaScript Date instance that represents a single moment in time. Date objects are based on a time value that is the number of milliseconds since 1 January 1970 UTC.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"Date"</e></m>
+		</meta>
+	</class>
 	<class path="IntIterator" params="" file="/home/vsts/work/1/s/std/IntIterator.hx">
 		<min><x path="Int"/></min>
 		<max><x path="Int"/></max>
@@ -1696,115 +2143,6 @@
 
 	@see https://haxe.org/manual/std-reflection.html</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
-	</class>
-	<class path="js.Syntax" params="" file="/home/vsts/work/1/s/std/js/Syntax.hx" extern="1">
-		<code public="1" set="method" static="1">
-			<f a="code:args">
-				<c path="String"/>
-				<x path="haxe.extern.Rest"><d/></x>
-				<d/>
-			</f>
-			<haxe_doc>Inject `code` directly into generated source.
-
-		`code` must be a string constant.
-
-		Additional `args` are supported to provide code interpolation, for example:
-		```haxe
-		Syntax.code("console.log({0}, {1})", "hi", 42);
-		```
-		will generate
-		```haxe
-		console.log("hi", 42);
-		```
-
-		Emits a compilation error if the count of `args` does not match the count of placeholders in `code`.</haxe_doc>
-		</code>
-		<plainCode public="1" set="method" static="1">
-			<f a="code">
-				<c path="String"/>
-				<d/>
-			</f>
-			<haxe_doc>Inject `code` directly into generated source.
-		The same as `js.Syntax.code` except this one does not provide code interpolation.</haxe_doc>
-		</plainCode>
-		<construct public="1" params="T" set="method" static="1">
-			<f a="cl:args">
-				<x path="Class"><c path="construct.T"/></x>
-				<x path="haxe.extern.Rest"><d/></x>
-				<c path="construct.T"/>
-			</f>
-			<haxe_doc>Generate `new cl(...args)` expression.</haxe_doc>
-			<overloads><construct public="1" set="method">
-	<f a="cl:args">
-		<c path="String"/>
-		<x path="haxe.extern.Rest"><d/></x>
-		<d/>
-	</f>
-	<haxe_doc>Generate `new cl(...args)` expression.</haxe_doc>
-</construct></overloads>
-		</construct>
-		<instanceof public="1" set="method" static="1">
-			<f a="v:cl">
-				<d/>
-				<x path="Class"><d/></x>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Generate `v instanceof cl` expression.</haxe_doc>
-		</instanceof>
-		<typeof public="1" set="method" static="1">
-			<f a="o">
-				<d/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Generate `typeof o` expression.</haxe_doc>
-		</typeof>
-		<strictEq public="1" set="method" static="1">
-			<f a="a:b">
-				<d/>
-				<d/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Genearte `a === b` expression.</haxe_doc>
-		</strictEq>
-		<strictNeq public="1" set="method" static="1">
-			<f a="a:b">
-				<d/>
-				<d/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Genearte `a !== b` expression.</haxe_doc>
-		</strictNeq>
-		<delete public="1" set="method" static="1">
-			<f a="o:f">
-				<d/>
-				<c path="String"/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Generate `delete o[f]` expression.</haxe_doc>
-			<overloads><delete public="1" set="method">
-	<f a="o:f">
-		<d/>
-		<x path="Int"/>
-		<x path="Bool"/>
-	</f>
-	<haxe_doc>Generate `delete o[f]` expression.</haxe_doc>
-</delete></overloads>
-		</delete>
-		<field public="1" set="method" static="1">
-			<f a="o:f">
-				<d/>
-				<c path="String"/>
-				<d/>
-			</f>
-			<haxe_doc>Generate `o.f` expression, if `f` is a constant string,
-		or `o[f]` if it's any other expression.</haxe_doc>
-		</field>
-		<haxe_doc>Generate JavaScript syntax not directly supported by Haxe.
-	Use only at low-level when specific target-specific code-generation is required.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":noClosure"/>
-		</meta>
 	</class>
 	<class path="String" params="" file="/home/vsts/work/1/s/std/js/_std/String.hx" extern="1">
 		<fromCharCode public="1" get="inline" set="null" line="43" static="1">
@@ -30955,7 +31293,7 @@
 	<d/>
 	<x path="Bool"/>
 </f></__interfLoop>
-		<__instanceof set="method" line="179" static="1">
+		<__instanceof set="method" line="182" static="1">
 			<f a="o:cl">
 				<d/>
 				<d/>
@@ -30966,17 +31304,17 @@
 				<m n=":ifFeature"><e>"typed_catch"</e></m>
 			</meta>
 		</__instanceof>
-		<__downcastCheck set="method" line="223" static="1"><f a="o:cl">
+		<__downcastCheck set="method" line="226" static="1"><f a="o:cl">
 	<d/>
 	<x path="Class"><d/></x>
 	<x path="Bool"/>
 </f></__downcastCheck>
-		<__implements set="method" line="227" static="1"><f a="o:iface">
+		<__implements set="method" line="230" static="1"><f a="o:iface">
 	<d/>
 	<x path="Class"><d/></x>
 	<x path="Bool"/>
 </f></__implements>
-		<__cast set="method" line="231" static="1">
+		<__cast set="method" line="234" static="1">
 			<f a="o:t">
 				<d/>
 				<d/>
@@ -30985,15 +31323,15 @@
 			<meta><m n=":ifFeature"><e>"typed_cast"</e></m></meta>
 		</__cast>
 		<__toStr static="1"><c path="js.lib.Function"/></__toStr>
-		<__nativeClassName set="method" line="245" static="1"><f a="o">
+		<__nativeClassName set="method" line="248" static="1"><f a="o">
 	<d/>
 	<c path="String"/>
 </f></__nativeClassName>
-		<__isNativeObj set="method" line="255" static="1"><f a="o">
+		<__isNativeObj set="method" line="258" static="1"><f a="o">
 	<d/>
 	<x path="Bool"/>
 </f></__isNativeObj>
-		<__resolveNativeClass set="method" line="260" static="1"><f a="name">
+		<__resolveNativeClass set="method" line="263" static="1"><f a="name">
 	<c path="String"/>
 	<x path="Null"><d/></x>
 </f></__resolveNativeClass>
@@ -80153,334 +80491,6 @@
 	</f>
 	<meta><m n=":from"/></meta>
 </fromBufferView></class>
-	<class path="js.lib.Date" params="" file="/home/vsts/work/1/s/std/js/lib/Date.hx" extern="1">
-		<fromHaxeDate public="1" get="inline" set="null" line="40" static="1">
-			<f a="date">
-				<t path="_Date.HaxeDate"/>
-				<c path="js.lib.Date"/>
-			</f>
-			<haxe_doc>Cast Haxe's Date to js.lib.Date.</haxe_doc>
-		</fromHaxeDate>
-		<toHaxeDate public="1" get="inline" set="null" line="47" static="1">
-			<f a="date">
-				<c path="js.lib.Date"/>
-				<t path="_Date.HaxeDate"/>
-			</f>
-			<haxe_doc>Cast js.lib.Date to Haxe's Date.</haxe_doc>
-		</toHaxeDate>
-		<now public="1" set="method" static="1">
-			<f a=""><x path="Float"/></f>
-			<haxe_doc>Returns the numeric value corresponding to the current time - the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC, with leap seconds ignored</haxe_doc>
-		</now>
-		<parse public="1" set="method" static="1">
-			<f a="str">
-				<c path="String"/>
-				<x path="Float"/>
-			</f>
-			<haxe_doc>Parses a string representation of a date and returns the number of milliseconds since 1 January, 1970, 00:00:00, UTC, with leap seconds ignored.</haxe_doc>
-		</parse>
-		<UTC public="1" set="method" static="1">
-			<f a="year:month:?day:?hours:?minutes:?seconds:?milliseconds">
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Float"/>
-			</f>
-			<haxe_doc>Returns the number of milliseconds since January 1, 1970, 00:00:00 UTC, with leap seconds ignored.</haxe_doc>
-		</UTC>
-		<getDate public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the day of the month (1-31) for the specified date according to local time.</haxe_doc>
-		</getDate>
-		<getDay public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the day of the week (0-6) for the specified date according to local time.</haxe_doc>
-		</getDay>
-		<getFullYear public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the year (4 digits for 4-digit years) of the specified date according to local time.</haxe_doc>
-		</getFullYear>
-		<getHours public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the hour (0-23) in the specified date according to local time.</haxe_doc>
-		</getHours>
-		<getMilliseconds public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the milliseconds (0-999) in the specified date according to local time.</haxe_doc>
-		</getMilliseconds>
-		<getMinutes public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the minutes (0-59) in the specified date according to local time.</haxe_doc>
-		</getMinutes>
-		<getMonth public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the month (0-11) in the specified date according to local time.</haxe_doc>
-		</getMonth>
-		<getSeconds public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the seconds (0-59) in the specified date according to local time.</haxe_doc>
-		</getSeconds>
-		<getTime public="1" set="method">
-			<f a=""><x path="Float"/></f>
-			<haxe_doc>Returns the numeric value of the specified date as the number of milliseconds since January 1, 1970, 00:00:00 UTC (negative for prior times).</haxe_doc>
-		</getTime>
-		<getTimezoneOffset public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the time-zone offset in minutes for the current locale.</haxe_doc>
-		</getTimezoneOffset>
-		<getUTCDate public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the day (date) of the month (1-31) in the specified date according to universal time.</haxe_doc>
-		</getUTCDate>
-		<getUTCDay public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the day of the week (0-6) in the specified date according to universal time.</haxe_doc>
-		</getUTCDay>
-		<getUTCFullYear public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the year (4 digits for 4-digit years) in the specified date according to universal time.</haxe_doc>
-		</getUTCFullYear>
-		<getUTCHours public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the hours (0-23) in the specified date according to universal time.</haxe_doc>
-		</getUTCHours>
-		<getUTCMilliseconds public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the milliseconds (0-999) in the specified date according to universal time.</haxe_doc>
-		</getUTCMilliseconds>
-		<getUTCMinutes public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the minutes (0-59) in the specified date according to universal time.</haxe_doc>
-		</getUTCMinutes>
-		<getUTCMonth public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the month (0-11) in the specified date according to universal time.</haxe_doc>
-		</getUTCMonth>
-		<getUTCSeconds public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Returns the seconds (0-59) in the specified date according to universal time.</haxe_doc>
-		</getUTCSeconds>
-		<setDate public="1" set="method">
-			<f a="value">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the day of the month for a specified date according to local time.</haxe_doc>
-		</setDate>
-		<setFullYear public="1" set="method">
-			<f a="value">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the full year (e.g. 4 digits for 4-digit years) for a specified date according to local time.</haxe_doc>
-		</setFullYear>
-		<setHours public="1" set="method">
-			<f a="value">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the hours for a specified date according to local time.</haxe_doc>
-		</setHours>
-		<setMilliseconds public="1" set="method">
-			<f a="value">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the milliseconds for a specified date according to local time.</haxe_doc>
-		</setMilliseconds>
-		<setMinutes public="1" set="method">
-			<f a="value">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the minutes for a specified date according to local time.</haxe_doc>
-		</setMinutes>
-		<setMonth public="1" set="method">
-			<f a="value">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the month for a specified date according to local time.</haxe_doc>
-		</setMonth>
-		<setSeconds public="1" set="method">
-			<f a="value">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the seconds for a specified date according to local time.</haxe_doc>
-		</setSeconds>
-		<setTime public="1" set="method">
-			<f a="value">
-				<x path="Float"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the Date object to the time represented by a number of milliseconds since January 1, 1970, 00:00:00 UTC, allowing for negative numbers for times prior.</haxe_doc>
-		</setTime>
-		<setUTCDate public="1" set="method">
-			<f a="value">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the day of the month for a specified date according to universal time.</haxe_doc>
-		</setUTCDate>
-		<setUTCFullYear public="1" set="method">
-			<f a="value">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the full year (e.g. 4 digits for 4-digit years) for a specified date according to universal time.</haxe_doc>
-		</setUTCFullYear>
-		<setUTCHours public="1" set="method">
-			<f a="value">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the hour for a specified date according to universal time.</haxe_doc>
-		</setUTCHours>
-		<setUTCMilliseconds public="1" set="method">
-			<f a="value">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the milliseconds for a specified date according to universal time.</haxe_doc>
-		</setUTCMilliseconds>
-		<setUTCMinutes public="1" set="method">
-			<f a="value">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the minutes for a specified date according to universal time.</haxe_doc>
-		</setUTCMinutes>
-		<setUTCMonth public="1" set="method">
-			<f a="value">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the month for a specified date according to universal time.</haxe_doc>
-		</setUTCMonth>
-		<setUTCSeconds public="1" set="method">
-			<f a="value">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the seconds for a specified date according to universal time.</haxe_doc>
-		</setUTCSeconds>
-		<toDateString public="1" set="method">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>Returns the "date" portion of the Date as a human-readable string.</haxe_doc>
-		</toDateString>
-		<toISOString public="1" set="method">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>Converts a date to a string following the ISO 8601 Extended Format.</haxe_doc>
-		</toISOString>
-		<toJSON public="1" set="method">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>Returns a string representing the Date using toISOString(). Intended for use by JSON.stringify().</haxe_doc>
-		</toJSON>
-		<toLocaleDateString public="1" set="method">
-			<f a="?locales:?options">
-				<c path="String"/>
-				<d><d/></d>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns a string with a locality sensitive representation of the date portion of this date based on system settings.</haxe_doc>
-			<overloads><toLocaleDateString public="1" set="method">
-	<f a="?locales:?options">
-		<c path="Array"><c path="String"/></c>
-		<d><d/></d>
-		<c path="String"/>
-	</f>
-	<haxe_doc>Returns a string with a locality sensitive representation of the date portion of this date based on system settings.</haxe_doc>
-</toLocaleDateString></overloads>
-		</toLocaleDateString>
-		<toLocaleFormat public="1" set="method">
-			<f a="format">
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Converts a date to a string, using a format string.</haxe_doc>
-		</toLocaleFormat>
-		<toLocaleString public="1" set="method">
-			<f a="?locales:?options">
-				<c path="String"/>
-				<d><d/></d>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns a string with a locality sensitive representation of this date. Overrides the Object.prototype.toLocaleString() method.</haxe_doc>
-			<overloads><toLocaleString public="1" set="method">
-	<f a="?locales:?options">
-		<c path="Array"><c path="String"/></c>
-		<d><d/></d>
-		<c path="String"/>
-	</f>
-	<haxe_doc>Returns a string with a locality sensitive representation of this date. Overrides the Object.prototype.toLocaleString() method.</haxe_doc>
-</toLocaleString></overloads>
-		</toLocaleString>
-		<toLocaleTimeString public="1" set="method">
-			<f a="?locales:?options">
-				<c path="String"/>
-				<d><d/></d>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns a string with a locality sensitive representation of the time portion of this date based on system settings.</haxe_doc>
-			<overloads><toLocaleTimeString public="1" set="method">
-	<f a="?locales:?options">
-		<c path="Array"><c path="String"/></c>
-		<d><d/></d>
-		<c path="String"/>
-	</f>
-	<haxe_doc>Returns a string with a locality sensitive representation of the time portion of this date based on system settings.</haxe_doc>
-</toLocaleTimeString></overloads>
-		</toLocaleTimeString>
-		<toSource public="1" set="method">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>Returns a string representing the source for an equivalent Date object; you can use this value to create a new object. Overrides the Object.prototype.toSource() method.</haxe_doc>
-		</toSource>
-		<toString public="1" set="method">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>Returns a string representing the specified Date object. Overrides the Object.prototype.toString() method.</haxe_doc>
-		</toString>
-		<toTimeString public="1" set="method">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>Returns the "time" portion of the Date as a human-readable string.</haxe_doc>
-		</toTimeString>
-		<toUTCString public="1" set="method">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>Converts a date to a string using the UTC timezone.</haxe_doc>
-		</toUTCString>
-		<new public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<overloads>
-				<new public="1" set="method"><f a="value">
-	<x path="Float"/>
-	<x path="Void"/>
-</f></new>
-				<new public="1" set="method"><f a="dateString">
-	<c path="String"/>
-	<x path="Void"/>
-</f></new>
-				<new public="1" set="method"><f a="year:month:?day:?hours:?minutes:?seconds:?milliseconds">
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Void"/>
-</f></new>
-			</overloads>
-		</new>
-		<haxe_doc>Creates a JavaScript Date instance that represents a single moment in time. Date objects are based on a time value that is the number of milliseconds since 1 January 1970 UTC.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":native"><e>"Date"</e></m>
-		</meta>
-	</class>
 	<class path="js.lib.EvalError" params="" file="/home/vsts/work/1/s/std/js/lib/Error.hx" module="js.lib.Error" extern="1">
 		<extends path="js.lib.Error"/>
 		<new public="1" set="method"><f a="?message">
