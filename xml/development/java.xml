@@ -34793,25 +34793,25 @@
 			</f>
 			<meta><m n=":functionCode"><e><![CDATA["\n\t\t\tif ( index >= me.length() || index < 0 )\n\t\t\t\treturn null;\n\t\t\telse\n\t\t\t\treturn (int) me.charAt(index);\n\t"]]></e></m></meta>
 		</charCodeAt>
-		<indexOf public="1" set="method" line="56" static="1">
+		<indexOf public="1" set="method" line="64" static="1">
 			<f a="me:str:?startIndex">
 				<t path="java.internal._StringExt.NativeString"/>
 				<t path="java.internal._StringExt.NativeString"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<meta><m n=":functionCode"><e><![CDATA["\n\t\t\tint sIndex = (startIndex != null ) ? (haxe.lang.Runtime.toInt(startIndex)) : 0;\n\t\t\tif (sIndex >= me.length() || sIndex < 0)\n\t\t\t\treturn -1;\n\t\t\treturn me.indexOf(str, sIndex);\n\t"]]></e></m></meta>
+			<meta><m n=":functionCode"><e><![CDATA["\n\t\t\tint sIndex = (startIndex != null ) ? (haxe.lang.Runtime.toInt(startIndex)) : 0;\n\t\t\tif(str == \"\") {\n\t\t\t\tint length = me.length();\n\t\t\t\tif(sIndex < 0) {\n\t\t\t\t\tsIndex = length + sIndex;\n\t\t\t\t\tif(sIndex < 0) sIndex = 0;\n\t\t\t\t}\n\t\t\t\treturn sIndex > length ? length : sIndex;\n\t\t\t}\n\t\t\tif (sIndex >= me.length() || sIndex < 0)\n\t\t\t\treturn -1;\n\t\t\treturn me.indexOf(str, sIndex);\n\t"]]></e></m></meta>
 		</indexOf>
-		<lastIndexOf public="1" set="method" line="68" static="1">
+		<lastIndexOf public="1" set="method" line="79" static="1">
 			<f a="me:str:?startIndex">
 				<t path="java.internal._StringExt.NativeString"/>
 				<t path="java.internal._StringExt.NativeString"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<meta><m n=":functionCode"><e><![CDATA["\n\t\t\tint sIndex = (startIndex != null ) ? (haxe.lang.Runtime.toInt(startIndex)) : (me.length() - 1);\n\t\t\tif (sIndex > me.length() || sIndex < 0)\n\t\t\t\tsIndex = me.length() - 1;\n\t\t\telse if (sIndex < 0)\n\t\t\t\treturn -1;\n\t\t\treturn me.lastIndexOf(str, sIndex);\n\t"]]></e></m></meta>
+			<meta><m n=":functionCode"><e><![CDATA["\n\t\t\tint sIndex = (startIndex != null ) ? (haxe.lang.Runtime.toInt(startIndex)) : (me.length() - 1);\n\t\t\tif (sIndex > me.length() || sIndex < 0)\n\t\t\t\tsIndex = me.length() - 1;\n\t\t\telse if (sIndex < 0)\n\t\t\t\treturn -1;\n\t\t\tif (str.length() == 0) {\n\t\t\t\treturn startIndex == null || haxe.lang.Runtime.toInt(startIndex) > me.length() ? me.length() : haxe.lang.Runtime.toInt(startIndex);\n\t\t\t}\n\t\t\treturn me.lastIndexOf(str, sIndex);\n\t"]]></e></m></meta>
 		</lastIndexOf>
-		<split public="1" set="method" line="99" static="1">
+		<split public="1" set="method" line="110" static="1">
 			<f a="me:delimiter">
 				<t path="java.internal._StringExt.NativeString"/>
 				<t path="java.internal._StringExt.NativeString"/>
@@ -34819,7 +34819,7 @@
 			</f>
 			<meta><m n=":functionCode"><e><![CDATA["\n\t\t\tArray<java.lang.String> ret = new Array<java.lang.String>();\n\n\t\t\tint slen = delimiter.length();\n\t\t\tif (slen == 0)\n\t\t\t{\n\t\t\t\tint len = me.length();\n\t\t\t\tfor (int i = 0; i < len; i++)\n\t\t\t\t{\n\t\t\t\t\tret.push(me.substring(i, i + 1));\n\t\t\t\t}\n\t\t\t} else {\n\t\t\t\tint start = 0;\n\t\t\t\tint pos = me.indexOf(delimiter, start);\n\n\t\t\t\twhile (pos >= 0)\n\t\t\t\t{\n\t\t\t\t\tret.push(me.substring(start, pos));\n\n\t\t\t\t\tstart = pos + slen;\n\t\t\t\t\tpos = me.indexOf(delimiter, start);\n\t\t\t\t}\n\n\t\t\t\tret.push(me.substring(start));\n\t\t\t}\n\t\t\treturn ret;\n\t"]]></e></m></meta>
 		</split>
-		<substr public="1" set="method" line="131" static="1">
+		<substr public="1" set="method" line="142" static="1">
 			<f a="me:pos:?len">
 				<t path="java.internal._StringExt.NativeString"/>
 				<x path="Int"/>
@@ -34828,7 +34828,7 @@
 			</f>
 			<meta><m n=":functionCode"><e><![CDATA["\n\t\t\tint meLen = me.length();\n\t\t\tint targetLen = meLen;\n\t\t\tif (len != null)\n\t\t\t{\n\t\t\t\ttargetLen = haxe.lang.Runtime.toInt(len);\n\t\t\t\tif (targetLen == 0)\n\t\t\t\t\treturn \"\";\n\t\t\t\tif( pos != 0 && targetLen < 0 ){\n\t\t\t\t\treturn \"\";\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tif( pos < 0 ){\n\t\t\t\tpos = meLen + pos;\n\t\t\t\tif( pos < 0 ) pos = 0;\n\t\t\t} else if( targetLen < 0 ){\n\t\t\t\ttargetLen = meLen + targetLen - pos;\n\t\t\t}\n\n\t\t\tif( pos + targetLen > meLen ){\n\t\t\t\ttargetLen = meLen - pos;\n\t\t\t}\n\n\t\t\tif ( pos < 0 || targetLen <= 0 ) return \"\";\n\n\t\t\treturn me.substring(pos, pos + targetLen);\n\t"]]></e></m></meta>
 		</substr>
-		<substring public="1" set="method" line="161" static="1">
+		<substring public="1" set="method" line="172" static="1">
 			<f a="me:startIndex:?endIndex">
 				<t path="java.internal._StringExt.NativeString"/>
 				<x path="Int"/>
@@ -34837,29 +34837,29 @@
 			</f>
 			<meta><m n=":functionCode"><e><![CDATA["\n\t\tint endIdx;\n\t\tint len = me.length();\n\t\tif ( endIndex == null) {\n\t\t\tendIdx = len;\n\t\t} else if ( (endIdx = haxe.lang.Runtime.toInt(endIndex)) < 0 ) {\n\t\t\tendIdx = 0;\n\t\t} else if ( endIdx > len ) {\n\t\t\tendIdx = len;\n\t\t}\n\n\t\tif ( startIndex < 0 ) {\n\t\t\tstartIndex = 0;\n\t\t} else if ( startIndex > len ) {\n\t\t\tstartIndex = len;\n\t\t}\n\n\t\tif ( startIndex > endIdx ) {\n\t\t\tint tmp = startIndex;\n\t\t\tstartIndex = endIdx;\n\t\t\tendIdx = tmp;\n\t\t}\n\n\t\treturn me.substring(startIndex, endIdx);\n\n\t"]]></e></m></meta>
 		</substring>
-		<toString public="1" set="method" line="165" static="1"><f a="me">
+		<toString public="1" set="method" line="176" static="1"><f a="me">
 	<t path="java.internal._StringExt.NativeString"/>
 	<t path="java.internal._StringExt.NativeString"/>
 </f></toString>
-		<toLowerCase public="1" set="method" line="172" static="1">
+		<toLowerCase public="1" set="method" line="183" static="1">
 			<f a="me">
 				<t path="java.internal._StringExt.NativeString"/>
 				<t path="java.internal._StringExt.NativeString"/>
 			</f>
 			<meta><m n=":functionCode"><e>"\n\t\t\treturn me.toLowerCase();\n\t"</e></m></meta>
 		</toLowerCase>
-		<toUpperCase public="1" set="method" line="179" static="1">
+		<toUpperCase public="1" set="method" line="190" static="1">
 			<f a="me">
 				<t path="java.internal._StringExt.NativeString"/>
 				<t path="java.internal._StringExt.NativeString"/>
 			</f>
 			<meta><m n=":functionCode"><e>"\n\t\t\treturn me.toUpperCase();\n\t"</e></m></meta>
 		</toUpperCase>
-		<toNativeString public="1" set="method" line="183" static="1"><f a="me">
+		<toNativeString public="1" set="method" line="194" static="1"><f a="me">
 	<t path="java.internal._StringExt.NativeString"/>
 	<t path="java.internal._StringExt.NativeString"/>
 </f></toNativeString>
-		<fromCharCode public="1" set="method" line="187" static="1"><f a="code">
+		<fromCharCode public="1" set="method" line="198" static="1"><f a="code">
 	<x path="Int"/>
 	<c path="String"/>
 </f></fromCharCode>
@@ -34872,17 +34872,17 @@
 		</meta>
 	</class>
 	<class path="java.internal._StringExt.StringRefl" params="" file="/home/vsts/work/1/s/std/java/internal/StringExt.hx" private="1" module="java.internal.StringExt">
-		<fields public="1" expr="[&quot;length&quot;, &quot;toUpperCase&quot;, &quot;toLowerCase&quot;, &quot;charAt&quot;, &quot;charCodeAt&quot;, &quot;indexOf&quot;, &quot;lastIndexOf&quot;, &quot;split&quot;, &quot;substr&quot;, &quot;substring&quot;]" line="193" static="1">
+		<fields public="1" expr="[&quot;length&quot;, &quot;toUpperCase&quot;, &quot;toLowerCase&quot;, &quot;charAt&quot;, &quot;charCodeAt&quot;, &quot;indexOf&quot;, &quot;lastIndexOf&quot;, &quot;split&quot;, &quot;substr&quot;, &quot;substring&quot;]" line="204" static="1">
 			<c path="Array"><c path="String"/></c>
 			<meta><m n=":value"><e>["length", "toUpperCase", "toLowerCase", "charAt", "charCodeAt", "indexOf", "lastIndexOf", "split", "substr", "substring"]</e></m></meta>
 		</fields>
-		<handleGetField public="1" set="method" line="197" static="1"><f a="str:f:throwErrors">
+		<handleGetField public="1" set="method" line="208" static="1"><f a="str:f:throwErrors">
 	<t path="java.internal._StringExt.NativeString"/>
 	<t path="java.internal._StringExt.NativeString"/>
 	<x path="Bool"/>
 	<d/>
 </f></handleGetField>
-		<handleCallField public="1" set="method" line="211" static="1"><f a="str:f:args">
+		<handleCallField public="1" set="method" line="222" static="1"><f a="str:f:args">
 	<t path="java.internal._StringExt.NativeString"/>
 	<t path="java.internal._StringExt.NativeString"/>
 	<c path="java.NativeArray"><d/></c>
