@@ -5939,23 +5939,23 @@
 
 	Usage example:
 
-	```
-		var lock = new Lock();
-		var elements = [1, 2, 3];
-		for (element in elements) {
-			// Create one thread per element
-			new Thread(function() {
-				trace(element);
-				Sys.sleep(1);
-				// Release once per thread = 3 times
-				lock.release();
-			});
-		}
-		for (_ in elements) {
-			// Wait 3 times
-			lock.wait();
-		}
-		trace("All threads finished");
+	```haxe
+	var lock = new Lock();
+	var elements = [1, 2, 3];
+	for (element in elements) {
+		// Create one thread per element
+		new Thread(function() {
+			trace(element);
+			Sys.sleep(1);
+			// Release once per thread = 3 times
+			lock.release();
+		});
+	}
+	for (_ in elements) {
+		// Wait 3 times
+		lock.wait();
+	}
+	trace("All threads finished");
 	```</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
