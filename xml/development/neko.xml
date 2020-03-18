@@ -5508,39 +5508,188 @@
 		<LocalFunction a="?v"><x path="Int"/></LocalFunction>
 		<haxe_doc>Elements return by `CallStack` methods.</haxe_doc>
 	</enum>
-	<class path="haxe.CallStack" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx">
-		<callStack public="1" set="method" line="94" static="1">
-			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Return the call stack elements, or an empty array if not available.</haxe_doc>
-		</callStack>
-		<exceptionStack public="1" set="method" line="191" static="1">
-			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Return the exception stack : this is the stack elements between
+	<abstract path="haxe.CallStack" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx">
+		<from><icast><c path="Array"><e path="haxe.StackItem"/></c></icast></from>
+		<this><c path="Array"><e path="haxe.StackItem"/></c></this>
+		<haxe_doc>Get information about the call stack.</haxe_doc>
+		<meta>
+			<m n=":allow"><e>haxe.Exception</e></m>
+			<m n=":using"><e>haxe.CallStack</e></m>
+		</meta>
+		<impl><class path="haxe._CallStack.CallStack_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx" private="1" module="haxe.CallStack">
+	<length public="1" get="accessor" set="null" static="1">
+		<x path="Int"/>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>The length of this stack.</haxe_doc>
+	</length>
+	<get_length get="inline" set="null" line="46" static="1">
+		<f a="this">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_length>
+	<callStack public="1" set="method" line="51" static="1">
+		<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+		<haxe_doc>Return the call stack elements, or an empty array if not available.</haxe_doc>
+	</callStack>
+	<exceptionStack public="1" set="method" line="62" static="1">
+		<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+		<haxe_doc>Return the exception stack : this is the stack elements between
 		the place the last exception was thrown and the place it was
-		caught, or an empty array if not available.</haxe_doc>
-		</exceptionStack>
-		<toString public="1" set="method" line="257" static="1">
-			<f a="stack">
-				<c path="Array"><e path="haxe.StackItem"/></c>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns a representation of the stack as a printable string.</haxe_doc>
-		</toString>
-		<itemToString set="method" line="266" static="1"><f a="b:s">
+		caught, or an empty array if not available.
+
+		May not work if catch type was a derivative from `haxe.Exception`.</haxe_doc>
+	</exceptionStack>
+	<toString public="1" set="method" line="70" static="1">
+		<f a="stack">
+			<x path="haxe.CallStack"/>
+			<c path="String"/>
+		</f>
+		<haxe_doc>Returns a representation of the stack as a printable string.</haxe_doc>
+	</toString>
+	<subtract public="1" set="method" line="83" static="1">
+		<f a="this:stack">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="haxe.CallStack"/>
+			<x path="haxe.CallStack"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns a range of entries of current stack from the beginning to the the
+		common part of this and `stack`.</haxe_doc>
+	</subtract>
+	<copy public="1" get="inline" set="null" line="106" static="1">
+		<f a="this">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="haxe.CallStack"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Make a copy of the stack.</haxe_doc>
+	</copy>
+	<get public="1" get="inline" set="null" line="110" static="1">
+		<f a="this:index">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="Int"/>
+			<e path="haxe.StackItem"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":arrayAccess"/>
+		</meta>
+	</get>
+	<asArray get="inline" set="null" line="114" static="1">
+		<f a="this">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<c path="Array"><e path="haxe.StackItem"/></c>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</asArray>
+	<equalItems set="method" line="118" static="1"><f a="item1:item2">
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Bool"/>
+</f></equalItems>
+	<exceptionToString set="method" line="134" static="1"><f a="e">
+	<c path="haxe.Exception"/>
+	<c path="String"/>
+</f></exceptionToString>
+	<itemToString set="method" line="154" static="1"><f a="b:s">
 	<c path="StringBuf"/>
 	<e path="haxe.StackItem"/>
 	<x path="Void"/>
 </f></itemToString>
-		<makeStack set="method" line="300" static="1">
-			<f a="s">
-				<d/>
+	<meta>
+		<m n=":using"><e>haxe.CallStack</e></m>
+		<m n=":allow"><e>haxe.Exception</e></m>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe._CallStack.CallStack_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx" private="1" module="haxe.CallStack">
+		<length public="1" get="accessor" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>The length of this stack.</haxe_doc>
+		</length>
+		<get_length get="inline" set="null" line="46" static="1">
+			<f a="this">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_length>
+		<callStack public="1" set="method" line="51" static="1">
+			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+			<haxe_doc>Return the call stack elements, or an empty array if not available.</haxe_doc>
+		</callStack>
+		<exceptionStack public="1" set="method" line="62" static="1">
+			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+			<haxe_doc>Return the exception stack : this is the stack elements between
+		the place the last exception was thrown and the place it was
+		caught, or an empty array if not available.
+
+		May not work if catch type was a derivative from `haxe.Exception`.</haxe_doc>
+		</exceptionStack>
+		<toString public="1" set="method" line="70" static="1">
+			<f a="stack">
+				<x path="haxe.CallStack"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a representation of the stack as a printable string.</haxe_doc>
+		</toString>
+		<subtract public="1" set="method" line="83" static="1">
+			<f a="this:stack">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="haxe.CallStack"/>
+				<x path="haxe.CallStack"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns a range of entries of current stack from the beginning to the the
+		common part of this and `stack`.</haxe_doc>
+		</subtract>
+		<copy public="1" get="inline" set="null" line="106" static="1">
+			<f a="this">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="haxe.CallStack"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Make a copy of the stack.</haxe_doc>
+		</copy>
+		<get public="1" get="inline" set="null" line="110" static="1">
+			<f a="this:index">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="Int"/>
+				<e path="haxe.StackItem"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":arrayAccess"/>
+			</meta>
+		</get>
+		<asArray get="inline" set="null" line="114" static="1">
+			<f a="this">
+				<c path="Array"><e path="haxe.StackItem"/></c>
 				<c path="Array"><e path="haxe.StackItem"/></c>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</makeStack>
-		<haxe_doc>Get information about the call stack.</haxe_doc>
+			<meta><m n=":impl"/></meta>
+		</asArray>
+		<equalItems set="method" line="118" static="1"><f a="item1:item2">
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Bool"/>
+</f></equalItems>
+		<exceptionToString set="method" line="134" static="1"><f a="e">
+	<c path="haxe.Exception"/>
+	<c path="String"/>
+</f></exceptionToString>
+		<itemToString set="method" line="154" static="1"><f a="b:s">
+	<c path="StringBuf"/>
+	<e path="haxe.StackItem"/>
+	<x path="Void"/>
+</f></itemToString>
+		<meta>
+			<m n=":using"><e>haxe.CallStack</e></m>
+			<m n=":allow"><e>haxe.Exception</e></m>
+		</meta>
 	</class>
 	<abstract path="haxe.Function" params="" file="/home/vsts/work/1/s/std/haxe/Constraints.hx" module="haxe.Constraints">
 		<this><d/></this>
@@ -6316,6 +6465,134 @@
 
 	If the first argument to any of the methods is `null`, the result is
 	unspecified.</haxe_doc>
+	</class>
+	<class path="haxe.Exception" params="" file="/home/vsts/work/1/s/std/neko/_std/haxe/Exception.hx">
+		<caught set="method" line="17" static="1"><f a="value">
+	<x path="Any"/>
+	<c path="haxe.Exception"/>
+</f></caught>
+		<thrown set="method" line="25" static="1"><f a="value">
+	<x path="Any"/>
+	<x path="Any"/>
+</f></thrown>
+		<message public="1" get="accessor" set="null">
+			<c path="String"/>
+			<haxe_doc>Exception message.</haxe_doc>
+		</message>
+		<stack public="1" get="accessor" set="null">
+			<x path="haxe.CallStack"/>
+			<haxe_doc>The call stack at the moment of the exception creation.</haxe_doc>
+		</stack>
+		<previous public="1" get="accessor" set="null">
+			<x path="Null"><c path="haxe.Exception"/></x>
+			<haxe_doc>Contains an exception, which was passed to `previous` constructor argument.</haxe_doc>
+		</previous>
+		<native public="1" get="accessor" set="null">
+			<x path="Any"/>
+			<haxe_doc>Native exception, which caused this exception.</haxe_doc>
+		</native>
+		<__exceptionMessage>
+			<c path="String"/>
+			<meta><m n=":noCompletion"/></meta>
+		</__exceptionMessage>
+		<__exceptionStack>
+			<x path="Null"><x path="haxe.CallStack"/></x>
+			<meta><m n=":noCompletion"/></meta>
+		</__exceptionStack>
+		<__nativeStack>
+			<x path="Any"/>
+			<meta><m n=":noCompletion"/></meta>
+		</__nativeStack>
+		<__skipStack expr="0">
+			<x path="Int"/>
+			<meta>
+				<m n=":value"><e>0</e></m>
+				<m n=":noCompletion"/>
+				<m n=":ifFeature"><e>"haxe.Exception.get_stack"</e></m>
+			</meta>
+		</__skipStack>
+		<__nativeException>
+			<x path="Any"/>
+			<meta><m n=":noCompletion"/></meta>
+		</__nativeException>
+		<__previousException>
+			<x path="Null"><c path="haxe.Exception"/></x>
+			<meta><m n=":noCompletion"/></meta>
+		</__previousException>
+		<unwrap set="method" line="48"><f a=""><x path="Any"/></f></unwrap>
+		<toString public="1" set="method" line="52">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Exception description.
+
+		Includes message, stack and the previous exception (if set).</haxe_doc>
+		</toString>
+		<__shiftStack get="inline" set="null" line="58">
+			<f a=""><x path="Void"/></f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":ifFeature"><e>"haxe.Exception.get_stack"</e></m>
+			</meta>
+		</__shiftStack>
+		<get_message set="method" line="62"><f a=""><c path="String"/></f></get_message>
+		<get_previous set="method" line="66"><f a=""><x path="Null"><c path="haxe.Exception"/></x></f></get_previous>
+		<get_native final="1" set="method" line="70"><f a=""><x path="Any"/></f></get_native>
+		<get_stack set="method" line="74"><f a=""><x path="haxe.CallStack"/></f></get_stack>
+		<new public="1" set="method" line="35">
+			<f a="message:?previous:?native">
+				<c path="String"/>
+				<c path="haxe.Exception"/>
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Create a new Exception instance.
+
+		The `native` argument is for internal usage only.
+		There is no need to provide `native` argument manually and no need to keep it
+		upon extending `haxe.Exception` unless you know what you're doing.</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[Base class for exceptions.
+
+	If this class (or derivatives) is used to catch an exception, then
+	`haxe.CallStack.exceptionStack()` will not return a stack for the exception
+	caught. Use `haxe.Exception.stack` property instead:
+	```haxe
+	try {
+		throwSomething();
+	} catch(e:Exception) {
+		trace(e.stack);
+	}
+	```
+
+	Custom exceptions should extend this class:
+	```haxe
+	class MyException extends haxe.Exception {}
+	//...
+	throw new MyException('terrible exception');
+	```
+
+	`haxe.Exception` is also a wildcard type to catch any exception:
+	```haxe
+	try {
+		throw 'Catch me!';
+	} catch(e:haxe.Exception) {
+		trace(e.message); // Output: Catch me!
+	}
+	```
+
+	To rethrow an exception just throw it again.
+	Haxe will try to rethrow an original native exception whenever possible.
+	```haxe
+	try {
+		var a:Array<Int> = null;
+		a.push(1); // generates target-specific null-pointer exception
+	} catch(e:haxe.Exception) {
+		throw e; // rethrows native exception instead of haxe.Exception
+	}
+	```]]></haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
 	<typedef path="haxe.Http" params="" file="/home/vsts/work/1/s/std/haxe/Http.hx"><c path="sys.Http"/></typedef>
 	<abstract path="haxe.Int32" params="" file="/home/vsts/work/1/s/std/haxe/Int32.hx">
@@ -7841,6 +8118,44 @@
 			<m n=":access"><e>haxe.MainEvent</e></m>
 		</meta>
 	</class>
+	<typedef path="haxe._NativeStackTrace.NativeTrace" params="" file="/home/vsts/work/1/s/std/neko/_std/haxe/NativeStackTrace.hx" private="1" module="haxe.NativeStackTrace"><a>
+	<stack final="1" set="null"><d/></stack>
+	<skip final="1" set="null"><x path="Int"/></skip>
+</a></typedef>
+	<class path="haxe.NativeStackTrace" params="" file="/home/vsts/work/1/s/std/neko/_std/haxe/NativeStackTrace.hx">
+		<saveStack public="1" get="inline" set="null" line="17" static="1">
+			<f a="exception">
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":ifFeature"><e>"haxe.NativeStackTrace.exceptionStack"</e></m></meta>
+		</saveStack>
+		<callStack public="1" get="inline" set="null" line="20" static="1">
+			<f a=""><t path="haxe._NativeStackTrace.NativeTrace"/></f>
+			<meta><m n=":has_untyped"/></meta>
+		</callStack>
+		<exceptionStack public="1" set="method" line="24" static="1">
+			<f a=""><t path="haxe._NativeStackTrace.NativeTrace"/></f>
+			<meta><m n=":has_untyped"/></meta>
+		</exceptionStack>
+		<toHaxe public="1" set="method" line="28" static="1">
+			<f a="native:?skip" v=":0">
+				<t path="haxe._NativeStackTrace.NativeTrace"/>
+				<x path="Int"/>
+				<c path="Array"><e path="haxe.StackItem"/></c>
+			</f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":value"><e>{ skip : 0 }</e></m>
+			</meta>
+		</toHaxe>
+		<haxe_doc>Do not use manually.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":dox"><e>hide</e></m>
+			<m n=":noCompletion"/>
+		</meta>
+	</class>
 	<typedef path="haxe.PosInfos" params="" file="/home/vsts/work/1/s/std/haxe/PosInfos.hx">
 		<a>
 			<methodName><c path="String"/></methodName>
@@ -9030,6 +9345,40 @@
 			<m n=":coreApi"/>
 			<m n=":deprecated"><e>"haxe.Utf8 is deprecated. Use UnicodeString instead."</e></m>
 		</meta>
+	</class>
+	<class path="haxe.ValueException" params="" file="/home/vsts/work/1/s/std/haxe/ValueException.hx">
+		<extends path="haxe.Exception"/>
+		<value public="1" set="null">
+			<x path="Any"/>
+			<haxe_doc>Thrown value.</haxe_doc>
+		</value>
+		<unwrap set="method" line="35" override="1">
+			<f a=""><x path="Any"/></f>
+			<haxe_doc>Extract an originally thrown value.
+
+		This method must return the same value on subsequent calls.
+		Used internally for catching non-native exceptions.
+		Do _not_ override unless you know what you are doing.</haxe_doc>
+		</unwrap>
+		<new public="1" set="method" line="23"><f a="value:?previous:?native">
+	<x path="Any"/>
+	<c path="haxe.Exception"/>
+	<x path="Any"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>An exception containing arbitrary value.
+
+	This class is automatically used for throwing values, which don't extend `haxe.Exception`
+	or native exception type.
+	For example:
+	```haxe
+	throw "Terrible error";
+	```
+	will be compiled to
+	```haxe
+	throw new ValueException("Terrible error");
+	```</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="haxe.crypto.Adler32" params="" file="/home/vsts/work/1/s/std/haxe/crypto/Adler32.hx">
 		<read public="1" set="method" line="60" static="1"><f a="i">
@@ -16346,7 +16695,10 @@
 	See `Map` for documentation details.
 
 	@see https://haxe.org/manual/std-Map.html</haxe_doc>
-		<meta><m n=":coreApi"/></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
 	<typedef path="haxe.ds._Vector.VectorData" params="T" file="/home/vsts/work/1/s/std/haxe/ds/Vector.hx" private="1" module="haxe.ds.Vector"><c path="neko.NativeArray"><c path="haxe.ds._Vector.VectorData.T"/></c></typedef>
 	<abstract path="haxe.ds.Vector" params="T" file="/home/vsts/work/1/s/std/haxe/ds/Vector.hx">
@@ -32388,12 +32740,12 @@
 		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="neko.Web" params="" file="/home/vsts/work/1/s/std/neko/Web.hx">
-		<getParams public="1" set="method" line="35" static="1">
+		<getParams public="1" set="method" line="36" static="1">
 			<f a=""><c path="haxe.ds.StringMap"><c path="String"/></c></f>
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Returns the GET and POST parameters.</haxe_doc>
 		</getParams>
-		<getParamValues public="1" set="method" line="52" static="1">
+		<getParamValues public="1" set="method" line="53" static="1">
 			<f a="param">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -32402,19 +32754,19 @@
 		If the URL contains the parameters `[a[]=foo;a[]=hello;a[5]=bar;a[3]=baz]` then
 		`neko.Web.getParamValues("a")` will return `["foo","hello",null,"baz",null,"bar"]`</haxe_doc>
 		</getParamValues>
-		<getHostName public="1" set="method" line="79" static="1">
+		<getHostName public="1" set="method" line="80" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the local server host name.</haxe_doc>
 		</getHostName>
-		<getClientIP public="1" set="method" line="86" static="1">
+		<getClientIP public="1" set="method" line="87" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Surprisingly returns the client IP address.</haxe_doc>
 		</getClientIP>
-		<getURI public="1" set="method" line="93" static="1">
+		<getURI public="1" set="method" line="94" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the original request URL (before any server internal redirections)</haxe_doc>
 		</getURI>
-		<redirect public="1" set="method" line="100" static="1">
+		<redirect public="1" set="method" line="101" static="1">
 			<f a="url">
 				<c path="String"/>
 				<x path="Void"/>
@@ -32422,7 +32774,7 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Tell the client to redirect to the given url ("Location" header)</haxe_doc>
 		</redirect>
-		<setHeader public="1" set="method" line="108" static="1">
+		<setHeader public="1" set="method" line="109" static="1">
 			<f a="h:v">
 				<c path="String"/>
 				<c path="String"/>
@@ -32432,14 +32784,14 @@
 			<haxe_doc>Set an output header value. If some data have been printed, the headers have
 		already been sent so this will raise an exception.</haxe_doc>
 		</setHeader>
-		<setReturnCode public="1" set="method" line="115" static="1">
+		<setReturnCode public="1" set="method" line="116" static="1">
 			<f a="r">
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Set the HTTP return code. Same remark as setHeader.</haxe_doc>
 		</setReturnCode>
-		<getClientHeader public="1" set="method" line="122" static="1">
+		<getClientHeader public="1" set="method" line="123" static="1">
 			<f a="k">
 				<c path="String"/>
 				<c path="String"/>
@@ -32447,18 +32799,18 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Retrieve a client header value sent with the request.</haxe_doc>
 		</getClientHeader>
-		<getClientHeaders public="1" set="method" line="132" static="1">
+		<getClientHeaders public="1" set="method" line="133" static="1">
 			<f a=""><c path="haxe.ds.List"><a>
 	<value><c path="String"/></value>
 	<header><c path="String"/></header>
 </a></c></f>
 			<haxe_doc>Retrieve all the client headers.</haxe_doc>
 		</getClientHeaders>
-		<getParamsString public="1" set="method" line="145" static="1">
+		<getParamsString public="1" set="method" line="146" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns all the GET parameters String.</haxe_doc>
 		</getParamsString>
-		<getPostData public="1" set="method" line="158" static="1">
+		<getPostData public="1" set="method" line="159" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns all the POST data. POST Data is always parsed as
 		being `application/x-www-form-urlencoded` and is stored into
@@ -32467,7 +32819,7 @@
 		case, you will have to use `getMultipart` or `parseMultipart`
 		methods.</haxe_doc>
 		</getPostData>
-		<getCookies public="1" set="method" line="169" static="1">
+		<getCookies public="1" set="method" line="170" static="1">
 			<f a=""><t path="Map">
 	<c path="String"/>
 	<c path="String"/>
@@ -32476,7 +32828,7 @@
 			<haxe_doc>Returns an hashtable of all Cookies sent by the client.
 		Modifying the hashtable will not modify the cookie, use `setCookie` instead.</haxe_doc>
 		</getCookies>
-		<setCookie public="1" set="method" line="184" static="1">
+		<setCookie public="1" set="method" line="185" static="1">
 			<f a="key:value:?expire:?domain:?path:?secure:?httpOnly">
 				<c path="String"/>
 				<c path="String"/>
@@ -32490,13 +32842,13 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Set a Cookie value in the HTTP headers. Same remark as `setHeader`.</haxe_doc>
 		</setCookie>
-		<addPair set="method" line="199" static="1"><f a="buf:name:value">
+		<addPair set="method" line="200" static="1"><f a="buf:name:value">
 	<c path="StringBuf"/>
 	<c path="String"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></addPair>
-		<getAuthorization public="1" set="method" line="210" static="1">
+		<getAuthorization public="1" set="method" line="211" static="1">
 			<f a=""><a>
 	<user><c path="String"/></user>
 	<pass><c path="String"/></pass>
@@ -32504,11 +32856,11 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Returns an object with the authorization sent by the client (Basic scheme only).</haxe_doc>
 		</getAuthorization>
-		<getCwd public="1" set="method" line="228" static="1">
+		<getCwd public="1" set="method" line="229" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Get the current script directory in the local filesystem.</haxe_doc>
 		</getCwd>
-		<cacheModule public="1" set="method" line="236" static="1">
+		<cacheModule public="1" set="method" line="237" static="1">
 			<f a="f">
 				<f a=""><x path="Void"/></f>
 				<x path="Void"/>
@@ -32516,7 +32868,7 @@
 			<haxe_doc>Set the main entry point function used to handle requests.
 		Setting it back to null will disable code caching.</haxe_doc>
 		</cacheModule>
-		<getMultipart public="1" set="method" line="244" static="1">
+		<getMultipart public="1" set="method" line="245" static="1">
 			<f a="maxSize">
 				<x path="Int"/>
 				<t path="Map">
@@ -32527,7 +32879,7 @@
 			<haxe_doc>Get the multipart parameters as an hashtable. The data
 		cannot exceed the maximum size specified.</haxe_doc>
 		</getMultipart>
-		<parseMultipart public="1" set="method" line="273" static="1">
+		<parseMultipart public="1" set="method" line="274" static="1">
 			<f a="onPart:onData">
 				<f a=":">
 					<c path="String"/>
@@ -32548,16 +32900,16 @@
 		and `onData` when some part data is read. You can this way
 		directly save the data on hard drive in the case of a file upload.</haxe_doc>
 		</parseMultipart>
-		<flush public="1" set="method" line="285" static="1">
+		<flush public="1" set="method" line="286" static="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Flush the data sent to the client. By default on Apache, outgoing data is buffered so
 		this can be useful for displaying some long operation progress.</haxe_doc>
 		</flush>
-		<getMethod public="1" set="method" line="292" static="1">
+		<getMethod public="1" set="method" line="293" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Get the HTTP method used by the client. This API requires Neko 1.7.1+.</haxe_doc>
 		</getMethod>
-		<logMessage public="1" set="method" line="299" static="1">
+		<logMessage public="1" set="method" line="300" static="1">
 			<f a="msg">
 				<c path="String"/>
 				<x path="Void"/>
@@ -32585,7 +32937,7 @@
 		<_flush static="1"><d/></_flush>
 		<_get_client_headers static="1"><d/></_get_client_headers>
 		<_get_http_method static="1"><d/></_get_http_method>
-		<_base_decode expr="Lib.load(&quot;std&quot;, &quot;base_decode&quot;, 2)" line="324" static="1">
+		<_base_decode expr="Lib.load(&quot;std&quot;, &quot;base_decode&quot;, 2)" line="325" static="1">
 			<f a=":">
 				<unknown/>
 				<unknown/>
@@ -32596,6 +32948,7 @@
 		<_log_message static="1"><d/></_log_message>
 		<haxe_doc>This class is used for accessing the local Web server and the current
 	client request and information.</haxe_doc>
+		<meta><m n=":deprecated"><e>"neko.Web is deprecated and will be removed from standard library in Haxe 4.2"</e></m></meta>
 	</class>
 	<typedef path="neko.vm.Deque" params="T" file="/home/vsts/work/1/s/std/neko/vm/Deque.hx">
 		<c path="sys.thread.Deque"><c path="neko.vm.Deque.T"/></c>

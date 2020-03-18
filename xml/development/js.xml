@@ -2447,6 +2447,7 @@
 		</random>
 		<haxe_doc>The Std class provides standard methods for manipulating basic types.</haxe_doc>
 		<meta>
+			<m n=":directlyUsed"/>
 			<m n=":keepInit"/>
 			<m n=":coreApi"/>
 		</meta>
@@ -2669,6 +2670,7 @@
 	Unlike String, an instance of StringBuf is not immutable in the sense that
 	it can be passed as argument to functions which modify it by appending more
 	values.</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="haxe.SysTools" params="" file="/home/vsts/work/1/s/std/haxe/SysTools.hx">
 		<winMetaCharacters final="1" public="1" set="null" expr="[&quot; &quot;.code, &quot;(&quot;.code, &quot;)&quot;.code, &quot;%&quot;.code, &quot;!&quot;.code, &quot;^&quot;.code, &quot;\&quot;&quot;.code, &quot;&lt;&quot;.code, &quot;&gt;&quot;.code, &quot;&amp;&quot;.code, &quot;|&quot;.code, &quot;\n&quot;.code, &quot;\r&quot;.code, &quot;,&quot;.code, &quot;;&quot;.code]" line="9" static="1">
@@ -4827,61 +4829,189 @@
 		<LocalFunction a="?v"><x path="Int"/></LocalFunction>
 		<haxe_doc>Elements return by `CallStack` methods.</haxe_doc>
 	</enum>
-	<class path="haxe.CallStack" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx">
-		<lastException static="1"><c path="js.lib.Error"/></lastException>
-		<getStack set="method" line="43" static="1"><f a="e">
-	<c path="js.lib.Error"/>
-	<c path="Array"><e path="haxe.StackItem"/></c>
-</f></getStack>
-		<wrapCallSite public="1" static="1">
-			<f a="">
-				<t path="haxe.V8CallSite"/>
-				<t path="haxe.V8CallSite"/>
-			</f>
-			<meta><m n=":noCompletion"/></meta>
-		</wrapCallSite>
-		<callStack public="1" set="method" line="94" static="1">
-			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
-			<haxe_doc>Return the call stack elements, or an empty array if not available.</haxe_doc>
-		</callStack>
-		<exceptionStack public="1" set="method" line="191" static="1">
-			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
-			<haxe_doc>Return the exception stack : this is the stack elements between
+	<abstract path="haxe.CallStack" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx">
+		<from><icast><c path="Array"><e path="haxe.StackItem"/></c></icast></from>
+		<this><c path="Array"><e path="haxe.StackItem"/></c></this>
+		<haxe_doc>Get information about the call stack.</haxe_doc>
+		<meta>
+			<m n=":allow"><e>haxe.Exception</e></m>
+			<m n=":using"><e>haxe.CallStack</e></m>
+		</meta>
+		<impl><class path="haxe._CallStack.CallStack_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx" private="1" module="haxe.CallStack">
+	<length public="1" get="accessor" set="null" static="1">
+		<x path="Int"/>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>The length of this stack.</haxe_doc>
+	</length>
+	<get_length get="inline" set="null" line="46" static="1">
+		<f a="this">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_length>
+	<callStack public="1" set="method" line="51" static="1">
+		<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+		<haxe_doc>Return the call stack elements, or an empty array if not available.</haxe_doc>
+	</callStack>
+	<exceptionStack public="1" set="method" line="62" static="1">
+		<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+		<haxe_doc>Return the exception stack : this is the stack elements between
 		the place the last exception was thrown and the place it was
-		caught, or an empty array if not available.</haxe_doc>
-		</exceptionStack>
-		<toString public="1" set="method" line="257" static="1">
-			<f a="stack">
-				<c path="Array"><e path="haxe.StackItem"/></c>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns a representation of the stack as a printable string.</haxe_doc>
-		</toString>
-		<itemToString set="method" line="266" static="1"><f a="b:s">
+		caught, or an empty array if not available.
+
+		May not work if catch type was a derivative from `haxe.Exception`.</haxe_doc>
+	</exceptionStack>
+	<toString public="1" set="method" line="70" static="1">
+		<f a="stack">
+			<x path="haxe.CallStack"/>
+			<c path="String"/>
+		</f>
+		<haxe_doc>Returns a representation of the stack as a printable string.</haxe_doc>
+	</toString>
+	<subtract public="1" set="method" line="83" static="1">
+		<f a="this:stack">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="haxe.CallStack"/>
+			<x path="haxe.CallStack"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns a range of entries of current stack from the beginning to the the
+		common part of this and `stack`.</haxe_doc>
+	</subtract>
+	<copy public="1" get="inline" set="null" line="106" static="1">
+		<f a="this">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="haxe.CallStack"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Make a copy of the stack.</haxe_doc>
+	</copy>
+	<get public="1" get="inline" set="null" line="110" static="1">
+		<f a="this:index">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="Int"/>
+			<e path="haxe.StackItem"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":arrayAccess"/>
+		</meta>
+	</get>
+	<asArray get="inline" set="null" line="114" static="1">
+		<f a="this">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<c path="Array"><e path="haxe.StackItem"/></c>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</asArray>
+	<equalItems set="method" line="118" static="1"><f a="item1:item2">
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Bool"/>
+</f></equalItems>
+	<exceptionToString set="method" line="134" static="1"><f a="e">
+	<c path="haxe.Exception"/>
+	<c path="String"/>
+</f></exceptionToString>
+	<itemToString set="method" line="154" static="1"><f a="b:s">
 	<c path="StringBuf"/>
 	<e path="haxe.StackItem"/>
 	<x path="Void"/>
 </f></itemToString>
-		<makeStack set="method" line="300" static="1"><f a="s">
-	<d/>
-	<c path="Array"><e path="haxe.StackItem"/></c>
-</f></makeStack>
-		<haxe_doc>Get information about the call stack.</haxe_doc>
+	<meta>
+		<m n=":using"><e>haxe.CallStack</e></m>
+		<m n=":allow"><e>haxe.Exception</e></m>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe._CallStack.CallStack_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx" private="1" module="haxe.CallStack">
+		<length public="1" get="accessor" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>The length of this stack.</haxe_doc>
+		</length>
+		<get_length get="inline" set="null" line="46" static="1">
+			<f a="this">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_length>
+		<callStack public="1" set="method" line="51" static="1">
+			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+			<haxe_doc>Return the call stack elements, or an empty array if not available.</haxe_doc>
+		</callStack>
+		<exceptionStack public="1" set="method" line="62" static="1">
+			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+			<haxe_doc>Return the exception stack : this is the stack elements between
+		the place the last exception was thrown and the place it was
+		caught, or an empty array if not available.
+
+		May not work if catch type was a derivative from `haxe.Exception`.</haxe_doc>
+		</exceptionStack>
+		<toString public="1" set="method" line="70" static="1">
+			<f a="stack">
+				<x path="haxe.CallStack"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a representation of the stack as a printable string.</haxe_doc>
+		</toString>
+		<subtract public="1" set="method" line="83" static="1">
+			<f a="this:stack">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="haxe.CallStack"/>
+				<x path="haxe.CallStack"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns a range of entries of current stack from the beginning to the the
+		common part of this and `stack`.</haxe_doc>
+		</subtract>
+		<copy public="1" get="inline" set="null" line="106" static="1">
+			<f a="this">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="haxe.CallStack"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Make a copy of the stack.</haxe_doc>
+		</copy>
+		<get public="1" get="inline" set="null" line="110" static="1">
+			<f a="this:index">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="Int"/>
+				<e path="haxe.StackItem"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":arrayAccess"/>
+			</meta>
+		</get>
+		<asArray get="inline" set="null" line="114" static="1">
+			<f a="this">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<c path="Array"><e path="haxe.StackItem"/></c>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</asArray>
+		<equalItems set="method" line="118" static="1"><f a="item1:item2">
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Bool"/>
+</f></equalItems>
+		<exceptionToString set="method" line="134" static="1"><f a="e">
+	<c path="haxe.Exception"/>
+	<c path="String"/>
+</f></exceptionToString>
+		<itemToString set="method" line="154" static="1"><f a="b:s">
+	<c path="StringBuf"/>
+	<e path="haxe.StackItem"/>
+	<x path="Void"/>
+</f></itemToString>
+		<meta>
+			<m n=":using"><e>haxe.CallStack</e></m>
+			<m n=":allow"><e>haxe.Exception</e></m>
+		</meta>
 	</class>
-	<class path="haxe._CallStack.V8Error" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx" private="1" module="haxe.CallStack" extern="1">
-		<prepareStackTrace public="1" static="1"><f a="error:structuredStackTrace">
-	<c path="js.lib.Error"/>
-	<c path="Array"><t path="haxe.V8CallSite"/></c>
-	<x path="Any"/>
-</f></prepareStackTrace>
-		<meta><m n=":native"><e>"Error"</e></m></meta>
-	</class>
-	<typedef path="haxe.V8CallSite" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx" module="haxe.CallStack"><a>
-	<getLineNumber set="method"><f a=""><x path="Int"/></f></getLineNumber>
-	<getFunctionName set="method"><f a=""><c path="String"/></f></getFunctionName>
-	<getFileName set="method"><f a=""><c path="String"/></f></getFileName>
-	<getColumnNumber set="method"><f a=""><x path="Int"/></f></getColumnNumber>
-</a></typedef>
 	<abstract path="haxe.Function" params="" file="/home/vsts/work/1/s/std/haxe/Constraints.hx" module="haxe.Constraints">
 		<this><d/></this>
 		<haxe_doc>This type unifies with any function type.
@@ -5524,6 +5654,168 @@
 
 	If the first argument to any of the methods is `null`, the result is
 	unspecified.</haxe_doc>
+	</class>
+	<class path="haxe._Exception.NativeException" params="" file="/home/vsts/work/1/s/std/js/_std/haxe/Exception.hx" private="1" module="haxe.Exception" extern="1">
+		<name>
+			<c path="String"/>
+			<meta><m n=":noCompletion"/></meta>
+		</name>
+		<new set="method"><f a="?message">
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":dox"><e>hide</e></m>
+			<m n=":noCompletion"/>
+			<m n=":native"><e>"Error"</e></m>
+		</meta>
+	</class>
+	<class path="haxe.Exception" params="" file="/home/vsts/work/1/s/std/js/_std/haxe/Exception.hx">
+		<extends path="haxe._Exception.NativeException"/>
+		<caught set="method" line="18" static="1"><f a="value">
+	<x path="Any"/>
+	<c path="haxe.Exception"/>
+</f></caught>
+		<thrown set="method" line="28" static="1">
+			<f a="value">
+				<x path="Any"/>
+				<x path="Any"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</thrown>
+		<message public="1" get="accessor" set="null">
+			<c path="String"/>
+			<haxe_doc>Exception message.</haxe_doc>
+		</message>
+		<stack public="1" get="accessor" set="null">
+			<x path="haxe.CallStack"/>
+			<haxe_doc>The call stack at the moment of the exception creation.</haxe_doc>
+		</stack>
+		<previous public="1" get="accessor" set="null">
+			<x path="Null"><c path="haxe.Exception"/></x>
+			<haxe_doc>Contains an exception, which was passed to `previous` constructor argument.</haxe_doc>
+		</previous>
+		<native public="1" get="accessor" set="null">
+			<x path="Any"/>
+			<haxe_doc>Native exception, which caused this exception.</haxe_doc>
+		</native>
+		<__skipStack>
+			<x path="Int"/>
+			<meta>
+				<m n=":ifFeature"><e>"haxe.Exception.get_stack"</e></m>
+				<m n=":noCompletion"/>
+			</meta>
+		</__skipStack>
+		<__exceptionStack get="accessor" set="accessor">
+			<x path="Null"><x path="haxe.CallStack"/></x>
+			<meta><m n=":noCompletion"/></meta>
+		</__exceptionStack>
+		<__nativeException>
+			<x path="Any"/>
+			<meta><m n=":noCompletion"/></meta>
+		</__nativeException>
+		<__previousException>
+			<x path="Null"><c path="haxe.Exception"/></x>
+			<meta><m n=":noCompletion"/></meta>
+		</__previousException>
+		<unwrap set="method" line="70"><f a=""><x path="Any"/></f></unwrap>
+		<toString public="1" set="method" line="74">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Exception description.
+
+		Includes message, stack and the previous exception (if set).</haxe_doc>
+		</toString>
+		<__shiftStack get="inline" set="null" line="80">
+			<f a=""><x path="Void"/></f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":ifFeature"><e>"haxe.Exception.get_stack"</e></m>
+			</meta>
+		</__shiftStack>
+		<get_message set="method" line="84"><f a=""><c path="String"/></f></get_message>
+		<get_previous set="method" line="88"><f a=""><x path="Null"><c path="haxe.Exception"/></x></f></get_previous>
+		<get_native final="1" set="method" line="92"><f a=""><x path="Any"/></f></get_native>
+		<get_stack set="method" line="96"><f a=""><x path="haxe.CallStack"/></f></get_stack>
+		<setProperty set="method" line="104"><f a="name:value">
+	<c path="String"/>
+	<x path="Any"/>
+	<x path="Void"/>
+</f></setProperty>
+		<get___exceptionStack get="inline" set="null" line="112"><f a=""><x path="haxe.CallStack"/></f></get___exceptionStack>
+		<set___exceptionStack get="inline" set="null" line="116"><f a="value">
+	<x path="haxe.CallStack"/>
+	<x path="haxe.CallStack"/>
+</f></set___exceptionStack>
+		<get___skipStack get="inline" set="null" line="121"><f a=""><x path="Int"/></f></get___skipStack>
+		<set___skipStack get="inline" set="null" line="125"><f a="value">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></set___skipStack>
+		<get___nativeException get="inline" set="null" line="130"><f a=""><x path="Any"/></f></get___nativeException>
+		<set___nativeException get="inline" set="null" line="134"><f a="value">
+	<x path="Any"/>
+	<x path="Any"/>
+</f></set___nativeException>
+		<get___previousException get="inline" set="null" line="139"><f a=""><x path="Null"><c path="haxe.Exception"/></x></f></get___previousException>
+		<set___previousException get="inline" set="null" line="143"><f a="value">
+	<x path="Null"><c path="haxe.Exception"/></x>
+	<x path="Null"><c path="haxe.Exception"/></x>
+</f></set___previousException>
+		<new public="1" set="method" line="40">
+			<f a="message:?previous:?native">
+				<c path="String"/>
+				<c path="haxe.Exception"/>
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Create a new Exception instance.
+
+		The `native` argument is for internal usage only.
+		There is no need to provide `native` argument manually and no need to keep it
+		upon extending `haxe.Exception` unless you know what you're doing.</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[Base class for exceptions.
+
+	If this class (or derivatives) is used to catch an exception, then
+	`haxe.CallStack.exceptionStack()` will not return a stack for the exception
+	caught. Use `haxe.Exception.stack` property instead:
+	```haxe
+	try {
+		throwSomething();
+	} catch(e:Exception) {
+		trace(e.stack);
+	}
+	```
+
+	Custom exceptions should extend this class:
+	```haxe
+	class MyException extends haxe.Exception {}
+	//...
+	throw new MyException('terrible exception');
+	```
+
+	`haxe.Exception` is also a wildcard type to catch any exception:
+	```haxe
+	try {
+		throw 'Catch me!';
+	} catch(e:haxe.Exception) {
+		trace(e.message); // Output: Catch me!
+	}
+	```
+
+	To rethrow an exception just throw it again.
+	Haxe will try to rethrow an original native exception whenever possible.
+	```haxe
+	try {
+		var a:Array<Int> = null;
+		a.push(1); // generates target-specific null-pointer exception
+	} catch(e:haxe.Exception) {
+		throw e; // rethrows native exception instead of haxe.Exception
+	}
+	```]]></haxe_doc>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<typedef path="haxe.Http" params="" file="/home/vsts/work/1/s/std/haxe/Http.hx"><c path="haxe.http.HttpJs"/></typedef>
 	<abstract path="haxe.Int32" params="" file="/home/vsts/work/1/s/std/haxe/Int32.hx">
@@ -7114,6 +7406,79 @@
 			<m n=":access"><e>haxe.MainEvent</e></m>
 		</meta>
 	</class>
+	<class path="haxe._NativeStackTrace.V8Error" params="" file="/home/vsts/work/1/s/std/js/_std/haxe/NativeStackTrace.hx" private="1" module="haxe.NativeStackTrace" extern="1">
+		<prepareStackTrace public="1" static="1"><f a="error:structuredStackTrace">
+	<c path="js.lib.Error"/>
+	<c path="Array"><t path="haxe.V8CallSite"/></c>
+	<x path="Any"/>
+</f></prepareStackTrace>
+		<meta><m n=":native"><e>"Error"</e></m></meta>
+	</class>
+	<typedef path="haxe.V8CallSite" params="" file="/home/vsts/work/1/s/std/js/_std/haxe/NativeStackTrace.hx" module="haxe.NativeStackTrace"><a>
+	<getLineNumber set="method"><f a=""><x path="Int"/></f></getLineNumber>
+	<getFunctionName set="method"><f a=""><c path="String"/></f></getFunctionName>
+	<getFileName set="method"><f a=""><c path="String"/></f></getFileName>
+	<getColumnNumber set="method"><f a=""><x path="Int"/></f></getColumnNumber>
+</a></typedef>
+	<class path="haxe.NativeStackTrace" params="" file="/home/vsts/work/1/s/std/js/_std/haxe/NativeStackTrace.hx">
+		<lastError static="1"><c path="js.lib.Error"/></lastError>
+		<wrapCallSite public="1" static="1">
+			<f a="">
+				<t path="haxe.V8CallSite"/>
+				<t path="haxe.V8CallSite"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</wrapCallSite>
+		<saveStack public="1" get="inline" set="null" line="34" static="1">
+			<f a="e">
+				<c path="js.lib.Error"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":ifFeature"><e>"haxe.NativeStackTrace.exceptionStack"</e></m></meta>
+		</saveStack>
+		<callStack public="1" set="method" line="38" static="1"><f a=""><x path="Any"/></f></callStack>
+		<exceptionStack public="1" set="method" line="49" static="1"><f a=""><x path="Any"/></f></exceptionStack>
+		<toHaxe public="1" set="method" line="53" static="1">
+			<f a="s:?skip" v=":0">
+				<x path="Null"><x path="Any"/></x>
+				<x path="Int"/>
+				<c path="Array"><e path="haxe.StackItem"/></c>
+			</f>
+			<meta><m n=":value"><e>{ skip : 0 }</e></m></meta>
+		</toHaxe>
+		<tryHaxeStack set="method" line="89" static="1"><f a="e">
+	<x path="Null"><c path="js.lib.Error"/></x>
+	<x path="Any"/>
+</f></tryHaxeStack>
+		<prepareHxStackTrace set="method" line="101" static="1"><f a="e:callsites">
+	<c path="js.lib.Error"/>
+	<c path="Array"><t path="haxe.V8CallSite"/></c>
+	<x path="Any"/>
+</f></prepareHxStackTrace>
+		<normalize set="method" line="127" static="1">
+			<f a="stack:?skipItems" v=":0">
+				<x path="Any"/>
+				<x path="Int"/>
+				<x path="Any"/>
+			</f>
+			<meta><m n=":value"><e>{ skipItems : 0 }</e></m></meta>
+		</normalize>
+		<skipLines set="method" line="142" static="1">
+			<f a="stack:skip:?pos" v="::0">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":value"><e>{ pos : 0 }</e></m></meta>
+		</skipLines>
+		<haxe_doc>Do not use manually.</haxe_doc>
+		<meta>
+			<m n=":dox"><e>hide</e></m>
+			<m n=":noCompletion"/>
+			<m n=":allow"><e>haxe.Exception</e></m>
+		</meta>
+	</class>
 	<typedef path="haxe.PosInfos" params="" file="/home/vsts/work/1/s/std/haxe/PosInfos.hx">
 		<a>
 			<methodName><c path="String"/></methodName>
@@ -8204,6 +8569,39 @@
 		<haxe_doc>Since not all platforms guarantee that `String` always uses UTF-8 encoding, you
 	can use this cross-platform API to perform operations on such strings.</haxe_doc>
 		<meta><m n=":deprecated"><e>"haxe.Utf8 is deprecated. Use UnicodeString instead."</e></m></meta>
+	</class>
+	<class path="haxe.ValueException" params="" file="/home/vsts/work/1/s/std/haxe/ValueException.hx">
+		<extends path="haxe.Exception"/>
+		<value public="1" set="null">
+			<x path="Any"/>
+			<haxe_doc>Thrown value.</haxe_doc>
+		</value>
+		<unwrap set="method" line="35" override="1">
+			<f a=""><x path="Any"/></f>
+			<haxe_doc>Extract an originally thrown value.
+
+		This method must return the same value on subsequent calls.
+		Used internally for catching non-native exceptions.
+		Do _not_ override unless you know what you are doing.</haxe_doc>
+		</unwrap>
+		<new public="1" set="method" line="23"><f a="value:?previous:?native">
+	<x path="Any"/>
+	<c path="haxe.Exception"/>
+	<x path="Any"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>An exception containing arbitrary value.
+
+	This class is automatically used for throwing values, which don't extend `haxe.Exception`
+	or native exception type.
+	For example:
+	```haxe
+	throw "Terrible error";
+	```
+	will be compiled to
+	```haxe
+	throw new ValueException("Terrible error");
+	```</haxe_doc>
 	</class>
 	<class path="haxe.crypto.Adler32" params="" file="/home/vsts/work/1/s/std/haxe/crypto/Adler32.hx">
 		<read public="1" set="method" line="60" static="1"><f a="i">
@@ -16269,7 +16667,10 @@
 	See `Map` for documentation details.
 
 	@see https://haxe.org/manual/std-Map.html</haxe_doc>
-		<meta><m n=":coreApi"/></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
 	<typedef path="haxe.ds._Vector.VectorData" params="T" file="/home/vsts/work/1/s/std/haxe/ds/Vector.hx" private="1" module="haxe.ds.Vector"><c path="Array"><c path="haxe.ds._Vector.VectorData.T"/></c></typedef>
 	<abstract path="haxe.ds.Vector" params="T" file="/home/vsts/work/1/s/std/haxe/ds/Vector.hx">
@@ -30751,7 +31152,10 @@
 		<haxe_doc>The `js.lib.Object` constructor creates an object wrapper.
 
 	Documentation [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
-		<meta><m n=":native"><e>"Object"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"Object"</e></m>
+		</meta>
 	</class>
 	<class path="haxe.xml.Parser" params="" file="/home/vsts/work/1/s/std/haxe/xml/Parser.hx">
 		<escapes expr="{
@@ -31216,61 +31620,36 @@
 	<x path="Void"/>
 </f></new>
 	</class>
-	<class path="js.lib.Error" params="" file="/home/vsts/work/1/s/std/js/lib/Error.hx" extern="1">
-		<message public="1"><c path="String"/></message>
-		<name public="1"><c path="String"/></name>
-		<stack public="1" set="null"><c path="String"/></stack>
-		<new public="1" set="method"><f a="?message">
-	<c path="String"/>
-	<x path="Void"/>
-</f></new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":native"><e>"Error"</e></m>
-		</meta>
-	</class>
-	<class path="js._Boot.HaxeError" params="" file="/home/vsts/work/1/s/std/js/Boot.hx" private="1" module="js.Boot">
-		<extends path="js.lib.Error"/>
-		<wrap public="1" set="method" line="38" static="1"><f a="val">
-	<d/>
-	<c path="js.lib.Error"/>
-</f></wrap>
-		<val><d/></val>
-		<new public="1" set="method" line="31"><f a="val">
-	<d/>
-	<x path="Void"/>
-</f></new>
-	</class>
 	<class path="js.Boot" params="" file="/home/vsts/work/1/s/std/js/Boot.hx">
-		<isClass get="inline" set="null" line="49" static="1">
+		<isClass get="inline" set="null" line="29" static="1">
 			<f a="o">
 				<d/>
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</isClass>
-		<isInterface get="inline" set="null" line="53" static="1">
+		<isInterface get="inline" set="null" line="33" static="1">
 			<f a="o">
 				<x path="Class"><d/></x>
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</isInterface>
-		<isEnum get="inline" set="null" line="57" static="1">
+		<isEnum get="inline" set="null" line="37" static="1">
 			<f a="e">
 				<d/>
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</isEnum>
-		<getClass set="method" line="61" static="1">
+		<getClass set="method" line="41" static="1">
 			<f a="o">
 				<x path="Null"><d/></x>
 				<x path="Null"><d/></x>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</getClass>
-		<__string_rec set="method" line="78" static="1">
+		<__string_rec set="method" line="58" static="1">
 			<f a="o:s">
 				<a>
 					<toString set="null"><f a=""><c path="String"/></f></toString>
@@ -31290,33 +31669,30 @@
 				<m n=":ifFeature"><e>"has_enum"</e></m>
 			</meta>
 		</__string_rec>
-		<__interfLoop set="method" line="163" static="1"><f a="cc:cl">
+		<__interfLoop set="method" line="143" static="1"><f a="cc:cl">
 	<d/>
 	<d/>
 	<x path="Bool"/>
 </f></__interfLoop>
-		<__instanceof set="method" line="182" static="1">
+		<__instanceof set="method" line="162" static="1">
 			<f a="o:cl">
 				<d/>
 				<d/>
 				<x path="Bool"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":ifFeature"><e>"typed_catch"</e></m>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 		</__instanceof>
-		<__downcastCheck set="method" line="226" static="1"><f a="o:cl">
+		<__downcastCheck set="method" line="206" static="1"><f a="o:cl">
 	<d/>
 	<x path="Class"><d/></x>
 	<x path="Bool"/>
 </f></__downcastCheck>
-		<__implements set="method" line="230" static="1"><f a="o:iface">
+		<__implements set="method" line="210" static="1"><f a="o:iface">
 	<d/>
 	<x path="Class"><d/></x>
 	<x path="Bool"/>
 </f></__implements>
-		<__cast set="method" line="234" static="1">
+		<__cast set="method" line="214" static="1">
 			<f a="o:t">
 				<d/>
 				<d/>
@@ -31325,19 +31701,22 @@
 			<meta><m n=":ifFeature"><e>"typed_cast"</e></m></meta>
 		</__cast>
 		<__toStr static="1"><c path="js.lib.Function"/></__toStr>
-		<__nativeClassName set="method" line="248" static="1"><f a="o">
+		<__nativeClassName set="method" line="228" static="1"><f a="o">
 	<d/>
 	<c path="String"/>
 </f></__nativeClassName>
-		<__isNativeObj set="method" line="258" static="1"><f a="o">
+		<__isNativeObj set="method" line="238" static="1"><f a="o">
 	<d/>
 	<x path="Bool"/>
 </f></__isNativeObj>
-		<__resolveNativeClass set="method" line="263" static="1"><f a="name">
+		<__resolveNativeClass set="method" line="243" static="1"><f a="name">
 	<c path="String"/>
 	<x path="Null"><d/></x>
 </f></__resolveNativeClass>
-		<meta><m n=":dox"><e>hide</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":dox"><e>hide</e></m>
+		</meta>
 	</class>
 	<class path="js.Browser" params="" file="/home/vsts/work/1/s/std/js/Browser.hx">
 		<window public="1" get="accessor" set="null" static="1">
@@ -80489,6 +80868,16 @@
 	</f>
 	<meta><m n=":from"/></meta>
 </fromBufferView></class>
+	<class path="js.lib.Error" params="" file="/home/vsts/work/1/s/std/js/lib/Error.hx" extern="1">
+		<message public="1"><c path="String"/></message>
+		<name public="1"><c path="String"/></name>
+		<stack public="1" set="null"><c path="String"/></stack>
+		<new public="1" set="method"><f a="?message">
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":native"><e>"Error"</e></m></meta>
+	</class>
 	<class path="js.lib.EvalError" params="" file="/home/vsts/work/1/s/std/js/lib/Error.hx" module="js.lib.Error" extern="1">
 		<extends path="js.lib.Error"/>
 		<new public="1" set="method"><f a="?message">

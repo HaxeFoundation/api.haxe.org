@@ -2829,7 +2829,10 @@
 	Unlike String, an instance of StringBuf is not immutable in the sense that
 	it can be passed as argument to functions which modify it by appending more
 	values.</haxe_doc>
-		<meta><m n=":coreApi"/></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
 	<class path="haxe.SysTools" params="" file="/home/vsts/work/1/s/std/haxe/SysTools.hx">
 		<winMetaCharacters final="1" public="1" set="null" expr="[&quot; &quot;.code, &quot;(&quot;.code, &quot;)&quot;.code, &quot;%&quot;.code, &quot;!&quot;.code, &quot;^&quot;.code, &quot;\&quot;&quot;.code, &quot;&lt;&quot;.code, &quot;&gt;&quot;.code, &quot;&amp;&quot;.code, &quot;|&quot;.code, &quot;\n&quot;.code, &quot;\r&quot;.code, &quot;,&quot;.code, &quot;;&quot;.code]" line="9" static="1">
@@ -7976,8 +7979,7 @@
 
 	@see https://haxe.org/manual/std-Xml.html</haxe_doc>
 	</class>
-	<typedef path="haxe._CallStack.NativeTrace" params="" file="/home/vsts/work/1/s/std/php/_std/haxe/CallStack.hx" private="1" module="haxe.CallStack"><x path="php.NativeIndexedArray"><x path="php.NativeAssocArray"><d/></x></x></typedef>
-	<enum path="haxe.StackItem" params="" file="/home/vsts/work/1/s/std/php/_std/haxe/CallStack.hx" module="haxe.CallStack">
+	<enum path="haxe.StackItem" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx" module="haxe.CallStack">
 		<CFunction/>
 		<Module a="m"><c path="String"/></Module>
 		<FilePos a="s:file:line:?column">
@@ -7991,53 +7993,190 @@
 			<c path="String"/>
 		</Method>
 		<LocalFunction a="?v"><x path="Int"/></LocalFunction>
+		<haxe_doc>Elements return by `CallStack` methods.</haxe_doc>
 	</enum>
-	<class path="haxe.CallStack" params="" file="/home/vsts/work/1/s/std/php/_std/haxe/CallStack.hx">
-		<mapPosition public="1" static="1">
-			<f a=":">
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="Null"><a>
-	<source>
-		<x path="Null"><c path="String"/></x>
-		<meta><m n=":optional"/></meta>
-	</source>
-	<originalLine>
-		<x path="Null"><x path="Int"/></x>
-		<meta><m n=":optional"/></meta>
-	</originalLine>
-</a></x>
-			</f>
-			<haxe_doc>If defined this function will be used to transform call stack entries.
-		@param String - generated php file name.
-		@param Int - Line number in generated file.</haxe_doc>
-		</mapPosition>
-		<lastExceptionTrace static="1">
-			<t path="haxe._CallStack.NativeTrace"/>
-			<meta><m n=":ifFeature"><e>"haxe.CallStack.exceptionStack"</e></m></meta>
-		</lastExceptionTrace>
-		<callStack public="1" set="method" line="48" static="1"><f a=""><c path="Array"><e path="haxe.StackItem"/></c></f></callStack>
-		<exceptionStack public="1" set="method" line="52" static="1"><f a=""><c path="Array"><e path="haxe.StackItem"/></c></f></exceptionStack>
-		<toString public="1" set="method" line="56" static="1"><f a="stack">
-	<c path="Array"><e path="haxe.StackItem"/></c>
+	<abstract path="haxe.CallStack" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx">
+		<from><icast><c path="Array"><e path="haxe.StackItem"/></c></icast></from>
+		<this><c path="Array"><e path="haxe.StackItem"/></c></this>
+		<haxe_doc>Get information about the call stack.</haxe_doc>
+		<meta>
+			<m n=":allow"><e>haxe.Exception</e></m>
+			<m n=":using"><e>haxe.CallStack</e></m>
+		</meta>
+		<impl><class path="haxe._CallStack.CallStack_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx" private="1" module="haxe.CallStack">
+	<length public="1" get="accessor" set="null" static="1">
+		<x path="Int"/>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>The length of this stack.</haxe_doc>
+	</length>
+	<get_length get="inline" set="null" line="46" static="1">
+		<f a="this">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_length>
+	<callStack public="1" set="method" line="51" static="1">
+		<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+		<haxe_doc>Return the call stack elements, or an empty array if not available.</haxe_doc>
+	</callStack>
+	<exceptionStack public="1" set="method" line="62" static="1">
+		<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+		<haxe_doc>Return the exception stack : this is the stack elements between
+		the place the last exception was thrown and the place it was
+		caught, or an empty array if not available.
+
+		May not work if catch type was a derivative from `haxe.Exception`.</haxe_doc>
+	</exceptionStack>
+	<toString public="1" set="method" line="70" static="1">
+		<f a="stack">
+			<x path="haxe.CallStack"/>
+			<c path="String"/>
+		</f>
+		<haxe_doc>Returns a representation of the stack as a printable string.</haxe_doc>
+	</toString>
+	<subtract public="1" set="method" line="83" static="1">
+		<f a="this:stack">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="haxe.CallStack"/>
+			<x path="haxe.CallStack"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns a range of entries of current stack from the beginning to the the
+		common part of this and `stack`.</haxe_doc>
+	</subtract>
+	<copy public="1" get="inline" set="null" line="106" static="1">
+		<f a="this">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="haxe.CallStack"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Make a copy of the stack.</haxe_doc>
+	</copy>
+	<get public="1" get="inline" set="null" line="110" static="1">
+		<f a="this:index">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="Int"/>
+			<e path="haxe.StackItem"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":arrayAccess"/>
+		</meta>
+	</get>
+	<asArray get="inline" set="null" line="114" static="1">
+		<f a="this">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<c path="Array"><e path="haxe.StackItem"/></c>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</asArray>
+	<equalItems set="method" line="118" static="1"><f a="item1:item2">
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Bool"/>
+</f></equalItems>
+	<exceptionToString set="method" line="134" static="1"><f a="e">
+	<c path="haxe.Exception"/>
 	<c path="String"/>
-</f></toString>
-		<itemToString set="method" line="65" static="1"><f a="b:s">
+</f></exceptionToString>
+	<itemToString set="method" line="154" static="1"><f a="b:s">
 	<c path="StringBuf"/>
 	<e path="haxe.StackItem"/>
 	<x path="Void"/>
 </f></itemToString>
-		<saveExceptionTrace set="method" line="92" static="1">
-			<f a="e">
-				<c path="php.Throwable"/>
-				<x path="Void"/>
+	<meta>
+		<m n=":using"><e>haxe.CallStack</e></m>
+		<m n=":allow"><e>haxe.Exception</e></m>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe._CallStack.CallStack_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx" private="1" module="haxe.CallStack">
+		<length public="1" get="accessor" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>The length of this stack.</haxe_doc>
+		</length>
+		<get_length get="inline" set="null" line="46" static="1">
+			<f a="this">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="Int"/>
 			</f>
-			<meta><m n=":ifFeature"><e>"haxe.CallStack.exceptionStack"</e></m></meta>
-		</saveExceptionTrace>
-		<makeStack set="method" line="126" static="1"><f a="native">
-	<t path="haxe._CallStack.NativeTrace"/>
-	<c path="Array"><e path="haxe.StackItem"/></c>
-</f></makeStack>
+			<meta><m n=":impl"/></meta>
+		</get_length>
+		<callStack public="1" set="method" line="51" static="1">
+			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+			<haxe_doc>Return the call stack elements, or an empty array if not available.</haxe_doc>
+		</callStack>
+		<exceptionStack public="1" set="method" line="62" static="1">
+			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+			<haxe_doc>Return the exception stack : this is the stack elements between
+		the place the last exception was thrown and the place it was
+		caught, or an empty array if not available.
+
+		May not work if catch type was a derivative from `haxe.Exception`.</haxe_doc>
+		</exceptionStack>
+		<toString public="1" set="method" line="70" static="1">
+			<f a="stack">
+				<x path="haxe.CallStack"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a representation of the stack as a printable string.</haxe_doc>
+		</toString>
+		<subtract public="1" set="method" line="83" static="1">
+			<f a="this:stack">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="haxe.CallStack"/>
+				<x path="haxe.CallStack"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns a range of entries of current stack from the beginning to the the
+		common part of this and `stack`.</haxe_doc>
+		</subtract>
+		<copy public="1" get="inline" set="null" line="106" static="1">
+			<f a="this">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="haxe.CallStack"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Make a copy of the stack.</haxe_doc>
+		</copy>
+		<get public="1" get="inline" set="null" line="110" static="1">
+			<f a="this:index">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="Int"/>
+				<e path="haxe.StackItem"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":arrayAccess"/>
+			</meta>
+		</get>
+		<asArray get="inline" set="null" line="114" static="1">
+			<f a="this">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<c path="Array"><e path="haxe.StackItem"/></c>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</asArray>
+		<equalItems set="method" line="118" static="1"><f a="item1:item2">
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Bool"/>
+</f></equalItems>
+		<exceptionToString set="method" line="134" static="1"><f a="e">
+	<c path="haxe.Exception"/>
+	<c path="String"/>
+</f></exceptionToString>
+		<itemToString set="method" line="154" static="1"><f a="b:s">
+	<c path="StringBuf"/>
+	<e path="haxe.StackItem"/>
+	<x path="Void"/>
+</f></itemToString>
+		<meta>
+			<m n=":using"><e>haxe.CallStack</e></m>
+			<m n=":allow"><e>haxe.Exception</e></m>
+		</meta>
 	</class>
 	<abstract path="haxe.Function" params="" file="/home/vsts/work/1/s/std/haxe/Constraints.hx" module="haxe.Constraints">
 		<this><d/></this>
@@ -8699,6 +8838,183 @@
 
 	If the first argument to any of the methods is `null`, the result is
 	unspecified.</haxe_doc>
+	</class>
+	<class path="haxe._Exception.NativeException" params="" file="/home/vsts/work/1/s/std/php/_std/haxe/Exception.hx" private="1" module="haxe.Exception" extern="1">
+		<code>
+			<x path="Int"/>
+			<meta><m n=":noCompletion"/></meta>
+		</code>
+		<file>
+			<c path="String"/>
+			<meta><m n=":noCompletion"/></meta>
+		</file>
+		<line>
+			<x path="Int"/>
+			<meta><m n=":noCompletion"/></meta>
+		</line>
+		<getPrevious final="1" set="method">
+			<f a=""><c path="php.Throwable"/></f>
+			<meta><m n=":noCompletion"/></meta>
+		</getPrevious>
+		<getMessage set="method">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":noCompletion"/></meta>
+		</getMessage>
+		<getCode set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":noCompletion"/></meta>
+		</getCode>
+		<getFile set="method">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":noCompletion"/></meta>
+		</getFile>
+		<getLine set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":noCompletion"/></meta>
+		</getLine>
+		<getTrace set="method">
+			<f a=""><x path="php.NativeIndexedArray"><x path="php.NativeAssocArray"><d/></x></x></f>
+			<meta><m n=":noCompletion"/></meta>
+		</getTrace>
+		<getTraceAsString set="method">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":noCompletion"/></meta>
+		</getTraceAsString>
+		<__toString set="method">
+			<f a=""><c path="String"/></f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":phpMagic"/>
+			</meta>
+		</__toString>
+		<new set="method">
+			<f a="?message:?code:?previous">
+				<c path="String"/>
+				<x path="Int"/>
+				<c path="haxe._Exception.NativeException"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":dox"><e>hide</e></m>
+			<m n=":noCompletion"/>
+			<m n=":native"><e>"Exception"</e></m>
+		</meta>
+	</class>
+	<class path="haxe.Exception" params="" file="/home/vsts/work/1/s/std/php/_std/haxe/Exception.hx">
+		<extends path="haxe._Exception.NativeException"/>
+		<caught set="method" line="19" static="1"><f a="value">
+	<x path="Any"/>
+	<c path="haxe.Exception"/>
+</f></caught>
+		<thrown set="method" line="29" static="1"><f a="value">
+	<x path="Any"/>
+	<x path="Any"/>
+</f></thrown>
+		<message public="1" get="accessor" set="null">
+			<c path="String"/>
+			<haxe_doc>Exception message.</haxe_doc>
+		</message>
+		<stack public="1" get="accessor" set="null">
+			<x path="haxe.CallStack"/>
+			<haxe_doc>The call stack at the moment of the exception creation.</haxe_doc>
+		</stack>
+		<previous public="1" get="accessor" set="null">
+			<x path="Null"><c path="haxe.Exception"/></x>
+			<haxe_doc>Contains an exception, which was passed to `previous` constructor argument.</haxe_doc>
+		</previous>
+		<native public="1" get="accessor" set="null">
+			<x path="Any"/>
+			<haxe_doc>Native exception, which caused this exception.</haxe_doc>
+		</native>
+		<__exceptionStack>
+			<x path="Null"><x path="haxe.CallStack"/></x>
+			<meta><m n=":noCompletion"/></meta>
+		</__exceptionStack>
+		<__nativeException>
+			<c path="php.Throwable"/>
+			<meta><m n=":noCompletion"/></meta>
+		</__nativeException>
+		<__skipStack expr="0">
+			<x path="Int"/>
+			<meta>
+				<m n=":value"><e>0</e></m>
+				<m n=":noCompletion"/>
+			</meta>
+		</__skipStack>
+		<__previousException>
+			<x path="Null"><c path="haxe.Exception"/></x>
+			<meta><m n=":noCompletion"/></meta>
+		</__previousException>
+		<unwrap set="method" line="51"><f a=""><x path="Any"/></f></unwrap>
+		<toString public="1" set="method" line="55">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Exception description.
+
+		Includes message, stack and the previous exception (if set).</haxe_doc>
+		</toString>
+		<get_message set="method" line="59"><f a=""><c path="String"/></f></get_message>
+		<get_previous set="method" line="63"><f a=""><x path="Null"><c path="haxe.Exception"/></x></f></get_previous>
+		<get_native final="1" set="method" line="67"><f a=""><x path="Any"/></f></get_native>
+		<get_stack set="method" line="71"><f a=""><x path="haxe.CallStack"/></f></get_stack>
+		<new public="1" set="method" line="41">
+			<f a="message:?previous:?native">
+				<c path="String"/>
+				<c path="haxe.Exception"/>
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Create a new Exception instance.
+
+		The `native` argument is for internal usage only.
+		There is no need to provide `native` argument manually and no need to keep it
+		upon extending `haxe.Exception` unless you know what you're doing.</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[Base class for exceptions.
+
+	If this class (or derivatives) is used to catch an exception, then
+	`haxe.CallStack.exceptionStack()` will not return a stack for the exception
+	caught. Use `haxe.Exception.stack` property instead:
+	```haxe
+	try {
+		throwSomething();
+	} catch(e:Exception) {
+		trace(e.stack);
+	}
+	```
+
+	Custom exceptions should extend this class:
+	```haxe
+	class MyException extends haxe.Exception {}
+	//...
+	throw new MyException('terrible exception');
+	```
+
+	`haxe.Exception` is also a wildcard type to catch any exception:
+	```haxe
+	try {
+		throw 'Catch me!';
+	} catch(e:haxe.Exception) {
+		trace(e.message); // Output: Catch me!
+	}
+	```
+
+	To rethrow an exception just throw it again.
+	Haxe will try to rethrow an original native exception whenever possible.
+	```haxe
+	try {
+		var a:Array<Int> = null;
+		a.push(1); // generates target-specific null-pointer exception
+	} catch(e:haxe.Exception) {
+		throw e; // rethrows native exception instead of haxe.Exception
+	}
+	```]]></haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
 	<typedef path="haxe.Http" params="" file="/home/vsts/work/1/s/std/haxe/Http.hx"><c path="sys.Http"/></typedef>
 	<abstract path="haxe.Int32" params="" file="/home/vsts/work/1/s/std/haxe/Int32.hx">
@@ -10479,6 +10795,57 @@
 			<m n=":access"><e>haxe.MainEvent</e></m>
 		</meta>
 	</class>
+	<typedef path="haxe._NativeStackTrace.NativeTrace" params="" file="/home/vsts/work/1/s/std/php/_std/haxe/NativeStackTrace.hx" private="1" module="haxe.NativeStackTrace"><x path="php.NativeIndexedArray"><x path="php.NativeAssocArray"><d/></x></x></typedef>
+	<class path="haxe.NativeStackTrace" params="" file="/home/vsts/work/1/s/std/php/_std/haxe/NativeStackTrace.hx">
+		<mapPosition public="1" static="1">
+			<f a=":">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Null"><a>
+	<source>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</source>
+	<originalLine>
+		<x path="Null"><x path="Int"/></x>
+		<meta><m n=":optional"/></meta>
+	</originalLine>
+</a></x>
+			</f>
+			<haxe_doc>If defined this function will be used to transform call stack entries.
+		@param String - generated php file name.
+		@param Int - Line number in generated file.</haxe_doc>
+		</mapPosition>
+		<lastExceptionTrace static="1"><x path="Null"><t path="haxe._NativeStackTrace.NativeTrace"/></x></lastExceptionTrace>
+		<saveStack public="1" set="method" line="25" static="1">
+			<f a="e">
+				<c path="php.Throwable"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":ifFeature"><e>"haxe.NativeStackTrace.exceptionStack"</e></m></meta>
+		</saveStack>
+		<callStack public="1" get="inline" set="null" line="53" static="1"><f a=""><t path="haxe._NativeStackTrace.NativeTrace"/></f></callStack>
+		<exceptionStack public="1" set="method" line="57" static="1"><f a=""><t path="haxe._NativeStackTrace.NativeTrace"/></f></exceptionStack>
+		<toHaxe public="1" set="method" line="61" static="1">
+			<f a="native:?skip" v=":0">
+				<t path="haxe._NativeStackTrace.NativeTrace"/>
+				<x path="Int"/>
+				<c path="Array"><e path="haxe.StackItem"/></c>
+			</f>
+			<meta><m n=":value"><e>{ skip : 0 }</e></m></meta>
+		</toHaxe>
+		<complementTrace set="method" line="105" static="1"><f a="nativeTrace:e">
+	<t path="haxe._NativeStackTrace.NativeTrace"/>
+	<c path="php.Throwable"/>
+	<t path="haxe._NativeStackTrace.NativeTrace"/>
+</f></complementTrace>
+		<haxe_doc>Do not use manually.</haxe_doc>
+		<meta>
+			<m n=":dox"><e>hide</e></m>
+			<m n=":noCompletion"/>
+			<m n=":allow"><e>haxe.Exception</e></m>
+		</meta>
+	</class>
 	<typedef path="haxe.PosInfos" params="" file="/home/vsts/work/1/s/std/haxe/PosInfos.hx">
 		<a>
 			<methodName><c path="String"/></methodName>
@@ -11591,6 +11958,40 @@
 			<m n=":coreApi"/>
 			<m n=":deprecated"><e>"haxe.Utf8 is deprecated. Use UnicodeString instead."</e></m>
 		</meta>
+	</class>
+	<class path="haxe.ValueException" params="" file="/home/vsts/work/1/s/std/haxe/ValueException.hx">
+		<extends path="haxe.Exception"/>
+		<value public="1" set="null">
+			<x path="Any"/>
+			<haxe_doc>Thrown value.</haxe_doc>
+		</value>
+		<unwrap set="method" line="35" override="1">
+			<f a=""><x path="Any"/></f>
+			<haxe_doc>Extract an originally thrown value.
+
+		This method must return the same value on subsequent calls.
+		Used internally for catching non-native exceptions.
+		Do _not_ override unless you know what you are doing.</haxe_doc>
+		</unwrap>
+		<new public="1" set="method" line="23"><f a="value:?previous:?native">
+	<x path="Any"/>
+	<c path="haxe.Exception"/>
+	<x path="Any"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>An exception containing arbitrary value.
+
+	This class is automatically used for throwing values, which don't extend `haxe.Exception`
+	or native exception type.
+	For example:
+	```haxe
+	throw "Terrible error";
+	```
+	will be compiled to
+	```haxe
+	throw new ValueException("Terrible error");
+	```</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="haxe.crypto.Adler32" params="" file="/home/vsts/work/1/s/std/haxe/crypto/Adler32.hx">
 		<read public="1" set="method" line="60" static="1"><f a="i">
@@ -18508,7 +18909,10 @@
 	See `Map` for documentation details.
 
 	@see https://haxe.org/manual/std-Map.html</haxe_doc>
-		<meta><m n=":coreApi"/></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
 	<class path="haxe.ds._Vector.PhpVectorData" params="T" file="/home/vsts/work/1/s/std/php/_std/haxe/ds/Vector.hx" private="1" module="haxe.ds.Vector">
 		<length public="1"><x path="Int"/></length>
@@ -33311,7 +33715,10 @@
 			<meta><m n=":phpMagic"/></meta>
 		</__toString>
 		<haxe_doc>@see http://php.net/manual/en/class.throwable.php</haxe_doc>
-		<meta><m n=":native"><e>"Throwable"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"Throwable"</e></m>
+		</meta>
 	</class>
 	<class path="php.ErrorException" params="" file="/home/vsts/work/1/s/std/php/ErrorException.hx" extern="1">
 		<implements path="php.Throwable"/>
@@ -33544,7 +33951,7 @@
 				<d/>
 			</f>
 			<haxe_doc><![CDATA[Implementation for `cast(value, Class<Dynamic>)`
-		@throws HxException if `value` cannot be casted to this type]]></haxe_doc>
+		@throws haxe.ValueError if `value` cannot be casted to this type]]></haxe_doc>
 		</typedCast>
 		<stringify public="1" set="method" line="355" static="1">
 			<f a="value:?maxRecursion" v=":10">
@@ -34018,47 +34425,6 @@
 			<m n=":dox"><e>hide</e></m>
 		</meta>
 	</class>
-	<class path="php.Exception" params="" file="/home/vsts/work/1/s/std/php/Exception.hx" extern="1">
-		<implements path="php.Throwable"/>
-		<message><c path="String"/></message>
-		<code><x path="Int"/></code>
-		<file><c path="String"/></file>
-		<line><x path="Int"/></line>
-		<getPrevious final="1" public="1" set="method"><f a=""><c path="php.Throwable"/></f></getPrevious>
-		<getMessage public="1" set="method"><f a=""><c path="String"/></f></getMessage>
-		<getCode public="1" set="method"><f a=""><x path="Int"/></f></getCode>
-		<getFile public="1" set="method"><f a=""><c path="String"/></f></getFile>
-		<getLine public="1" set="method"><f a=""><x path="Int"/></f></getLine>
-		<getTrace public="1" set="method"><f a=""><x path="php.NativeIndexedArray"><x path="php.NativeAssocArray"><d/></x></x></f></getTrace>
-		<getTraceAsString public="1" set="method"><f a=""><c path="String"/></f></getTraceAsString>
-		<__toString public="1" set="method">
-			<f a=""><c path="String"/></f>
-			<meta><m n=":phpMagic"/></meta>
-		</__toString>
-		<new public="1" set="method"><f a="?message:?code:?previous">
-	<c path="String"/>
-	<x path="Int"/>
-	<c path="php.Throwable"/>
-	<x path="Void"/>
-</f></new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":native"><e>"Exception"</e></m>
-		</meta>
-	</class>
-	<class path="php._Boot.HxException" params="" file="/home/vsts/work/1/s/std/php/Boot.hx" private="1" module="php.Boot">
-		<extends path="php.Exception"/>
-		<e><d/></e>
-		<new public="1" set="method" line="1027"><f a="e">
-	<d/>
-	<x path="Void"/>
-</f></new>
-		<haxe_doc>Special exception which is used to wrap non-throwable values</haxe_doc>
-		<meta>
-			<m n=":keep"/>
-			<m n=":dox"><e>hide</e></m>
-		</meta>
-	</class>
 	<class path="php.Closure" params="" file="/home/vsts/work/1/s/std/php/Closure.hx" extern="1">
 		<bindTo public="1" set="method">
 			<f a="newthis:?newscope" v=":&quot;static&quot;">
@@ -34103,6 +34469,31 @@
 	<x path="Void"/>
 </f></new>
 		<meta><m n=":native"><e>"Error"</e></m></meta>
+	</class>
+	<class path="php.Exception" params="" file="/home/vsts/work/1/s/std/php/Exception.hx" extern="1">
+		<implements path="php.Throwable"/>
+		<message><c path="String"/></message>
+		<code><x path="Int"/></code>
+		<file><c path="String"/></file>
+		<line><x path="Int"/></line>
+		<getPrevious final="1" public="1" set="method"><f a=""><c path="php.Throwable"/></f></getPrevious>
+		<getMessage public="1" set="method"><f a=""><c path="String"/></f></getMessage>
+		<getCode public="1" set="method"><f a=""><x path="Int"/></f></getCode>
+		<getFile public="1" set="method"><f a=""><c path="String"/></f></getFile>
+		<getLine public="1" set="method"><f a=""><x path="Int"/></f></getLine>
+		<getTrace public="1" set="method"><f a=""><x path="php.NativeIndexedArray"><x path="php.NativeAssocArray"><d/></x></x></f></getTrace>
+		<getTraceAsString public="1" set="method"><f a=""><c path="String"/></f></getTraceAsString>
+		<__toString public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":phpMagic"/></meta>
+		</__toString>
+		<new public="1" set="method"><f a="?message:?code:?previous">
+	<c path="String"/>
+	<x path="Int"/>
+	<c path="php.Throwable"/>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":native"><e>"Exception"</e></m></meta>
 	</class>
 	<class path="php.Generator" params="" file="/home/vsts/work/1/s/std/php/Generator.hx" extern="1">
 		<current public="1" set="method"><f a=""><d/></f></current>
@@ -35313,14 +35704,14 @@
 		<get__ENV get="inline" set="null" line="95" static="1"><f a=""><x path="php.NativeAssocArray"><d/></x></f></get__ENV>
 	</class>
 	<class path="php.Web" params="" file="/home/vsts/work/1/s/std/php/Web.hx">
-		<getParams public="1" set="method" line="39" static="1">
+		<getParams public="1" set="method" line="40" static="1">
 			<f a=""><x path="haxe.ds.Map">
 	<c path="String"/>
 	<c path="String"/>
 </x></f>
 			<haxe_doc>Returns the GET and POST parameters.</haxe_doc>
 		</getParams>
-		<getParamValues public="1" set="method" line="61" static="1">
+		<getParamValues public="1" set="method" line="62" static="1">
 			<f a="param">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -35329,26 +35720,26 @@
 		If you have in your URL the parameters `a[]=foo;a[]=hello;a[5]=bar;a[3]=baz` then
 		`php.Web.getParamValues("a")` will return `["foo","hello",null,"baz",null,"bar"]`.</haxe_doc>
 		</getParamValues>
-		<getHostName public="1" get="inline" set="null" line="99" static="1">
+		<getHostName public="1" get="inline" set="null" line="100" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the local server host name.</haxe_doc>
 		</getHostName>
-		<getClientIP public="1" get="inline" set="null" line="106" static="1">
+		<getClientIP public="1" get="inline" set="null" line="107" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Surprisingly returns the client IP address.</haxe_doc>
 		</getClientIP>
-		<getURI public="1" set="method" line="113" static="1">
+		<getURI public="1" set="method" line="114" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the original request URL (before any server internal redirections).</haxe_doc>
 		</getURI>
-		<redirect public="1" set="method" line="121" static="1">
+		<redirect public="1" set="method" line="122" static="1">
 			<f a="url">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Tell the client to redirect to the given url ("Location" header).</haxe_doc>
 		</redirect>
-		<setHeader public="1" get="inline" set="null" line="129" static="1">
+		<setHeader public="1" get="inline" set="null" line="130" static="1">
 			<f a="h:v">
 				<c path="String"/>
 				<c path="String"/>
@@ -35357,7 +35748,7 @@
 			<haxe_doc>Set an output header value. If some data have been printed, the headers have
 		already been sent so this will raise an exception.</haxe_doc>
 		</setHeader>
-		<setReturnCode public="1" set="method" line="137" static="1">
+		<setReturnCode public="1" set="method" line="138" static="1">
 			<f a="r">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -35365,7 +35756,7 @@
 			<haxe_doc>Set the HTTP return code. Same remark as `php.Web.setHeader()`.
 		See status code explanation here: http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</haxe_doc>
 		</setReturnCode>
-		<getClientHeader public="1" set="method" line="229" static="1">
+		<getClientHeader public="1" set="method" line="230" static="1">
 			<f a="k">
 				<c path="String"/>
 				<c path="String"/>
@@ -35376,32 +35767,32 @@
 	<c path="String"/>
 	<c path="String"/>
 </x></_clientHeaders>
-		<loadClientHeaders set="method" line="238" static="1">
+		<loadClientHeaders set="method" line="239" static="1">
 			<f a=""><x path="haxe.ds.Map">
 	<c path="String"/>
 	<c path="String"/>
 </x></f>
 			<haxe_doc>Based on https://github.com/ralouphie/getallheaders</haxe_doc>
 		</loadClientHeaders>
-		<getClientHeaders public="1" set="method" line="283" static="1">
+		<getClientHeaders public="1" set="method" line="284" static="1">
 			<f a=""><t path="List"><a>
 	<value><c path="String"/></value>
 	<header><c path="String"/></header>
 </a></t></f>
 			<haxe_doc>Retrieve all the client headers.</haxe_doc>
 		</getClientHeaders>
-		<getClientHeadersMap public="1" set="method" line="295" static="1">
+		<getClientHeadersMap public="1" set="method" line="296" static="1">
 			<f a=""><x path="haxe.ds.Map">
 	<c path="String"/>
 	<c path="String"/>
 </x></f>
 			<haxe_doc>Retrieve all the client headers as `haxe.ds.Map`.</haxe_doc>
 		</getClientHeadersMap>
-		<getParamsString public="1" set="method" line="302" static="1">
+		<getParamsString public="1" set="method" line="303" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns all the GET parameters `String`</haxe_doc>
 		</getParamsString>
-		<getPostData public="1" set="method" line="317" static="1">
+		<getPostData public="1" set="method" line="318" static="1">
 			<f a=""><x path="Null"><c path="String"/></x></f>
 			<haxe_doc>Returns all the POST data. POST Data is always parsed as
 		being application/x-www-form-urlencoded and is stored into
@@ -35410,7 +35801,7 @@
 		case, you will have to use `php.Web.getMultipart()` or
 		`php.Web.parseMultipart()` methods.</haxe_doc>
 		</getPostData>
-		<getCookies public="1" set="method" line="336" static="1">
+		<getCookies public="1" set="method" line="337" static="1">
 			<f a=""><x path="haxe.ds.Map">
 	<c path="String"/>
 	<c path="String"/>
@@ -35419,7 +35810,7 @@
 		Modifying the hashtable will not modify the cookie, use `php.Web.setCookie()`
 		instead.</haxe_doc>
 		</getCookies>
-		<setCookie public="1" set="method" line="343" static="1">
+		<setCookie public="1" set="method" line="344" static="1">
 			<f a="key:value:?expire:?domain:?path:?secure:?httpOnly">
 				<c path="String"/>
 				<c path="String"/>
@@ -35432,18 +35823,18 @@
 			</f>
 			<haxe_doc>Set a Cookie value in the HTTP headers. Same remark as `php.Web.setHeader()`.</haxe_doc>
 		</setCookie>
-		<getAuthorization public="1" set="method" line="359" static="1">
+		<getAuthorization public="1" set="method" line="360" static="1">
 			<f a=""><a>
 	<user><c path="String"/></user>
 	<pass><c path="String"/></pass>
 </a></f>
 			<haxe_doc>Returns an object with the authorization sent by the client (Basic scheme only).</haxe_doc>
 		</getAuthorization>
-		<getCwd public="1" get="inline" set="null" line="368" static="1">
+		<getCwd public="1" get="inline" set="null" line="369" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Get the current script directory in the local filesystem.</haxe_doc>
 		</getCwd>
-		<getMultipart public="1" set="method" line="376" static="1">
+		<getMultipart public="1" set="method" line="377" static="1">
 			<f a="maxSize">
 				<x path="Int"/>
 				<x path="haxe.ds.Map">
@@ -35454,7 +35845,7 @@
 			<haxe_doc>Get the multipart parameters as an hashtable. The data
 		cannot exceed the maximum size specified.</haxe_doc>
 		</getMultipart>
-		<parseMultipart public="1" set="method" line="405" static="1">
+		<parseMultipart public="1" set="method" line="406" static="1">
 			<f a="onPart:onData">
 				<f a=":">
 					<c path="String"/>
@@ -35474,18 +35865,19 @@
 		and `onData` when some part data is readed. You can this way
 		directly save the data on hard drive in the case of a file upload.</haxe_doc>
 		</parseMultipart>
-		<flush public="1" get="inline" set="null" line="462" static="1">
+		<flush public="1" get="inline" set="null" line="463" static="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Flush the data sent to the client. By default on Apache, outgoing data is buffered so
 		this can be useful for displaying some long operation progress.</haxe_doc>
 		</flush>
-		<getMethod public="1" set="method" line="469" static="1">
+		<getMethod public="1" set="method" line="470" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Get the HTTP method used by the client.</haxe_doc>
 		</getMethod>
 		<isModNeko public="1" set="null" static="1"><x path="Bool"/></isModNeko>
 		<haxe_doc>This class is used for accessing the local Web server and the current
 	client request and information.</haxe_doc>
+		<meta><m n=":deprecated"><e>"php.Web is deprecated and will be removed from standard library in Haxe 4.2. See php.SuperGlobal and php.Global for alternatives."</e></m></meta>
 	</class>
 	<class path="php.db.Mysqli" params="" file="/home/vsts/work/1/s/std/php/db/Mysqli.hx" extern="1">
 		<poll public="1" set="method" static="1"><f a="read:error:reject:sec:?usec">

@@ -458,6 +458,7 @@
 
 	@see https://haxe.org/manual/types-class-instance.html</haxe_doc>
 		<meta>
+			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":runtimeValue"/>
 		</meta>
@@ -981,6 +982,7 @@
 
 	@see https://haxe.org/manual/types-enum-instance.html</haxe_doc>
 		<meta>
+			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":runtimeValue"/>
 		</meta>
@@ -2218,6 +2220,7 @@
 		</random>
 		<haxe_doc>The Std class provides standard methods for manipulating basic types.</haxe_doc>
 		<meta>
+			<m n=":directlyUsed"/>
 			<m n=":keepInit"/>
 			<m n=":coreApi"/>
 		</meta>
@@ -2242,6 +2245,7 @@
 	@see https://haxe.org/manual/types-basic-types.html
 	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
 		<meta>
+			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":notNull"/>
 			<m n=":runtimeValue"/>
@@ -2262,6 +2266,7 @@
 	@see https://haxe.org/manual/std-math-integer-math.html
 	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
 		<meta>
+			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":notNull"/>
 			<m n=":runtimeValue"/>
@@ -2295,6 +2300,7 @@
 	@see https://haxe.org/manual/types-bool.html
 	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
 		<meta>
+			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":notNull"/>
 			<m n=":runtimeValue"/>
@@ -2310,6 +2316,7 @@
 
 	@see https://haxe.org/manual/types-dynamic.html</haxe_doc>
 		<meta>
+			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":runtimeValue"/>
 		</meta>
@@ -2544,6 +2551,7 @@
 
 	@see https://haxe.org/manual/std-String.html</haxe_doc>
 		<meta>
+			<m n=":directlyUsed"/>
 			<m n=":coreApi"/>
 			<m n=":native"><e>"str"</e></m>
 		</meta>
@@ -2618,7 +2626,10 @@
 	Unlike String, an instance of StringBuf is not immutable in the sense that
 	it can be passed as argument to functions which modify it by appending more
 	values.</haxe_doc>
-		<meta><m n=":coreApi"/></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
 	<class path="haxe.SysTools" params="" file="/home/vsts/work/1/s/std/haxe/SysTools.hx">
 		<winMetaCharacters final="1" public="1" set="null" expr="[&quot; &quot;.code, &quot;(&quot;.code, &quot;)&quot;.code, &quot;%&quot;.code, &quot;!&quot;.code, &quot;^&quot;.code, &quot;\&quot;&quot;.code, &quot;&lt;&quot;.code, &quot;&gt;&quot;.code, &quot;&amp;&quot;.code, &quot;|&quot;.code, &quot;\n&quot;.code, &quot;\r&quot;.code, &quot;,&quot;.code, &quot;;&quot;.code]" line="9" static="1">
@@ -3211,7 +3222,10 @@
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</isInterface>
-		<meta><m n=":pythonImport"><e>"inspect"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":pythonImport"><e>"inspect"</e></m>
+		</meta>
 	</class>
 	<class path="haxe.IMap" params="K:V" file="/home/vsts/work/1/s/std/haxe/Constraints.hx" module="haxe.Constraints" interface="1">
 		<get public="1" set="method"><f a="k">
@@ -3283,6 +3297,7 @@
 		<toString public="1" set="method" line="73"><f a=""><c path="String"/></f></toString>
 		<clear public="1" get="inline" set="null" line="89"><f a=""><x path="Void"/></f></clear>
 		<new public="1" set="method" line="31"><f a=""><x path="Void"/></f></new>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="python.Dict" params="K:V" file="/home/vsts/work/1/s/std/python/Dict.hx" extern="1">
 		<length public="1" get="accessor" set="null"><x path="Int"/></length>
@@ -3345,7 +3360,10 @@
 		<iterator public="1" get="inline" set="null" line="71"><f a=""><t path="Iterator"><c path="python.Dict.V"/></t></f></iterator>
 		<__iter__ set="method"><f a=""><x path="python.NativeIterator"><c path="python.Dict.K"/></x></f></__iter__>
 		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
-		<meta><m n=":native"><e>"dict"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"dict"</e></m>
+		</meta>
 	</class>
 	<class path="python.lib.Os" params="" file="/home/vsts/work/1/s/std/python/lib/Os.hx" extern="1">
 		<environ public="1" static="1"><c path="python.Dict">
@@ -5448,34 +5466,188 @@
 		<LocalFunction a="?v"><x path="Int"/></LocalFunction>
 		<haxe_doc>Elements return by `CallStack` methods.</haxe_doc>
 	</enum>
-	<class path="haxe.CallStack" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx">
-		<callStack public="1" set="method" line="94" static="1">
-			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
-			<haxe_doc>Return the call stack elements, or an empty array if not available.</haxe_doc>
-		</callStack>
-		<exceptionStack public="1" set="method" line="191" static="1">
-			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
-			<haxe_doc>Return the exception stack : this is the stack elements between
+	<abstract path="haxe.CallStack" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx">
+		<from><icast><c path="Array"><e path="haxe.StackItem"/></c></icast></from>
+		<this><c path="Array"><e path="haxe.StackItem"/></c></this>
+		<haxe_doc>Get information about the call stack.</haxe_doc>
+		<meta>
+			<m n=":allow"><e>haxe.Exception</e></m>
+			<m n=":using"><e>haxe.CallStack</e></m>
+		</meta>
+		<impl><class path="haxe._CallStack.CallStack_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx" private="1" module="haxe.CallStack">
+	<length public="1" get="accessor" set="null" static="1">
+		<x path="Int"/>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>The length of this stack.</haxe_doc>
+	</length>
+	<get_length get="inline" set="null" line="46" static="1">
+		<f a="this">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_length>
+	<callStack public="1" set="method" line="51" static="1">
+		<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+		<haxe_doc>Return the call stack elements, or an empty array if not available.</haxe_doc>
+	</callStack>
+	<exceptionStack public="1" set="method" line="62" static="1">
+		<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+		<haxe_doc>Return the exception stack : this is the stack elements between
 		the place the last exception was thrown and the place it was
-		caught, or an empty array if not available.</haxe_doc>
-		</exceptionStack>
-		<toString public="1" set="method" line="257" static="1">
-			<f a="stack">
-				<c path="Array"><e path="haxe.StackItem"/></c>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns a representation of the stack as a printable string.</haxe_doc>
-		</toString>
-		<itemToString set="method" line="266" static="1"><f a="b:s">
+		caught, or an empty array if not available.
+
+		May not work if catch type was a derivative from `haxe.Exception`.</haxe_doc>
+	</exceptionStack>
+	<toString public="1" set="method" line="70" static="1">
+		<f a="stack">
+			<x path="haxe.CallStack"/>
+			<c path="String"/>
+		</f>
+		<haxe_doc>Returns a representation of the stack as a printable string.</haxe_doc>
+	</toString>
+	<subtract public="1" set="method" line="83" static="1">
+		<f a="this:stack">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="haxe.CallStack"/>
+			<x path="haxe.CallStack"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns a range of entries of current stack from the beginning to the the
+		common part of this and `stack`.</haxe_doc>
+	</subtract>
+	<copy public="1" get="inline" set="null" line="106" static="1">
+		<f a="this">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="haxe.CallStack"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Make a copy of the stack.</haxe_doc>
+	</copy>
+	<get public="1" get="inline" set="null" line="110" static="1">
+		<f a="this:index">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="Int"/>
+			<e path="haxe.StackItem"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":arrayAccess"/>
+		</meta>
+	</get>
+	<asArray get="inline" set="null" line="114" static="1">
+		<f a="this">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<c path="Array"><e path="haxe.StackItem"/></c>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</asArray>
+	<equalItems set="method" line="118" static="1"><f a="item1:item2">
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Bool"/>
+</f></equalItems>
+	<exceptionToString set="method" line="134" static="1"><f a="e">
+	<c path="haxe.Exception"/>
+	<c path="String"/>
+</f></exceptionToString>
+	<itemToString set="method" line="154" static="1"><f a="b:s">
 	<c path="StringBuf"/>
 	<e path="haxe.StackItem"/>
 	<x path="Void"/>
 </f></itemToString>
-		<makeStack set="method" line="300" static="1"><f a="s">
-	<d/>
-	<unknown/>
-</f></makeStack>
-		<haxe_doc>Get information about the call stack.</haxe_doc>
+	<meta>
+		<m n=":using"><e>haxe.CallStack</e></m>
+		<m n=":allow"><e>haxe.Exception</e></m>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe._CallStack.CallStack_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx" private="1" module="haxe.CallStack">
+		<length public="1" get="accessor" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>The length of this stack.</haxe_doc>
+		</length>
+		<get_length get="inline" set="null" line="46" static="1">
+			<f a="this">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_length>
+		<callStack public="1" set="method" line="51" static="1">
+			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+			<haxe_doc>Return the call stack elements, or an empty array if not available.</haxe_doc>
+		</callStack>
+		<exceptionStack public="1" set="method" line="62" static="1">
+			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+			<haxe_doc>Return the exception stack : this is the stack elements between
+		the place the last exception was thrown and the place it was
+		caught, or an empty array if not available.
+
+		May not work if catch type was a derivative from `haxe.Exception`.</haxe_doc>
+		</exceptionStack>
+		<toString public="1" set="method" line="70" static="1">
+			<f a="stack">
+				<x path="haxe.CallStack"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a representation of the stack as a printable string.</haxe_doc>
+		</toString>
+		<subtract public="1" set="method" line="83" static="1">
+			<f a="this:stack">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="haxe.CallStack"/>
+				<x path="haxe.CallStack"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns a range of entries of current stack from the beginning to the the
+		common part of this and `stack`.</haxe_doc>
+		</subtract>
+		<copy public="1" get="inline" set="null" line="106" static="1">
+			<f a="this">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="haxe.CallStack"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Make a copy of the stack.</haxe_doc>
+		</copy>
+		<get public="1" get="inline" set="null" line="110" static="1">
+			<f a="this:index">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="Int"/>
+				<e path="haxe.StackItem"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":arrayAccess"/>
+			</meta>
+		</get>
+		<asArray get="inline" set="null" line="114" static="1">
+			<f a="this">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<c path="Array"><e path="haxe.StackItem"/></c>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</asArray>
+		<equalItems set="method" line="118" static="1"><f a="item1:item2">
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Bool"/>
+</f></equalItems>
+		<exceptionToString set="method" line="134" static="1"><f a="e">
+	<c path="haxe.Exception"/>
+	<c path="String"/>
+</f></exceptionToString>
+		<itemToString set="method" line="154" static="1"><f a="b:s">
+	<c path="StringBuf"/>
+	<e path="haxe.StackItem"/>
+	<x path="Void"/>
+</f></itemToString>
+		<meta>
+			<m n=":using"><e>haxe.CallStack</e></m>
+			<m n=":allow"><e>haxe.Exception</e></m>
+		</meta>
 	</class>
 	<abstract path="haxe.Function" params="" file="/home/vsts/work/1/s/std/haxe/Constraints.hx" module="haxe.Constraints">
 		<this><d/></this>
@@ -6106,6 +6278,154 @@
 
 	If the first argument to any of the methods is `null`, the result is
 	unspecified.</haxe_doc>
+	</class>
+	<typedef path="haxe._Exception.PyStackItem" params="" file="/home/vsts/work/1/s/std/python/_std/haxe/Exception.hx" private="1" module="haxe.Exception"><c path="python.Tuple4">
+	<c path="String"/>
+	<x path="Int"/>
+	<c path="String"/>
+	<c path="String"/>
+</c></typedef>
+	<class path="python.BaseException" params="" file="/home/vsts/work/1/s/std/python/Exceptions.hx" module="python.Exceptions" extern="1">
+		<new public="1" set="method"><f a="args">
+	<x path="haxe.extern.Rest"><d/></x>
+	<x path="Void"/>
+</f></new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"BaseException"</e></m>
+		</meta>
+	</class>
+	<class path="python.Exception" params="" file="/home/vsts/work/1/s/std/python/Exceptions.hx" module="python.Exceptions" extern="1">
+		<extends path="python.BaseException"/>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"Exception"</e></m>
+		</meta>
+	</class>
+	<class path="haxe.Exception" params="" file="/home/vsts/work/1/s/std/python/_std/haxe/Exception.hx">
+		<extends path="python.Exception"/>
+		<caught set="method" line="23" static="1"><f a="value">
+	<x path="Any"/>
+	<c path="haxe.Exception"/>
+</f></caught>
+		<thrown set="method" line="33" static="1"><f a="value">
+	<x path="Any"/>
+	<x path="Any"/>
+</f></thrown>
+		<message public="1" get="accessor" set="null">
+			<c path="String"/>
+			<haxe_doc>Exception message.</haxe_doc>
+		</message>
+		<stack public="1" get="accessor" set="null">
+			<x path="haxe.CallStack"/>
+			<haxe_doc>The call stack at the moment of the exception creation.</haxe_doc>
+		</stack>
+		<previous public="1" get="accessor" set="null">
+			<x path="Null"><c path="haxe.Exception"/></x>
+			<haxe_doc>Contains an exception, which was passed to `previous` constructor argument.</haxe_doc>
+		</previous>
+		<native public="1" get="accessor" set="null">
+			<x path="Any"/>
+			<haxe_doc>Native exception, which caused this exception.</haxe_doc>
+		</native>
+		<__exceptionStack>
+			<x path="Null"><x path="haxe.CallStack"/></x>
+			<meta><m n=":noCompletion"/></meta>
+		</__exceptionStack>
+		<__nativeStack>
+			<c path="Array"><t path="haxe._Exception.PyStackItem"/></c>
+			<meta><m n=":noCompletion"/></meta>
+		</__nativeStack>
+		<__skipStack expr="0">
+			<x path="Int"/>
+			<meta>
+				<m n=":value"><e>0</e></m>
+				<m n=":noCompletion"/>
+				<m n=":ifFeature"><e>"haxe.Exception.get_stack"</e></m>
+			</meta>
+		</__skipStack>
+		<__nativeException>
+			<c path="python.BaseException"/>
+			<meta><m n=":noCompletion"/></meta>
+		</__nativeException>
+		<__previousException>
+			<x path="Null"><c path="haxe.Exception"/></x>
+			<meta><m n=":noCompletion"/></meta>
+		</__previousException>
+		<unwrap set="method" line="57"><f a=""><x path="Any"/></f></unwrap>
+		<toString public="1" set="method" line="61">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Exception description.
+
+		Includes message, stack and the previous exception (if set).</haxe_doc>
+		</toString>
+		<__shiftStack get="inline" set="null" line="67">
+			<f a=""><x path="Void"/></f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":ifFeature"><e>"haxe.Exception.get_stack"</e></m>
+			</meta>
+		</__shiftStack>
+		<get_message set="method" line="71"><f a=""><c path="String"/></f></get_message>
+		<get_previous set="method" line="75"><f a=""><x path="Null"><c path="haxe.Exception"/></x></f></get_previous>
+		<get_native final="1" set="method" line="79"><f a=""><x path="Any"/></f></get_native>
+		<get_stack set="method" line="83"><f a=""><x path="haxe.CallStack"/></f></get_stack>
+		<new public="1" set="method" line="45">
+			<f a="message:?previous:?native">
+				<c path="String"/>
+				<c path="haxe.Exception"/>
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Create a new Exception instance.
+
+		The `native` argument is for internal usage only.
+		There is no need to provide `native` argument manually and no need to keep it
+		upon extending `haxe.Exception` unless you know what you're doing.</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[Base class for exceptions.
+
+	If this class (or derivatives) is used to catch an exception, then
+	`haxe.CallStack.exceptionStack()` will not return a stack for the exception
+	caught. Use `haxe.Exception.stack` property instead:
+	```haxe
+	try {
+		throwSomething();
+	} catch(e:Exception) {
+		trace(e.stack);
+	}
+	```
+
+	Custom exceptions should extend this class:
+	```haxe
+	class MyException extends haxe.Exception {}
+	//...
+	throw new MyException('terrible exception');
+	```
+
+	`haxe.Exception` is also a wildcard type to catch any exception:
+	```haxe
+	try {
+		throw 'Catch me!';
+	} catch(e:haxe.Exception) {
+		trace(e.message); // Output: Catch me!
+	}
+	```
+
+	To rethrow an exception just throw it again.
+	Haxe will try to rethrow an original native exception whenever possible.
+	```haxe
+	try {
+		var a:Array<Int> = null;
+		a.push(1); // generates target-specific null-pointer exception
+	} catch(e:haxe.Exception) {
+		throw e; // rethrows native exception instead of haxe.Exception
+	}
+	```]]></haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
 	<typedef path="haxe.Http" params="" file="/home/vsts/work/1/s/std/haxe/Http.hx"><c path="sys.Http"/></typedef>
 	<abstract path="haxe.Int32" params="" file="/home/vsts/work/1/s/std/haxe/Int32.hx">
@@ -7828,6 +8148,37 @@
 			<m n=":access"><e>haxe.MainEvent</e></m>
 		</meta>
 	</class>
+	<typedef path="haxe._NativeStackTrace.NativeTrace" params="" file="/home/vsts/work/1/s/std/python/_std/haxe/NativeStackTrace.hx" private="1" module="haxe.NativeStackTrace"><c path="Array"><c path="python.Tuple4">
+	<c path="String"/>
+	<x path="Int"/>
+	<c path="String"/>
+	<c path="String"/>
+</c></c></typedef>
+	<class path="haxe.NativeStackTrace" params="" file="/home/vsts/work/1/s/std/python/_std/haxe/NativeStackTrace.hx">
+		<saveStack public="1" get="inline" set="null" line="14" static="1">
+			<f a="exception">
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":ifFeature"><e>"haxe.NativeStackTrace.exceptionStack"</e></m></meta>
+		</saveStack>
+		<callStack public="1" get="inline" set="null" line="17" static="1"><f a=""><t path="haxe._NativeStackTrace.NativeTrace"/></f></callStack>
+		<exceptionStack public="1" set="method" line="24" static="1"><f a=""><t path="haxe._NativeStackTrace.NativeTrace"/></f></exceptionStack>
+		<toHaxe public="1" set="method" line="35" static="1">
+			<f a="native:?skip" v=":0">
+				<t path="haxe._NativeStackTrace.NativeTrace"/>
+				<x path="Int"/>
+				<c path="Array"><e path="haxe.StackItem"/></c>
+			</f>
+			<meta><m n=":value"><e>{ skip : 0 }</e></m></meta>
+		</toHaxe>
+		<haxe_doc>Do not use manually.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":dox"><e>hide</e></m>
+			<m n=":noCompletion"/>
+		</meta>
+	</class>
 	<typedef path="haxe.PosInfos" params="" file="/home/vsts/work/1/s/std/haxe/PosInfos.hx">
 		<a>
 			<methodName><c path="String"/></methodName>
@@ -9063,6 +9414,40 @@
 		<haxe_doc>Since not all platforms guarantee that `String` always uses UTF-8 encoding, you
 	can use this cross-platform API to perform operations on such strings.</haxe_doc>
 		<meta><m n=":deprecated"><e>"haxe.Utf8 is deprecated. Use UnicodeString instead."</e></m></meta>
+	</class>
+	<class path="haxe.ValueException" params="" file="/home/vsts/work/1/s/std/haxe/ValueException.hx">
+		<extends path="haxe.Exception"/>
+		<value public="1" set="null">
+			<x path="Any"/>
+			<haxe_doc>Thrown value.</haxe_doc>
+		</value>
+		<unwrap set="method" line="35" override="1">
+			<f a=""><x path="Any"/></f>
+			<haxe_doc>Extract an originally thrown value.
+
+		This method must return the same value on subsequent calls.
+		Used internally for catching non-native exceptions.
+		Do _not_ override unless you know what you are doing.</haxe_doc>
+		</unwrap>
+		<new public="1" set="method" line="23"><f a="value:?previous:?native">
+	<x path="Any"/>
+	<c path="haxe.Exception"/>
+	<x path="Any"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>An exception containing arbitrary value.
+
+	This class is automatically used for throwing values, which don't extend `haxe.Exception`
+	or native exception type.
+	For example:
+	```haxe
+	throw "Terrible error";
+	```
+	will be compiled to
+	```haxe
+	throw new ValueException("Terrible error");
+	```</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="haxe.crypto.Adler32" params="" file="/home/vsts/work/1/s/std/haxe/crypto/Adler32.hx">
 		<read public="1" set="method" line="60" static="1"><f a="i">
@@ -30945,44 +31330,47 @@
 	<x path="Void"/>
 </f></new></overloads>
 		</new>
-		<meta><m n=":native"><e>"set"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"set"</e></m>
+		</meta>
 	</class>
 	<class path="python.Boot" params="" file="/home/vsts/work/1/s/std/python/Boot.hx">
-		<keywords expr="new Set([&quot;and&quot;, &quot;del&quot;, &quot;from&quot;, &quot;not&quot;, &quot;with&quot;, &quot;as&quot;, &quot;elif&quot;, &quot;global&quot;, &quot;or&quot;, &quot;yield&quot;, &quot;assert&quot;, &quot;else&quot;, &quot;if&quot;, &quot;pass&quot;, &quot;None&quot;, &quot;break&quot;, &quot;except&quot;, &quot;import&quot;, &quot;raise&quot;, &quot;True&quot;, &quot;class&quot;, &quot;exec&quot;, &quot;in&quot;, &quot;return&quot;, &quot;False&quot;, &quot;continue&quot;, &quot;finally&quot;, &quot;is&quot;, &quot;try&quot;, &quot;def&quot;, &quot;for&quot;, &quot;lambda&quot;, &quot;while&quot;])" line="39" static="1">
+		<keywords expr="new Set([&quot;and&quot;, &quot;del&quot;, &quot;from&quot;, &quot;not&quot;, &quot;with&quot;, &quot;as&quot;, &quot;elif&quot;, &quot;global&quot;, &quot;or&quot;, &quot;yield&quot;, &quot;assert&quot;, &quot;else&quot;, &quot;if&quot;, &quot;pass&quot;, &quot;None&quot;, &quot;break&quot;, &quot;except&quot;, &quot;import&quot;, &quot;raise&quot;, &quot;True&quot;, &quot;class&quot;, &quot;exec&quot;, &quot;in&quot;, &quot;return&quot;, &quot;False&quot;, &quot;continue&quot;, &quot;finally&quot;, &quot;is&quot;, &quot;try&quot;, &quot;def&quot;, &quot;for&quot;, &quot;lambda&quot;, &quot;while&quot;])" line="38" static="1">
 			<c path="python.Set"><c path="String"/></c>
 			<meta><m n=":value"><e>new Set(["and", "del", "from", "not", "with", "as", "elif", "global", "or", "yield", "assert", "else", "if", "pass", "None", "break", "except", "import", "raise", "True", "class", "exec", "in", "return", "False", "continue", "finally", "is", "try", "def", "for", "lambda", "while"])</e></m></meta>
 		</keywords>
-		<arrayJoin params="T" get="inline" set="null" line="44" static="1"><f a="x:sep">
+		<arrayJoin params="T" get="inline" set="null" line="43" static="1"><f a="x:sep">
 	<c path="Array"><c path="arrayJoin.T"/></c>
 	<c path="String"/>
 	<c path="String"/>
 </f></arrayJoin>
-		<safeJoin get="inline" set="null" line="48" static="1"><f a="x:sep">
+		<safeJoin get="inline" set="null" line="47" static="1"><f a="x:sep">
 	<c path="Array"><c path="String"/></c>
 	<c path="String"/>
 	<c path="String"/>
 </f></safeJoin>
-		<isPyBool get="inline" set="null" line="52" static="1"><f a="o">
+		<isPyBool get="inline" set="null" line="51" static="1"><f a="o">
 	<d/>
 	<x path="Bool"/>
 </f></isPyBool>
-		<isPyInt get="inline" set="null" line="56" static="1"><f a="o">
+		<isPyInt get="inline" set="null" line="55" static="1"><f a="o">
 	<d/>
 	<x path="Bool"/>
 </f></isPyInt>
-		<isPyFloat get="inline" set="null" line="61" static="1"><f a="o">
+		<isPyFloat get="inline" set="null" line="60" static="1"><f a="o">
 	<d/>
 	<x path="Bool"/>
 </f></isPyFloat>
-		<isClass get="inline" set="null" line="65" static="1"><f a="o">
+		<isClass get="inline" set="null" line="64" static="1"><f a="o">
 	<d/>
 	<x path="Bool"/>
 </f></isClass>
-		<isAnonObject get="inline" set="null" line="69" static="1"><f a="o">
+		<isAnonObject get="inline" set="null" line="68" static="1"><f a="o">
 	<d/>
 	<x path="Bool"/>
 </f></isAnonObject>
-		<_add_dynamic set="method" line="73" static="1">
+		<_add_dynamic set="method" line="72" static="1">
 			<f a="a:b">
 				<d/>
 				<d/>
@@ -30990,11 +31378,11 @@
 			</f>
 			<meta><m n=":ifFeature"><e>"add_dynamic"</e></m></meta>
 		</_add_dynamic>
-		<toString get="inline" set="null" line="83" static="1"><f a="o">
+		<toString get="inline" set="null" line="82" static="1"><f a="o">
 	<d/>
 	<c path="String"/>
 </f></toString>
-		<toString1 set="method" line="87" static="1">
+		<toString1 set="method" line="86" static="1">
 			<f a="o:s">
 				<d/>
 				<c path="String"/>
@@ -31002,12 +31390,12 @@
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</toString1>
-		<isMetaType get="inline" set="null" line="226" static="1"><f a="v:t">
+		<isMetaType get="inline" set="null" line="225" static="1"><f a="v:t">
 	<d/>
 	<d/>
 	<x path="Bool"/>
 </f></isMetaType>
-		<fields set="method" line="231" static="1">
+		<fields set="method" line="230" static="1">
 			<f a="o">
 				<d/>
 				<c path="Array"><c path="String"/></c>
@@ -31017,20 +31405,20 @@
 				<m n=":analyzer"><e>no_local_dce</e></m>
 			</meta>
 		</fields>
-		<isString get="inline" set="null" line="259" static="1"><f a="o">
+		<isString get="inline" set="null" line="258" static="1"><f a="o">
 	<d/>
 	<x path="Bool"/>
 </f></isString>
-		<isArray get="inline" set="null" line="263" static="1"><f a="o">
+		<isArray get="inline" set="null" line="262" static="1"><f a="o">
 	<d/>
 	<x path="Bool"/>
 </f></isArray>
-		<simpleField set="method" line="267" static="1"><f a="o:field">
+		<simpleField set="method" line="266" static="1"><f a="o:field">
 	<d/>
 	<c path="String"/>
 	<d/>
 </f></simpleField>
-		<createClosure get="inline" set="null" line="276" static="1">
+		<createClosure get="inline" set="null" line="275" static="1">
 			<f a="obj:func">
 				<d/>
 				<d/>
@@ -31041,55 +31429,55 @@
 	<e>"closure_String"</e>
 </m></meta>
 		</createClosure>
-		<hasField set="method" line="280" static="1"><f a="o:field">
+		<hasField set="method" line="279" static="1"><f a="o:field">
 	<d/>
 	<c path="String"/>
 	<x path="Bool"/>
 </f></hasField>
-		<field set="method" line="287" static="1"><f a="o:field">
+		<field set="method" line="286" static="1"><f a="o:field">
 	<d/>
 	<c path="String"/>
 	<d/>
 </f></field>
-		<getInstanceFields set="method" line="375" static="1">
+		<getInstanceFields set="method" line="374" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
 				<c path="Array"><c path="String"/></c>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</getInstanceFields>
-		<getSuperClass set="method" line="397" static="1">
+		<getSuperClass set="method" line="396" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
 				<x path="Class"><d/></x>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</getSuperClass>
-		<getClassFields set="method" line="410" static="1">
+		<getClassFields set="method" line="409" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
 				<c path="Array"><c path="String"/></c>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</getClassFields>
-		<unsafeFastCodeAt get="inline" set="null" line="419" static="1"><f a="s:index">
+		<unsafeFastCodeAt get="inline" set="null" line="418" static="1"><f a="s:index">
 	<c path="String"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></unsafeFastCodeAt>
-		<handleKeywords get="inline" set="null" line="423" static="1"><f a="name">
+		<handleKeywords get="inline" set="null" line="422" static="1"><f a="name">
 	<c path="String"/>
 	<c path="String"/>
 </f></handleKeywords>
-		<prefixLength expr="Internal.prefix().length" line="435" static="1">
+		<prefixLength expr="Internal.prefix().length" line="434" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>Internal.prefix().length</e></m></meta>
 		</prefixLength>
-		<unhandleKeywords set="method" line="437" static="1"><f a="name">
+		<unhandleKeywords set="method" line="436" static="1"><f a="name">
 	<c path="String"/>
 	<c path="String"/>
 </f></unhandleKeywords>
-		<implementsInterface get="inline" set="null" line="446" static="1">
+		<implementsInterface get="inline" set="null" line="445" static="1">
 			<f a="value:cls">
 				<d/>
 				<x path="Class"><d/></x>
@@ -31097,7 +31485,10 @@
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</implementsInterface>
-		<meta><m n=":dox"><e>hide</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":dox"><e>hide</e></m>
+		</meta>
 	</class>
 	<class path="python.Bytes" params="" file="/home/vsts/work/1/s/std/python/Bytes.hx" extern="1">
 		<extends path="python.Bytearray"/>
@@ -31110,13 +31501,6 @@
 		<iterator public="1" get="inline" set="null" line="88"><f a=""><t path="Iterator"><c path="python.DictView.T"/></t></f></iterator>
 		<__iter__ set="method"><f a=""><x path="python.NativeIterator"><c path="python.DictView.T"/></x></f></__iter__>
 	</class>
-	<class path="python.BaseException" params="" file="/home/vsts/work/1/s/std/python/Exceptions.hx" module="python.Exceptions" extern="1">
-		<new public="1" set="method"><f a="args">
-	<x path="haxe.extern.Rest"><d/></x>
-	<x path="Void"/>
-</f></new>
-		<meta><m n=":native"><e>"BaseException"</e></m></meta>
-	</class>
 	<class path="python.BufferError" params="" file="/home/vsts/work/1/s/std/python/Exceptions.hx" module="python.Exceptions" extern="1">
 		<extends path="python.BaseException"/>
 		<meta><m n=":native"><e>"BufferError"</e></m></meta>
@@ -31128,13 +31512,6 @@
 	<class path="python.KeyboardInterrupt" params="" file="/home/vsts/work/1/s/std/python/Exceptions.hx" module="python.Exceptions" extern="1">
 		<extends path="python.BaseException"/>
 		<meta><m n=":native"><e>"KeyboardInterrupt"</e></m></meta>
-	</class>
-	<class path="python.Exception" params="" file="/home/vsts/work/1/s/std/python/Exceptions.hx" module="python.Exceptions" extern="1">
-		<extends path="python.BaseException"/>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":native"><e>"Exception"</e></m>
-		</meta>
 	</class>
 	<class path="python.SyntaxError" params="" file="/home/vsts/work/1/s/std/python/Exceptions.hx" module="python.Exceptions" extern="1">
 		<extends path="python.Exception"/>
@@ -31592,7 +31969,10 @@
 	<c path="String"/>
 	<x path="Int"/>
 </c></version_info>
-		<meta><m n=":pythonImport"><e>"sys"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":pythonImport"><e>"sys"</e></m>
+		</meta>
 	</class>
 	<class path="python.Lib" params="" file="/home/vsts/work/1/s/std/python/Lib.hx">
 		<lineEnd expr="Sys.systemName() == &quot;Windows&quot; ? &quot;\r\n&quot; : &quot;\n&quot;" line="37" static="1">
@@ -32075,7 +32455,10 @@
 	</c>
 	<x path="Void"/>
 </f></new>
-		<meta><m n=":native"><e>"_hx_AnonObject"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"_hx_AnonObject"</e></m>
+		</meta>
 	</class>
 	<class path="python.internal.ArrayImpl" params="" file="/home/vsts/work/1/s/std/python/internal/ArrayImpl.hx">
 		<get_length public="1" params="T" get="inline" set="null" line="30" static="1">
@@ -32425,24 +32808,6 @@
 			<m n=":native"><e>"Enum"</e></m>
 		</meta>
 	</class>
-	<class path="python.internal.HxException" params="" file="/home/vsts/work/1/s/std/python/internal/HxException.hx">
-		<extends path="python.Exception"/>
-		<val public="1">
-			<d/>
-			<meta><m n=":ifFeature"><e>"has_throw"</e></m></meta>
-		</val>
-		<new public="1" set="method" line="32">
-			<f a="val">
-				<d/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":ifFeature"><e>"has_throw"</e></m></meta>
-		</new>
-		<meta>
-			<m n=":ifFeature"><e>"has_throw"</e></m>
-			<m n=":native"><e>"_HxException"</e></m>
-		</meta>
-	</class>
 	<class path="python.internal.Internal" params="" file="/home/vsts/work/1/s/std/python/internal/Internal.hx">
 		<getPrefixed public="1" set="method" static="1"><f a="x">
 	<c path="String"/>
@@ -32739,7 +33104,10 @@
 	<e>"python.internal.StringImpl.substr"</e>
 </m></meta>
 		</substr>
-		<meta><m n=":native"><e>"HxString"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"HxString"</e></m>
+		</meta>
 	</class>
 	<class path="python.io.NativeInput" params="T" file="/home/vsts/work/1/s/std/python/io/NativeInput.hx">
 		<extends path="haxe.io.Input"/>
@@ -34535,7 +34903,10 @@
 	<x path="Int"/>
 	<c path="Array"><t path="python.lib._Traceback.StackItem"/></c>
 </f></extract_tb>
-		<meta><m n=":pythonImport"><e>"traceback"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":pythonImport"><e>"traceback"</e></m>
+		</meta>
 	</class>
 	<typedef path="python.lib._Traceback.StackItem" params="" file="/home/vsts/work/1/s/std/python/lib/Traceback.hx" private="1" module="python.lib.Traceback"><c path="python.Tuple4">
 	<c path="String"/>
@@ -35210,10 +35581,13 @@
 	<c path="String"/>
 	<x path="Void"/>
 </f></new>
-		<meta><m n=":pythonImport">
-	<e>"io"</e>
-	<e>"StringIO"</e>
-</m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":pythonImport">
+				<e>"io"</e>
+				<e>"StringIO"</e>
+			</m>
+		</meta>
 	</class>
 	<typedef path="python.lib.io.TextIOWrapperOptions" params="" file="/home/vsts/work/1/s/std/python/lib/io/TextIOWrapper.hx" module="python.lib.io.TextIOWrapper"><a>
 	<write_through>

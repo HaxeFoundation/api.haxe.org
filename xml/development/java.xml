@@ -1967,7 +1967,7 @@
 		</meta>
 	</class>
 	<class path="Std" params="" file="/home/vsts/work/1/s/std/java/_std/Std.hx">
-		<is public="1" get="inline" set="null" line="28" static="1">
+		<is public="1" get="inline" set="null" line="27" static="1">
 			<f a="v:t">
 				<d/>
 				<d/>
@@ -1979,7 +1979,7 @@
 
 		If `t` is a class or interface with `@:generic` meta, the result is `false`.</haxe_doc>
 		</is>
-		<isOfType public="1" set="method" line="32" static="1">
+		<isOfType public="1" set="method" line="31" static="1">
 			<f a="v:t">
 				<d/>
 				<d/>
@@ -1990,7 +1990,7 @@
 
 		If `t` is a class or interface with `@:generic` meta, the result is `false`.</haxe_doc>
 		</isOfType>
-		<string public="1" set="method" line="58" static="1">
+		<string public="1" set="method" line="57" static="1">
 			<f a="s">
 				<d/>
 				<c path="String"/>
@@ -2012,7 +2012,7 @@
 
 		If s is null, "null" is returned.</haxe_doc>
 		</string>
-		<int public="1" set="method" line="62" static="1">
+		<int public="1" set="method" line="61" static="1">
 			<f a="x">
 				<x path="Float"/>
 				<x path="Int"/>
@@ -2021,7 +2021,7 @@
 
 		If `x` is outside of the signed Int32 range, or is `NaN`, `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`, the result is unspecified.</haxe_doc>
 		</int>
-		<parseInt public="1" set="method" line="66" static="1">
+		<parseInt public="1" set="method" line="65" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Null"><x path="Int"/></x>
@@ -2046,7 +2046,7 @@
 		If `x` is null, the result is unspecified.
 		If `x` cannot be parsed as integer, the result is `null`.</haxe_doc>
 		</parseInt>
-		<parseFloat public="1" set="method" line="116" static="1">
+		<parseFloat public="1" set="method" line="115" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Float"/>
@@ -2059,7 +2059,7 @@
 
 		Additionally, decimal notation may contain a single `.` to denote the start of the fractions.</haxe_doc>
 		</parseFloat>
-		<downcast public="1" params="T:S" get="inline" set="null" line="163" static="1">
+		<downcast public="1" params="T:S" get="inline" set="null" line="162" static="1">
 			<f a="value:c">
 				<c path="downcast.T"/>
 				<x path="Class"><c path="downcast.S"/></x>
@@ -2080,7 +2080,7 @@
 		If `value` is null, the result is null. If `c` is null, the result is
 		unspecified.</haxe_doc>
 		</downcast>
-		<instance public="1" params="T:S" get="inline" set="null" line="168" static="1">
+		<instance public="1" params="T:S" get="inline" set="null" line="167" static="1">
 			<f a="value:c">
 				<c path="instance.T"/>
 				<x path="Class"><c path="instance.S"/></x>
@@ -2088,7 +2088,7 @@
 			</f>
 			<meta><m n=":deprecated"><e>"Std.instance() is deprecated. Use Std.downcast() instead."</e></m></meta>
 		</instance>
-		<random public="1" set="method" line="172" static="1">
+		<random public="1" set="method" line="171" static="1">
 			<f a="x">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -5008,37 +5008,198 @@
 		</Method>
 		<LocalFunction a="?v"><x path="Int"/></LocalFunction>
 		<haxe_doc>Elements return by `CallStack` methods.</haxe_doc>
-		<meta><m n=":hxGen"/></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":hxGen"/>
+		</meta>
 	</enum>
-	<class path="haxe.CallStack" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx">
-		<callStack public="1" set="method" line="94" static="1">
-			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
-			<haxe_doc>Return the call stack elements, or an empty array if not available.</haxe_doc>
-		</callStack>
-		<exceptionStack public="1" set="method" line="191" static="1">
-			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
-			<haxe_doc>Return the exception stack : this is the stack elements between
+	<abstract path="haxe.CallStack" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx">
+		<from><icast><c path="Array"><e path="haxe.StackItem"/></c></icast></from>
+		<this><c path="Array"><e path="haxe.StackItem"/></c></this>
+		<haxe_doc>Get information about the call stack.</haxe_doc>
+		<meta>
+			<m n=":hxGen"/>
+			<m n=":allow"><e>haxe.Exception</e></m>
+			<m n=":using"><e>haxe.CallStack</e></m>
+		</meta>
+		<impl><class path="haxe._CallStack.CallStack_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx" private="1" module="haxe.CallStack">
+	<length public="1" get="accessor" set="null" static="1">
+		<x path="Int"/>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>The length of this stack.</haxe_doc>
+	</length>
+	<get_length get="inline" set="null" line="46" static="1">
+		<f a="this">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_length>
+	<callStack public="1" set="method" line="51" static="1">
+		<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+		<haxe_doc>Return the call stack elements, or an empty array if not available.</haxe_doc>
+	</callStack>
+	<exceptionStack public="1" set="method" line="62" static="1">
+		<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+		<haxe_doc>Return the exception stack : this is the stack elements between
 		the place the last exception was thrown and the place it was
-		caught, or an empty array if not available.</haxe_doc>
-		</exceptionStack>
-		<toString public="1" set="method" line="257" static="1">
-			<f a="stack">
-				<c path="Array"><e path="haxe.StackItem"/></c>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns a representation of the stack as a printable string.</haxe_doc>
-		</toString>
-		<itemToString set="method" line="266" static="1"><f a="b:s">
+		caught, or an empty array if not available.
+
+		May not work if catch type was a derivative from `haxe.Exception`.</haxe_doc>
+	</exceptionStack>
+	<toString public="1" set="method" line="70" static="1">
+		<f a="stack">
+			<x path="haxe.CallStack"/>
+			<c path="String"/>
+		</f>
+		<haxe_doc>Returns a representation of the stack as a printable string.</haxe_doc>
+	</toString>
+	<subtract public="1" set="method" line="83" static="1">
+		<f a="this:stack">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="haxe.CallStack"/>
+			<x path="haxe.CallStack"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Returns a range of entries of current stack from the beginning to the the
+		common part of this and `stack`.</haxe_doc>
+	</subtract>
+	<copy public="1" get="inline" set="null" line="106" static="1">
+		<f a="this">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="haxe.CallStack"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Make a copy of the stack.</haxe_doc>
+	</copy>
+	<get public="1" get="inline" set="null" line="110" static="1">
+		<f a="this:index">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<x path="Int"/>
+			<e path="haxe.StackItem"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":arrayAccess"/>
+		</meta>
+	</get>
+	<asArray get="inline" set="null" line="114" static="1">
+		<f a="this">
+			<c path="Array"><e path="haxe.StackItem"/></c>
+			<c path="Array"><e path="haxe.StackItem"/></c>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</asArray>
+	<equalItems set="method" line="118" static="1"><f a="item1:item2">
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Bool"/>
+</f></equalItems>
+	<exceptionToString set="method" line="134" static="1"><f a="e">
+	<c path="haxe.Exception"/>
+	<c path="String"/>
+</f></exceptionToString>
+	<itemToString set="method" line="154" static="1"><f a="b:s">
 	<c path="StringBuf"/>
 	<e path="haxe.StackItem"/>
 	<x path="Void"/>
 </f></itemToString>
-		<makeStack set="method" line="300" static="1"><f a="s">
-	<d/>
-	<unknown/>
-</f></makeStack>
-		<haxe_doc>Get information about the call stack.</haxe_doc>
-		<meta><m n=":hxGen"/></meta>
+	<meta>
+		<m n=":directlyUsed"/>
+		<m n=":hxGen"/>
+		<m n=":using"><e>haxe.CallStack</e></m>
+		<m n=":allow"><e>haxe.Exception</e></m>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe._CallStack.CallStack_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx" private="1" module="haxe.CallStack">
+		<length public="1" get="accessor" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>The length of this stack.</haxe_doc>
+		</length>
+		<get_length get="inline" set="null" line="46" static="1">
+			<f a="this">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_length>
+		<callStack public="1" set="method" line="51" static="1">
+			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+			<haxe_doc>Return the call stack elements, or an empty array if not available.</haxe_doc>
+		</callStack>
+		<exceptionStack public="1" set="method" line="62" static="1">
+			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+			<haxe_doc>Return the exception stack : this is the stack elements between
+		the place the last exception was thrown and the place it was
+		caught, or an empty array if not available.
+
+		May not work if catch type was a derivative from `haxe.Exception`.</haxe_doc>
+		</exceptionStack>
+		<toString public="1" set="method" line="70" static="1">
+			<f a="stack">
+				<x path="haxe.CallStack"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a representation of the stack as a printable string.</haxe_doc>
+		</toString>
+		<subtract public="1" set="method" line="83" static="1">
+			<f a="this:stack">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="haxe.CallStack"/>
+				<x path="haxe.CallStack"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Returns a range of entries of current stack from the beginning to the the
+		common part of this and `stack`.</haxe_doc>
+		</subtract>
+		<copy public="1" get="inline" set="null" line="106" static="1">
+			<f a="this">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="haxe.CallStack"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Make a copy of the stack.</haxe_doc>
+		</copy>
+		<get public="1" get="inline" set="null" line="110" static="1">
+			<f a="this:index">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<x path="Int"/>
+				<e path="haxe.StackItem"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":arrayAccess"/>
+			</meta>
+		</get>
+		<asArray get="inline" set="null" line="114" static="1">
+			<f a="this">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<c path="Array"><e path="haxe.StackItem"/></c>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</asArray>
+		<equalItems set="method" line="118" static="1"><f a="item1:item2">
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Null"><e path="haxe.StackItem"/></x>
+	<x path="Bool"/>
+</f></equalItems>
+		<exceptionToString set="method" line="134" static="1"><f a="e">
+	<c path="haxe.Exception"/>
+	<c path="String"/>
+</f></exceptionToString>
+		<itemToString set="method" line="154" static="1"><f a="b:s">
+	<c path="StringBuf"/>
+	<e path="haxe.StackItem"/>
+	<x path="Void"/>
+</f></itemToString>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":hxGen"/>
+			<m n=":using"><e>haxe.CallStack</e></m>
+			<m n=":allow"><e>haxe.Exception</e></m>
+		</meta>
 	</class>
 	<abstract path="haxe.Function" params="" file="/home/vsts/work/1/s/std/haxe/Constraints.hx" module="haxe.Constraints">
 		<this><d/></this>
@@ -5992,6 +6153,241 @@
 	If the first argument to any of the methods is `null`, the result is
 	unspecified.</haxe_doc>
 		<meta><m n=":nativeGen"/></meta>
+	</class>
+	<class path="haxe._Exception.NativeException" params="" file="/home/vsts/work/1/s/std/java/_std/haxe/Exception.hx" private="1" module="haxe.Exception" extern="1">
+		<addSuppressed set="method">
+			<f a="param1">
+				<c path="java.lang.Throwable"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":skipReflection"/>
+			</meta>
+		</addSuppressed>
+		<fillInStackTrace set="method">
+			<f a=""><c path="java.lang.Throwable"/></f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":skipReflection"/>
+			</meta>
+		</fillInStackTrace>
+		<getCause set="method">
+			<f a=""><c path="java.lang.Throwable"/></f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":skipReflection"/>
+			</meta>
+		</getCause>
+		<getLocalizedMessage set="method">
+			<f a=""><c path="String"/></f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":skipReflection"/>
+			</meta>
+		</getLocalizedMessage>
+		<getMessage set="method">
+			<f a=""><c path="String"/></f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":skipReflection"/>
+			</meta>
+		</getMessage>
+		<getStackTrace set="method">
+			<f a=""><c path="java.NativeArray"><c path="java.lang.StackTraceElement"/></c></f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":skipReflection"/>
+			</meta>
+		</getStackTrace>
+		<getSuppressed set="method">
+			<f a=""><c path="java.NativeArray"><c path="java.lang.Throwable"/></c></f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":skipReflection"/>
+			</meta>
+		</getSuppressed>
+		<initCause set="method">
+			<f a="param1">
+				<c path="java.lang.Throwable"/>
+				<c path="java.lang.Throwable"/>
+			</f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":skipReflection"/>
+			</meta>
+		</initCause>
+		<printStackTrace set="method">
+			<f a="param1">
+				<c path="java.io.PrintWriter"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":skipReflection"/>
+				<m n=":overload"/>
+			</meta>
+			<overloads>
+				<printStackTrace set="method">
+					<f a="param1">
+						<c path="java.io.PrintStream"/>
+						<x path="Void"/>
+					</f>
+					<meta>
+						<m n=":noCompletion"/>
+						<m n=":skipReflection"/>
+						<m n=":overload"/>
+					</meta>
+				</printStackTrace>
+				<printStackTrace set="method">
+					<f a=""><x path="Void"/></f>
+					<meta>
+						<m n=":noCompletion"/>
+						<m n=":skipReflection"/>
+						<m n=":overload"/>
+					</meta>
+				</printStackTrace>
+			</overloads>
+		</printStackTrace>
+		<setStackTrace set="method">
+			<f a="param1">
+				<c path="java.NativeArray"><c path="java.lang.StackTraceElement"/></c>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":skipReflection"/>
+			</meta>
+		</setStackTrace>
+		<toString set="method">
+			<f a=""><c path="String"/></f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":skipReflection"/>
+			</meta>
+		</toString>
+		<new set="method">
+			<f a="?message:?cause">
+				<c path="String"/>
+				<c path="java.lang.Throwable"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":nativeGen"/>
+			<m n=":dox"><e>hide</e></m>
+			<m n=":noCompletion"/>
+			<m n=":native"><e>"java.lang.RuntimeException"</e></m>
+		</meta>
+	</class>
+	<class path="haxe.Exception" params="" file="/home/vsts/work/1/s/std/java/_std/haxe/Exception.hx">
+		<extends path="haxe._Exception.NativeException"/>
+		<caught set="method" line="21" static="1"><f a="value">
+	<x path="Any"/>
+	<c path="haxe.Exception"/>
+</f></caught>
+		<thrown set="method" line="31" static="1"><f a="value">
+	<x path="Any"/>
+	<x path="Any"/>
+</f></thrown>
+		<message public="1" get="accessor" set="null">
+			<c path="String"/>
+			<haxe_doc>Exception message.</haxe_doc>
+		</message>
+		<stack public="1" get="accessor" set="null">
+			<x path="haxe.CallStack"/>
+			<haxe_doc>The call stack at the moment of the exception creation.</haxe_doc>
+		</stack>
+		<previous public="1" get="accessor" set="null">
+			<x path="Null"><c path="haxe.Exception"/></x>
+			<haxe_doc>Contains an exception, which was passed to `previous` constructor argument.</haxe_doc>
+		</previous>
+		<native public="1" get="accessor" set="null">
+			<x path="Any"/>
+			<haxe_doc>Native exception, which caused this exception.</haxe_doc>
+		</native>
+		<__exceptionStack>
+			<x path="Null"><x path="haxe.CallStack"/></x>
+			<meta><m n=":noCompletion"/></meta>
+		</__exceptionStack>
+		<__nativeException>
+			<c path="java.lang.Throwable"/>
+			<meta><m n=":noCompletion"/></meta>
+		</__nativeException>
+		<__previousException>
+			<x path="Null"><c path="haxe.Exception"/></x>
+			<meta><m n=":noCompletion"/></meta>
+		</__previousException>
+		<unwrap set="method" line="60"><f a=""><x path="Any"/></f></unwrap>
+		<toString public="1" set="method" line="64" override="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Exception description.
+
+		Includes message, stack and the previous exception (if set).</haxe_doc>
+		</toString>
+		<get_message set="method" line="68"><f a=""><c path="String"/></f></get_message>
+		<get_previous set="method" line="72"><f a=""><x path="Null"><c path="haxe.Exception"/></x></f></get_previous>
+		<get_native final="1" set="method" line="76"><f a=""><x path="Any"/></f></get_native>
+		<get_stack set="method" line="80"><f a=""><x path="haxe.CallStack"/></f></get_stack>
+		<new public="1" set="method" line="49">
+			<f a="message:?previous:?native">
+				<c path="String"/>
+				<c path="haxe.Exception"/>
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Create a new Exception instance.
+
+		The `native` argument is for internal usage only.
+		There is no need to provide `native` argument manually and no need to keep it
+		upon extending `haxe.Exception` unless you know what you're doing.</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[Base class for exceptions.
+
+	If this class (or derivatives) is used to catch an exception, then
+	`haxe.CallStack.exceptionStack()` will not return a stack for the exception
+	caught. Use `haxe.Exception.stack` property instead:
+	```haxe
+	try {
+		throwSomething();
+	} catch(e:Exception) {
+		trace(e.stack);
+	}
+	```
+
+	Custom exceptions should extend this class:
+	```haxe
+	class MyException extends haxe.Exception {}
+	//...
+	throw new MyException('terrible exception');
+	```
+
+	`haxe.Exception` is also a wildcard type to catch any exception:
+	```haxe
+	try {
+		throw 'Catch me!';
+	} catch(e:haxe.Exception) {
+		trace(e.message); // Output: Catch me!
+	}
+	```
+
+	To rethrow an exception just throw it again.
+	Haxe will try to rethrow an original native exception whenever possible.
+	```haxe
+	try {
+		var a:Array<Int> = null;
+		a.push(1); // generates target-specific null-pointer exception
+	} catch(e:haxe.Exception) {
+		throw e; // rethrows native exception instead of haxe.Exception
+	}
+	```]]></haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":hxGen"/>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
 	<typedef path="haxe.Http" params="" file="/home/vsts/work/1/s/std/haxe/Http.hx">
 		<c path="sys.Http"/>
@@ -7523,6 +7919,81 @@
 			<m n=":access"><e>haxe.MainEvent</e></m>
 		</meta>
 	</class>
+	<class path="java.lang.ThreadLocal" params="T" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/ThreadLocal.class" extern="1">
+		<withInitial public="1" params="S" set="method" static="1">
+			<f a="param1">
+				<c path="java.util.function.Supplier"><c path="withInitial.S"/></c>
+				<c path="java.lang.ThreadLocal"><c path="withInitial.S"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</withInitial>
+		<remove public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+		</remove>
+		<set public="1" set="method">
+			<f a="param1">
+				<c path="java.lang.ThreadLocal.T"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</set>
+		<get public="1" set="method">
+			<f a=""><c path="java.lang.ThreadLocal.T"/></f>
+			<meta><m n=":overload"/></meta>
+		</get>
+		<initialValue set="method">
+			<f a=""><c path="java.lang.ThreadLocal.T"/></f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":protected"/>
+			</meta>
+		</initialValue>
+		<new public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+		</new>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.lang.ThreadLocal"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.lang"</e>
+				<e>"ThreadLocal"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="haxe.NativeStackTrace" params="" file="/home/vsts/work/1/s/std/java/_std/haxe/NativeStackTrace.hx">
+		<exception expr="new ThreadLocal&lt;Throwable&gt;()" line="16" static="1">
+			<c path="java.lang.ThreadLocal"><c path="java.lang.Throwable"/></c>
+			<meta><m n=":value"><e><![CDATA[new ThreadLocal<Throwable>()]]></e></m></meta>
+		</exception>
+		<saveStack public="1" get="inline" set="null" line="19" static="1">
+			<f a="e">
+				<c path="java.lang.Throwable"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":ifFeature"><e>"haxe.NativeStackTrace.exceptionStack"</e></m></meta>
+		</saveStack>
+		<callStack public="1" set="method" line="23" static="1"><f a=""><c path="java.NativeArray"><c path="java.lang.StackTraceElement"/></c></f></callStack>
+		<exceptionStack public="1" set="method" line="28" static="1"><f a=""><c path="java.NativeArray"><c path="java.lang.StackTraceElement"/></c></f></exceptionStack>
+		<toHaxe public="1" set="method" line="35" static="1">
+			<f a="native:?skip" v=":0">
+				<c path="java.NativeArray"><c path="java.lang.StackTraceElement"/></c>
+				<x path="Int"/>
+				<c path="Array"><e path="haxe.StackItem"/></c>
+			</f>
+			<meta><m n=":value"><e>{ skip : 0 }</e></m></meta>
+		</toHaxe>
+		<haxe_doc>Do not use manually.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":hxGen"/>
+			<m n=":dox"><e>hide</e></m>
+			<m n=":noCompletion"/>
+		</meta>
+	</class>
 	<typedef path="haxe.PosInfos" params="" file="/home/vsts/work/1/s/std/haxe/PosInfos.hx">
 		<a>
 			<methodName><c path="String"/></methodName>
@@ -8827,6 +9298,43 @@
 		<meta>
 			<m n=":hxGen"/>
 			<m n=":deprecated"><e>"haxe.Utf8 is deprecated. Use UnicodeString instead."</e></m>
+		</meta>
+	</class>
+	<class path="haxe.ValueException" params="" file="/home/vsts/work/1/s/std/haxe/ValueException.hx">
+		<extends path="haxe.Exception"/>
+		<value public="1" set="null">
+			<x path="Any"/>
+			<haxe_doc>Thrown value.</haxe_doc>
+		</value>
+		<unwrap set="method" line="35" override="1">
+			<f a=""><x path="Any"/></f>
+			<haxe_doc>Extract an originally thrown value.
+
+		This method must return the same value on subsequent calls.
+		Used internally for catching non-native exceptions.
+		Do _not_ override unless you know what you are doing.</haxe_doc>
+		</unwrap>
+		<new public="1" set="method" line="23"><f a="value:?previous:?native">
+	<x path="Any"/>
+	<c path="haxe.Exception"/>
+	<x path="Any"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>An exception containing arbitrary value.
+
+	This class is automatically used for throwing values, which don't extend `haxe.Exception`
+	or native exception type.
+	For example:
+	```haxe
+	throw "Terrible error";
+	```
+	will be compiled to
+	```haxe
+	throw new ValueException("Terrible error");
+	```</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":hxGen"/>
 		</meta>
 	</class>
 	<class path="haxe.crypto.Adler32" params="" file="/home/vsts/work/1/s/std/haxe/crypto/Adler32.hx">
@@ -16976,6 +17484,7 @@
 
 	@see https://haxe.org/manual/std-Map.html</haxe_doc>
 		<meta>
+			<m n=":directlyUsed"/>
 			<m n=":hxGen"/>
 			<m n=":coreApi"/>
 		</meta>
@@ -33879,339 +34388,6 @@
 			<m n=":native"><e>"haxe.java.db.JdbcResultSet"</e></m>
 		</meta>
 	</class>
-	<class path="java.lang.ThreadLocal" params="T" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/ThreadLocal.class" extern="1">
-		<withInitial public="1" params="S" set="method" static="1">
-			<f a="param1">
-				<c path="java.util.function.Supplier"><c path="withInitial.S"/></c>
-				<c path="java.lang.ThreadLocal"><c path="withInitial.S"/></c>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</withInitial>
-		<remove public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":overload"/></meta>
-		</remove>
-		<set public="1" set="method">
-			<f a="param1">
-				<c path="java.lang.ThreadLocal.T"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</set>
-		<get public="1" set="method">
-			<f a=""><c path="java.lang.ThreadLocal.T"/></f>
-			<meta><m n=":overload"/></meta>
-		</get>
-		<initialValue set="method">
-			<f a=""><c path="java.lang.ThreadLocal.T"/></f>
-			<meta>
-				<m n=":overload"/>
-				<m n=":protected"/>
-			</meta>
-		</initialValue>
-		<new public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":overload"/></meta>
-		</new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":nativeGen"/>
-			<m n=":libType"/>
-			<m n=":javaNative"/>
-			<m n=":native"><e>"java.lang.ThreadLocal"</e></m>
-			<m n=":javaCanonical">
-				<e>"java.lang"</e>
-				<e>"ThreadLocal"</e>
-			</m>
-		</meta>
-	</class>
-	<class path="java.internal.Exceptions" params="" file="/home/vsts/work/1/s/std/java/internal/Exceptions.hx">
-		<exception expr="new java.lang.ThreadLocal&lt;java.lang.Throwable&gt;()" line="31" static="1">
-			<c path="java.lang.ThreadLocal"><c path="java.lang.Throwable"/></c>
-			<meta><m n=":value"><e><![CDATA[new java.lang.ThreadLocal<java.lang.Throwable>()]]></e></m></meta>
-		</exception>
-		<setException set="method" line="33" static="1">
-			<f a="exc">
-				<c path="java.lang.Throwable"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":keep"/></meta>
-		</setException>
-		<currentException public="1" set="method" line="37" static="1"><f a=""><c path="java.lang.Throwable"/></f></currentException>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":hxGen"/>
-			<m n=":native"><e>"haxe.lang.Exceptions"</e></m>
-		</meta>
-	</class>
-	<class path="java.lang.Throwable" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Throwable.class" extern="1">
-		<implements path="java.io.Serializable"/>
-		<getSuppressed final="1" public="1" set="method">
-			<f a=""><c path="java.NativeArray"><c path="java.lang.Throwable"/></c></f>
-			<meta><m n=":overload"/></meta>
-		</getSuppressed>
-		<addSuppressed final="1" public="1" set="method">
-			<f a="param1">
-				<c path="java.lang.Throwable"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</addSuppressed>
-		<setStackTrace public="1" set="method">
-			<f a="param1">
-				<c path="java.NativeArray"><c path="java.lang.StackTraceElement"/></c>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</setStackTrace>
-		<getStackTrace public="1" set="method">
-			<f a=""><c path="java.NativeArray"><c path="java.lang.StackTraceElement"/></c></f>
-			<meta><m n=":overload"/></meta>
-		</getStackTrace>
-		<fillInStackTrace public="1" set="method">
-			<f a=""><c path="java.lang.Throwable"/></f>
-			<meta><m n=":overload"/></meta>
-		</fillInStackTrace>
-		<printStackTrace public="1" set="method">
-			<f a="param1">
-				<c path="java.io.PrintWriter"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-			<overloads>
-				<printStackTrace public="1" set="method">
-					<f a=""><x path="Void"/></f>
-					<meta><m n=":overload"/></meta>
-				</printStackTrace>
-				<printStackTrace public="1" set="method">
-					<f a="param1">
-						<c path="java.io.PrintStream"/>
-						<x path="Void"/>
-					</f>
-					<meta><m n=":overload"/></meta>
-				</printStackTrace>
-			</overloads>
-		</printStackTrace>
-		<toString public="1" set="method">
-			<f a=""><c path="String"/></f>
-			<meta><m n=":overload"/></meta>
-		</toString>
-		<initCause public="1" set="method">
-			<f a="param1">
-				<c path="java.lang.Throwable"/>
-				<c path="java.lang.Throwable"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</initCause>
-		<getCause public="1" set="method">
-			<f a=""><c path="java.lang.Throwable"/></f>
-			<meta><m n=":overload"/></meta>
-		</getCause>
-		<getLocalizedMessage public="1" set="method">
-			<f a=""><c path="String"/></f>
-			<meta><m n=":overload"/></meta>
-		</getLocalizedMessage>
-		<getMessage public="1" set="method">
-			<f a=""><c path="String"/></f>
-			<meta><m n=":overload"/></meta>
-		</getMessage>
-		<new set="method">
-			<f a="param1:param2:param3:param4">
-				<c path="String"/>
-				<c path="java.lang.Throwable"/>
-				<x path="Bool"/>
-				<x path="Bool"/>
-				<x path="Void"/>
-			</f>
-			<meta>
-				<m n=":overload"/>
-				<m n=":protected"/>
-			</meta>
-			<overloads>
-				<new public="1" set="method">
-					<f a=""><x path="Void"/></f>
-					<meta><m n=":overload"/></meta>
-				</new>
-				<new public="1" set="method">
-					<f a="param1">
-						<c path="String"/>
-						<x path="Void"/>
-					</f>
-					<meta><m n=":overload"/></meta>
-				</new>
-				<new public="1" set="method">
-					<f a="param1:param2">
-						<c path="String"/>
-						<c path="java.lang.Throwable"/>
-						<x path="Void"/>
-					</f>
-					<meta><m n=":overload"/></meta>
-				</new>
-				<new public="1" set="method">
-					<f a="param1">
-						<c path="java.lang.Throwable"/>
-						<x path="Void"/>
-					</f>
-					<meta><m n=":overload"/></meta>
-				</new>
-			</overloads>
-		</new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":nativeGen"/>
-			<m n=":libType"/>
-			<m n=":javaNative"/>
-			<m n=":native"><e>"java.lang.Throwable"</e></m>
-			<m n=":javaCanonical">
-				<e>"java.lang"</e>
-				<e>"Throwable"</e>
-			</m>
-		</meta>
-	</class>
-	<class path="java.lang.Exception" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Exception.class" extern="1">
-		<extends path="java.lang.Throwable"/>
-		<new set="method">
-			<f a="param1:param2:param3:param4">
-				<c path="String"/>
-				<c path="java.lang.Throwable"/>
-				<x path="Bool"/>
-				<x path="Bool"/>
-				<x path="Void"/>
-			</f>
-			<meta>
-				<m n=":overload"/>
-				<m n=":protected"/>
-			</meta>
-			<overloads>
-				<new public="1" set="method">
-					<f a=""><x path="Void"/></f>
-					<meta><m n=":overload"/></meta>
-				</new>
-				<new public="1" set="method">
-					<f a="param1">
-						<c path="String"/>
-						<x path="Void"/>
-					</f>
-					<meta><m n=":overload"/></meta>
-				</new>
-				<new public="1" set="method">
-					<f a="param1:param2">
-						<c path="String"/>
-						<c path="java.lang.Throwable"/>
-						<x path="Void"/>
-					</f>
-					<meta><m n=":overload"/></meta>
-				</new>
-				<new public="1" set="method">
-					<f a="param1">
-						<c path="java.lang.Throwable"/>
-						<x path="Void"/>
-					</f>
-					<meta><m n=":overload"/></meta>
-				</new>
-			</overloads>
-		</new>
-		<meta>
-			<m n=":nativeGen"/>
-			<m n=":libType"/>
-			<m n=":javaNative"/>
-			<m n=":native"><e>"java.lang.Exception"</e></m>
-			<m n=":javaCanonical">
-				<e>"java.lang"</e>
-				<e>"Exception"</e>
-			</m>
-		</meta>
-	</class>
-	<class path="java.lang.RuntimeException" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/RuntimeException.class" extern="1">
-		<extends path="java.lang.Exception"/>
-		<new set="method">
-			<f a="param1:param2:param3:param4">
-				<c path="String"/>
-				<c path="java.lang.Throwable"/>
-				<x path="Bool"/>
-				<x path="Bool"/>
-				<x path="Void"/>
-			</f>
-			<meta>
-				<m n=":overload"/>
-				<m n=":protected"/>
-			</meta>
-			<overloads>
-				<new public="1" set="method">
-					<f a=""><x path="Void"/></f>
-					<meta><m n=":overload"/></meta>
-				</new>
-				<new public="1" set="method">
-					<f a="param1">
-						<c path="String"/>
-						<x path="Void"/>
-					</f>
-					<meta><m n=":overload"/></meta>
-				</new>
-				<new public="1" set="method">
-					<f a="param1:param2">
-						<c path="String"/>
-						<c path="java.lang.Throwable"/>
-						<x path="Void"/>
-					</f>
-					<meta><m n=":overload"/></meta>
-				</new>
-				<new public="1" set="method">
-					<f a="param1">
-						<c path="java.lang.Throwable"/>
-						<x path="Void"/>
-					</f>
-					<meta><m n=":overload"/></meta>
-				</new>
-			</overloads>
-		</new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":nativeGen"/>
-			<m n=":libType"/>
-			<m n=":javaNative"/>
-			<m n=":native"><e>"java.lang.RuntimeException"</e></m>
-			<m n=":javaCanonical">
-				<e>"java.lang"</e>
-				<e>"RuntimeException"</e>
-			</m>
-		</meta>
-	</class>
-	<class path="java.internal._Exceptions.HaxeException" params="" file="/home/vsts/work/1/s/std/java/internal/Exceptions.hx" private="1" module="java.internal.Exceptions">
-		<extends path="java.lang.RuntimeException"/>
-		<wrap public="1" set="method" line="78" static="1"><f a="obj">
-	<d/>
-	<c path="java.lang.RuntimeException"/>
-</f></wrap>
-		<obj><d/></obj>
-		<getObject public="1" set="method" line="57"><f a=""><d/></f></getObject>
-		<fillInStackTrace public="1" set="method" line="62" override="1">
-			<f a=""><c path="java.lang.Throwable"/></f>
-			<meta><m n=":overload"/></meta>
-		</fillInStackTrace>
-		<toString public="1" set="method" line="67" override="1">
-			<f a=""><c path="String"/></f>
-			<meta><m n=":overload"/></meta>
-		</toString>
-		<getMessage public="1" set="method" line="71" override="1">
-			<f a=""><c path="String"/></f>
-			<meta><m n=":overload"/></meta>
-		</getMessage>
-		<new public="1" set="method" line="46"><f a="obj:msg:cause">
-	<d/>
-	<c path="String"/>
-	<c path="java.lang.Throwable"/>
-	<x path="Void"/>
-</f></new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":nativeGen"/>
-			<m n=":classCode"><e>"public static final long serialVersionUID = 5956463319488556322L;"</e></m>
-			<m n=":nativeGen"/>
-			<m n=":keep"/>
-			<m n=":native"><e>"haxe.lang.HaxeException"</e></m>
-		</meta>
-	</class>
 	<class path="java.internal.FieldLookup" params="" file="/home/vsts/work/1/s/std/java/internal/FieldLookup.hx">
 		<hash public="1" set="method" line="33" static="1">
 			<f a="s">
@@ -34659,7 +34835,7 @@
 				<x path="Bool"/>
 				<d/>
 			</f>
-			<meta><m n=":functionCode"><e><![CDATA["\n\n\tif (obj == null)\n\t\tif (throwErrors)\n\t\t\tthrow new java.lang.NullPointerException(\"Cannot access field '\" + field + \"' of null.\");\n\t\telse\n\t\t\treturn null;\n\n\tjava.lang.Class cl = null;\n\ttry\n\t{\n\t\tif (obj instanceof java.lang.Class)\n\t\t{\n\t\t\tif (obj == java.lang.String.class && field.equals(\"fromCharCode\"))\n\t\t\t\treturn new haxe.lang.Closure(haxe.lang.StringExt.class, field);\n\n\t\t\tcl = (java.lang.Class) obj;\n\t\t\tobj = null;\n\t\t} else if (obj instanceof java.lang.String) {\n\t\t\treturn haxe.lang.StringRefl.handleGetField((java.lang.String) obj, field, throwErrors);\n\t\t} else {\n\t\t\tcl = obj.getClass();\n\t\t}\n\n\t\tjava.lang.reflect.Field f = cl.getField(field);\n\t\tf.setAccessible(true);\n\t\treturn f.get(obj);\n\t} catch (Throwable t)\n\t{\n\t\ttry\n\t\t{\n\t\t\tjava.lang.reflect.Method[] ms = cl.getMethods();\n\t\t\tfor (int i = 0; i < ms.length; i++)\n\t\t\t{\n\t\t\t\tif (ms[i].getName().equals(field))\n\t\t\t\t{\n\t\t\t\t\treturn new haxe.lang.Closure(obj != null ? obj : cl, field);\n\t\t\t\t}\n\t\t\t}\n\t\t} catch (Throwable t2)\n\t\t{\n\n\t\t}\n\n\t\tif (throwErrors)\n\t\t\tthrow HaxeException.wrap(t);\n\n\t\treturn null;\n\t}\n\n\t"]]></e></m></meta>
+			<meta><m n=":functionCode"><e><![CDATA["\n\n\tif (obj == null)\n\t\tif (throwErrors)\n\t\t\tthrow new java.lang.NullPointerException(\"Cannot access field '\" + field + \"' of null.\");\n\t\telse\n\t\t\treturn null;\n\n\tjava.lang.Class cl = null;\n\ttry\n\t{\n\t\tif (obj instanceof java.lang.Class)\n\t\t{\n\t\t\tif (obj == java.lang.String.class && field.equals(\"fromCharCode\"))\n\t\t\t\treturn new haxe.lang.Closure(haxe.lang.StringExt.class, field);\n\n\t\t\tcl = (java.lang.Class) obj;\n\t\t\tobj = null;\n\t\t} else if (obj instanceof java.lang.String) {\n\t\t\treturn haxe.lang.StringRefl.handleGetField((java.lang.String) obj, field, throwErrors);\n\t\t} else {\n\t\t\tcl = obj.getClass();\n\t\t}\n\n\t\tjava.lang.reflect.Field f = cl.getField(field);\n\t\tf.setAccessible(true);\n\t\treturn f.get(obj);\n\t} catch (Throwable t)\n\t{\n\t\ttry\n\t\t{\n\t\t\tjava.lang.reflect.Method[] ms = cl.getMethods();\n\t\t\tfor (int i = 0; i < ms.length; i++)\n\t\t\t{\n\t\t\t\tif (ms[i].getName().equals(field))\n\t\t\t\t{\n\t\t\t\t\treturn new haxe.lang.Closure(obj != null ? obj : cl, field);\n\t\t\t\t}\n\t\t\t}\n\t\t} catch (Throwable t2)\n\t\t{\n\n\t\t}\n\n\t\tif (throwErrors)\n\t\t\tthrow (java.lang.RuntimeException)haxe.Exception.thrown(t);\n\n\t\treturn null;\n\t}\n\n\t"]]></e></m></meta>
 		</slowGetField>
 		<slowSetField public="1" set="method" line="337" static="1">
 			<f a="obj:field:value">
@@ -34668,7 +34844,7 @@
 				<d/>
 				<d/>
 			</f>
-			<meta><m n=":functionCode"><e>"\n\t\tjava.lang.Class cl = null;\n\t\tif (obj instanceof java.lang.Class)\n\t\t{\n\t\t\tcl = (java.lang.Class) obj;\n\t\t\tobj = null;\n\t\t} else {\n\t\t\tcl = obj.getClass();\n\t\t}\n\n\t\ttry {\n\t\t\tjava.lang.reflect.Field f = cl.getField(field);\n\t\t\tf.setAccessible(true);\n\n\t\t\t//FIXME we must evaluate if field to be set receives either int or double\n\t\t\tif (isInt(value))\n\t\t\t{\n\t\t\t\tf.setInt(obj, toInt(value));\n\t\t\t} else if (isDouble(value)) {\n\t\t\t\tf.setDouble(obj, toDouble(value));\n\t\t\t} else {\n\t\t\t\tf.set(obj, value);\n\t\t\t}\n\t\t\treturn value;\n\t\t}\n\t\tcatch (Throwable t)\n\t\t{\n\t\t\tthrow HaxeException.wrap(t);\n\t\t}\n\t"</e></m></meta>
+			<meta><m n=":functionCode"><e>"\n\t\tjava.lang.Class cl = null;\n\t\tif (obj instanceof java.lang.Class)\n\t\t{\n\t\t\tcl = (java.lang.Class) obj;\n\t\t\tobj = null;\n\t\t} else {\n\t\t\tcl = obj.getClass();\n\t\t}\n\n\t\ttry {\n\t\t\tjava.lang.reflect.Field f = cl.getField(field);\n\t\t\tf.setAccessible(true);\n\n\t\t\t//FIXME we must evaluate if field to be set receives either int or double\n\t\t\tif (isInt(value))\n\t\t\t{\n\t\t\t\tf.setInt(obj, toInt(value));\n\t\t\t} else if (isDouble(value)) {\n\t\t\t\tf.setDouble(obj, toDouble(value));\n\t\t\t} else {\n\t\t\t\tf.set(obj, value);\n\t\t\t}\n\t\t\treturn value;\n\t\t}\n\t\tcatch (Throwable t)\n\t\t{\n\t\t\tthrow (java.lang.RuntimeException)haxe.Exception.thrown(t);\n\t\t}\n\t"</e></m></meta>
 		</slowSetField>
 		<slowCallField public="1" set="method" line="482" static="1">
 			<f a="obj:field:args">
@@ -34677,7 +34853,7 @@
 				<c path="java.NativeArray"><d/></c>
 				<d/>
 			</f>
-			<meta><m n=":functionCode"><e><![CDATA["\n\t\tjava.lang.Class cl = null;\n\t\tif (obj instanceof java.lang.Class)\n\t\t{\n\t\t\tif (obj == java.lang.String.class && field.equals(\"fromCharCode\"))\n\t\t\t\treturn haxe.lang.StringExt.fromCharCode(toInt(args[0]));\n\n\t\t\tcl = (java.lang.Class) obj;\n\t\t\tobj = null;\n\t\t} else if (obj instanceof java.lang.String) {\n\t\t\treturn haxe.lang.StringRefl.handleCallField((java.lang.String) obj, field, args);\n\t\t} else {\n\t\t\tcl = obj.getClass();\n\t\t}\n\n\t\tif (args == null) args = new java.lang.Object[0];\n\n\t\tint len = args.length;\n\t\tjava.lang.Class[] cls = new java.lang.Class[len];\n\t\tjava.lang.Object[] objs = new java.lang.Object[len];\n\n\t\tjava.lang.reflect.Method[] ms = cl.getMethods();\n\t\tint msl = ms.length;\n\t\tint realMsl = 0;\n\t\tfor(int i =0; i < msl; i++)\n\t\t{\n\t\t\tif (!ms[i].getName().equals(field) || (!ms[i].isVarArgs() && ms[i].getParameterTypes().length != len))\n\t\t\t{\n\t\t\t\tms[i] = null;\n\t\t\t} else {\n\t\t\t\tms[realMsl] = ms[i];\n\t\t\t\tif (realMsl != i)\n\t\t\t\t\tms[i] = null;\n\t\t\t\trealMsl++;\n\t\t\t}\n\t\t}\n\n\t\tboolean hasNumber = false;\n\n\t\tfor (int i = 0; i < len; i++)\n\t\t{\n\t\t\tObject o = args[i];\n\t\t\tif (o == null)\n\t\t\t{\n\t\t\t\tcontinue; //can be anything\n\t\t\t}\n\t\t\tobjs[i]= o;\n\t\t\tcls[i] = o.getClass();\n\t\t\tboolean isNum = false;\n\n\t\t\tif (o instanceof java.lang.Number)\n\t\t\t{\n\t\t\t\tcls[i] = java.lang.Number.class;\n\t\t\t\tisNum = hasNumber = true;\n\t\t\t} else if (o instanceof java.lang.Boolean) {\n\t\t\t\tcls[i] = java.lang.Boolean.class;\n\t\t\t\tisNum = true;\n\t\t\t}\n\n\t\t\tmsl = realMsl;\n\t\t\trealMsl = 0;\n\n\t\t\tfor (int j = 0; j < msl; j++)\n\t\t\t{\n\t\t\t\tjava.lang.Class[] allcls = ms[j].getParameterTypes();\n\t\t\t\tif (i < allcls.length)\n\t\t\t\t{\n\t\t\t\t\tif (!  ((isNum && allcls[i].isPrimitive()) || allcls[i].isAssignableFrom(cls[i])) )\n\t\t\t\t\t{\n\t\t\t\t\t\tms[j] = null;\n\t\t\t\t\t} else {\n\t\t\t\t\t\tms[realMsl] = ms[j];\n\t\t\t\t\t\tif (realMsl != j)\n\t\t\t\t\t\t\tms[j] = null;\n\t\t\t\t\t\trealMsl++;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\n\t\t}\n\n\t\tjava.lang.reflect.Method found;\n\t\tif (ms.length == 0 || (found = ms[0]) == null)\n\t\t\tthrow haxe.lang.HaxeException.wrap(\"No compatible method found for: \" + field);\n\n\t\tif (hasNumber)\n\t\t{\n\t\t\tjava.lang.Class[] allcls = found.getParameterTypes();\n\n\t\t\tfor (int i = 0; i < len; i++)\n\t\t\t{\n\t\t\t\tjava.lang.Object o = objs[i];\n\t\t\t\tif (o instanceof java.lang.Number)\n\t\t\t\t{\n\t\t\t\t\tjava.lang.Class curCls = null;\n\t\t\t\t\tif (i < allcls.length)\n\t\t\t\t\t{\n\t\t\t\t\t\tcurCls = allcls[i];\n\t\t\t\t\t\tif (!curCls.isAssignableFrom(o.getClass()))\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tString name = curCls.getName();\n\t\t\t\t\t\t\tif (name.equals(\"double\") || name.equals(\"java.lang.Double\"))\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tobjs[i] = ((java.lang.Number)o).doubleValue();\n\t\t\t\t\t\t\t} else if (name.equals(\"int\") || name.equals(\"java.lang.Integer\"))\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tobjs[i] = ((java.lang.Number)o).intValue();\n\t\t\t\t\t\t\t} else if (name.equals(\"float\") || name.equals(\"java.lang.Float\"))\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tobjs[i] = ((java.lang.Number)o).floatValue();\n\t\t\t\t\t\t\t} else if (name.equals(\"byte\") || name.equals(\"java.lang.Byte\"))\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tobjs[i] = ((java.lang.Number)o).byteValue();\n\t\t\t\t\t\t\t} else if (name.equals(\"short\") || name.equals(\"java.lang.Short\"))\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tobjs[i] = ((java.lang.Number)o).shortValue();\n\t\t\t\t\t\t\t} else if (name.equals(\"long\") || name.equals(\"java.lang.Long\"))\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tobjs[i] = ((java.lang.Number)o).longValue();\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t} //else varargs not handled TODO\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\ttry {\n\t\t\tfound.setAccessible(true);\n\t\t\treturn found.invoke(obj, objs);\n\t\t}\n\n\t\tcatch (java.lang.reflect.InvocationTargetException e)\n\t\t{\n\t\t\tthrow haxe.lang.HaxeException.wrap(e.getCause());\n\t\t}\n\n\t\tcatch (Throwable t)\n\t\t{\n\t\t\tthrow haxe.lang.HaxeException.wrap(t);\n\t\t}\n\t"]]></e></m></meta>
+			<meta><m n=":functionCode"><e><![CDATA["\n\t\tjava.lang.Class cl = null;\n\t\tif (obj instanceof java.lang.Class)\n\t\t{\n\t\t\tif (obj == java.lang.String.class && field.equals(\"fromCharCode\"))\n\t\t\t\treturn haxe.lang.StringExt.fromCharCode(toInt(args[0]));\n\n\t\t\tcl = (java.lang.Class) obj;\n\t\t\tobj = null;\n\t\t} else if (obj instanceof java.lang.String) {\n\t\t\treturn haxe.lang.StringRefl.handleCallField((java.lang.String) obj, field, args);\n\t\t} else {\n\t\t\tcl = obj.getClass();\n\t\t}\n\n\t\tif (args == null) args = new java.lang.Object[0];\n\n\t\tint len = args.length;\n\t\tjava.lang.Class[] cls = new java.lang.Class[len];\n\t\tjava.lang.Object[] objs = new java.lang.Object[len];\n\n\t\tjava.lang.reflect.Method[] ms = cl.getMethods();\n\t\tint msl = ms.length;\n\t\tint realMsl = 0;\n\t\tfor(int i =0; i < msl; i++)\n\t\t{\n\t\t\tif (!ms[i].getName().equals(field) || (!ms[i].isVarArgs() && ms[i].getParameterTypes().length != len))\n\t\t\t{\n\t\t\t\tms[i] = null;\n\t\t\t} else {\n\t\t\t\tms[realMsl] = ms[i];\n\t\t\t\tif (realMsl != i)\n\t\t\t\t\tms[i] = null;\n\t\t\t\trealMsl++;\n\t\t\t}\n\t\t}\n\n\t\tboolean hasNumber = false;\n\n\t\tfor (int i = 0; i < len; i++)\n\t\t{\n\t\t\tObject o = args[i];\n\t\t\tif (o == null)\n\t\t\t{\n\t\t\t\tcontinue; //can be anything\n\t\t\t}\n\t\t\tobjs[i]= o;\n\t\t\tcls[i] = o.getClass();\n\t\t\tboolean isNum = false;\n\n\t\t\tif (o instanceof java.lang.Number)\n\t\t\t{\n\t\t\t\tcls[i] = java.lang.Number.class;\n\t\t\t\tisNum = hasNumber = true;\n\t\t\t} else if (o instanceof java.lang.Boolean) {\n\t\t\t\tcls[i] = java.lang.Boolean.class;\n\t\t\t\tisNum = true;\n\t\t\t}\n\n\t\t\tmsl = realMsl;\n\t\t\trealMsl = 0;\n\n\t\t\tfor (int j = 0; j < msl; j++)\n\t\t\t{\n\t\t\t\tjava.lang.Class[] allcls = ms[j].getParameterTypes();\n\t\t\t\tif (i < allcls.length)\n\t\t\t\t{\n\t\t\t\t\tif (!  ((isNum && allcls[i].isPrimitive()) || allcls[i].isAssignableFrom(cls[i])) )\n\t\t\t\t\t{\n\t\t\t\t\t\tms[j] = null;\n\t\t\t\t\t} else {\n\t\t\t\t\t\tms[realMsl] = ms[j];\n\t\t\t\t\t\tif (realMsl != j)\n\t\t\t\t\t\t\tms[j] = null;\n\t\t\t\t\t\trealMsl++;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\n\t\t}\n\n\t\tjava.lang.reflect.Method found;\n\t\tif (ms.length == 0 || (found = ms[0]) == null)\n\t\t\tthrow (java.lang.RuntimeException)haxe.Exception.thrown(\"No compatible method found for: \" + field);\n\n\t\tif (hasNumber)\n\t\t{\n\t\t\tjava.lang.Class[] allcls = found.getParameterTypes();\n\n\t\t\tfor (int i = 0; i < len; i++)\n\t\t\t{\n\t\t\t\tjava.lang.Object o = objs[i];\n\t\t\t\tif (o instanceof java.lang.Number)\n\t\t\t\t{\n\t\t\t\t\tjava.lang.Class curCls = null;\n\t\t\t\t\tif (i < allcls.length)\n\t\t\t\t\t{\n\t\t\t\t\t\tcurCls = allcls[i];\n\t\t\t\t\t\tif (!curCls.isAssignableFrom(o.getClass()))\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tString name = curCls.getName();\n\t\t\t\t\t\t\tif (name.equals(\"double\") || name.equals(\"java.lang.Double\"))\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tobjs[i] = ((java.lang.Number)o).doubleValue();\n\t\t\t\t\t\t\t} else if (name.equals(\"int\") || name.equals(\"java.lang.Integer\"))\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tobjs[i] = ((java.lang.Number)o).intValue();\n\t\t\t\t\t\t\t} else if (name.equals(\"float\") || name.equals(\"java.lang.Float\"))\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tobjs[i] = ((java.lang.Number)o).floatValue();\n\t\t\t\t\t\t\t} else if (name.equals(\"byte\") || name.equals(\"java.lang.Byte\"))\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tobjs[i] = ((java.lang.Number)o).byteValue();\n\t\t\t\t\t\t\t} else if (name.equals(\"short\") || name.equals(\"java.lang.Short\"))\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tobjs[i] = ((java.lang.Number)o).shortValue();\n\t\t\t\t\t\t\t} else if (name.equals(\"long\") || name.equals(\"java.lang.Long\"))\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tobjs[i] = ((java.lang.Number)o).longValue();\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t} //else varargs not handled TODO\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\ttry {\n\t\t\tfound.setAccessible(true);\n\t\t\treturn found.invoke(obj, objs);\n\t\t}\n\n\t\tcatch (java.lang.reflect.InvocationTargetException e)\n\t\t{\n\t\t\tthrow (java.lang.RuntimeException)haxe.Exception.thrown(e.getCause());\n\t\t}\n\n\t\tcatch (Throwable t)\n\t\t{\n\t\t\tthrow (java.lang.RuntimeException)haxe.Exception.thrown(t);\n\t\t}\n\t"]]></e></m></meta>
 		</slowCallField>
 		<callField public="1" set="method" line="494" static="1">
 			<f a="obj:field:args">
@@ -35734,6 +35910,184 @@
 			<m n=":javaCanonical">
 				<e>"java.io"</e>
 				<e>"DataOutput"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.lang.Throwable" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Throwable.class" extern="1">
+		<implements path="java.io.Serializable"/>
+		<getSuppressed final="1" public="1" set="method">
+			<f a=""><c path="java.NativeArray"><c path="java.lang.Throwable"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</getSuppressed>
+		<addSuppressed final="1" public="1" set="method">
+			<f a="param1">
+				<c path="java.lang.Throwable"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</addSuppressed>
+		<setStackTrace public="1" set="method">
+			<f a="param1">
+				<c path="java.NativeArray"><c path="java.lang.StackTraceElement"/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</setStackTrace>
+		<getStackTrace public="1" set="method">
+			<f a=""><c path="java.NativeArray"><c path="java.lang.StackTraceElement"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</getStackTrace>
+		<fillInStackTrace public="1" set="method">
+			<f a=""><c path="java.lang.Throwable"/></f>
+			<meta><m n=":overload"/></meta>
+		</fillInStackTrace>
+		<printStackTrace public="1" set="method">
+			<f a="param1">
+				<c path="java.io.PrintWriter"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<printStackTrace public="1" set="method">
+					<f a=""><x path="Void"/></f>
+					<meta><m n=":overload"/></meta>
+				</printStackTrace>
+				<printStackTrace public="1" set="method">
+					<f a="param1">
+						<c path="java.io.PrintStream"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</printStackTrace>
+			</overloads>
+		</printStackTrace>
+		<toString public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":overload"/></meta>
+		</toString>
+		<initCause public="1" set="method">
+			<f a="param1">
+				<c path="java.lang.Throwable"/>
+				<c path="java.lang.Throwable"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</initCause>
+		<getCause public="1" set="method">
+			<f a=""><c path="java.lang.Throwable"/></f>
+			<meta><m n=":overload"/></meta>
+		</getCause>
+		<getLocalizedMessage public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":overload"/></meta>
+		</getLocalizedMessage>
+		<getMessage public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":overload"/></meta>
+		</getMessage>
+		<new set="method">
+			<f a="param1:param2:param3:param4">
+				<c path="String"/>
+				<c path="java.lang.Throwable"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":protected"/>
+			</meta>
+			<overloads>
+				<new public="1" set="method">
+					<f a=""><x path="Void"/></f>
+					<meta><m n=":overload"/></meta>
+				</new>
+				<new public="1" set="method">
+					<f a="param1">
+						<c path="String"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</new>
+				<new public="1" set="method">
+					<f a="param1:param2">
+						<c path="String"/>
+						<c path="java.lang.Throwable"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</new>
+				<new public="1" set="method">
+					<f a="param1">
+						<c path="java.lang.Throwable"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</new>
+			</overloads>
+		</new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.lang.Throwable"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.lang"</e>
+				<e>"Throwable"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.lang.Exception" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Exception.class" extern="1">
+		<extends path="java.lang.Throwable"/>
+		<new set="method">
+			<f a="param1:param2:param3:param4">
+				<c path="String"/>
+				<c path="java.lang.Throwable"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":protected"/>
+			</meta>
+			<overloads>
+				<new public="1" set="method">
+					<f a=""><x path="Void"/></f>
+					<meta><m n=":overload"/></meta>
+				</new>
+				<new public="1" set="method">
+					<f a="param1">
+						<c path="String"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</new>
+				<new public="1" set="method">
+					<f a="param1:param2">
+						<c path="String"/>
+						<c path="java.lang.Throwable"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</new>
+				<new public="1" set="method">
+					<f a="param1">
+						<c path="java.lang.Throwable"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</new>
+			</overloads>
+		</new>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.lang.Exception"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.lang"</e>
+				<e>"Exception"</e>
 			</m>
 		</meta>
 	</class>
@@ -39341,6 +39695,7 @@
 </new></overloads>
 		</new>
 		<meta>
+			<m n=":directlyUsed"/>
 			<m n=":nativeGen"/>
 			<m n=":native"><e>"java.lang.Boolean"</e></m>
 		</meta>
@@ -42485,6 +42840,61 @@
 			<m n=":javaCanonical">
 				<e>"java.lang"</e>
 				<e>"IllegalAccessException"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.lang.RuntimeException" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/RuntimeException.class" extern="1">
+		<extends path="java.lang.Exception"/>
+		<new set="method">
+			<f a="param1:param2:param3:param4">
+				<c path="String"/>
+				<c path="java.lang.Throwable"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":protected"/>
+			</meta>
+			<overloads>
+				<new public="1" set="method">
+					<f a=""><x path="Void"/></f>
+					<meta><m n=":overload"/></meta>
+				</new>
+				<new public="1" set="method">
+					<f a="param1">
+						<c path="String"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</new>
+				<new public="1" set="method">
+					<f a="param1:param2">
+						<c path="String"/>
+						<c path="java.lang.Throwable"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</new>
+				<new public="1" set="method">
+					<f a="param1">
+						<c path="java.lang.Throwable"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</new>
+			</overloads>
+		</new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.lang.RuntimeException"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.lang"</e>
+				<e>"RuntimeException"</e>
 			</m>
 		</meta>
 	</class>
@@ -79929,6 +80339,529 @@
 		<x path="java.Int8"/>
 		<meta><m n=":nativeGen"/></meta>
 	</typedef>
+	<class path="java.util.List" params="E" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/List.class" extern="1" interface="1">
+		<extends path="java.util.Collection"><c path="java.util.List.E"/></extends>
+		<spliterator public="1" set="method">
+			<f a=""><c path="java.util.Spliterator"><c path="java.util.List.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</spliterator>
+		<subList public="1" set="method">
+			<f a="param1:param2">
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="java.util.List"><c path="java.util.List.E"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</subList>
+		<listIterator public="1" set="method">
+			<f a="param1">
+				<x path="Int"/>
+				<c path="java.util.ListIterator"><c path="java.util.List.E"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><listIterator public="1" set="method">
+	<f a=""><c path="java.util.ListIterator"><c path="java.util.List.E"/></c></f>
+	<meta><m n=":overload"/></meta>
+</listIterator></overloads>
+		</listIterator>
+		<lastIndexOf public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</lastIndexOf>
+		<indexOf public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</indexOf>
+		<remove public="1" set="method">
+			<f a="param1">
+				<x path="Int"/>
+				<c path="java.util.List.E"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><remove public="1" set="method">
+	<f a="param1">
+		<d/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</remove></overloads>
+		</remove>
+		<add public="1" set="method">
+			<f a="param1:param2">
+				<x path="Int"/>
+				<c path="java.util.List.E"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><add public="1" set="method">
+	<f a="param1">
+		<c path="java.util.List.E"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</add></overloads>
+		</add>
+		<set public="1" set="method">
+			<f a="param1:param2">
+				<x path="Int"/>
+				<c path="java.util.List.E"/>
+				<c path="java.util.List.E"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</set>
+		<get public="1" set="method">
+			<f a="param1">
+				<x path="Int"/>
+				<c path="java.util.List.E"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</get>
+		<clear public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+		</clear>
+		<sort public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Comparator"><d/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</sort>
+		<replaceAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.UnaryOperator"><c path="java.util.List.E"/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</replaceAll>
+		<retainAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</retainAll>
+		<removeAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</removeAll>
+		<addAll public="1" set="method">
+			<f a="param1:param2">
+				<x path="Int"/>
+				<c path="java.util.Collection"><c path="java.util.List.E"/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><addAll public="1" set="method">
+	<f a="param1">
+		<c path="java.util.Collection"><c path="java.util.List.E"/></c>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</addAll></overloads>
+		</addAll>
+		<containsAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Collection"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</containsAll>
+		<toArray public="1" params="T" set="method">
+			<f a="param1">
+				<c path="java.NativeArray"><c path="toArray.T"/></c>
+				<c path="java.NativeArray"><c path="toArray.T"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><toArray public="1" set="method">
+	<f a=""><c path="java.NativeArray"><d/></c></f>
+	<meta><m n=":overload"/></meta>
+</toArray></overloads>
+		</toArray>
+		<iterator public="1" set="method">
+			<f a=""><c path="java.util.Iterator"><c path="java.util.List.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</iterator>
+		<contains public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</contains>
+		<isEmpty public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":overload"/></meta>
+		</isEmpty>
+		<size public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":overload"/></meta>
+		</size>
+		<forEach public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.Consumer"><d/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</forEach>
+		<removeIf public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.Predicate"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</removeIf>
+		<stream public="1" set="method">
+			<f a=""><c path="java.util.stream.Stream"><c path="java.util.List.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</stream>
+		<parallelStream public="1" set="method">
+			<f a=""><c path="java.util.stream.Stream"><c path="java.util.List.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</parallelStream>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.List"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util"</e>
+				<e>"List"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.util.AbstractList" params="E" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/AbstractList.class" extern="1">
+		<extends path="java.util.AbstractCollection"><c path="java.util.AbstractList.E"/></extends>
+		<implements path="java.util.List"><c path="java.util.AbstractList.E"/></implements>
+		<removeRange set="method">
+			<f a="param1:param2">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":protected"/>
+			</meta>
+		</removeRange>
+		<hashCode public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":overload"/></meta>
+		</hashCode>
+		<equals public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</equals>
+		<subList public="1" set="method">
+			<f a="param1:param2">
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="java.util.List"><c path="java.util.AbstractList.E"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</subList>
+		<listIterator public="1" set="method">
+			<f a="param1">
+				<x path="Int"/>
+				<c path="java.util.ListIterator"><c path="java.util.AbstractList.E"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><listIterator public="1" set="method">
+	<f a=""><c path="java.util.ListIterator"><c path="java.util.AbstractList.E"/></c></f>
+	<meta><m n=":overload"/></meta>
+</listIterator></overloads>
+		</listIterator>
+		<iterator public="1" set="method" override="1">
+			<f a=""><c path="java.util.Iterator"><c path="java.util.AbstractList.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</iterator>
+		<addAll public="1" set="method" override="1">
+			<f a="param1:param2">
+				<x path="Int"/>
+				<c path="java.util.Collection"><c path="java.util.AbstractList.E"/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</addAll>
+		<clear public="1" set="method" override="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+		</clear>
+		<lastIndexOf public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</lastIndexOf>
+		<indexOf public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</indexOf>
+		<remove public="1" set="method" override="1">
+			<f a="param1">
+				<x path="Int"/>
+				<c path="java.util.AbstractList.E"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</remove>
+		<add public="1" set="method" override="1">
+			<f a="param1:param2">
+				<x path="Int"/>
+				<c path="java.util.AbstractList.E"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><add public="1" set="method">
+	<f a="param1">
+		<c path="java.util.AbstractList.E"/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</add></overloads>
+		</add>
+		<set public="1" set="method">
+			<f a="param1:param2">
+				<x path="Int"/>
+				<c path="java.util.AbstractList.E"/>
+				<c path="java.util.AbstractList.E"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</set>
+		<get public="1" set="method">
+			<f a="param1">
+				<x path="Int"/>
+				<c path="java.util.AbstractList.E"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</get>
+		<replaceAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.UnaryOperator"><c path="java.util.AbstractList.E"/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</replaceAll>
+		<sort public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Comparator"><d/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</sort>
+		<modCount>
+			<x path="Int"/>
+			<meta>
+				<m n=":protected"/>
+				<m n=":transient"/>
+			</meta>
+		</modCount>
+		<new set="method">
+			<f a=""><x path="Void"/></f>
+			<meta>
+				<m n=":overload"/>
+				<m n=":protected"/>
+			</meta>
+		</new>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.AbstractList"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util"</e>
+				<e>"AbstractList"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.util.Iterator" params="E" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Iterator.class" extern="1" interface="1">
+		<forEachRemaining public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.Consumer"><d/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</forEachRemaining>
+		<remove public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+		</remove>
+		<next public="1" set="method">
+			<f a=""><c path="java.util.Iterator.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</next>
+		<hasNext public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":overload"/></meta>
+		</hasNext>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.Iterator"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util"</e>
+				<e>"Iterator"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.util.AbstractList_Itr" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/AbstractList$Itr.class" module="java.util.AbstractList" extern="1">
+		<implements path="java.util.Iterator"><d/></implements>
+		<remove public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+		</remove>
+		<next public="1" set="method">
+			<f a=""><d/></f>
+			<meta><m n=":overload"/></meta>
+		</next>
+		<hasNext public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":overload"/></meta>
+		</hasNext>
+		<forEachRemaining public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.Consumer"><d/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</forEachRemaining>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.AbstractList$Itr"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util"</e>
+				<e>"AbstractList.Itr"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.util.ListIterator" params="E" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/ListIterator.class" extern="1" interface="1">
+		<extends path="java.util.Iterator"><c path="java.util.ListIterator.E"/></extends>
+		<add public="1" set="method">
+			<f a="param1">
+				<c path="java.util.ListIterator.E"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</add>
+		<set public="1" set="method">
+			<f a="param1">
+				<c path="java.util.ListIterator.E"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</set>
+		<remove public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+		</remove>
+		<previousIndex public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":overload"/></meta>
+		</previousIndex>
+		<nextIndex public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":overload"/></meta>
+		</nextIndex>
+		<previous public="1" set="method">
+			<f a=""><c path="java.util.ListIterator.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</previous>
+		<hasPrevious public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":overload"/></meta>
+		</hasPrevious>
+		<next public="1" set="method">
+			<f a=""><c path="java.util.ListIterator.E"/></f>
+			<meta><m n=":overload"/></meta>
+		</next>
+		<hasNext public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":overload"/></meta>
+		</hasNext>
+		<forEachRemaining public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.Consumer"><d/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</forEachRemaining>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.ListIterator"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util"</e>
+				<e>"ListIterator"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.util.AbstractList_ListItr" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/AbstractList$ListItr.class" module="java.util.AbstractList" extern="1">
+		<extends path="java.util.AbstractList_Itr"/>
+		<implements path="java.util.ListIterator"><d/></implements>
+		<add public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</add>
+		<set public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</set>
+		<previousIndex public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":overload"/></meta>
+		</previousIndex>
+		<nextIndex public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":overload"/></meta>
+		</nextIndex>
+		<previous public="1" set="method">
+			<f a=""><d/></f>
+			<meta><m n=":overload"/></meta>
+		</previous>
+		<hasPrevious public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":overload"/></meta>
+		</hasPrevious>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.AbstractList$ListItr"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util"</e>
+				<e>"AbstractList.ListItr"</e>
+			</m>
+		</meta>
+	</class>
 	<class path="java.util.Queue" params="E" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Queue.class" extern="1" interface="1">
 		<extends path="java.util.Collection"><c path="java.util.Queue.E"/></extends>
 		<peek public="1" set="method">
@@ -80128,6 +81061,1585 @@
 			<m n=":javaCanonical">
 				<e>"java.util"</e>
 				<e>"AbstractQueue"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.util.Arrays" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Arrays.class" extern="1">
+		<stream public="1" set="method" static="1">
+			<f a="param1:param2:param3">
+				<c path="java.NativeArray"><x path="Float"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="java.util.stream.DoubleStream"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<stream public="1" params="T" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><c path="stream.T"/></c>
+						<c path="java.util.stream.Stream"><c path="stream.T"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</stream>
+				<stream public="1" params="T" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><c path="stream.T"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.util.stream.Stream"><c path="stream.T"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</stream>
+				<stream public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<c path="java.util.stream.IntStream"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</stream>
+				<stream public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.util.stream.IntStream"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</stream>
+				<stream public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<c path="java.util.stream.LongStream"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</stream>
+				<stream public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.util.stream.LongStream"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</stream>
+				<stream public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<c path="java.util.stream.DoubleStream"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</stream>
+			</overloads>
+		</stream>
+		<spliterator public="1" set="method" static="1">
+			<f a="param1:param2:param3">
+				<c path="java.NativeArray"><x path="Float"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="java.util.Spliterator_OfDouble"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<spliterator public="1" params="T" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><c path="spliterator.T"/></c>
+						<c path="java.util.Spliterator"><c path="spliterator.T"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</spliterator>
+				<spliterator public="1" params="T" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><c path="spliterator.T"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.util.Spliterator"><c path="spliterator.T"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</spliterator>
+				<spliterator public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<c path="java.util.Spliterator_OfInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</spliterator>
+				<spliterator public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.util.Spliterator_OfInt"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</spliterator>
+				<spliterator public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<c path="java.util.Spliterator_OfLong"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</spliterator>
+				<spliterator public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.util.Spliterator_OfLong"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</spliterator>
+				<spliterator public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<c path="java.util.Spliterator_OfDouble"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</spliterator>
+			</overloads>
+		</spliterator>
+		<parallelSetAll public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.NativeArray"><x path="Float"/></c>
+				<c path="java.util.function.IntToDoubleFunction"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<parallelSetAll public="1" params="T" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><c path="parallelSetAll.T"/></c>
+						<c path="java.util.function.IntFunction"><c path="parallelSetAll.T"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSetAll>
+				<parallelSetAll public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<c path="java.util.function.IntUnaryOperator"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSetAll>
+				<parallelSetAll public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<c path="java.util.function.IntToLongFunction"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSetAll>
+			</overloads>
+		</parallelSetAll>
+		<setAll public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.NativeArray"><x path="Float"/></c>
+				<c path="java.util.function.IntToDoubleFunction"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<setAll public="1" params="T" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><c path="setAll.T"/></c>
+						<c path="java.util.function.IntFunction"><c path="setAll.T"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</setAll>
+				<setAll public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<c path="java.util.function.IntUnaryOperator"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</setAll>
+				<setAll public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<c path="java.util.function.IntToLongFunction"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</setAll>
+			</overloads>
+		</setAll>
+		<deepToString public="1" set="method" static="1">
+			<f a="param1">
+				<c path="java.NativeArray"><d/></c>
+				<c path="String"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</deepToString>
+		<toString public="1" set="method" static="1">
+			<f a="param1">
+				<c path="java.NativeArray"><d/></c>
+				<c path="String"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<toString public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</toString>
+				<toString public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</toString>
+				<toString public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><t path="java.types.Int16"/></c>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</toString>
+				<toString public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</toString>
+				<toString public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</toString>
+				<toString public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Bool"/></c>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</toString>
+				<toString public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Single"/></c>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</toString>
+				<toString public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<c path="String"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</toString>
+			</overloads>
+		</toString>
+		<deepEquals public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.NativeArray"><d/></c>
+				<c path="java.NativeArray"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</deepEquals>
+		<deepHashCode public="1" set="method" static="1">
+			<f a="param1">
+				<c path="java.NativeArray"><d/></c>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</deepHashCode>
+		<hashCode public="1" set="method" static="1">
+			<f a="param1">
+				<c path="java.NativeArray"><d/></c>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<hashCode public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</hashCode>
+				<hashCode public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</hashCode>
+				<hashCode public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><t path="java.types.Int16"/></c>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</hashCode>
+				<hashCode public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</hashCode>
+				<hashCode public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</hashCode>
+				<hashCode public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Bool"/></c>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</hashCode>
+				<hashCode public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Single"/></c>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</hashCode>
+				<hashCode public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</hashCode>
+			</overloads>
+		</hashCode>
+		<asList public="1" params="T" set="method" static="1">
+			<f a="param1">
+				<c path="java.NativeArray"><c path="asList.T"/></c>
+				<c path="java.util.List"><c path="asList.T"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</asList>
+		<copyOfRange public="1" set="method" static="1">
+			<f a="param1:param2:param3">
+				<c path="java.NativeArray"><x path="Bool"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="java.NativeArray"><x path="Bool"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<copyOfRange public="1" params="T" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><c path="copyOfRange.T"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.NativeArray"><c path="copyOfRange.T"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOfRange>
+				<copyOfRange public="1" params="T:U" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><c path="copyOfRange.U"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.lang.Class"><c path="java.NativeArray"><c path="copyOfRange.T"/></c></c>
+						<c path="java.NativeArray"><c path="copyOfRange.T"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOfRange>
+				<copyOfRange public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOfRange>
+				<copyOfRange public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><t path="java.types.Int16"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.NativeArray"><t path="java.types.Int16"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOfRange>
+				<copyOfRange public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.NativeArray"><x path="Int"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOfRange>
+				<copyOfRange public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOfRange>
+				<copyOfRange public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOfRange>
+				<copyOfRange public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><x path="Single"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.NativeArray"><x path="Single"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOfRange>
+				<copyOfRange public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.NativeArray"><x path="Float"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOfRange>
+			</overloads>
+		</copyOfRange>
+		<copyOf public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.NativeArray"><x path="Bool"/></c>
+				<x path="Int"/>
+				<c path="java.NativeArray"><x path="Bool"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<copyOf public="1" params="T" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><c path="copyOf.T"/></c>
+						<x path="Int"/>
+						<c path="java.NativeArray"><c path="copyOf.T"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOf>
+				<copyOf public="1" params="T:U" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><c path="copyOf.U"/></c>
+						<x path="Int"/>
+						<c path="java.lang.Class"><c path="java.NativeArray"><c path="copyOf.T"/></c></c>
+						<c path="java.NativeArray"><c path="copyOf.T"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOf>
+				<copyOf public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+						<x path="Int"/>
+						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOf>
+				<copyOf public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><t path="java.types.Int16"/></c>
+						<x path="Int"/>
+						<c path="java.NativeArray"><t path="java.types.Int16"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOf>
+				<copyOf public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<x path="Int"/>
+						<c path="java.NativeArray"><x path="Int"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOf>
+				<copyOf public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<x path="Int"/>
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOf>
+				<copyOf public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<x path="Int"/>
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOf>
+				<copyOf public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Single"/></c>
+						<x path="Int"/>
+						<c path="java.NativeArray"><x path="Single"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOf>
+				<copyOf public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<x path="Int"/>
+						<c path="java.NativeArray"><x path="Float"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</copyOf>
+			</overloads>
+		</copyOf>
+		<fill public="1" set="method" static="1">
+			<f a="param1:param2:param3:param4">
+				<c path="java.NativeArray"><d/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<fill public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<x path="haxe.Int64"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</fill>
+				<fill public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="haxe.Int64"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</fill>
+				<fill public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</fill>
+				<fill public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</fill>
+				<fill public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><t path="java.types.Int16"/></c>
+						<t path="java.types.Int16"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</fill>
+				<fill public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><t path="java.types.Int16"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<t path="java.types.Int16"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</fill>
+				<fill public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<t path="java.types.Char16"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</fill>
+				<fill public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<t path="java.types.Char16"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</fill>
+				<fill public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+						<t path="java.types.Int8"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</fill>
+				<fill public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<t path="java.types.Int8"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</fill>
+				<fill public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Bool"/></c>
+						<x path="Bool"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</fill>
+				<fill public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><x path="Bool"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Bool"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</fill>
+				<fill public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<x path="Float"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</fill>
+				<fill public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Float"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</fill>
+				<fill public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Single"/></c>
+						<x path="Single"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</fill>
+				<fill public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><x path="Single"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Single"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</fill>
+				<fill public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><d/></c>
+						<d/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</fill>
+			</overloads>
+		</fill>
+		<equals public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.NativeArray"><d/></c>
+				<c path="java.NativeArray"><d/></c>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<equals public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</equals>
+				<equals public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</equals>
+				<equals public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><t path="java.types.Int16"/></c>
+						<c path="java.NativeArray"><t path="java.types.Int16"/></c>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</equals>
+				<equals public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</equals>
+				<equals public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</equals>
+				<equals public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Bool"/></c>
+						<c path="java.NativeArray"><x path="Bool"/></c>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</equals>
+				<equals public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</equals>
+				<equals public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Single"/></c>
+						<c path="java.NativeArray"><x path="Single"/></c>
+						<x path="Bool"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</equals>
+			</overloads>
+		</equals>
+		<binarySearch public="1" params="T" set="method" static="1">
+			<f a="param1:param2:param3:param4:param5">
+				<c path="java.NativeArray"><c path="binarySearch.T"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="binarySearch.T"/>
+				<c path="java.util.Comparator"><d/></c>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<binarySearch public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<x path="haxe.Int64"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</binarySearch>
+				<binarySearch public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="haxe.Int64"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</binarySearch>
+				<binarySearch public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</binarySearch>
+				<binarySearch public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</binarySearch>
+				<binarySearch public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><t path="java.types.Int16"/></c>
+						<t path="java.types.Int16"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</binarySearch>
+				<binarySearch public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><t path="java.types.Int16"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<t path="java.types.Int16"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</binarySearch>
+				<binarySearch public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<t path="java.types.Char16"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</binarySearch>
+				<binarySearch public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<t path="java.types.Char16"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</binarySearch>
+				<binarySearch public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+						<t path="java.types.Int8"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</binarySearch>
+				<binarySearch public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<t path="java.types.Int8"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</binarySearch>
+				<binarySearch public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<x path="Float"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</binarySearch>
+				<binarySearch public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Float"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</binarySearch>
+				<binarySearch public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Single"/></c>
+						<x path="Single"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</binarySearch>
+				<binarySearch public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><x path="Single"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Single"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</binarySearch>
+				<binarySearch public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><d/></c>
+						<d/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</binarySearch>
+				<binarySearch public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><d/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<d/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</binarySearch>
+				<binarySearch public="1" params="T" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><c path="binarySearch.T"/></c>
+						<c path="binarySearch.T"/>
+						<c path="java.util.Comparator"><d/></c>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</binarySearch>
+			</overloads>
+		</binarySearch>
+		<parallelPrefix public="1" set="method" static="1">
+			<f a="param1:param2:param3:param4">
+				<c path="java.NativeArray"><x path="Int"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="java.util.function.IntBinaryOperator"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<parallelPrefix public="1" params="T" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><c path="parallelPrefix.T"/></c>
+						<c path="java.util.function.BinaryOperator"><c path="parallelPrefix.T"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelPrefix>
+				<parallelPrefix public="1" params="T" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><c path="parallelPrefix.T"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.util.function.BinaryOperator"><c path="parallelPrefix.T"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelPrefix>
+				<parallelPrefix public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<c path="java.util.function.LongBinaryOperator"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelPrefix>
+				<parallelPrefix public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.util.function.LongBinaryOperator"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelPrefix>
+				<parallelPrefix public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<c path="java.util.function.DoubleBinaryOperator"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelPrefix>
+				<parallelPrefix public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.util.function.DoubleBinaryOperator"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelPrefix>
+				<parallelPrefix public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<c path="java.util.function.IntBinaryOperator"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelPrefix>
+			</overloads>
+		</parallelPrefix>
+		<sort public="1" params="T" set="method" static="1">
+			<f a="param1:param2:param3:param4">
+				<c path="java.NativeArray"><c path="sort.T"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="java.util.Comparator"><d/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<sort public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</sort>
+				<sort public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</sort>
+				<sort public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</sort>
+				<sort public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</sort>
+				<sort public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><t path="java.types.Int16"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</sort>
+				<sort public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><t path="java.types.Int16"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</sort>
+				<sort public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</sort>
+				<sort public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</sort>
+				<sort public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</sort>
+				<sort public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</sort>
+				<sort public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Single"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</sort>
+				<sort public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><x path="Single"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</sort>
+				<sort public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</sort>
+				<sort public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</sort>
+				<sort public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><d/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</sort>
+				<sort public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><d/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</sort>
+				<sort public="1" params="T" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><c path="sort.T"/></c>
+						<c path="java.util.Comparator"><d/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</sort>
+			</overloads>
+		</sort>
+		<parallelSort public="1" params="T" set="method" static="1">
+			<f a="param1:param2:param3:param4">
+				<c path="java.NativeArray"><c path="parallelSort.T"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="java.util.Comparator"><d/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<parallelSort public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSort>
+				<parallelSort public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSort>
+				<parallelSort public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSort>
+				<parallelSort public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSort>
+				<parallelSort public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><t path="java.types.Int16"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSort>
+				<parallelSort public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><t path="java.types.Int16"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSort>
+				<parallelSort public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSort>
+				<parallelSort public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><x path="Int"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSort>
+				<parallelSort public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSort>
+				<parallelSort public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSort>
+				<parallelSort public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Single"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSort>
+				<parallelSort public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><x path="Single"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSort>
+				<parallelSort public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSort>
+				<parallelSort public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><x path="Float"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSort>
+				<parallelSort public="1" params="T" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><c path="parallelSort.T"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSort>
+				<parallelSort public="1" params="T" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><c path="parallelSort.T"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSort>
+				<parallelSort public="1" params="T" set="method">
+					<f a="param1:param2">
+						<c path="java.NativeArray"><c path="parallelSort.T"/></c>
+						<c path="java.util.Comparator"><d/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</parallelSort>
+			</overloads>
+		</parallelSort>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.Arrays"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util"</e>
+				<e>"Arrays"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.util.Comparator" params="T" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Comparator.class" extern="1" interface="1">
+		<thenComparingDouble public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.ToDoubleFunction"><d/></c>
+				<c path="java.util.Comparator"><c path="java.util.Comparator.T"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</thenComparingDouble>
+		<thenComparingLong public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.ToLongFunction"><d/></c>
+				<c path="java.util.Comparator"><c path="java.util.Comparator.T"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</thenComparingLong>
+		<thenComparingInt public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.ToIntFunction"><d/></c>
+				<c path="java.util.Comparator"><c path="java.util.Comparator.T"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</thenComparingInt>
+		<thenComparing public="1" params="U" set="method">
+			<f a="param1">
+				<c path="java.util.function.Function">
+					<d/>
+					<c path="thenComparing.U"/>
+				</c>
+				<c path="java.util.Comparator"><c path="java.util.Comparator.T"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<thenComparing public="1" set="method">
+					<f a="param1">
+						<c path="java.util.Comparator"><d/></c>
+						<c path="java.util.Comparator"><c path="java.util.Comparator.T"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</thenComparing>
+				<thenComparing public="1" params="U" set="method">
+					<f a="param1:param2">
+						<c path="java.util.function.Function">
+							<d/>
+							<c path="thenComparing.U"/>
+						</c>
+						<c path="java.util.Comparator"><d/></c>
+						<c path="java.util.Comparator"><c path="java.util.Comparator.T"/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</thenComparing>
+			</overloads>
+		</thenComparing>
+		<reversed public="1" set="method">
+			<f a=""><c path="java.util.Comparator"><c path="java.util.Comparator.T"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</reversed>
+		<compare public="1" set="method">
+			<f a="param1:param2">
+				<c path="java.util.Comparator.T"/>
+				<c path="java.util.Comparator.T"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</compare>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.Comparator"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util"</e>
+				<e>"Comparator"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.util.Arrays_NaturalOrder" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Arrays$NaturalOrder.class" module="java.util.Arrays" extern="1">
+		<implements path="java.util.Comparator"><d/></implements>
+		<compare public="1" set="method">
+			<f a="param1:param2">
+				<d/>
+				<d/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</compare>
+		<reversed public="1" set="method">
+			<f a=""><c path="java.util.Comparator"><d/></c></f>
+			<meta><m n=":overload"/></meta>
+		</reversed>
+		<thenComparing public="1" set="method">
+			<f a="param1">
+				<c path="java.util.Comparator"><d/></c>
+				<c path="java.util.Comparator"><d/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads>
+				<thenComparing public="1" params="U" set="method">
+					<f a="param1">
+						<c path="java.util.function.Function">
+							<d/>
+							<c path="thenComparing.U"/>
+						</c>
+						<c path="java.util.Comparator"><d/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</thenComparing>
+				<thenComparing public="1" params="U" set="method">
+					<f a="param1:param2">
+						<c path="java.util.function.Function">
+							<d/>
+							<c path="thenComparing.U"/>
+						</c>
+						<c path="java.util.Comparator"><d/></c>
+						<c path="java.util.Comparator"><d/></c>
+					</f>
+					<meta><m n=":overload"/></meta>
+				</thenComparing>
+			</overloads>
+		</thenComparing>
+		<thenComparingInt public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.ToIntFunction"><d/></c>
+				<c path="java.util.Comparator"><d/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</thenComparingInt>
+		<thenComparingLong public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.ToLongFunction"><d/></c>
+				<c path="java.util.Comparator"><d/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</thenComparingLong>
+		<thenComparingDouble public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.ToDoubleFunction"><d/></c>
+				<c path="java.util.Comparator"><d/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</thenComparingDouble>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.Arrays$NaturalOrder"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util"</e>
+				<e>"Arrays.NaturalOrder"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.util.Arrays_LegacyMergeSort" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Arrays$LegacyMergeSort.class" module="java.util.Arrays" extern="1"><meta>
+	<m n=":nativeGen"/>
+	<m n=":libType"/>
+	<m n=":javaNative"/>
+	<m n=":native"><e>"java.util.Arrays$LegacyMergeSort"</e></m>
+	<m n=":javaCanonical">
+		<e>"java.util"</e>
+		<e>"Arrays.LegacyMergeSort"</e>
+	</m>
+</meta></class>
+	<class path="java.util.RandomAccess" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/RandomAccess.class" extern="1" interface="1"><meta>
+	<m n=":nativeGen"/>
+	<m n=":abstract"/>
+	<m n=":libType"/>
+	<m n=":javaNative"/>
+	<m n=":native"><e>"java.util.RandomAccess"</e></m>
+	<m n=":javaCanonical">
+		<e>"java.util"</e>
+		<e>"RandomAccess"</e>
+	</m>
+</meta></class>
+	<class path="java.util.Arrays_ArrayList" params="E" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Arrays$ArrayList.class" module="java.util.Arrays" extern="1">
+		<extends path="java.util.AbstractList"><c path="java.util.Arrays_ArrayList.E"/></extends>
+		<implements path="java.io.Serializable"/>
+		<implements path="java.util.RandomAccess"/>
+		<sort public="1" set="method" override="1">
+			<f a="param1">
+				<c path="java.util.Comparator"><d/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</sort>
+		<replaceAll public="1" set="method" override="1">
+			<f a="param1">
+				<c path="java.util.function.UnaryOperator"><c path="java.util.Arrays_ArrayList.E"/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</replaceAll>
+		<forEach public="1" set="method" override="1">
+			<f a="param1">
+				<c path="java.util.function.Consumer"><d/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</forEach>
+		<spliterator public="1" set="method" override="1">
+			<f a=""><c path="java.util.Spliterator"><c path="java.util.Arrays_ArrayList.E"/></c></f>
+			<meta><m n=":overload"/></meta>
+		</spliterator>
+		<contains public="1" set="method" override="1">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</contains>
+		<indexOf public="1" set="method" override="1">
+			<f a="param1">
+				<d/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</indexOf>
+		<set public="1" set="method" override="1">
+			<f a="param1:param2">
+				<x path="Int"/>
+				<c path="java.util.Arrays_ArrayList.E"/>
+				<c path="java.util.Arrays_ArrayList.E"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</set>
+		<get public="1" set="method" override="1">
+			<f a="param1">
+				<x path="Int"/>
+				<c path="java.util.Arrays_ArrayList.E"/>
+			</f>
+			<meta><m n=":overload"/></meta>
+		</get>
+		<toArray public="1" params="T" set="method" override="1">
+			<f a="param1">
+				<c path="java.NativeArray"><c path="toArray.T"/></c>
+				<c path="java.NativeArray"><c path="toArray.T"/></c>
+			</f>
+			<meta><m n=":overload"/></meta>
+			<overloads><toArray public="1" set="method">
+	<f a=""><c path="java.NativeArray"><d/></c></f>
+	<meta><m n=":overload"/></meta>
+</toArray></overloads>
+		</toArray>
+		<size public="1" set="method" override="1">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":overload"/></meta>
+		</size>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.Arrays$ArrayList"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util"</e>
+				<e>"Arrays.ArrayList"</e>
 			</m>
 		</meta>
 	</class>
@@ -80736,82 +83248,6 @@
 		<e>"Calendar.CalendarAccessControlContext"</e>
 	</m>
 </meta></class>
-	<class path="java.util.Comparator" params="T" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Comparator.class" extern="1" interface="1">
-		<thenComparingDouble public="1" set="method">
-			<f a="param1">
-				<c path="java.util.function.ToDoubleFunction"><d/></c>
-				<c path="java.util.Comparator"><c path="java.util.Comparator.T"/></c>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</thenComparingDouble>
-		<thenComparingLong public="1" set="method">
-			<f a="param1">
-				<c path="java.util.function.ToLongFunction"><d/></c>
-				<c path="java.util.Comparator"><c path="java.util.Comparator.T"/></c>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</thenComparingLong>
-		<thenComparingInt public="1" set="method">
-			<f a="param1">
-				<c path="java.util.function.ToIntFunction"><d/></c>
-				<c path="java.util.Comparator"><c path="java.util.Comparator.T"/></c>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</thenComparingInt>
-		<thenComparing public="1" params="U" set="method">
-			<f a="param1">
-				<c path="java.util.function.Function">
-					<d/>
-					<c path="thenComparing.U"/>
-				</c>
-				<c path="java.util.Comparator"><c path="java.util.Comparator.T"/></c>
-			</f>
-			<meta><m n=":overload"/></meta>
-			<overloads>
-				<thenComparing public="1" set="method">
-					<f a="param1">
-						<c path="java.util.Comparator"><d/></c>
-						<c path="java.util.Comparator"><c path="java.util.Comparator.T"/></c>
-					</f>
-					<meta><m n=":overload"/></meta>
-				</thenComparing>
-				<thenComparing public="1" params="U" set="method">
-					<f a="param1:param2">
-						<c path="java.util.function.Function">
-							<d/>
-							<c path="thenComparing.U"/>
-						</c>
-						<c path="java.util.Comparator"><d/></c>
-						<c path="java.util.Comparator"><c path="java.util.Comparator.T"/></c>
-					</f>
-					<meta><m n=":overload"/></meta>
-				</thenComparing>
-			</overloads>
-		</thenComparing>
-		<reversed public="1" set="method">
-			<f a=""><c path="java.util.Comparator"><c path="java.util.Comparator.T"/></c></f>
-			<meta><m n=":overload"/></meta>
-		</reversed>
-		<compare public="1" set="method">
-			<f a="param1:param2">
-				<c path="java.util.Comparator.T"/>
-				<c path="java.util.Comparator.T"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</compare>
-		<meta>
-			<m n=":nativeGen"/>
-			<m n=":abstract"/>
-			<m n=":libType"/>
-			<m n=":javaNative"/>
-			<m n=":native"><e>"java.util.Comparator"</e></m>
-			<m n=":javaCanonical">
-				<e>"java.util"</e>
-				<e>"Comparator"</e>
-			</m>
-		</meta>
-	</class>
 	<class path="java.util.Comparator_Statics" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Comparator.class" module="java.util.Comparator" extern="1">
 		<comparingDouble public="1" params="T" set="method" static="1">
 			<f a="param1">
@@ -81691,38 +84127,6 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.Iterator" params="E" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Iterator.class" extern="1" interface="1">
-		<forEachRemaining public="1" set="method">
-			<f a="param1">
-				<c path="java.util.function.Consumer"><d/></c>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</forEachRemaining>
-		<remove public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":overload"/></meta>
-		</remove>
-		<next public="1" set="method">
-			<f a=""><c path="java.util.Iterator.E"/></f>
-			<meta><m n=":overload"/></meta>
-		</next>
-		<hasNext public="1" set="method">
-			<f a=""><x path="Bool"/></f>
-			<meta><m n=":overload"/></meta>
-		</hasNext>
-		<meta>
-			<m n=":nativeGen"/>
-			<m n=":abstract"/>
-			<m n=":libType"/>
-			<m n=":javaNative"/>
-			<m n=":native"><e>"java.util.Iterator"</e></m>
-			<m n=":javaCanonical">
-				<e>"java.util"</e>
-				<e>"Iterator"</e>
-			</m>
-		</meta>
-	</class>
 	<class path="java.util.Hashtable_Enumerator" params="T" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Hashtable$Enumerator.class" module="java.util.Hashtable" extern="1">
 		<implements path="java.util.Iterator"><c path="java.util.Hashtable_Enumerator.T"/></implements>
 		<implements path="java.util.Enumeration"><c path="java.util.Hashtable_Enumerator.T"/></implements>
@@ -81881,270 +84285,6 @@
 			<m n=":javaCanonical">
 				<e>"java.util"</e>
 				<e>"InvalidPropertiesFormatException"</e>
-			</m>
-		</meta>
-	</class>
-	<class path="java.util.List" params="E" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/List.class" extern="1" interface="1">
-		<extends path="java.util.Collection"><c path="java.util.List.E"/></extends>
-		<spliterator public="1" set="method">
-			<f a=""><c path="java.util.Spliterator"><c path="java.util.List.E"/></c></f>
-			<meta><m n=":overload"/></meta>
-		</spliterator>
-		<subList public="1" set="method">
-			<f a="param1:param2">
-				<x path="Int"/>
-				<x path="Int"/>
-				<c path="java.util.List"><c path="java.util.List.E"/></c>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</subList>
-		<listIterator public="1" set="method">
-			<f a="param1">
-				<x path="Int"/>
-				<c path="java.util.ListIterator"><c path="java.util.List.E"/></c>
-			</f>
-			<meta><m n=":overload"/></meta>
-			<overloads><listIterator public="1" set="method">
-	<f a=""><c path="java.util.ListIterator"><c path="java.util.List.E"/></c></f>
-	<meta><m n=":overload"/></meta>
-</listIterator></overloads>
-		</listIterator>
-		<lastIndexOf public="1" set="method">
-			<f a="param1">
-				<d/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</lastIndexOf>
-		<indexOf public="1" set="method">
-			<f a="param1">
-				<d/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</indexOf>
-		<remove public="1" set="method">
-			<f a="param1">
-				<x path="Int"/>
-				<c path="java.util.List.E"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-			<overloads><remove public="1" set="method">
-	<f a="param1">
-		<d/>
-		<x path="Bool"/>
-	</f>
-	<meta><m n=":overload"/></meta>
-</remove></overloads>
-		</remove>
-		<add public="1" set="method">
-			<f a="param1:param2">
-				<x path="Int"/>
-				<c path="java.util.List.E"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-			<overloads><add public="1" set="method">
-	<f a="param1">
-		<c path="java.util.List.E"/>
-		<x path="Bool"/>
-	</f>
-	<meta><m n=":overload"/></meta>
-</add></overloads>
-		</add>
-		<set public="1" set="method">
-			<f a="param1:param2">
-				<x path="Int"/>
-				<c path="java.util.List.E"/>
-				<c path="java.util.List.E"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</set>
-		<get public="1" set="method">
-			<f a="param1">
-				<x path="Int"/>
-				<c path="java.util.List.E"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</get>
-		<clear public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":overload"/></meta>
-		</clear>
-		<sort public="1" set="method">
-			<f a="param1">
-				<c path="java.util.Comparator"><d/></c>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</sort>
-		<replaceAll public="1" set="method">
-			<f a="param1">
-				<c path="java.util.function.UnaryOperator"><c path="java.util.List.E"/></c>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</replaceAll>
-		<retainAll public="1" set="method">
-			<f a="param1">
-				<c path="java.util.Collection"><d/></c>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</retainAll>
-		<removeAll public="1" set="method">
-			<f a="param1">
-				<c path="java.util.Collection"><d/></c>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</removeAll>
-		<addAll public="1" set="method">
-			<f a="param1:param2">
-				<x path="Int"/>
-				<c path="java.util.Collection"><c path="java.util.List.E"/></c>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-			<overloads><addAll public="1" set="method">
-	<f a="param1">
-		<c path="java.util.Collection"><c path="java.util.List.E"/></c>
-		<x path="Bool"/>
-	</f>
-	<meta><m n=":overload"/></meta>
-</addAll></overloads>
-		</addAll>
-		<containsAll public="1" set="method">
-			<f a="param1">
-				<c path="java.util.Collection"><d/></c>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</containsAll>
-		<toArray public="1" params="T" set="method">
-			<f a="param1">
-				<c path="java.NativeArray"><c path="toArray.T"/></c>
-				<c path="java.NativeArray"><c path="toArray.T"/></c>
-			</f>
-			<meta><m n=":overload"/></meta>
-			<overloads><toArray public="1" set="method">
-	<f a=""><c path="java.NativeArray"><d/></c></f>
-	<meta><m n=":overload"/></meta>
-</toArray></overloads>
-		</toArray>
-		<iterator public="1" set="method">
-			<f a=""><c path="java.util.Iterator"><c path="java.util.List.E"/></c></f>
-			<meta><m n=":overload"/></meta>
-		</iterator>
-		<contains public="1" set="method">
-			<f a="param1">
-				<d/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</contains>
-		<isEmpty public="1" set="method">
-			<f a=""><x path="Bool"/></f>
-			<meta><m n=":overload"/></meta>
-		</isEmpty>
-		<size public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<meta><m n=":overload"/></meta>
-		</size>
-		<forEach public="1" set="method">
-			<f a="param1">
-				<c path="java.util.function.Consumer"><d/></c>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</forEach>
-		<removeIf public="1" set="method">
-			<f a="param1">
-				<c path="java.util.function.Predicate"><d/></c>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</removeIf>
-		<stream public="1" set="method">
-			<f a=""><c path="java.util.stream.Stream"><c path="java.util.List.E"/></c></f>
-			<meta><m n=":overload"/></meta>
-		</stream>
-		<parallelStream public="1" set="method">
-			<f a=""><c path="java.util.stream.Stream"><c path="java.util.List.E"/></c></f>
-			<meta><m n=":overload"/></meta>
-		</parallelStream>
-		<meta>
-			<m n=":nativeGen"/>
-			<m n=":abstract"/>
-			<m n=":libType"/>
-			<m n=":javaNative"/>
-			<m n=":native"><e>"java.util.List"</e></m>
-			<m n=":javaCanonical">
-				<e>"java.util"</e>
-				<e>"List"</e>
-			</m>
-		</meta>
-	</class>
-	<class path="java.util.ListIterator" params="E" file="/home/vsts/work/1/s/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/ListIterator.class" extern="1" interface="1">
-		<extends path="java.util.Iterator"><c path="java.util.ListIterator.E"/></extends>
-		<add public="1" set="method">
-			<f a="param1">
-				<c path="java.util.ListIterator.E"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</add>
-		<set public="1" set="method">
-			<f a="param1">
-				<c path="java.util.ListIterator.E"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</set>
-		<remove public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":overload"/></meta>
-		</remove>
-		<previousIndex public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<meta><m n=":overload"/></meta>
-		</previousIndex>
-		<nextIndex public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<meta><m n=":overload"/></meta>
-		</nextIndex>
-		<previous public="1" set="method">
-			<f a=""><c path="java.util.ListIterator.E"/></f>
-			<meta><m n=":overload"/></meta>
-		</previous>
-		<hasPrevious public="1" set="method">
-			<f a=""><x path="Bool"/></f>
-			<meta><m n=":overload"/></meta>
-		</hasPrevious>
-		<next public="1" set="method">
-			<f a=""><c path="java.util.ListIterator.E"/></f>
-			<meta><m n=":overload"/></meta>
-		</next>
-		<hasNext public="1" set="method">
-			<f a=""><x path="Bool"/></f>
-			<meta><m n=":overload"/></meta>
-		</hasNext>
-		<forEachRemaining public="1" set="method">
-			<f a="param1">
-				<c path="java.util.function.Consumer"><d/></c>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</forEachRemaining>
-		<meta>
-			<m n=":nativeGen"/>
-			<m n=":abstract"/>
-			<m n=":libType"/>
-			<m n=":javaNative"/>
-			<m n=":native"><e>"java.util.ListIterator"</e></m>
-			<m n=":javaCanonical">
-				<e>"java.util"</e>
-				<e>"ListIterator"</e>
 			</m>
 		</meta>
 	</class>
