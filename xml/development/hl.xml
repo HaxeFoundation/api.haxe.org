@@ -345,12 +345,17 @@
 		`a[i] == a.copy()[i]` is true for any valid `i`. However,
 		`a == a.copy()` is always false.</haxe_doc>
 		</copy>
-		<iterator public="1" get="inline" set="null" line="277">
+		<iterator public="1" get="inline" set="null" line="280">
 			<f a=""><c path="haxe.iterators.ArrayIterator"><c path="Array.T"/></c></f>
 			<meta><m n=":runtime"/></meta>
 			<haxe_doc>Returns an iterator of the Array values.</haxe_doc>
 		</iterator>
-		<map public="1" params="S" get="inline" set="null" line="288">
+		<keyValueIterator public="1" get="inline" set="null" line="287">
+			<f a=""><c path="haxe.iterators.ArrayKeyValueIterator"><c path="Array.T"/></c></f>
+			<meta><m n=":runtime"/></meta>
+			<haxe_doc>Returns an iterator of the Array indices and values.</haxe_doc>
+		</keyValueIterator>
+		<map public="1" params="S" get="inline" set="null" line="298">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -365,7 +370,7 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</map>
-		<filter public="1" get="inline" set="null" line="306">
+		<filter public="1" get="inline" set="null" line="316">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -401,11 +406,6 @@
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new Array.</haxe_doc>
 		</new>
-		<haxe_doc>An Array is a storage for values. You can access it using indexes or
-	with its API.
-
-	@see https://haxe.org/manual/std-Array.html
-	@see https://haxe.org/manual/lf-array-comprehension.html</haxe_doc>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<abstract path="Class" params="T" file="/home/vsts/work/1/s/std/Class.hx">
@@ -26201,6 +26201,26 @@
 			<meta><m n=":value"><e>{ bytePos : 0 }</e></m></meta>
 		</fromBytes>
 	</class>
+	<class path="haxe.iterators.ArrayKeyValueIterator" params="T" file="/home/vsts/work/1/s/std/haxe/iterators/ArrayKeyValueIterator.hx">
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<array><c path="Array"><c path="haxe.iterators.ArrayKeyValueIterator.T"/></c></array>
+		<hasNext public="1" set="method" line="36"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" set="method" line="41"><f a=""><a>
+	<value><c path="haxe.iterators.ArrayKeyValueIterator.T"/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new public="1" set="method" line="31"><f a="array">
+	<c path="Array"><c path="haxe.iterators.ArrayKeyValueIterator.T"/></c>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":ifFeature">
+	<e>"anon_read.keyValueIterator"</e>
+	<e>"dynamic_read.keyValueIterator"</e>
+</m></meta>
+	</class>
 	<class path="haxe.iterators.DynamicAccessIterator" params="T" file="/home/vsts/work/1/s/std/haxe/iterators/DynamicAccessIterator.hx">
 		<access final="1"><x path="haxe.DynamicAccess"><c path="haxe.iterators.DynamicAccessIterator.T"/></x></access>
 		<keys final="1"><c path="Array"><c path="String"/></c></keys>
@@ -32915,6 +32935,21 @@
 </f></new>
 		<meta><m n=":generic"/></meta>
 	</class>
+	<class path="hl.NativeArrayKeyValueIterator" params="T" file="/home/vsts/work/1/s/std/hl/NativeArray.hx" module="hl.NativeArray">
+		<arr><x path="hl.NativeArray"><c path="hl.NativeArrayKeyValueIterator.T"/></x></arr>
+		<pos><x path="Int"/></pos>
+		<length><x path="Int"/></length>
+		<hasNext public="1" get="inline" set="null" line="54"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="57"><f a=""><a>
+	<value><c path="hl.NativeArrayKeyValueIterator.T"/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new public="1" get="inline" set="null" line="49"><f a="arr">
+	<x path="hl.NativeArray"><c path="hl.NativeArrayKeyValueIterator.T"/></x>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":generic"/></meta>
+	</class>
 	<abstract path="hl.NativeArray" params="T" file="/home/vsts/work/1/s/std/hl/NativeArray.hx">
 		<this><x path="hl.NativeArray"><c path="hl.NativeArray.T"/></x></this>
 		<to><icast field="getRef"><x path="hl.Ref"><c path="hl.NativeArray.T"/></x></icast></to>
@@ -32924,7 +32959,7 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</length>
-	<_new public="1" get="inline" set="null" line="48" static="1">
+	<_new public="1" get="inline" set="null" line="66" static="1">
 		<f a="length">
 			<x path="Int"/>
 			<x path="hl.NativeArray"><c path="hl.NativeArray.T"/></x>
@@ -32935,7 +32970,7 @@
 			<m n=":noCompletion"/>
 		</meta>
 	</_new>
-	<get_length get="inline" set="null" line="52" static="1">
+	<get_length get="inline" set="null" line="70" static="1">
 		<f a="this">
 			<x path="hl.NativeArray"><c path="hl.NativeArray.T"/></x>
 			<x path="Int"/>
@@ -32945,7 +32980,7 @@
 			<m n=":impl"/>
 		</meta>
 	</get_length>
-	<get get="inline" set="null" line="56" static="1">
+	<get get="inline" set="null" line="74" static="1">
 		<f a="this:pos">
 			<x path="hl.NativeArray"><c path="hl.NativeArray.T"/></x>
 			<x path="Int"/>
@@ -32957,7 +32992,7 @@
 			<m n=":arrayAccess"/>
 		</meta>
 	</get>
-	<set get="inline" set="null" line="60" static="1">
+	<set get="inline" set="null" line="78" static="1">
 		<f a="this:pos:value">
 			<x path="hl.NativeArray"><c path="hl.NativeArray.T"/></x>
 			<x path="Int"/>
@@ -32970,7 +33005,7 @@
 			<m n=":arrayAccess"/>
 		</meta>
 	</set>
-	<sub public="1" get="inline" set="null" line="65" static="1">
+	<sub public="1" get="inline" set="null" line="83" static="1">
 		<f a="this:pos:len">
 			<x path="hl.NativeArray"><c path="hl.NativeArray.T"/></x>
 			<x path="Int"/>
@@ -32979,7 +33014,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</sub>
-	<getRef public="1" get="inline" set="null" line="71" static="1">
+	<getRef public="1" get="inline" set="null" line="89" static="1">
 		<f a="this">
 			<x path="hl.NativeArray"><c path="hl.NativeArray.T"/></x>
 			<x path="hl.Ref"><c path="hl.NativeArray.T"/></x>
@@ -32990,7 +33025,7 @@
 			<m n=":to"/>
 		</meta>
 	</getRef>
-	<getType public="1" set="method" line="75" static="1">
+	<getType public="1" set="method" line="93" static="1">
 		<f a="this">
 			<x path="hl.NativeArray"><c path="hl.NativeArray.T"/></x>
 			<x path="hl.Type"/>
@@ -33003,7 +33038,7 @@
 			</m>
 		</meta>
 	</getType>
-	<blit public="1" set="method" line="79" static="1">
+	<blit public="1" set="method" line="97" static="1">
 		<f a="this:pos:src:srcPos:srcLen">
 			<x path="hl.NativeArray"><c path="hl.NativeArray.T"/></x>
 			<x path="Int"/>
@@ -33028,7 +33063,7 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</length>
-		<_new public="1" get="inline" set="null" line="48" static="1">
+		<_new public="1" get="inline" set="null" line="66" static="1">
 			<f a="length">
 				<x path="Int"/>
 				<x path="hl.NativeArray"><c path="hl.NativeArray.T"/></x>
@@ -33039,7 +33074,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</_new>
-		<get_length get="inline" set="null" line="52" static="1">
+		<get_length get="inline" set="null" line="70" static="1">
 			<f a="this">
 				<x path="hl.NativeArray"><c path="hl.NativeArray.T"/></x>
 				<x path="Int"/>
@@ -33049,7 +33084,7 @@
 				<m n=":impl"/>
 			</meta>
 		</get_length>
-		<get get="inline" set="null" line="56" static="1">
+		<get get="inline" set="null" line="74" static="1">
 			<f a="this:pos">
 				<x path="hl.NativeArray"><c path="hl.NativeArray.T"/></x>
 				<x path="Int"/>
@@ -33061,7 +33096,7 @@
 				<m n=":arrayAccess"/>
 			</meta>
 		</get>
-		<set get="inline" set="null" line="60" static="1">
+		<set get="inline" set="null" line="78" static="1">
 			<f a="this:pos:value">
 				<x path="hl.NativeArray"><c path="hl.NativeArray.T"/></x>
 				<x path="Int"/>
@@ -33074,7 +33109,7 @@
 				<m n=":arrayAccess"/>
 			</meta>
 		</set>
-		<sub public="1" get="inline" set="null" line="65" static="1">
+		<sub public="1" get="inline" set="null" line="83" static="1">
 			<f a="this:pos:len">
 				<x path="hl.NativeArray"><c path="hl.NativeArray.T"/></x>
 				<x path="Int"/>
@@ -33083,7 +33118,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</sub>
-		<getRef public="1" get="inline" set="null" line="71" static="1">
+		<getRef public="1" get="inline" set="null" line="89" static="1">
 			<f a="this">
 				<x path="hl.NativeArray"><c path="hl.NativeArray.T"/></x>
 				<x path="hl.Ref"><c path="hl.NativeArray.T"/></x>
@@ -33094,7 +33129,7 @@
 				<m n=":to"/>
 			</meta>
 		</getRef>
-		<getType public="1" set="method" line="75" static="1">
+		<getType public="1" set="method" line="93" static="1">
 			<f a="this">
 				<x path="hl.NativeArray"><c path="hl.NativeArray.T"/></x>
 				<x path="hl.Type"/>
@@ -33107,7 +33142,7 @@
 				</m>
 			</meta>
 		</getType>
-		<blit public="1" set="method" line="79" static="1">
+		<blit public="1" set="method" line="97" static="1">
 			<f a="this:pos:src:srcPos:srcLen">
 				<x path="hl.NativeArray"><c path="hl.NativeArray.T"/></x>
 				<x path="Int"/>
@@ -34689,10 +34724,28 @@
 	<class path="hl.types.BytesIterator" params="T" file="/home/vsts/work/1/s/std/hl/types/ArrayBytes.hx" module="hl.types.ArrayBytes">
 		<extends path="haxe.iterators.ArrayIterator"><c path="hl.types.BytesIterator.T"/></extends>
 		<a><c path="hl.types.ArrayBytes"><c path="hl.types.BytesIterator.T"/></c></a>
-		<hasNext public="1" set="method" line="37" override="1"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" set="method" line="41" override="1"><f a=""><c path="hl.types.BytesIterator.T"/></f></next>
-		<new public="1" set="method" line="32"><f a="a">
+		<hasNext public="1" set="method" line="38" override="1"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" set="method" line="42" override="1"><f a=""><c path="hl.types.BytesIterator.T"/></f></next>
+		<new public="1" set="method" line="33"><f a="a">
 	<c path="hl.types.ArrayBytes"><c path="hl.types.BytesIterator.T"/></c>
+	<x path="Void"/>
+</f></new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":keep"/>
+			<m n=":generic"/>
+		</meta>
+	</class>
+	<class path="hl.types.BytesKeyValueIterator" params="T" file="/home/vsts/work/1/s/std/hl/types/ArrayBytes.hx" module="hl.types.ArrayBytes">
+		<extends path="haxe.iterators.ArrayKeyValueIterator"><c path="hl.types.BytesKeyValueIterator.T"/></extends>
+		<a><c path="hl.types.ArrayBytes"><c path="hl.types.BytesKeyValueIterator.T"/></c></a>
+		<hasNext public="1" set="method" line="57" override="1"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" set="method" line="61" override="1"><f a=""><a>
+	<value><c path="hl.types.BytesKeyValueIterator.T"/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new public="1" set="method" line="52"><f a="a">
+	<c path="hl.types.ArrayBytes"><c path="hl.types.BytesKeyValueIterator.T"/></c>
 	<x path="Void"/>
 </f></new>
 		<meta>
@@ -34705,34 +34758,34 @@
 		<extends path="hl.types.ArrayBase"/>
 		<bytes><x path="hl.BytesAccess"><c path="hl.types.ArrayBytes.T"/></x></bytes>
 		<size><x path="Int"/></size>
-		<concat public="1" set="method" line="56"><f a="a">
+		<concat public="1" set="method" line="77"><f a="a">
 	<c path="hl.types.ArrayBytes"><c path="hl.types.ArrayBytes.T"/></c>
 	<c path="hl.types.ArrayBytes"><c path="hl.types.ArrayBytes.T"/></c>
 </f></concat>
-		<join public="1" set="method" line="66" override="1"><f a="sep">
+		<join public="1" set="method" line="87" override="1"><f a="sep">
 	<c path="String"/>
 	<c path="String"/>
 </f></join>
-		<pop public="1" set="method" line="76"><f a=""><x path="Null"><c path="hl.types.ArrayBytes.T"/></x></f></pop>
-		<push public="1" set="method" line="83"><f a="x">
+		<pop public="1" set="method" line="97"><f a=""><x path="Null"><c path="hl.types.ArrayBytes.T"/></x></f></pop>
+		<push public="1" set="method" line="104"><f a="x">
 	<c path="hl.types.ArrayBytes.T"/>
 	<x path="Int"/>
 </f></push>
-		<reverse public="1" set="method" line="93" override="1"><f a=""><x path="Void"/></f></reverse>
-		<shift public="1" set="method" line="102"><f a=""><x path="Null"><c path="hl.types.ArrayBytes.T"/></x></f></shift>
-		<blit public="1" set="method" line="111" override="1"><f a="pos:src:srcpos:len">
+		<reverse public="1" set="method" line="114" override="1"><f a=""><x path="Void"/></f></reverse>
+		<shift public="1" set="method" line="123"><f a=""><x path="Null"><c path="hl.types.ArrayBytes.T"/></x></f></shift>
+		<blit public="1" set="method" line="132" override="1"><f a="pos:src:srcpos:len">
 	<x path="Int"/>
 	<c path="hl.types.ArrayAccess"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></blit>
-		<slice public="1" set="method" line="118" override="1"><f a="pos:?end">
+		<slice public="1" set="method" line="139" override="1"><f a="pos:?end">
 	<x path="Int"/>
 	<x path="Int"/>
 	<c path="hl.types.ArrayBytes"><c path="hl.types.ArrayBytes.T"/></c>
 </f></slice>
-		<sort public="1" set="method" line="143"><f a="f">
+		<sort public="1" set="method" line="164"><f a="f">
 	<f a=":">
 		<c path="hl.types.ArrayBytes.T"/>
 		<c path="hl.types.ArrayBytes.T"/>
@@ -34740,92 +34793,93 @@
 	</f>
 	<x path="Void"/>
 </f></sort>
-		<splice public="1" set="method" line="150" override="1"><f a="pos:len">
+		<splice public="1" set="method" line="171" override="1"><f a="pos:len">
 	<x path="Int"/>
 	<x path="Int"/>
 	<c path="hl.types.ArrayBytes"><c path="hl.types.ArrayBytes.T"/></c>
 </f></splice>
-		<toString public="1" set="method" line="177" override="1"><f a=""><c path="String"/></f></toString>
-		<unshift public="1" set="method" line="189"><f a="x">
+		<toString public="1" set="method" line="198" override="1"><f a=""><c path="String"/></f></toString>
+		<unshift public="1" set="method" line="210"><f a="x">
 	<c path="hl.types.ArrayBytes.T"/>
 	<x path="Void"/>
 </f></unshift>
-		<insert public="1" set="method" line="198"><f a="pos:x">
+		<insert public="1" set="method" line="219"><f a="pos:x">
 	<x path="Int"/>
 	<c path="hl.types.ArrayBytes.T"/>
 	<x path="Void"/>
 </f></insert>
-		<contains public="1" set="method" line="213"><f a="x">
+		<contains public="1" set="method" line="234"><f a="x">
 	<c path="hl.types.ArrayBytes.T"/>
 	<x path="Bool"/>
 </f></contains>
-		<remove public="1" set="method" line="217"><f a="x">
+		<remove public="1" set="method" line="238"><f a="x">
 	<c path="hl.types.ArrayBytes.T"/>
 	<x path="Bool"/>
 </f></remove>
-		<indexOf public="1" set="method" line="226"><f a="x:?fromIndex">
+		<indexOf public="1" set="method" line="247"><f a="x:?fromIndex">
 	<c path="hl.types.ArrayBytes.T"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></indexOf>
-		<lastIndexOf public="1" set="method" line="239"><f a="x:?fromIndex">
+		<lastIndexOf public="1" set="method" line="260"><f a="x:?fromIndex">
 	<c path="hl.types.ArrayBytes.T"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></lastIndexOf>
-		<copy public="1" set="method" line="254"><f a=""><c path="hl.types.ArrayBytes"><c path="hl.types.ArrayBytes.T"/></c></f></copy>
-		<iterator public="1" set="method" line="262"><f a=""><c path="haxe.iterators.ArrayIterator"><c path="hl.types.ArrayBytes.T"/></c></f></iterator>
-		<map public="1" params="S" set="method" line="266"><f a="f">
+		<copy public="1" set="method" line="275"><f a=""><c path="hl.types.ArrayBytes"><c path="hl.types.ArrayBytes.T"/></c></f></copy>
+		<iterator public="1" set="method" line="283"><f a=""><c path="haxe.iterators.ArrayIterator"><c path="hl.types.ArrayBytes.T"/></c></f></iterator>
+		<keyValueIterator public="1" set="method" line="287"><f a=""><c path="haxe.iterators.ArrayKeyValueIterator"><c path="hl.types.ArrayBytes.T"/></c></f></keyValueIterator>
+		<map public="1" params="S" set="method" line="291"><f a="f">
 	<f a="">
 		<c path="hl.types.ArrayBytes.T"/>
 		<c path="map.S"/>
 	</f>
 	<c path="hl.types.ArrayDyn"/>
 </f></map>
-		<filter public="1" set="method" line="275"><f a="f">
+		<filter public="1" set="method" line="300"><f a="f">
 	<f a="">
 		<c path="hl.types.ArrayBytes.T"/>
 		<x path="Bool"/>
 	</f>
 	<c path="hl.types.ArrayBytes"><c path="hl.types.ArrayBytes.T"/></c>
 </f></filter>
-		<resize public="1" set="method" line="285" override="1"><f a="len">
+		<resize public="1" set="method" line="310" override="1"><f a="len">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></resize>
-		<getDyn public="1" set="method" line="294" override="1"><f a="pos">
+		<getDyn public="1" set="method" line="319" override="1"><f a="pos">
 	<x path="Int"/>
 	<d/>
 </f></getDyn>
-		<setDyn public="1" set="method" line="301" override="1"><f a="pos:v">
+		<setDyn public="1" set="method" line="326" override="1"><f a="pos:v">
 	<x path="Int"/>
 	<d/>
 	<x path="Void"/>
 </f></setDyn>
-		<pushDyn public="1" set="method" line="308" override="1"><f a="v">
+		<pushDyn public="1" set="method" line="333" override="1"><f a="v">
 	<d/>
 	<x path="Int"/>
 </f></pushDyn>
-		<popDyn public="1" set="method" line="311" override="1"><f a=""><x path="Null"><d/></x></f></popDyn>
-		<shiftDyn public="1" set="method" line="314" override="1"><f a=""><x path="Null"><d/></x></f></shiftDyn>
-		<unshiftDyn public="1" set="method" line="317" override="1"><f a="v">
+		<popDyn public="1" set="method" line="336" override="1"><f a=""><x path="Null"><d/></x></f></popDyn>
+		<shiftDyn public="1" set="method" line="339" override="1"><f a=""><x path="Null"><d/></x></f></shiftDyn>
+		<unshiftDyn public="1" set="method" line="342" override="1"><f a="v">
 	<d/>
 	<x path="Void"/>
 </f></unshiftDyn>
-		<insertDyn public="1" set="method" line="320" override="1"><f a="pos:v">
+		<insertDyn public="1" set="method" line="345" override="1"><f a="pos:v">
 	<x path="Int"/>
 	<d/>
 	<x path="Void"/>
 </f></insertDyn>
-		<containsDyn public="1" set="method" line="323" override="1"><f a="v">
+		<containsDyn public="1" set="method" line="348" override="1"><f a="v">
 	<d/>
 	<x path="Bool"/>
 </f></containsDyn>
-		<removeDyn public="1" set="method" line="326" override="1"><f a="v">
+		<removeDyn public="1" set="method" line="351" override="1"><f a="v">
 	<d/>
 	<x path="Bool"/>
 </f></removeDyn>
-		<sortDyn public="1" set="method" line="329" override="1"><f a="f">
+		<sortDyn public="1" set="method" line="354" override="1"><f a="f">
 	<f a=":">
 		<d/>
 		<d/>
@@ -34833,11 +34887,11 @@
 	</f>
 	<x path="Void"/>
 </f></sortDyn>
-		<__expand set="method" line="333"><f a="index">
+		<__expand set="method" line="358"><f a="index">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></__expand>
-		<new public="1" set="method" line="51"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="72"><f a=""><x path="Void"/></f></new>
 		<meta>
 			<m n=":keep"/>
 			<m n=":generic"/>
@@ -34850,9 +34904,23 @@
 	<class path="hl.types.ArrayDynIterator" params="" file="/home/vsts/work/1/s/std/hl/types/ArrayDyn.hx" module="hl.types.ArrayDyn">
 		<extends path="haxe.iterators.ArrayIterator"><d/></extends>
 		<a><c path="hl.types.ArrayBase"/></a>
-		<hasNext public="1" set="method" line="36" override="1"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" set="method" line="40" override="1"><f a=""><unknown/></f></next>
-		<new public="1" set="method" line="31"><f a="a">
+		<hasNext public="1" set="method" line="37" override="1"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" set="method" line="41" override="1"><f a=""><unknown/></f></next>
+		<new public="1" set="method" line="32"><f a="a">
+	<c path="hl.types.ArrayBase"/>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="hl.types.ArrayDynKeyValueIterator" params="" file="/home/vsts/work/1/s/std/hl/types/ArrayDyn.hx" module="hl.types.ArrayDyn">
+		<extends path="haxe.iterators.ArrayKeyValueIterator"><d/></extends>
+		<a><c path="hl.types.ArrayBase"/></a>
+		<hasNext public="1" set="method" line="54" override="1"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" set="method" line="58" override="1"><f a=""><a>
+	<value><unknown/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new public="1" set="method" line="49"><f a="a">
 	<c path="hl.types.ArrayBase"/>
 	<x path="Void"/>
 </f></new>
@@ -34860,7 +34928,7 @@
 	</class>
 	<class path="hl.types.ArrayDyn" params="" file="/home/vsts/work/1/s/std/hl/types/ArrayDyn.hx">
 		<extends path="hl.types.ArrayAccess"/>
-		<alloc public="1" set="method" line="233" static="1">
+		<alloc public="1" set="method" line="256" static="1">
 			<f a="a:?allowReinterpret" v=":false">
 				<c path="hl.types.ArrayBase"/>
 				<x path="Bool"/>
@@ -34874,48 +34942,48 @@
 		<length public="1" get="accessor" set="null"><x path="Int"/></length>
 		<array><c path="hl.types.ArrayBase"/></array>
 		<allowReinterpret><x path="Bool"/></allowReinterpret>
-		<get_length get="inline" set="null" line="57"><f a=""><x path="Int"/></f></get_length>
-		<getDyn public="1" set="method" line="60" override="1"><f a="i">
+		<get_length get="inline" set="null" line="76"><f a=""><x path="Int"/></f></get_length>
+		<getDyn public="1" set="method" line="79" override="1"><f a="i">
 	<x path="Int"/>
 	<unknown/>
 </f></getDyn>
-		<setDyn public="1" set="method" line="64" override="1"><f a="pos:value">
+		<setDyn public="1" set="method" line="83" override="1"><f a="pos:value">
 	<x path="Int"/>
 	<d/>
 	<x path="Void"/>
 </f></setDyn>
-		<blit public="1" set="method" line="68" override="1"><f a="pos:src:srcpos:len">
+		<blit public="1" set="method" line="87" override="1"><f a="pos:src:srcpos:len">
 	<x path="Int"/>
 	<c path="hl.types.ArrayAccess"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></blit>
-		<concat public="1" set="method" line="72"><f a="a">
+		<concat public="1" set="method" line="91"><f a="a">
 	<c path="hl.types.ArrayDyn"/>
 	<c path="hl.types.ArrayDyn"/>
 </f></concat>
-		<join public="1" set="method" line="84"><f a="sep">
+		<join public="1" set="method" line="103"><f a="sep">
 	<c path="String"/>
 	<c path="String"/>
 </f></join>
-		<pop public="1" set="method" line="88"><f a=""><x path="Null"><d/></x></f></pop>
-		<push public="1" set="method" line="92"><f a="x">
+		<pop public="1" set="method" line="107"><f a=""><x path="Null"><d/></x></f></pop>
+		<push public="1" set="method" line="111"><f a="x">
 	<d/>
 	<x path="Int"/>
 </f></push>
-		<reverse public="1" set="method" line="96"><f a=""><x path="Void"/></f></reverse>
-		<resize public="1" set="method" line="100"><f a="len">
+		<reverse public="1" set="method" line="115"><f a=""><x path="Void"/></f></reverse>
+		<resize public="1" set="method" line="119"><f a="len">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></resize>
-		<shift public="1" set="method" line="104"><f a=""><x path="Null"><d/></x></f></shift>
-		<slice public="1" set="method" line="108"><f a="pos:?end">
+		<shift public="1" set="method" line="123"><f a=""><x path="Null"><d/></x></f></shift>
+		<slice public="1" set="method" line="127"><f a="pos:?end">
 	<x path="Int"/>
 	<x path="Int"/>
 	<c path="hl.types.ArrayDyn"/>
 </f></slice>
-		<sort public="1" set="method" line="112"><f a="f">
+		<sort public="1" set="method" line="131"><f a="f">
 	<f a=":">
 		<d/>
 		<d/>
@@ -34923,74 +34991,75 @@
 	</f>
 	<x path="Void"/>
 </f></sort>
-		<splice public="1" set="method" line="116"><f a="pos:len">
+		<splice public="1" set="method" line="135"><f a="pos:len">
 	<x path="Int"/>
 	<x path="Int"/>
 	<c path="hl.types.ArrayDyn"/>
 </f></splice>
-		<toString public="1" set="method" line="120"><f a=""><c path="String"/></f></toString>
-		<unshift public="1" set="method" line="124"><f a="x">
+		<toString public="1" set="method" line="139"><f a=""><c path="String"/></f></toString>
+		<unshift public="1" set="method" line="143"><f a="x">
 	<d/>
 	<x path="Void"/>
 </f></unshift>
-		<insert public="1" set="method" line="128"><f a="pos:x">
+		<insert public="1" set="method" line="147"><f a="pos:x">
 	<x path="Int"/>
 	<d/>
 	<x path="Void"/>
 </f></insert>
-		<contains public="1" set="method" line="132"><f a="x">
+		<contains public="1" set="method" line="151"><f a="x">
 	<d/>
 	<x path="Bool"/>
 </f></contains>
-		<remove public="1" set="method" line="136"><f a="x">
+		<remove public="1" set="method" line="155"><f a="x">
 	<d/>
 	<x path="Bool"/>
 </f></remove>
-		<indexOf public="1" set="method" line="140"><f a="x:?fromIndex">
+		<indexOf public="1" set="method" line="159"><f a="x:?fromIndex">
 	<d/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></indexOf>
-		<lastIndexOf public="1" set="method" line="152"><f a="x:?fromIndex">
+		<lastIndexOf public="1" set="method" line="171"><f a="x:?fromIndex">
 	<d/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></lastIndexOf>
-		<copy public="1" set="method" line="167"><f a=""><c path="hl.types.ArrayDyn"/></f></copy>
-		<iterator public="1" set="method" line="174"><f a=""><c path="haxe.iterators.ArrayIterator"><d/></c></f></iterator>
-		<map public="1" set="method" line="178"><f a="f">
+		<copy public="1" set="method" line="186"><f a=""><c path="hl.types.ArrayDyn"/></f></copy>
+		<iterator public="1" set="method" line="193"><f a=""><c path="haxe.iterators.ArrayIterator"><d/></c></f></iterator>
+		<keyValueIterator public="1" set="method" line="197"><f a=""><c path="haxe.iterators.ArrayKeyValueIterator"><d/></c></f></keyValueIterator>
+		<map public="1" set="method" line="201"><f a="f">
 	<f a="">
 		<d/>
 		<d/>
 	</f>
 	<c path="hl.types.ArrayDyn"/>
 </f></map>
-		<filter public="1" set="method" line="185"><f a="f">
+		<filter public="1" set="method" line="208"><f a="f">
 	<f a="">
 		<d/>
 		<x path="Bool"/>
 	</f>
 	<c path="hl.types.ArrayDyn"/>
 </f></filter>
-		<__get_field set="method" line="195">
+		<__get_field set="method" line="218">
 			<f a="fid">
 				<x path="Int"/>
 				<d/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</__get_field>
-		<__cast set="method" line="201"><f a="t">
+		<__cast set="method" line="224"><f a="t">
 	<x path="hl.Type"/>
 	<d/>
 </f></__cast>
-		<__compare set="method" line="229">
+		<__compare set="method" line="252">
 			<f a="a">
 				<d/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</__compare>
-		<new public="1" set="method" line="52"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="71"><f a=""><x path="Void"/></f></new>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":keep"/>
@@ -34999,17 +35068,31 @@
 	<class path="hl.types.ArrayObjIterator" params="T" file="/home/vsts/work/1/s/std/hl/types/ArrayObj.hx" module="hl.types.ArrayObj">
 		<extends path="haxe.iterators.ArrayIterator"><c path="hl.types.ArrayObjIterator.T"/></extends>
 		<arr><c path="hl.types.ArrayObj"><c path="hl.types.ArrayObjIterator.T"/></c></arr>
-		<hasNext public="1" set="method" line="35" override="1"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" set="method" line="39" override="1"><f a=""><c path="hl.types.ArrayObjIterator.T"/></f></next>
-		<new public="1" get="inline" set="null" line="30"><f a="arr">
+		<hasNext public="1" set="method" line="36" override="1"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" set="method" line="40" override="1"><f a=""><c path="hl.types.ArrayObjIterator.T"/></f></next>
+		<new public="1" get="inline" set="null" line="31"><f a="arr">
 	<c path="hl.types.ArrayObj"><c path="hl.types.ArrayObjIterator.T"/></c>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="hl.types.ArrayObjKeyValueIterator" params="T" file="/home/vsts/work/1/s/std/hl/types/ArrayObj.hx" module="hl.types.ArrayObj">
+		<extends path="haxe.iterators.ArrayKeyValueIterator"><c path="hl.types.ArrayObjKeyValueIterator.T"/></extends>
+		<arr><c path="hl.types.ArrayObj"><c path="hl.types.ArrayObjKeyValueIterator.T"/></c></arr>
+		<hasNext public="1" set="method" line="53" override="1"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" set="method" line="57" override="1"><f a=""><a>
+	<value><c path="hl.types.ArrayObjKeyValueIterator.T"/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new public="1" get="inline" set="null" line="48"><f a="arr">
+	<c path="hl.types.ArrayObj"><c path="hl.types.ArrayObjKeyValueIterator.T"/></c>
 	<x path="Void"/>
 </f></new>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="hl.types.ArrayObj" params="T" file="/home/vsts/work/1/s/std/hl/types/ArrayObj.hx">
 		<extends path="hl.types.ArrayBase"/>
-		<alloc public="1" params="T" set="method" line="359" static="1">
+		<alloc public="1" params="T" set="method" line="382" static="1">
 			<f a="a">
 				<x path="hl.NativeArray"><c path="alloc.T"/></x>
 				<c path="hl.types.ArrayObj"><c path="alloc.T"/></c>
@@ -35017,28 +35100,28 @@
 			<meta><m n=":has_untyped"/></meta>
 		</alloc>
 		<array><x path="hl.NativeArray"><d/></x></array>
-		<concat public="1" set="method" line="53"><f a="a">
+		<concat public="1" set="method" line="72"><f a="a">
 	<c path="hl.types.ArrayObj"><c path="hl.types.ArrayObj.T"/></c>
 	<c path="hl.types.ArrayObj"><c path="hl.types.ArrayObj.T"/></c>
 </f></concat>
-		<join public="1" set="method" line="60" override="1"><f a="sep">
+		<join public="1" set="method" line="79" override="1"><f a="sep">
 	<c path="String"/>
 	<c path="String"/>
 </f></join>
-		<isArrayObj set="method" line="70" override="1"><f a=""><x path="Bool"/></f></isArrayObj>
-		<pop public="1" set="method" line="74"><f a=""><x path="Null"><c path="hl.types.ArrayObj.T"/></x></f></pop>
-		<push public="1" set="method" line="83"><f a="x">
+		<isArrayObj set="method" line="89" override="1"><f a=""><x path="Bool"/></f></isArrayObj>
+		<pop public="1" set="method" line="93"><f a=""><x path="Null"><c path="hl.types.ArrayObj.T"/></x></f></pop>
+		<push public="1" set="method" line="102"><f a="x">
 	<c path="hl.types.ArrayObj.T"/>
 	<x path="Int"/>
 </f></push>
-		<reverse public="1" set="method" line="93" override="1"><f a=""><x path="Void"/></f></reverse>
-		<shift public="1" set="method" line="102"><f a=""><x path="Null"><c path="hl.types.ArrayObj.T"/></x></f></shift>
-		<slice public="1" set="method" line="112" override="1"><f a="pos:?end">
+		<reverse public="1" set="method" line="112" override="1"><f a=""><x path="Void"/></f></reverse>
+		<shift public="1" set="method" line="121"><f a=""><x path="Null"><c path="hl.types.ArrayObj.T"/></x></f></shift>
+		<slice public="1" set="method" line="131" override="1"><f a="pos:?end">
 	<x path="Int"/>
 	<x path="Int"/>
 	<c path="hl.types.ArrayObj"><c path="hl.types.ArrayObj.T"/></c>
 </f></slice>
-		<sort public="1" set="method" line="134"><f a="f">
+		<sort public="1" set="method" line="153"><f a="f">
 	<f a=":">
 		<c path="hl.types.ArrayObj.T"/>
 		<c path="hl.types.ArrayObj.T"/>
@@ -35046,106 +35129,107 @@
 	</f>
 	<x path="Void"/>
 </f></sort>
-		<splice public="1" set="method" line="139" override="1"><f a="pos:len">
+		<splice public="1" set="method" line="158" override="1"><f a="pos:len">
 	<x path="Int"/>
 	<x path="Int"/>
 	<c path="hl.types.ArrayObj"><c path="hl.types.ArrayObj.T"/></c>
 </f></splice>
-		<toString public="1" set="method" line="166" override="1">
+		<toString public="1" set="method" line="185" override="1">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":access"><e>Std.toStringDepth</e></m></meta>
 		</toString>
-		<unshift public="1" set="method" line="187"><f a="x">
+		<unshift public="1" set="method" line="206"><f a="x">
 	<c path="hl.types.ArrayObj.T"/>
 	<x path="Void"/>
 </f></unshift>
-		<insert public="1" set="method" line="196"><f a="pos:x">
+		<insert public="1" set="method" line="215"><f a="pos:x">
 	<x path="Int"/>
 	<c path="hl.types.ArrayObj.T"/>
 	<x path="Void"/>
 </f></insert>
-		<contains public="1" set="method" line="211"><f a="x">
+		<contains public="1" set="method" line="230"><f a="x">
 	<c path="hl.types.ArrayObj.T"/>
 	<x path="Bool"/>
 </f></contains>
-		<remove public="1" set="method" line="215"><f a="x">
+		<remove public="1" set="method" line="234"><f a="x">
 	<c path="hl.types.ArrayObj.T"/>
 	<x path="Bool"/>
 </f></remove>
-		<indexOf public="1" set="method" line="225"><f a="x:?fromIndex">
+		<indexOf public="1" set="method" line="244"><f a="x:?fromIndex">
 	<c path="hl.types.ArrayObj.T"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></indexOf>
-		<blit public="1" set="method" line="242" override="1"><f a="pos:src:srcpos:len">
+		<blit public="1" set="method" line="261" override="1"><f a="pos:src:srcpos:len">
 	<x path="Int"/>
 	<c path="hl.types.ArrayAccess"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></blit>
-		<lastIndexOf public="1" set="method" line="249"><f a="x:?fromIndex">
+		<lastIndexOf public="1" set="method" line="268"><f a="x:?fromIndex">
 	<c path="hl.types.ArrayObj.T"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></lastIndexOf>
-		<copy public="1" set="method" line="264"><f a=""><c path="hl.types.ArrayObj"><c path="hl.types.ArrayObj.T"/></c></f></copy>
-		<iterator public="1" set="method" line="270"><f a=""><c path="haxe.iterators.ArrayIterator"><c path="hl.types.ArrayObj.T"/></c></f></iterator>
-		<map public="1" params="S" set="method" line="274"><f a="f">
+		<copy public="1" set="method" line="283"><f a=""><c path="hl.types.ArrayObj"><c path="hl.types.ArrayObj.T"/></c></f></copy>
+		<iterator public="1" set="method" line="289"><f a=""><c path="haxe.iterators.ArrayIterator"><c path="hl.types.ArrayObj.T"/></c></f></iterator>
+		<keyValueIterator public="1" set="method" line="293"><f a=""><c path="haxe.iterators.ArrayKeyValueIterator"><c path="hl.types.ArrayObj.T"/></c></f></keyValueIterator>
+		<map public="1" params="S" set="method" line="297"><f a="f">
 	<f a="">
 		<c path="hl.types.ArrayObj.T"/>
 		<c path="map.S"/>
 	</f>
 	<c path="hl.types.ArrayDyn"/>
 </f></map>
-		<filter public="1" set="method" line="283"><f a="f">
+		<filter public="1" set="method" line="306"><f a="f">
 	<f a="">
 		<c path="hl.types.ArrayObj.T"/>
 		<x path="Bool"/>
 	</f>
 	<c path="hl.types.ArrayObj"><c path="hl.types.ArrayObj.T"/></c>
 </f></filter>
-		<resize public="1" set="method" line="293" override="1"><f a="len">
+		<resize public="1" set="method" line="316" override="1"><f a="len">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></resize>
-		<__expand set="method" line="305"><f a="index">
+		<__expand set="method" line="328"><f a="index">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></__expand>
-		<getDyn public="1" set="method" line="321" override="1"><f a="pos">
+		<getDyn public="1" set="method" line="344" override="1"><f a="pos">
 	<x path="Int"/>
 	<d/>
 </f></getDyn>
-		<setDyn public="1" set="method" line="328" override="1"><f a="pos:v">
+		<setDyn public="1" set="method" line="351" override="1"><f a="pos:v">
 	<x path="Int"/>
 	<d/>
 	<x path="Void"/>
 </f></setDyn>
-		<pushDyn public="1" set="method" line="335" override="1"><f a="v">
+		<pushDyn public="1" set="method" line="358" override="1"><f a="v">
 	<d/>
 	<x path="Int"/>
 </f></pushDyn>
-		<popDyn public="1" set="method" line="338" override="1"><f a=""><x path="Null"><d/></x></f></popDyn>
-		<shiftDyn public="1" set="method" line="341" override="1"><f a=""><x path="Null"><d/></x></f></shiftDyn>
-		<unshiftDyn public="1" set="method" line="344" override="1"><f a="v">
+		<popDyn public="1" set="method" line="361" override="1"><f a=""><x path="Null"><d/></x></f></popDyn>
+		<shiftDyn public="1" set="method" line="364" override="1"><f a=""><x path="Null"><d/></x></f></shiftDyn>
+		<unshiftDyn public="1" set="method" line="367" override="1"><f a="v">
 	<d/>
 	<x path="Void"/>
 </f></unshiftDyn>
-		<insertDyn public="1" set="method" line="347" override="1"><f a="pos:v">
+		<insertDyn public="1" set="method" line="370" override="1"><f a="pos:v">
 	<x path="Int"/>
 	<d/>
 	<x path="Void"/>
 </f></insertDyn>
-		<containsDyn public="1" set="method" line="350" override="1"><f a="v">
+		<containsDyn public="1" set="method" line="373" override="1"><f a="v">
 	<d/>
 	<x path="Bool"/>
 </f></containsDyn>
-		<removeDyn public="1" set="method" line="353" override="1"><f a="v">
+		<removeDyn public="1" set="method" line="376" override="1"><f a="v">
 	<d/>
 	<x path="Bool"/>
 </f></removeDyn>
-		<sortDyn public="1" set="method" line="356" override="1"><f a="f">
+		<sortDyn public="1" set="method" line="379" override="1"><f a="f">
 	<f a=":">
 		<d/>
 		<d/>
@@ -35153,7 +35237,7 @@
 	</f>
 	<x path="Void"/>
 </f></sortDyn>
-		<new public="1" set="method" line="48"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="67"><f a=""><x path="Void"/></f></new>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":keep"/>

@@ -253,7 +253,7 @@
 
 		`this.length` and the index of each Array element increases by 1.</haxe_doc>
 		</unshift>
-		<insert public="1" get="inline" set="null" line="39">
+		<insert public="1" get="inline" set="null" line="42">
 			<f a="pos:x">
 				<x path="Int"/>
 				<c path="Array.T"/>
@@ -275,7 +275,7 @@
 		and including that offset to the end of `this` Array are moved one index
 		ahead.</haxe_doc>
 		</insert>
-		<remove public="1" get="inline" set="null" line="43">
+		<remove public="1" get="inline" set="null" line="46">
 			<f a="x">
 				<c path="Array.T"/>
 				<x path="Bool"/>
@@ -291,7 +291,7 @@
 		If `x` is not found, `this` Array is not changed and the function
 		returns false.</haxe_doc>
 		</remove>
-		<contains public="1" get="inline" set="null" line="47">
+		<contains public="1" get="inline" set="null" line="50">
 			<f a="x">
 				<c path="Array.T"/>
 				<x path="Bool"/>
@@ -337,7 +337,7 @@
 		given or computed starting index is greater than or equal to the length of `this` Array,
 		the whole array will be searched, if it is less than 0, the function returns -1.</haxe_doc>
 		</lastIndexOf>
-		<copy public="1" get="inline" set="null" line="69">
+		<copy public="1" get="inline" set="null" line="72">
 			<f a=""><c path="Array"><c path="Array.T"/></c></f>
 			<haxe_doc>Returns a shallow copy of `this` Array.
 
@@ -345,7 +345,7 @@
 		`a[i] == a.copy()[i]` is true for any valid `i`. However,
 		`a == a.copy()` is always false.</haxe_doc>
 		</copy>
-		<map public="1" params="S" get="inline" set="null" line="73">
+		<map public="1" params="S" get="inline" set="null" line="76">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -360,7 +360,7 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</map>
-		<filter public="1" get="inline" set="null" line="81">
+		<filter public="1" get="inline" set="null" line="84">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -376,12 +376,17 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</filter>
-		<iterator public="1" get="inline" set="null" line="85">
+		<iterator public="1" get="inline" set="null" line="88">
 			<f a=""><c path="haxe.iterators.ArrayIterator"><c path="Array.T"/></c></f>
 			<meta><m n=":runtime"/></meta>
 			<haxe_doc>Returns an iterator of the Array values.</haxe_doc>
 		</iterator>
-		<resize public="1" get="inline" set="null" line="89">
+		<keyValueIterator public="1" get="inline" set="null" line="92">
+			<f a=""><c path="haxe.iterators.ArrayKeyValueIterator"><c path="Array.T"/></c></f>
+			<meta><m n=":runtime"/></meta>
+			<haxe_doc>Returns an iterator of the Array indices and values.</haxe_doc>
+		</keyValueIterator>
+		<resize public="1" get="inline" set="null" line="96">
 			<f a="len">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -401,11 +406,6 @@
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new Array.</haxe_doc>
 		</new>
-		<haxe_doc>An Array is a storage for values. You can access it using indexes or
-	with its API.
-
-	@see https://haxe.org/manual/std-Array.html
-	@see https://haxe.org/manual/lf-array-comprehension.html</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":coreApi"/>
@@ -26212,6 +26212,26 @@
 			<meta><m n=":value"><e>{ bytePos : 0 }</e></m></meta>
 		</fromBytes>
 		<meta><m n=":coreApi"/></meta>
+	</class>
+	<class path="haxe.iterators.ArrayKeyValueIterator" params="T" file="/home/vsts/work/1/s/std/haxe/iterators/ArrayKeyValueIterator.hx">
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<array><c path="Array"><c path="haxe.iterators.ArrayKeyValueIterator.T"/></c></array>
+		<hasNext public="1" get="inline" set="null" line="35"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="40"><f a=""><a>
+	<value><c path="haxe.iterators.ArrayKeyValueIterator.T"/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new public="1" get="inline" set="null" line="30"><f a="array">
+	<c path="Array"><c path="haxe.iterators.ArrayKeyValueIterator.T"/></c>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":ifFeature">
+	<e>"anon_read.keyValueIterator"</e>
+	<e>"dynamic_read.keyValueIterator"</e>
+</m></meta>
 	</class>
 	<class path="haxe.iterators.DynamicAccessIterator" params="T" file="/home/vsts/work/1/s/std/haxe/iterators/DynamicAccessIterator.hx">
 		<access final="1"><x path="haxe.DynamicAccess"><c path="haxe.iterators.DynamicAccessIterator.T"/></x></access>

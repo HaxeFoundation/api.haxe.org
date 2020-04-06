@@ -85,7 +85,7 @@
 			<x path="Int"/>
 			<haxe_doc>The length of `this` Array.</haxe_doc>
 		</length>
-		<concat public="1" get="inline" set="null" line="35">
+		<concat public="1" get="inline" set="null" line="36">
 			<f a="a">
 				<c path="Array"><c path="Array.T"/></c>
 				<c path="Array"><c path="Array.T"/></c>
@@ -102,7 +102,7 @@
 
 		If `a` is `null`, the result is unspecified.</haxe_doc>
 		</concat>
-		<copy public="1" get="inline" set="null" line="39">
+		<copy public="1" get="inline" set="null" line="40">
 			<f a=""><c path="Array"><c path="Array.T"/></c></f>
 			<haxe_doc>Returns a shallow copy of `this` Array.
 
@@ -110,12 +110,17 @@
 		`a[i] == a.copy()[i]` is true for any valid `i`. However,
 		`a == a.copy()` is always false.</haxe_doc>
 		</copy>
-		<iterator public="1" get="inline" set="null" line="43">
+		<iterator public="1" get="inline" set="null" line="44">
 			<f a=""><c path="haxe.iterators.ArrayIterator"><c path="Array.T"/></c></f>
 			<meta><m n=":runtime"/></meta>
 			<haxe_doc>Returns an iterator of the Array values.</haxe_doc>
 		</iterator>
-		<insert public="1" get="inline" set="null" line="47">
+		<keyValueIterator public="1" get="inline" set="null" line="48">
+			<f a=""><c path="haxe.iterators.ArrayKeyValueIterator"><c path="Array.T"/></c></f>
+			<meta><m n=":runtime"/></meta>
+			<haxe_doc>Returns an iterator of the Array indices and values.</haxe_doc>
+		</keyValueIterator>
+		<insert public="1" get="inline" set="null" line="52">
 			<f a="pos:x">
 				<x path="Int"/>
 				<c path="Array.T"/>
@@ -137,7 +142,7 @@
 		and including that offset to the end of `this` Array are moved one index
 		ahead.</haxe_doc>
 		</insert>
-		<join public="1" get="inline" set="null" line="51">
+		<join public="1" get="inline" set="null" line="56">
 			<f a="sep">
 				<c path="String"/>
 				<c path="String"/>
@@ -155,7 +160,7 @@
 
 		If `sep` is null, the result is unspecified.</haxe_doc>
 		</join>
-		<toString public="1" get="inline" set="null" line="55">
+		<toString public="1" get="inline" set="null" line="60">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns a string representation of `this` Array.
 
@@ -164,7 +169,7 @@
 		use `Std.string()` to get a String representation that is consistent
 		across platforms.</haxe_doc>
 		</toString>
-		<pop public="1" get="inline" set="null" line="59">
+		<pop public="1" get="inline" set="null" line="64">
 			<f a=""><x path="Null"><c path="Array.T"/></x></f>
 			<meta><m n=":runtime"/></meta>
 			<haxe_doc>Removes the last element of `this` Array and returns it.
@@ -176,7 +181,7 @@
 		If `this` is the empty Array `[]`, null is returned and the length
 		remains 0.</haxe_doc>
 		</pop>
-		<push public="1" get="inline" set="null" line="63">
+		<push public="1" get="inline" set="null" line="68">
 			<f a="x">
 				<c path="Array.T"/>
 				<x path="Int"/>
@@ -189,7 +194,7 @@
 
 		`this.length` increases by 1.</haxe_doc>
 		</push>
-		<unshift public="1" get="inline" set="null" line="67">
+		<unshift public="1" get="inline" set="null" line="72">
 			<f a="x">
 				<c path="Array.T"/>
 				<x path="Void"/>
@@ -200,7 +205,7 @@
 
 		`this.length` and the index of each Array element increases by 1.</haxe_doc>
 		</unshift>
-		<indexOf public="1" get="inline" set="null" line="71">
+		<indexOf public="1" get="inline" set="null" line="76">
 			<f a="x:?fromIndex">
 				<c path="Array.T"/>
 				<x path="Int"/>
@@ -218,7 +223,7 @@
 		starting index is less than 0, the whole array will be searched, if it is greater than
 		or equal to the length of `this` Array, the function returns -1.</haxe_doc>
 		</indexOf>
-		<lastIndexOf public="1" get="inline" set="null" line="75">
+		<lastIndexOf public="1" get="inline" set="null" line="80">
 			<f a="x:?fromIndex">
 				<c path="Array.T"/>
 				<x path="Int"/>
@@ -236,7 +241,7 @@
 		given or computed starting index is greater than or equal to the length of `this` Array,
 		the whole array will be searched, if it is less than 0, the function returns -1.</haxe_doc>
 		</lastIndexOf>
-		<remove public="1" get="inline" set="null" line="79">
+		<remove public="1" get="inline" set="null" line="84">
 			<f a="x">
 				<c path="Array.T"/>
 				<x path="Bool"/>
@@ -252,7 +257,7 @@
 		If `x` is not found, `this` Array is not changed and the function
 		returns false.</haxe_doc>
 		</remove>
-		<contains public="1" get="inline" set="null" line="83">
+		<contains public="1" get="inline" set="null" line="88">
 			<f a="x">
 				<c path="Array.T"/>
 				<x path="Bool"/>
@@ -262,7 +267,7 @@
 		If `x` is found by checking standard equality, the function returns `true`, otherwise
 		the function returns `false`.</haxe_doc>
 		</contains>
-		<reverse public="1" get="inline" set="null" line="87">
+		<reverse public="1" get="inline" set="null" line="92">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc><![CDATA[Reverse the order of elements of `this` Array.
 
@@ -270,7 +275,7 @@
 
 		If `this.length < 2`, `this` remains unchanged.]]></haxe_doc>
 		</reverse>
-		<shift public="1" get="inline" set="null" line="91">
+		<shift public="1" get="inline" set="null" line="96">
 			<f a=""><x path="Null"><c path="Array.T"/></x></f>
 			<meta><m n=":runtime"/></meta>
 			<haxe_doc>Removes the first element of `this` Array and returns it.
@@ -283,7 +288,7 @@
 		If `this` is the empty Array `[]`, `null` is returned and the length
 		remains 0.</haxe_doc>
 		</shift>
-		<slice public="1" get="inline" set="null" line="95">
+		<slice public="1" get="inline" set="null" line="100">
 			<f a="pos:?end">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -306,7 +311,7 @@
 		If `pos` exceeds `this.length` or if `end` is less than or equals
 		`pos`, the result is `[]`.</haxe_doc>
 		</slice>
-		<sort public="1" get="inline" set="null" line="99">
+		<sort public="1" get="inline" set="null" line="104">
 			<f a="f">
 				<f a=":">
 					<c path="Array.T"/>
@@ -327,7 +332,7 @@
 
 		If `f` is null, the result is unspecified.]]></haxe_doc>
 		</sort>
-		<splice public="1" get="inline" set="null" line="103">
+		<splice public="1" get="inline" set="null" line="108">
 			<f a="pos:len">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -354,7 +359,7 @@
 		words, each element of the original `this` Array either remains in
 		`this` Array or becomes an element of the returned Array.]]></haxe_doc>
 		</splice>
-		<map public="1" params="S" get="inline" set="null" line="107">
+		<map public="1" params="S" get="inline" set="null" line="112">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -369,7 +374,7 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</map>
-		<filter public="1" get="inline" set="null" line="111">
+		<filter public="1" get="inline" set="null" line="116">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -385,7 +390,7 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</filter>
-		<resize public="1" get="inline" set="null" line="115">
+		<resize public="1" get="inline" set="null" line="120">
 			<f a="len">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -401,14 +406,14 @@
 		- 0, 0.0 or false for Int, Float and Bool respectively on static targets
 		- null for other types on static targets</haxe_doc>
 		</resize>
-		<_get get="inline" set="null" line="119">
+		<_get get="inline" set="null" line="124">
 			<f a="idx">
 				<x path="Int"/>
 				<c path="Array.T"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</_get>
-		<_set get="inline" set="null" line="123">
+		<_set get="inline" set="null" line="128">
 			<f a="idx:val">
 				<x path="Int"/>
 				<c path="Array.T"/>
@@ -416,14 +421,14 @@
 			</f>
 			<meta><m n=":keep"/></meta>
 		</_set>
-		<unsafeGet get="inline" set="null" line="127">
+		<unsafeGet get="inline" set="null" line="132">
 			<f a="idx">
 				<x path="Int"/>
 				<c path="Array.T"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</unsafeGet>
-		<unsafeSet get="inline" set="null" line="131">
+		<unsafeSet get="inline" set="null" line="136">
 			<f a="idx:val">
 				<x path="Int"/>
 				<c path="Array.T"/>
@@ -439,11 +444,6 @@
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new Array.</haxe_doc>
 		</new>
-		<haxe_doc>An Array is a storage for values. You can access it using indexes or
-	with its API.
-
-	@see https://haxe.org/manual/std-Array.html
-	@see https://haxe.org/manual/lf-array-comprehension.html</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":native"><e>"list"</e></m>
@@ -25985,6 +25985,26 @@
 			<meta><m n=":value"><e>{ bytePos : 0 }</e></m></meta>
 		</fromBytes>
 	</class>
+	<class path="haxe.iterators.ArrayKeyValueIterator" params="T" file="/home/vsts/work/1/s/std/haxe/iterators/ArrayKeyValueIterator.hx">
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<array><c path="Array"><c path="haxe.iterators.ArrayKeyValueIterator.T"/></c></array>
+		<hasNext public="1" get="inline" set="null" line="35"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="40"><f a=""><a>
+	<value><c path="haxe.iterators.ArrayKeyValueIterator.T"/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new public="1" get="inline" set="null" line="30"><f a="array">
+	<c path="Array"><c path="haxe.iterators.ArrayKeyValueIterator.T"/></c>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":ifFeature">
+	<e>"anon_read.keyValueIterator"</e>
+	<e>"dynamic_read.keyValueIterator"</e>
+</m></meta>
+	</class>
 	<class path="haxe.iterators.DynamicAccessIterator" params="T" file="/home/vsts/work/1/s/std/haxe/iterators/DynamicAccessIterator.hx">
 		<access final="1"><x path="haxe.DynamicAccess"><c path="haxe.iterators.DynamicAccessIterator.T"/></x></access>
 		<keys final="1"><c path="Array"><c path="String"/></c></keys>
@@ -31427,45 +31447,45 @@
 	<c path="String"/>
 	<d/>
 </f></field>
-		<getInstanceFields set="method" line="374" static="1">
+		<getInstanceFields set="method" line="376" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
 				<c path="Array"><c path="String"/></c>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</getInstanceFields>
-		<getSuperClass set="method" line="396" static="1">
+		<getSuperClass set="method" line="398" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
 				<x path="Class"><d/></x>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</getSuperClass>
-		<getClassFields set="method" line="409" static="1">
+		<getClassFields set="method" line="411" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
 				<c path="Array"><c path="String"/></c>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</getClassFields>
-		<unsafeFastCodeAt get="inline" set="null" line="418" static="1"><f a="s:index">
+		<unsafeFastCodeAt get="inline" set="null" line="420" static="1"><f a="s:index">
 	<c path="String"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></unsafeFastCodeAt>
-		<handleKeywords get="inline" set="null" line="422" static="1"><f a="name">
+		<handleKeywords get="inline" set="null" line="424" static="1"><f a="name">
 	<c path="String"/>
 	<c path="String"/>
 </f></handleKeywords>
-		<prefixLength expr="Internal.prefix().length" line="434" static="1">
+		<prefixLength expr="Internal.prefix().length" line="436" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>Internal.prefix().length</e></m></meta>
 		</prefixLength>
-		<unhandleKeywords set="method" line="436" static="1"><f a="name">
+		<unhandleKeywords set="method" line="438" static="1"><f a="name">
 	<c path="String"/>
 	<c path="String"/>
 </f></unhandleKeywords>
-		<implementsInterface get="inline" set="null" line="445" static="1">
+		<implementsInterface get="inline" set="null" line="447" static="1">
 			<f a="value:cls">
 				<d/>
 				<x path="Class"><d/></x>
@@ -32494,7 +32514,21 @@
 	<e>"python.internal.ArrayImpl.iterator"</e>
 </m></meta>
 		</iterator>
-		<indexOf public="1" params="T" set="method" line="49" static="1">
+		<keyValueIterator public="1" params="T" get="inline" set="null" line="49" static="1">
+			<f a="x">
+				<c path="Array"><c path="keyValueIterator.T"/></c>
+				<t path="KeyValueIterator">
+					<x path="Int"/>
+					<c path="keyValueIterator.T"/>
+				</t>
+			</f>
+			<meta><m n=":ifFeature">
+	<e>"dynamic_read.keyValueIterator"</e>
+	<e>"anon_optional_read.keyValueIterator"</e>
+	<e>"python.internal.ArrayImpl.keyValueIterator"</e>
+</m></meta>
+		</keyValueIterator>
+		<indexOf public="1" params="T" set="method" line="54" static="1">
 			<f a="a:x:?fromIndex">
 				<c path="Array"><c path="indexOf.T"/></c>
 				<c path="indexOf.T"/>
@@ -32507,7 +32541,7 @@
 	<e>"python.internal.ArrayImpl.indexOf"</e>
 </m></meta>
 		</indexOf>
-		<lastIndexOf public="1" params="T" set="method" line="62" static="1">
+		<lastIndexOf public="1" params="T" set="method" line="67" static="1">
 			<f a="a:x:?fromIndex">
 				<c path="Array"><c path="lastIndexOf.T"/></c>
 				<c path="lastIndexOf.T"/>
@@ -32520,7 +32554,7 @@
 	<e>"python.internal.ArrayImpl.lastIndexOf"</e>
 </m></meta>
 		</lastIndexOf>
-		<join public="1" params="T" get="inline" set="null" line="76" static="1">
+		<join public="1" params="T" get="inline" set="null" line="81" static="1">
 			<f a="x:sep">
 				<c path="Array"><c path="join.T"/></c>
 				<c path="String"/>
@@ -32535,7 +32569,7 @@
 				</m>
 			</meta>
 		</join>
-		<toString public="1" params="T" get="inline" set="null" line="81" static="1">
+		<toString public="1" params="T" get="inline" set="null" line="86" static="1">
 			<f a="x">
 				<c path="Array"><c path="toString.T"/></c>
 				<c path="String"/>
@@ -32546,7 +32580,7 @@
 	<e>"python.internal.ArrayImpl.toString"</e>
 </m></meta>
 		</toString>
-		<pop public="1" params="T" get="inline" set="null" line="86" static="1">
+		<pop public="1" params="T" get="inline" set="null" line="91" static="1">
 			<f a="x">
 				<c path="Array"><c path="pop.T"/></c>
 				<x path="Null"><c path="pop.T"/></x>
@@ -32557,7 +32591,7 @@
 	<e>"python.internal.ArrayImpl.pop"</e>
 </m></meta>
 		</pop>
-		<push public="1" params="T" get="inline" set="null" line="91" static="1">
+		<push public="1" params="T" get="inline" set="null" line="96" static="1">
 			<f a="x:e">
 				<c path="Array"><c path="push.T"/></c>
 				<c path="push.T"/>
@@ -32569,7 +32603,7 @@
 	<e>"python.internal.ArrayImpl.push"</e>
 </m></meta>
 		</push>
-		<unshift public="1" params="T" get="inline" set="null" line="97" static="1">
+		<unshift public="1" params="T" get="inline" set="null" line="102" static="1">
 			<f a="x:e">
 				<c path="Array"><c path="unshift.T"/></c>
 				<c path="unshift.T"/>
@@ -32581,7 +32615,7 @@
 	<e>"python.internal.ArrayImpl.unshift"</e>
 </m></meta>
 		</unshift>
-		<remove public="1" params="T" set="method" line="102" static="1">
+		<remove public="1" params="T" set="method" line="107" static="1">
 			<f a="x:e">
 				<c path="Array"><c path="remove.T"/></c>
 				<c path="remove.T"/>
@@ -32593,7 +32627,7 @@
 	<e>"python.internal.ArrayImpl.remove"</e>
 </m></meta>
 		</remove>
-		<contains public="1" params="T" get="inline" set="null" line="112" static="1">
+		<contains public="1" params="T" get="inline" set="null" line="117" static="1">
 			<f a="x:e">
 				<c path="Array"><c path="contains.T"/></c>
 				<c path="contains.T"/>
@@ -32605,7 +32639,7 @@
 	<e>"python.internal.ArrayImpl.contains"</e>
 </m></meta>
 		</contains>
-		<shift public="1" params="T" get="inline" set="null" line="117" static="1">
+		<shift public="1" params="T" get="inline" set="null" line="122" static="1">
 			<f a="x">
 				<c path="Array"><c path="shift.T"/></c>
 				<x path="Null"><c path="shift.T"/></x>
@@ -32616,7 +32650,7 @@
 	<e>"python.internal.ArrayImpl.shift"</e>
 </m></meta>
 		</shift>
-		<slice public="1" params="T" get="inline" set="null" line="124" static="1">
+		<slice public="1" params="T" get="inline" set="null" line="129" static="1">
 			<f a="x:pos:?end">
 				<c path="Array"><c path="slice.T"/></c>
 				<x path="Int"/>
@@ -32629,7 +32663,7 @@
 	<e>"python.internal.ArrayImpl.slice"</e>
 </m></meta>
 		</slice>
-		<sort public="1" params="T" get="inline" set="null" line="129" static="1">
+		<sort public="1" params="T" get="inline" set="null" line="134" static="1">
 			<f a="x:f">
 				<c path="Array"><c path="sort.T"/></c>
 				<f a=":">
@@ -32645,7 +32679,7 @@
 	<e>"python.internal.ArrayImpl.sort"</e>
 </m></meta>
 		</sort>
-		<splice public="1" params="T" get="inline" set="null" line="134" static="1">
+		<splice public="1" params="T" get="inline" set="null" line="139" static="1">
 			<f a="x:pos:len">
 				<c path="Array"><c path="splice.T"/></c>
 				<x path="Int"/>
@@ -32658,7 +32692,7 @@
 	<e>"python.internal.ArrayImpl.splice"</e>
 </m></meta>
 		</splice>
-		<map public="1" params="S:T" get="inline" set="null" line="145" static="1">
+		<map public="1" params="S:T" get="inline" set="null" line="150" static="1">
 			<f a="x:f">
 				<c path="Array"><c path="map.T"/></c>
 				<f a="">
@@ -32673,7 +32707,7 @@
 	<e>"python.internal.ArrayImpl.map"</e>
 </m></meta>
 		</map>
-		<filter public="1" params="T" get="inline" set="null" line="150" static="1">
+		<filter public="1" params="T" get="inline" set="null" line="155" static="1">
 			<f a="x:f">
 				<c path="Array"><c path="filter.T"/></c>
 				<f a="">
@@ -32688,7 +32722,7 @@
 	<e>"python.internal.ArrayImpl.filter"</e>
 </m></meta>
 		</filter>
-		<insert public="1" params="T" get="inline" set="null" line="155" static="1">
+		<insert public="1" params="T" get="inline" set="null" line="160" static="1">
 			<f a="a:pos:x">
 				<c path="Array"><c path="insert.T"/></c>
 				<x path="Int"/>
@@ -32701,7 +32735,7 @@
 	<e>"python.internal.ArrayImpl.insert"</e>
 </m></meta>
 		</insert>
-		<reverse public="1" params="T" get="inline" set="null" line="160" static="1">
+		<reverse public="1" params="T" get="inline" set="null" line="165" static="1">
 			<f a="a">
 				<c path="Array"><c path="reverse.T"/></c>
 				<x path="Void"/>
@@ -32712,7 +32746,7 @@
 	<e>"python.internal.ArrayImpl.reverse"</e>
 </m></meta>
 		</reverse>
-		<_get params="T" get="inline" set="null" line="165" static="1">
+		<_get params="T" get="inline" set="null" line="170" static="1">
 			<f a="x:idx">
 				<c path="Array"><c path="_get.T"/></c>
 				<x path="Int"/>
@@ -32720,7 +32754,7 @@
 			</f>
 			<meta><m n=":ifFeature"><e>"array_read"</e></m></meta>
 		</_get>
-		<_set params="T" get="inline" set="null" line="170" static="1">
+		<_set params="T" get="inline" set="null" line="175" static="1">
 			<f a="x:idx:v">
 				<c path="Array"><c path="_set.T"/></c>
 				<x path="Int"/>
@@ -32729,18 +32763,18 @@
 			</f>
 			<meta><m n=":ifFeature"><e>"array_write"</e></m></meta>
 		</_set>
-		<unsafeGet public="1" params="T" get="inline" set="null" line="184" static="1"><f a="x:idx">
+		<unsafeGet public="1" params="T" get="inline" set="null" line="189" static="1"><f a="x:idx">
 	<c path="Array"><c path="unsafeGet.T"/></c>
 	<x path="Int"/>
 	<c path="unsafeGet.T"/>
 </f></unsafeGet>
-		<unsafeSet public="1" params="T" get="inline" set="null" line="188" static="1"><f a="x:idx:val">
+		<unsafeSet public="1" params="T" get="inline" set="null" line="193" static="1"><f a="x:idx:val">
 	<c path="Array"><c path="unsafeSet.T"/></c>
 	<x path="Int"/>
 	<c path="unsafeSet.T"/>
 	<c path="unsafeSet.T"/>
 </f></unsafeSet>
-		<resize public="1" params="T" get="inline" set="null" line="193" static="1"><f a="x:len">
+		<resize public="1" params="T" get="inline" set="null" line="198" static="1"><f a="x:len">
 	<c path="Array"><c path="resize.T"/></c>
 	<x path="Int"/>
 	<x path="Void"/>

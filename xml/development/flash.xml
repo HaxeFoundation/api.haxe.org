@@ -345,12 +345,17 @@
 		`a[i] == a.copy()[i]` is true for any valid `i`. However,
 		`a == a.copy()` is always false.</haxe_doc>
 		</copy>
-		<iterator public="1" get="inline" set="null" line="277">
+		<iterator public="1" get="inline" set="null" line="280">
 			<f a=""><c path="haxe.iterators.ArrayIterator"><c path="Array.T"/></c></f>
 			<meta><m n=":runtime"/></meta>
 			<haxe_doc>Returns an iterator of the Array values.</haxe_doc>
 		</iterator>
-		<map public="1" params="S" get="inline" set="null" line="288">
+		<keyValueIterator public="1" get="inline" set="null" line="287">
+			<f a=""><c path="haxe.iterators.ArrayKeyValueIterator"><c path="Array.T"/></c></f>
+			<meta><m n=":runtime"/></meta>
+			<haxe_doc>Returns an iterator of the Array indices and values.</haxe_doc>
+		</keyValueIterator>
+		<map public="1" params="S" get="inline" set="null" line="298">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -365,7 +370,7 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</map>
-		<filter public="1" get="inline" set="null" line="306">
+		<filter public="1" get="inline" set="null" line="316">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -401,11 +406,6 @@
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new Array.</haxe_doc>
 		</new>
-		<haxe_doc>An Array is a storage for values. You can access it using indexes or
-	with its API.
-
-	@see https://haxe.org/manual/std-Array.html
-	@see https://haxe.org/manual/lf-array-comprehension.html</haxe_doc>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<abstract path="Class" params="T" file="/home/vsts/work/1/s/std/Class.hx">
@@ -5421,6 +5421,29 @@
 		</new>
 		<haxe_doc><![CDATA[This iterator is used only when `Array<T>` is passed to `Iterable<T>`]]></haxe_doc>
 		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="haxe.iterators.ArrayKeyValueIterator" params="T" file="/home/vsts/work/1/s/std/haxe/iterators/ArrayKeyValueIterator.hx">
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<array><c path="Array"><c path="haxe.iterators.ArrayKeyValueIterator.T"/></c></array>
+		<hasNext public="1" get="inline" set="null" line="35"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="40"><f a=""><a>
+	<value><c path="haxe.iterators.ArrayKeyValueIterator.T"/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new public="1" get="inline" set="null" line="30"><f a="array">
+	<c path="Array"><c path="haxe.iterators.ArrayKeyValueIterator.T"/></c>
+	<x path="Void"/>
+</f></new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":ifFeature">
+				<e>"anon_read.keyValueIterator"</e>
+				<e>"dynamic_read.keyValueIterator"</e>
+			</m>
+		</meta>
 	</class>
 	<class path="flash.Boot" params="" file="/home/vsts/work/1/s/std/flash/Boot.hx">
 		<extends path="flash.display.MovieClip"/>
@@ -42949,7 +42972,10 @@
 	<d/>
 	<x path="Void"/>
 </f></new>
-		<meta><m n=":allow"><e>haxe.ds.StringMap</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":allow"><e>haxe.ds.StringMap</e></m>
+		</meta>
 	</class>
 	<class path="haxe.ds._StringMap.StringMapValuesIterator" params="T" file="/home/vsts/work/1/s/std/flash/_std/haxe/ds/StringMap.hx" private="1" module="haxe.ds.StringMap">
 		<h><d/></h>

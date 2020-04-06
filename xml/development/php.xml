@@ -136,7 +136,7 @@
 			<x path="Int"/>
 			<c path="Array.T"/>
 		</implements>
-		<wrap params="T" set="method" line="246" static="1"><f a="arr">
+		<wrap params="T" set="method" line="253" static="1"><f a="arr">
 	<x path="php.NativeIndexedArray"><c path="wrap.T"/></x>
 	<c path="Array"><c path="wrap.T"/></c>
 </f></wrap>
@@ -145,7 +145,7 @@
 			<haxe_doc>The length of `this` Array.</haxe_doc>
 		</length>
 		<arr><x path="php.NativeIndexedArray"><c path="Array.T"/></x></arr>
-		<concat public="1" set="method" line="39">
+		<concat public="1" set="method" line="41">
 			<f a="a">
 				<c path="Array"><c path="Array.T"/></c>
 				<c path="Array"><c path="Array.T"/></c>
@@ -162,7 +162,7 @@
 
 		If `a` is `null`, the result is unspecified.</haxe_doc>
 		</concat>
-		<copy public="1" get="inline" set="null" line="43">
+		<copy public="1" get="inline" set="null" line="45">
 			<f a=""><c path="Array"><c path="Array.T"/></c></f>
 			<haxe_doc>Returns a shallow copy of `this` Array.
 
@@ -170,7 +170,7 @@
 		`a[i] == a.copy()[i]` is true for any valid `i`. However,
 		`a == a.copy()` is always false.</haxe_doc>
 		</copy>
-		<filter public="1" get="inline" set="null" line="47">
+		<filter public="1" get="inline" set="null" line="49">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -185,7 +185,7 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</filter>
-		<contains public="1" get="inline" set="null" line="57">
+		<contains public="1" get="inline" set="null" line="59">
 			<f a="x">
 				<c path="Array.T"/>
 				<x path="Bool"/>
@@ -195,7 +195,7 @@
 		If `x` is found by checking standard equality, the function returns `true`, otherwise
 		the function returns `false`.</haxe_doc>
 		</contains>
-		<indexOf public="1" set="method" line="61">
+		<indexOf public="1" set="method" line="63">
 			<f a="x:?fromIndex">
 				<c path="Array.T"/>
 				<x path="Int"/>
@@ -213,7 +213,7 @@
 		starting index is less than 0, the whole array will be searched, if it is greater than
 		or equal to the length of `this` Array, the function returns -1.</haxe_doc>
 		</indexOf>
-		<insert public="1" set="method" line="86">
+		<insert public="1" set="method" line="88">
 			<f a="pos:x">
 				<x path="Int"/>
 				<c path="Array.T"/>
@@ -235,7 +235,7 @@
 		and including that offset to the end of `this` Array are moved one index
 		ahead.</haxe_doc>
 		</insert>
-		<iterator public="1" get="inline" set="null" line="92">
+		<iterator public="1" get="inline" set="null" line="94">
 			<f a=""><c path="haxe.iterators.ArrayIterator"><c path="Array.T"/></c></f>
 			<meta><m n=":ifFeature">
 	<e>"dynamic_read.iterator"</e>
@@ -244,7 +244,12 @@
 </m></meta>
 			<haxe_doc>Returns an iterator of the Array values.</haxe_doc>
 		</iterator>
-		<join public="1" set="method" line="96">
+		<keyValueIterator public="1" get="inline" set="null" line="99">
+			<f a=""><c path="haxe.iterators.ArrayKeyValueIterator"><c path="Array.T"/></c></f>
+			<meta><m n=":keep"/></meta>
+			<haxe_doc>Returns an iterator of the Array indices and values.</haxe_doc>
+		</keyValueIterator>
+		<join public="1" set="method" line="103">
 			<f a="sep">
 				<c path="String"/>
 				<c path="String"/>
@@ -261,7 +266,7 @@
 
 		If `sep` is null, the result is unspecified.</haxe_doc>
 		</join>
-		<lastIndexOf public="1" set="method" line="100">
+		<lastIndexOf public="1" set="method" line="107">
 			<f a="x:?fromIndex">
 				<c path="Array.T"/>
 				<x path="Int"/>
@@ -279,7 +284,7 @@
 		given or computed starting index is greater than or equal to the length of `this` Array,
 		the whole array will be searched, if it is less than 0, the function returns -1.</haxe_doc>
 		</lastIndexOf>
-		<map public="1" params="S" get="inline" set="null" line="113">
+		<map public="1" params="S" get="inline" set="null" line="120">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -293,7 +298,7 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</map>
-		<pop public="1" get="inline" set="null" line="121">
+		<pop public="1" get="inline" set="null" line="128">
 			<f a=""><x path="Null"><c path="Array.T"/></x></f>
 			<haxe_doc>Removes the last element of `this` Array and returns it.
 
@@ -304,7 +309,7 @@
 		If `this` is the empty Array `[]`, null is returned and the length
 		remains 0.</haxe_doc>
 		</pop>
-		<push public="1" get="inline" set="null" line="127">
+		<push public="1" get="inline" set="null" line="134">
 			<f a="x">
 				<c path="Array.T"/>
 				<x path="Int"/>
@@ -316,7 +321,7 @@
 
 		`this.length` increases by 1.</haxe_doc>
 		</push>
-		<remove public="1" set="method" line="132">
+		<remove public="1" set="method" line="139">
 			<f a="x">
 				<c path="Array.T"/>
 				<x path="Bool"/>
@@ -332,7 +337,7 @@
 		If `x` is not found, `this` Array is not changed and the function
 		returns false.</haxe_doc>
 		</remove>
-		<reverse public="1" get="inline" set="null" line="145">
+		<reverse public="1" get="inline" set="null" line="152">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc><![CDATA[Reverse the order of elements of `this` Array.
 
@@ -340,7 +345,7 @@
 
 		If `this.length < 2`, `this` remains unchanged.]]></haxe_doc>
 		</reverse>
-		<shift public="1" get="inline" set="null" line="149">
+		<shift public="1" get="inline" set="null" line="156">
 			<f a=""><x path="Null"><c path="Array.T"/></x></f>
 			<haxe_doc>Removes the first element of `this` Array and returns it.
 
@@ -352,7 +357,7 @@
 		If `this` is the empty Array `[]`, `null` is returned and the length
 		remains 0.</haxe_doc>
 		</shift>
-		<slice public="1" set="method" line="155">
+		<slice public="1" set="method" line="162">
 			<f a="pos:?end">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -375,7 +380,7 @@
 		If `pos` exceeds `this.length` or if `end` is less than or equals
 		`pos`, the result is `[]`.</haxe_doc>
 		</slice>
-		<sort public="1" get="inline" set="null" line="173">
+		<sort public="1" get="inline" set="null" line="180">
 			<f a="f">
 				<f a=":">
 					<c path="Array.T"/>
@@ -396,7 +401,7 @@
 
 		If `f` is null, the result is unspecified.]]></haxe_doc>
 		</sort>
-		<splice public="1" set="method" line="177">
+		<splice public="1" set="method" line="184">
 			<f a="pos:len">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -423,7 +428,7 @@
 		words, each element of the original `this` Array either remains in
 		`this` Array or becomes an element of the returned Array.]]></haxe_doc>
 		</splice>
-		<unshift public="1" get="inline" set="null" line="185">
+		<unshift public="1" get="inline" set="null" line="192">
 			<f a="x">
 				<c path="Array.T"/>
 				<x path="Void"/>
@@ -434,7 +439,7 @@
 
 		`this.length` and the index of each Array element increases by 1.</haxe_doc>
 		</unshift>
-		<toString public="1" set="method" line="189">
+		<toString public="1" set="method" line="196">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns a string representation of `this` Array.
 
@@ -443,7 +448,7 @@
 		use `Std.string()` to get a String representation that is consistent
 		across platforms.</haxe_doc>
 		</toString>
-		<resize public="1" set="method" line="193">
+		<resize public="1" set="method" line="200">
 			<f a="len">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -459,21 +464,21 @@
 		- 0, 0.0 or false for Int, Float and Bool respectively on static targets
 		- null for other types on static targets</haxe_doc>
 		</resize>
-		<offsetExists set="method" line="203">
+		<offsetExists set="method" line="210">
 			<f a="offset">
 				<x path="Int"/>
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</offsetExists>
-		<offsetGet set="method" line="208">
+		<offsetGet set="method" line="215">
 			<f a="offset">
 				<x path="Int"/>
 				<t path="php.Ref"><c path="Array.T"/></t>
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</offsetGet>
-		<offsetSet set="method" line="217">
+		<offsetSet set="method" line="224">
 			<f a="offset:value">
 				<x path="Int"/>
 				<c path="Array.T"/>
@@ -481,36 +486,31 @@
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</offsetSet>
-		<offsetUnset set="method" line="229">
+		<offsetUnset set="method" line="236">
 			<f a="offset">
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</offsetUnset>
-		<getIterator set="method" line="237">
+		<getIterator set="method" line="244">
 			<f a=""><c path="php.Traversable"/></f>
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":keep"/>
 			</meta>
 		</getIterator>
-		<jsonSerialize set="method" line="242">
+		<jsonSerialize set="method" line="249">
 			<f a=""><x path="php.NativeIndexedArray"><c path="Array.T"/></x></f>
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":keep"/>
 			</meta>
 		</jsonSerialize>
-		<new public="1" set="method" line="34">
+		<new public="1" set="method" line="36">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new Array.</haxe_doc>
 		</new>
-		<haxe_doc>An Array is a storage for values. You can access it using indexes or
-	with its API.
-
-	@see https://haxe.org/manual/std-Array.html
-	@see https://haxe.org/manual/lf-array-comprehension.html</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":coreApi"/>
@@ -28337,6 +28337,29 @@
 			</f>
 			<meta><m n=":value"><e>{ bytePos : 0 }</e></m></meta>
 		</fromBytes>
+	</class>
+	<class path="haxe.iterators.ArrayKeyValueIterator" params="T" file="/home/vsts/work/1/s/std/haxe/iterators/ArrayKeyValueIterator.hx">
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<array><c path="Array"><c path="haxe.iterators.ArrayKeyValueIterator.T"/></c></array>
+		<hasNext public="1" get="inline" set="null" line="35"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="40"><f a=""><a>
+	<value><c path="haxe.iterators.ArrayKeyValueIterator.T"/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new public="1" get="inline" set="null" line="30"><f a="array">
+	<c path="Array"><c path="haxe.iterators.ArrayKeyValueIterator.T"/></c>
+	<x path="Void"/>
+</f></new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":ifFeature">
+				<e>"anon_read.keyValueIterator"</e>
+				<e>"dynamic_read.keyValueIterator"</e>
+			</m>
+		</meta>
 	</class>
 	<class path="haxe.iterators.DynamicAccessIterator" params="T" file="/home/vsts/work/1/s/std/haxe/iterators/DynamicAccessIterator.hx">
 		<access final="1"><x path="haxe.DynamicAccess"><c path="haxe.iterators.DynamicAccessIterator.T"/></x></access>

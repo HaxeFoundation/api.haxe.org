@@ -221,12 +221,12 @@
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="Array" params="T" file="/home/vsts/work/1/s/std/neko/_std/Array.hx" final="1">
-		<new1 params="T" set="method" line="32" static="1"><f a="a:l">
+		<new1 params="T" set="method" line="35" static="1"><f a="a:l">
 	<c path="neko.NativeArray"><c path="new1.T"/></c>
 	<x path="Int"/>
 	<c path="Array"><c path="new1.T"/></c>
 </f></new1>
-		<__hx_toString_depth expr="0" line="85" static="1">
+		<__hx_toString_depth expr="0" line="92" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>0</e></m></meta>
 		</__hx_toString_depth>
@@ -235,7 +235,7 @@
 			<x path="Int"/>
 			<haxe_doc>The length of `this` Array.</haxe_doc>
 		</length>
-		<concat public="1" set="method" line="39">
+		<concat public="1" set="method" line="42">
 			<f a="a">
 				<c path="Array"><c path="Array.T"/></c>
 				<c path="Array"><c path="Array.T"/></c>
@@ -252,7 +252,7 @@
 
 		If `a` is `null`, the result is unspecified.</haxe_doc>
 		</concat>
-		<copy public="1" set="method" line="50">
+		<copy public="1" set="method" line="53">
 			<f a=""><c path="Array"><c path="Array.T"/></c></f>
 			<haxe_doc>Returns a shallow copy of `this` Array.
 
@@ -260,11 +260,15 @@
 		`a[i] == a.copy()[i]` is true for any valid `i`. However,
 		`a == a.copy()` is always false.</haxe_doc>
 		</copy>
-		<iterator public="1" get="inline" set="null" line="54">
+		<iterator public="1" get="inline" set="null" line="57">
 			<f a=""><c path="haxe.iterators.ArrayIterator"><c path="Array.T"/></c></f>
 			<haxe_doc>Returns an iterator of the Array values.</haxe_doc>
 		</iterator>
-		<insert public="1" set="method" line="58">
+		<keyValueIterator public="1" get="inline" set="null" line="61">
+			<f a=""><c path="haxe.iterators.ArrayKeyValueIterator"><c path="Array.T"/></c></f>
+			<haxe_doc>Returns an iterator of the Array indices and values.</haxe_doc>
+		</keyValueIterator>
+		<insert public="1" set="method" line="65">
 			<f a="pos:x">
 				<x path="Int"/>
 				<c path="Array.T"/>
@@ -286,7 +290,7 @@
 		and including that offset to the end of `this` Array are moved one index
 		ahead.</haxe_doc>
 		</insert>
-		<join public="1" set="method" line="73">
+		<join public="1" set="method" line="80">
 			<f a="sep">
 				<c path="String"/>
 				<c path="String"/>
@@ -303,7 +307,7 @@
 
 		If `sep` is null, the result is unspecified.</haxe_doc>
 		</join>
-		<toString public="1" set="method" line="87">
+		<toString public="1" set="method" line="94">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns a string representation of `this` Array.
 
@@ -312,7 +316,7 @@
 		use `Std.string()` to get a String representation that is consistent
 		across platforms.</haxe_doc>
 		</toString>
-		<pop public="1" set="method" line="110">
+		<pop public="1" set="method" line="117">
 			<f a=""><x path="Null"><c path="Array.T"/></x></f>
 			<haxe_doc>Removes the last element of `this` Array and returns it.
 
@@ -323,7 +327,7 @@
 		If `this` is the empty Array `[]`, null is returned and the length
 		remains 0.</haxe_doc>
 		</pop>
-		<push public="1" set="method" line="119">
+		<push public="1" set="method" line="126">
 			<f a="x">
 				<c path="Array.T"/>
 				<x path="Int"/>
@@ -335,7 +339,7 @@
 
 		`this.length` increases by 1.</haxe_doc>
 		</push>
-		<unshift public="1" set="method" line="126">
+		<unshift public="1" set="method" line="133">
 			<f a="x">
 				<c path="Array.T"/>
 				<x path="Void"/>
@@ -346,7 +350,7 @@
 
 		`this.length` and the index of each Array element increases by 1.</haxe_doc>
 		</unshift>
-		<remove public="1" set="method" line="134">
+		<remove public="1" set="method" line="141">
 			<f a="x">
 				<c path="Array.T"/>
 				<x path="Bool"/>
@@ -362,7 +366,7 @@
 		If `x` is not found, `this` Array is not changed and the function
 		returns false.</haxe_doc>
 		</remove>
-		<contains public="1" set="method" line="151">
+		<contains public="1" set="method" line="158">
 			<f a="x">
 				<c path="Array.T"/>
 				<x path="Bool"/>
@@ -372,7 +376,7 @@
 		If `x` is found by checking standard equality, the function returns `true`, otherwise
 		the function returns `false`.</haxe_doc>
 		</contains>
-		<indexOf public="1" set="method" line="164">
+		<indexOf public="1" set="method" line="171">
 			<f a="x:?fromIndex">
 				<c path="Array.T"/>
 				<x path="Int"/>
@@ -390,7 +394,7 @@
 		starting index is less than 0, the whole array will be searched, if it is greater than
 		or equal to the length of `this` Array, the function returns -1.</haxe_doc>
 		</indexOf>
-		<lastIndexOf public="1" set="method" line="181">
+		<lastIndexOf public="1" set="method" line="188">
 			<f a="x:?fromIndex">
 				<c path="Array.T"/>
 				<x path="Int"/>
@@ -408,7 +412,7 @@
 		given or computed starting index is greater than or equal to the length of `this` Array,
 		the whole array will be searched, if it is less than 0, the function returns -1.</haxe_doc>
 		</lastIndexOf>
-		<reverse public="1" set="method" line="197">
+		<reverse public="1" set="method" line="204">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc><![CDATA[Reverse the order of elements of `this` Array.
 
@@ -416,7 +420,7 @@
 
 		If `this.length < 2`, `this` remains unchanged.]]></haxe_doc>
 		</reverse>
-		<shift public="1" set="method" line="211">
+		<shift public="1" set="method" line="218">
 			<f a=""><x path="Null"><c path="Array.T"/></x></f>
 			<haxe_doc>Removes the first element of `this` Array and returns it.
 
@@ -428,7 +432,7 @@
 		If `this` is the empty Array `[]`, `null` is returned and the length
 		remains 0.</haxe_doc>
 		</shift>
-		<slice public="1" set="method" line="224">
+		<slice public="1" set="method" line="231">
 			<f a="pos:?end">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -451,7 +455,7 @@
 		If `pos` exceeds `this.length` or if `end` is less than or equals
 		`pos`, the result is `[]`.</haxe_doc>
 		</slice>
-		<sort public="1" set="method" line="242">
+		<sort public="1" set="method" line="249">
 			<f a="f">
 				<f a=":">
 					<c path="Array.T"/>
@@ -472,7 +476,7 @@
 
 		If `f` is null, the result is unspecified.]]></haxe_doc>
 		</sort>
-		<splice public="1" set="method" line="265">
+		<splice public="1" set="method" line="272">
 			<f a="pos:len">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -499,7 +503,7 @@
 		words, each element of the original `this` Array either remains in
 		`this` Array or becomes an element of the returned Array.]]></haxe_doc>
 		</splice>
-		<map public="1" params="S" get="inline" set="null" line="291">
+		<map public="1" params="S" get="inline" set="null" line="298">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -513,7 +517,7 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</map>
-		<filter public="1" get="inline" set="null" line="300">
+		<filter public="1" get="inline" set="null" line="307">
 			<f a="f">
 				<f a="">
 					<c path="Array.T"/>
@@ -528,7 +532,7 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</filter>
-		<resize public="1" set="method" line="308">
+		<resize public="1" set="method" line="315">
 			<f a="len">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -544,29 +548,24 @@
 		- 0, 0.0 or false for Int, Float and Bool respectively on static targets
 		- null for other types on static targets</haxe_doc>
 		</resize>
-		<__get set="method" line="320"><f a="pos">
+		<__get set="method" line="327"><f a="pos">
 	<x path="Int"/>
 	<c path="Array.T"/>
 </f></__get>
-		<__set set="method" line="324"><f a="pos:v">
+		<__set set="method" line="331"><f a="pos:v">
 	<x path="Int"/>
 	<c path="Array.T"/>
 	<c path="Array.T"/>
 </f></__set>
-		<__grow set="method" line="345"><f a="l">
+		<__grow set="method" line="352"><f a="l">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></__grow>
-		<__neko set="method" line="361"><f a=""><c path="neko.NativeArray"><c path="Array.T"/></c></f></__neko>
-		<new public="1" set="method" line="27">
+		<__neko set="method" line="368"><f a=""><c path="neko.NativeArray"><c path="Array.T"/></c></f></__neko>
+		<new public="1" set="method" line="30">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new Array.</haxe_doc>
 		</new>
-		<haxe_doc>An Array is a storage for values. You can access it using indexes or
-	with its API.
-
-	@see https://haxe.org/manual/std-Array.html
-	@see https://haxe.org/manual/lf-array-comprehension.html</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":coreApi"/>
@@ -26203,6 +26202,29 @@
 			</f>
 			<meta><m n=":value"><e>{ bytePos : 0 }</e></m></meta>
 		</fromBytes>
+	</class>
+	<class path="haxe.iterators.ArrayKeyValueIterator" params="T" file="/home/vsts/work/1/s/std/haxe/iterators/ArrayKeyValueIterator.hx">
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<array><c path="Array"><c path="haxe.iterators.ArrayKeyValueIterator.T"/></c></array>
+		<hasNext public="1" get="inline" set="null" line="35"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="40"><f a=""><a>
+	<value><c path="haxe.iterators.ArrayKeyValueIterator.T"/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new public="1" get="inline" set="null" line="30"><f a="array">
+	<c path="Array"><c path="haxe.iterators.ArrayKeyValueIterator.T"/></c>
+	<x path="Void"/>
+</f></new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":ifFeature">
+				<e>"anon_read.keyValueIterator"</e>
+				<e>"dynamic_read.keyValueIterator"</e>
+			</m>
+		</meta>
 	</class>
 	<class path="haxe.iterators.DynamicAccessIterator" params="T" file="/home/vsts/work/1/s/std/haxe/iterators/DynamicAccessIterator.hx">
 		<access final="1"><x path="haxe.DynamicAccess"><c path="haxe.iterators.DynamicAccessIterator.T"/></x></access>
