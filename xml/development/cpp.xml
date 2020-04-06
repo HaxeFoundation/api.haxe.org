@@ -1645,7 +1645,7 @@
 			</f>
 			<haxe_doc>Returns the absolute value of `v`.
 
-		- If `v` is positive or `0`, the result is unchanged. Otherwise the result is -`v`.
+		- If `v` is positive or `0`, the result is unchanged. Otherwise the result is `-v`.
 		- If `v` is `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`, the result is `POSITIVE_INFINITY`.
 		- If `v` is `NaN`, the result is `NaN`.</haxe_doc>
 		</abs>
@@ -34240,8 +34240,9 @@
 			<haxe_doc>Represents a regular expression literal.
 
 		Example: `~/haxe/i`
-		* The first argument _haxe_ is a string with regular expression pattern.
-		* The second argument _i_ is a string with regular expression flags.
+
+		- The first argument `haxe` is a string with regular expression pattern.
+		- The second argument `i` is a string with regular expression flags.
 
 		@see https://haxe.org/manual/std-regex.html</haxe_doc>
 		</CRegexp>
@@ -34271,17 +34272,7 @@
 		<OpMod><haxe_doc>`%`</haxe_doc></OpMod>
 		<OpAssignOp a="op">
 			<e path="haxe.macro.Binop"/>
-			<haxe_doc><![CDATA[`+=`
-		`-=`
-		`/=`
-		`*=`
-		`<<=`
-		`>>=`
-		`>>>=`
-		`|=`
-		`&=`
-		`^=`
-		`%=`]]></haxe_doc>
+			<haxe_doc><![CDATA[`+=` `-=` `/=` `*=` `<<=` `>>=` `>>>=` `|=` `&=` `^=` `%=`]]></haxe_doc>
 		</OpAssignOp>
 		<OpInterval><haxe_doc>`...`</haxe_doc></OpInterval>
 		<OpArrow><haxe_doc><![CDATA[`=>`]]></haxe_doc></OpArrow>
@@ -34377,7 +34368,7 @@
 			</expr>
 		</a>
 		<haxe_doc>Represents a catch in the AST.
-	@https://haxe.org/manual/expression-try-catch.html</haxe_doc>
+	@see https://haxe.org/manual/expression-try-catch.html</haxe_doc>
 	</typedef>
 	<enum path="haxe.macro.QuoteStatus" params="" file="/home/vsts/work/1/s/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
 		<Unquoted><haxe_doc>No quotes</haxe_doc></Unquoted>
@@ -34462,13 +34453,13 @@
 			<t path="haxe.macro.Expr"/>
 			<haxe_doc>An unary operator `op` on `e`:
 
-		* e++ (op = OpIncrement, postFix = true)
-		* e-- (op = OpDecrement, postFix = true)
-		* ++e (op = OpIncrement, postFix = false)
-		* --e (op = OpDecrement, postFix = false)
-		* -e (op = OpNeg, postFix = false)
-		* !e (op = OpNot, postFix = false)
-		* ~e (op = OpNegBits, postFix = false)</haxe_doc>
+		- `e++` (`op = OpIncrement, postFix = true`)
+		- `e--` (`op = OpDecrement, postFix = true`)
+		- `++e` (`op = OpIncrement, postFix = false`)
+		- `--e` (`op = OpDecrement, postFix = false`)
+		- `-e` (`op = OpNeg, postFix = false`)
+		- `!e` (`op = OpNot, postFix = false`)
+		- `~e` (`op = OpNegBits, postFix = false`)</haxe_doc>
 		</EUnop>
 		<EVars a="vars">
 			<c path="Array"><t path="haxe.macro.Var"/></c>
@@ -34492,14 +34483,16 @@
 			<t path="haxe.macro.Expr"/>
 			<t path="haxe.macro.Expr"/>
 			<x path="Null"><t path="haxe.macro.Expr"/></x>
-			<haxe_doc>An `if(econd) eif` or `if(econd) eif else eelse` expression.</haxe_doc>
+			<haxe_doc>An `if (econd) eif` or `if (econd) eif else eelse` expression.</haxe_doc>
 		</EIf>
 		<EWhile a="econd:e:normalWhile">
 			<t path="haxe.macro.Expr"/>
 			<t path="haxe.macro.Expr"/>
 			<x path="Bool"/>
 			<haxe_doc>Represents a `while` expression.
+
 		When `normalWhile` is `true` it is `while (...)`.
+
 		When `normalWhile` is `false` it is `do {...} while (...)`.</haxe_doc>
 		</EWhile>
 		<ESwitch a="e:cases:edef">
@@ -34507,7 +34500,7 @@
 			<c path="Array"><t path="haxe.macro.Case"/></c>
 			<x path="Null"><t path="haxe.macro.Expr"/></x>
 			<haxe_doc>Represents a `switch` expression with related cases and an optional.
-		`default` case if edef != null.</haxe_doc>
+		`default` case if `edef != null`.</haxe_doc>
 		</ESwitch>
 		<ETry a="e:catches">
 			<t path="haxe.macro.Expr"/>
@@ -34536,11 +34529,11 @@
 		<EDisplay a="e:displayKind">
 			<t path="haxe.macro.Expr"/>
 			<e path="haxe.macro.DisplayKind"/>
-			<haxe_doc>Internally used to provide completion.</haxe_doc>
+			<haxe_doc>Used internally to provide completion.</haxe_doc>
 		</EDisplay>
 		<EDisplayNew a="t">
 			<t path="haxe.macro.TypePath"/>
-			<haxe_doc>Internally used to provide completion.</haxe_doc>
+			<haxe_doc>Used internally to provide completion.</haxe_doc>
 		</EDisplayNew>
 		<ETernary a="econd:eif:eelse">
 			<t path="haxe.macro.Expr"/>
@@ -34616,7 +34609,7 @@
 				<x path="Null"><c path="String"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>Sub is set on module sub-type access:
-		`pack.Module.Type` has name = Module, sub = Type, if available.</haxe_doc>
+		`pack.Module.Type` has `name = "Module"`, `sub = "Type"`, if available.</haxe_doc>
 			</sub>
 			<params>
 				<x path="Null"><c path="Array"><e path="haxe.macro.TypeParam"/></c></x>
@@ -34635,14 +34628,8 @@
 		<haxe_doc>Represents a type path in the AST.</haxe_doc>
 	</typedef>
 	<enum path="haxe.macro.TypeParam" params="" file="/home/vsts/work/1/s/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
-		<TPType a="t">
-			<e path="haxe.macro.ComplexType"/>
-			<haxe_doc></haxe_doc>
-		</TPType>
-		<TPExpr a="e">
-			<t path="haxe.macro.Expr"/>
-			<haxe_doc></haxe_doc>
-		</TPExpr>
+		<TPType a="t"><e path="haxe.macro.ComplexType"/></TPType>
+		<TPExpr a="e"><t path="haxe.macro.Expr"/></TPExpr>
 		<haxe_doc><![CDATA[Represents a concrete type parameter in the AST.
 
 	Haxe allows expressions in concrete type parameters, e.g.
@@ -34793,7 +34780,7 @@
 		<AInline><haxe_doc>Inline access modifier. Allows expressions to be directly inserted in
 		place of calls to them.
 		@see https://haxe.org/manual/class-field-inline.html</haxe_doc></AInline>
-		<AMacro><haxe_doc>Macros access modifier. Allows expression macro functions. These are
+		<AMacro><haxe_doc>Macro access modifier. Allows expression macro functions. These are
 		normal functions which are executed as soon as they are typed.</haxe_doc></AMacro>
 		<AFinal><haxe_doc>Final access modifier. For functions, they can not be overridden. For
 		variables, it means they can be assigned to only once.</haxe_doc></AFinal>
@@ -34898,11 +34885,11 @@
 			<t path="haxe.macro.Position"/>
 			<haxe_doc>The position of the error.</haxe_doc>
 		</pos>
-		<toString set="method" line="995">
+		<toString set="method" line="983">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the string representation of the error.</haxe_doc>
 		</toString>
-		<new public="1" set="method" line="987">
+		<new public="1" set="method" line="975">
 			<f a="m:p">
 				<c path="String"/>
 				<t path="haxe.macro.Position"/>
