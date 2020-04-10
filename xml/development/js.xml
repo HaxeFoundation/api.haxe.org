@@ -728,29 +728,60 @@
 	milliseconds elapsed since 1st January 1970.</haxe_doc>
 	</class>
 	<class path="js.lib.RegExp" params="" file="/home/vsts/work/1/s/std/js/lib/RegExp.hx" extern="1">
-		<global public="1" set="null"><x path="Bool"/></global>
-		<ignoreCase public="1" set="null"><x path="Bool"/></ignoreCase>
-		<multiline public="1" set="null"><x path="Bool"/></multiline>
-		<source public="1" set="null"><c path="String"/></source>
-		<lastIndex public="1"><x path="Int"/></lastIndex>
-		<exec public="1" set="method"><f a="str">
-	<c path="String"/>
-	<x path="Null"><c path="js.lib.RegExpMatch"/></x>
-</f></exec>
-		<test public="1" set="method"><f a="str">
-	<c path="String"/>
-	<x path="Bool"/>
-</f></test>
-		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
-		<new public="1" set="method"><f a="pattern:?flags">
-	<c path="String"/>
-	<c path="String"/>
-	<x path="Void"/>
-</f></new>
-		<haxe_doc>Native JavaScript regular expressions.
+		<global public="1" set="null">
+			<x path="Bool"/>
+			<haxe_doc>Indicates whether or not the "g" flag is used with the regular expression.</haxe_doc>
+		</global>
+		<ignoreCase public="1" set="null">
+			<x path="Bool"/>
+			<haxe_doc>Indicates whether or not the "i" flag is used with the regular expression.</haxe_doc>
+		</ignoreCase>
+		<multiline public="1" set="null">
+			<x path="Bool"/>
+			<haxe_doc>Indicates whether or not the "m" flag is used with the regular expression.</haxe_doc>
+		</multiline>
+		<source public="1" set="null">
+			<c path="String"/>
+			<haxe_doc>The source text of the regexp object, it doesn't contain the two forward slashes on both sides and any flags.</haxe_doc>
+		</source>
+		<lastIndex public="1">
+			<x path="Int"/>
+			<haxe_doc>The index at which to start the next match.</haxe_doc>
+		</lastIndex>
+		<exec public="1" set="method">
+			<f a="str">
+				<c path="String"/>
+				<x path="Null"><c path="js.lib.RegExpMatch"/></x>
+			</f>
+			<haxe_doc>Execute a search for a match in a specified string.
+		Returns a result array, or null.</haxe_doc>
+		</exec>
+		<test public="1" set="method">
+			<f a="str">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Execute a search for a match between a regular expression and a specified string.
+		Returns true or false.</haxe_doc>
+		</test>
+		<toString public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Return a string representing the regular expression.</haxe_doc>
+		</toString>
+		<new public="1" set="method">
+			<f a="pattern:?flags">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Create a regular expression object for matching text with a pattern.</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[Native JavaScript regular expressions.
 
 	For cross-platform regular expressions, use Haxe `EReg` class or
-	[regexp literals](https://haxe.org/manual/std-regex.html).</haxe_doc>
+	[regexp literals](https://haxe.org/manual/std-regex.html).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp>]]></haxe_doc>
 		<meta><m n=":native"><e>"RegExp"</e></m></meta>
 	</class>
 	<class path="EReg" params="" file="/home/vsts/work/1/s/std/js/_std/EReg.hx">
@@ -85889,8 +85920,22 @@
 	</class>
 	<class path="js.lib.RegExpMatch" params="" file="/home/vsts/work/1/s/std/js/lib/RegExp.hx" module="js.lib.RegExp" extern="1">
 		<extends path="Array"><c path="String"/></extends>
-		<index public="1"><x path="Int"/></index>
-		<input public="1"><c path="String"/></input>
+		<index public="1">
+			<x path="Int"/>
+			<haxe_doc>The index of the search at which the result was found.</haxe_doc>
+		</index>
+		<input public="1">
+			<c path="String"/>
+			<haxe_doc>A copy of the search string.</haxe_doc>
+		</input>
+		<groups public="1">
+			<x path="Null"><x path="haxe.DynamicAccess"><c path="String"/></x></x>
+			<haxe_doc>Named capturing groups or undefined if no named capturing groups were defined.
+		See [Groups and Ranges](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Groups_and_Ranges) for more information.
+
+		Note: Not all browsers support this feature; refer to the [compatibility table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Browser_compatibility).</haxe_doc>
+		</groups>
+		<haxe_doc>A return value of the `RegExp.exec` method.</haxe_doc>
 	</class>
 	<class path="js.lib.Set" params="T" file="/home/vsts/work/1/s/std/js/lib/Set.hx" extern="1">
 		<size public="1" set="null">
