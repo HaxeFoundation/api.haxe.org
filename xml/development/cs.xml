@@ -69828,12 +69828,12 @@
 			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<CompletionItemResolveParams,CompletionItemResolveResult>("display/completionItem/resolve")]]></e></m></meta>
 			<haxe_doc>The request is sent from the client to Haxe to resolve additional information for a given completion item.</haxe_doc>
 		</CompletionItemResolve>
-		<FindReferences public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;PositionParams,GotoDefinitionResult&gt;(&quot;display/references&quot;)" line="49" static="1">
+		<FindReferences public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;FindReferencesParams,GotoDefinitionResult&gt;(&quot;display/references&quot;)" line="49" static="1">
 			<x path="haxe.display.HaxeRequestMethod">
-				<t path="haxe.display.PositionParams"/>
+				<t path="haxe.display.FindReferencesParams"/>
 				<t path="haxe.display.GotoDefinitionResult"/>
 			</x>
-			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<PositionParams,GotoDefinitionResult>("display/references")]]></e></m></meta>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<FindReferencesParams,GotoDefinitionResult>("display/references")]]></e></m></meta>
 			<haxe_doc>The find references request is sent from the client to Haxe to find locations that reference the symbol at a given text document position.</haxe_doc>
 		</FindReferences>
 		<GotoDefinition public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;PositionParams,GotoDefinitionResult&gt;(&quot;display/definition&quot;)" line="54" static="1">
@@ -72255,6 +72255,103 @@
 		<t path="haxe.display.Response"><a><item><t path="haxe.display.DisplayItem"><d/></t></item></a></t>
 		<meta><m n=":nativeGen"/></meta>
 	</typedef>
+	<typedef path="haxe.display.FindReferencesParams" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<a>
+			<offset>
+				<x path="Int"/>
+				<haxe_doc>Unicode character offset in the file.</haxe_doc>
+			</offset>
+			<kind>
+				<x path="Null"><x path="haxe.display.FindReferencesKind"/></x>
+				<meta><m n=":optional"/></meta>
+			</kind>
+			<file><x path="haxe.display.FsPath"/></file>
+			<contents>
+				<x path="Null"><c path="String"/></x>
+				<meta><m n=":optional"/></meta>
+			</contents>
+		</a>
+		<haxe_doc>FindReferences</haxe_doc>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<abstract path="haxe.display.FindReferencesKind" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
+		<this><c path="String"/></this>
+		<to><icast><c path="String"/></icast></to>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":enum"/>
+		</meta>
+		<impl><class path="haxe.display._Display.FindReferencesKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1" final="1">
+	<Direct public="1" get="inline" set="null" expr="cast &quot;direct&quot;" line="477" static="1">
+		<x path="haxe.display.FindReferencesKind"/>
+		<meta>
+			<m n=":value"><e>cast "direct"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>Find only direct references to the requested symbol.
+		Does not look for references to parent or overriding methods.</haxe_doc>
+	</Direct>
+	<WithBaseAndDescendants public="1" get="inline" set="null" expr="cast &quot;withBaseAndDescendants&quot;" line="481" static="1">
+		<x path="haxe.display.FindReferencesKind"/>
+		<meta>
+			<m n=":value"><e>cast "withBaseAndDescendants"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>Find references to the base field and all the overidding fields in the inheritance chain.</haxe_doc>
+	</WithBaseAndDescendants>
+	<WithDescendants public="1" get="inline" set="null" expr="cast &quot;withDescendants&quot;" line="486" static="1">
+		<x path="haxe.display.FindReferencesKind"/>
+		<meta>
+			<m n=":value"><e>cast "withDescendants"</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>Find references to the requested field and references to all
+		descendants of the requested field.</haxe_doc>
+	</WithDescendants>
+	<meta>
+		<m n=":nativeGen"/>
+		<m n=":enum"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.display._Display.FindReferencesKind_Impl_" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" private="1" module="haxe.display.Display" extern="1" final="1">
+		<Direct public="1" get="inline" set="null" expr="cast &quot;direct&quot;" line="477" static="1">
+			<x path="haxe.display.FindReferencesKind"/>
+			<meta>
+				<m n=":value"><e>cast "direct"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>Find only direct references to the requested symbol.
+		Does not look for references to parent or overriding methods.</haxe_doc>
+		</Direct>
+		<WithBaseAndDescendants public="1" get="inline" set="null" expr="cast &quot;withBaseAndDescendants&quot;" line="481" static="1">
+			<x path="haxe.display.FindReferencesKind"/>
+			<meta>
+				<m n=":value"><e>cast "withBaseAndDescendants"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>Find references to the base field and all the overidding fields in the inheritance chain.</haxe_doc>
+		</WithBaseAndDescendants>
+		<WithDescendants public="1" get="inline" set="null" expr="cast &quot;withDescendants&quot;" line="486" static="1">
+			<x path="haxe.display.FindReferencesKind"/>
+			<meta>
+				<m n=":value"><e>cast "withDescendants"</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>Find references to the requested field and references to all
+		descendants of the requested field.</haxe_doc>
+		</WithDescendants>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":enum"/>
+		</meta>
+	</class>
 	<typedef path="haxe.display.GotoDefinitionResult" params="" file="/home/vsts/work/1/s/std/haxe/display/Display.hx" module="haxe.display.Display">
 		<t path="haxe.display.Response"><c path="Array"><t path="haxe.display.Location"/></c></t>
 		<haxe_doc>GotoDefinition</haxe_doc>
