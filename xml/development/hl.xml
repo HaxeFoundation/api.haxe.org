@@ -1024,7 +1024,6 @@
 	A detailed explanation of the supported operations is available at
 	<https://haxe.org/manual/std-regex.html>]]></haxe_doc>
 		<meta>
-			<m n=":directlyUsed"/>
 			<m n=":access"><e>String</e></m>
 			<m n=":coreApi"/>
 		</meta>
@@ -5813,7 +5812,6 @@
 		</Method>
 		<LocalFunction a="?v"><x path="Int"/></LocalFunction>
 		<haxe_doc>Elements return by `CallStack` methods.</haxe_doc>
-		<meta><m n=":directlyUsed"/></meta>
 	</enum>
 	<abstract path="haxe.CallStack" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx">
 		<from><icast><c path="Array"><e path="haxe.StackItem"/></c></icast></from>
@@ -5906,7 +5904,6 @@
 	<x path="Void"/>
 </f></itemToString>
 	<meta>
-		<m n=":directlyUsed"/>
 		<m n=":using"><e>haxe.CallStack</e></m>
 		<m n=":allow"><e>haxe.Exception</e></m>
 	</meta>
@@ -5995,7 +5992,6 @@
 	<x path="Void"/>
 </f></itemToString>
 		<meta>
-			<m n=":directlyUsed"/>
 			<m n=":using"><e>haxe.CallStack</e></m>
 			<m n=":allow"><e>haxe.Exception</e></m>
 		</meta>
@@ -6825,21 +6821,25 @@
 		<unwrap set="method" line="47"><f a=""><x path="Any"/></f></unwrap>
 		<toString public="1" set="method" line="51">
 			<f a=""><c path="String"/></f>
-			<haxe_doc>Exception description.
-
-		Includes message, stack and the previous exception (if set).</haxe_doc>
+			<haxe_doc>Returns exception message.</haxe_doc>
 		</toString>
-		<__shiftStack get="inline" set="null" line="57">
+		<details public="1" set="method" line="55">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Detailed exception description.
+
+		Includes message, stack and the chain of previous exceptions (if set).</haxe_doc>
+		</details>
+		<__shiftStack get="inline" set="null" line="61">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":ifFeature"><e>"haxe.Exception.get_stack"</e></m>
 			</meta>
 		</__shiftStack>
-		<get_message set="method" line="61"><f a=""><c path="String"/></f></get_message>
-		<get_previous set="method" line="65"><f a=""><x path="Null"><c path="haxe.Exception"/></x></f></get_previous>
-		<get_native final="1" set="method" line="69"><f a=""><x path="Any"/></f></get_native>
-		<get_stack set="method" line="73"><f a=""><x path="haxe.CallStack"/></f></get_stack>
+		<get_message set="method" line="65"><f a=""><c path="String"/></f></get_message>
+		<get_previous set="method" line="69"><f a=""><x path="Null"><c path="haxe.Exception"/></x></f></get_previous>
+		<get_native final="1" set="method" line="73"><f a=""><x path="Any"/></f></get_native>
+		<get_stack set="method" line="77"><f a=""><x path="haxe.CallStack"/></f></get_stack>
 		<new public="1" set="method" line="35">
 			<f a="message:?previous:?native">
 				<c path="String"/>
