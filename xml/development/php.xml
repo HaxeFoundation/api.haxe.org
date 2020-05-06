@@ -80,26 +80,30 @@
 			</meta>
 		</toString>
 	</class>
-	<class path="php.JsonSerializable" params="T" file="/home/vsts/work/1/s/std/php/JsonSerializable.hx" extern="1" interface="1">
-		<jsonSerialize set="method"><f a=""><c path="php.JsonSerializable.T"/></f></jsonSerialize>
-		<haxe_doc>@see https://www.php.net/manual/en/class.jsonserializable.php</haxe_doc>
+	<class path="_Array.JsonSerializable" params="T" file="/home/vsts/work/1/s/std/php/_std/Array.hx" private="1" module="Array" extern="1" interface="1">
+		<jsonSerialize set="method"><f a=""><c path="_Array.JsonSerializable.T"/></f></jsonSerialize>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":native"><e>"JsonSerializable"</e></m>
+		</meta>
+	</class>
+	<class path="_Array.Countable" params="" file="/home/vsts/work/1/s/std/php/_std/Array.hx" private="1" module="Array" extern="1" interface="1">
+		<_hx_count set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":native"><e>"count"</e></m></meta>
+		</_hx_count>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"Countable"</e></m>
 		</meta>
 	</class>
 	<class path="php.Traversable" params="" file="/home/vsts/work/1/s/std/php/Traversable.hx" extern="1" interface="1">
 		<haxe_doc>@see http://php.net/manual/en/class.traversable.php</haxe_doc>
 		<meta><m n=":native"><e>"Traversable"</e></m></meta>
 	</class>
-	<class path="php.IteratorAggregate" params="T" file="/home/vsts/work/1/s/std/php/IteratorAggregate.hx" extern="1" interface="1">
+	<class path="_Array.IteratorAggregate" params="T" file="/home/vsts/work/1/s/std/php/_std/Array.hx" private="1" module="Array" extern="1" interface="1">
 		<extends path="php.Traversable"/>
-		<getIterator set="method">
-			<f a=""><c path="php.Traversable"/></f>
-			<haxe_doc>This method is not public to not induce Haxe users to use it ;)
-		Use iterator() instead.</haxe_doc>
-		</getIterator>
-		<haxe_doc>@see https://www.php.net/manual/en/class.iteratoraggregate.php</haxe_doc>
+		<getIterator set="method"><f a=""><c path="php.Traversable"/></f></getIterator>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":native"><e>"IteratorAggregate"</e></m>
@@ -123,20 +127,22 @@
 	<c path="_Array.ArrayAccess.K"/>
 	<x path="Void"/>
 </f></offsetUnset>
-		<haxe_doc>This one is required for `Array`</haxe_doc>
+		<haxe_doc>Following interfaces are required to make `Array` mimic native arrays for usage
+	from a 3rd party PHP code.</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":native"><e>"ArrayAccess"</e></m>
 		</meta>
 	</class>
 	<class path="Array" params="T" file="/home/vsts/work/1/s/std/php/_std/Array.hx" final="1">
-		<implements path="php.JsonSerializable"><x path="php.NativeIndexedArray"><c path="Array.T"/></x></implements>
-		<implements path="php.IteratorAggregate"><c path="Array.T"/></implements>
+		<implements path="_Array.JsonSerializable"><x path="php.NativeIndexedArray"><c path="Array.T"/></x></implements>
+		<implements path="_Array.Countable"/>
+		<implements path="_Array.IteratorAggregate"><c path="Array.T"/></implements>
 		<implements path="_Array.ArrayAccess">
 			<x path="Int"/>
 			<c path="Array.T"/>
 		</implements>
-		<wrap params="T" set="method" line="253" static="1"><f a="arr">
+		<wrap params="T" set="method" line="259" static="1"><f a="arr">
 	<x path="php.NativeIndexedArray"><c path="wrap.T"/></x>
 	<c path="Array"><c path="wrap.T"/></c>
 </f></wrap>
@@ -469,14 +475,20 @@
 				<x path="Int"/>
 				<x path="Bool"/>
 			</f>
-			<meta><m n=":noCompletion"/></meta>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":keep"/>
+			</meta>
 		</offsetExists>
 		<offsetGet set="method" line="215">
 			<f a="offset">
 				<x path="Int"/>
 				<t path="php.Ref"><c path="Array.T"/></t>
 			</f>
-			<meta><m n=":noCompletion"/></meta>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":keep"/>
+			</meta>
 		</offsetGet>
 		<offsetSet set="method" line="224">
 			<f a="offset:value">
@@ -484,14 +496,20 @@
 				<c path="Array.T"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":noCompletion"/></meta>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":keep"/>
+			</meta>
 		</offsetSet>
 		<offsetUnset set="method" line="236">
 			<f a="offset">
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":noCompletion"/></meta>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":keep"/>
+			</meta>
 		</offsetUnset>
 		<getIterator set="method" line="244">
 			<f a=""><c path="php.Traversable"/></f>
@@ -500,7 +518,15 @@
 				<m n=":keep"/>
 			</meta>
 		</getIterator>
-		<jsonSerialize set="method" line="249">
+		<_hx_count set="method" line="250">
+			<f a=""><x path="Int"/></f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":keep"/>
+				<m n=":native"><e>"count"</e></m>
+			</meta>
+		</_hx_count>
+		<jsonSerialize set="method" line="255">
 			<f a=""><x path="php.NativeIndexedArray"><c path="Array.T"/></x></f>
 			<meta>
 				<m n=":noCompletion"/>
@@ -28569,8 +28595,8 @@
 		</new>
 		<haxe_doc>This iterator can be used to iterate over char codes in a string.
 
-	Note that char codes may differ across platforms because of different
-	internal encoding of strings in different of runtimes.</haxe_doc>
+  Note that char codes may differ across platforms because of different
+  internal encoding of strings in different of runtimes.</haxe_doc>
 	</class>
 	<class path="haxe.iterators.StringIteratorUnicode" params="" file="/home/vsts/work/1/s/std/php/_std/haxe/iterators/StringIteratorUnicode.hx">
 		<unicodeIterator public="1" get="inline" set="null" line="63" static="1"><f a="s">
@@ -29771,22 +29797,16 @@
 		<haxe_doc>Represents a type definition kind.</haxe_doc>
 	</enum>
 	<class path="haxe.macro.Error" params="" file="/home/vsts/work/1/s/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
-		<message public="1">
-			<c path="String"/>
-			<haxe_doc>The error message.</haxe_doc>
-		</message>
+		<extends path="haxe.Exception"/>
 		<pos public="1">
 			<t path="haxe.macro.Position"/>
 			<haxe_doc>The position of the error.</haxe_doc>
 		</pos>
-		<toString set="method" line="983">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>Returns the string representation of the error.</haxe_doc>
-		</toString>
-		<new public="1" set="method" line="975">
-			<f a="m:p">
+		<new public="1" set="method" line="970">
+			<f a="message:pos:?previous">
 				<c path="String"/>
 				<t path="haxe.macro.Position"/>
+				<c path="haxe.Exception"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Instantiates an error with given message and position.</haxe_doc>
@@ -34664,6 +34684,17 @@
 	<c path="php.Generator"/>
 	<x path="Void"/>
 </f></new>
+	</class>
+	<class path="php.IteratorAggregate" params="T" file="/home/vsts/work/1/s/std/php/IteratorAggregate.hx" extern="1" interface="1">
+		<extends path="php.Traversable"/>
+		<getIterator public="1" set="method"><f a=""><c path="php.Traversable"/></f></getIterator>
+		<haxe_doc>@see https://www.php.net/manual/en/class.iteratoraggregate.php</haxe_doc>
+		<meta><m n=":native"><e>"IteratorAggregate"</e></m></meta>
+	</class>
+	<class path="php.JsonSerializable" params="T" file="/home/vsts/work/1/s/std/php/JsonSerializable.hx" extern="1" interface="1">
+		<jsonSerialize public="1" set="method"><f a=""><c path="php.JsonSerializable.T"/></f></jsonSerialize>
+		<haxe_doc>@see https://www.php.net/manual/en/class.jsonserializable.php</haxe_doc>
+		<meta><m n=":native"><e>"JsonSerializable"</e></m></meta>
 	</class>
 	<class path="php.Lib" params="" file="/home/vsts/work/1/s/std/php/Lib.hx">
 		<print public="1" get="inline" set="null" line="38" static="1">

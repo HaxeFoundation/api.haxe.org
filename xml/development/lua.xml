@@ -1010,7 +1010,11 @@
 		</lower>
 		<codes public="1" set="method" static="1"><f a="str">
 	<c path="String"/>
-	<f a=""><c path="lua.lib.luautf8.StringCodePoint"/></f>
+	<f a=":">
+		<c path="String"/>
+		<x path="Int"/>
+		<c path="lua.lib.luautf8.StringCodePoint"/>
+	</f>
 </f></codes>
 		<haxe_doc>These are all externs for the lua-utf8 library, which functions
 	as an additional set of string tools.
@@ -25620,31 +25624,21 @@
 	<e>"dynamic_read.keyValueIterator"</e>
 </m></meta>
 	</class>
-	<class path="haxe.iterators.StringIterator" params="" file="/home/vsts/work/1/s/std/haxe/iterators/StringIterator.hx">
-		<offset expr="0">
-			<x path="Int"/>
-			<meta><m n=":value"><e>0</e></m></meta>
-		</offset>
-		<s><c path="String"/></s>
-		<hasNext public="1" get="inline" set="null" line="45">
-			<f a=""><x path="Bool"/></f>
-			<haxe_doc>See `Iterator.hasNext`</haxe_doc>
-		</hasNext>
-		<next public="1" get="inline" set="null" line="52">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>See `Iterator.next`</haxe_doc>
-		</next>
-		<new public="1" get="inline" set="null" line="38">
-			<f a="s">
-				<c path="String"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Create a new `StringIterator` over String `s`.</haxe_doc>
-		</new>
-		<haxe_doc>This iterator can be used to iterate over char codes in a string.
-
-	Note that char codes may differ across platforms because of different
-	internal encoding of strings in different of runtimes.</haxe_doc>
+	<class path="haxe.iterators.StringIterator" params="" file="/home/vsts/work/1/s/std/lua/_std/haxe/iterators/StringIterator.hx">
+		<codes><f a=":">
+	<c path="String"/>
+	<x path="Int"/>
+	<c path="lua.lib.luautf8.StringCodePoint"/>
+</f></codes>
+		<codepoint><x path="Int"/></codepoint>
+		<str><c path="String"/></str>
+		<position><x path="Int"/></position>
+		<hasNext public="1" get="inline" set="null" line="39"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="43"><f a=""><x path="Int"/></f></next>
+		<new public="1" get="inline" set="null" line="31"><f a="s">
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
 	</class>
 	<class path="haxe.iterators.StringIteratorUnicode" params="" file="/home/vsts/work/1/s/std/haxe/iterators/StringIteratorUnicode.hx">
 		<unicodeIterator public="1" get="inline" set="null" line="70" static="1">
@@ -26891,22 +26885,16 @@
 		<haxe_doc>Represents a type definition kind.</haxe_doc>
 	</enum>
 	<class path="haxe.macro.Error" params="" file="/home/vsts/work/1/s/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
-		<message public="1">
-			<c path="String"/>
-			<haxe_doc>The error message.</haxe_doc>
-		</message>
+		<extends path="haxe.Exception"/>
 		<pos public="1">
 			<t path="haxe.macro.Position"/>
 			<haxe_doc>The position of the error.</haxe_doc>
 		</pos>
-		<toString set="method" line="983">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>Returns the string representation of the error.</haxe_doc>
-		</toString>
-		<new public="1" set="method" line="975">
-			<f a="m:p">
+		<new public="1" set="method" line="970">
+			<f a="message:pos:?previous">
 				<c path="String"/>
 				<t path="haxe.macro.Position"/>
+				<c path="haxe.Exception"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Instantiates an error with given message and position.</haxe_doc>
