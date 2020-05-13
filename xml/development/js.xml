@@ -31169,6 +31169,15 @@
 				<c path="defineProperty.T"/>
 			</f>
 			<haxe_doc>Adds the named property described by a given descriptor to an object.</haxe_doc>
+			<overloads><defineProperty public="1" params="T" set="method">
+	<f a="obj:prop:descriptor">
+		<c path="defineProperty.T"/>
+		<c path="js.lib.Symbol"/>
+		<t path="js.lib.ObjectPropertyDescriptor"/>
+		<c path="defineProperty.T"/>
+	</f>
+	<haxe_doc>Adds the named property described by a given descriptor to an object.</haxe_doc>
+</defineProperty></overloads>
 		</defineProperty>
 		<entries public="1" set="method" static="1">
 			<f a="obj">
@@ -31200,6 +31209,24 @@
 				<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"/></x>
 			</f>
 			<haxe_doc>Returns a property descriptor for a named property on an object.</haxe_doc>
+			<overloads>
+				<getOwnPropertyDescriptor public="1" params="T" set="method">
+					<f a="target:propertyKey">
+						<c path="Array"><c path="getOwnPropertyDescriptor.T"/></c>
+						<x path="Int"/>
+						<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+					</f>
+					<haxe_doc>Returns a property descriptor for a named property on an object.</haxe_doc>
+				</getOwnPropertyDescriptor>
+				<getOwnPropertyDescriptor public="1" set="method">
+					<f a="obj:prop">
+						<a/>
+						<c path="js.lib.Symbol"/>
+						<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+					</f>
+					<haxe_doc>Returns a property descriptor for a named property on an object.</haxe_doc>
+				</getOwnPropertyDescriptor>
+			</overloads>
 		</getOwnPropertyDescriptor>
 		<getOwnPropertyNames public="1" set="method" static="1">
 			<f a="obj">
@@ -85524,14 +85551,14 @@
 		<x path="Any"/>
 		<meta><m n=":impl"/></meta>
 	</value>
-	<get_key get="inline" set="null" line="253" static="1">
+	<get_key get="inline" set="null" line="256" static="1">
 		<f a="this">
 			<c path="Array"><x path="Any"/></c>
 			<c path="String"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_key>
-	<get_value get="inline" set="null" line="256" static="1">
+	<get_value get="inline" set="null" line="259" static="1">
 		<f a="this">
 			<c path="Array"><x path="Any"/></c>
 			<x path="Any"/>
@@ -85549,14 +85576,14 @@
 			<x path="Any"/>
 			<meta><m n=":impl"/></meta>
 		</value>
-		<get_key get="inline" set="null" line="253" static="1">
+		<get_key get="inline" set="null" line="256" static="1">
 			<f a="this">
 				<c path="Array"><x path="Any"/></c>
 				<c path="String"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_key>
-		<get_value get="inline" set="null" line="256" static="1">
+		<get_value get="inline" set="null" line="259" static="1">
 			<f a="this">
 				<c path="Array"><x path="Any"/></c>
 				<x path="Any"/>
@@ -85749,7 +85776,13 @@
 	<set>
 		<x path="Null"><f a="target:property:value:receiver">
 	<c path="js.lib.ProxyHandler.T"/>
-	<c path="String"/>
+	<x path="haxe.extern.EitherType">
+		<c path="String"/>
+		<x path="haxe.extern.EitherType">
+			<x path="Int"/>
+			<c path="js.lib.Symbol"/>
+		</x>
+	</x>
 	<x path="Any"/>
 	<x path="Null"><a/></x>
 	<x path="Bool"/>
@@ -85784,7 +85817,13 @@
 	<has>
 		<x path="Null"><f a="target:prop">
 	<c path="js.lib.ProxyHandler.T"/>
-	<c path="String"/>
+	<x path="haxe.extern.EitherType">
+		<c path="String"/>
+		<x path="haxe.extern.EitherType">
+			<x path="Int"/>
+			<c path="js.lib.Symbol"/>
+		</x>
+	</x>
 	<x path="Bool"/>
 </f></x>
 		<meta><m n=":optional"/></meta>
@@ -85801,7 +85840,10 @@
 	<getOwnPropertyDescriptor>
 		<x path="Null"><f a="target:prop">
 	<c path="js.lib.ProxyHandler.T"/>
-	<c path="String"/>
+	<x path="haxe.extern.EitherType">
+		<c path="String"/>
+		<c path="js.lib.Symbol"/>
+	</x>
 	<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"/></x>
 </f></x>
 		<meta><m n=":optional"/></meta>
@@ -85810,7 +85852,13 @@
 	<get>
 		<x path="Null"><f a="target:property:receiver">
 	<c path="js.lib.ProxyHandler.T"/>
-	<c path="String"/>
+	<x path="haxe.extern.EitherType">
+		<c path="String"/>
+		<x path="haxe.extern.EitherType">
+			<x path="Int"/>
+			<c path="js.lib.Symbol"/>
+		</x>
+	</x>
 	<x path="Null"><a/></x>
 	<x path="Any"/>
 </f></x>
@@ -85820,7 +85868,13 @@
 	<deleteProperty>
 		<x path="Null"><f a="target:property">
 	<c path="js.lib.ProxyHandler.T"/>
-	<c path="String"/>
+	<x path="haxe.extern.EitherType">
+		<c path="String"/>
+		<x path="haxe.extern.EitherType">
+			<x path="Int"/>
+			<c path="js.lib.Symbol"/>
+		</x>
+	</x>
 	<x path="Bool"/>
 </f></x>
 		<meta><m n=":optional"/></meta>
@@ -85829,7 +85883,10 @@
 	<defineProperty>
 		<x path="Null"><f a="target:property:descriptor">
 	<c path="js.lib.ProxyHandler.T"/>
-	<c path="String"/>
+	<x path="haxe.extern.EitherType">
+		<c path="String"/>
+		<c path="js.lib.Symbol"/>
+	</x>
 	<t path="js.lib.ObjectPropertyDescriptor"/>
 	<x path="Bool"/>
 </f></x>
@@ -85896,6 +85953,15 @@
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>Similar to `Object.defineProperty()`. Returns a Bool.</haxe_doc>
+			<overloads><defineProperty public="1" set="method">
+	<f a="target:propertyKey:attributes">
+		<a/>
+		<c path="js.lib.Symbol"/>
+		<t path="js.lib.ObjectPropertyDescriptor"/>
+		<x path="Bool"/>
+	</f>
+	<haxe_doc>Similar to `Object.defineProperty()`. Returns a Bool.</haxe_doc>
+</defineProperty></overloads>
 		</defineProperty>
 		<deleteProperty public="1" set="method" static="1">
 			<f a="target:propertyKey">
@@ -85904,14 +85970,24 @@
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>The `delete` operator as a function. Equivalent to calling `delete target[name]`.</haxe_doc>
-			<overloads><deleteProperty public="1" params="T" set="method">
-	<f a="target:propertyKey">
-		<c path="Array"><c path="deleteProperty.T"/></c>
-		<x path="Int"/>
-		<x path="Bool"/>
-	</f>
-	<haxe_doc>The `delete` operator as a function. Equivalent to calling `delete target[name]`.</haxe_doc>
-</deleteProperty></overloads>
+			<overloads>
+				<deleteProperty public="1" params="T" set="method">
+					<f a="target:propertyKey">
+						<c path="Array"><c path="deleteProperty.T"/></c>
+						<x path="Int"/>
+						<x path="Bool"/>
+					</f>
+					<haxe_doc>The `delete` operator as a function. Equivalent to calling `delete target[name]`.</haxe_doc>
+				</deleteProperty>
+				<deleteProperty public="1" params="T" set="method">
+					<f a="target:propertyKey">
+						<a/>
+						<c path="js.lib.Symbol"/>
+						<x path="Bool"/>
+					</f>
+					<haxe_doc>The `delete` operator as a function. Equivalent to calling `delete target[name]`.</haxe_doc>
+				</deleteProperty>
+			</overloads>
 		</deleteProperty>
 		<get public="1" params="T" set="method" static="1">
 			<f a="target:propertyKey:?receiver">
@@ -85921,15 +85997,26 @@
 				<x path="Null"><c path="get.T"/></x>
 			</f>
 			<haxe_doc>A function that returns the value of properties.</haxe_doc>
-			<overloads><get public="1" params="T" set="method">
-	<f a="target:propertyKey:?receiver">
-		<c path="Array"><c path="get.T"/></c>
-		<x path="Int"/>
-		<a/>
-		<x path="Null"><c path="get.T"/></x>
-	</f>
-	<haxe_doc>A function that returns the value of properties.</haxe_doc>
-</get></overloads>
+			<overloads>
+				<get public="1" params="T" set="method">
+					<f a="target:propertyKey:?receiver">
+						<c path="Array"><c path="get.T"/></c>
+						<x path="Int"/>
+						<a/>
+						<x path="Null"><c path="get.T"/></x>
+					</f>
+					<haxe_doc>A function that returns the value of properties.</haxe_doc>
+				</get>
+				<get public="1" params="T" set="method">
+					<f a="target:propertyKey:?receiver">
+						<a/>
+						<c path="js.lib.Symbol"/>
+						<a/>
+						<x path="Null"><c path="get.T"/></x>
+					</f>
+					<haxe_doc>A function that returns the value of properties.</haxe_doc>
+				</get>
+			</overloads>
 		</get>
 		<getOwnPropertyDescriptor public="1" set="method" static="1">
 			<f a="target:propertyKey">
@@ -85940,6 +86027,28 @@
 			<haxe_doc>Similar to `Object.getOwnPropertyDescriptor()`.
 		Returns a property descriptor of the given property if it exists on the object,
 		`undefined` otherwise.</haxe_doc>
+			<overloads>
+				<getOwnPropertyDescriptor public="1" params="T" set="method">
+					<f a="target:propertyKey">
+						<c path="Array"><c path="getOwnPropertyDescriptor.T"/></c>
+						<x path="Int"/>
+						<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+					</f>
+					<haxe_doc>Similar to `Object.getOwnPropertyDescriptor()`.
+		Returns a property descriptor of the given property if it exists on the object,
+		`undefined` otherwise.</haxe_doc>
+				</getOwnPropertyDescriptor>
+				<getOwnPropertyDescriptor public="1" set="method">
+					<f a="target:propertyKey">
+						<a/>
+						<c path="js.lib.Symbol"/>
+						<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+					</f>
+					<haxe_doc>Similar to `Object.getOwnPropertyDescriptor()`.
+		Returns a property descriptor of the given property if it exists on the object,
+		`undefined` otherwise.</haxe_doc>
+				</getOwnPropertyDescriptor>
+			</overloads>
 		</getOwnPropertyDescriptor>
 		<getPrototypeOf public="1" params="TProto" set="method" static="1">
 			<f a="target">
@@ -85956,6 +86065,26 @@
 			</f>
 			<haxe_doc>The `in` operator as function. Returns a boolean indicating whether an own
 		or inherited property exists.</haxe_doc>
+			<overloads>
+				<has public="1" params="T" set="method">
+					<f a="target:propertyKey">
+						<c path="Array"><c path="has.T"/></c>
+						<x path="Int"/>
+						<x path="Bool"/>
+					</f>
+					<haxe_doc>The `in` operator as function. Returns a boolean indicating whether an own
+		or inherited property exists.</haxe_doc>
+				</has>
+				<has public="1" set="method">
+					<f a="target:propertyKey">
+						<a/>
+						<c path="js.lib.Symbol"/>
+						<x path="Bool"/>
+					</f>
+					<haxe_doc>The `in` operator as function. Returns a boolean indicating whether an own
+		or inherited property exists.</haxe_doc>
+				</has>
+			</overloads>
 		</has>
 		<isExtensible public="1" set="method" static="1">
 			<f a="target">
@@ -85988,17 +86117,30 @@
 			</f>
 			<haxe_doc>A function that assigns values to properties. Returns a Bool that is true
 		if the update was successful.</haxe_doc>
-			<overloads><set public="1" params="T" set="method">
-	<f a="target:propertyKey:value:?receiver">
-		<c path="Array"><c path="set.T"/></c>
-		<x path="Int"/>
-		<c path="set.T"/>
-		<a/>
-		<x path="Bool"/>
-	</f>
-	<haxe_doc>A function that assigns values to properties. Returns a Bool that is true
+			<overloads>
+				<set public="1" params="T" set="method">
+					<f a="target:propertyKey:value:?receiver">
+						<c path="Array"><c path="set.T"/></c>
+						<x path="Int"/>
+						<c path="set.T"/>
+						<a/>
+						<x path="Bool"/>
+					</f>
+					<haxe_doc>A function that assigns values to properties. Returns a Bool that is true
 		if the update was successful.</haxe_doc>
-</set></overloads>
+				</set>
+				<set public="1" params="T" set="method">
+					<f a="target:propertyKey:value:?receiver">
+						<a/>
+						<c path="js.lib.Symbol"/>
+						<c path="set.T"/>
+						<a/>
+						<x path="Bool"/>
+					</f>
+					<haxe_doc>A function that assigns values to properties. Returns a Bool that is true
+		if the update was successful.</haxe_doc>
+				</set>
+			</overloads>
 		</set>
 		<setPrototypeOf public="1" params="TProto" set="method" static="1">
 			<f a="target:prototype">
