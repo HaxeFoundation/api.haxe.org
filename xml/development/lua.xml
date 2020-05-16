@@ -26882,6 +26882,11 @@
 			<c path="Array"><e path="haxe.macro.ComplexType"/></c>
 			<haxe_doc>Represents an abstract kind.</haxe_doc>
 		</TDAbstract>
+		<TDStatic a="kind:?access">
+			<e path="haxe.macro.FieldType"/>
+			<c path="Array"><e path="haxe.macro.Access"/></c>
+			<haxe_doc>Represents a module-level static field.</haxe_doc>
+		</TDStatic>
 		<haxe_doc>Represents a type definition kind.</haxe_doc>
 	</enum>
 	<class path="haxe.macro.Error" params="" file="/home/vsts/work/1/s/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
@@ -26890,7 +26895,7 @@
 			<t path="haxe.macro.Position"/>
 			<haxe_doc>The position of the error.</haxe_doc>
 		</pos>
-		<new public="1" set="method" line="970">
+		<new public="1" set="method" line="975">
 			<f a="message:pos:?previous">
 				<c path="String"/>
 				<t path="haxe.macro.Position"/>
@@ -27325,11 +27330,11 @@
 			</f>
 			<meta><m n=":value"><e>{ printPackage : true }</e></m></meta>
 		</printTypeDefinition>
-		<printFieldWithDelimiter set="method" line="385"><f a="f">
+		<printFieldWithDelimiter set="method" line="393"><f a="f">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printFieldWithDelimiter>
-		<opt params="T" set="method" line="395">
+		<opt params="T" set="method" line="403">
 			<f a="v:f:?prefix" v="::&quot;&quot;">
 				<c path="opt.T"/>
 				<f a="">
@@ -27341,7 +27346,7 @@
 			</f>
 			<meta><m n=":value"><e>{ prefix : "" }</e></m></meta>
 		</opt>
-		<printExprWithPositions public="1" set="method" line="398"><f a="e">
+		<printExprWithPositions public="1" set="method" line="406"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExprWithPositions>
@@ -27614,13 +27619,10 @@
 			<c path="Array"><e path="haxe.macro.Type"/></c>
 			<haxe_doc>A type parameter class with a set of constraints.</haxe_doc>
 		</KTypeParameter>
-		<KExtension a="cl:params">
-			<t path="haxe.macro.Ref"><t path="haxe.macro.ClassType"/></t>
-			<c path="Array"><e path="haxe.macro.Type"/></c>
-			<haxe_doc>A structurally extended class.
-
-		@deprecated</haxe_doc>
-		</KExtension>
+		<KModuleStatics a="module">
+			<c path="String"/>
+			<haxe_doc>A class containing module statics.</haxe_doc>
+		</KModuleStatics>
 		<KExpr a="expr">
 			<t path="haxe.macro.Expr"/>
 			<haxe_doc>A special kind of class to encode expressions into type parameters.</haxe_doc>
