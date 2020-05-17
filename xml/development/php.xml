@@ -12080,23 +12080,23 @@
 </f></fastGet>
 		<length public="1" set="null"><x path="Int"/></length>
 		<b><t path="haxe.io.BytesData"/></b>
-		<get public="1" get="inline" set="null" line="37"><f a="pos">
+		<get public="1" get="inline" set="null" line="38"><f a="pos">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></get>
-		<set public="1" get="inline" set="null" line="41"><f a="pos:v">
+		<set public="1" get="inline" set="null" line="42"><f a="pos:v">
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></set>
-		<blit public="1" get="inline" set="null" line="45"><f a="pos:src:srcpos:len">
+		<blit public="1" get="inline" set="null" line="46"><f a="pos:src:srcpos:len">
 	<x path="Int"/>
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></blit>
-		<fill public="1" set="method" line="53"><f a="pos:len:value">
+		<fill public="1" get="inline" set="null" line="54"><f a="pos:len:value">
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
@@ -12176,7 +12176,7 @@
 		<toString public="1" set="method" line="134"><f a=""><c path="String"/></f></toString>
 		<toHex public="1" get="inline" set="null" line="138"><f a=""><c path="String"/></f></toHex>
 		<getData public="1" get="inline" set="null" line="142"><f a=""><t path="haxe.io.BytesData"/></f></getData>
-		<new set="method" line="32"><f a="length:b">
+		<new set="method" line="33"><f a="length:b">
 	<x path="Int"/>
 	<t path="haxe.io.BytesData"/>
 	<x path="Void"/>
@@ -21391,21 +21391,31 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</blit>
-	<get_length get="inline" set="null" line="71" static="1">
+	<fill public="1" get="inline" set="null" line="71" static="1">
+		<f a="this:pos:len:value">
+			<c path="haxe.io._BytesData.Container"/>
+			<x path="Int"/>
+			<x path="Int"/>
+			<x path="Int"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</fill>
+	<get_length get="inline" set="null" line="75" static="1">
 		<f a="this">
 			<c path="haxe.io._BytesData.Container"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_length>
-	<fromNativeString get="inline" set="null" line="76" static="1">
+	<fromNativeString get="inline" set="null" line="80" static="1">
 		<f a="s">
 			<x path="php.NativeString"/>
 			<x path="haxe.io._BytesData.BytesDataAbstract"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromNativeString>
-	<toNativeString public="1" get="inline" set="null" line="81" static="1">
+	<toNativeString public="1" get="inline" set="null" line="85" static="1">
 		<f a="this">
 			<c path="haxe.io._BytesData.Container"/>
 			<x path="php.NativeString"/>
@@ -21415,14 +21425,14 @@
 			<m n=":to"/>
 		</meta>
 	</toNativeString>
-	<fromString get="inline" set="null" line="86" static="1">
+	<fromString get="inline" set="null" line="90" static="1">
 		<f a="s">
 			<c path="String"/>
 			<x path="haxe.io._BytesData.BytesDataAbstract"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromString>
-	<toString public="1" get="inline" set="null" line="91" static="1">
+	<toString public="1" get="inline" set="null" line="95" static="1">
 		<f a="this">
 			<c path="haxe.io._BytesData.Container"/>
 			<c path="String"/>
@@ -21503,21 +21513,31 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</blit>
-		<get_length get="inline" set="null" line="71" static="1">
+		<fill public="1" get="inline" set="null" line="71" static="1">
+			<f a="this:pos:len:value">
+				<c path="haxe.io._BytesData.Container"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</fill>
+		<get_length get="inline" set="null" line="75" static="1">
 			<f a="this">
 				<c path="haxe.io._BytesData.Container"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_length>
-		<fromNativeString get="inline" set="null" line="76" static="1">
+		<fromNativeString get="inline" set="null" line="80" static="1">
 			<f a="s">
 				<x path="php.NativeString"/>
 				<x path="haxe.io._BytesData.BytesDataAbstract"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromNativeString>
-		<toNativeString public="1" get="inline" set="null" line="81" static="1">
+		<toNativeString public="1" get="inline" set="null" line="85" static="1">
 			<f a="this">
 				<c path="haxe.io._BytesData.Container"/>
 				<x path="php.NativeString"/>
@@ -21527,14 +21547,14 @@
 				<m n=":to"/>
 			</meta>
 		</toNativeString>
-		<fromString get="inline" set="null" line="86" static="1">
+		<fromString get="inline" set="null" line="90" static="1">
 			<f a="s">
 				<c path="String"/>
 				<x path="haxe.io._BytesData.BytesDataAbstract"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromString>
-		<toString public="1" get="inline" set="null" line="91" static="1">
+		<toString public="1" get="inline" set="null" line="95" static="1">
 			<f a="this">
 				<c path="haxe.io._BytesData.Container"/>
 				<c path="String"/>
