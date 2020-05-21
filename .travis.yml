@@ -5,13 +5,16 @@ dist: bionic
 install:
   - git config --global gc.auto 0 # we will call gc manually during deploy
   - haxelib install all --always
-  - haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git --always
-  - haxelib path hxcpp
   - haxelib dev hxparse libs/hxparse
   - haxelib dev hxtemplo libs/hxtemplo
   - haxelib dev hxargs libs/hxargs
   - haxelib dev markdown libs/haxe-markdown
   - haxelib dev dox libs/dox
+  - git clone --depth=1 https://github.com/HaxeFoundation/hxcpp.git
+  - cd hxcpp/tools/hxcpp
+  - haxe compile.hxml
+  - cd ../../../
+  - haxelib dev hxcpp hxcpp
   - haxelib list
 
 script:
