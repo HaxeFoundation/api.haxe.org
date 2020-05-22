@@ -34834,6 +34834,45 @@
 	for the PHP target, such as conversion from Haxe types to native types
 	and vice-versa.</haxe_doc>
 	</class>
+	<class path="php.LogicException" params="" file="/home/vsts/work/1/s/std/php/LogicException.hx" extern="1">
+		<extends path="php.Exception"/>
+		<haxe_doc>Exception that represents error in the program logic.
+	This kind of exception should lead directly to a fix in your code.</haxe_doc>
+		<meta><m n=":native"><e>"LogicException"</e></m></meta>
+	</class>
+	<class path="php.BadFunctionCallException" params="" file="/home/vsts/work/1/s/std/php/LogicException.hx" module="php.LogicException" extern="1">
+		<extends path="php.LogicException"/>
+		<haxe_doc>Exception thrown if a callback refers to an undefined function
+	or if some arguments are missing.</haxe_doc>
+		<meta><m n=":native"><e>"BadFunctionCallException"</e></m></meta>
+	</class>
+	<class path="php.BadMethodCallException" params="" file="/home/vsts/work/1/s/std/php/LogicException.hx" module="php.LogicException" extern="1">
+		<extends path="php.BadFunctionCallException"/>
+		<haxe_doc>Exception thrown if a callback refers to an undefined method
+	or if some arguments are missing.</haxe_doc>
+		<meta><m n=":native"><e>"BadMethodCallException"</e></m></meta>
+	</class>
+	<class path="php.DomainException" params="" file="/home/vsts/work/1/s/std/php/LogicException.hx" module="php.LogicException" extern="1">
+		<extends path="php.LogicException"/>
+		<haxe_doc>Exception thrown if a value does not adhere to a defined valid data domain.</haxe_doc>
+		<meta><m n=":native"><e>"DomainException"</e></m></meta>
+	</class>
+	<class path="php.InvalidArgumentException" params="" file="/home/vsts/work/1/s/std/php/LogicException.hx" module="php.LogicException" extern="1">
+		<extends path="php.LogicException"/>
+		<haxe_doc>Exception thrown if an argument is not of the expected type.</haxe_doc>
+		<meta><m n=":native"><e>"InvalidArgumentException"</e></m></meta>
+	</class>
+	<class path="php.LengthException" params="" file="/home/vsts/work/1/s/std/php/LogicException.hx" module="php.LogicException" extern="1">
+		<extends path="php.LogicException"/>
+		<haxe_doc>Exception thrown if a length is invalid.</haxe_doc>
+		<meta><m n=":native"><e>"LengthException"</e></m></meta>
+	</class>
+	<class path="php.OutOfRangeException" params="" file="/home/vsts/work/1/s/std/php/LogicException.hx" module="php.LogicException" extern="1">
+		<extends path="php.LogicException"/>
+		<haxe_doc>Exception thrown when an illegal index was requested.
+	This represents errors that should be detected at compile time.</haxe_doc>
+		<meta><m n=":native"><e>"OutOfRangeException"</e></m></meta>
+	</class>
 	<abstract path="php.NativeArray" params="" file="/home/vsts/work/1/s/std/php/NativeArray.hx">
 		<this><x path="php.NativeArray"/></this>
 		<haxe_doc>Native PHP array.</haxe_doc>
@@ -35666,7 +35705,39 @@
 	<class path="php._Resource.Resource_Impl_" params="" file="/home/vsts/work/1/s/std/php/Resource.hx" private="1" module="php.Resource" extern="1" final="1"/>
 	<class path="php.RuntimeException" params="" file="/home/vsts/work/1/s/std/php/RuntimeException.hx" extern="1">
 		<extends path="php.Exception"/>
+		<haxe_doc>Exception thrown if an error which can only be found on runtime occurs.</haxe_doc>
 		<meta><m n=":native"><e>"RuntimeException"</e></m></meta>
+	</class>
+	<class path="php.OutOfBoundsException" params="" file="/home/vsts/work/1/s/std/php/RuntimeException.hx" module="php.RuntimeException" extern="1">
+		<extends path="php.RuntimeException"/>
+		<haxe_doc>Exception thrown if a value is not a valid key.
+	This represents errors that cannot be detected at compile time.</haxe_doc>
+		<meta><m n=":native"><e>"OutOfBoundsException"</e></m></meta>
+	</class>
+	<class path="php.OverflowException" params="" file="/home/vsts/work/1/s/std/php/RuntimeException.hx" module="php.RuntimeException" extern="1">
+		<extends path="php.RuntimeException"/>
+		<haxe_doc>Exception thrown when adding an element to a full container.</haxe_doc>
+		<meta><m n=":native"><e>"OverflowException"</e></m></meta>
+	</class>
+	<class path="php.RangeException" params="" file="/home/vsts/work/1/s/std/php/RuntimeException.hx" module="php.RuntimeException" extern="1">
+		<extends path="php.RuntimeException"/>
+		<haxe_doc>Exception thrown to indicate range errors during program execution.
+	Normally this means there was an arithmetic error other than under/overflow.</haxe_doc>
+		<meta><m n=":native"><e>"RangeException"</e></m></meta>
+	</class>
+	<class path="php.UnderflowException" params="" file="/home/vsts/work/1/s/std/php/RuntimeException.hx" module="php.RuntimeException" extern="1">
+		<extends path="php.RuntimeException"/>
+		<haxe_doc>Exception thrown when performing an invalid operation on an empty container,
+	such as removing an element.</haxe_doc>
+		<meta><m n=":native"><e>"UnderflowException"</e></m></meta>
+	</class>
+	<class path="php.UnexpectedValueException" params="" file="/home/vsts/work/1/s/std/php/RuntimeException.hx" module="php.RuntimeException" extern="1">
+		<extends path="php.RuntimeException"/>
+		<haxe_doc>Exception thrown if a value does not match with a set of values.
+	Typically this happens when a function calls another function and
+	expects the return value to be of a certain type or value not including
+	arithmetic or buffer related errors.</haxe_doc>
+		<meta><m n=":native"><e>"UnexpectedValueException"</e></m></meta>
 	</class>
 	<typedef path="php.Scalar" params="" file="/home/vsts/work/1/s/std/php/Scalar.hx">
 		<x path="haxe.extern.EitherType">
