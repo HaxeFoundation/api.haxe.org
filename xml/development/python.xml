@@ -2876,7 +2876,23 @@
 		This operation is not guaranteed to work if `s` contains the `\0`
 		character.</haxe_doc>
 		</fastCodeAt>
-		<iterator public="1" get="inline" set="null" line="503" static="1">
+		<unsafeCodeAt public="1" get="inline" set="null" line="507" static="1">
+			<f a="s:index">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the character code at position `index` of String `s`, or an
+		end-of-file indicator at if `position` equals `s.length`.
+
+		This method is faster than `String.charCodeAt()` on some platforms, but
+		the result is unspecified if `index` is negative or greater than
+		`s.length`.
+
+		This operation is not guaranteed to work if `s` contains the `\0`
+		character.</haxe_doc>
+		</unsafeCodeAt>
+		<iterator public="1" get="inline" set="null" line="542" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="haxe.iterators.StringIterator"/>
@@ -2887,7 +2903,7 @@
 		internal encoding of strings in different runtimes.
 		For the consistent cross-platform UTF8 char codes see `haxe.iterators.StringIteratorUnicode`.</haxe_doc>
 		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="514" static="1">
+		<keyValueIterator public="1" get="inline" set="null" line="553" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="haxe.iterators.StringKeyValueIterator"/>
@@ -2898,7 +2914,7 @@
 		internal encoding of strings in different of runtimes.
 		For the consistent cross-platform UTF8 char codes see `haxe.iterators.StringKeyValueIteratorUnicode`.</haxe_doc>
 		</keyValueIterator>
-		<isEof public="1" get="inline" set="null" line="521" static="1">
+		<isEof public="1" get="inline" set="null" line="560" static="1">
 			<f a="c">
 				<x path="Int"/>
 				<x path="Bool"/>
@@ -2906,7 +2922,7 @@
 			<meta><m n=":noUsing"/></meta>
 			<haxe_doc>Tells if `c` represents the end-of-file (EOF) character.</haxe_doc>
 		</isEof>
-		<quoteUnixArg public="1" set="method" line="542" static="1">
+		<quoteUnixArg public="1" set="method" line="581" static="1">
 			<f a="argument">
 				<c path="String"/>
 				<c path="String"/>
@@ -2919,7 +2935,7 @@
 		on Unix.
 		The input will be quoted, or escaped if necessary.</haxe_doc>
 		</quoteUnixArg>
-		<winMetaCharacters public="1" expr="cast haxe.SysTools.winMetaCharacters" line="551" static="1">
+		<winMetaCharacters public="1" expr="cast haxe.SysTools.winMetaCharacters" line="590" static="1">
 			<c path="Array"><x path="Int"/></c>
 			<meta>
 				<m n=":value"><e>cast haxe.SysTools.winMetaCharacters</e></m>
@@ -2928,7 +2944,7 @@
 			</meta>
 			<haxe_doc>Character codes of the characters that will be escaped by `quoteWinArg(_, true)`.</haxe_doc>
 		</winMetaCharacters>
-		<quoteWinArg public="1" set="method" line="568" static="1">
+		<quoteWinArg public="1" set="method" line="607" static="1">
 			<f a="argument:escapeMetaCharacters">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -26213,8 +26229,8 @@
 		</new>
 		<haxe_doc>This iterator can be used to iterate over char codes in a string.
 
-  Note that char codes may differ across platforms because of different
-  internal encoding of strings in different of runtimes.</haxe_doc>
+	Note that char codes may differ across platforms because of different
+	internal encoding of strings in different of runtimes.</haxe_doc>
 	</class>
 	<class path="haxe.iterators.StringIteratorUnicode" params="" file="/home/vsts/work/1/s/std/haxe/iterators/StringIteratorUnicode.hx">
 		<unicodeIterator public="1" get="inline" set="null" line="70" static="1">
@@ -30912,7 +30928,7 @@
 			</f>
 			<meta><m n=":value"><e>{ p : 0 }</e></m></meta>
 		</doParse>
-		<isValidChar get="inline" set="null" line="416" static="1"><f a="c">
+		<isValidChar get="inline" set="null" line="415" static="1"><f a="c">
 	<x path="Int"/>
 	<x path="Bool"/>
 </f></isValidChar>
