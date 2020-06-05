@@ -85698,18 +85698,34 @@
 		its original settled value if the promise was not handled
 		(i.e. if the relevant handler onFulfilled or onRejected is not a function).</haxe_doc>
 		</then>
-		<catchError public="1" params="TOut" set="method">
+		<catchError public="1" set="method">
 			<f a="onRejected">
 				<x path="js.lib.PromiseHandler">
 					<d/>
-					<c path="catchError.TOut"/>
+					<c path="js.lib.Promise.T"/>
 				</x>
-				<c path="js.lib.Promise"><c path="catchError.TOut"/></c>
+				<c path="js.lib.Promise"><c path="js.lib.Promise.T"/></c>
 			</f>
 			<meta><m n=":native"><e>"catch"</e></m></meta>
 			<haxe_doc>Appends a rejection handler callback to the promise, and returns a new
 		promise resolving to the return value of the callback if it is called,
 		or to its original fulfillment value if the promise is instead fulfilled.</haxe_doc>
+			<overloads><catch public="1" params="TOut" set="method">
+	<f a="onRejected">
+		<x path="js.lib.PromiseHandler">
+			<d/>
+			<c path="catchError.TOut"/>
+		</x>
+		<c path="js.lib.Promise"><x path="haxe.extern.EitherType">
+	<c path="js.lib.Promise.T"/>
+	<c path="catchError.TOut"/>
+</x></c>
+	</f>
+	<meta><m n=":native"><e>"catch"</e></m></meta>
+	<haxe_doc>Appends a rejection handler callback to the promise, and returns a new
+		promise resolving to the return value of the callback if it is called,
+		or to its original fulfillment value if the promise is instead fulfilled.</haxe_doc>
+</catch></overloads>
 		</catchError>
 		<new public="1" set="method">
 			<f a="init">
