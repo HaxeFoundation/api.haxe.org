@@ -43730,6 +43730,52 @@
 		</next>
 		<new set="method" line="124"><f a=""><x path="Void"/></f></new>
 	</class>
+	<class path="haxe.exceptions.PosException" params="" file="/home/vsts/work/1/s/std/haxe/exceptions/PosException.hx">
+		<extends path="haxe.Exception"/>
+		<posInfos final="1" public="1">
+			<t path="haxe.PosInfos"/>
+			<haxe_doc>Position where this exception was created.</haxe_doc>
+		</posInfos>
+		<toString public="1" set="method" line="24" override="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns exception message.</haxe_doc>
+		</toString>
+		<new public="1" set="method" line="12"><f a="message:?previous:?pos">
+	<c path="String"/>
+	<c path="haxe.Exception"/>
+	<x path="Null"><t path="haxe.PosInfos"/></x>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>An exception that carry position information of a place where it was created.</haxe_doc>
+	</class>
+	<class path="haxe.exceptions.ArgumentException" params="" file="/home/vsts/work/1/s/std/haxe/exceptions/ArgumentException.hx">
+		<extends path="haxe.exceptions.PosException"/>
+		<argument final="1" public="1">
+			<c path="String"/>
+			<haxe_doc>An argument name.</haxe_doc>
+		</argument>
+		<new public="1" set="method" line="12"><f a="argument:?message:?previous:?pos">
+	<c path="String"/>
+	<c path="String"/>
+	<c path="haxe.Exception"/>
+	<x path="Null"><t path="haxe.PosInfos"/></x>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>An exception that is thrown when an invalid value provided for an argument of a function.</haxe_doc>
+	</class>
+	<class path="haxe.exceptions.NotImplementedException" params="" file="/home/vsts/work/1/s/std/haxe/exceptions/NotImplementedException.hx">
+		<extends path="haxe.exceptions.PosException"/>
+		<new public="1" set="method" line="7">
+			<f a="?message:?previous:?pos" v="&quot;Not implemented&quot;::">
+				<c path="String"/>
+				<c path="haxe.Exception"/>
+				<x path="Null"><t path="haxe.PosInfos"/></x>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ message : "Not implemented" }</e></m></meta>
+		</new>
+		<haxe_doc>An exception that is thrown when requested function or operation does not have an implementation.</haxe_doc>
+	</class>
 	<abstract path="haxe.extern.AsVar" params="T" file="/home/vsts/work/1/s/std/haxe/extern/AsVar.hx">
 		<from><icast><c path="haxe.extern.AsVar.T"/></icast></from>
 		<this><c path="haxe.extern.AsVar.T"/></this>
