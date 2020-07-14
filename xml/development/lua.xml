@@ -35363,24 +35363,58 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</get_nfields>
-		<length public="1" get="accessor" set="null"><x path="Int"/></length>
-		<nfields public="1" get="accessor" set="null"><x path="Int"/></nfields>
-		<hasNext public="1" set="method"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" set="method"><f a=""><d/></f></next>
-		<results public="1" set="method"><f a=""><t path="List"><d/></t></f></results>
-		<getResult public="1" set="method"><f a="n">
-	<x path="Int"/>
-	<c path="String"/>
-</f></getResult>
-		<getIntResult public="1" set="method"><f a="n">
-	<x path="Int"/>
-	<x path="Int"/>
-</f></getIntResult>
-		<getFloatResult public="1" set="method"><f a="n">
-	<x path="Int"/>
-	<x path="Float"/>
-</f></getFloatResult>
-		<getFieldsNames public="1" set="method"><f a=""><x path="Null"><c path="Array"><c path="String"/></c></x></f></getFieldsNames>
+		<length public="1" get="accessor" set="null">
+			<x path="Int"/>
+			<haxe_doc>Get amount of rows left in this set.
+		Depending on a database management system accessing this field may cause
+		all rows to be fetched internally. However, it does not affect `next` calls.</haxe_doc>
+		</length>
+		<nfields public="1" get="accessor" set="null">
+			<x path="Int"/>
+			<haxe_doc>Amount of columns in a row.
+		Depending on a database management system may return `0` if the query
+		did not match any rows.</haxe_doc>
+		</nfields>
+		<hasNext public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>Tells whether there is a row to be fetched.</haxe_doc>
+		</hasNext>
+		<next public="1" set="method">
+			<f a=""><d/></f>
+			<haxe_doc>Fetch next row.</haxe_doc>
+		</next>
+		<results public="1" set="method">
+			<f a=""><t path="List"><d/></t></f>
+			<haxe_doc>Fetch all the rows not fetched yet.</haxe_doc>
+		</results>
+		<getResult public="1" set="method">
+			<f a="n">
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Get the value of `n`-th column of the current row.
+		Throws an exception if the re</haxe_doc>
+		</getResult>
+		<getIntResult public="1" set="method">
+			<f a="n">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Get the value of `n`-th column of the current row as an integer value.</haxe_doc>
+		</getIntResult>
+		<getFloatResult public="1" set="method">
+			<f a="n">
+				<x path="Int"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Get the value of `n`-th column of the current row as a float value.</haxe_doc>
+		</getFloatResult>
+		<getFieldsNames public="1" set="method">
+			<f a=""><x path="Null"><c path="Array"><c path="String"/></c></x></f>
+			<haxe_doc>Get the list of column names.
+		Depending on a database management system may return `null` if there's no
+		more rows to fetch.</haxe_doc>
+		</getFieldsNames>
 	</class>
 	<class path="sys.db.Sqlite" params="" file="/home/vsts/work/1/s/std/sys/db/Sqlite.hx"><open public="1" set="method" line="37" static="1">
 	<f a="file">

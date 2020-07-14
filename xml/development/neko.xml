@@ -33746,24 +33746,58 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</get_nfields>
-		<length public="1" get="accessor" set="null"><x path="Int"/></length>
-		<nfields public="1" get="accessor" set="null"><x path="Int"/></nfields>
-		<hasNext public="1" set="method"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" set="method"><f a=""><d/></f></next>
-		<results public="1" set="method"><f a=""><t path="List"><d/></t></f></results>
-		<getResult public="1" set="method"><f a="n">
-	<x path="Int"/>
-	<c path="String"/>
-</f></getResult>
-		<getIntResult public="1" set="method"><f a="n">
-	<x path="Int"/>
-	<x path="Int"/>
-</f></getIntResult>
-		<getFloatResult public="1" set="method"><f a="n">
-	<x path="Int"/>
-	<x path="Float"/>
-</f></getFloatResult>
-		<getFieldsNames public="1" set="method"><f a=""><x path="Null"><c path="Array"><c path="String"/></c></x></f></getFieldsNames>
+		<length public="1" get="accessor" set="null">
+			<x path="Int"/>
+			<haxe_doc>Get amount of rows left in this set.
+		Depending on a database management system accessing this field may cause
+		all rows to be fetched internally. However, it does not affect `next` calls.</haxe_doc>
+		</length>
+		<nfields public="1" get="accessor" set="null">
+			<x path="Int"/>
+			<haxe_doc>Amount of columns in a row.
+		Depending on a database management system may return `0` if the query
+		did not match any rows.</haxe_doc>
+		</nfields>
+		<hasNext public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>Tells whether there is a row to be fetched.</haxe_doc>
+		</hasNext>
+		<next public="1" set="method">
+			<f a=""><d/></f>
+			<haxe_doc>Fetch next row.</haxe_doc>
+		</next>
+		<results public="1" set="method">
+			<f a=""><t path="List"><d/></t></f>
+			<haxe_doc>Fetch all the rows not fetched yet.</haxe_doc>
+		</results>
+		<getResult public="1" set="method">
+			<f a="n">
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Get the value of `n`-th column of the current row.
+		Throws an exception if the re</haxe_doc>
+		</getResult>
+		<getIntResult public="1" set="method">
+			<f a="n">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Get the value of `n`-th column of the current row as an integer value.</haxe_doc>
+		</getIntResult>
+		<getFloatResult public="1" set="method">
+			<f a="n">
+				<x path="Int"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Get the value of `n`-th column of the current row as a float value.</haxe_doc>
+		</getFloatResult>
+		<getFieldsNames public="1" set="method">
+			<f a=""><x path="Null"><c path="Array"><c path="String"/></c></x></f>
+			<haxe_doc>Get the list of column names.
+		Depending on a database management system may return `null` if there's no
+		more rows to fetch.</haxe_doc>
+		</getFieldsNames>
 	</class>
 	<class path="sys.db._Mysql.MysqlResultSet" params="" file="/home/vsts/work/1/s/std/neko/_std/sys/db/Mysql.hx" private="1" module="sys.db.Mysql">
 		<implements path="sys.db.ResultSet"/>
@@ -33872,7 +33906,7 @@
 	</class>
 	<class path="sys.db._Sqlite.SqliteConnection" params="" file="/home/vsts/work/1/s/std/neko/_std/sys/db/Sqlite.hx" private="1" module="sys.db.Sqlite">
 		<implements path="sys.db.Connection"/>
-		<_encode expr="neko.Lib.load(&quot;std&quot;, &quot;base_encode&quot;, 2)" line="86" static="1">
+		<_encode expr="neko.Lib.load(&quot;std&quot;, &quot;base_encode&quot;, 2)" line="84" static="1">
 			<f a=":">
 				<unknown/>
 				<unknown/>
@@ -33880,21 +33914,21 @@
 			</f>
 			<meta><m n=":value"><e>neko.Lib.load("std", "base_encode", 2)</e></m></meta>
 		</_encode>
-		<_connect expr="neko.Lib.load(&quot;sqlite&quot;, &quot;connect&quot;, 1)" line="87" static="1">
+		<_connect expr="neko.Lib.load(&quot;sqlite&quot;, &quot;connect&quot;, 1)" line="85" static="1">
 			<f a="">
 				<unknown/>
 				<unknown/>
 			</f>
 			<meta><m n=":value"><e>neko.Lib.load("sqlite", "connect", 1)</e></m></meta>
 		</_connect>
-		<_close expr="neko.Lib.load(&quot;sqlite&quot;, &quot;close&quot;, 1)" line="88" static="1">
+		<_close expr="neko.Lib.load(&quot;sqlite&quot;, &quot;close&quot;, 1)" line="86" static="1">
 			<f a="">
 				<d/>
 				<unknown/>
 			</f>
 			<meta><m n=":value"><e>neko.Lib.load("sqlite", "close", 1)</e></m></meta>
 		</_close>
-		<_request expr="neko.Lib.load(&quot;sqlite&quot;, &quot;request&quot;, 2)" line="89" static="1">
+		<_request expr="neko.Lib.load(&quot;sqlite&quot;, &quot;request&quot;, 2)" line="87" static="1">
 			<f a=":">
 				<d/>
 				<unknown/>
@@ -33902,7 +33936,7 @@
 			</f>
 			<meta><m n=":value"><e>neko.Lib.load("sqlite", "request", 2)</e></m></meta>
 		</_request>
-		<_last_id expr="neko.Lib.load(&quot;sqlite&quot;, &quot;last_insert_id&quot;, 1)" line="90" static="1">
+		<_last_id expr="neko.Lib.load(&quot;sqlite&quot;, &quot;last_insert_id&quot;, 1)" line="88" static="1">
 			<f a="">
 				<d/>
 				<x path="Int"/>
@@ -33941,7 +33975,7 @@
 		<dbName public="1" set="method" line="68"><f a=""><c path="String"/></f></dbName>
 		<startTransaction public="1" set="method" line="72"><f a=""><x path="Void"/></f></startTransaction>
 		<commit public="1" set="method" line="76"><f a=""><x path="Void"/></f></commit>
-		<rollback public="1" set="method" line="81"><f a=""><x path="Void"/></f></rollback>
+		<rollback public="1" set="method" line="80"><f a=""><x path="Void"/></f></rollback>
 		<new public="1" set="method" line="28">
 			<f a="file">
 				<c path="String"/>
@@ -33952,28 +33986,28 @@
 	</class>
 	<class path="sys.db._Sqlite.SqliteResultSet" params="" file="/home/vsts/work/1/s/std/neko/_std/sys/db/Sqlite.hx" private="1" module="sys.db.Sqlite">
 		<implements path="sys.db.ResultSet"/>
-		<result_next expr="neko.Lib.load(&quot;sqlite&quot;, &quot;result_next&quot;, 1)" line="183" static="1">
+		<result_next expr="neko.Lib.load(&quot;sqlite&quot;, &quot;result_next&quot;, 1)" line="187" static="1">
 			<f a="">
 				<d/>
 				<unknown/>
 			</f>
 			<meta><m n=":value"><e>neko.Lib.load("sqlite", "result_next", 1)</e></m></meta>
 		</result_next>
-		<result_get_length expr="neko.Lib.load(&quot;sqlite&quot;, &quot;result_get_length&quot;, 1)" line="184" static="1">
+		<result_get_length expr="neko.Lib.load(&quot;sqlite&quot;, &quot;result_get_length&quot;, 1)" line="188" static="1">
 			<f a="">
 				<d/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":value"><e>neko.Lib.load("sqlite", "result_get_length", 1)</e></m></meta>
 		</result_get_length>
-		<result_get_nfields expr="neko.Lib.load(&quot;sqlite&quot;, &quot;result_get_nfields&quot;, 1)" line="185" static="1">
+		<result_get_nfields expr="neko.Lib.load(&quot;sqlite&quot;, &quot;result_get_nfields&quot;, 1)" line="189" static="1">
 			<f a="">
 				<d/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":value"><e>neko.Lib.load("sqlite", "result_get_nfields", 1)</e></m></meta>
 		</result_get_nfields>
-		<result_get expr="neko.Lib.load(&quot;sqlite&quot;, &quot;result_get&quot;, 2)" line="186" static="1">
+		<result_get expr="neko.Lib.load(&quot;sqlite&quot;, &quot;result_get&quot;, 2)" line="190" static="1">
 			<f a=":">
 				<d/>
 				<x path="Int"/>
@@ -33981,7 +34015,7 @@
 			</f>
 			<meta><m n=":value"><e>neko.Lib.load("sqlite", "result_get", 2)</e></m></meta>
 		</result_get>
-		<result_get_int expr="neko.Lib.load(&quot;sqlite&quot;, &quot;result_get_int&quot;, 2)" line="187" static="1">
+		<result_get_int expr="neko.Lib.load(&quot;sqlite&quot;, &quot;result_get_int&quot;, 2)" line="191" static="1">
 			<f a=":">
 				<d/>
 				<x path="Int"/>
@@ -33989,7 +34023,7 @@
 			</f>
 			<meta><m n=":value"><e>neko.Lib.load("sqlite", "result_get_int", 2)</e></m></meta>
 		</result_get_int>
-		<result_get_float expr="neko.Lib.load(&quot;sqlite&quot;, &quot;result_get_float&quot;, 2)" line="188" static="1">
+		<result_get_float expr="neko.Lib.load(&quot;sqlite&quot;, &quot;result_get_float&quot;, 2)" line="192" static="1">
 			<f a=":">
 				<d/>
 				<x path="Int"/>
@@ -34001,35 +34035,35 @@
 		<nfields public="1" get="accessor" set="null"><x path="Int"/></nfields>
 		<r><d/></r>
 		<cache><t path="List"><d/></t></cache>
-		<get_length set="method" line="106"><f a=""><x path="Int"/></f></get_length>
-		<get_nfields set="method" line="119"><f a=""><x path="Int"/></f></get_nfields>
-		<hasNext public="1" set="method" line="123"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" set="method" line="131"><f a=""><d/></f></next>
-		<doNext set="method" line="138">
+		<get_length set="method" line="104"><f a=""><x path="Int"/></f></get_length>
+		<get_nfields set="method" line="117"><f a=""><x path="Int"/></f></get_nfields>
+		<hasNext public="1" set="method" line="121"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" set="method" line="129"><f a=""><d/></f></next>
+		<doNext set="method" line="136">
 			<f a=""><d/></f>
 			<meta><m n=":has_untyped"/></meta>
 		</doNext>
-		<results public="1" set="method" line="156"><f a=""><t path="List"><d/></t></f></results>
-		<getResult public="1" set="method" line="167"><f a="n">
+		<results public="1" set="method" line="154"><f a=""><t path="List"><d/></t></f></results>
+		<getResult public="1" set="method" line="165"><f a="n">
 	<x path="Int"/>
 	<c path="String"/>
 </f></getResult>
-		<getIntResult public="1" set="method" line="171"><f a="n">
+		<getIntResult public="1" set="method" line="169"><f a="n">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></getIntResult>
-		<getFloatResult public="1" set="method" line="175"><f a="n">
+		<getFloatResult public="1" set="method" line="173"><f a="n">
 	<x path="Int"/>
 	<x path="Float"/>
 </f></getFloatResult>
-		<getFieldsNames public="1" set="method" line="179"><f a=""><c path="Array"><c path="String"/></c></f></getFieldsNames>
-		<new public="1" set="method" line="100"><f a="r">
+		<getFieldsNames public="1" set="method" line="177"><f a=""><c path="Array"><c path="String"/></c></f></getFieldsNames>
+		<new public="1" set="method" line="98"><f a="r">
 	<unknown/>
 	<x path="Void"/>
 </f></new>
 	</class>
 	<class path="sys.db.Sqlite" params="" file="/home/vsts/work/1/s/std/neko/_std/sys/db/Sqlite.hx">
-		<open public="1" set="method" line="192" static="1">
+		<open public="1" set="method" line="196" static="1">
 			<f a="file">
 				<c path="String"/>
 				<c path="sys.db.Connection"/>
