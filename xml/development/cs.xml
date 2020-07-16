@@ -4654,10 +4654,6 @@
 		<SyncRoot public="1" get="accessor" set="null"><d/></SyncRoot>
 		<IsSynchronized public="1" get="accessor" set="null"><x path="Bool"/></IsSynchronized>
 		<Count public="1" get="accessor" set="null"><x path="Int"/></Count>
-		<GetEnumerator public="1" set="method">
-			<f a=""><c path="cs.system.collections.IEnumerator"/></f>
-			<meta><m n=":overload"/></meta>
-		</GetEnumerator>
 		<get_Count set="method">
 			<f a=""><x path="Int"/></f>
 			<meta><m n=":overload"/></meta>
@@ -4690,35 +4686,8 @@
 		<extends path="cs.system.collections.ICollection"/>
 		<extends path="cs.system.collections.IEnumerable"/>
 		<extends path="ArrayAccess"><d/></extends>
-		<Count public="1" get="accessor" set="null"><x path="Int"/></Count>
-		<IsSynchronized public="1" get="accessor" set="null"><x path="Bool"/></IsSynchronized>
-		<SyncRoot public="1" get="accessor" set="null"><d/></SyncRoot>
 		<IsReadOnly public="1" get="accessor" set="null"><x path="Bool"/></IsReadOnly>
 		<IsFixedSize public="1" get="accessor" set="null"><x path="Bool"/></IsFixedSize>
-		<CopyTo public="1" set="method">
-			<f a="array:index">
-				<c path="cs.system.Array"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</CopyTo>
-		<get_SyncRoot set="method">
-			<f a=""><d/></f>
-			<meta><m n=":overload"/></meta>
-		</get_SyncRoot>
-		<get_IsSynchronized set="method">
-			<f a=""><x path="Bool"/></f>
-			<meta><m n=":overload"/></meta>
-		</get_IsSynchronized>
-		<get_Count set="method">
-			<f a=""><x path="Int"/></f>
-			<meta><m n=":overload"/></meta>
-		</get_Count>
-		<GetEnumerator public="1" set="method">
-			<f a=""><c path="cs.system.collections.IEnumerator"/></f>
-			<meta><m n=":overload"/></meta>
-		</GetEnumerator>
 		<get_IsFixedSize set="method">
 			<f a=""><x path="Bool"/></f>
 			<meta><m n=":overload"/></meta>
@@ -16572,18 +16541,6 @@
 		<extends path="cs.system.IDisposable"/>
 		<extends path="cs.system.collections.IEnumerator"/>
 		<Current public="1" get="accessor" set="null"><c path="cs.system.collections.generic.IEnumerator_1.T0"/></Current>
-		<Dispose public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":overload"/></meta>
-		</Dispose>
-		<Reset public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":overload"/></meta>
-		</Reset>
-		<MoveNext public="1" set="method">
-			<f a=""><x path="Bool"/></f>
-			<meta><m n=":overload"/></meta>
-		</MoveNext>
 		<get_Current set="method">
 			<f a=""><c path="cs.system.collections.generic.IEnumerator_1.T0"/></f>
 			<meta><m n=":overload"/></meta>
@@ -17278,6 +17235,41 @@
 				</ToString>
 			</overloads>
 		</ToString>
+		<_ToString public="1" set="method" static="1">
+			<f a="value">
+				<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+				<c path="String"/>
+			</f>
+			<meta>
+				<m n=":native"><e>"ToString"</e></m>
+				<m n=":overload"/>
+			</meta>
+			<overloads>
+				<ToString public="1" set="method">
+					<f a="value:startIndex:length">
+						<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:startIndex">
+						<c path="cs.NativeArray"><t path="cs.types.UInt8"/></c>
+						<x path="Int"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+			</overloads>
+		</_ToString>
 		<meta>
 			<m n=":nativeGen"/>
 			<m n=":abstract"/>
@@ -21263,6 +21255,388 @@
 				</ToString>
 			</overloads>
 		</ToString>
+		<_ToString public="1" set="method" static="1">
+			<f a="value">
+				<x path="Bool"/>
+				<c path="String"/>
+			</f>
+			<meta>
+				<m n=":native"><e>"ToString"</e></m>
+				<m n=":overload"/>
+			</meta>
+			<overloads>
+				<ToString public="1" set="method">
+					<f a="value:provider">
+						<t path="cs.types.UInt16"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt16"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:provider">
+						<t path="cs.types.UInt64"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt64"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:provider">
+						<x path="UInt"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value">
+						<x path="UInt"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:provider">
+						<c path="String"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value">
+						<c path="String"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:provider">
+						<t path="cs.types.Int16"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:toBase">
+						<t path="cs.types.Int16"/>
+						<x path="Int"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int16"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:provider">
+						<t path="cs.types.Int8"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Int8"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:provider">
+						<d/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value">
+						<d/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:provider">
+						<x path="haxe.Int64"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:toBase">
+						<x path="haxe.Int64"/>
+						<x path="Int"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value">
+						<x path="haxe.Int64"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:provider">
+						<x path="Int"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:toBase">
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value">
+						<x path="Int"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:provider">
+						<x path="Single"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value">
+						<x path="Single"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:provider">
+						<x path="Float"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value">
+						<x path="Float"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:provider">
+						<c path="cs.system.Decimal"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value">
+						<c path="cs.system.Decimal"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:provider">
+						<c path="cs.system.DateTime"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value">
+						<c path="cs.system.DateTime"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:provider">
+						<t path="cs.types.Char16"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value">
+						<t path="cs.types.Char16"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:toBase">
+						<t path="cs.types.UInt8"/>
+						<x path="Int"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:provider">
+						<t path="cs.types.UInt8"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value">
+						<t path="cs.types.UInt8"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+				<ToString public="1" set="method">
+					<f a="value:provider">
+						<x path="Bool"/>
+						<c path="cs.system.IFormatProvider"/>
+						<c path="String"/>
+					</f>
+					<meta>
+						<m n=":native"><e>"ToString"</e></m>
+						<m n=":overload"/>
+					</meta>
+				</ToString>
+			</overloads>
+		</_ToString>
 		<ToUInt16 public="1" set="method" static="1">
 			<f a="value">
 				<x path="Bool"/>
@@ -25719,10 +26093,6 @@
 		<Name public="1" get="accessor" set="null"><c path="String"/></Name>
 		<MemberType public="1" get="accessor" set="null"><e path="cs.system.reflection.MemberTypes"/></MemberType>
 		<DeclaringType public="1" get="accessor" set="null"><c path="cs.system.Type"/></DeclaringType>
-		<ToString public="1" set="method">
-			<f a=""><c path="String"/></f>
-			<meta><m n=":overload"/></meta>
-		</ToString>
 		<get_DeclaringType set="method">
 			<f a=""><c path="cs.system.Type"/></f>
 			<meta><m n=":overload"/></meta>
@@ -27589,7 +27959,7 @@
 				</InvokeMember>
 			</overloads>
 		</InvokeMember>
-		<ToString public="1" set="method" override="1">
+		<ToString public="1" set="method">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":overload"/></meta>
 		</ToString>
@@ -31320,33 +31690,10 @@
 		<extends path="cs.system.collections.ICollection"/>
 		<extends path="cs.system.collections.IEnumerable"/>
 		<extends path="ArrayAccess"><d/></extends>
-		<Count public="1" get="accessor" set="null"><x path="Int"/></Count>
-		<IsSynchronized public="1" get="accessor" set="null"><x path="Bool"/></IsSynchronized>
-		<SyncRoot public="1" get="accessor" set="null"><d/></SyncRoot>
 		<Values public="1" get="accessor" set="null"><c path="cs.system.collections.ICollection"/></Values>
 		<Keys public="1" get="accessor" set="null"><c path="cs.system.collections.ICollection"/></Keys>
 		<IsReadOnly public="1" get="accessor" set="null"><x path="Bool"/></IsReadOnly>
 		<IsFixedSize public="1" get="accessor" set="null"><x path="Bool"/></IsFixedSize>
-		<CopyTo public="1" set="method">
-			<f a="array:index">
-				<c path="cs.system.Array"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</CopyTo>
-		<get_SyncRoot set="method">
-			<f a=""><d/></f>
-			<meta><m n=":overload"/></meta>
-		</get_SyncRoot>
-		<get_IsSynchronized set="method">
-			<f a=""><x path="Bool"/></f>
-			<meta><m n=":overload"/></meta>
-		</get_IsSynchronized>
-		<get_Count set="method">
-			<f a=""><x path="Int"/></f>
-			<meta><m n=":overload"/></meta>
-		</get_Count>
 		<get_IsFixedSize set="method">
 			<f a=""><x path="Bool"/></f>
 			<meta><m n=":overload"/></meta>
@@ -32002,22 +32349,9 @@
 	</class>
 	<class path="cs.system.collections.IDictionaryEnumerator" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.collections.IDictionaryEnumerator" extern="1" interface="1">
 		<extends path="cs.system.collections.IEnumerator"/>
-		<Current public="1" get="accessor" set="null"><d/></Current>
 		<Value public="1" get="accessor" set="null"><d/></Value>
 		<Key public="1" get="accessor" set="null"><d/></Key>
 		<Entry public="1" get="accessor" set="null"><c path="cs.system.collections.DictionaryEntry"/></Entry>
-		<Reset public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":overload"/></meta>
-		</Reset>
-		<MoveNext public="1" set="method">
-			<f a=""><x path="Bool"/></f>
-			<meta><m n=":overload"/></meta>
-		</MoveNext>
-		<get_Current set="method">
-			<f a=""><d/></f>
-			<meta><m n=":overload"/></meta>
-		</get_Current>
 		<get_Entry set="method">
 			<f a=""><c path="cs.system.collections.DictionaryEntry"/></f>
 			<meta><m n=":overload"/></meta>
@@ -32227,10 +32561,6 @@
 		<extends path="cs.system.collections.IEnumerable"/>
 		<IsReadOnly public="1" get="accessor" set="null"><x path="Bool"/></IsReadOnly>
 		<Count public="1" get="accessor" set="null"><x path="Int"/></Count>
-		<GetEnumerator public="1" set="method">
-			<f a=""><c path="cs.system.collections.generic.IEnumerator_1"><c path="cs.system.collections.generic.ICollection_1.T0"/></c></f>
-			<meta><m n=":overload"/></meta>
-		</GetEnumerator>
 		<get_Count set="method">
 			<f a=""><x path="Int"/></f>
 			<meta><m n=":overload"/></meta>
@@ -32302,53 +32632,6 @@
 		<extends path="cs.system.collections.generic.IEnumerable_1"><c path="cs.system.collections.generic.IList_1.T0"/></extends>
 		<extends path="cs.system.collections.IEnumerable"/>
 		<extends path="ArrayAccess"><c path="cs.system.collections.generic.IList_1.T0"/></extends>
-		<Count public="1" get="accessor" set="null"><x path="Int"/></Count>
-		<IsReadOnly public="1" get="accessor" set="null"><x path="Bool"/></IsReadOnly>
-		<Remove public="1" set="method">
-			<f a="item">
-				<c path="cs.system.collections.generic.IList_1.T0"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</Remove>
-		<CopyTo public="1" set="method">
-			<f a="array:arrayIndex">
-				<c path="cs.NativeArray"><c path="cs.system.collections.generic.IList_1.T0"/></c>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</CopyTo>
-		<Contains public="1" set="method">
-			<f a="item">
-				<c path="cs.system.collections.generic.IList_1.T0"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</Contains>
-		<Clear public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":overload"/></meta>
-		</Clear>
-		<Add public="1" set="method">
-			<f a="item">
-				<c path="cs.system.collections.generic.IList_1.T0"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</Add>
-		<get_IsReadOnly set="method">
-			<f a=""><x path="Bool"/></f>
-			<meta><m n=":overload"/></meta>
-		</get_IsReadOnly>
-		<get_Count set="method">
-			<f a=""><x path="Int"/></f>
-			<meta><m n=":overload"/></meta>
-		</get_Count>
-		<GetEnumerator public="1" set="method">
-			<f a=""><c path="cs.system.collections.generic.IEnumerator_1"><c path="cs.system.collections.generic.IList_1.T0"/></c></f>
-			<meta><m n=":overload"/></meta>
-		</GetEnumerator>
 		<IndexOf public="1" set="method">
 			<f a="item">
 				<c path="cs.system.collections.generic.IList_1.T0"/>
@@ -32590,10 +32873,6 @@
 			</meta>
 		</Disposed>
 		<Site public="1" get="accessor" set="accessor"><c path="cs.system.componentmodel.ISite"/></Site>
-		<Dispose public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":overload"/></meta>
-		</Dispose>
 		<add_Disposed public="1" set="method">
 			<f a="value">
 				<x path="cs.system.EventHandler"/>
@@ -32829,10 +33108,6 @@
 	<class path="cs.system.componentmodel.IContainer" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxcs/git/netlib/net-20/System.dll @ cs.system.componentmodel.IContainer" extern="1" interface="1">
 		<extends path="cs.system.IDisposable"/>
 		<Components public="1" get="accessor" set="null"><c path="cs.system.componentmodel.ComponentCollection"/></Components>
-		<Dispose public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":overload"/></meta>
-		</Dispose>
 		<get_Components set="method">
 			<f a=""><c path="cs.system.componentmodel.ComponentCollection"/></f>
 			<meta><m n=":overload"/></meta>
@@ -32873,13 +33148,6 @@
 		<DesignMode public="1" get="accessor" set="null"><x path="Bool"/></DesignMode>
 		<Container public="1" get="accessor" set="null"><c path="cs.system.componentmodel.IContainer"/></Container>
 		<Component public="1" get="accessor" set="null"><c path="cs.system.componentmodel.IComponent"/></Component>
-		<GetService public="1" set="method">
-			<f a="serviceType">
-				<c path="cs.system.Type"/>
-				<d/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</GetService>
 		<get_Component set="method">
 			<f a=""><c path="cs.system.componentmodel.IComponent"/></f>
 			<meta><m n=":overload"/></meta>
@@ -50861,7 +51129,7 @@
 			<f a=""><c path="cs.system.reflection.Module"/></f>
 			<meta><m n=":overload"/></meta>
 		</get_Module>
-		<ToString public="1" set="method" override="1">
+		<ToString public="1" set="method">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":overload"/></meta>
 		</ToString>
@@ -52961,7 +53229,7 @@
 			</f>
 			<meta><m n=":overload"/></meta>
 		</SetSymCustomAttribute>
-		<ToString public="1" set="method" override="1">
+		<ToString public="1" set="method">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":overload"/></meta>
 		</ToString>
@@ -55345,10 +55613,6 @@
 	</class>
 	<class path="cs.system.resources.IResourceWriter" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.resources.IResourceWriter" extern="1" interface="1">
 		<extends path="cs.system.IDisposable"/>
-		<Dispose public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":overload"/></meta>
-		</Dispose>
 		<AddResource public="1" set="method">
 			<f a="name:value">
 				<c path="String"/>
@@ -56983,17 +57247,6 @@
 	</class>
 	<class path="cs.system.security.IPermission" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.security.IPermission" extern="1" interface="1">
 		<extends path="cs.system.security.ISecurityEncodable"/>
-		<ToXml public="1" set="method">
-			<f a=""><c path="cs.system.security.SecurityElement"/></f>
-			<meta><m n=":overload"/></meta>
-		</ToXml>
-		<FromXml public="1" set="method">
-			<f a="e">
-				<c path="cs.system.security.SecurityElement"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-		</FromXml>
 		<Copy public="1" set="method">
 			<f a=""><c path="cs.system.security.IPermission"/></f>
 			<meta><m n=":overload"/></meta>
@@ -60326,32 +60579,6 @@
 	<class path="cs.system.security.policy.IMembershipCondition" params="" file="/home/vsts/work/1/s/extra/.haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.security.policy.IMembershipCondition" extern="1" interface="1">
 		<extends path="cs.system.security.ISecurityEncodable"/>
 		<extends path="cs.system.security.ISecurityPolicyEncodable"/>
-		<ToXml public="1" set="method">
-			<f a=""><c path="cs.system.security.SecurityElement"/></f>
-			<meta><m n=":overload"/></meta>
-			<overloads><ToXml public="1" set="method">
-	<f a="level">
-		<c path="cs.system.security.policy.PolicyLevel"/>
-		<c path="cs.system.security.SecurityElement"/>
-	</f>
-	<meta><m n=":overload"/></meta>
-</ToXml></overloads>
-		</ToXml>
-		<FromXml public="1" set="method">
-			<f a="e">
-				<c path="cs.system.security.SecurityElement"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":overload"/></meta>
-			<overloads><FromXml public="1" set="method">
-	<f a="e:level">
-		<c path="cs.system.security.SecurityElement"/>
-		<c path="cs.system.security.policy.PolicyLevel"/>
-		<x path="Void"/>
-	</f>
-	<meta><m n=":overload"/></meta>
-</FromXml></overloads>
-		</FromXml>
 		<Check public="1" set="method">
 			<f a="evidence">
 				<c path="cs.system.security.policy.Evidence"/>
