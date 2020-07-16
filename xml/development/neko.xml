@@ -28510,6 +28510,7 @@
 		<AFinal><haxe_doc>Final access modifier. For functions, they can not be overridden. For
 		variables, it means they can be assigned to only once.</haxe_doc></AFinal>
 		<AExtern><haxe_doc>Extern access modifier.</haxe_doc></AExtern>
+		<AAbstract><haxe_doc>Abstract access modifier.</haxe_doc></AAbstract>
 		<haxe_doc>Represents an access modifier.
 	@see https://haxe.org/manual/class-field-access-modifier.html</haxe_doc>
 		<meta><m n=":flatEnum"/></meta>
@@ -28582,9 +28583,10 @@
 	<enum path="haxe.macro.TypeDefKind" params="" file="/home/vsts/work/1/s/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
 		<TDEnum><haxe_doc>Represents an enum kind.</haxe_doc></TDEnum>
 		<TDStructure><haxe_doc>Represents a structure kind.</haxe_doc></TDStructure>
-		<TDClass a="?superClass:?interfaces:?isInterface:?isFinal">
+		<TDClass a="?superClass:?interfaces:?isInterface:?isFinal:?isAbstract">
 			<x path="Null"><t path="haxe.macro.TypePath"/></x>
 			<c path="Array"><t path="haxe.macro.TypePath"/></c>
+			<x path="Bool"/>
 			<x path="Bool"/>
 			<x path="Bool"/>
 			<haxe_doc>Represents a class kind.</haxe_doc>
@@ -28612,7 +28614,7 @@
 			<t path="haxe.macro.Position"/>
 			<haxe_doc>The position of the error.</haxe_doc>
 		</pos>
-		<new public="1" set="method" line="980">
+		<new public="1" set="method" line="985">
 			<f a="message:pos:?previous">
 				<c path="String"/>
 				<t path="haxe.macro.Position"/>
@@ -28992,54 +28994,54 @@
 	<e path="haxe.macro.Access"/>
 	<c path="String"/>
 </f></printAccess>
-		<printField public="1" set="method" line="164"><f a="field">
+		<printField public="1" set="method" line="165"><f a="field">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printField>
-		<printTypeParamDecl public="1" set="method" line="188"><f a="tpd">
+		<printTypeParamDecl public="1" set="method" line="189"><f a="tpd">
 	<t path="haxe.macro.TypeParamDecl"/>
 	<c path="String"/>
 </f></printTypeParamDecl>
-		<printFunctionArg public="1" set="method" line="194"><f a="arg">
+		<printFunctionArg public="1" set="method" line="195"><f a="arg">
 	<t path="haxe.macro.FunctionArg"/>
 	<c path="String"/>
 </f></printFunctionArg>
-		<printFunction public="1" set="method" line="197"><f a="func:?kind">
+		<printFunction public="1" set="method" line="198"><f a="func:?kind">
 	<t path="haxe.macro.Function"/>
 	<e path="haxe.macro.FunctionKind"/>
 	<c path="String"/>
 </f></printFunction>
-		<printVar public="1" set="method" line="211"><f a="v">
+		<printVar public="1" set="method" line="212"><f a="v">
 	<t path="haxe.macro.Var"/>
 	<c path="String"/>
 </f></printVar>
-		<printObjectFieldKey public="1" set="method" line="219"><f a="of">
+		<printObjectFieldKey public="1" set="method" line="220"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectFieldKey>
-		<printObjectField public="1" set="method" line="226"><f a="of">
+		<printObjectField public="1" set="method" line="227"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectField>
-		<printExpr public="1" set="method" line="230"><f a="e">
+		<printExpr public="1" set="method" line="231"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExpr>
-		<printExprs public="1" set="method" line="287"><f a="el:sep">
+		<printExprs public="1" set="method" line="288"><f a="el:sep">
 	<c path="Array"><t path="haxe.macro.Expr"/></c>
 	<c path="String"/>
 	<c path="String"/>
 </f></printExprs>
-		<printExtension set="method" line="291"><f a="tpl:fields">
+		<printExtension set="method" line="292"><f a="tpl:fields">
 	<c path="Array"><t path="haxe.macro.TypePath"/></c>
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printExtension>
-		<printStructure set="method" line="298"><f a="fields">
+		<printStructure set="method" line="299"><f a="fields">
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printStructure>
-		<printTypeDefinition public="1" set="method" line="302">
+		<printTypeDefinition public="1" set="method" line="303">
 			<f a="t:?printPackage" v=":true">
 				<t path="haxe.macro.TypeDefinition"/>
 				<x path="Bool"/>
@@ -29047,11 +29049,11 @@
 			</f>
 			<meta><m n=":value"><e>{ printPackage : true }</e></m></meta>
 		</printTypeDefinition>
-		<printFieldWithDelimiter set="method" line="402"><f a="f">
+		<printFieldWithDelimiter set="method" line="404"><f a="f">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printFieldWithDelimiter>
-		<opt params="T" set="method" line="412">
+		<opt params="T" set="method" line="414">
 			<f a="v:f:?prefix" v="::&quot;&quot;">
 				<c path="opt.T"/>
 				<f a="">
@@ -29063,7 +29065,7 @@
 			</f>
 			<meta><m n=":value"><e>{ prefix : "" }</e></m></meta>
 		</opt>
-		<printExprWithPositions public="1" set="method" line="415"><f a="e">
+		<printExprWithPositions public="1" set="method" line="417"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExprWithPositions>
