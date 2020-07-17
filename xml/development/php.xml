@@ -4954,6 +4954,22 @@
 			<meta><m n=":value"><e>{ recursive : false, mode : 511 }</e></m></meta>
 			<haxe_doc>@see http://php.net/manual/en/function.mkdir.php</haxe_doc>
 		</mkdir>
+		<link public="1" set="method" static="1">
+			<f a="target:link">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.link.php</haxe_doc>
+		</link>
+		<symlink public="1" set="method" static="1">
+			<f a="target:link">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.symlink.php</haxe_doc>
+		</symlink>
 		<unlink public="1" set="method" static="1">
 			<f a="filename:?context">
 				<c path="String"/>
@@ -4979,6 +4995,14 @@
 			<meta><m n=":value"><e>{ levels : 1 }</e></m></meta>
 			<haxe_doc>@see http://php.net/manual/en/function.dirname.php</haxe_doc>
 		</dirname>
+		<basename public="1" set="method" static="1">
+			<f a="path:?suffix">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.basename.php</haxe_doc>
+		</basename>
 		<glob public="1" set="method" static="1">
 			<f a="pattern:?flags" v=":0">
 				<c path="String"/>
@@ -5016,6 +5040,16 @@
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.readdir.php</haxe_doc>
 		</readdir>
+		<readlink public="1" set="method" static="1">
+			<f a="filename">
+				<c path="String"/>
+				<x path="haxe.extern.EitherType">
+					<x path="Bool"/>
+					<c path="String"/>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.readlink.php</haxe_doc>
+		</readlink>
 		<rewinddir public="1" set="method" static="1">
 			<f a="?dir_handle">
 				<x path="php.Resource"/>
@@ -5266,6 +5300,41 @@
 			</f>
 			<meta><m n=":value"><e>{ httponly : false, secure : false, domain : "", path : "", expire : 0, value : "" }</e></m></meta>
 			<haxe_doc>@see http://php.net/manual/en/function.setcookie.php</haxe_doc>
+			<overloads><setcookie public="1" set="method">
+	<f a="name:?value:?options" v=":&quot;&quot;:">
+		<c path="String"/>
+		<c path="String"/>
+		<x path="php.NativeStructArray"><a>
+	<secure>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</secure>
+	<samesite>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</samesite>
+	<path>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</path>
+	<lifetime>
+		<x path="Null"><x path="Int"/></x>
+		<meta><m n=":optional"/></meta>
+	</lifetime>
+	<httponly>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</httponly>
+	<domain>
+		<x path="Null"><c path="String"/></x>
+		<meta><m n=":optional"/></meta>
+	</domain>
+</a></x>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":value"><e>{ value : "" }</e></m></meta>
+	<haxe_doc>@see http://php.net/manual/en/function.setcookie.php</haxe_doc>
+</setcookie></overloads>
 		</setcookie>
 		<htmlspecialchars public="1" set="method" static="1">
 			<f a="string:?flags:?encoding:?double_encode" v=":::true">
@@ -5563,6 +5632,22 @@
 			<meta><m n=":value"><e>{ length : null }</e></m></meta>
 			<haxe_doc>@see http://php.net/manual/en/function.mb-substr.php</haxe_doc>
 		</mb_substr>
+		<mb_substitute_character public="1" set="method" static="1">
+			<f a="?substchar">
+				<x path="haxe.extern.EitherType">
+					<x path="Int"/>
+					<c path="String"/>
+				</x>
+				<x path="haxe.extern.EitherType">
+					<x path="Bool"/>
+					<x path="haxe.extern.EitherType">
+						<c path="String"/>
+						<x path="Int"/>
+					</x>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.mb-substitute-character.php</haxe_doc>
+		</mb_substitute_character>
 		<mb_chr public="1" set="method" static="1">
 			<f a="cp:?encoding">
 				<x path="Int"/>
