@@ -6042,13 +6042,19 @@
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="cpp.Finalizable" params="" file="/home/vsts/work/1/s/std/cpp/Finalizable.hx">
-		<finalize public="1" set="method" line="35"><f a=""><x path="Void"/></f></finalize>
+		<finalize public="1" set="method" line="35">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</finalize>
 		<new public="1" set="method" line="31">
 			<f a="?inPin" v="false">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":value"><e>{ inPin : false }</e></m></meta>
+			<meta>
+				<m n=":value"><e>{ inPin : false }</e></m>
+				<m n=":keep"/>
+			</meta>
 		</new>
 		<haxe_doc>This is just a helper class. It is not actually required to inherit from this
 	to use `NativeGc.addFinalizable(this,inPin)`, only a function called
@@ -6374,12 +6380,18 @@
 				<x path="Int"/>
 				<d/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Load and return a Cpp primitive from a DLL library.</haxe_doc>
 		</load>
 		<unloadAllLibraries public="1" set="method" line="46" static="1">
 			<f a=""><x path="Int"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Unloaded all dynamic libraries in reverse order of loading.
 		Returns the number of libraries unloaded.</haxe_doc>
 		</unloadAllLibraries>
@@ -6394,6 +6406,7 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":value"><e>{ quietFail : false }</e></m>
+				<m n=":keep"/>
 			</meta>
 		</_loadPrime>
 		<loadLazy public="1" set="method" line="65" static="1">
@@ -6403,7 +6416,10 @@
 				<x path="Int"/>
 				<d/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Tries to load, and always returns a valid function, but the function may throw
 		if called.</haxe_doc>
 		</loadLazy>
@@ -6413,6 +6429,7 @@
 				<unknown/>
 			</f>
 			<meta>
+				<m n=":keep"/>
 				<m n=":noDebug"/>
 				<m n=":native"><e>"HX_STACK_DO_RETHROW"</e></m>
 			</meta>
@@ -6422,36 +6439,54 @@
 				<d/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":noDebug"/></meta>
+			<meta>
+				<m n=":keep"/>
+				<m n=":noDebug"/>
+			</meta>
 		</rethrow>
 		<stringReference public="1" set="method" line="89" static="1">
 			<f a="inBytes">
 				<c path="haxe.io.Bytes"/>
 				<c path="String"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</stringReference>
 		<pushDllSearchPath public="1" set="method" line="95" static="1">
 			<f a="inPath">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</pushDllSearchPath>
 		<getDllExtension public="1" set="method" line="98" static="1">
 			<f a=""><c path="String"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</getDllExtension>
 		<getBinDirectory public="1" set="method" line="101" static="1">
 			<f a=""><c path="String"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</getBinDirectory>
 		<bytesReference public="1" get="inline" set="null" line="110" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="haxe.io.Bytes"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns bytes referencing the content of a string.
 		Use with extreme caution - changing constant strings will crash.
 		Changing one string can cause others to change unexpectedly.
@@ -6462,7 +6497,10 @@
 				<d/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Print the specified value on the default output.</haxe_doc>
 		</print>
 		<haxeToNeko public="1" set="method" line="127" static="1">
@@ -6470,6 +6508,7 @@
 				<d/>
 				<d/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>This function is used to make porting from neko to cpp easy.
 		It does not need to do anything because the c-code can work with any Dynamic</haxe_doc>
 		</haxeToNeko>
@@ -6478,6 +6517,7 @@
 				<d/>
 				<d/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>This function is used to make porting from neko to cpp easy.
 		It does not need to do anything because the c-code can work with any Dynamic</haxe_doc>
 		</nekoToHaxe>
@@ -6486,7 +6526,10 @@
 				<d/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Print the specified value on the default output followed by a newline character.</haxe_doc>
 		</println>
 		<setFloatFormat public="1" set="method" line="146" static="1">
@@ -6494,7 +6537,10 @@
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</setFloatFormat>
 		<haxe_doc>Platform-specific Cpp Library. Provides some platform-specific functions
 	for the C++ target, such as conversion from Haxe types to native types
@@ -7032,6 +7078,7 @@
 			</f>
 			<meta><m n=":native"><e>"__hxcpp_set_minimum_working_memory"</e></m></meta>
 		</setMinimumWorkingMemory>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="cpp.NativeMath" params="" file="/home/vsts/work/1/s/std/cpp/NativeMath.hx" extern="1">
 		<idiv public="1" set="method" static="1">
@@ -24052,7 +24099,7 @@
 	</fromArrayCopy>
 	<copy public="1" params="T" get="inline" set="null" line="275" static="1">
 		<f a="this">
-			<t path="haxe.ds._Vector.VectorData"><c path="copy.T"/></t>
+			<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 			<x path="haxe.ds.Vector"><c path="copy.T"/></x>
 		</f>
 		<meta>
@@ -24067,7 +24114,7 @@
 	</copy>
 	<join public="1" params="T" get="inline" set="null" line="298" static="1">
 		<f a="this:sep">
-			<t path="haxe.ds._Vector.VectorData"><c path="join.T"/></t>
+			<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 			<c path="String"/>
 			<c path="String"/>
 		</f>
@@ -24106,12 +24153,12 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 	</map>
-	<sort public="1" params="T" get="inline" set="null" line="348" static="1">
+	<sort public="1" get="inline" set="null" line="348" static="1">
 		<f a="this:f">
-			<t path="haxe.ds._Vector.VectorData"><c path="sort.T"/></t>
+			<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 			<f a=":">
-				<c path="sort.T"/>
-				<c path="sort.T"/>
+				<c path="haxe.ds.Vector.T"/>
+				<c path="haxe.ds.Vector.T"/>
 				<x path="Int"/>
 			</f>
 			<x path="Void"/>
@@ -24276,7 +24323,7 @@
 		</fromArrayCopy>
 		<copy public="1" params="T" get="inline" set="null" line="275" static="1">
 			<f a="this">
-				<t path="haxe.ds._Vector.VectorData"><c path="copy.T"/></t>
+				<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 				<x path="haxe.ds.Vector"><c path="copy.T"/></x>
 			</f>
 			<meta>
@@ -24291,7 +24338,7 @@
 		</copy>
 		<join public="1" params="T" get="inline" set="null" line="298" static="1">
 			<f a="this:sep">
-				<t path="haxe.ds._Vector.VectorData"><c path="join.T"/></t>
+				<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 				<c path="String"/>
 				<c path="String"/>
 			</f>
@@ -24330,12 +24377,12 @@
 
 		If `f` is null, the result is unspecified.</haxe_doc>
 		</map>
-		<sort public="1" params="T" get="inline" set="null" line="348" static="1">
+		<sort public="1" get="inline" set="null" line="348" static="1">
 			<f a="this:f">
-				<t path="haxe.ds._Vector.VectorData"><c path="sort.T"/></t>
+				<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 				<f a=":">
-					<c path="sort.T"/>
-					<c path="sort.T"/>
+					<c path="haxe.ds.Vector.T"/>
+					<c path="haxe.ds.Vector.T"/>
 					<x path="Int"/>
 				</f>
 				<x path="Void"/>
@@ -38607,38 +38654,6 @@
 		<haxe_doc>This class provides utility methods to convert Xml instances to
 	String representation.</haxe_doc>
 		<meta><m n=":directlyUsed"/></meta>
-	</class>
-	<class path="haxe.xml.Proxy" params="Const:T" file="/home/vsts/work/1/s/std/haxe/xml/Proxy.hx">
-		<__f><f a="">
-	<c path="String"/>
-	<c path="haxe.xml.Proxy.T"/>
-</f></__f>
-		<resolve public="1" set="method" line="49"><f a="k">
-	<c path="String"/>
-	<c path="haxe.xml.Proxy.T"/>
-</f></resolve>
-		<new public="1" set="method" line="45"><f a="f">
-	<f a="">
-		<c path="String"/>
-		<c path="haxe.xml.Proxy.T"/>
-	</f>
-	<x path="Void"/>
-</f></new>
-		<haxe_doc><![CDATA[This proxy can be inherited with an XML file name parameter.
-	It will	only allow access to fields which corresponds to an "id" attribute
-	value in the XML file :
-
-	```haxe
-	class MyXml extends haxe.xml.Proxy<"my.xml", MyStructure> {
-	}
-
-	var h = new haxe.ds.StringMap<MyStructure>();
-	// ... fill h with "my.xml" content
-	var m = new MyXml(h.get);
-	trace(m.myNode.structField);
-	// Access to "myNode" is only possible if you have an id="myNode" attribute
-	// in your XML, and completion works as well.
-	```]]></haxe_doc>
 	</class>
 	<class path="haxe.zip.Compress" params="" file="/home/vsts/work/1/s/std/cpp/_std/haxe/zip/Compress.hx">
 		<run public="1" set="method" line="45" static="1">
