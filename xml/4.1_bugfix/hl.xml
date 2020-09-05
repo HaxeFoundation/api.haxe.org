@@ -38728,13 +38728,15 @@
 			<m n=":access"><e>sys.net.Socket</e></m>
 		</meta>
 	</class>
-	<typedef path="sys.thread.ThreadHandle" params="" file="/home/vsts/work/1/s/std/hl/_std/sys/thread/Thread.hx" module="sys.thread.Thread"><c path="hl.Abstract"><c path="Shl_thread"/></c></typedef>
+	<typedef path="sys.thread._Thread.ThreadHandle" params="" file="/home/vsts/work/1/s/std/hl/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread"><c path="hl.Abstract"><c path="Shl_thread"/></c></typedef>
 	<abstract path="sys.thread.Thread" params="" file="/home/vsts/work/1/s/std/hl/_std/sys/thread/Thread.hx">
-		<this><t path="sys.thread.ThreadHandle"/></this>
+		<from><icast><t path="sys.thread._Thread.ThreadHandle"/></icast></from>
+		<this><t path="sys.thread._Thread.ThreadHandle"/></this>
+		<to><icast><t path="sys.thread._Thread.ThreadHandle"/></icast></to>
 		<impl><class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/vsts/work/1/s/std/hl/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" final="1">
 	<sendMessage public="1" set="method" line="28" static="1">
 		<f a="this:msg">
-			<t path="sys.thread.ThreadHandle"/>
+			<t path="sys.thread._Thread.ThreadHandle"/>
 			<d/>
 			<x path="Void"/>
 		</f>
@@ -38753,26 +38755,34 @@
 	</queue_mutex>
 	<threads_queues expr="null" line="37" static="1">
 		<c path="Array"><a>
-	<t><t path="sys.thread.ThreadHandle"/></t>
+	<t><t path="sys.thread._Thread.ThreadHandle"/></t>
 	<q><c path="sys.thread.Deque"><d/></c></q>
 </a></c>
 		<meta><m n=":value"><e>null</e></m></meta>
 	</threads_queues>
 	<getQueue set="method" line="39" static="1"><f a="t">
-	<t path="sys.thread.ThreadHandle"/>
+	<t path="sys.thread._Thread.ThreadHandle"/>
 	<c path="sys.thread.Deque"><d/></c>
 </f></getQueue>
-	<create public="1" set="method" line="60" static="1">
+	<create public="1" set="method" line="59" static="1"><f a="callb">
+	<f a=""><x path="Void"/></f>
+	<x path="sys.thread.Thread"/>
+</f></create>
+	<dropThread get="inline" set="null" line="71" static="1"><f a="handle">
+	<t path="sys.thread._Thread.ThreadHandle"/>
+	<x path="Void"/>
+</f></dropThread>
+	<createHandle set="method" line="83" static="1">
 		<f a="callb">
 			<f a=""><x path="Void"/></f>
-			<x path="sys.thread.Thread"/>
+			<t path="sys.thread._Thread.ThreadHandle"/>
 		</f>
 		<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"thread_create"</e>
 </m></meta>
-	</create>
-	<current public="1" set="method" line="65" static="1">
+	</createHandle>
+	<current public="1" set="method" line="88" static="1">
 		<f a=""><x path="sys.thread.Thread"/></f>
 		<meta><m n=":hlNative">
 	<e>"std"</e>
@@ -38784,7 +38794,7 @@
 	<class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/vsts/work/1/s/std/hl/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" final="1">
 		<sendMessage public="1" set="method" line="28" static="1">
 			<f a="this:msg">
-				<t path="sys.thread.ThreadHandle"/>
+				<t path="sys.thread._Thread.ThreadHandle"/>
 				<d/>
 				<x path="Void"/>
 			</f>
@@ -38803,26 +38813,34 @@
 		</queue_mutex>
 		<threads_queues expr="null" line="37" static="1">
 			<c path="Array"><a>
-	<t><t path="sys.thread.ThreadHandle"/></t>
+	<t><t path="sys.thread._Thread.ThreadHandle"/></t>
 	<q><c path="sys.thread.Deque"><d/></c></q>
 </a></c>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</threads_queues>
 		<getQueue set="method" line="39" static="1"><f a="t">
-	<t path="sys.thread.ThreadHandle"/>
+	<t path="sys.thread._Thread.ThreadHandle"/>
 	<c path="sys.thread.Deque"><d/></c>
 </f></getQueue>
-		<create public="1" set="method" line="60" static="1">
+		<create public="1" set="method" line="59" static="1"><f a="callb">
+	<f a=""><x path="Void"/></f>
+	<x path="sys.thread.Thread"/>
+</f></create>
+		<dropThread get="inline" set="null" line="71" static="1"><f a="handle">
+	<t path="sys.thread._Thread.ThreadHandle"/>
+	<x path="Void"/>
+</f></dropThread>
+		<createHandle set="method" line="83" static="1">
 			<f a="callb">
 				<f a=""><x path="Void"/></f>
-				<x path="sys.thread.Thread"/>
+				<t path="sys.thread._Thread.ThreadHandle"/>
 			</f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"thread_create"</e>
 </m></meta>
-		</create>
-		<current public="1" set="method" line="65" static="1">
+		</createHandle>
+		<current public="1" set="method" line="88" static="1">
 			<f a=""><x path="sys.thread.Thread"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
