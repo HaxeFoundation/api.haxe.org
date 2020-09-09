@@ -4742,6 +4742,10 @@
 	<c path="sendMessage.T"/>
 	<x path="Void"/>
 </f></sendMessage>
+		<events get="null" set="null">
+			<x path="Null"><c path="sys.thread.EventLoop"/></x>
+			<meta><m n=":allow"><e>sys.thread.Thread</e></m></meta>
+		</events>
 		<new public="1" set="method">
 			<f a="f">
 				<f a=""><x path="Void"/></f>
@@ -4752,6 +4756,7 @@
 		Exceptions caused while executing `f` are printed to stderr and are not
 		propagated to the parent thread.</haxe_doc>
 		</new>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<enum path="haxe.StackItem" params="" file="/home/vsts/work/1/s/std/haxe/CallStack.hx" module="haxe.CallStack">
 		<CFunction/>
@@ -7180,6 +7185,7 @@
 		</toHaxe>
 		<haxe_doc>Do not use manually.</haxe_doc>
 		<meta>
+			<m n=":directlyUsed"/>
 			<m n=":dox"><e>hide</e></m>
 			<m n=":noCompletion"/>
 		</meta>
@@ -7551,7 +7557,7 @@
 	<https://haxe.org/manual/std-template.html>]]></haxe_doc>
 	</class>
 	<class path="haxe.Timer" params="" file="/home/vsts/work/1/s/std/haxe/Timer.hx">
-		<delay public="1" set="method" line="139" static="1">
+		<delay public="1" set="method" line="140" static="1">
 			<f a="f:time_ms">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -7565,7 +7571,7 @@
 
 		If `f` is `null`, the result is unspecified.</haxe_doc>
 		</delay>
-		<measure public="1" params="T" set="method" line="159" static="1">
+		<measure public="1" params="T" set="method" line="160" static="1">
 			<f a="f:?pos">
 				<f a=""><c path="measure.T"/></f>
 				<x path="Null"><t path="haxe.PosInfos"/></x>
@@ -7581,15 +7587,16 @@
 
 		If `f` is `null`, the result is unspecified.</haxe_doc>
 		</measure>
-		<stamp public="1" get="inline" set="null" line="172" static="1">
+		<stamp public="1" get="inline" set="null" line="173" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Returns a timestamp, in seconds with fractions.
 
 		The value itself might differ depending on platforms, only differences
 		between two values make sense.</haxe_doc>
 		</stamp>
-		<event><c path="haxe.MainEvent"/></event>
-		<stop public="1" set="method" line="90">
+		<thread><x path="sys.thread.Thread"/></thread>
+		<eventHandler><x path="sys.thread.EventHandler"/></eventHandler>
+		<stop public="1" set="method" line="95">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Stops `this` Timer.
 
@@ -7598,7 +7605,7 @@
 
 		It is not possible to restart `this` Timer once stopped.</haxe_doc>
 		</stop>
-		<run public="1" set="dynamic" line="128">
+		<run public="1" set="dynamic" line="129">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>This method is invoked repeatedly on `this` Timer.
 
@@ -7613,7 +7620,7 @@
 		Once bound, it can still be rebound to different functions until `this`
 		Timer is stopped through a call to `this.stop`.</haxe_doc>
 		</run>
-		<new public="1" set="method" line="60">
+		<new public="1" set="method" line="65">
 			<f a="time_ms">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -32309,32 +32316,185 @@
 	an element is available. It is commonly used to synchronize threads.</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
+	<enum path="sys.thread.NextEventTime" params="" file="/home/vsts/work/1/s/std/sys/thread/EventLoop.hx" module="sys.thread.EventLoop">
+		<Now><haxe_doc>There's already an event waiting to be executed</haxe_doc></Now>
+		<Never><haxe_doc>No new events are expected.</haxe_doc></Never>
+		<AnyTime a="time">
+			<x path="Null"><x path="Float"/></x>
+			<haxe_doc>An event is expected to arrive at any time.
+		If `time` is specified, then the event will be ready at that time for sure.</haxe_doc>
+		</AnyTime>
+		<At a="time">
+			<x path="Float"/>
+			<haxe_doc>An event is expected to be ready for execution at `time`.</haxe_doc>
+		</At>
+		<haxe_doc>When an event loop has an available event to execute.</haxe_doc>
+	</enum>
+	<class path="sys.thread.EventLoop" params="" file="/home/vsts/work/1/s/std/sys/thread/EventLoop.hx">
+		<mutex final="1" expr="new Mutex()">
+			<c path="sys.thread.Mutex"/>
+			<meta><m n=":value"><e>new Mutex()</e></m></meta>
+		</mutex>
+		<oneTimeEvents final="1" expr="new Array&lt;Null&lt;Void -&gt; Void&gt;&gt;()">
+			<c path="Array"><x path="Null"><f a=""><x path="Void"/></f></x></c>
+			<meta><m n=":value"><e><![CDATA[new Array<Null<Void -> Void>>()]]></e></m></meta>
+		</oneTimeEvents>
+		<oneTimeEventsIdx expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</oneTimeEventsIdx>
+		<waitLock final="1" expr="new Lock()">
+			<c path="sys.thread.Lock"/>
+			<meta><m n=":value"><e>new Lock()</e></m></meta>
+		</waitLock>
+		<promisedEventsCount expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</promisedEventsCount>
+		<regularEvents><x path="Null"><c path="sys.thread._EventLoop.RegularEvent"/></x></regularEvents>
+		<repeat public="1" set="method" line="36">
+			<f a="event:intervalMs">
+				<f a=""><x path="Void"/></f>
+				<x path="Int"/>
+				<x path="sys.thread.EventHandler"/>
+			</f>
+			<haxe_doc>Schedule event for execution every `intervalMs` milliseconds in current loop.</haxe_doc>
+		</repeat>
+		<cancel public="1" set="method" line="55">
+			<f a="eventHandler">
+				<x path="sys.thread.EventHandler"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Prevent execution of a previousely scheduled event in current loop.</haxe_doc>
+		</cancel>
+		<promise public="1" set="method" line="77">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Notify this loop about an upcoming event.
+		This makes the thread to stay alive and wait for as many events as many times
+		`.promise()` was called. These events should be added via `.runPromised()`</haxe_doc>
+		</promise>
+		<run public="1" set="method" line="86">
+			<f a="event">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Execute `event` as soon as possible.</haxe_doc>
+		</run>
+		<runPromised public="1" set="method" line="96">
+			<f a="event">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Add previously promised `event` for execution.</haxe_doc>
+		</runPromised>
+		<progress public="1" set="method" line="109">
+			<f a=""><e path="sys.thread.NextEventTime"/></f>
+			<haxe_doc>Executes all pending events.
+
+		The returned time stamps can be used with `Sys.time()` for calculations.</haxe_doc>
+		</progress>
+		<wait public="1" set="method" line="123">
+			<f a="?timeout">
+				<x path="Float"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Waits for a new event to be added, or `timeout` (in seconds) to expire.
+		Returns `true` if an event was added and `false` if a timeout occurs.</haxe_doc>
+		</wait>
+		<loop public="1" set="method" line="132">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Execute all pending events.
+		Wait and execute as many events as many times `promiseEvent()` was called.
+		Runs until all repeating events are cancelled and no more events is expected.</haxe_doc>
+		</loop>
+		<__progress get="inline" set="null" line="157">
+			<f a="now:recycle">
+				<x path="Float"/>
+				<c path="Array"><f a=""><x path="Void"/></f></c>
+				<a>
+					<nextEventAt><x path="Float"/></nextEventAt>
+					<anyTime><x path="Bool"/></anyTime>
+				</a>
+			</f>
+			<haxe_doc>`.pogress` implementation with a resuable array for internal usage.
+		The `nextEventAt` field of the return value denotes when the next event
+		is expected to run:
+		* -1 - never
+		* -2 - now
+		* other values - at specified time</haxe_doc>
+		</__progress>
+		<new public="1" set="method" line="31"><f a=""><x path="Void"/></f></new>
+		<haxe_doc>An event loop implementation used for `sys.thread.Thread`</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<abstract path="sys.thread.EventHandler" params="" file="/home/vsts/work/1/s/std/sys/thread/EventLoop.hx" module="sys.thread.EventLoop">
+		<from><icast><c path="sys.thread._EventLoop.RegularEvent"/></icast></from>
+		<this><c path="sys.thread._EventLoop.RegularEvent"/></this>
+		<to><icast><c path="sys.thread._EventLoop.RegularEvent"/></icast></to>
+		<impl><class path="sys.thread._EventLoop.EventHandler_Impl_" params="" file="/home/vsts/work/1/s/std/sys/thread/EventLoop.hx" private="1" module="sys.thread.EventLoop" extern="1" final="1"/></impl>
+	</abstract>
+	<class path="sys.thread._EventLoop.EventHandler_Impl_" params="" file="/home/vsts/work/1/s/std/sys/thread/EventLoop.hx" private="1" module="sys.thread.EventLoop" extern="1" final="1"/>
+	<class path="sys.thread._EventLoop.RegularEvent" params="" file="/home/vsts/work/1/s/std/sys/thread/EventLoop.hx" private="1" module="sys.thread.EventLoop">
+		<nextRunTime public="1"><x path="Float"/></nextRunTime>
+		<interval final="1" public="1"><x path="Float"/></interval>
+		<run final="1" public="1"><f a=""><x path="Void"/></f></run>
+		<next public="1"><x path="Null"><c path="sys.thread._EventLoop.RegularEvent"/></x></next>
+		<previous public="1"><x path="Null"><c path="sys.thread._EventLoop.RegularEvent"/></x></previous>
+		<new public="1" set="method" line="225"><f a="run:nextRunTime:interval">
+	<f a=""><x path="Void"/></f>
+	<x path="Float"/>
+	<x path="Float"/>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="sys.thread.NoEventLoopException" params="" file="/home/vsts/work/1/s/std/sys/thread/NoEventLoopException.hx">
+		<extends path="haxe.Exception"/>
+		<new public="1" set="method" line="6">
+			<f a="?msg:?previous" v="&quot;Event loop is not available. Refer to sys.thread.Thread.runWithEventLoop.&quot;:">
+				<c path="String"/>
+				<c path="haxe.Exception"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ msg : "Event loop is not available. Refer to sys.thread.Thread.runWithEventLoop." }</e></m></meta>
+		</new>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
 	<abstract path="sys.thread.Thread" params="" file="/home/vsts/work/1/s/std/eval/_std/sys/thread/Thread.hx">
 		<this><c path="eval.vm.NativeThread"/></this>
 		<impl><class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/vsts/work/1/s/std/eval/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" final="1">
-	<_new get="inline" set="null" line="28" static="1">
+	<events public="1" get="accessor" set="null" static="1"><c path="sys.thread.EventLoop"/></events>
+	<_new get="inline" set="null" line="30" static="1">
 		<f a="h">
 			<c path="eval.vm.NativeThread"/>
 			<x path="sys.thread.Thread"/>
 		</f>
 		<meta><m n=":noCompletion"/></meta>
 	</_new>
-	<sendMessage public="1" get="inline" set="null" line="32" static="1"><f a="this:msg">
+	<sendMessage public="1" get="inline" set="null" line="34" static="1"><f a="this:msg">
 	<c path="eval.vm.NativeThread"/>
 	<d/>
 	<x path="Void"/>
 </f></sendMessage>
-	<current public="1" get="inline" set="null" line="36" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
-	<create public="1" get="inline" set="null" line="40" static="1"><f a="callb">
+	<current public="1" get="inline" set="null" line="38" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
+	<create public="1" get="inline" set="null" line="42" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></create>
-	<readMessage public="1" get="inline" set="null" line="44" static="1"><f a="block">
+	<runWithEventLoop public="1" set="method" line="46" static="1"><f a="job">
+	<f a=""><x path="Void"/></f>
+	<x path="Void"/>
+</f></runWithEventLoop>
+	<createWithEventLoop public="1" get="inline" set="null" line="63" static="1"><f a="job">
+	<f a=""><x path="Void"/></f>
+	<x path="sys.thread.Thread"/>
+</f></createWithEventLoop>
+	<readMessage public="1" get="inline" set="null" line="72" static="1"><f a="block">
 	<x path="Bool"/>
 	<d/>
 </f></readMessage>
-	<yield public="1" get="inline" set="null" line="48" static="1"><f a=""><x path="Void"/></f></yield>
-	<equals public="1" get="inline" set="null" line="53" static="1">
+	<yield public="1" get="inline" set="null" line="76" static="1"><f a=""><x path="Void"/></f></yield>
+	<equals public="1" get="inline" set="null" line="81" static="1">
 		<f a="this:other">
 			<c path="eval.vm.NativeThread"/>
 			<x path="sys.thread.Thread"/>
@@ -32342,36 +32502,58 @@
 		</f>
 		<meta><m n=":op"><e>A == B</e></m></meta>
 	</equals>
-	<getHandle get="inline" set="null" line="57" static="1"><f a="this">
+	<getHandle get="inline" set="null" line="85" static="1"><f a="this">
 	<c path="eval.vm.NativeThread"/>
 	<c path="eval.vm.NativeThread"/>
 </f></getHandle>
+	<get_events set="method" line="89" static="1"><f a="this">
+	<c path="eval.vm.NativeThread"/>
+	<c path="sys.thread.EventLoop"/>
+</f></get_events>
+	<initEventLoop set="method" line="96" static="1">
+		<f a=""><x path="Void"/></f>
+		<meta><m n=":keep"/></meta>
+	</initEventLoop>
+	<processEvents set="method" line="102" static="1">
+		<f a=""><x path="Void"/></f>
+		<meta><m n=":keep"/></meta>
+	</processEvents>
+	<meta><m n=":directlyUsed"/></meta>
 </class></impl>
 	</abstract>
 	<class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/vsts/work/1/s/std/eval/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" final="1">
-		<_new get="inline" set="null" line="28" static="1">
+		<events public="1" get="accessor" set="null" static="1"><c path="sys.thread.EventLoop"/></events>
+		<_new get="inline" set="null" line="30" static="1">
 			<f a="h">
 				<c path="eval.vm.NativeThread"/>
 				<x path="sys.thread.Thread"/>
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</_new>
-		<sendMessage public="1" get="inline" set="null" line="32" static="1"><f a="this:msg">
+		<sendMessage public="1" get="inline" set="null" line="34" static="1"><f a="this:msg">
 	<c path="eval.vm.NativeThread"/>
 	<d/>
 	<x path="Void"/>
 </f></sendMessage>
-		<current public="1" get="inline" set="null" line="36" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
-		<create public="1" get="inline" set="null" line="40" static="1"><f a="callb">
+		<current public="1" get="inline" set="null" line="38" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
+		<create public="1" get="inline" set="null" line="42" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></create>
-		<readMessage public="1" get="inline" set="null" line="44" static="1"><f a="block">
+		<runWithEventLoop public="1" set="method" line="46" static="1"><f a="job">
+	<f a=""><x path="Void"/></f>
+	<x path="Void"/>
+</f></runWithEventLoop>
+		<createWithEventLoop public="1" get="inline" set="null" line="63" static="1"><f a="job">
+	<f a=""><x path="Void"/></f>
+	<x path="sys.thread.Thread"/>
+</f></createWithEventLoop>
+		<readMessage public="1" get="inline" set="null" line="72" static="1"><f a="block">
 	<x path="Bool"/>
 	<d/>
 </f></readMessage>
-		<yield public="1" get="inline" set="null" line="48" static="1"><f a=""><x path="Void"/></f></yield>
-		<equals public="1" get="inline" set="null" line="53" static="1">
+		<yield public="1" get="inline" set="null" line="76" static="1"><f a=""><x path="Void"/></f></yield>
+		<equals public="1" get="inline" set="null" line="81" static="1">
 			<f a="this:other">
 				<c path="eval.vm.NativeThread"/>
 				<x path="sys.thread.Thread"/>
@@ -32379,10 +32561,23 @@
 			</f>
 			<meta><m n=":op"><e>A == B</e></m></meta>
 		</equals>
-		<getHandle get="inline" set="null" line="57" static="1"><f a="this">
+		<getHandle get="inline" set="null" line="85" static="1"><f a="this">
 	<c path="eval.vm.NativeThread"/>
 	<c path="eval.vm.NativeThread"/>
 </f></getHandle>
+		<get_events set="method" line="89" static="1"><f a="this">
+	<c path="eval.vm.NativeThread"/>
+	<c path="sys.thread.EventLoop"/>
+</f></get_events>
+		<initEventLoop set="method" line="96" static="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</initEventLoop>
+		<processEvents set="method" line="102" static="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</processEvents>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="sys.thread.Tls" params="T" file="/home/vsts/work/1/s/std/sys/thread/Tls.hx" extern="1">
 		<value public="1" get="null" set="null"><c path="sys.thread.Tls.T"/></value>
