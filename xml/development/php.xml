@@ -1801,6 +1801,47 @@
 		<ZLIB_SYNC_FLUSH final="1" public="1" set="null" static="1"><x path="Int"/></ZLIB_SYNC_FLUSH>
 		<ZLIB_FULL_FLUSH final="1" public="1" set="null" static="1"><x path="Int"/></ZLIB_FULL_FLUSH>
 		<ZLIB_FINISH final="1" public="1" set="null" static="1"><x path="Int"/></ZLIB_FINISH>
+		<PHP_OUTPUT_HANDLER_CLEAN final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<haxe_doc>@see http://php.net/manual/en/outcontrol.constants.php</haxe_doc>
+		</PHP_OUTPUT_HANDLER_CLEAN>
+		<PHP_OUTPUT_HANDLER_CLEANABLE final="1" public="1" set="null" static="1"><x path="Int"/></PHP_OUTPUT_HANDLER_CLEANABLE>
+		<PHP_OUTPUT_HANDLER_CONT final="1" public="1" set="null" static="1"><x path="Int"/></PHP_OUTPUT_HANDLER_CONT>
+		<PHP_OUTPUT_HANDLER_END final="1" public="1" set="null" static="1"><x path="Int"/></PHP_OUTPUT_HANDLER_END>
+		<PHP_OUTPUT_HANDLER_FINAL final="1" public="1" set="null" static="1"><x path="Int"/></PHP_OUTPUT_HANDLER_FINAL>
+		<PHP_OUTPUT_HANDLER_FLUSH final="1" public="1" set="null" static="1"><x path="Int"/></PHP_OUTPUT_HANDLER_FLUSH>
+		<PHP_OUTPUT_HANDLER_FLUSHABLE final="1" public="1" set="null" static="1"><x path="Int"/></PHP_OUTPUT_HANDLER_FLUSHABLE>
+		<PHP_OUTPUT_HANDLER_REMOVABLE final="1" public="1" set="null" static="1"><x path="Int"/></PHP_OUTPUT_HANDLER_REMOVABLE>
+		<PHP_OUTPUT_HANDLER_START final="1" public="1" set="null" static="1"><x path="Int"/></PHP_OUTPUT_HANDLER_START>
+		<PHP_OUTPUT_HANDLER_STDFLAGS final="1" public="1" set="null" static="1"><x path="Int"/></PHP_OUTPUT_HANDLER_STDFLAGS>
+		<PHP_OUTPUT_HANDLER_WRITE final="1" public="1" set="null" static="1"><x path="Int"/></PHP_OUTPUT_HANDLER_WRITE>
+		<LOCK_EX final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<haxe_doc>@see http://php.net/manual/en/function.flock.php</haxe_doc>
+		</LOCK_EX>
+		<LOCK_NB final="1" public="1" set="null" static="1"><x path="Int"/></LOCK_NB>
+		<LOCK_SH final="1" public="1" set="null" static="1"><x path="Int"/></LOCK_SH>
+		<LOCK_UN final="1" public="1" set="null" static="1"><x path="Int"/></LOCK_UN>
+		<FNM_CASEFOLD final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<haxe_doc>@see http://php.net/manual/en/function.fnmatch.php</haxe_doc>
+		</FNM_CASEFOLD>
+		<FNM_NOESCAPE final="1" public="1" set="null" static="1"><x path="Int"/></FNM_NOESCAPE>
+		<FNM_PATHNAME final="1" public="1" set="null" static="1"><x path="Int"/></FNM_PATHNAME>
+		<FNM_PERIOD final="1" public="1" set="null" static="1"><x path="Int"/></FNM_PERIOD>
+		<INI_SCANNER_NORMAL final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<haxe_doc>@see http://php.net/manual/en/function.parse-ini-file.php</haxe_doc>
+		</INI_SCANNER_NORMAL>
+		<INI_SCANNER_RAW final="1" public="1" set="null" static="1"><x path="Int"/></INI_SCANNER_RAW>
+		<INI_SCANNER_TYPED final="1" public="1" set="null" static="1"><x path="Int"/></INI_SCANNER_TYPED>
+		<PATHINFO_BASENAME final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<haxe_doc>@see http://php.net/manual/en/function.pathinfo.php</haxe_doc>
+		</PATHINFO_BASENAME>
+		<PATHINFO_DIRNAME final="1" public="1" set="null" static="1"><x path="Int"/></PATHINFO_DIRNAME>
+		<PATHINFO_EXTENSION final="1" public="1" set="null" static="1"><x path="Int"/></PATHINFO_EXTENSION>
+		<PATHINFO_FILENAME final="1" public="1" set="null" static="1"><x path="Int"/></PATHINFO_FILENAME>
 		<haxe_doc>This class contains externs for native PHP constants defined in global namespace.
 	For native PHP functions in global namespace see `php.Global`.</haxe_doc>
 		<meta>
@@ -4869,6 +4910,15 @@
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.fflush.php</haxe_doc>
 		</fflush>
+		<flock public="1" set="method" static="1">
+			<f a="handle:operation:?wouldblock">
+				<x path="php.Resource"/>
+				<x path="Int"/>
+				<t path="php.Ref"><x path="Int"/></t>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.flock.php</haxe_doc>
+		</flock>
 		<fwrite public="1" set="method" static="1">
 			<f a="handle:string:?length">
 				<x path="php.Resource"/>
@@ -4994,6 +5044,27 @@
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.stat.php</haxe_doc>
 		</stat>
+		<fnmatch public="1" set="method" static="1">
+			<f a="pattern:string:?flags" v="::0">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ flags : 0 }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.fnmatch.php</haxe_doc>
+		</fnmatch>
+		<pathinfo public="1" set="method" static="1">
+			<f a="path:?options">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<x path="php.NativeAssocArray"><c path="String"/></x>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.pathinfo.php</haxe_doc>
+		</pathinfo>
 		<realpath public="1" set="method" static="1">
 			<f a="path">
 				<c path="String"/>
@@ -5426,6 +5497,26 @@
 	<haxe_doc>@see http://php.net/manual/en/function.setcookie.php</haxe_doc>
 </setcookie></overloads>
 		</setcookie>
+		<html_entity_decode public="1" set="method" static="1">
+			<f a="string:?flags:?encoding">
+				<c path="String"/>
+				<x path="Int"/>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.html-entity-decode.php</haxe_doc>
+		</html_entity_decode>
+		<htmlentities public="1" set="method" static="1">
+			<f a="string:?flags:?encoding:?double_encode" v=":::true">
+				<c path="String"/>
+				<x path="Int"/>
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":value"><e>{ double_encode : true }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.htmlentities.php</haxe_doc>
+		</htmlentities>
 		<htmlspecialchars public="1" set="method" static="1">
 			<f a="string:?flags:?encoding:?double_encode" v=":::true">
 				<c path="String"/>
@@ -5443,7 +5534,7 @@
 				<x path="Int"/>
 				<c path="String"/>
 			</f>
-			<haxe_doc>@see http://php.net/manual/en/function.htmlspecialchars_decode.php</haxe_doc>
+			<haxe_doc>@see http://php.net/manual/en/function.htmlspecialchars-decode.php</haxe_doc>
 		</htmlspecialchars_decode>
 		<str_pad public="1" set="method" static="1">
 			<f a="input:pad_length:?pad_String:?pad_type" v="::&quot; &quot;:">
@@ -6629,6 +6720,176 @@
 	<haxe_doc>@see http://php.net/manual/en/function.version-compare.php</haxe_doc>
 </version_compare></overloads>
 		</version_compare>
+		<ob_clean public="1" set="method" static="1">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>@see http://php.net/manual/en/function.ob-clean.php</haxe_doc>
+		</ob_clean>
+		<ob_end_clean public="1" set="method" static="1">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>@see http://php.net/manual/en/function.ob-end-clean.php</haxe_doc>
+		</ob_end_clean>
+		<ob_end_flush public="1" set="method" static="1">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>@see http://php.net/manual/en/function.ob-end-flush.php</haxe_doc>
+		</ob_end_flush>
+		<ob_flush public="1" set="method" static="1">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>@see http://php.net/manual/en/function.ob-flush.php</haxe_doc>
+		</ob_flush>
+		<ob_get_clean public="1" set="method" static="1">
+			<f a=""><x path="haxe.extern.EitherType">
+	<c path="String"/>
+	<x path="Bool"/>
+</x></f>
+			<haxe_doc>@see http://php.net/manual/en/function.ob-get-clean.php</haxe_doc>
+		</ob_get_clean>
+		<ob_get_contents public="1" set="method" static="1">
+			<f a=""><x path="haxe.extern.EitherType">
+	<c path="String"/>
+	<x path="Bool"/>
+</x></f>
+			<haxe_doc>@see http://php.net/manual/en/function.ob-get-contents.php</haxe_doc>
+		</ob_get_contents>
+		<ob_get_flush public="1" set="method" static="1">
+			<f a=""><x path="haxe.extern.EitherType">
+	<c path="String"/>
+	<x path="Bool"/>
+</x></f>
+			<haxe_doc>@see http://php.net/manual/en/function.ob-get-flush.php</haxe_doc>
+		</ob_get_flush>
+		<ob_get_length public="1" set="method" static="1">
+			<f a=""><x path="haxe.extern.EitherType">
+	<x path="Int"/>
+	<x path="Bool"/>
+</x></f>
+			<haxe_doc>@see http://php.net/manual/en/function.ob-get-length.php</haxe_doc>
+		</ob_get_length>
+		<ob_get_level public="1" set="method" static="1">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>@see http://php.net/manual/en/function.ob-get-level.php</haxe_doc>
+		</ob_get_level>
+		<ob_get_status public="1" set="method" static="1">
+			<f a="?full_status" v="false">
+				<x path="Bool"/>
+				<x path="php.NativeArray"/>
+			</f>
+			<meta><m n=":value"><e>{ full_status : false }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.ob-get-status.php</haxe_doc>
+		</ob_get_status>
+		<ob_implicit_flush public="1" set="method" static="1">
+			<f a="?flag" v="1">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ flag : 1 }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.ob-implicit-flush.php</haxe_doc>
+		</ob_implicit_flush>
+		<ob_list_handlers public="1" set="method" static="1">
+			<f a=""><x path="php.NativeIndexedArray"><c path="String"/></x></f>
+			<haxe_doc>@see http://php.net/manual/en/function.ob-list-handlers.php</haxe_doc>
+		</ob_list_handlers>
+		<ob_start public="1" set="method" static="1">
+			<f a="?output_callback:?chunk_size:?flags" v="null:0:">
+				<f a=":?">
+					<c path="String"/>
+					<x path="Int"/>
+					<c path="String"/>
+				</f>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ chunk_size : 0, output_callback : null }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.ob-start.php</haxe_doc>
+		</ob_start>
+		<strip_tags public="1" set="method" static="1">
+			<f a="str:?allowable_tags">
+				<c path="String"/>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<c path="Array"><c path="String"/></c>
+				</x>
+				<c path="String"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.strip-tags.php</haxe_doc>
+		</strip_tags>
+		<parse_ini_file public="1" set="method" static="1">
+			<f a="filename:?process_sections:?scanner_mode" v=":false:">
+				<c path="String"/>
+				<x path="Bool"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<x path="php.NativeAssocArray"><d/></x>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ process_sections : false }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.parse-ini-file.php</haxe_doc>
+		</parse_ini_file>
+		<parse_ini_string public="1" set="method" static="1">
+			<f a="ini:?process_sections:?scanner_mode" v=":false:">
+				<c path="String"/>
+				<x path="Bool"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<x path="php.NativeAssocArray"><d/></x>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ process_sections : false }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.parse-ini-string.php</haxe_doc>
+		</parse_ini_string>
+		<opcache_compile_file public="1" set="method" static="1">
+			<f a="file">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.opcache-compile-file.php</haxe_doc>
+		</opcache_compile_file>
+		<opcache_get_configuration public="1" set="method" static="1">
+			<f a=""><x path="php.NativeAssocArray"><d/></x></f>
+			<haxe_doc>@see http://php.net/manual/en/function.opcache-get-configuration.php</haxe_doc>
+		</opcache_get_configuration>
+		<opcache_get_status public="1" set="method" static="1">
+			<f a="?get_scripts" v="true">
+				<x path="Bool"/>
+				<x path="haxe.extern.EitherType">
+					<x path="php.NativeAssocArray"><d/></x>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ get_scripts : true }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.opcache-get-status.php</haxe_doc>
+		</opcache_get_status>
+		<opcache_invalidate public="1" set="method" static="1">
+			<f a="script:?force" v=":false">
+				<c path="String"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ force : false }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.opcache-invalidate.php</haxe_doc>
+		</opcache_invalidate>
+		<opcache_is_script_cached public="1" set="method" static="1">
+			<f a="file">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.opcache-is-script-cached.php</haxe_doc>
+		</opcache_is_script_cached>
+		<opcache_reset public="1" set="method" static="1">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>@see http://php.net/manual/en/function.opcache-reset.php</haxe_doc>
+		</opcache_reset>
+		<touch public="1" set="method" static="1">
+			<f a="filename:?time:?atime">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.touch.php</haxe_doc>
+		</touch>
 		<haxe_doc>This class contains externs for native PHP functions defined in global namespace.
 	For native PHP constants in global namespace see `php.Const`.</haxe_doc>
 		<meta>
@@ -8761,36 +9022,36 @@
 	<x path="Void"/>
 </f></create></class>
 	<class path="haxe.EntryPoint" params="" file="/home/vsts/work/1/s/std/haxe/EntryPoint.hx">
-		<sleepLock expr="new Lock()" line="37" static="1">
-			<c path="haxe._EntryPoint.Lock"/>
-			<meta><m n=":value"><e>new Lock()</e></m></meta>
-		</sleepLock>
-		<mutex expr="new Mutex()" line="38" static="1">
+		<mutex expr="new Mutex()" line="37" static="1">
 			<c path="haxe._EntryPoint.Mutex"/>
 			<meta><m n=":value"><e>new Mutex()</e></m></meta>
 		</mutex>
-		<pending expr="new Array&lt;Void&gt;()" line="40" static="1">
+		<sleepLock expr="new Lock()" line="44" static="1">
+			<c path="haxe._EntryPoint.Lock"/>
+			<meta><m n=":value"><e>new Lock()</e></m></meta>
+		</sleepLock>
+		<pending expr="new Array&lt;Void&gt;()" line="47" static="1">
 			<c path="Array"><f a=""><x path="Void"/></f></c>
 			<meta><m n=":value"><e><![CDATA[new Array<Void>()]]></e></m></meta>
 		</pending>
-		<threadCount public="1" set="null" expr="0" line="41" static="1">
+		<threadCount public="1" set="null" expr="0" line="48" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>0</e></m></meta>
 		</threadCount>
-		<wakeup public="1" set="method" line="46" static="1">
+		<wakeup public="1" set="method" line="53" static="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Wakeup a sleeping `run()`</haxe_doc>
 		</wakeup>
-		<runInMainThread public="1" set="method" line="52" static="1"><f a="f">
+		<runInMainThread public="1" set="method" line="59" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runInMainThread>
-		<addThread public="1" set="method" line="63" static="1"><f a="f">
+		<addThread public="1" set="method" line="74" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></addThread>
-		<processEvents set="method" line="85" static="1"><f a=""><x path="Float"/></f></processEvents>
-		<run public="1" set="method" line="108" static="1">
+		<processEvents set="method" line="102" static="1"><f a=""><x path="Float"/></f></processEvents>
+		<run public="1" set="method" line="129" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Start the main loop. Depending on the platform, this can return immediately or will only return when the application exits.</haxe_doc>
@@ -10896,7 +11157,7 @@
 		</isBlocking>
 		<nextRun public="1" set="null"><x path="Float"/></nextRun>
 		<priority public="1" set="null"><x path="Int"/></priority>
-		<delay public="1" set="method" line="28">
+		<delay public="1" set="method" line="32">
 			<f a="t">
 				<x path="Null"><x path="Float"/></x>
 				<x path="Void"/>
@@ -10904,15 +11165,15 @@
 			<haxe_doc>Delay the execution of the event for the given time, in seconds.
 		If t is null, the event will be run at tick() time.</haxe_doc>
 		</delay>
-		<call public="1" get="inline" set="null" line="35">
+		<call public="1" get="inline" set="null" line="39">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Call the event. Will do nothing if the event has been stopped.</haxe_doc>
 		</call>
-		<stop public="1" set="method" line="43">
+		<stop public="1" set="method" line="47">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Stop the event from firing anymore.</haxe_doc>
 		</stop>
-		<new set="method" line="18"><f a="f:p">
+		<new set="method" line="22"><f a="f:p">
 	<f a=""><x path="Void"/></f>
 	<x path="Int"/>
 	<x path="Void"/>
@@ -10921,17 +11182,17 @@
 	<class path="haxe.MainLoop" params="" file="/home/vsts/work/1/s/std/haxe/MainLoop.hx">
 		<pending static="1"><c path="haxe.MainEvent"/></pending>
 		<threadCount public="1" get="accessor" set="null" static="1"><x path="Int"/></threadCount>
-		<get_threadCount get="inline" set="null" line="64" static="1"><f a=""><x path="Int"/></f></get_threadCount>
-		<hasEvents public="1" set="method" line="66" static="1"><f a=""><x path="Bool"/></f></hasEvents>
-		<addThread public="1" set="method" line="76" static="1"><f a="f">
+		<get_threadCount get="inline" set="null" line="76" static="1"><f a=""><x path="Int"/></f></get_threadCount>
+		<hasEvents public="1" set="method" line="78" static="1"><f a=""><x path="Bool"/></f></hasEvents>
+		<addThread public="1" set="method" line="88" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></addThread>
-		<runInMainThread public="1" set="method" line="80" static="1"><f a="f">
+		<runInMainThread public="1" set="method" line="92" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runInMainThread>
-		<add public="1" set="method" line="87" static="1">
+		<add public="1" set="method" line="99" static="1">
 			<f a="f:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -10940,8 +11201,12 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a pending event to be run into the main loop.</haxe_doc>
 		</add>
-		<sortEvents set="method" line="99" static="1"><f a=""><x path="Void"/></f></sortEvents>
-		<tick set="method" line="164" static="1">
+		<injectIntoEventLoop set="method" line="112" static="1"><f a="waitMs">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></injectIntoEventLoop>
+		<sortEvents set="method" line="131" static="1"><f a=""><x path="Void"/></f></sortEvents>
+		<tick set="method" line="196" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Run the pending events. Return the time for next event.</haxe_doc>
 		</tick>
@@ -19609,9 +19874,9 @@
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<haxe_doc>Sets the header identified as `header` to value `value`.
+			<haxe_doc>Sets the header identified as `name` to value `value`.
 
-		If `header` or `value` are null, the result is unspecified.
+		If `name` or `value` are null, the result is unspecified.
 
 		This method provides a fluent interface.</haxe_doc>
 		</setHeader>
@@ -19626,9 +19891,9 @@
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<haxe_doc>Sets the parameter identified as `param` to value `value`.
+			<haxe_doc>Sets the parameter identified as `name` to value `value`.
 
-		If `header` or `value` are null, the result is unspecified.
+		If `name` or `value` are null, the result is unspecified.
 
 		This method provides a fluent interface.</haxe_doc>
 		</setParameter>
@@ -19758,7 +20023,7 @@
 	platforms. There are two intended usages:
 
 	- call `haxe.Http.requestUrl(url)` and receive the result as a `String`
-	(not available on flash)
+	(only available on `sys` targets)
 	- create a `new haxe.Http(url)`, register your callbacks for `onData`,
 	`onError` and `onStatus`, then call `request()`.</haxe_doc>
 	</class>
@@ -34033,6 +34298,630 @@
 			<m n=":directlyUsed"/>
 			<m n=":native"><e>"Closure"</e></m>
 		</meta>
+	</class>
+	<class path="php.DateInterval" params="" file="/home/vsts/work/1/s/std/php/DateInterval.hx" extern="1">
+		<createFromDateString public="1" set="method" static="1"><f a="datetime">
+	<c path="String"/>
+	<c path="php.DateInterval"/>
+</f></createFromDateString>
+		<y public="1"><x path="Int"/></y>
+		<m public="1"><x path="Int"/></m>
+		<d public="1"><x path="Int"/></d>
+		<h public="1"><x path="Int"/></h>
+		<i public="1"><x path="Int"/></i>
+		<s public="1"><x path="Int"/></s>
+		<f public="1"><x path="Float"/></f>
+		<invert public="1"><x path="Int"/></invert>
+		<days public="1"><x path="haxe.extern.EitherType">
+	<x path="Int"/>
+	<x path="Bool"/>
+</x></days>
+		<format public="1" set="method"><f a="format">
+	<c path="String"/>
+	<c path="String"/>
+</f></format>
+		<new public="1" set="method"><f a="duration">
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>@see https://www.php.net/manual/en/class.dateinterval.php</haxe_doc>
+		<meta><m n=":native"><e>"DateInterval"</e></m></meta>
+	</class>
+	<class path="php.DatePeriod" params="" file="/home/vsts/work/1/s/std/php/DatePeriod.hx" extern="1">
+		<EXCLUDE_START_DATE final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</EXCLUDE_START_DATE>
+		<recurrences public="1"><x path="Int"/></recurrences>
+		<include_start_date public="1"><x path="Bool"/></include_start_date>
+		<start public="1"><c path="php.DateTimeInterface"/></start>
+		<current public="1"><c path="php.DateTimeInterface"/></current>
+		<end public="1"><x path="Null"><c path="php.DateTimeInterface"/></x></end>
+		<interval public="1"><c path="php.DateInterval"/></interval>
+		<getDateInterval public="1" set="method"><f a=""><c path="php.DateInterval"/></f></getDateInterval>
+		<getEndDate public="1" set="method"><f a=""><x path="Null"><c path="php.DateTimeInterface"/></x></f></getEndDate>
+		<getRecurrences public="1" set="method"><f a=""><x path="Int"/></f></getRecurrences>
+		<getStartDate public="1" set="method"><f a=""><c path="php.DateTimeInterface"/></f></getStartDate>
+		<new public="1" set="method">
+			<f a="isostr:?options">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<overloads>
+				<new public="1" set="method"><f a="start:interval:recurrences:?options">
+	<c path="php.DateTimeInterface"/>
+	<c path="php.DateInterval"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="start:interval:end:?options">
+	<c path="php.DateTimeInterface"/>
+	<c path="php.DateInterval"/>
+	<c path="php.DateTimeInterface"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></new>
+			</overloads>
+		</new>
+		<haxe_doc>@see https://www.php.net/manual/en/class.dateperiod.php</haxe_doc>
+		<meta><m n=":native"><e>"DatePeriod"</e></m></meta>
+	</class>
+	<class path="php.DateTimeInterface" params="" file="/home/vsts/work/1/s/std/php/DateTimeInterface.hx" extern="1" interface="1">
+		<ATOM final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</ATOM>
+		<COOKIE final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</COOKIE>
+		<ISO8601 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</ISO8601>
+		<RFC822 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC822>
+		<RFC850 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC850>
+		<RFC1036 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC1036>
+		<RFC1123 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC1123>
+		<RFC7231 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC7231>
+		<RFC2822 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC2822>
+		<RFC3339 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC3339>
+		<RFC3339_EXTENDED final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC3339_EXTENDED>
+		<RSS final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RSS>
+		<W3C final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</W3C>
+		<diff public="1" set="method">
+			<f a="targetObject:?absolute" v=":false">
+				<c path="php.DateTimeInterface"/>
+				<x path="Bool"/>
+				<x path="haxe.extern.EitherType">
+					<c path="php.DateInterval"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ absolute : false }</e></m></meta>
+		</diff>
+		<format public="1" set="method"><f a="format">
+	<c path="String"/>
+	<x path="haxe.extern.EitherType">
+		<c path="String"/>
+		<x path="Bool"/>
+	</x>
+</f></format>
+		<getOffset public="1" set="method"><f a=""><x path="haxe.extern.EitherType">
+	<x path="Int"/>
+	<x path="Bool"/>
+</x></f></getOffset>
+		<getTimestamp public="1" set="method"><f a=""><x path="Int"/></f></getTimestamp>
+		<getTimezone public="1" set="method"><f a=""><x path="haxe.extern.EitherType">
+	<c path="php.DateTimeZone"/>
+	<x path="Bool"/>
+</x></f></getTimezone>
+		<__wakeup public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":phpMagic"/></meta>
+		</__wakeup>
+		<haxe_doc>@see https://www.php.net/manual/en/class.datetimeinterface.php</haxe_doc>
+		<meta><m n=":native"><e>"DateTimeInterface"</e></m></meta>
+	</class>
+	<class path="php.DateTime" params="" file="/home/vsts/work/1/s/std/php/DateTime.hx" extern="1">
+		<implements path="php.DateTimeInterface"/>
+		<ATOM final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</ATOM>
+		<COOKIE final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</COOKIE>
+		<ISO8601 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</ISO8601>
+		<RFC822 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC822>
+		<RFC850 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC850>
+		<RFC1036 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC1036>
+		<RFC1123 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC1123>
+		<RFC7231 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC7231>
+		<RFC2822 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC2822>
+		<RFC3339 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC3339>
+		<RFC3339_EXTENDED final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC3339_EXTENDED>
+		<RSS final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RSS>
+		<W3C final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</W3C>
+		<createFromFormat public="1" set="method" static="1"><f a="format:datetime:?timezone">
+	<c path="String"/>
+	<c path="String"/>
+	<c path="php.DateTimeZone"/>
+	<x path="haxe.extern.EitherType">
+		<c path="php.DateTime"/>
+		<x path="Bool"/>
+	</x>
+</f></createFromFormat>
+		<createFromImmutable public="1" set="method" static="1"><f a="object">
+	<c path="php.DateTimeImmutable"/>
+	<c path="php.DateTime"/>
+</f></createFromImmutable>
+		<getLastErrors public="1" set="method" static="1"><f a=""><x path="php.NativeAssocArray"><d/></x></f></getLastErrors>
+		<__set_state public="1" set="method" static="1">
+			<f a="array">
+				<x path="php.NativeAssocArray"><x path="Any"/></x>
+				<c path="php.DateTime"/>
+			</f>
+			<meta><m n=":phpMagic"/></meta>
+		</__set_state>
+		<add public="1" set="method"><f a="interval">
+	<c path="php.DateInterval"/>
+	<x path="haxe.extern.EitherType">
+		<c path="php.DateTime"/>
+		<x path="Bool"/>
+	</x>
+</f></add>
+		<diff public="1" set="method">
+			<f a="targetObject:?absolute" v=":false">
+				<c path="php.DateTimeInterface"/>
+				<x path="Bool"/>
+				<x path="haxe.extern.EitherType">
+					<c path="php.DateInterval"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ absolute : false }</e></m></meta>
+		</diff>
+		<format public="1" set="method"><f a="format">
+	<c path="String"/>
+	<x path="haxe.extern.EitherType">
+		<c path="String"/>
+		<x path="Bool"/>
+	</x>
+</f></format>
+		<getOffset public="1" set="method"><f a=""><x path="haxe.extern.EitherType">
+	<x path="Int"/>
+	<x path="Bool"/>
+</x></f></getOffset>
+		<getTimestamp public="1" set="method"><f a=""><x path="Int"/></f></getTimestamp>
+		<getTimezone public="1" set="method"><f a=""><x path="haxe.extern.EitherType">
+	<c path="php.DateTimeZone"/>
+	<x path="Bool"/>
+</x></f></getTimezone>
+		<modify public="1" set="method"><f a="modifier">
+	<c path="String"/>
+	<x path="haxe.extern.EitherType">
+		<c path="php.DateTime"/>
+		<x path="Bool"/>
+	</x>
+</f></modify>
+		<setDate public="1" set="method"><f a="year:month:day">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="haxe.extern.EitherType">
+		<c path="php.DateTime"/>
+		<x path="Bool"/>
+	</x>
+</f></setDate>
+		<setISODate public="1" set="method">
+			<f a="year:week:?dayOfWeek" v="::1">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<c path="php.DateTime"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ dayOfWeek : 1 }</e></m></meta>
+		</setISODate>
+		<setTime public="1" set="method">
+			<f a="hour:minute:?second:?microsecond" v="::0:0">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<c path="php.DateTime"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ microsecond : 0, second : 0 }</e></m></meta>
+		</setTime>
+		<setTimestamp public="1" set="method"><f a="timestamp">
+	<x path="Int"/>
+	<x path="haxe.extern.EitherType">
+		<c path="php.DateTime"/>
+		<x path="Bool"/>
+	</x>
+</f></setTimestamp>
+		<setTimezone public="1" set="method"><f a="timezone">
+	<c path="php.DateTimeZone"/>
+	<x path="haxe.extern.EitherType">
+		<c path="php.DateTime"/>
+		<x path="Bool"/>
+	</x>
+</f></setTimezone>
+		<sub public="1" set="method"><f a="interval">
+	<c path="php.DateInterval"/>
+	<x path="haxe.extern.EitherType">
+		<c path="php.DateTime"/>
+		<x path="Bool"/>
+	</x>
+</f></sub>
+		<__wakeup public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":phpMagic"/></meta>
+		</__wakeup>
+		<new public="1" set="method">
+			<f a="?datetime:?timezone" v="&quot;now&quot;:">
+				<c path="String"/>
+				<c path="php.DateTimeZone"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ datetime : "now" }</e></m></meta>
+		</new>
+		<haxe_doc>@see https://www.php.net/manual/en/class.datetime.php</haxe_doc>
+		<meta><m n=":native"><e>"DateTime"</e></m></meta>
+	</class>
+	<class path="php.DateTimeImmutable" params="" file="/home/vsts/work/1/s/std/php/DateTimeImmutable.hx" extern="1">
+		<implements path="php.DateTimeInterface"/>
+		<ATOM final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</ATOM>
+		<COOKIE final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</COOKIE>
+		<ISO8601 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</ISO8601>
+		<RFC822 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC822>
+		<RFC850 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC850>
+		<RFC1036 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC1036>
+		<RFC1123 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC1123>
+		<RFC7231 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC7231>
+		<RFC2822 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC2822>
+		<RFC3339 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC3339>
+		<RFC3339_EXTENDED final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RFC3339_EXTENDED>
+		<RSS final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</RSS>
+		<W3C final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</W3C>
+		<createFromFormat public="1" set="method" static="1"><f a="format:datetime:?timezone">
+	<c path="String"/>
+	<c path="String"/>
+	<c path="php.DateTimeZone"/>
+	<x path="haxe.extern.EitherType">
+		<c path="php.DateTimeImmutable"/>
+		<x path="Bool"/>
+	</x>
+</f></createFromFormat>
+		<createFromMutable public="1" set="method" static="1"><f a="object">
+	<c path="php.DateTime"/>
+	<c path="php.DateTimeImmutable"/>
+</f></createFromMutable>
+		<getLastErrors public="1" set="method" static="1"><f a=""><x path="php.NativeAssocArray"><d/></x></f></getLastErrors>
+		<__set_state public="1" set="method" static="1">
+			<f a="array">
+				<x path="php.NativeAssocArray"><x path="Any"/></x>
+				<c path="php.DateTimeImmutable"/>
+			</f>
+			<meta><m n=":phpMagic"/></meta>
+		</__set_state>
+		<add public="1" set="method"><f a="interval">
+	<c path="php.DateInterval"/>
+	<x path="haxe.extern.EitherType">
+		<c path="php.DateTimeImmutable"/>
+		<x path="Bool"/>
+	</x>
+</f></add>
+		<diff public="1" set="method">
+			<f a="targetObject:?absolute" v=":false">
+				<c path="php.DateTimeInterface"/>
+				<x path="Bool"/>
+				<x path="haxe.extern.EitherType">
+					<c path="php.DateInterval"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ absolute : false }</e></m></meta>
+		</diff>
+		<format public="1" set="method"><f a="format">
+	<c path="String"/>
+	<x path="haxe.extern.EitherType">
+		<c path="String"/>
+		<x path="Bool"/>
+	</x>
+</f></format>
+		<getOffset public="1" set="method"><f a=""><x path="haxe.extern.EitherType">
+	<x path="Int"/>
+	<x path="Bool"/>
+</x></f></getOffset>
+		<getTimestamp public="1" set="method"><f a=""><x path="Int"/></f></getTimestamp>
+		<getTimezone public="1" set="method"><f a=""><x path="haxe.extern.EitherType">
+	<c path="php.DateTimeZone"/>
+	<x path="Bool"/>
+</x></f></getTimezone>
+		<modify public="1" set="method"><f a="modifier">
+	<c path="String"/>
+	<x path="haxe.extern.EitherType">
+		<c path="php.DateTimeImmutable"/>
+		<x path="Bool"/>
+	</x>
+</f></modify>
+		<setDate public="1" set="method"><f a="year:month:day">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="haxe.extern.EitherType">
+		<c path="php.DateTimeImmutable"/>
+		<x path="Bool"/>
+	</x>
+</f></setDate>
+		<setISODate public="1" set="method">
+			<f a="year:week:?dayOfWeek" v="::1">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<c path="php.DateTimeImmutable"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ dayOfWeek : 1 }</e></m></meta>
+		</setISODate>
+		<setTime public="1" set="method">
+			<f a="hour:minute:?second:?microsecond" v="::0:0">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<c path="php.DateTimeImmutable"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ microsecond : 0, second : 0 }</e></m></meta>
+		</setTime>
+		<setTimestamp public="1" set="method"><f a="timestamp">
+	<x path="Int"/>
+	<x path="haxe.extern.EitherType">
+		<c path="php.DateTimeImmutable"/>
+		<x path="Bool"/>
+	</x>
+</f></setTimestamp>
+		<setTimezone public="1" set="method"><f a="timezone">
+	<c path="php.DateTimeZone"/>
+	<x path="haxe.extern.EitherType">
+		<c path="php.DateTimeImmutable"/>
+		<x path="Bool"/>
+	</x>
+</f></setTimezone>
+		<sub public="1" set="method"><f a="interval">
+	<c path="php.DateInterval"/>
+	<x path="haxe.extern.EitherType">
+		<c path="php.DateTimeImmutable"/>
+		<x path="Bool"/>
+	</x>
+</f></sub>
+		<__wakeup public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":phpMagic"/></meta>
+		</__wakeup>
+		<new public="1" set="method">
+			<f a="?datetime:?timezone" v="&quot;now&quot;:">
+				<c path="String"/>
+				<c path="php.DateTimeZone"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ datetime : "now" }</e></m></meta>
+		</new>
+		<haxe_doc>@see https://www.php.net/manual/en/class.datetimeimmutable.php</haxe_doc>
+		<meta><m n=":native"><e>"DateTimeImmutable"</e></m></meta>
+	</class>
+	<class path="php.DateTimeZone" params="" file="/home/vsts/work/1/s/std/php/DateTimeZone.hx" extern="1">
+		<AFRICA final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</AFRICA>
+		<AMERICA final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</AMERICA>
+		<ANTARCTICA final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</ANTARCTICA>
+		<ARCTIC final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</ARCTIC>
+		<ASIA final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</ASIA>
+		<ATLANTIC final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</ATLANTIC>
+		<AUSTRALIA final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</AUSTRALIA>
+		<EUROPE final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</EUROPE>
+		<INDIAN final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</INDIAN>
+		<PACIFIC final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</PACIFIC>
+		<UTC final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</UTC>
+		<ALL final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</ALL>
+		<ALL_WITH_BC final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</ALL_WITH_BC>
+		<PER_COUNTRY final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</PER_COUNTRY>
+		<listAbbreviations public="1" set="method" static="1"><f a=""><x path="haxe.extern.EitherType">
+	<x path="php.NativeAssocArray"><x path="php.NativeIndexedArray"><x path="php.NativeAssocArray"><d/></x></x></x>
+	<x path="Bool"/>
+</x></f></listAbbreviations>
+		<listIdentifiers public="1" set="method" static="1"><f a="?timezoneGroup:?countryCode">
+	<x path="Int"/>
+	<c path="String"/>
+	<x path="haxe.extern.EitherType">
+		<x path="php.NativeIndexedArray"><c path="String"/></x>
+		<x path="Bool"/>
+	</x>
+</f></listIdentifiers>
+		<getLocation public="1" set="method"><f a=""><x path="haxe.extern.EitherType">
+	<x path="php.NativeAssocArray"><d/></x>
+	<x path="Bool"/>
+</x></f></getLocation>
+		<getName public="1" set="method"><f a=""><c path="String"/></f></getName>
+		<getOffset public="1" set="method"><f a="datetime">
+	<c path="php.DateTimeInterface"/>
+	<x path="haxe.extern.EitherType">
+		<x path="Int"/>
+		<x path="Bool"/>
+	</x>
+</f></getOffset>
+		<getTransitions public="1" set="method"><f a="?timestampBegin:?timestampEnd">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="haxe.extern.EitherType">
+		<x path="php.NativeIndexedArray"><x path="php.NativeAssocArray"><d/></x></x>
+		<x path="Bool"/>
+	</x>
+</f></getTransitions>
+		<new public="1" set="method"><f a="timezone">
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>@see https://www.php.net/manual/en/class.datetimezone.php</haxe_doc>
+		<meta><m n=":native"><e>"DateTimeZone"</e></m></meta>
 	</class>
 	<class path="php.Error" params="" file="/home/vsts/work/1/s/std/php/Error.hx" extern="1">
 		<implements path="php.Throwable"/>
