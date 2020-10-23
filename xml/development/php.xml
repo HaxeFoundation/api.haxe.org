@@ -1842,6 +1842,48 @@
 		<PATHINFO_DIRNAME final="1" public="1" set="null" static="1"><x path="Int"/></PATHINFO_DIRNAME>
 		<PATHINFO_EXTENSION final="1" public="1" set="null" static="1"><x path="Int"/></PATHINFO_EXTENSION>
 		<PATHINFO_FILENAME final="1" public="1" set="null" static="1"><x path="Int"/></PATHINFO_FILENAME>
+		<DNS_A final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<haxe_doc>@see http://php.net/manual/en/function.dns-get-record.php</haxe_doc>
+		</DNS_A>
+		<DNS_AAAA final="1" public="1" set="null" static="1"><x path="Int"/></DNS_AAAA>
+		<DNS_ALL final="1" public="1" set="null" static="1"><x path="Int"/></DNS_ALL>
+		<DNS_ANY final="1" public="1" set="null" static="1"><x path="Int"/></DNS_ANY>
+		<DNS_CAA final="1" public="1" set="null" static="1"><x path="Int"/></DNS_CAA>
+		<DNS_CNAME final="1" public="1" set="null" static="1"><x path="Int"/></DNS_CNAME>
+		<DNS_HINFO final="1" public="1" set="null" static="1"><x path="Int"/></DNS_HINFO>
+		<DNS_MX final="1" public="1" set="null" static="1"><x path="Int"/></DNS_MX>
+		<DNS_NS final="1" public="1" set="null" static="1"><x path="Int"/></DNS_NS>
+		<DNS_PTR final="1" public="1" set="null" static="1"><x path="Int"/></DNS_PTR>
+		<DNS_SOA final="1" public="1" set="null" static="1"><x path="Int"/></DNS_SOA>
+		<DNS_TXT final="1" public="1" set="null" static="1"><x path="Int"/></DNS_TXT>
+		<IDNA_ALLOW_UNASSIGNED final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<haxe_doc>@see http://php.net/manual/en/intl.constants.php</haxe_doc>
+		</IDNA_ALLOW_UNASSIGNED>
+		<IDNA_CHECK_BIDI final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_CHECK_BIDI>
+		<IDNA_CHECK_CONTEXTJ final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_CHECK_CONTEXTJ>
+		<IDNA_DEFAULT final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_DEFAULT>
+		<IDNA_ERROR_BIDI final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_ERROR_BIDI>
+		<IDNA_ERROR_CONTEXTJ final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_ERROR_CONTEXTJ>
+		<IDNA_ERROR_DISALLOWED final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_ERROR_DISALLOWED>
+		<IDNA_ERROR_DOMAIN_NAME_TOO_LONG final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_ERROR_DOMAIN_NAME_TOO_LONG>
+		<IDNA_ERROR_EMPTY_LABEL final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_ERROR_EMPTY_LABEL>
+		<IDNA_ERROR_HYPHEN_3_4 final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_ERROR_HYPHEN_3_4>
+		<IDNA_ERROR_INVALID_ACE_LABEL final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_ERROR_INVALID_ACE_LABEL>
+		<IDNA_ERROR_LABEL_HAS_DOT final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_ERROR_LABEL_HAS_DOT>
+		<IDNA_ERROR_LABEL_TOO_LONG final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_ERROR_LABEL_TOO_LONG>
+		<IDNA_ERROR_LEADING_COMBINING_MARK final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_ERROR_LEADING_COMBINING_MARK>
+		<IDNA_ERROR_LEADING_HYPHEN final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_ERROR_LEADING_HYPHEN>
+		<IDNA_ERROR_PUNYCODE final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_ERROR_PUNYCODE>
+		<IDNA_ERROR_TRAILING_HYPHEN final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_ERROR_TRAILING_HYPHEN>
+		<IDNA_NONTRANSITIONAL_TO_ASCII final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_NONTRANSITIONAL_TO_ASCII>
+		<IDNA_NONTRANSITIONAL_TO_UNICODE final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_NONTRANSITIONAL_TO_UNICODE>
+		<IDNA_USE_STD3_RULES final="1" public="1" set="null" static="1"><x path="Int"/></IDNA_USE_STD3_RULES>
+		<INTL_ICU_VERSION final="1" public="1" set="null" static="1"><c path="String"/></INTL_ICU_VERSION>
+		<INTL_IDNA_VARIANT_2003 final="1" public="1" set="null" static="1"><x path="Int"/></INTL_IDNA_VARIANT_2003>
+		<INTL_IDNA_VARIANT_UTS46 final="1" public="1" set="null" static="1"><x path="Int"/></INTL_IDNA_VARIANT_UTS46>
+		<INTL_MAX_LOCALE_LEN final="1" public="1" set="null" static="1"><x path="Int"/></INTL_MAX_LOCALE_LEN>
 		<haxe_doc>This class contains externs for native PHP constants defined in global namespace.
 	For native PHP functions in global namespace see `php.Global`.</haxe_doc>
 		<meta>
@@ -6890,6 +6932,56 @@
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.touch.php</haxe_doc>
 		</touch>
+		<checkdnsrr public="1" set="method" static="1">
+			<f a="host:?type" v=":&quot;MX&quot;">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ type : "MX" }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.checkdnsrr.php</haxe_doc>
+		</checkdnsrr>
+		<dns_get_record public="1" set="method" static="1">
+			<f a="hostname:?type:?authns:?addtl:?raw" v="::::false">
+				<c path="String"/>
+				<x path="Int"/>
+				<t path="php.Ref"><x path="php.NativeIndexedArray"><x path="php.NativeAssocArray"><d/></x></x></t>
+				<t path="php.Ref"><x path="php.NativeIndexedArray"><x path="php.NativeAssocArray"><d/></x></x></t>
+				<x path="Bool"/>
+				<x path="haxe.extern.EitherType">
+					<x path="php.NativeIndexedArray"><x path="php.NativeAssocArray"><d/></x></x>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ raw : false }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.dns-get-record.php</haxe_doc>
+		</dns_get_record>
+		<idn_to_ascii public="1" set="method" static="1">
+			<f a="domain:?options:?variant:?idna_info">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<t path="php.Ref"><x path="php.NativeAssocArray"><d/></x></t>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.idn-to-ascii.php</haxe_doc>
+		</idn_to_ascii>
+		<idn_to_utf8 public="1" set="method" static="1">
+			<f a="domain:?options:?variant:?idna_info">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<t path="php.Ref"><x path="php.NativeAssocArray"><d/></x></t>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.idn-to-utf8.php</haxe_doc>
+		</idn_to_utf8>
 		<haxe_doc>This class contains externs for native PHP functions defined in global namespace.
 	For native PHP constants in global namespace see `php.Const`.</haxe_doc>
 		<meta>
