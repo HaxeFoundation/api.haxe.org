@@ -74043,29 +74043,39 @@
 		<haxe_doc>When an event loop has an available event to execute.</haxe_doc>
 		<meta><m n=":hxGen"/></meta>
 	</enum>
+	<abstract path="sys.thread.EventLoopHandle" params="" file="/home/vsts/work/1/s/std/sys/thread/EventLoop.hx" module="sys.thread.EventLoop">
+		<this><x path="Int"/></this>
+		<meta><m n=":hxGen"/></meta>
+		<impl><class path="sys.thread._EventLoop.EventLoopHandle_Impl_" params="" file="/home/vsts/work/1/s/std/sys/thread/EventLoop.hx" private="1" module="sys.thread.EventLoop" extern="1" final="1"><meta><m n=":hxGen"/></meta></class></impl>
+	</abstract>
+	<class path="sys.thread._EventLoop.EventLoopHandle_Impl_" params="" file="/home/vsts/work/1/s/std/sys/thread/EventLoop.hx" private="1" module="sys.thread.EventLoop" extern="1" final="1"><meta><m n=":hxGen"/></meta></class>
 	<class path="sys.thread.EventLoop" params="" file="/home/vsts/work/1/s/std/sys/thread/EventLoop.hx">
-		<mutex final="1" expr="new Mutex()" line="24">
+		<handle final="1" public="1" expr="cast 0" line="27">
+			<x path="sys.thread.EventLoopHandle"/>
+			<meta><m n=":value"><e>cast 0</e></m></meta>
+		</handle>
+		<mutex final="1" expr="new Mutex()" line="29">
 			<c path="sys.thread.Mutex"/>
 			<meta><m n=":value"><e>new Mutex()</e></m></meta>
 		</mutex>
-		<oneTimeEvents final="1" expr="new Array&lt;Null&lt;Void -&gt; Void&gt;&gt;()" line="25">
+		<oneTimeEvents final="1" expr="new Array&lt;Null&lt;Void -&gt; Void&gt;&gt;()" line="30">
 			<c path="Array"><x path="Null"><f a=""><x path="Void"/></f></x></c>
 			<meta><m n=":value"><e><![CDATA[new Array<Null<Void -> Void>>()]]></e></m></meta>
 		</oneTimeEvents>
-		<oneTimeEventsIdx expr="0" line="26">
+		<oneTimeEventsIdx expr="0" line="31">
 			<x path="Int"/>
 			<meta><m n=":value"><e>0</e></m></meta>
 		</oneTimeEventsIdx>
-		<waitLock final="1" expr="new Lock()" line="27">
+		<waitLock final="1" expr="new Lock()" line="32">
 			<c path="sys.thread.Lock"/>
 			<meta><m n=":value"><e>new Lock()</e></m></meta>
 		</waitLock>
-		<promisedEventsCount expr="0" line="28">
+		<promisedEventsCount expr="0" line="33">
 			<x path="Int"/>
 			<meta><m n=":value"><e>0</e></m></meta>
 		</promisedEventsCount>
 		<regularEvents><x path="Null"><c path="sys.thread._EventLoop.RegularEvent"/></x></regularEvents>
-		<repeat public="1" set="method" line="36">
+		<repeat public="1" set="method" line="41">
 			<f a="event:intervalMs">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -74073,54 +74083,68 @@
 			</f>
 			<haxe_doc>Schedule event for execution every `intervalMs` milliseconds in current loop.</haxe_doc>
 		</repeat>
-		<cancel public="1" set="method" line="55">
+		<cancel public="1" set="method" line="60">
 			<f a="eventHandler">
 				<x path="sys.thread.EventHandler"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Prevent execution of a previousely scheduled event in current loop.</haxe_doc>
 		</cancel>
-		<promise public="1" set="method" line="77">
+		<promise public="1" set="method" line="82">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Notify this loop about an upcoming event.
 		This makes the thread to stay alive and wait for as many events as many times
 		`.promise()` was called. These events should be added via `.runPromised()`</haxe_doc>
 		</promise>
-		<run public="1" set="method" line="86">
+		<run public="1" set="method" line="91">
 			<f a="event">
 				<f a=""><x path="Void"/></f>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Execute `event` as soon as possible.</haxe_doc>
 		</run>
-		<runPromised public="1" set="method" line="96">
+		<runPromised public="1" set="method" line="101">
 			<f a="event">
 				<f a=""><x path="Void"/></f>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Add previously promised `event` for execution.</haxe_doc>
 		</runPromised>
-		<progress public="1" set="method" line="109">
+		<progress public="1" set="method" line="117">
 			<f a=""><e path="sys.thread.NextEventTime"/></f>
 			<haxe_doc>Executes all pending events.
 
-		The returned time stamps can be used with `Sys.time()` for calculations.</haxe_doc>
+		The returned time stamps can be used with `Sys.time()` for calculations.
+
+		Depending on a target platform this method may be non-reentrant. It must
+		not be called from event callbacks.</haxe_doc>
 		</progress>
-		<wait public="1" set="method" line="123">
+		<wait public="1" set="method" line="139">
 			<f a="?timeout">
 				<x path="Float"/>
 				<x path="Bool"/>
 			</f>
-			<haxe_doc>Waits for a new event to be added, or `timeout` (in seconds) to expire.
-		Returns `true` if an event was added and `false` if a timeout occurs.</haxe_doc>
+			<haxe_doc>Blocks until a new event is added or `timeout` (in seconds) to expires.
+
+		Depending on a target platform this method may also automatically execute arriving
+		events while waiting. However if any event is executed it will stop waiting.
+
+		Returns `true` if more events are expected.
+		Returns `false` if no more events expected.
+
+		Depending on a target platform this method may be non-reentrant. It must
+		not be called from event callbacks.</haxe_doc>
 		</wait>
-		<loop public="1" set="method" line="132">
+		<loop public="1" set="method" line="151">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Execute all pending events.
 		Wait and execute as many events as many times `promiseEvent()` was called.
-		Runs until all repeating events are cancelled and no more events is expected.</haxe_doc>
+		Runs until all repeating events are cancelled and no more events is expected.
+
+		Depending on a target platform this method may be non-reentrant. It must
+		not be called from event callbacks.</haxe_doc>
 		</loop>
-		<__progress get="inline" set="null" line="157">
+		<__progress get="inline" set="null" line="176">
 			<f a="now:recycle">
 				<x path="Float"/>
 				<c path="Array"><f a=""><x path="Void"/></f></c>
@@ -74136,11 +74160,12 @@
 		* -2 - now
 		* other values - at specified time</haxe_doc>
 		</__progress>
-		<new public="1" set="method" line="31"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="36"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>An event loop implementation used for `sys.thread.Thread`</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":hxGen"/>
+			<m n=":coreApi"/>
 		</meta>
 	</class>
 	<abstract path="sys.thread.EventHandler" params="" file="/home/vsts/work/1/s/std/sys/thread/EventLoop.hx" module="sys.thread.EventLoop">
@@ -74157,7 +74182,7 @@
 		<run final="1" public="1"><f a=""><x path="Void"/></f></run>
 		<next public="1"><x path="Null"><c path="sys.thread._EventLoop.RegularEvent"/></x></next>
 		<previous public="1"><x path="Null"><c path="sys.thread._EventLoop.RegularEvent"/></x></previous>
-		<new public="1" set="method" line="225"><f a="run:nextRunTime:interval">
+		<new public="1" set="method" line="244"><f a="run:nextRunTime:interval">
 	<f a=""><x path="Void"/></f>
 	<x path="Float"/>
 	<x path="Float"/>
