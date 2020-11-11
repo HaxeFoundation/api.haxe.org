@@ -4585,6 +4585,7 @@
 </f></new>
 	</class>
 	<abstract path="eval.integers.Int64" params="" file="/home/vsts/work/1/s/std/eval/integers/Int64.hx">
+		<from><icast field="ofHxInt64"><x path="haxe.Int64"/></icast></from>
 		<this><x path="eval.integers.Int64"/></this>
 		<to><icast field="toHxInt64"><x path="haxe.Int64"/></icast></to>
 		<haxe_doc>Signed 64-bit integer type and operations.</haxe_doc>
@@ -4623,6 +4624,17 @@
 		<haxe_doc>Parse the given string value to Int64.
 		Throws if the given string is not a valid representation of Int64.</haxe_doc>
 	</ofString>
+	<ofHxInt64 public="1" set="method" static="1">
+		<f a="hx">
+			<x path="haxe.Int64"/>
+			<x path="eval.integers.Int64"/>
+		</f>
+		<meta>
+			<m n=":noExpr"/>
+			<m n=":from"/>
+		</meta>
+		<haxe_doc>Convert `haxe.Int64` to `eval.integers.Int64`</haxe_doc>
+	</ofHxInt64>
 	<max public="1" set="method" static="1">
 		<f a="a:b">
 			<x path="eval.integers.Int64"/>
@@ -4795,7 +4807,7 @@
 		</f>
 		<meta><m n=":noExpr"/></meta>
 	</lognot>
-	<_add get="inline" set="null" line="94" static="1">
+	<_add get="inline" set="null" line="99" static="1">
 		<f a="this:u">
 			<x path="eval.integers.Int64"/>
 			<x path="eval.integers.Int64"/>
@@ -4803,7 +4815,7 @@
 		</f>
 		<meta><m n=":op"><e>A + B</e></m></meta>
 	</_add>
-	<_sub get="inline" set="null" line="95" static="1">
+	<_sub get="inline" set="null" line="100" static="1">
 		<f a="this:u">
 			<x path="eval.integers.Int64"/>
 			<x path="eval.integers.Int64"/>
@@ -4811,7 +4823,7 @@
 		</f>
 		<meta><m n=":op"><e>A - B</e></m></meta>
 	</_sub>
-	<_mul get="inline" set="null" line="96" static="1">
+	<_mul get="inline" set="null" line="101" static="1">
 		<f a="this:u">
 			<x path="eval.integers.Int64"/>
 			<x path="eval.integers.Int64"/>
@@ -4819,7 +4831,7 @@
 		</f>
 		<meta><m n=":op"><e>A * B</e></m></meta>
 	</_mul>
-	<_div get="inline" set="null" line="97" static="1">
+	<_div get="inline" set="null" line="102" static="1">
 		<f a="this:u">
 			<x path="eval.integers.Int64"/>
 			<x path="eval.integers.Int64"/>
@@ -4827,7 +4839,7 @@
 		</f>
 		<meta><m n=":op"><e>A / B</e></m></meta>
 	</_div>
-	<_logand get="inline" set="null" line="98" static="1">
+	<_logand get="inline" set="null" line="103" static="1">
 		<f a="this:u">
 			<x path="eval.integers.Int64"/>
 			<x path="eval.integers.Int64"/>
@@ -4835,7 +4847,7 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A & B]]></e></m></meta>
 	</_logand>
-	<_logor get="inline" set="null" line="99" static="1">
+	<_logor get="inline" set="null" line="104" static="1">
 		<f a="this:u">
 			<x path="eval.integers.Int64"/>
 			<x path="eval.integers.Int64"/>
@@ -4843,7 +4855,7 @@
 		</f>
 		<meta><m n=":op"><e>A | B</e></m></meta>
 	</_logor>
-	<_logxor get="inline" set="null" line="100" static="1">
+	<_logxor get="inline" set="null" line="105" static="1">
 		<f a="this:u">
 			<x path="eval.integers.Int64"/>
 			<x path="eval.integers.Int64"/>
@@ -4851,7 +4863,7 @@
 		</f>
 		<meta><m n=":op"><e>A ^ B</e></m></meta>
 	</_logxor>
-	<_shift_left get="inline" set="null" line="101" static="1">
+	<_shift_left get="inline" set="null" line="106" static="1">
 		<f a="this:i">
 			<x path="eval.integers.Int64"/>
 			<x path="Int"/>
@@ -4859,7 +4871,7 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A << B]]></e></m></meta>
 	</_shift_left>
-	<_shift_right get="inline" set="null" line="102" static="1">
+	<_shift_right get="inline" set="null" line="107" static="1">
 		<f a="this:i">
 			<x path="eval.integers.Int64"/>
 			<x path="Int"/>
@@ -4867,14 +4879,14 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A >> B]]></e></m></meta>
 	</_shift_right>
-	<_lognot get="inline" set="null" line="103" static="1">
+	<_lognot get="inline" set="null" line="108" static="1">
 		<f a="this">
 			<x path="eval.integers.Int64"/>
 			<x path="eval.integers.Int64"/>
 		</f>
 		<meta><m n=":op"><e>~A</e></m></meta>
 	</_lognot>
-	<eq get="inline" set="null" line="105" static="1">
+	<eq get="inline" set="null" line="110" static="1">
 		<f a="a:b">
 			<x path="eval.integers.Int64"/>
 			<x path="eval.integers.Int64"/>
@@ -4882,7 +4894,7 @@
 		</f>
 		<meta><m n=":op"><e>A != B</e></m></meta>
 	</eq>
-	<ne get="inline" set="null" line="106" static="1">
+	<ne get="inline" set="null" line="111" static="1">
 		<f a="a:b">
 			<x path="eval.integers.Int64"/>
 			<x path="eval.integers.Int64"/>
@@ -4890,7 +4902,7 @@
 		</f>
 		<meta><m n=":op"><e>A == B</e></m></meta>
 	</ne>
-	<lt get="inline" set="null" line="107" static="1">
+	<lt get="inline" set="null" line="112" static="1">
 		<f a="a:b">
 			<x path="eval.integers.Int64"/>
 			<x path="eval.integers.Int64"/>
@@ -4898,7 +4910,7 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A < B]]></e></m></meta>
 	</lt>
-	<gt get="inline" set="null" line="108" static="1">
+	<gt get="inline" set="null" line="113" static="1">
 		<f a="a:b">
 			<x path="eval.integers.Int64"/>
 			<x path="eval.integers.Int64"/>
@@ -4906,7 +4918,7 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A > B]]></e></m></meta>
 	</gt>
-	<lte get="inline" set="null" line="109" static="1">
+	<lte get="inline" set="null" line="114" static="1">
 		<f a="a:b">
 			<x path="eval.integers.Int64"/>
 			<x path="eval.integers.Int64"/>
@@ -4914,7 +4926,7 @@
 		</f>
 		<meta><m n=":op"><e><![CDATA[A <= B]]></e></m></meta>
 	</lte>
-	<gte get="inline" set="null" line="110" static="1">
+	<gte get="inline" set="null" line="115" static="1">
 		<f a="a:b">
 			<x path="eval.integers.Int64"/>
 			<x path="eval.integers.Int64"/>
@@ -4958,6 +4970,17 @@
 			<haxe_doc>Parse the given string value to Int64.
 		Throws if the given string is not a valid representation of Int64.</haxe_doc>
 		</ofString>
+		<ofHxInt64 public="1" set="method" static="1">
+			<f a="hx">
+				<x path="haxe.Int64"/>
+				<x path="eval.integers.Int64"/>
+			</f>
+			<meta>
+				<m n=":noExpr"/>
+				<m n=":from"/>
+			</meta>
+			<haxe_doc>Convert `haxe.Int64` to `eval.integers.Int64`</haxe_doc>
+		</ofHxInt64>
 		<max public="1" set="method" static="1">
 			<f a="a:b">
 				<x path="eval.integers.Int64"/>
@@ -5130,7 +5153,7 @@
 			</f>
 			<meta><m n=":noExpr"/></meta>
 		</lognot>
-		<_add get="inline" set="null" line="94" static="1">
+		<_add get="inline" set="null" line="99" static="1">
 			<f a="this:u">
 				<x path="eval.integers.Int64"/>
 				<x path="eval.integers.Int64"/>
@@ -5138,7 +5161,7 @@
 			</f>
 			<meta><m n=":op"><e>A + B</e></m></meta>
 		</_add>
-		<_sub get="inline" set="null" line="95" static="1">
+		<_sub get="inline" set="null" line="100" static="1">
 			<f a="this:u">
 				<x path="eval.integers.Int64"/>
 				<x path="eval.integers.Int64"/>
@@ -5146,7 +5169,7 @@
 			</f>
 			<meta><m n=":op"><e>A - B</e></m></meta>
 		</_sub>
-		<_mul get="inline" set="null" line="96" static="1">
+		<_mul get="inline" set="null" line="101" static="1">
 			<f a="this:u">
 				<x path="eval.integers.Int64"/>
 				<x path="eval.integers.Int64"/>
@@ -5154,7 +5177,7 @@
 			</f>
 			<meta><m n=":op"><e>A * B</e></m></meta>
 		</_mul>
-		<_div get="inline" set="null" line="97" static="1">
+		<_div get="inline" set="null" line="102" static="1">
 			<f a="this:u">
 				<x path="eval.integers.Int64"/>
 				<x path="eval.integers.Int64"/>
@@ -5162,7 +5185,7 @@
 			</f>
 			<meta><m n=":op"><e>A / B</e></m></meta>
 		</_div>
-		<_logand get="inline" set="null" line="98" static="1">
+		<_logand get="inline" set="null" line="103" static="1">
 			<f a="this:u">
 				<x path="eval.integers.Int64"/>
 				<x path="eval.integers.Int64"/>
@@ -5170,7 +5193,7 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A & B]]></e></m></meta>
 		</_logand>
-		<_logor get="inline" set="null" line="99" static="1">
+		<_logor get="inline" set="null" line="104" static="1">
 			<f a="this:u">
 				<x path="eval.integers.Int64"/>
 				<x path="eval.integers.Int64"/>
@@ -5178,7 +5201,7 @@
 			</f>
 			<meta><m n=":op"><e>A | B</e></m></meta>
 		</_logor>
-		<_logxor get="inline" set="null" line="100" static="1">
+		<_logxor get="inline" set="null" line="105" static="1">
 			<f a="this:u">
 				<x path="eval.integers.Int64"/>
 				<x path="eval.integers.Int64"/>
@@ -5186,7 +5209,7 @@
 			</f>
 			<meta><m n=":op"><e>A ^ B</e></m></meta>
 		</_logxor>
-		<_shift_left get="inline" set="null" line="101" static="1">
+		<_shift_left get="inline" set="null" line="106" static="1">
 			<f a="this:i">
 				<x path="eval.integers.Int64"/>
 				<x path="Int"/>
@@ -5194,7 +5217,7 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A << B]]></e></m></meta>
 		</_shift_left>
-		<_shift_right get="inline" set="null" line="102" static="1">
+		<_shift_right get="inline" set="null" line="107" static="1">
 			<f a="this:i">
 				<x path="eval.integers.Int64"/>
 				<x path="Int"/>
@@ -5202,14 +5225,14 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A >> B]]></e></m></meta>
 		</_shift_right>
-		<_lognot get="inline" set="null" line="103" static="1">
+		<_lognot get="inline" set="null" line="108" static="1">
 			<f a="this">
 				<x path="eval.integers.Int64"/>
 				<x path="eval.integers.Int64"/>
 			</f>
 			<meta><m n=":op"><e>~A</e></m></meta>
 		</_lognot>
-		<eq get="inline" set="null" line="105" static="1">
+		<eq get="inline" set="null" line="110" static="1">
 			<f a="a:b">
 				<x path="eval.integers.Int64"/>
 				<x path="eval.integers.Int64"/>
@@ -5217,7 +5240,7 @@
 			</f>
 			<meta><m n=":op"><e>A != B</e></m></meta>
 		</eq>
-		<ne get="inline" set="null" line="106" static="1">
+		<ne get="inline" set="null" line="111" static="1">
 			<f a="a:b">
 				<x path="eval.integers.Int64"/>
 				<x path="eval.integers.Int64"/>
@@ -5225,7 +5248,7 @@
 			</f>
 			<meta><m n=":op"><e>A == B</e></m></meta>
 		</ne>
-		<lt get="inline" set="null" line="107" static="1">
+		<lt get="inline" set="null" line="112" static="1">
 			<f a="a:b">
 				<x path="eval.integers.Int64"/>
 				<x path="eval.integers.Int64"/>
@@ -5233,7 +5256,7 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A < B]]></e></m></meta>
 		</lt>
-		<gt get="inline" set="null" line="108" static="1">
+		<gt get="inline" set="null" line="113" static="1">
 			<f a="a:b">
 				<x path="eval.integers.Int64"/>
 				<x path="eval.integers.Int64"/>
@@ -5241,7 +5264,7 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A > B]]></e></m></meta>
 		</gt>
-		<lte get="inline" set="null" line="109" static="1">
+		<lte get="inline" set="null" line="114" static="1">
 			<f a="a:b">
 				<x path="eval.integers.Int64"/>
 				<x path="eval.integers.Int64"/>
@@ -5249,7 +5272,7 @@
 			</f>
 			<meta><m n=":op"><e><![CDATA[A <= B]]></e></m></meta>
 		</lte>
-		<gte get="inline" set="null" line="110" static="1">
+		<gte get="inline" set="null" line="115" static="1">
 			<f a="a:b">
 				<x path="eval.integers.Int64"/>
 				<x path="eval.integers.Int64"/>
