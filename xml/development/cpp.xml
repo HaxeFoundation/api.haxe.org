@@ -40386,7 +40386,9 @@
 				<x path="Void"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Adds an element at the end of `this` Deque.</haxe_doc>
+			<haxe_doc>Adds an element at the end of `this` Deque.
+
+		(Java,Jvm): throws `java.lang.NullPointerException` if `i` is `null`.</haxe_doc>
 		</add>
 		<push public="1" set="method" line="37">
 			<f a="i">
@@ -40394,7 +40396,9 @@
 				<x path="Void"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Adds an element at the front of `this` Deque.</haxe_doc>
+			<haxe_doc>Adds an element at the front of `this` Deque.
+
+		(Java,Jvm): throws `java.lang.NullPointerException` if `i` is `null`.</haxe_doc>
 		</push>
 		<pop public="1" set="method" line="41">
 			<f a="block">
@@ -40418,6 +40422,144 @@
 		<haxe_doc>A Deque is a double-ended queue with a `pop` method that can block until
 	an element is available. It is commonly used to synchronize threads.</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
+	</class>
+	<class path="sys.thread.IThreadPool" params="" file="/home/vsts/work/1/s/std/sys/thread/IThreadPool.hx" interface="1">
+		<get_threadsCount public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<meta>
+				<m n=":compilerGenerated"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</get_threadsCount>
+		<get_isShutdown public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<meta>
+				<m n=":compilerGenerated"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</get_isShutdown>
+		<threadsCount public="1" get="accessor" set="null">
+			<x path="Int"/>
+			<haxe_doc>Amount of alive threads in this pool.</haxe_doc>
+		</threadsCount>
+		<isShutdown public="1" get="accessor" set="null">
+			<x path="Bool"/>
+			<haxe_doc>Indicates if `shutdown` method of this pool has been called.</haxe_doc>
+		</isShutdown>
+		<run public="1" set="method">
+			<f a="task">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Submit a task to run in a thread.
+
+		Throws an exception if the pool is shut down.</haxe_doc>
+		</run>
+		<shutdown public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Initiates a shutdown.
+		All previousely submitted tasks will be executed, but no new tasks will
+		be accepted.
+
+		Multiple calls to this method have no effect.</haxe_doc>
+		</shutdown>
+		<haxe_doc>A thread pool interface.</haxe_doc>
+	</class>
+	<class path="sys.thread.ElasticThreadPool" params="" file="/home/vsts/work/1/s/std/sys/thread/ElasticThreadPool.hx">
+		<implements path="sys.thread.IThreadPool"/>
+		<threadsCount public="1" get="accessor" set="null"><x path="Int"/></threadsCount>
+		<maxThreadsCount public="1"><x path="Int"/></maxThreadsCount>
+		<isShutdown public="1" get="accessor" set="null">
+			<x path="Bool"/>
+			<haxe_doc>Indicates if `shutdown` method of this pool has been called.</haxe_doc>
+		</isShutdown>
+		<_isShutdown expr="false">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>false</e></m></meta>
+		</_isShutdown>
+		<get_isShutdown set="method" line="46"><f a=""><x path="Bool"/></f></get_isShutdown>
+		<pool final="1" expr="[]">
+			<c path="Array"><c path="sys.thread._ElasticThreadPool.Worker"/></c>
+			<meta><m n=":value"><e>[]</e></m></meta>
+		</pool>
+		<queue final="1" expr="new Deque&lt;Void -&gt; Void&gt;()">
+			<c path="sys.thread.Deque"><f a=""><x path="Void"/></f></c>
+			<meta><m n=":value"><e><![CDATA[new Deque<Void -> Void>()]]></e></m></meta>
+		</queue>
+		<mutex final="1" expr="new Mutex()">
+			<c path="sys.thread.Mutex"/>
+			<meta><m n=":value"><e>new Mutex()</e></m></meta>
+		</mutex>
+		<threadTimeout final="1"><x path="Float"/></threadTimeout>
+		<run public="1" set="method" line="71">
+			<f a="task">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Submit a task to run in a thread.
+
+		Throws an exception if the pool is shut down.</haxe_doc>
+		</run>
+		<shutdown public="1" set="method" line="111">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Initiates a shutdown.
+		All previousely submitted tasks will be executed, but no new tasks will
+		be accepted.
+
+		Multiple calls to this method have no effect.</haxe_doc>
+		</shutdown>
+		<get_threadsCount set="method" line="121"><f a=""><x path="Int"/></f></get_threadsCount>
+		<new public="1" set="method" line="59">
+			<f a="maxThreadsCount:?threadTimeout" v=":60">
+				<x path="Int"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ threadTimeout : 60 }</e></m></meta>
+			<haxe_doc>Create a new thread pool with `threadsCount` threads.
+
+		If a worker thread does not receive a task for `threadTimeout` seconds it
+		is terminated.</haxe_doc>
+		</new>
+		<haxe_doc>Thread pool with a varying amount of threads.
+
+	A new thread is spawned every time a task is submitted while all existing
+	threads are busy.</haxe_doc>
+		<meta><m n=":coreApi"/></meta>
+	</class>
+	<class path="sys.thread._ElasticThreadPool.Worker" params="" file="/home/vsts/work/1/s/std/sys/thread/ElasticThreadPool.hx" private="1" module="sys.thread.ElasticThreadPool">
+		<task public="1" set="null"><x path="Null"><f a=""><x path="Void"/></f></x></task>
+		<dead public="1" set="null" expr="false">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>false</e></m></meta>
+		</dead>
+		<deathMutex final="1" expr="new Mutex()">
+			<c path="sys.thread.Mutex"/>
+			<meta><m n=":value"><e>new Mutex()</e></m></meta>
+		</deathMutex>
+		<waiter final="1" expr="new Lock()">
+			<c path="sys.thread.Lock"/>
+			<meta><m n=":value"><e>new Lock()</e></m></meta>
+		</waiter>
+		<queue final="1"><c path="sys.thread.Deque"><f a=""><x path="Void"/></f></c></queue>
+		<timeout final="1"><x path="Float"/></timeout>
+		<thread><x path="sys.thread.Thread"/></thread>
+		<isShutdown expr="false">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>false</e></m></meta>
+		</isShutdown>
+		<wakeup public="1" set="method" line="147"><f a="task">
+	<f a=""><x path="Void"/></f>
+	<x path="Void"/>
+</f></wakeup>
+		<shutdown public="1" set="method" line="156"><f a=""><x path="Void"/></f></shutdown>
+		<start set="method" line="161"><f a=""><x path="Void"/></f></start>
+		<loop set="method" line="166"><f a=""><x path="Void"/></f></loop>
+		<new public="1" set="method" line="141"><f a="queue:timeout">
+	<c path="sys.thread.Deque"><f a=""><x path="Void"/></f></c>
+	<x path="Float"/>
+	<x path="Void"/>
+</f></new>
 	</class>
 	<enum path="sys.thread.NextEventTime" params="" file="/home/vsts/work/1/s/std/sys/thread/EventLoop.hx" module="sys.thread.EventLoop">
 		<Now><haxe_doc>There's already an event waiting to be executed</haxe_doc></Now>
@@ -40573,6 +40715,75 @@
 	<f a=""><x path="Void"/></f>
 	<x path="Float"/>
 	<x path="Float"/>
+	<x path="Void"/>
+</f></new>
+	</class>
+	<class path="sys.thread.FixedThreadPool" params="" file="/home/vsts/work/1/s/std/sys/thread/FixedThreadPool.hx">
+		<implements path="sys.thread.IThreadPool"/>
+		<shutdownTask set="method" line="88" static="1"><f a=""><x path="Void"/></f></shutdownTask>
+		<threadsCount public="1" get="accessor" set="null"><x path="Int"/></threadsCount>
+		<get_threadsCount set="method" line="39"><f a=""><x path="Int"/></f></get_threadsCount>
+		<isShutdown public="1" get="accessor" set="null">
+			<x path="Bool"/>
+			<haxe_doc>Indicates if `shutdown` method of this pool has been called.</haxe_doc>
+		</isShutdown>
+		<_isShutdown expr="false">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>false</e></m></meta>
+		</_isShutdown>
+		<get_isShutdown set="method" line="44"><f a=""><x path="Bool"/></f></get_isShutdown>
+		<pool final="1"><c path="Array"><c path="sys.thread._FixedThreadPool.Worker"/></c></pool>
+		<poolMutex final="1" expr="new Mutex()">
+			<c path="sys.thread.Mutex"/>
+			<meta><m n=":value"><e>new Mutex()</e></m></meta>
+		</poolMutex>
+		<queue final="1" expr="new Deque&lt;Void -&gt; Void&gt;()">
+			<c path="sys.thread.Deque"><f a=""><x path="Void"/></f></c>
+			<meta><m n=":value"><e><![CDATA[new Deque<Void -> Void>()]]></e></m></meta>
+		</queue>
+		<run public="1" set="method" line="65">
+			<f a="task">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Submit a task to run in a thread.
+
+		Throws an exception if the pool is shut down.</haxe_doc>
+		</run>
+		<shutdown public="1" set="method" line="80">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Initiates a shutdown.
+		All previousely submitted tasks will be executed, but no new tasks will
+		be accepted.
+
+		Multiple calls to this method have no effect.</haxe_doc>
+		</shutdown>
+		<new public="1" set="method" line="53">
+			<f a="threadsCount">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Create a new thread pool with `threadsCount` threads.</haxe_doc>
+		</new>
+		<haxe_doc>Thread pool with a constant amount of threads.
+	Threads in the pool will exist until the pool is explicitly shut down.</haxe_doc>
+		<meta><m n=":coreApi"/></meta>
+	</class>
+	<class path="sys.thread._FixedThreadPool.ShutdownException" params="" file="/home/vsts/work/1/s/std/sys/thread/FixedThreadPool.hx" private="1" module="sys.thread.FixedThreadPool">
+		<extends path="haxe.Exception"/>
+		<new public="1" set="method" line="93"><f a="message:?previous:?native">
+	<c path="String"/>
+	<c path="haxe.Exception"/>
+	<x path="Any"/>
+	<x path="Void"/>
+</f></new>
+	</class>
+	<class path="sys.thread._FixedThreadPool.Worker" params="" file="/home/vsts/work/1/s/std/sys/thread/FixedThreadPool.hx" private="1" module="sys.thread.FixedThreadPool">
+		<thread><x path="sys.thread.Thread"/></thread>
+		<queue final="1"><c path="sys.thread.Deque"><x path="Null"><f a=""><x path="Void"/></f></x></c></queue>
+		<loop set="method" line="104"><f a=""><x path="Void"/></f></loop>
+		<new public="1" set="method" line="99"><f a="queue">
+	<c path="sys.thread.Deque"><x path="Null"><f a=""><x path="Void"/></f></x></c>
 	<x path="Void"/>
 </f></new>
 	</class>
@@ -40803,6 +41014,15 @@
 	<x path="Void"/>
 </f></new>
 		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="sys.thread.ThreadPoolException" params="" file="/home/vsts/work/1/s/std/sys/thread/ThreadPoolException.hx">
+		<extends path="haxe.Exception"/>
+		<new public="1" set="method" line="5"><f a="message:?previous:?native">
+	<c path="String"/>
+	<c path="haxe.Exception"/>
+	<x path="Any"/>
+	<x path="Void"/>
+</f></new>
 	</class>
 	<class path="sys.thread.Tls" params="T" file="/home/vsts/work/1/s/std/cpp/_std/sys/thread/Tls.hx">
 		<sFreeSlot expr="0" line="27" static="1">
