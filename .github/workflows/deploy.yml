@@ -7,30 +7,29 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - name: Check out
         uses: actions/checkout@v2
 
       - name: Setup Neko
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
-          sudo add-apt-repository ppa:haxe/snapshots -y
-          sudo apt-get update -qqy
-          sudo apt-get install -qqy neko
+          brew install neko
 
       - name: Setup Haxe
         run: |
           set -ex
-          sudo apt install -qqy libmbedtls-dev
-          mkdir ./linuxBinaries
-          curl -sSL https://build.haxe.org/builds/haxe/linux64/haxe_latest.tar.gz -o ./linuxBinaries/haxe_bin.tar.gz
-          tar -xf linuxBinaries/haxe_bin.tar.gz -C linuxBinaries --strip-components=1
+          mkdir ./macBinaries
+          curl -sSL https://build.haxe.org/builds/haxe/mac/haxe_latest.tar.gz -o ./macBinaries/haxe_bin.tar.gz
+          tar -xf macBinaries/haxe_bin.tar.gz -C macBinaries --strip-components=1
           sudo mkdir -p /usr/local/bin/
           sudo mkdir -p /usr/local/share/haxe/
-          sudo ln -s `pwd`/linuxBinaries/haxe /usr/local/bin/haxe
-          sudo ln -s `pwd`/linuxBinaries/haxelib /usr/local/bin/haxelib
-          sudo ln -s `pwd`/linuxBinaries/std /usr/local/share/haxe/std
+          sudo ln -s `pwd`/macBinaries/haxe /usr/local/bin/haxe
+          sudo ln -s `pwd`/macBinaries/haxelib /usr/local/bin/haxelib
+          sudo ln -s `pwd`/macBinaries/std /usr/local/share/haxe/std
           mkdir ~/haxelib
           haxelib setup ~/haxelib
 
