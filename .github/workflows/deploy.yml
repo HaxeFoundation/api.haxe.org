@@ -30,12 +30,11 @@ jobs:
           sudo ln -s `pwd`/linuxBinaries/haxe /usr/local/bin/haxe
           sudo ln -s `pwd`/linuxBinaries/haxelib /usr/local/bin/haxelib
           sudo ln -s `pwd`/linuxBinaries/std /usr/local/share/haxe/std
-          mkdir ~/haxelib
-          haxelib setup ~/haxelib
 
       - name: Prepare dependencies
         run: |
           git config --global gc.auto 0 # we will call gc manually during deploy
+          haxelib newrepo
           haxelib install all --always
           haxelib dev hxparse libs/hxparse
           haxelib dev hxtemplo libs/hxtemplo
