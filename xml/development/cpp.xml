@@ -725,36 +725,55 @@
 	<class path="DateTools" params="" file="/home/runner/work/haxe/haxe/std/DateTools.hx">
 		<DAY_SHORT_NAMES expr="[&quot;Sun&quot;, &quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;]" line="35" static="1">
 			<c path="Array"><c path="String"/></c>
-			<meta><m n=":value"><e>["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]</e></m></meta>
+			<meta>
+				<m n=":value"><e>["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]</e></m>
+				<m n=":keep"/>
+			</meta>
 		</DAY_SHORT_NAMES>
 		<DAY_NAMES expr="[&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;]" line="36" static="1">
 			<c path="Array"><c path="String"/></c>
-			<meta><m n=":value"><e>["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]</e></m></meta>
+			<meta>
+				<m n=":value"><e>["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]</e></m>
+				<m n=":keep"/>
+			</meta>
 		</DAY_NAMES>
 		<MONTH_SHORT_NAMES expr="[&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;Apr&quot;, &quot;May&quot;, &quot;Jun&quot;, &quot;Jul&quot;, &quot;Aug&quot;, &quot;Sep&quot;, &quot;Oct&quot;, &quot;Nov&quot;, &quot;Dec&quot;]" line="37" static="1">
 			<c path="Array"><c path="String"/></c>
-			<meta><m n=":value"><e>["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]</e></m></meta>
+			<meta>
+				<m n=":value"><e>["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]</e></m>
+				<m n=":keep"/>
+			</meta>
 		</MONTH_SHORT_NAMES>
 		<MONTH_NAMES expr="[&quot;January&quot;, &quot;February&quot;, &quot;March&quot;, &quot;April&quot;, &quot;May&quot;, &quot;June&quot;, &quot;July&quot;, &quot;August&quot;, &quot;September&quot;, &quot;October&quot;, &quot;November&quot;, &quot;December&quot;]" line="40" static="1">
 			<c path="Array"><c path="String"/></c>
-			<meta><m n=":value"><e>["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]</e></m></meta>
+			<meta>
+				<m n=":value"><e>["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]</e></m>
+				<m n=":keep"/>
+			</meta>
 		</MONTH_NAMES>
-		<__format_get set="method" line="44" static="1"><f a="d:e">
-	<c path="Date"/>
-	<c path="String"/>
-	<c path="String"/>
-</f></__format_get>
-		<__format set="method" line="105" static="1"><f a="d:f">
-	<c path="Date"/>
-	<c path="String"/>
-	<c path="String"/>
-</f></__format>
+		<__format_get set="method" line="44" static="1">
+			<f a="d:e">
+				<c path="Date"/>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</__format_get>
+		<__format set="method" line="105" static="1">
+			<f a="d:f">
+				<c path="Date"/>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</__format>
 		<format public="1" set="method" line="144" static="1">
 			<f a="d:f">
 				<c path="Date"/>
 				<c path="String"/>
 				<c path="String"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Format the date `d` according to the format `f`. The format is
 		compatible with the `strftime` standard format, except that there is no
 		support in Flash and JS for day and months names (due to lack of proper
@@ -781,6 +800,7 @@
 				<x path="Float"/>
 				<c path="Date"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the result of adding timestamp `t` to Date `d`.
 
 		This is a convenience function for calling
@@ -788,13 +808,17 @@
 		</delta>
 		<DAYS_OF_MONTH expr="[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]" line="164" static="1">
 			<c path="Array"><x path="Int"/></c>
-			<meta><m n=":value"><e>[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]</e></m></meta>
+			<meta>
+				<m n=":value"><e>[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]</e></m>
+				<m n=":keep"/>
+			</meta>
 		</DAYS_OF_MONTH>
 		<getMonthDays public="1" set="method" line="171" static="1">
 			<f a="d">
 				<c path="Date"/>
 				<x path="Int"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the number of days in the month of Date `d`.
 
 		This method handles leap years.</haxe_doc>
@@ -804,6 +828,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Converts a number of seconds to a timestamp.</haxe_doc>
 		</seconds>
 		<minutes public="1" get="inline" set="null" line="192" static="1">
@@ -811,6 +836,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Converts a number of minutes to a timestamp.</haxe_doc>
 		</minutes>
 		<hours public="1" get="inline" set="null" line="199" static="1">
@@ -818,6 +844,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Converts a number of hours to a timestamp.</haxe_doc>
 		</hours>
 		<days public="1" get="inline" set="null" line="206" static="1">
@@ -825,6 +852,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Converts a number of days to a timestamp.</haxe_doc>
 		</days>
 		<parse public="1" set="method" line="213" static="1">
@@ -838,6 +866,7 @@
 					<days><x path="Int"/></days>
 				</a>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Separate a date-time into several components</haxe_doc>
 		</parse>
 		<make public="1" set="method" line="235" static="1">
@@ -851,6 +880,7 @@
 				</a>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Build a date-time from several components</haxe_doc>
 		</make>
 		<makeUtc public="1" set="method" line="243" static="1">
@@ -863,7 +893,10 @@
 				<x path="Int"/>
 				<x path="Float"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Retrieve Unix timestamp value from Date components. Takes same argument sequence as the Date constructor.</haxe_doc>
 		</makeUtc>
 		<haxe_doc>The DateTools class contains some extra functionalities for handling `Date`
@@ -1590,11 +1623,13 @@
 	<class path="Math" params="" file="/home/runner/work/haxe/haxe/std/Math.hx" extern="1">
 		<PI public="1" set="null" static="1">
 			<x path="Float"/>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Represents the ratio of the circumference of a circle to its diameter,
 		specified by the constant, π. `PI` is approximately `3.141592653589793`.</haxe_doc>
 		</PI>
 		<NEGATIVE_INFINITY public="1" set="null" static="1">
 			<x path="Float"/>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>A special `Float` constant which denotes negative infinity.
 
 		For example, this is the result of `-1.0 / 0.0`.
@@ -1607,6 +1642,7 @@
 		</NEGATIVE_INFINITY>
 		<POSITIVE_INFINITY public="1" set="null" static="1">
 			<x path="Float"/>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>A special `Float` constant which denotes positive infinity.
 
 		For example, this is the result of `1.0 / 0.0`.
@@ -1619,6 +1655,7 @@
 		</POSITIVE_INFINITY>
 		<NaN public="1" set="null" static="1">
 			<x path="Float"/>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>A special `Float` constant which denotes an invalid number.
 
 		`NaN` stands for "Not a Number". It occurs when a mathematically incorrect
@@ -1637,6 +1674,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the absolute value of `v`.
 
 		- If `v` is positive or `0`, the result is unchanged. Otherwise the result is `-v`.
@@ -1649,6 +1687,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the smaller of values `a` and `b`.
 
 		- If `a` or `b` are `NaN`, the result is `NaN`.
@@ -1661,6 +1700,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the greater of values `a` and `b`.
 
 		- If `a` or `b` are `NaN`, the result is `NaN`.
@@ -1672,6 +1712,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the trigonometric sine of the specified angle `v`, in radians.
 
 		If `v` is `NaN` or infinite, the result is `NaN`.</haxe_doc>
@@ -1681,6 +1722,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the trigonometric cosine of the specified angle `v`, in radians.
 
 		If `v` is `NaN` or infinite, the result is `NaN`.</haxe_doc>
@@ -1690,6 +1732,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the trigonometric tangent of the specified angle `v`, in radians.
 
 		If `v` is `NaN` or infinite, the result is `NaN`.</haxe_doc>
@@ -1699,6 +1742,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the trigonometric arc of the specified angle `v`, in radians.
 
 		If `v` is `NaN` or infinite, the result is `NaN`.</haxe_doc>
@@ -1708,6 +1752,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the trigonometric arc cosine of the specified angle `v`,
 		in radians.
 
@@ -1718,6 +1763,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the trigonometric arc tangent of the specified angle `v`,
 		in radians.
 
@@ -1729,6 +1775,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the trigonometric arc tangent whose tangent is the quotient of
 		two specified numbers, in radians.
 
@@ -1740,6 +1787,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns Euler's number, raised to the power of `v`.
 
 		`exp(1.0)` is approximately `2.718281828459`.
@@ -1753,6 +1801,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the natural logarithm of `v`.
 
 		This is the mathematical inverse operation of exp,
@@ -1768,6 +1817,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns a specified base `v` raised to the specified power `exp`.</haxe_doc>
 		</pow>
 		<sqrt public="1" set="method" static="1">
@@ -1775,6 +1825,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the square root of `v`.
 
 		- If `v` is negative (including `NEGATIVE_INFINITY`) or `NaN`, the result is `NaN`.
@@ -1786,6 +1837,7 @@
 				<x path="Float"/>
 				<x path="Int"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Rounds `v` to the nearest integer value.
 
 		Ties are rounded up, so that `0.5` becomes `1` and `-0.5` becomes `0`.
@@ -1798,6 +1850,7 @@
 				<x path="Float"/>
 				<x path="Int"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the largest integer value that is not greater than `v`.
 
 		If `v` is outside of the signed `Int32` range, or is `NaN`, `NEGATIVE_INFINITY`
@@ -1808,6 +1861,7 @@
 				<x path="Float"/>
 				<x path="Int"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the smallest integer value that is not less than `v`.
 
 		If `v` is outside of the signed `Int32` range, or is `NaN`, `NEGATIVE_INFINITY`
@@ -1815,6 +1869,7 @@
 		</ceil>
 		<random public="1" set="method" static="1">
 			<f a=""><x path="Float"/></f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns a pseudo-random number which is greater than or equal to `0.0`,
 		and less than `1.0`.</haxe_doc>
 		</random>
@@ -1823,6 +1878,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the largest integer value that is not greater than `v`, as a `Float`.
 
 		If `v` is is `NaN`, `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`,
@@ -1833,6 +1889,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the smallest integer value that is not less than `v`, as a `Float`.
 
 		If `v` is is `NaN`, `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`,
@@ -1843,6 +1900,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Rounds `v` to the nearest integer value, as a Float.
 
 		Ties are rounded up, so that `0.5` becomes `1` and `-0.5` becomes `0`.
@@ -1855,6 +1913,7 @@
 				<x path="Float"/>
 				<x path="Bool"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Tells if `f` is a finite number.
 
 		If `f` is `POSITIVE_INFINITY`, `NEGATIVE_INFINITY` or `NaN`, the result
@@ -1865,6 +1924,7 @@
 				<x path="Float"/>
 				<x path="Bool"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Tells if `f` is not a valid number.
 
 		If `f` is `NaN`, the result is `true`, otherwise the result is `false`.
@@ -6120,18 +6180,12 @@
 				<x path="Int"/>
 				<d/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Load and return a Cpp primitive from a DLL library.</haxe_doc>
 		</load>
 		<unloadAllLibraries public="1" set="method" line="46" static="1">
 			<f a=""><x path="Int"/></f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Unloaded all dynamic libraries in reverse order of loading.
 		Returns the number of libraries unloaded.</haxe_doc>
 		</unloadAllLibraries>
@@ -6146,7 +6200,6 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":value"><e>{ quietFail : false }</e></m>
-				<m n=":keep"/>
 			</meta>
 		</_loadPrime>
 		<loadLazy public="1" set="method" line="65" static="1">
@@ -6156,10 +6209,7 @@
 				<x path="Int"/>
 				<d/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Tries to load, and always returns a valid function, but the function may throw
 		if called.</haxe_doc>
 		</loadLazy>
@@ -6169,7 +6219,6 @@
 				<unknown/>
 			</f>
 			<meta>
-				<m n=":keep"/>
 				<m n=":noDebug"/>
 				<m n=":native"><e>"HX_STACK_DO_RETHROW"</e></m>
 			</meta>
@@ -6179,54 +6228,36 @@
 				<d/>
 				<x path="Void"/>
 			</f>
-			<meta>
-				<m n=":keep"/>
-				<m n=":noDebug"/>
-			</meta>
+			<meta><m n=":noDebug"/></meta>
 		</rethrow>
 		<stringReference public="1" set="method" line="89" static="1">
 			<f a="inBytes">
 				<c path="haxe.io.Bytes"/>
 				<c path="String"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 		</stringReference>
 		<pushDllSearchPath public="1" set="method" line="96" static="1">
 			<f a="inPath">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 		</pushDllSearchPath>
 		<getDllExtension public="1" set="method" line="99" static="1">
 			<f a=""><c path="String"/></f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 		</getDllExtension>
 		<getBinDirectory public="1" set="method" line="102" static="1">
 			<f a=""><c path="String"/></f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 		</getBinDirectory>
 		<bytesReference public="1" get="inline" set="null" line="110" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="haxe.io.Bytes"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Returns bytes referencing the content of a string.
 		Use with extreme caution - changing constant strings will crash.
 		Changing one string can cause others to change unexpectedly.
@@ -6237,10 +6268,7 @@
 				<d/>
 				<x path="Void"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Print the specified value on the default output.</haxe_doc>
 		</print>
 		<haxeToNeko public="1" set="method" line="127" static="1">
@@ -6248,7 +6276,6 @@
 				<d/>
 				<d/>
 			</f>
-			<meta><m n=":keep"/></meta>
 			<haxe_doc>This function is used to make porting from neko to cpp easy.
 		It does not need to do anything because the c-code can work with any Dynamic</haxe_doc>
 		</haxeToNeko>
@@ -6257,7 +6284,6 @@
 				<d/>
 				<d/>
 			</f>
-			<meta><m n=":keep"/></meta>
 			<haxe_doc>This function is used to make porting from neko to cpp easy.
 		It does not need to do anything because the c-code can work with any Dynamic</haxe_doc>
 		</nekoToHaxe>
@@ -6266,10 +6292,7 @@
 				<d/>
 				<x path="Void"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Print the specified value on the default output followed by a newline character.</haxe_doc>
 		</println>
 		<setFloatFormat public="1" set="method" line="146" static="1">
@@ -6277,10 +6300,7 @@
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":has_untyped"/></meta>
 		</setFloatFormat>
 		<haxe_doc>Platform-specific Cpp Library. Provides some platform-specific functions
 	for the C++ target, such as conversion from Haxe types to native types
@@ -8491,6 +8511,11 @@
 	prevent unwanted casting.</haxe_doc>
 		<meta><m n=":semantics"><e>reference</e></m></meta>
 	</typedef>
+	<abstract path="cpp.Rest" params="T" file="/home/runner/work/haxe/haxe/std/cpp/Rest.hx">
+		<this><c path="Array"><c path="cpp.Rest.T"/></c></this>
+		<impl><class path="cpp._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/cpp/Rest.hx" private="1" module="cpp.Rest" extern="1" final="1"/></impl>
+	</abstract>
+	<class path="cpp._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/cpp/Rest.hx" private="1" module="cpp.Rest" extern="1" final="1"/>
 	<abstract path="cpp.SizeT" params="" file="/home/runner/work/haxe/haxe/std/cpp/SizeT.hx">
 		<from><icast><x path="Int"/></icast></from>
 		<this><x path="cpp.SizeT"/></this>
@@ -8564,7 +8589,7 @@
 		<printf public="1" set="method" static="1">
 			<f a="format:rest">
 				<x path="cpp.ConstCharStar"/>
-				<x path="haxe.extern.Rest"><t path="cpp.VarArg"/></x>
+				<x path="cpp.Rest"><t path="cpp.VarArg"/></x>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":native"><e>"printf"</e></m></meta>
@@ -8598,7 +8623,7 @@
 			<f a="file:format:rest">
 				<c path="cpp.FILE"/>
 				<x path="cpp.ConstCharStar"/>
-				<x path="haxe.extern.Rest"><t path="cpp.VarArg"/></x>
+				<x path="cpp.Rest"><t path="cpp.VarArg"/></x>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":native"><e>"fprintf"</e></m></meta>
@@ -13911,6 +13936,162 @@
 	`getString(name)`, or as binary data through `getBytes(name)`.
 
 	A list of all available resource names can be obtained from `listNames()`.</haxe_doc>
+		<meta><m n=":coreApi"/></meta>
+	</class>
+	<typedef path="haxe._Rest.NativeRest" params="T" file="/home/runner/work/haxe/haxe/std/haxe/Rest.hx" private="1" module="haxe.Rest"><c path="Array"><c path="haxe._Rest.NativeRest.T"/></c></typedef>
+	<abstract path="haxe.Rest" params="T" file="/home/runner/work/haxe/haxe/std/haxe/Rest.hx">
+		<from><icast field="of"><c path="Array"><c path="of.T"/></c></icast></from>
+		<this><t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t></this>
+		<to><icast field="toArray"><c path="Array"><c path="haxe.Rest.T"/></c></icast></to>
+		<haxe_doc>A special type that represents "rest" function argument.
+
+	Should be used as a type for the last argument of a method, representing that
+	arbitrary number of arguments of given type can be passed to that method.
+
+	Allows to use array access by index to get values of rest arguments.
+	If the index exceeds the amount of rest arguments passed, the result is unspecified.</haxe_doc>
+		<meta><m n=":coreApi"/></meta>
+		<impl><class path="haxe._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/Rest.hx" private="1" module="haxe.Rest" final="1">
+	<length public="1" get="accessor" set="null" static="1">
+		<x path="Int"/>
+		<haxe_doc>Amount of arguments passed as rest arguments</haxe_doc>
+	</length>
+	<get_length get="inline" set="null" line="22" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<x path="Int"/>
+</f></get_length>
+	<of public="1" params="T" get="inline" set="null" line="33" static="1">
+		<f a="array">
+			<c path="Array"><c path="of.T"/></c>
+			<x path="haxe.Rest"><c path="of.T"/></x>
+		</f>
+		<meta><m n=":from"/></meta>
+		<haxe_doc>Create rest arguments using contents of `array`.
+
+		WARNING:
+		Depending on a target platform modifying `array` after using this method
+		may affect the created `Rest` instance.
+		Use `Rest.of(array.copy())` to avoid that.</haxe_doc>
+	</of>
+	<_new get="inline" set="null" line="35" static="1">
+		<f a="array">
+			<c path="Array"><c path="haxe.Rest.T"/></c>
+			<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+		</f>
+		<meta><m n=":noCompletion"/></meta>
+	</_new>
+	<get get="inline" set="null" line="39" static="1">
+		<f a="this:index">
+			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+			<x path="Int"/>
+			<c path="haxe.Rest.T"/>
+		</f>
+		<meta><m n=":arrayAccess"/></meta>
+	</get>
+	<toArray public="1" get="inline" set="null" line="45" static="1">
+		<f a="this">
+			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+			<c path="Array"><c path="haxe.Rest.T"/></c>
+		</f>
+		<meta><m n=":to"/></meta>
+		<haxe_doc>Creates an array containing all the values of rest arguments.</haxe_doc>
+	</toArray>
+	<iterator public="1" get="inline" set="null" line="48" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.iterators.RestIterator"><c path="haxe.Rest.T"/></c>
+</f></iterator>
+	<keyValueIterator public="1" get="inline" set="null" line="51" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.iterators.RestKeyValueIterator"><c path="haxe.Rest.T"/></c>
+</f></keyValueIterator>
+	<append public="1" set="method" line="56" static="1">
+		<f a="this:item">
+			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+			<c path="haxe.Rest.T"/>
+			<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+		</f>
+		<haxe_doc>Create a new rest arguments collection by appending `item` to this one.</haxe_doc>
+	</append>
+	<prepend public="1" set="method" line="65" static="1">
+		<f a="this:item">
+			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+			<c path="haxe.Rest.T"/>
+			<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+		</f>
+		<haxe_doc>Create a new rest arguments collection by prepending this one with `item`.</haxe_doc>
+	</prepend>
+	<meta><m n=":coreApi"/></meta>
+</class></impl>
+	</abstract>
+	<class path="haxe._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/Rest.hx" private="1" module="haxe.Rest" final="1">
+		<length public="1" get="accessor" set="null" static="1">
+			<x path="Int"/>
+			<haxe_doc>Amount of arguments passed as rest arguments</haxe_doc>
+		</length>
+		<get_length get="inline" set="null" line="22" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<x path="Int"/>
+</f></get_length>
+		<of public="1" params="T" get="inline" set="null" line="33" static="1">
+			<f a="array">
+				<c path="Array"><c path="of.T"/></c>
+				<x path="haxe.Rest"><c path="of.T"/></x>
+			</f>
+			<meta><m n=":from"/></meta>
+			<haxe_doc>Create rest arguments using contents of `array`.
+
+		WARNING:
+		Depending on a target platform modifying `array` after using this method
+		may affect the created `Rest` instance.
+		Use `Rest.of(array.copy())` to avoid that.</haxe_doc>
+		</of>
+		<_new get="inline" set="null" line="35" static="1">
+			<f a="array">
+				<c path="Array"><c path="haxe.Rest.T"/></c>
+				<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</_new>
+		<get get="inline" set="null" line="39" static="1">
+			<f a="this:index">
+				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+				<x path="Int"/>
+				<c path="haxe.Rest.T"/>
+			</f>
+			<meta><m n=":arrayAccess"/></meta>
+		</get>
+		<toArray public="1" get="inline" set="null" line="45" static="1">
+			<f a="this">
+				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+				<c path="Array"><c path="haxe.Rest.T"/></c>
+			</f>
+			<meta><m n=":to"/></meta>
+			<haxe_doc>Creates an array containing all the values of rest arguments.</haxe_doc>
+		</toArray>
+		<iterator public="1" get="inline" set="null" line="48" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.iterators.RestIterator"><c path="haxe.Rest.T"/></c>
+</f></iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="51" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.iterators.RestKeyValueIterator"><c path="haxe.Rest.T"/></c>
+</f></keyValueIterator>
+		<append public="1" set="method" line="56" static="1">
+			<f a="this:item">
+				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+				<c path="haxe.Rest.T"/>
+				<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+			</f>
+			<haxe_doc>Create a new rest arguments collection by appending `item` to this one.</haxe_doc>
+		</append>
+		<prepend public="1" set="method" line="65" static="1">
+			<f a="this:item">
+				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+				<c path="haxe.Rest.T"/>
+				<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+			</f>
+			<haxe_doc>Create a new rest arguments collection by prepending this one with `item`.</haxe_doc>
+		</prepend>
 		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="haxe.Serializer" params="" file="/home/runner/work/haxe/haxe/std/haxe/Serializer.hx">
@@ -24053,18 +24234,16 @@
 		<impl><class path="haxe.extern._EitherType.EitherType_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/extern/EitherType.hx" private="1" module="haxe.extern.EitherType" extern="1" final="1"/></impl>
 	</abstract>
 	<class path="haxe.extern._EitherType.EitherType_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/extern/EitherType.hx" private="1" module="haxe.extern.EitherType" extern="1" final="1"/>
-	<abstract path="haxe.extern.Rest" params="T" file="/home/runner/work/haxe/haxe/std/haxe/extern/Rest.hx">
-		<this><c path="Array"><c path="haxe.extern.Rest.T"/></c></this>
-		<haxe_doc><![CDATA[A special abstract type that represents "rest" function argument.
-
+	<typedef path="haxe.extern.Rest" params="T" file="/home/runner/work/haxe/haxe/std/haxe/extern/Rest.hx">
+		<x path="haxe.Rest"><c path="haxe.extern.Rest.T"/></x>
+		<haxe_doc><![CDATA[DEPRECATED: use haxe.Rest instead.
+	
+	A special type that represents "rest" function argument.
 	Should be used as a type for the last argument of an extern method,
 	representing that arbitrary number of arguments of given type can be
 	passed to that method.
-
 	@see <https://haxe.org/manual/lf-externs.html>]]></haxe_doc>
-		<impl><class path="haxe.extern._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/extern/Rest.hx" private="1" module="haxe.extern.Rest" extern="1" final="1"/></impl>
-	</abstract>
-	<class path="haxe.extern._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/extern/Rest.hx" private="1" module="haxe.extern.Rest" extern="1" final="1"/>
+	</typedef>
 	<class path="haxe.format.JsonParser" params="" file="/home/runner/work/haxe/haxe/std/haxe/format/JsonParser.hx">
 		<parse public="1" get="inline" set="null" line="44" static="1">
 			<f a="str">
@@ -32844,6 +33023,41 @@
 			</m>
 		</meta>
 	</class>
+	<class path="haxe.iterators.RestIterator" params="T" file="/home/runner/work/haxe/haxe/std/haxe/iterators/RestIterator.hx">
+		<args final="1"><x path="haxe.Rest"><c path="haxe.iterators.RestIterator.T"/></x></args>
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<hasNext public="1" get="inline" set="null" line="12"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="16"><f a=""><c path="haxe.iterators.RestIterator.T"/></f></next>
+		<new get="inline" set="null" line="8">
+			<f a="args">
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":allow"><e>haxe.Rest</e></m></meta>
+		</new>
+	</class>
+	<class path="haxe.iterators.RestKeyValueIterator" params="T" file="/home/runner/work/haxe/haxe/std/haxe/iterators/RestKeyValueIterator.hx">
+		<args final="1"><x path="haxe.Rest"><c path="haxe.iterators.RestKeyValueIterator.T"/></x></args>
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<hasNext public="1" get="inline" set="null" line="12"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="16"><f a=""><a>
+	<value><c path="haxe.iterators.RestKeyValueIterator.T"/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new get="inline" set="null" line="8">
+			<f a="args">
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":allow"><e>haxe.Rest</e></m></meta>
+		</new>
+	</class>
 	<class path="haxe.iterators.StringIterator" params="" file="/home/runner/work/haxe/haxe/std/haxe/iterators/StringIterator.hx">
 		<offset expr="0">
 			<x path="Int"/>
@@ -33176,7 +33390,7 @@
 		<to><icast><c path="String"/></icast></to>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1" final="1">
-	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="508" static="1">
+	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="510" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "top"</e></m>
@@ -33185,7 +33399,7 @@
 		</meta>
 		<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 	</Top>
-	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="515" static="1">
+	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="517" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "closure"</e></m>
@@ -33196,7 +33410,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 	</Closure>
-	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="520" static="1">
+	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="522" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "inline"</e></m>
@@ -33209,7 +33423,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1" final="1">
-		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="508" static="1">
+		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="510" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "top"</e></m>
@@ -33218,7 +33432,7 @@
 			</meta>
 			<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 		</Top>
-		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="515" static="1">
+		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="517" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "closure"</e></m>
@@ -33229,7 +33443,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 		</Closure>
-		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="520" static="1">
+		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="522" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "inline"</e></m>
@@ -33517,6 +33731,7 @@
 		<OpNot><haxe_doc>`!`</haxe_doc></OpNot>
 		<OpNeg><haxe_doc>`-`</haxe_doc></OpNeg>
 		<OpNegBits><haxe_doc>`~`</haxe_doc></OpNegBits>
+		<OpSpread><haxe_doc>`...`</haxe_doc></OpSpread>
 		<haxe_doc>A unary operator.
 	@see https://haxe.org/manual/types-numeric-operators.html</haxe_doc>
 		<meta><m n=":flatEnum"/></meta>
@@ -34138,7 +34353,7 @@
 			<t path="haxe.macro.Position"/>
 			<haxe_doc>The position of the error.</haxe_doc>
 		</pos>
-		<new public="1" set="method" line="995">
+		<new public="1" set="method" line="1000">
 			<f a="message:pos:?previous">
 				<c path="String"/>
 				<t path="haxe.macro.Position"/>
@@ -34477,95 +34692,95 @@
 	<e path="haxe.macro.Unop"/>
 	<c path="String"/>
 </f></printUnop>
-		<printBinop public="1" set="method" line="53"><f a="op">
+		<printBinop public="1" set="method" line="54"><f a="op">
 	<e path="haxe.macro.Binop"/>
 	<c path="String"/>
 </f></printBinop>
-		<escapeString set="method" line="81"><f a="s:delim">
+		<escapeString set="method" line="82"><f a="s:delim">
 	<c path="String"/>
 	<c path="String"/>
 	<c path="String"/>
 </f></escapeString>
-		<printFormatString public="1" set="method" line="90"><f a="s">
+		<printFormatString public="1" set="method" line="91"><f a="s">
 	<c path="String"/>
 	<c path="String"/>
 </f></printFormatString>
-		<printString public="1" set="method" line="94"><f a="s">
+		<printString public="1" set="method" line="95"><f a="s">
 	<c path="String"/>
 	<c path="String"/>
 </f></printString>
-		<printConstant public="1" set="method" line="99"><f a="c">
+		<printConstant public="1" set="method" line="100"><f a="c">
 	<e path="haxe.macro.Constant"/>
 	<c path="String"/>
 </f></printConstant>
-		<printTypeParam public="1" set="method" line="108"><f a="param">
+		<printTypeParam public="1" set="method" line="109"><f a="param">
 	<e path="haxe.macro.TypeParam"/>
 	<c path="String"/>
 </f></printTypeParam>
-		<printTypePath public="1" set="method" line="114"><f a="tp">
+		<printTypePath public="1" set="method" line="115"><f a="tp">
 	<t path="haxe.macro.TypePath"/>
 	<c path="String"/>
 </f></printTypePath>
-		<printComplexType public="1" set="method" line="121"><f a="ct">
+		<printComplexType public="1" set="method" line="122"><f a="ct">
 	<e path="haxe.macro.ComplexType"/>
 	<c path="String"/>
 </f></printComplexType>
-		<printMetadata public="1" set="method" line="149"><f a="meta">
+		<printMetadata public="1" set="method" line="150"><f a="meta">
 	<t path="haxe.macro.MetadataEntry"/>
 	<c path="String"/>
 </f></printMetadata>
-		<printAccess public="1" set="method" line="152"><f a="access">
+		<printAccess public="1" set="method" line="153"><f a="access">
 	<e path="haxe.macro.Access"/>
 	<c path="String"/>
 </f></printAccess>
-		<printField public="1" set="method" line="166"><f a="field">
+		<printField public="1" set="method" line="167"><f a="field">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printField>
-		<printTypeParamDecl public="1" set="method" line="191"><f a="tpd">
+		<printTypeParamDecl public="1" set="method" line="192"><f a="tpd">
 	<t path="haxe.macro.TypeParamDecl"/>
 	<c path="String"/>
 </f></printTypeParamDecl>
-		<printFunctionArg public="1" set="method" line="197"><f a="arg">
+		<printFunctionArg public="1" set="method" line="198"><f a="arg">
 	<t path="haxe.macro.FunctionArg"/>
 	<c path="String"/>
 </f></printFunctionArg>
-		<printFunction public="1" set="method" line="199"><f a="func:?kind">
+		<printFunction public="1" set="method" line="200"><f a="func:?kind">
 	<t path="haxe.macro.Function"/>
 	<e path="haxe.macro.FunctionKind"/>
 	<c path="String"/>
 </f></printFunction>
-		<printVar public="1" set="method" line="213"><f a="v">
+		<printVar public="1" set="method" line="214"><f a="v">
 	<t path="haxe.macro.Var"/>
 	<c path="String"/>
 </f></printVar>
-		<printObjectFieldKey public="1" set="method" line="221"><f a="of">
+		<printObjectFieldKey public="1" set="method" line="222"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectFieldKey>
-		<printObjectField public="1" set="method" line="228"><f a="of">
+		<printObjectField public="1" set="method" line="229"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectField>
-		<printExpr public="1" set="method" line="233"><f a="e">
+		<printExpr public="1" set="method" line="234"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExpr>
-		<printExprs public="1" set="method" line="290"><f a="el:sep">
+		<printExprs public="1" set="method" line="291"><f a="el:sep">
 	<c path="Array"><t path="haxe.macro.Expr"/></c>
 	<c path="String"/>
 	<c path="String"/>
 </f></printExprs>
-		<printExtension set="method" line="294"><f a="tpl:fields">
+		<printExtension set="method" line="295"><f a="tpl:fields">
 	<c path="Array"><t path="haxe.macro.TypePath"/></c>
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printExtension>
-		<printStructure set="method" line="301"><f a="fields">
+		<printStructure set="method" line="302"><f a="fields">
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printStructure>
-		<printTypeDefinition public="1" set="method" line="305">
+		<printTypeDefinition public="1" set="method" line="306">
 			<f a="t:?printPackage" v=":true">
 				<t path="haxe.macro.TypeDefinition"/>
 				<x path="Bool"/>
@@ -34573,11 +34788,11 @@
 			</f>
 			<meta><m n=":value"><e>{ printPackage : true }</e></m></meta>
 		</printTypeDefinition>
-		<printFieldWithDelimiter set="method" line="406"><f a="f">
+		<printFieldWithDelimiter set="method" line="407"><f a="f">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printFieldWithDelimiter>
-		<opt params="T" set="method" line="417">
+		<opt params="T" set="method" line="418">
 			<f a="v:f:?prefix" v="::&quot;&quot;">
 				<c path="opt.T"/>
 				<f a="">
@@ -34589,7 +34804,7 @@
 			</f>
 			<meta><m n=":value"><e>{ prefix : "" }</e></m></meta>
 		</opt>
-		<printExprWithPositions public="1" set="method" line="419"><f a="e">
+		<printExprWithPositions public="1" set="method" line="420"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExprWithPositions>
@@ -34811,6 +35026,10 @@
 				<x path="Bool"/>
 				<haxe_doc>Whether or not the class field is extern.</haxe_doc>
 			</isExtern>
+			<isAbstract>
+				<x path="Bool"/>
+				<haxe_doc>Whether or not the class field is abstract.</haxe_doc>
+			</isAbstract>
 			<expr set="method">
 				<f a=""><x path="Null"><t path="haxe.macro.TypedExpr"/></x></f>
 				<haxe_doc>Returns the typed expression of the class field.</haxe_doc>
@@ -34995,6 +35214,10 @@
 				<x path="Bool"/>
 				<haxe_doc>Whether or not the type is extern.</haxe_doc>
 			</isExtern>
+			<isAbstract>
+				<x path="Bool"/>
+				<haxe_doc>If true the class is abstract and cannot be instantiated directly.</haxe_doc>
+			</isAbstract>
 			<interfaces>
 				<c path="Array"><a>
 	<t><t path="haxe.macro.Ref"><t path="haxe.macro.ClassType"/></t></t>

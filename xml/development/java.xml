@@ -3117,7 +3117,7 @@
 	<class path="java.NativeArray" params="T" file="/home/runner/work/haxe/haxe/std/java/NativeArray.hx" extern="1">
 		<make public="1" params="T" set="method" static="1">
 			<f a="elements">
-				<x path="haxe.extern.Rest"><c path="make.T"/></x>
+				<t path="haxe.extern.Rest"><c path="make.T"/></t>
 				<c path="java.NativeArray"><c path="make.T"/></c>
 			</f>
 			<haxe_doc>Creates a new array with the specified elements.
@@ -7660,6 +7660,167 @@
 	A list of all available resource names can be obtained from `listNames()`.</haxe_doc>
 		<meta>
 			<m n=":hxGen"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<typedef path="haxe._Rest.NativeRest" params="T" file="/home/runner/work/haxe/haxe/std/java/_std/haxe/Rest.hx" private="1" module="haxe.Rest">
+		<c path="java.NativeArray"><c path="java.lang.Object"/></c>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
+	<abstract path="haxe.Rest" params="T" file="/home/runner/work/haxe/haxe/std/java/_std/haxe/Rest.hx">
+		<from><icast field="of"><c path="Array"><c path="of.T"/></c></icast></from>
+		<this><t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t></this>
+		<to><icast field="toArray"><c path="Array"><c path="haxe.Rest.T"/></c></icast></to>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":coreApi"/>
+		</meta>
+		<impl><class path="haxe._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/java/_std/haxe/Rest.hx" private="1" module="haxe.Rest" final="1">
+	<length public="1" get="accessor" set="null" static="1">
+		<x path="Int"/>
+		<haxe_doc>Amount of arguments passed as rest arguments</haxe_doc>
+	</length>
+	<get_length get="inline" set="null" line="16" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<x path="Int"/>
+</f></get_length>
+	<of public="1" params="T" set="method" line="18" static="1">
+		<f a="array">
+			<c path="Array"><c path="of.T"/></c>
+			<x path="haxe.Rest"><c path="of.T"/></x>
+		</f>
+		<meta><m n=":from"/></meta>
+		<haxe_doc>Create rest arguments using contents of `array`.
+
+		WARNING:
+		Depending on a target platform modifying `array` after using this method
+		may affect the created `Rest` instance.
+		Use `Rest.of(array.copy())` to avoid that.</haxe_doc>
+	</of>
+	<_new get="inline" set="null" line="31" static="1">
+		<f a="a">
+			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+			<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+		</f>
+		<meta><m n=":noCompletion"/></meta>
+	</_new>
+	<get get="inline" set="null" line="35" static="1">
+		<f a="this:index">
+			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+			<x path="Int"/>
+			<c path="haxe.Rest.T"/>
+		</f>
+		<meta><m n=":arrayAccess"/></meta>
+	</get>
+	<toArray public="1" set="method" line="37" static="1">
+		<f a="this">
+			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+			<c path="Array"><c path="haxe.Rest.T"/></c>
+		</f>
+		<meta><m n=":to"/></meta>
+		<haxe_doc>Creates an array containing all the values of rest arguments.</haxe_doc>
+	</toArray>
+	<iterator public="1" get="inline" set="null" line="42" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.iterators.RestIterator"><c path="haxe.Rest.T"/></c>
+</f></iterator>
+	<keyValueIterator public="1" get="inline" set="null" line="45" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.iterators.RestKeyValueIterator"><c path="haxe.Rest.T"/></c>
+</f></keyValueIterator>
+	<append public="1" set="method" line="47" static="1">
+		<f a="this:item">
+			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+			<c path="haxe.Rest.T"/>
+			<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+		</f>
+		<haxe_doc>Create a new rest arguments collection by appending `item` to this one.</haxe_doc>
+	</append>
+	<prepend public="1" set="method" line="54" static="1">
+		<f a="this:item">
+			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+			<c path="haxe.Rest.T"/>
+			<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+		</f>
+		<haxe_doc>Create a new rest arguments collection by prepending this one with `item`.</haxe_doc>
+	</prepend>
+	<meta>
+		<m n=":nativeGen"/>
+		<m n=":coreApi"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/java/_std/haxe/Rest.hx" private="1" module="haxe.Rest" final="1">
+		<length public="1" get="accessor" set="null" static="1">
+			<x path="Int"/>
+			<haxe_doc>Amount of arguments passed as rest arguments</haxe_doc>
+		</length>
+		<get_length get="inline" set="null" line="16" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<x path="Int"/>
+</f></get_length>
+		<of public="1" params="T" set="method" line="18" static="1">
+			<f a="array">
+				<c path="Array"><c path="of.T"/></c>
+				<x path="haxe.Rest"><c path="of.T"/></x>
+			</f>
+			<meta><m n=":from"/></meta>
+			<haxe_doc>Create rest arguments using contents of `array`.
+
+		WARNING:
+		Depending on a target platform modifying `array` after using this method
+		may affect the created `Rest` instance.
+		Use `Rest.of(array.copy())` to avoid that.</haxe_doc>
+		</of>
+		<_new get="inline" set="null" line="31" static="1">
+			<f a="a">
+				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+				<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</_new>
+		<get get="inline" set="null" line="35" static="1">
+			<f a="this:index">
+				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+				<x path="Int"/>
+				<c path="haxe.Rest.T"/>
+			</f>
+			<meta><m n=":arrayAccess"/></meta>
+		</get>
+		<toArray public="1" set="method" line="37" static="1">
+			<f a="this">
+				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+				<c path="Array"><c path="haxe.Rest.T"/></c>
+			</f>
+			<meta><m n=":to"/></meta>
+			<haxe_doc>Creates an array containing all the values of rest arguments.</haxe_doc>
+		</toArray>
+		<iterator public="1" get="inline" set="null" line="42" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.iterators.RestIterator"><c path="haxe.Rest.T"/></c>
+</f></iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="45" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.iterators.RestKeyValueIterator"><c path="haxe.Rest.T"/></c>
+</f></keyValueIterator>
+		<append public="1" set="method" line="47" static="1">
+			<f a="this:item">
+				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+				<c path="haxe.Rest.T"/>
+				<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+			</f>
+			<haxe_doc>Create a new rest arguments collection by appending `item` to this one.</haxe_doc>
+		</append>
+		<prepend public="1" set="method" line="54" static="1">
+			<f a="this:item">
+				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+				<c path="haxe.Rest.T"/>
+				<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+			</f>
+			<haxe_doc>Create a new rest arguments collection by prepending this one with `item`.</haxe_doc>
+		</prepend>
+		<meta>
+			<m n=":nativeGen"/>
 			<m n=":coreApi"/>
 		</meta>
 	</class>
@@ -17415,7 +17576,7 @@
 			<m n=":coreApi"/>
 		</meta>
 	</class>
-	<class path="java.lang.ref.Reference" params="T" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/ref/Reference.class" extern="1">
+	<class path="java.lang.ref.Reference" params="T" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/ref/Reference.class" extern="1" abstract="1">
 		<enqueue public="1" set="method"><f a=""><x path="Bool"/></f></enqueue>
 		<isEnqueued public="1" set="method"><f a=""><x path="Bool"/></f></isEnqueued>
 		<clear public="1" set="method"><f a=""><x path="Void"/></f></clear>
@@ -17617,19 +17778,17 @@
 		<impl><class path="haxe.extern._EitherType.EitherType_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/extern/EitherType.hx" private="1" module="haxe.extern.EitherType" extern="1" final="1"><meta><m n=":hxGen"/></meta></class></impl>
 	</abstract>
 	<class path="haxe.extern._EitherType.EitherType_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/extern/EitherType.hx" private="1" module="haxe.extern.EitherType" extern="1" final="1"><meta><m n=":hxGen"/></meta></class>
-	<abstract path="haxe.extern.Rest" params="T" file="/home/runner/work/haxe/haxe/std/haxe/extern/Rest.hx">
-		<this><c path="Array"><c path="haxe.extern.Rest.T"/></c></this>
-		<haxe_doc><![CDATA[A special abstract type that represents "rest" function argument.
-
+	<typedef path="haxe.extern.Rest" params="T" file="/home/runner/work/haxe/haxe/std/haxe/extern/Rest.hx">
+		<x path="haxe.Rest"><c path="haxe.extern.Rest.T"/></x>
+		<haxe_doc><![CDATA[DEPRECATED: use haxe.Rest instead.
+	
+	A special type that represents "rest" function argument.
 	Should be used as a type for the last argument of an extern method,
 	representing that arbitrary number of arguments of given type can be
 	passed to that method.
-
 	@see <https://haxe.org/manual/lf-externs.html>]]></haxe_doc>
-		<meta><m n=":hxGen"/></meta>
-		<impl><class path="haxe.extern._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/extern/Rest.hx" private="1" module="haxe.extern.Rest" extern="1" final="1"><meta><m n=":hxGen"/></meta></class></impl>
-	</abstract>
-	<class path="haxe.extern._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/extern/Rest.hx" private="1" module="haxe.extern.Rest" extern="1" final="1"><meta><m n=":hxGen"/></meta></class>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
 	<class path="haxe.format.JsonParser" params="" file="/home/runner/work/haxe/haxe/std/haxe/format/JsonParser.hx">
 		<parse public="1" get="inline" set="null" line="44" static="1">
 			<f a="str">
@@ -26288,6 +26447,43 @@
 			</m>
 		</meta>
 	</class>
+	<class path="haxe.iterators.RestIterator" params="T" file="/home/runner/work/haxe/haxe/std/haxe/iterators/RestIterator.hx">
+		<args final="1"><x path="haxe.Rest"><c path="haxe.iterators.RestIterator.T"/></x></args>
+		<current expr="0" line="5">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<hasNext public="1" get="inline" set="null" line="12"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="16"><f a=""><c path="haxe.iterators.RestIterator.T"/></f></next>
+		<new get="inline" set="null" line="8">
+			<f a="args">
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":allow"><e>haxe.Rest</e></m></meta>
+		</new>
+		<meta><m n=":hxGen"/></meta>
+	</class>
+	<class path="haxe.iterators.RestKeyValueIterator" params="T" file="/home/runner/work/haxe/haxe/std/haxe/iterators/RestKeyValueIterator.hx">
+		<args final="1"><x path="haxe.Rest"><c path="haxe.iterators.RestKeyValueIterator.T"/></x></args>
+		<current expr="0" line="5">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<hasNext public="1" get="inline" set="null" line="12"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="16"><f a=""><a>
+	<value><c path="haxe.iterators.RestKeyValueIterator.T"/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new get="inline" set="null" line="8">
+			<f a="args">
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":allow"><e>haxe.Rest</e></m></meta>
+		</new>
+		<meta><m n=":hxGen"/></meta>
+	</class>
 	<class path="haxe.iterators.StringIterator" params="" file="/home/runner/work/haxe/haxe/std/haxe/iterators/StringIterator.hx">
 		<offset expr="0" line="32">
 			<x path="Int"/>
@@ -26647,7 +26843,7 @@
 			<m n=":enum"/>
 		</meta>
 		<impl><class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1" final="1">
-	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="508" static="1">
+	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="510" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "top"</e></m>
@@ -26656,7 +26852,7 @@
 		</meta>
 		<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 	</Top>
-	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="515" static="1">
+	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="517" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "closure"</e></m>
@@ -26667,7 +26863,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 	</Closure>
-	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="520" static="1">
+	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="522" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "inline"</e></m>
@@ -26683,7 +26879,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1" final="1">
-		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="508" static="1">
+		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="510" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "top"</e></m>
@@ -26692,7 +26888,7 @@
 			</meta>
 			<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 		</Top>
-		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="515" static="1">
+		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="517" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "closure"</e></m>
@@ -26703,7 +26899,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 		</Closure>
-		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="520" static="1">
+		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="522" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "inline"</e></m>
@@ -27014,6 +27210,7 @@
 		<OpNot><haxe_doc>`!`</haxe_doc></OpNot>
 		<OpNeg><haxe_doc>`-`</haxe_doc></OpNeg>
 		<OpNegBits><haxe_doc>`~`</haxe_doc></OpNegBits>
+		<OpSpread><haxe_doc>`...`</haxe_doc></OpSpread>
 		<haxe_doc>A unary operator.
 	@see https://haxe.org/manual/types-numeric-operators.html</haxe_doc>
 		<meta>
@@ -27665,7 +27862,7 @@
 			<t path="haxe.macro.Position"/>
 			<haxe_doc>The position of the error.</haxe_doc>
 		</pos>
-		<new public="1" set="method" line="995">
+		<new public="1" set="method" line="1000">
 			<f a="message:pos:?previous">
 				<c path="String"/>
 				<t path="haxe.macro.Position"/>
@@ -28018,95 +28215,95 @@
 	<e path="haxe.macro.Unop"/>
 	<c path="String"/>
 </f></printUnop>
-		<printBinop public="1" set="method" line="53"><f a="op">
+		<printBinop public="1" set="method" line="54"><f a="op">
 	<e path="haxe.macro.Binop"/>
 	<c path="String"/>
 </f></printBinop>
-		<escapeString set="method" line="81"><f a="s:delim">
+		<escapeString set="method" line="82"><f a="s:delim">
 	<c path="String"/>
 	<c path="String"/>
 	<c path="String"/>
 </f></escapeString>
-		<printFormatString public="1" set="method" line="90"><f a="s">
+		<printFormatString public="1" set="method" line="91"><f a="s">
 	<c path="String"/>
 	<c path="String"/>
 </f></printFormatString>
-		<printString public="1" set="method" line="94"><f a="s">
+		<printString public="1" set="method" line="95"><f a="s">
 	<c path="String"/>
 	<c path="String"/>
 </f></printString>
-		<printConstant public="1" set="method" line="99"><f a="c">
+		<printConstant public="1" set="method" line="100"><f a="c">
 	<e path="haxe.macro.Constant"/>
 	<c path="String"/>
 </f></printConstant>
-		<printTypeParam public="1" set="method" line="108"><f a="param">
+		<printTypeParam public="1" set="method" line="109"><f a="param">
 	<e path="haxe.macro.TypeParam"/>
 	<c path="String"/>
 </f></printTypeParam>
-		<printTypePath public="1" set="method" line="114"><f a="tp">
+		<printTypePath public="1" set="method" line="115"><f a="tp">
 	<t path="haxe.macro.TypePath"/>
 	<c path="String"/>
 </f></printTypePath>
-		<printComplexType public="1" set="method" line="121"><f a="ct">
+		<printComplexType public="1" set="method" line="122"><f a="ct">
 	<e path="haxe.macro.ComplexType"/>
 	<c path="String"/>
 </f></printComplexType>
-		<printMetadata public="1" set="method" line="149"><f a="meta">
+		<printMetadata public="1" set="method" line="150"><f a="meta">
 	<t path="haxe.macro.MetadataEntry"/>
 	<c path="String"/>
 </f></printMetadata>
-		<printAccess public="1" set="method" line="152"><f a="access">
+		<printAccess public="1" set="method" line="153"><f a="access">
 	<e path="haxe.macro.Access"/>
 	<c path="String"/>
 </f></printAccess>
-		<printField public="1" set="method" line="166"><f a="field">
+		<printField public="1" set="method" line="167"><f a="field">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printField>
-		<printTypeParamDecl public="1" set="method" line="191"><f a="tpd">
+		<printTypeParamDecl public="1" set="method" line="192"><f a="tpd">
 	<t path="haxe.macro.TypeParamDecl"/>
 	<c path="String"/>
 </f></printTypeParamDecl>
-		<printFunctionArg public="1" set="method" line="197"><f a="arg">
+		<printFunctionArg public="1" set="method" line="198"><f a="arg">
 	<t path="haxe.macro.FunctionArg"/>
 	<c path="String"/>
 </f></printFunctionArg>
-		<printFunction public="1" set="method" line="199"><f a="func:?kind">
+		<printFunction public="1" set="method" line="200"><f a="func:?kind">
 	<t path="haxe.macro.Function"/>
 	<e path="haxe.macro.FunctionKind"/>
 	<c path="String"/>
 </f></printFunction>
-		<printVar public="1" set="method" line="213"><f a="v">
+		<printVar public="1" set="method" line="214"><f a="v">
 	<t path="haxe.macro.Var"/>
 	<c path="String"/>
 </f></printVar>
-		<printObjectFieldKey public="1" set="method" line="221"><f a="of">
+		<printObjectFieldKey public="1" set="method" line="222"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectFieldKey>
-		<printObjectField public="1" set="method" line="228"><f a="of">
+		<printObjectField public="1" set="method" line="229"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectField>
-		<printExpr public="1" set="method" line="233"><f a="e">
+		<printExpr public="1" set="method" line="234"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExpr>
-		<printExprs public="1" set="method" line="290"><f a="el:sep">
+		<printExprs public="1" set="method" line="291"><f a="el:sep">
 	<c path="Array"><t path="haxe.macro.Expr"/></c>
 	<c path="String"/>
 	<c path="String"/>
 </f></printExprs>
-		<printExtension set="method" line="294"><f a="tpl:fields">
+		<printExtension set="method" line="295"><f a="tpl:fields">
 	<c path="Array"><t path="haxe.macro.TypePath"/></c>
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printExtension>
-		<printStructure set="method" line="301"><f a="fields">
+		<printStructure set="method" line="302"><f a="fields">
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printStructure>
-		<printTypeDefinition public="1" set="method" line="305">
+		<printTypeDefinition public="1" set="method" line="306">
 			<f a="t:?printPackage" v=":true">
 				<t path="haxe.macro.TypeDefinition"/>
 				<x path="Bool"/>
@@ -28114,11 +28311,11 @@
 			</f>
 			<meta><m n=":value"><e>{ printPackage : true }</e></m></meta>
 		</printTypeDefinition>
-		<printFieldWithDelimiter set="method" line="406"><f a="f">
+		<printFieldWithDelimiter set="method" line="407"><f a="f">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printFieldWithDelimiter>
-		<opt params="T" set="method" line="417">
+		<opt params="T" set="method" line="418">
 			<f a="v:f:?prefix" v="::&quot;&quot;">
 				<c path="opt.T"/>
 				<f a="">
@@ -28130,7 +28327,7 @@
 			</f>
 			<meta><m n=":value"><e>{ prefix : "" }</e></m></meta>
 		</opt>
-		<printExprWithPositions public="1" set="method" line="419"><f a="e">
+		<printExprWithPositions public="1" set="method" line="420"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExprWithPositions>
@@ -28376,6 +28573,10 @@
 				<x path="Bool"/>
 				<haxe_doc>Whether or not the class field is extern.</haxe_doc>
 			</isExtern>
+			<isAbstract>
+				<x path="Bool"/>
+				<haxe_doc>Whether or not the class field is abstract.</haxe_doc>
+			</isAbstract>
 			<expr set="method">
 				<f a=""><x path="Null"><t path="haxe.macro.TypedExpr"/></x></f>
 				<haxe_doc>Returns the typed expression of the class field.</haxe_doc>
@@ -28564,6 +28765,10 @@
 				<x path="Bool"/>
 				<haxe_doc>Whether or not the type is extern.</haxe_doc>
 			</isExtern>
+			<isAbstract>
+				<x path="Bool"/>
+				<haxe_doc>If true the class is abstract and cannot be instantiated directly.</haxe_doc>
+			</isAbstract>
 			<interfaces>
 				<c path="Array"><a>
 	<t><t path="haxe.macro.Ref"><t path="haxe.macro.ClassType"/></t></t>
@@ -31732,14 +31937,14 @@
 			<f a="l:format:args">
 				<c path="java.util.Locale"/>
 				<c path="String"/>
-				<x path="haxe.extern.Rest"><d/></x>
+				<t path="haxe.extern.Rest"><d/></t>
 				<c path="String"/>
 			</f>
 			<meta><m n=":overload"/></meta>
 			<overloads><format public="1" set="method">
 	<f a="format:args">
 		<c path="String"/>
-		<x path="haxe.extern.Rest"><d/></x>
+		<t path="haxe.extern.Rest"><d/></t>
 		<c path="String"/>
 	</f>
 	<meta><m n=":overload"/></meta>
@@ -32892,14 +33097,14 @@
 		<rollback public="1" set="method"><f a=""><x path="Void"/></f></rollback>
 		<meta><m n=":hxGen"/></meta>
 	</class>
-	<class path="java.lang.Number" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Number.class" extern="1">
+	<class path="java.lang.Number" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Number.class" extern="1" abstract="1">
 		<implements path="java.io.Serializable"/>
 		<shortValue public="1" set="method"><f a=""><t path="java.types.Int16"/></f></shortValue>
 		<byteValue public="1" set="method"><f a=""><t path="java.types.Int8"/></f></byteValue>
-		<doubleValue public="1" set="method"><f a=""><x path="Float"/></f></doubleValue>
-		<floatValue public="1" set="method"><f a=""><x path="Single"/></f></floatValue>
-		<longValue public="1" set="method"><f a=""><x path="haxe.Int64"/></f></longValue>
-		<intValue public="1" set="method"><f a=""><x path="Int"/></f></intValue>
+		<doubleValue abstract="1" public="1" set="method"><f a=""><x path="Float"/></f></doubleValue>
+		<floatValue abstract="1" public="1" set="method"><f a=""><x path="Single"/></f></floatValue>
+		<longValue abstract="1" public="1" set="method"><f a=""><x path="haxe.Int64"/></f></longValue>
+		<intValue abstract="1" public="1" set="method"><f a=""><x path="Int"/></f></intValue>
 		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
 		<meta>
 			<m n=":directlyUsed"/>
@@ -33960,7 +34165,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.io.OutputStream" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/OutputStream.class" extern="1">
+	<class path="java.io.OutputStream" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/OutputStream.class" extern="1" abstract="1">
 		<implements path="java.io.Closeable"/>
 		<implements path="java.io.Flushable"/>
 		<close public="1" set="method">
@@ -33980,7 +34185,7 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 			<overloads>
-				<write public="1" set="method">
+				<write abstract="1" public="1" set="method">
 					<f a="param1">
 						<x path="Int"/>
 						<x path="Void"/>
@@ -34142,10 +34347,10 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.io.Reader" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/Reader.class" extern="1">
+	<class path="java.io.Reader" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/Reader.class" extern="1" abstract="1">
 		<implements path="java.lang.Readable"/>
 		<implements path="java.io.Closeable"/>
-		<close public="1" set="method">
+		<close abstract="1" public="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</close>
@@ -34172,7 +34377,7 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</skip>
-		<read public="1" set="method">
+		<read abstract="1" public="1" set="method">
 			<f a="param1:param2:param3">
 				<c path="java.NativeArray"><t path="java.types.Char16"/></c>
 				<x path="Int"/>
@@ -34969,7 +35174,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.io.InputStream" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/InputStream.class" extern="1">
+	<class path="java.io.InputStream" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/InputStream.class" extern="1" abstract="1">
 		<implements path="java.io.Closeable"/>
 		<markSupported public="1" set="method"><f a=""><x path="Bool"/></f></markSupported>
 		<reset public="1" set="method">
@@ -35004,7 +35209,7 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 			<overloads>
-				<read public="1" set="method">
+				<read abstract="1" public="1" set="method">
 					<f a=""><x path="Int"/></f>
 					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 				</read>
@@ -35030,7 +35235,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.io.ObjectStreamException" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/ObjectStreamException.class" extern="1">
+	<class path="java.io.ObjectStreamException" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/ObjectStreamException.class" extern="1" abstract="1">
 		<extends path="java.io.IOException"/>
 		<new set="method">
 			<f a=""><x path="Void"/></f>
@@ -35367,7 +35572,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.io.Writer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/Writer.class" extern="1">
+	<class path="java.io.Writer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/Writer.class" extern="1" abstract="1">
 		<implements path="java.lang.Appendable"/>
 		<implements path="java.io.Closeable"/>
 		<implements path="java.io.Flushable"/>
@@ -35396,11 +35601,11 @@
 				</append>
 			</overloads>
 		</append>
-		<close public="1" set="method">
+		<close abstract="1" public="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</close>
-		<flush public="1" set="method">
+		<flush abstract="1" public="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</flush>
@@ -35427,7 +35632,7 @@
 					</f>
 					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 				</write>
-				<write public="1" set="method">
+				<write abstract="1" public="1" set="method">
 					<f a="param1:param2:param3">
 						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
 						<x path="Int"/>
@@ -36003,9 +36208,9 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.javax.net.ServerSocketFactory" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@javax/net/ServerSocketFactory.class" extern="1">
+	<class path="java.javax.net.ServerSocketFactory" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@javax/net/ServerSocketFactory.class" extern="1" abstract="1">
 		<getDefault public="1" set="method" static="1"><f a=""><c path="java.javax.net.ServerSocketFactory"/></f></getDefault>
-		<createServerSocket public="1" set="method">
+		<createServerSocket abstract="1" public="1" set="method">
 			<f a="param1:param2:param3">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -36018,14 +36223,14 @@
 					<f a=""><c path="java.net.ServerSocket"/></f>
 					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 				</createServerSocket>
-				<createServerSocket public="1" set="method">
+				<createServerSocket abstract="1" public="1" set="method">
 					<f a="param1">
 						<x path="Int"/>
 						<c path="java.net.ServerSocket"/>
 					</f>
 					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 				</createServerSocket>
-				<createServerSocket public="1" set="method">
+				<createServerSocket abstract="1" public="1" set="method">
 					<f a="param1:param2">
 						<x path="Int"/>
 						<x path="Int"/>
@@ -36051,9 +36256,9 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.javax.net.SocketFactory" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@javax/net/SocketFactory.class" extern="1">
+	<class path="java.javax.net.SocketFactory" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@javax/net/SocketFactory.class" extern="1" abstract="1">
 		<getDefault public="1" set="method" static="1"><f a=""><c path="java.javax.net.SocketFactory"/></f></getDefault>
-		<createSocket public="1" set="method">
+		<createSocket abstract="1" public="1" set="method">
 			<f a="param1:param2:param3:param4">
 				<c path="java.net.InetAddress"/>
 				<x path="Int"/>
@@ -36067,7 +36272,7 @@
 					<f a=""><c path="java.net.Socket"/></f>
 					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 				</createSocket>
-				<createSocket public="1" set="method">
+				<createSocket abstract="1" public="1" set="method">
 					<f a="param1:param2">
 						<c path="String"/>
 						<x path="Int"/>
@@ -36078,7 +36283,7 @@
 						<m n=":throws"><e>"java.io.IOException"</e></m>
 					</meta>
 				</createSocket>
-				<createSocket public="1" set="method">
+				<createSocket abstract="1" public="1" set="method">
 					<f a="param1:param2:param3:param4">
 						<c path="String"/>
 						<x path="Int"/>
@@ -36091,7 +36296,7 @@
 						<m n=":throws"><e>"java.io.IOException"</e></m>
 					</meta>
 				</createSocket>
-				<createSocket public="1" set="method">
+				<createSocket abstract="1" public="1" set="method">
 					<f a="param1:param2">
 						<c path="java.net.InetAddress"/>
 						<x path="Int"/>
@@ -36117,7 +36322,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.javax.net.ssl.SSLServerSocketFactory" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@javax/net/ssl/SSLServerSocketFactory.class" extern="1">
+	<class path="java.javax.net.ssl.SSLServerSocketFactory" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@javax/net/ssl/SSLServerSocketFactory.class" extern="1" abstract="1">
 		<extends path="java.javax.net.ServerSocketFactory"/>
 		<getDefault public="1" set="method" static="1"><f a=""><c path="java.javax.net.ServerSocketFactory"/></f></getDefault>
 		<_getDefault public="1" set="method" static="1">
@@ -36127,8 +36332,8 @@
 				<m n=":deprecated"><e>"This static field `_getDefault` is deprecated and will be removed in later versions. Please use `getDefault` instead"</e></m>
 			</meta>
 		</_getDefault>
-		<getSupportedCipherSuites public="1" set="method"><f a=""><c path="java.NativeArray"><c path="String"/></c></f></getSupportedCipherSuites>
-		<getDefaultCipherSuites public="1" set="method"><f a=""><c path="java.NativeArray"><c path="String"/></c></f></getDefaultCipherSuites>
+		<getSupportedCipherSuites abstract="1" public="1" set="method"><f a=""><c path="java.NativeArray"><c path="String"/></c></f></getSupportedCipherSuites>
+		<getDefaultCipherSuites abstract="1" public="1" set="method"><f a=""><c path="java.NativeArray"><c path="String"/></c></f></getDefaultCipherSuites>
 		<new set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":protected"/></meta>
@@ -36145,7 +36350,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.javax.net.ssl.SSLSocketFactory" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@javax/net/ssl/SSLSocketFactory.class" extern="1">
+	<class path="java.javax.net.ssl.SSLSocketFactory" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@javax/net/ssl/SSLSocketFactory.class" extern="1" abstract="1">
 		<extends path="java.javax.net.SocketFactory"/>
 		<getDefault public="1" set="method" static="1"><f a=""><c path="java.javax.net.SocketFactory"/></f></getDefault>
 		<_getDefault public="1" set="method" static="1">
@@ -36163,7 +36368,7 @@
 				<c path="java.net.Socket"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads><createSocket public="1" set="method">
+			<overloads><createSocket abstract="1" public="1" set="method">
 	<f a="param1:param2:param3:param4">
 		<c path="java.net.Socket"/>
 		<c path="String"/>
@@ -36174,8 +36379,8 @@
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 </createSocket></overloads>
 		</createSocket>
-		<getSupportedCipherSuites public="1" set="method"><f a=""><c path="java.NativeArray"><c path="String"/></c></f></getSupportedCipherSuites>
-		<getDefaultCipherSuites public="1" set="method"><f a=""><c path="java.NativeArray"><c path="String"/></c></f></getDefaultCipherSuites>
+		<getSupportedCipherSuites abstract="1" public="1" set="method"><f a=""><c path="java.NativeArray"><c path="String"/></c></f></getSupportedCipherSuites>
+		<getDefaultCipherSuites abstract="1" public="1" set="method"><f a=""><c path="java.NativeArray"><c path="String"/></c></f></getDefaultCipherSuites>
 		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
 		<meta>
 			<m n=":nativeGen"/>
@@ -36356,7 +36561,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.AbstractCollection" params="E" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/AbstractCollection.class" extern="1">
+	<class path="java.util.AbstractCollection" params="E" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/AbstractCollection.class" extern="1" abstract="1">
 		<implements path="java.util.Collection"><c path="java.util.AbstractCollection.E"/></implements>
 		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
 		<clear public="1" set="method"><f a=""><x path="Void"/></f></clear>
@@ -36396,8 +36601,8 @@
 	<x path="Bool"/>
 </f></contains>
 		<isEmpty public="1" set="method"><f a=""><x path="Bool"/></f></isEmpty>
-		<size public="1" set="method"><f a=""><x path="Int"/></f></size>
-		<iterator public="1" set="method"><f a=""><c path="java.util.Iterator"><c path="java.util.AbstractCollection.E"/></c></f></iterator>
+		<size abstract="1" public="1" set="method"><f a=""><x path="Int"/></f></size>
+		<iterator abstract="1" public="1" set="method"><f a=""><c path="java.util.Iterator"><c path="java.util.AbstractCollection.E"/></c></f></iterator>
 		<forEach public="1" set="method"><f a="param1">
 	<c path="java.util.function.Consumer"><d/></c>
 	<x path="Void"/>
@@ -36489,7 +36694,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.AbstractSet" params="E" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/AbstractSet.class" extern="1">
+	<class path="java.util.AbstractSet" params="E" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/AbstractSet.class" extern="1" abstract="1">
 		<extends path="java.util.AbstractCollection"><c path="java.util.AbstractSet.E"/></extends>
 		<implements path="java.util.Set"><c path="java.util.AbstractSet.E"/></implements>
 		<removeAll public="1" set="method" override="1"><f a="param1">
@@ -36633,7 +36838,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.lang.AbstractStringBuilder" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/AbstractStringBuilder.class" extern="1">
+	<class path="java.lang.AbstractStringBuilder" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/AbstractStringBuilder.class" extern="1" abstract="1">
 		<implements path="java.lang.Appendable"/>
 		<implements path="java.lang.CharSequence"/>
 		<append public="1" set="method">
@@ -36696,7 +36901,7 @@
 </f></append>
 			</overloads>
 		</append>
-		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
+		<toString abstract="1" public="1" set="method"><f a=""><c path="String"/></f></toString>
 		<reverse public="1" set="method"><f a=""><c path="java.lang.AbstractStringBuilder"/></f></reverse>
 		<lastIndexOf public="1" set="method">
 			<f a="param1:param2">
@@ -38867,7 +39072,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.lang.ClassLoader" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/ClassLoader.class" extern="1">
+	<class path="java.lang.ClassLoader" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/ClassLoader.class" extern="1" abstract="1">
 		<getSystemClassLoader public="1" set="method" static="1"><f a=""><c path="java.lang.ClassLoader"/></f></getSystemClassLoader>
 		<getSystemResourceAsStream public="1" set="method" static="1"><f a="param1">
 	<c path="String"/>
@@ -39466,7 +39671,7 @@
 			<m n=":native"><e>"java.lang.Double"</e></m>
 		</meta>
 	</class>
-	<class path="java.lang.Enum" params="E" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Enum.class" extern="1">
+	<class path="java.lang.Enum" params="E" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Enum.class" extern="1" abstract="1">
 		<implements path="java.io.Serializable"/>
 		<implements path="java.lang.Comparable"><c path="java.lang.Enum.E"/></implements>
 		<valueOf public="1" params="T" set="method" static="1"><f a="param1:param2">
@@ -41137,11 +41342,11 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.lang.Process" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Process.class" extern="1">
+	<class path="java.lang.Process" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Process.class" extern="1" abstract="1">
 		<isAlive public="1" set="method"><f a=""><x path="Bool"/></f></isAlive>
 		<destroyForcibly public="1" set="method"><f a=""><c path="java.lang.Process"/></f></destroyForcibly>
-		<destroy public="1" set="method"><f a=""><x path="Void"/></f></destroy>
-		<exitValue public="1" set="method"><f a=""><x path="Int"/></f></exitValue>
+		<destroy abstract="1" public="1" set="method"><f a=""><x path="Void"/></f></destroy>
+		<exitValue abstract="1" public="1" set="method"><f a=""><x path="Int"/></f></exitValue>
 		<waitFor public="1" set="method">
 			<f a="param1:param2">
 				<x path="haxe.Int64"/>
@@ -41149,14 +41354,14 @@
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":throws"><e>"java.lang.InterruptedException"</e></m></meta>
-			<overloads><waitFor public="1" set="method">
+			<overloads><waitFor abstract="1" public="1" set="method">
 	<f a=""><x path="Int"/></f>
 	<meta><m n=":throws"><e>"java.lang.InterruptedException"</e></m></meta>
 </waitFor></overloads>
 		</waitFor>
-		<getErrorStream public="1" set="method"><f a=""><c path="java.io.InputStream"/></f></getErrorStream>
-		<getInputStream public="1" set="method"><f a=""><c path="java.io.InputStream"/></f></getInputStream>
-		<getOutputStream public="1" set="method"><f a=""><c path="java.io.OutputStream"/></f></getOutputStream>
+		<getErrorStream abstract="1" public="1" set="method"><f a=""><c path="java.io.InputStream"/></f></getErrorStream>
+		<getInputStream abstract="1" public="1" set="method"><f a=""><c path="java.io.InputStream"/></f></getInputStream>
+		<getOutputStream abstract="1" public="1" set="method"><f a=""><c path="java.io.OutputStream"/></f></getOutputStream>
 		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
 		<meta>
 			<m n=":nativeGen"/>
@@ -41302,7 +41507,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.lang.ProcessBuilder_Redirect" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/ProcessBuilder$Redirect.class" module="java.lang.ProcessBuilder" extern="1">
+	<class path="java.lang.ProcessBuilder_Redirect" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/ProcessBuilder$Redirect.class" module="java.lang.ProcessBuilder" extern="1" abstract="1">
 		<appendTo public="1" set="method" static="1"><f a="param1">
 	<c path="java.io.File"/>
 	<c path="java.lang.ProcessBuilder_Redirect"/>
@@ -41323,7 +41528,7 @@
 	<x path="Bool"/>
 </f></equals>
 		<file public="1" set="method"><f a=""><c path="java.io.File"/></f></file>
-		<type public="1" set="method"><f a=""><e path="java.lang.ProcessBuilder_Redirect_Type"/></f></type>
+		<type abstract="1" public="1" set="method"><f a=""><e path="java.lang.ProcessBuilder_Redirect_Type"/></f></type>
 		<meta>
 			<m n=":nativeGen"/>
 			<m n=":abstract"/>
@@ -43028,7 +43233,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.lang.Throwable_PrintStreamOrWriter" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Throwable$PrintStreamOrWriter.class" module="java.lang.Throwable" extern="1"><meta>
+	<class path="java.lang.Throwable_PrintStreamOrWriter" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Throwable$PrintStreamOrWriter.class" module="java.lang.Throwable" extern="1" abstract="1"><meta>
 	<m n=":nativeGen"/>
 	<m n=":abstract"/>
 	<m n=":libType"/>
@@ -43310,14 +43515,14 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.lang.reflect.Executable" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/reflect/Executable.class" extern="1">
+	<class path="java.lang.reflect.Executable" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/reflect/Executable.class" extern="1" abstract="1">
 		<extends path="java.lang.reflect.AccessibleObject"/>
 		<implements path="java.lang.reflect.Member"/>
 		<implements path="java.lang.reflect.GenericDeclaration"/>
 		<getAnnotatedExceptionTypes public="1" set="method"><f a=""><c path="java.NativeArray"><c path="java.lang.reflect.AnnotatedType"/></c></f></getAnnotatedExceptionTypes>
 		<getAnnotatedParameterTypes public="1" set="method"><f a=""><c path="java.NativeArray"><c path="java.lang.reflect.AnnotatedType"/></c></f></getAnnotatedParameterTypes>
 		<getAnnotatedReceiverType public="1" set="method"><f a=""><c path="java.lang.reflect.AnnotatedType"/></f></getAnnotatedReceiverType>
-		<getAnnotatedReturnType public="1" set="method"><f a=""><c path="java.lang.reflect.AnnotatedType"/></f></getAnnotatedReturnType>
+		<getAnnotatedReturnType abstract="1" public="1" set="method"><f a=""><c path="java.lang.reflect.AnnotatedType"/></f></getAnnotatedReturnType>
 		<getDeclaredAnnotations public="1" set="method" override="1"><f a=""><c path="java.NativeArray"><c path="java.lang.annotation.Annotation"/></c></f></getDeclaredAnnotations>
 		<getAnnotationsByType public="1" params="T" set="method" override="1"><f a="param1">
 	<c path="java.lang.Class"><c path="getAnnotationsByType.T"/></c>
@@ -43327,20 +43532,20 @@
 	<c path="java.lang.Class"><c path="getAnnotation.T"/></c>
 	<c path="getAnnotation.T"/>
 </f></getAnnotation>
-		<getParameterAnnotations public="1" set="method"><f a=""><c path="java.NativeArray"><c path="java.NativeArray"><c path="java.lang.annotation.Annotation"/></c></c></f></getParameterAnnotations>
+		<getParameterAnnotations abstract="1" public="1" set="method"><f a=""><c path="java.NativeArray"><c path="java.NativeArray"><c path="java.lang.annotation.Annotation"/></c></c></f></getParameterAnnotations>
 		<isSynthetic public="1" set="method"><f a=""><x path="Bool"/></f></isSynthetic>
 		<isVarArgs public="1" set="method"><f a=""><x path="Bool"/></f></isVarArgs>
-		<toGenericString public="1" set="method"><f a=""><c path="String"/></f></toGenericString>
+		<toGenericString abstract="1" public="1" set="method"><f a=""><c path="String"/></f></toGenericString>
 		<getGenericExceptionTypes public="1" set="method"><f a=""><c path="java.NativeArray"><c path="java.lang.reflect.Type"/></c></f></getGenericExceptionTypes>
-		<getExceptionTypes public="1" set="method"><f a=""><c path="java.NativeArray"><c path="java.lang.Class"><d/></c></c></f></getExceptionTypes>
+		<getExceptionTypes abstract="1" public="1" set="method"><f a=""><c path="java.NativeArray"><c path="java.lang.Class"><d/></c></c></f></getExceptionTypes>
 		<getParameters public="1" set="method"><f a=""><c path="java.NativeArray"><c path="java.lang.reflect.Parameter"/></c></f></getParameters>
 		<getGenericParameterTypes public="1" set="method"><f a=""><c path="java.NativeArray"><c path="java.lang.reflect.Type"/></c></f></getGenericParameterTypes>
 		<getParameterCount public="1" set="method"><f a=""><x path="Int"/></f></getParameterCount>
-		<getParameterTypes public="1" set="method"><f a=""><c path="java.NativeArray"><c path="java.lang.Class"><d/></c></c></f></getParameterTypes>
-		<getTypeParameters public="1" set="method"><f a=""><c path="java.NativeArray"><c path="java.lang.reflect.TypeVariable"><d/></c></c></f></getTypeParameters>
-		<getModifiers public="1" set="method"><f a=""><x path="Int"/></f></getModifiers>
-		<getName public="1" set="method"><f a=""><c path="String"/></f></getName>
-		<getDeclaringClass public="1" set="method"><f a=""><c path="java.lang.Class"><d/></c></f></getDeclaringClass>
+		<getParameterTypes abstract="1" public="1" set="method"><f a=""><c path="java.NativeArray"><c path="java.lang.Class"><d/></c></c></f></getParameterTypes>
+		<getTypeParameters abstract="1" public="1" set="method"><f a=""><c path="java.NativeArray"><c path="java.lang.reflect.TypeVariable"><d/></c></c></f></getTypeParameters>
+		<getModifiers abstract="1" public="1" set="method"><f a=""><x path="Int"/></f></getModifiers>
+		<getName abstract="1" public="1" set="method"><f a=""><c path="String"/></f></getName>
+		<getDeclaringClass abstract="1" public="1" set="method"><f a=""><c path="java.lang.Class"><d/></c></f></getDeclaringClass>
 		<meta>
 			<m n=":nativeGen"/>
 			<m n=":abstract"/>
@@ -44460,7 +44665,7 @@
 			<m n=":native"><e>"java.math.RoundingMode"</e></m>
 		</meta>
 	</enum>
-	<class path="java.net.ContentHandler" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/net/ContentHandler.class" extern="1">
+	<class path="java.net.ContentHandler" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/net/ContentHandler.class" extern="1" abstract="1">
 		<getContent public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.net.URLConnection"/>
@@ -44468,7 +44673,7 @@
 				<d/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads><getContent public="1" set="method">
+			<overloads><getContent abstract="1" public="1" set="method">
 	<f a="param1">
 		<c path="java.net.URLConnection"/>
 		<d/>
@@ -44789,7 +44994,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.net.DatagramSocketImpl" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/net/DatagramSocketImpl.class" extern="1">
+	<class path="java.net.DatagramSocketImpl" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/net/DatagramSocketImpl.class" extern="1" abstract="1">
 		<implements path="java.net.SocketOptions"/>
 		<getFileDescriptor set="method">
 			<f a=""><c path="java.io.FileDescriptor"/></f>
@@ -44799,11 +45004,11 @@
 			<f a=""><x path="Int"/></f>
 			<meta><m n=":protected"/></meta>
 		</getLocalPort>
-		<close set="method">
+		<close abstract="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":protected"/></meta>
 		</close>
-		<leaveGroup set="method">
+		<leaveGroup abstract="1" set="method">
 			<f a="param1:param2">
 				<c path="java.net.SocketAddress"/>
 				<c path="java.net.NetworkInterface"/>
@@ -44814,7 +45019,7 @@
 				<m n=":protected"/>
 			</meta>
 		</leaveGroup>
-		<joinGroup set="method">
+		<joinGroup abstract="1" set="method">
 			<f a="param1:param2">
 				<c path="java.net.SocketAddress"/>
 				<c path="java.net.NetworkInterface"/>
@@ -44825,7 +45030,7 @@
 				<m n=":protected"/>
 			</meta>
 		</joinGroup>
-		<leave set="method">
+		<leave abstract="1" set="method">
 			<f a="param1">
 				<c path="java.net.InetAddress"/>
 				<x path="Void"/>
@@ -44835,7 +45040,7 @@
 				<m n=":protected"/>
 			</meta>
 		</leave>
-		<join set="method">
+		<join abstract="1" set="method">
 			<f a="param1">
 				<c path="java.net.InetAddress"/>
 				<x path="Void"/>
@@ -44845,14 +45050,14 @@
 				<m n=":protected"/>
 			</meta>
 		</join>
-		<getTimeToLive set="method">
+		<getTimeToLive abstract="1" set="method">
 			<f a=""><x path="Int"/></f>
 			<meta>
 				<m n=":throws"><e>"java.io.IOException"</e></m>
 				<m n=":protected"/>
 			</meta>
 		</getTimeToLive>
-		<setTimeToLive set="method">
+		<setTimeToLive abstract="1" set="method">
 			<f a="param1">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -44862,7 +45067,7 @@
 				<m n=":protected"/>
 			</meta>
 		</setTimeToLive>
-		<getTTL set="method">
+		<getTTL abstract="1" set="method">
 			<f a=""><t path="java.types.Int8"/></f>
 			<meta>
 				<m n=":throws"><e>"java.io.IOException"</e></m>
@@ -44870,7 +45075,7 @@
 				<m n=":protected"/>
 			</meta>
 		</getTTL>
-		<setTTL set="method">
+		<setTTL abstract="1" set="method">
 			<f a="param1">
 				<t path="java.types.Int8"/>
 				<x path="Void"/>
@@ -44881,7 +45086,7 @@
 				<m n=":protected"/>
 			</meta>
 		</setTTL>
-		<receive set="method">
+		<receive abstract="1" set="method">
 			<f a="param1">
 				<c path="java.net.DatagramPacket"/>
 				<x path="Void"/>
@@ -44891,7 +45096,7 @@
 				<m n=":protected"/>
 			</meta>
 		</receive>
-		<peekData set="method">
+		<peekData abstract="1" set="method">
 			<f a="param1">
 				<c path="java.net.DatagramPacket"/>
 				<x path="Int"/>
@@ -44901,7 +45106,7 @@
 				<m n=":protected"/>
 			</meta>
 		</peekData>
-		<peek set="method">
+		<peek abstract="1" set="method">
 			<f a="param1">
 				<c path="java.net.InetAddress"/>
 				<x path="Int"/>
@@ -44926,7 +45131,7 @@
 				<m n=":protected"/>
 			</meta>
 		</connect>
-		<send set="method">
+		<send abstract="1" set="method">
 			<f a="param1">
 				<c path="java.net.DatagramPacket"/>
 				<x path="Void"/>
@@ -44936,7 +45141,7 @@
 				<m n=":protected"/>
 			</meta>
 		</send>
-		<bind set="method">
+		<bind abstract="1" set="method">
 			<f a="param1:param2">
 				<x path="Int"/>
 				<c path="java.net.InetAddress"/>
@@ -44947,14 +45152,14 @@
 				<m n=":protected"/>
 			</meta>
 		</bind>
-		<create set="method">
+		<create abstract="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":throws"><e>"java.net.SocketException"</e></m>
 				<m n=":protected"/>
 			</meta>
 		</create>
-		<setOption public="1" set="method">
+		<setOption abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<x path="Int"/>
 				<d/>
@@ -44962,7 +45167,7 @@
 			</f>
 			<meta><m n=":throws"><e>"java.net.SocketException"</e></m></meta>
 		</setOption>
-		<getOption public="1" set="method">
+		<getOption abstract="1" public="1" set="method">
 			<f a="param1">
 				<x path="Int"/>
 				<d/>
@@ -45162,7 +45367,7 @@
 			<m n=":native"><e>"java.net.InetAddress$Cache$Type"</e></m>
 		</meta>
 	</enum>
-	<class path="java.net.SocketAddress" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/net/SocketAddress.class" extern="1">
+	<class path="java.net.SocketAddress" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/net/SocketAddress.class" extern="1" abstract="1">
 		<implements path="java.io.Serializable"/>
 		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
 		<meta>
@@ -45829,7 +46034,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.net.SocketImpl" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/net/SocketImpl.class" extern="1">
+	<class path="java.net.SocketImpl" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/net/SocketImpl.class" extern="1" abstract="1">
 		<implements path="java.net.SocketOptions"/>
 		<setPerformancePreferences set="method">
 			<f a="param1:param2:param3">
@@ -45845,7 +46050,7 @@
 			<f a=""><x path="Int"/></f>
 			<meta><m n=":protected"/></meta>
 		</getLocalPort>
-		<sendUrgentData set="method">
+		<sendUrgentData abstract="1" set="method">
 			<f a="param1">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -45885,35 +46090,35 @@
 				<m n=":protected"/>
 			</meta>
 		</shutdownInput>
-		<close set="method">
+		<close abstract="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":throws"><e>"java.io.IOException"</e></m>
 				<m n=":protected"/>
 			</meta>
 		</close>
-		<available set="method">
+		<available abstract="1" set="method">
 			<f a=""><x path="Int"/></f>
 			<meta>
 				<m n=":throws"><e>"java.io.IOException"</e></m>
 				<m n=":protected"/>
 			</meta>
 		</available>
-		<getOutputStream set="method">
+		<getOutputStream abstract="1" set="method">
 			<f a=""><c path="java.io.OutputStream"/></f>
 			<meta>
 				<m n=":throws"><e>"java.io.IOException"</e></m>
 				<m n=":protected"/>
 			</meta>
 		</getOutputStream>
-		<getInputStream set="method">
+		<getInputStream abstract="1" set="method">
 			<f a=""><c path="java.io.InputStream"/></f>
 			<meta>
 				<m n=":throws"><e>"java.io.IOException"</e></m>
 				<m n=":protected"/>
 			</meta>
 		</getInputStream>
-		<accept set="method">
+		<accept abstract="1" set="method">
 			<f a="param1">
 				<c path="java.net.SocketImpl"/>
 				<x path="Void"/>
@@ -45923,7 +46128,7 @@
 				<m n=":protected"/>
 			</meta>
 		</accept>
-		<listen set="method">
+		<listen abstract="1" set="method">
 			<f a="param1">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -45933,7 +46138,7 @@
 				<m n=":protected"/>
 			</meta>
 		</listen>
-		<bind set="method">
+		<bind abstract="1" set="method">
 			<f a="param1:param2">
 				<c path="java.net.InetAddress"/>
 				<x path="Int"/>
@@ -45944,7 +46149,7 @@
 				<m n=":protected"/>
 			</meta>
 		</bind>
-		<connect set="method">
+		<connect abstract="1" set="method">
 			<f a="param1:param2">
 				<c path="java.net.SocketAddress"/>
 				<x path="Int"/>
@@ -45955,7 +46160,7 @@
 				<m n=":protected"/>
 			</meta>
 			<overloads>
-				<connect set="method">
+				<connect abstract="1" set="method">
 					<f a="param1:param2">
 						<c path="String"/>
 						<x path="Int"/>
@@ -45966,7 +46171,7 @@
 						<m n=":protected"/>
 					</meta>
 				</connect>
-				<connect set="method">
+				<connect abstract="1" set="method">
 					<f a="param1:param2">
 						<c path="java.net.InetAddress"/>
 						<x path="Int"/>
@@ -45979,7 +46184,7 @@
 				</connect>
 			</overloads>
 		</connect>
-		<create set="method">
+		<create abstract="1" set="method">
 			<f a="param1">
 				<x path="Bool"/>
 				<x path="Void"/>
@@ -45989,7 +46194,7 @@
 				<m n=":protected"/>
 			</meta>
 		</create>
-		<setOption public="1" set="method">
+		<setOption abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<x path="Int"/>
 				<d/>
@@ -45997,7 +46202,7 @@
 			</f>
 			<meta><m n=":throws"><e>"java.net.SocketException"</e></m></meta>
 		</setOption>
-		<getOption public="1" set="method">
+		<getOption abstract="1" public="1" set="method">
 			<f a="param1">
 				<x path="Int"/>
 				<d/>
@@ -46533,7 +46738,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.net.URLConnection" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/net/URLConnection.class" extern="1">
+	<class path="java.net.URLConnection" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/net/URLConnection.class" extern="1" abstract="1">
 		<guessContentTypeFromStream public="1" set="method" static="1">
 			<f a="param1">
 				<c path="java.io.InputStream"/>
@@ -46697,7 +46902,7 @@
 	<x path="Int"/>
 	<x path="Void"/>
 </f></setConnectTimeout>
-		<connect public="1" set="method">
+		<connect abstract="1" public="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</connect>
@@ -46803,7 +47008,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.net.URLStreamHandler" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/net/URLStreamHandler.class" extern="1">
+	<class path="java.net.URLStreamHandler" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/net/URLStreamHandler.class" extern="1" abstract="1">
 		<setURL set="method">
 			<f a="param1:param2:param3:param4:param5:param6">
 				<c path="java.net.URL"/>
@@ -46903,7 +47108,7 @@
 				<m n=":throws"><e>"java.io.IOException"</e></m>
 				<m n=":protected"/>
 			</meta>
-			<overloads><openConnection set="method">
+			<overloads><openConnection abstract="1" set="method">
 	<f a="param1">
 		<c path="java.net.URL"/>
 		<c path="java.net.URLConnection"/>
@@ -46964,12 +47169,12 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.Buffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/Buffer.class" extern="1">
-		<isDirect public="1" set="method"><f a=""><x path="Bool"/></f></isDirect>
-		<arrayOffset public="1" set="method"><f a=""><x path="Int"/></f></arrayOffset>
-		<array public="1" set="method"><f a=""><d/></f></array>
-		<hasArray public="1" set="method"><f a=""><x path="Bool"/></f></hasArray>
-		<isReadOnly public="1" set="method"><f a=""><x path="Bool"/></f></isReadOnly>
+	<class path="java.nio.Buffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/Buffer.class" extern="1" abstract="1">
+		<isDirect abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></isDirect>
+		<arrayOffset abstract="1" public="1" set="method"><f a=""><x path="Int"/></f></arrayOffset>
+		<array abstract="1" public="1" set="method"><f a=""><d/></f></array>
+		<hasArray abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></hasArray>
+		<isReadOnly abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></isReadOnly>
 		<hasRemaining final="1" public="1" set="method"><f a=""><x path="Bool"/></f></hasRemaining>
 		<remaining final="1" public="1" set="method"><f a=""><x path="Int"/></f></remaining>
 		<rewind final="1" public="1" set="method"><f a=""><c path="java.nio.Buffer"/></f></rewind>
@@ -47004,7 +47209,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.ByteBuffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/ByteBuffer.class" extern="1">
+	<class path="java.nio.ByteBuffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/ByteBuffer.class" extern="1" abstract="1">
 		<extends path="java.nio.Buffer"/>
 		<implements path="java.lang.Comparable"><c path="java.nio.ByteBuffer"/></implements>
 		<wrap public="1" set="method" static="1">
@@ -47038,119 +47243,119 @@
 </f></compareTo></overloads>
 		</compareTo>
 		<array final="1" public="1" set="method" override="1"><f a=""><c path="java.NativeArray"><t path="java.types.Int8"/></c></f></array>
-		<asDoubleBuffer public="1" set="method"><f a=""><c path="java.nio.DoubleBuffer"/></f></asDoubleBuffer>
-		<putDouble public="1" set="method">
+		<asDoubleBuffer abstract="1" public="1" set="method"><f a=""><c path="java.nio.DoubleBuffer"/></f></asDoubleBuffer>
+		<putDouble abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<x path="Int"/>
 				<x path="Float"/>
 				<c path="java.nio.ByteBuffer"/>
 			</f>
-			<overloads><putDouble public="1" set="method"><f a="param1">
+			<overloads><putDouble abstract="1" public="1" set="method"><f a="param1">
 	<x path="Float"/>
 	<c path="java.nio.ByteBuffer"/>
 </f></putDouble></overloads>
 		</putDouble>
-		<getDouble public="1" set="method">
+		<getDouble abstract="1" public="1" set="method">
 			<f a="param1">
 				<x path="Int"/>
 				<x path="Float"/>
 			</f>
-			<overloads><getDouble public="1" set="method"><f a=""><x path="Float"/></f></getDouble></overloads>
+			<overloads><getDouble abstract="1" public="1" set="method"><f a=""><x path="Float"/></f></getDouble></overloads>
 		</getDouble>
-		<asFloatBuffer public="1" set="method"><f a=""><c path="java.nio.FloatBuffer"/></f></asFloatBuffer>
-		<putFloat public="1" set="method">
+		<asFloatBuffer abstract="1" public="1" set="method"><f a=""><c path="java.nio.FloatBuffer"/></f></asFloatBuffer>
+		<putFloat abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<x path="Int"/>
 				<x path="Single"/>
 				<c path="java.nio.ByteBuffer"/>
 			</f>
-			<overloads><putFloat public="1" set="method"><f a="param1">
+			<overloads><putFloat abstract="1" public="1" set="method"><f a="param1">
 	<x path="Single"/>
 	<c path="java.nio.ByteBuffer"/>
 </f></putFloat></overloads>
 		</putFloat>
-		<getFloat public="1" set="method">
+		<getFloat abstract="1" public="1" set="method">
 			<f a="param1">
 				<x path="Int"/>
 				<x path="Single"/>
 			</f>
-			<overloads><getFloat public="1" set="method"><f a=""><x path="Single"/></f></getFloat></overloads>
+			<overloads><getFloat abstract="1" public="1" set="method"><f a=""><x path="Single"/></f></getFloat></overloads>
 		</getFloat>
-		<asLongBuffer public="1" set="method"><f a=""><c path="java.nio.LongBuffer"/></f></asLongBuffer>
-		<putLong public="1" set="method">
+		<asLongBuffer abstract="1" public="1" set="method"><f a=""><c path="java.nio.LongBuffer"/></f></asLongBuffer>
+		<putLong abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
 				<c path="java.nio.ByteBuffer"/>
 			</f>
-			<overloads><putLong public="1" set="method"><f a="param1">
+			<overloads><putLong abstract="1" public="1" set="method"><f a="param1">
 	<x path="haxe.Int64"/>
 	<c path="java.nio.ByteBuffer"/>
 </f></putLong></overloads>
 		</putLong>
-		<getLong public="1" set="method">
+		<getLong abstract="1" public="1" set="method">
 			<f a="param1">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
 			</f>
-			<overloads><getLong public="1" set="method"><f a=""><x path="haxe.Int64"/></f></getLong></overloads>
+			<overloads><getLong abstract="1" public="1" set="method"><f a=""><x path="haxe.Int64"/></f></getLong></overloads>
 		</getLong>
-		<asIntBuffer public="1" set="method"><f a=""><c path="java.nio.IntBuffer"/></f></asIntBuffer>
-		<putInt public="1" set="method">
+		<asIntBuffer abstract="1" public="1" set="method"><f a=""><c path="java.nio.IntBuffer"/></f></asIntBuffer>
+		<putInt abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<x path="Int"/>
 				<x path="Int"/>
 				<c path="java.nio.ByteBuffer"/>
 			</f>
-			<overloads><putInt public="1" set="method"><f a="param1">
+			<overloads><putInt abstract="1" public="1" set="method"><f a="param1">
 	<x path="Int"/>
 	<c path="java.nio.ByteBuffer"/>
 </f></putInt></overloads>
 		</putInt>
-		<getInt public="1" set="method">
+		<getInt abstract="1" public="1" set="method">
 			<f a="param1">
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<overloads><getInt public="1" set="method"><f a=""><x path="Int"/></f></getInt></overloads>
+			<overloads><getInt abstract="1" public="1" set="method"><f a=""><x path="Int"/></f></getInt></overloads>
 		</getInt>
-		<asShortBuffer public="1" set="method"><f a=""><c path="java.nio.ShortBuffer"/></f></asShortBuffer>
-		<putShort public="1" set="method">
+		<asShortBuffer abstract="1" public="1" set="method"><f a=""><c path="java.nio.ShortBuffer"/></f></asShortBuffer>
+		<putShort abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<x path="Int"/>
 				<t path="java.types.Int16"/>
 				<c path="java.nio.ByteBuffer"/>
 			</f>
-			<overloads><putShort public="1" set="method"><f a="param1">
+			<overloads><putShort abstract="1" public="1" set="method"><f a="param1">
 	<t path="java.types.Int16"/>
 	<c path="java.nio.ByteBuffer"/>
 </f></putShort></overloads>
 		</putShort>
-		<getShort public="1" set="method">
+		<getShort abstract="1" public="1" set="method">
 			<f a="param1">
 				<x path="Int"/>
 				<t path="java.types.Int16"/>
 			</f>
-			<overloads><getShort public="1" set="method"><f a=""><t path="java.types.Int16"/></f></getShort></overloads>
+			<overloads><getShort abstract="1" public="1" set="method"><f a=""><t path="java.types.Int16"/></f></getShort></overloads>
 		</getShort>
-		<asCharBuffer public="1" set="method"><f a=""><c path="java.nio.CharBuffer"/></f></asCharBuffer>
-		<putChar public="1" set="method">
+		<asCharBuffer abstract="1" public="1" set="method"><f a=""><c path="java.nio.CharBuffer"/></f></asCharBuffer>
+		<putChar abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<x path="Int"/>
 				<t path="java.types.Char16"/>
 				<c path="java.nio.ByteBuffer"/>
 			</f>
-			<overloads><putChar public="1" set="method"><f a="param1">
+			<overloads><putChar abstract="1" public="1" set="method"><f a="param1">
 	<t path="java.types.Char16"/>
 	<c path="java.nio.ByteBuffer"/>
 </f></putChar></overloads>
 		</putChar>
-		<getChar public="1" set="method">
+		<getChar abstract="1" public="1" set="method">
 			<f a="param1">
 				<x path="Int"/>
 				<t path="java.types.Char16"/>
 			</f>
-			<overloads><getChar public="1" set="method"><f a=""><t path="java.types.Char16"/></f></getChar></overloads>
+			<overloads><getChar abstract="1" public="1" set="method"><f a=""><t path="java.types.Char16"/></f></getChar></overloads>
 		</getChar>
 		<order final="1" public="1" set="method">
 			<f a="param1">
@@ -47165,8 +47370,8 @@
 </f></equals>
 		<hashCode public="1" set="method"><f a=""><x path="Int"/></f></hashCode>
 		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
-		<isDirect public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isDirect>
-		<compact public="1" set="method"><f a=""><c path="java.nio.ByteBuffer"/></f></compact>
+		<isDirect abstract="1" public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isDirect>
+		<compact abstract="1" public="1" set="method"><f a=""><c path="java.nio.ByteBuffer"/></f></compact>
 		<arrayOffset final="1" public="1" set="method" override="1"><f a=""><x path="Int"/></f></arrayOffset>
 		<hasArray final="1" public="1" set="method" override="1"><f a=""><x path="Bool"/></f></hasArray>
 		<put final="1" public="1" set="method">
@@ -47175,11 +47380,11 @@
 				<c path="java.nio.ByteBuffer"/>
 			</f>
 			<overloads>
-				<put public="1" set="method"><f a="param1">
+				<put abstract="1" public="1" set="method"><f a="param1">
 	<t path="java.types.Int8"/>
 	<c path="java.nio.ByteBuffer"/>
 </f></put>
-				<put public="1" set="method"><f a="param1:param2">
+				<put abstract="1" public="1" set="method"><f a="param1:param2">
 	<x path="Int"/>
 	<t path="java.types.Int8"/>
 	<c path="java.nio.ByteBuffer"/>
@@ -47202,8 +47407,8 @@
 				<c path="java.nio.ByteBuffer"/>
 			</f>
 			<overloads>
-				<get public="1" set="method"><f a=""><t path="java.types.Int8"/></f></get>
-				<get public="1" set="method"><f a="param1">
+				<get abstract="1" public="1" set="method"><f a=""><t path="java.types.Int8"/></f></get>
+				<get abstract="1" public="1" set="method"><f a="param1">
 	<x path="Int"/>
 	<t path="java.types.Int8"/>
 </f></get>
@@ -47215,9 +47420,9 @@
 </f></get>
 			</overloads>
 		</get>
-		<asReadOnlyBuffer public="1" set="method"><f a=""><c path="java.nio.ByteBuffer"/></f></asReadOnlyBuffer>
-		<duplicate public="1" set="method"><f a=""><c path="java.nio.ByteBuffer"/></f></duplicate>
-		<slice public="1" set="method"><f a=""><c path="java.nio.ByteBuffer"/></f></slice>
+		<asReadOnlyBuffer abstract="1" public="1" set="method"><f a=""><c path="java.nio.ByteBuffer"/></f></asReadOnlyBuffer>
+		<duplicate abstract="1" public="1" set="method"><f a=""><c path="java.nio.ByteBuffer"/></f></duplicate>
+		<slice abstract="1" public="1" set="method"><f a=""><c path="java.nio.ByteBuffer"/></f></slice>
 		<meta>
 			<m n=":nativeGen"/>
 			<m n=":abstract"/>
@@ -47246,7 +47451,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.CharBuffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/CharBuffer.class" extern="1">
+	<class path="java.nio.CharBuffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/CharBuffer.class" extern="1" abstract="1">
 		<extends path="java.nio.Buffer"/>
 		<implements path="java.lang.Readable"/>
 		<implements path="java.lang.CharSequence"/>
@@ -47280,7 +47485,7 @@
 	<x path="Int"/>
 	<c path="java.nio.CharBuffer"/>
 </f></allocate>
-		<subSequence public="1" set="method"><f a="param1:param2">
+		<subSequence abstract="1" public="1" set="method"><f a="param1:param2">
 	<x path="Int"/>
 	<x path="Int"/>
 	<c path="java.nio.CharBuffer"/>
@@ -47315,7 +47520,7 @@
 		</compareTo>
 		<array final="1" public="1" set="method" override="1"><f a=""><c path="java.NativeArray"><t path="java.types.Char16"/></c></f></array>
 		<chars public="1" set="method"><f a=""><c path="java.util.stream.IntStream"/></f></chars>
-		<order public="1" set="method"><f a=""><c path="java.nio.ByteOrder"/></f></order>
+		<order abstract="1" public="1" set="method"><f a=""><c path="java.nio.ByteOrder"/></f></order>
 		<charAt final="1" public="1" set="method"><f a="param1">
 	<x path="Int"/>
 	<t path="java.types.Char16"/>
@@ -47327,8 +47532,8 @@
 	<x path="Bool"/>
 </f></equals>
 		<hashCode public="1" set="method"><f a=""><x path="Int"/></f></hashCode>
-		<isDirect public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isDirect>
-		<compact public="1" set="method"><f a=""><c path="java.nio.CharBuffer"/></f></compact>
+		<isDirect abstract="1" public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isDirect>
+		<compact abstract="1" public="1" set="method"><f a=""><c path="java.nio.CharBuffer"/></f></compact>
 		<arrayOffset final="1" public="1" set="method" override="1"><f a=""><x path="Int"/></f></arrayOffset>
 		<hasArray final="1" public="1" set="method" override="1"><f a=""><x path="Bool"/></f></hasArray>
 		<put final="1" public="1" set="method">
@@ -47337,11 +47542,11 @@
 				<c path="java.nio.CharBuffer"/>
 			</f>
 			<overloads>
-				<put public="1" set="method"><f a="param1">
+				<put abstract="1" public="1" set="method"><f a="param1">
 	<t path="java.types.Char16"/>
 	<c path="java.nio.CharBuffer"/>
 </f></put>
-				<put public="1" set="method"><f a="param1:param2">
+				<put abstract="1" public="1" set="method"><f a="param1:param2">
 	<x path="Int"/>
 	<t path="java.types.Char16"/>
 	<c path="java.nio.CharBuffer"/>
@@ -47374,8 +47579,8 @@
 				<c path="java.nio.CharBuffer"/>
 			</f>
 			<overloads>
-				<get public="1" set="method"><f a=""><t path="java.types.Char16"/></f></get>
-				<get public="1" set="method"><f a="param1">
+				<get abstract="1" public="1" set="method"><f a=""><t path="java.types.Char16"/></f></get>
+				<get abstract="1" public="1" set="method"><f a="param1">
 	<x path="Int"/>
 	<t path="java.types.Char16"/>
 </f></get>
@@ -47387,9 +47592,9 @@
 </f></get>
 			</overloads>
 		</get>
-		<asReadOnlyBuffer public="1" set="method"><f a=""><c path="java.nio.CharBuffer"/></f></asReadOnlyBuffer>
-		<duplicate public="1" set="method"><f a=""><c path="java.nio.CharBuffer"/></f></duplicate>
-		<slice public="1" set="method"><f a=""><c path="java.nio.CharBuffer"/></f></slice>
+		<asReadOnlyBuffer abstract="1" public="1" set="method"><f a=""><c path="java.nio.CharBuffer"/></f></asReadOnlyBuffer>
+		<duplicate abstract="1" public="1" set="method"><f a=""><c path="java.nio.CharBuffer"/></f></duplicate>
+		<slice abstract="1" public="1" set="method"><f a=""><c path="java.nio.CharBuffer"/></f></slice>
 		<read public="1" set="method">
 			<f a="param1">
 				<c path="java.nio.CharBuffer"/>
@@ -47410,7 +47615,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.DoubleBuffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/DoubleBuffer.class" extern="1">
+	<class path="java.nio.DoubleBuffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/DoubleBuffer.class" extern="1" abstract="1">
 		<extends path="java.nio.Buffer"/>
 		<implements path="java.lang.Comparable"><c path="java.nio.DoubleBuffer"/></implements>
 		<wrap public="1" set="method" static="1">
@@ -47440,15 +47645,15 @@
 </f></compareTo></overloads>
 		</compareTo>
 		<array final="1" public="1" set="method" override="1"><f a=""><c path="java.NativeArray"><x path="Float"/></c></f></array>
-		<order public="1" set="method"><f a=""><c path="java.nio.ByteOrder"/></f></order>
+		<order abstract="1" public="1" set="method"><f a=""><c path="java.nio.ByteOrder"/></f></order>
 		<equals public="1" set="method"><f a="param1">
 	<d/>
 	<x path="Bool"/>
 </f></equals>
 		<hashCode public="1" set="method"><f a=""><x path="Int"/></f></hashCode>
 		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
-		<isDirect public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isDirect>
-		<compact public="1" set="method"><f a=""><c path="java.nio.DoubleBuffer"/></f></compact>
+		<isDirect abstract="1" public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isDirect>
+		<compact abstract="1" public="1" set="method"><f a=""><c path="java.nio.DoubleBuffer"/></f></compact>
 		<arrayOffset final="1" public="1" set="method" override="1"><f a=""><x path="Int"/></f></arrayOffset>
 		<hasArray final="1" public="1" set="method" override="1"><f a=""><x path="Bool"/></f></hasArray>
 		<put final="1" public="1" set="method">
@@ -47457,11 +47662,11 @@
 				<c path="java.nio.DoubleBuffer"/>
 			</f>
 			<overloads>
-				<put public="1" set="method"><f a="param1">
+				<put abstract="1" public="1" set="method"><f a="param1">
 	<x path="Float"/>
 	<c path="java.nio.DoubleBuffer"/>
 </f></put>
-				<put public="1" set="method"><f a="param1:param2">
+				<put abstract="1" public="1" set="method"><f a="param1:param2">
 	<x path="Int"/>
 	<x path="Float"/>
 	<c path="java.nio.DoubleBuffer"/>
@@ -47484,8 +47689,8 @@
 				<c path="java.nio.DoubleBuffer"/>
 			</f>
 			<overloads>
-				<get public="1" set="method"><f a=""><x path="Float"/></f></get>
-				<get public="1" set="method"><f a="param1">
+				<get abstract="1" public="1" set="method"><f a=""><x path="Float"/></f></get>
+				<get abstract="1" public="1" set="method"><f a="param1">
 	<x path="Int"/>
 	<x path="Float"/>
 </f></get>
@@ -47497,9 +47702,9 @@
 </f></get>
 			</overloads>
 		</get>
-		<asReadOnlyBuffer public="1" set="method"><f a=""><c path="java.nio.DoubleBuffer"/></f></asReadOnlyBuffer>
-		<duplicate public="1" set="method"><f a=""><c path="java.nio.DoubleBuffer"/></f></duplicate>
-		<slice public="1" set="method"><f a=""><c path="java.nio.DoubleBuffer"/></f></slice>
+		<asReadOnlyBuffer abstract="1" public="1" set="method"><f a=""><c path="java.nio.DoubleBuffer"/></f></asReadOnlyBuffer>
+		<duplicate abstract="1" public="1" set="method"><f a=""><c path="java.nio.DoubleBuffer"/></f></duplicate>
+		<slice abstract="1" public="1" set="method"><f a=""><c path="java.nio.DoubleBuffer"/></f></slice>
 		<meta>
 			<m n=":nativeGen"/>
 			<m n=":abstract"/>
@@ -47512,7 +47717,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.FloatBuffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/FloatBuffer.class" extern="1">
+	<class path="java.nio.FloatBuffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/FloatBuffer.class" extern="1" abstract="1">
 		<extends path="java.nio.Buffer"/>
 		<implements path="java.lang.Comparable"><c path="java.nio.FloatBuffer"/></implements>
 		<wrap public="1" set="method" static="1">
@@ -47542,15 +47747,15 @@
 </f></compareTo></overloads>
 		</compareTo>
 		<array final="1" public="1" set="method" override="1"><f a=""><c path="java.NativeArray"><x path="Single"/></c></f></array>
-		<order public="1" set="method"><f a=""><c path="java.nio.ByteOrder"/></f></order>
+		<order abstract="1" public="1" set="method"><f a=""><c path="java.nio.ByteOrder"/></f></order>
 		<equals public="1" set="method"><f a="param1">
 	<d/>
 	<x path="Bool"/>
 </f></equals>
 		<hashCode public="1" set="method"><f a=""><x path="Int"/></f></hashCode>
 		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
-		<isDirect public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isDirect>
-		<compact public="1" set="method"><f a=""><c path="java.nio.FloatBuffer"/></f></compact>
+		<isDirect abstract="1" public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isDirect>
+		<compact abstract="1" public="1" set="method"><f a=""><c path="java.nio.FloatBuffer"/></f></compact>
 		<arrayOffset final="1" public="1" set="method" override="1"><f a=""><x path="Int"/></f></arrayOffset>
 		<hasArray final="1" public="1" set="method" override="1"><f a=""><x path="Bool"/></f></hasArray>
 		<put final="1" public="1" set="method">
@@ -47559,11 +47764,11 @@
 				<c path="java.nio.FloatBuffer"/>
 			</f>
 			<overloads>
-				<put public="1" set="method"><f a="param1">
+				<put abstract="1" public="1" set="method"><f a="param1">
 	<x path="Single"/>
 	<c path="java.nio.FloatBuffer"/>
 </f></put>
-				<put public="1" set="method"><f a="param1:param2">
+				<put abstract="1" public="1" set="method"><f a="param1:param2">
 	<x path="Int"/>
 	<x path="Single"/>
 	<c path="java.nio.FloatBuffer"/>
@@ -47586,8 +47791,8 @@
 				<c path="java.nio.FloatBuffer"/>
 			</f>
 			<overloads>
-				<get public="1" set="method"><f a=""><x path="Single"/></f></get>
-				<get public="1" set="method"><f a="param1">
+				<get abstract="1" public="1" set="method"><f a=""><x path="Single"/></f></get>
+				<get abstract="1" public="1" set="method"><f a="param1">
 	<x path="Int"/>
 	<x path="Single"/>
 </f></get>
@@ -47599,9 +47804,9 @@
 </f></get>
 			</overloads>
 		</get>
-		<asReadOnlyBuffer public="1" set="method"><f a=""><c path="java.nio.FloatBuffer"/></f></asReadOnlyBuffer>
-		<duplicate public="1" set="method"><f a=""><c path="java.nio.FloatBuffer"/></f></duplicate>
-		<slice public="1" set="method"><f a=""><c path="java.nio.FloatBuffer"/></f></slice>
+		<asReadOnlyBuffer abstract="1" public="1" set="method"><f a=""><c path="java.nio.FloatBuffer"/></f></asReadOnlyBuffer>
+		<duplicate abstract="1" public="1" set="method"><f a=""><c path="java.nio.FloatBuffer"/></f></duplicate>
+		<slice abstract="1" public="1" set="method"><f a=""><c path="java.nio.FloatBuffer"/></f></slice>
 		<meta>
 			<m n=":nativeGen"/>
 			<m n=":abstract"/>
@@ -47614,7 +47819,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.IntBuffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/IntBuffer.class" extern="1">
+	<class path="java.nio.IntBuffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/IntBuffer.class" extern="1" abstract="1">
 		<extends path="java.nio.Buffer"/>
 		<implements path="java.lang.Comparable"><c path="java.nio.IntBuffer"/></implements>
 		<wrap public="1" set="method" static="1">
@@ -47644,15 +47849,15 @@
 </f></compareTo></overloads>
 		</compareTo>
 		<array final="1" public="1" set="method" override="1"><f a=""><c path="java.NativeArray"><x path="Int"/></c></f></array>
-		<order public="1" set="method"><f a=""><c path="java.nio.ByteOrder"/></f></order>
+		<order abstract="1" public="1" set="method"><f a=""><c path="java.nio.ByteOrder"/></f></order>
 		<equals public="1" set="method"><f a="param1">
 	<d/>
 	<x path="Bool"/>
 </f></equals>
 		<hashCode public="1" set="method"><f a=""><x path="Int"/></f></hashCode>
 		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
-		<isDirect public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isDirect>
-		<compact public="1" set="method"><f a=""><c path="java.nio.IntBuffer"/></f></compact>
+		<isDirect abstract="1" public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isDirect>
+		<compact abstract="1" public="1" set="method"><f a=""><c path="java.nio.IntBuffer"/></f></compact>
 		<arrayOffset final="1" public="1" set="method" override="1"><f a=""><x path="Int"/></f></arrayOffset>
 		<hasArray final="1" public="1" set="method" override="1"><f a=""><x path="Bool"/></f></hasArray>
 		<put final="1" public="1" set="method">
@@ -47661,11 +47866,11 @@
 				<c path="java.nio.IntBuffer"/>
 			</f>
 			<overloads>
-				<put public="1" set="method"><f a="param1">
+				<put abstract="1" public="1" set="method"><f a="param1">
 	<x path="Int"/>
 	<c path="java.nio.IntBuffer"/>
 </f></put>
-				<put public="1" set="method"><f a="param1:param2">
+				<put abstract="1" public="1" set="method"><f a="param1:param2">
 	<x path="Int"/>
 	<x path="Int"/>
 	<c path="java.nio.IntBuffer"/>
@@ -47688,8 +47893,8 @@
 				<c path="java.nio.IntBuffer"/>
 			</f>
 			<overloads>
-				<get public="1" set="method"><f a=""><x path="Int"/></f></get>
-				<get public="1" set="method"><f a="param1">
+				<get abstract="1" public="1" set="method"><f a=""><x path="Int"/></f></get>
+				<get abstract="1" public="1" set="method"><f a="param1">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></get>
@@ -47701,9 +47906,9 @@
 </f></get>
 			</overloads>
 		</get>
-		<asReadOnlyBuffer public="1" set="method"><f a=""><c path="java.nio.IntBuffer"/></f></asReadOnlyBuffer>
-		<duplicate public="1" set="method"><f a=""><c path="java.nio.IntBuffer"/></f></duplicate>
-		<slice public="1" set="method"><f a=""><c path="java.nio.IntBuffer"/></f></slice>
+		<asReadOnlyBuffer abstract="1" public="1" set="method"><f a=""><c path="java.nio.IntBuffer"/></f></asReadOnlyBuffer>
+		<duplicate abstract="1" public="1" set="method"><f a=""><c path="java.nio.IntBuffer"/></f></duplicate>
+		<slice abstract="1" public="1" set="method"><f a=""><c path="java.nio.IntBuffer"/></f></slice>
 		<meta>
 			<m n=":nativeGen"/>
 			<m n=":abstract"/>
@@ -47716,7 +47921,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.LongBuffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/LongBuffer.class" extern="1">
+	<class path="java.nio.LongBuffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/LongBuffer.class" extern="1" abstract="1">
 		<extends path="java.nio.Buffer"/>
 		<implements path="java.lang.Comparable"><c path="java.nio.LongBuffer"/></implements>
 		<wrap public="1" set="method" static="1">
@@ -47746,15 +47951,15 @@
 </f></compareTo></overloads>
 		</compareTo>
 		<array final="1" public="1" set="method" override="1"><f a=""><c path="java.NativeArray"><x path="haxe.Int64"/></c></f></array>
-		<order public="1" set="method"><f a=""><c path="java.nio.ByteOrder"/></f></order>
+		<order abstract="1" public="1" set="method"><f a=""><c path="java.nio.ByteOrder"/></f></order>
 		<equals public="1" set="method"><f a="param1">
 	<d/>
 	<x path="Bool"/>
 </f></equals>
 		<hashCode public="1" set="method"><f a=""><x path="Int"/></f></hashCode>
 		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
-		<isDirect public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isDirect>
-		<compact public="1" set="method"><f a=""><c path="java.nio.LongBuffer"/></f></compact>
+		<isDirect abstract="1" public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isDirect>
+		<compact abstract="1" public="1" set="method"><f a=""><c path="java.nio.LongBuffer"/></f></compact>
 		<arrayOffset final="1" public="1" set="method" override="1"><f a=""><x path="Int"/></f></arrayOffset>
 		<hasArray final="1" public="1" set="method" override="1"><f a=""><x path="Bool"/></f></hasArray>
 		<put final="1" public="1" set="method">
@@ -47763,11 +47968,11 @@
 				<c path="java.nio.LongBuffer"/>
 			</f>
 			<overloads>
-				<put public="1" set="method"><f a="param1">
+				<put abstract="1" public="1" set="method"><f a="param1">
 	<x path="haxe.Int64"/>
 	<c path="java.nio.LongBuffer"/>
 </f></put>
-				<put public="1" set="method"><f a="param1:param2">
+				<put abstract="1" public="1" set="method"><f a="param1:param2">
 	<x path="Int"/>
 	<x path="haxe.Int64"/>
 	<c path="java.nio.LongBuffer"/>
@@ -47790,8 +47995,8 @@
 				<c path="java.nio.LongBuffer"/>
 			</f>
 			<overloads>
-				<get public="1" set="method"><f a=""><x path="haxe.Int64"/></f></get>
-				<get public="1" set="method"><f a="param1">
+				<get abstract="1" public="1" set="method"><f a=""><x path="haxe.Int64"/></f></get>
+				<get abstract="1" public="1" set="method"><f a="param1">
 	<x path="Int"/>
 	<x path="haxe.Int64"/>
 </f></get>
@@ -47803,9 +48008,9 @@
 </f></get>
 			</overloads>
 		</get>
-		<asReadOnlyBuffer public="1" set="method"><f a=""><c path="java.nio.LongBuffer"/></f></asReadOnlyBuffer>
-		<duplicate public="1" set="method"><f a=""><c path="java.nio.LongBuffer"/></f></duplicate>
-		<slice public="1" set="method"><f a=""><c path="java.nio.LongBuffer"/></f></slice>
+		<asReadOnlyBuffer abstract="1" public="1" set="method"><f a=""><c path="java.nio.LongBuffer"/></f></asReadOnlyBuffer>
+		<duplicate abstract="1" public="1" set="method"><f a=""><c path="java.nio.LongBuffer"/></f></duplicate>
+		<slice abstract="1" public="1" set="method"><f a=""><c path="java.nio.LongBuffer"/></f></slice>
 		<meta>
 			<m n=":nativeGen"/>
 			<m n=":abstract"/>
@@ -47818,7 +48023,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.MappedByteBuffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/MappedByteBuffer.class" extern="1">
+	<class path="java.nio.MappedByteBuffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/MappedByteBuffer.class" extern="1" abstract="1">
 		<extends path="java.nio.ByteBuffer"/>
 		<force final="1" public="1" set="method"><f a=""><c path="java.nio.MappedByteBuffer"/></f></force>
 		<load final="1" public="1" set="method"><f a=""><c path="java.nio.MappedByteBuffer"/></f></load>
@@ -47835,7 +48040,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.ShortBuffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/ShortBuffer.class" extern="1">
+	<class path="java.nio.ShortBuffer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/ShortBuffer.class" extern="1" abstract="1">
 		<extends path="java.nio.Buffer"/>
 		<implements path="java.lang.Comparable"><c path="java.nio.ShortBuffer"/></implements>
 		<wrap public="1" set="method" static="1">
@@ -47865,15 +48070,15 @@
 </f></compareTo></overloads>
 		</compareTo>
 		<array final="1" public="1" set="method" override="1"><f a=""><c path="java.NativeArray"><t path="java.types.Int16"/></c></f></array>
-		<order public="1" set="method"><f a=""><c path="java.nio.ByteOrder"/></f></order>
+		<order abstract="1" public="1" set="method"><f a=""><c path="java.nio.ByteOrder"/></f></order>
 		<equals public="1" set="method"><f a="param1">
 	<d/>
 	<x path="Bool"/>
 </f></equals>
 		<hashCode public="1" set="method"><f a=""><x path="Int"/></f></hashCode>
 		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
-		<isDirect public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isDirect>
-		<compact public="1" set="method"><f a=""><c path="java.nio.ShortBuffer"/></f></compact>
+		<isDirect abstract="1" public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isDirect>
+		<compact abstract="1" public="1" set="method"><f a=""><c path="java.nio.ShortBuffer"/></f></compact>
 		<arrayOffset final="1" public="1" set="method" override="1"><f a=""><x path="Int"/></f></arrayOffset>
 		<hasArray final="1" public="1" set="method" override="1"><f a=""><x path="Bool"/></f></hasArray>
 		<put final="1" public="1" set="method">
@@ -47882,11 +48087,11 @@
 				<c path="java.nio.ShortBuffer"/>
 			</f>
 			<overloads>
-				<put public="1" set="method"><f a="param1">
+				<put abstract="1" public="1" set="method"><f a="param1">
 	<t path="java.types.Int16"/>
 	<c path="java.nio.ShortBuffer"/>
 </f></put>
-				<put public="1" set="method"><f a="param1:param2">
+				<put abstract="1" public="1" set="method"><f a="param1:param2">
 	<x path="Int"/>
 	<t path="java.types.Int16"/>
 	<c path="java.nio.ShortBuffer"/>
@@ -47909,8 +48114,8 @@
 				<c path="java.nio.ShortBuffer"/>
 			</f>
 			<overloads>
-				<get public="1" set="method"><f a=""><t path="java.types.Int16"/></f></get>
-				<get public="1" set="method"><f a="param1">
+				<get abstract="1" public="1" set="method"><f a=""><t path="java.types.Int16"/></f></get>
+				<get abstract="1" public="1" set="method"><f a="param1">
 	<x path="Int"/>
 	<t path="java.types.Int16"/>
 </f></get>
@@ -47922,9 +48127,9 @@
 </f></get>
 			</overloads>
 		</get>
-		<asReadOnlyBuffer public="1" set="method"><f a=""><c path="java.nio.ShortBuffer"/></f></asReadOnlyBuffer>
-		<duplicate public="1" set="method"><f a=""><c path="java.nio.ShortBuffer"/></f></duplicate>
-		<slice public="1" set="method"><f a=""><c path="java.nio.ShortBuffer"/></f></slice>
+		<asReadOnlyBuffer abstract="1" public="1" set="method"><f a=""><c path="java.nio.ShortBuffer"/></f></asReadOnlyBuffer>
+		<duplicate abstract="1" public="1" set="method"><f a=""><c path="java.nio.ShortBuffer"/></f></duplicate>
+		<slice abstract="1" public="1" set="method"><f a=""><c path="java.nio.ShortBuffer"/></f></slice>
 		<meta>
 			<m n=":nativeGen"/>
 			<m n=":abstract"/>
@@ -48003,7 +48208,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.AsynchronousFileChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/AsynchronousFileChannel.class" extern="1">
+	<class path="java.nio.channels.AsynchronousFileChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/AsynchronousFileChannel.class" extern="1" abstract="1">
 		<implements path="java.nio.channels.AsynchronousChannel"/>
 		<open public="1" set="method" static="1">
 			<f a="param1:param2">
@@ -48023,13 +48228,13 @@
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 </open></overloads>
 		</open>
-		<write public="1" set="method">
+		<write abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.nio.ByteBuffer"/>
 				<x path="haxe.Int64"/>
 				<c path="java.util.concurrent.Future"><x path="java.lang.Integer"/></c>
 			</f>
-			<overloads><write public="1" params="A" set="method"><f a="param1:param2:param3:param4">
+			<overloads><write abstract="1" public="1" params="A" set="method"><f a="param1:param2:param3:param4">
 	<c path="java.nio.ByteBuffer"/>
 	<x path="haxe.Int64"/>
 	<c path="write.A"/>
@@ -48040,13 +48245,13 @@
 	<x path="Void"/>
 </f></write></overloads>
 		</write>
-		<read public="1" set="method">
+		<read abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.nio.ByteBuffer"/>
 				<x path="haxe.Int64"/>
 				<c path="java.util.concurrent.Future"><x path="java.lang.Integer"/></c>
 			</f>
-			<overloads><read public="1" params="A" set="method"><f a="param1:param2:param3:param4">
+			<overloads><read abstract="1" public="1" params="A" set="method"><f a="param1:param2:param3:param4">
 	<c path="java.nio.ByteBuffer"/>
 	<x path="haxe.Int64"/>
 	<c path="read.A"/>
@@ -48060,7 +48265,7 @@
 		<tryLock final="1" public="1" set="method">
 			<f a=""><c path="java.nio.channels.FileLock"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads><tryLock public="1" set="method">
+			<overloads><tryLock abstract="1" public="1" set="method">
 	<f a="param1:param2:param3">
 		<x path="haxe.Int64"/>
 		<x path="haxe.Int64"/>
@@ -48073,7 +48278,7 @@
 		<lock final="1" public="1" set="method">
 			<f a=""><c path="java.util.concurrent.Future"><c path="java.nio.channels.FileLock"/></c></f>
 			<overloads>
-				<lock public="1" params="A" set="method"><f a="param1:param2:param3:param4:param5">
+				<lock abstract="1" public="1" params="A" set="method"><f a="param1:param2:param3:param4:param5">
 	<x path="haxe.Int64"/>
 	<x path="haxe.Int64"/>
 	<x path="Bool"/>
@@ -48092,7 +48297,7 @@
 	</c>
 	<x path="Void"/>
 </f></lock>
-				<lock public="1" set="method"><f a="param1:param2:param3">
+				<lock abstract="1" public="1" set="method"><f a="param1:param2:param3">
 	<x path="haxe.Int64"/>
 	<x path="haxe.Int64"/>
 	<x path="Bool"/>
@@ -48100,26 +48305,26 @@
 </f></lock>
 			</overloads>
 		</lock>
-		<force public="1" set="method">
+		<force abstract="1" public="1" set="method">
 			<f a="param1">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</force>
-		<truncate public="1" set="method">
+		<truncate abstract="1" public="1" set="method">
 			<f a="param1">
 				<x path="haxe.Int64"/>
 				<c path="java.nio.channels.AsynchronousFileChannel"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</truncate>
-		<size public="1" set="method">
+		<size abstract="1" public="1" set="method">
 			<f a=""><x path="haxe.Int64"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</size>
-		<isOpen public="1" set="method"><f a=""><x path="Bool"/></f></isOpen>
-		<close public="1" set="method">
+		<isOpen abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></isOpen>
+		<close abstract="1" public="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":throws"><e>"java.lang.Exception"</e></m></meta>
 		</close>
@@ -48267,7 +48472,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.spi.AbstractInterruptibleChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/spi/AbstractInterruptibleChannel.class" extern="1">
+	<class path="java.nio.channels.spi.AbstractInterruptibleChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/spi/AbstractInterruptibleChannel.class" extern="1" abstract="1">
 		<implements path="java.nio.channels.Channel"/>
 		<implements path="java.nio.channels.InterruptibleChannel"/>
 		<end final="1" set="method">
@@ -48285,7 +48490,7 @@
 			<meta><m n=":protected"/></meta>
 		</begin>
 		<isOpen final="1" public="1" set="method"><f a=""><x path="Bool"/></f></isOpen>
-		<implCloseChannel set="method">
+		<implCloseChannel abstract="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":throws"><e>"java.io.IOException"</e></m>
@@ -48312,12 +48517,12 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.SelectableChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/SelectableChannel.class" extern="1">
+	<class path="java.nio.channels.SelectableChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/SelectableChannel.class" extern="1" abstract="1">
 		<extends path="java.nio.channels.spi.AbstractInterruptibleChannel"/>
 		<implements path="java.nio.channels.Channel"/>
-		<blockingLock public="1" set="method"><f a=""><d/></f></blockingLock>
-		<isBlocking public="1" set="method"><f a=""><x path="Bool"/></f></isBlocking>
-		<configureBlocking public="1" set="method">
+		<blockingLock abstract="1" public="1" set="method"><f a=""><d/></f></blockingLock>
+		<isBlocking abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></isBlocking>
+		<configureBlocking abstract="1" public="1" set="method">
 			<f a="param1">
 				<x path="Bool"/>
 				<c path="java.nio.channels.SelectableChannel"/>
@@ -48331,7 +48536,7 @@
 				<c path="java.nio.channels.SelectionKey"/>
 			</f>
 			<meta><m n=":throws"><e>"java.nio.channels.ClosedChannelException"</e></m></meta>
-			<overloads><register public="1" set="method">
+			<overloads><register abstract="1" public="1" set="method">
 	<f a="param1:param2:param3">
 		<c path="java.nio.channels.Selector"/>
 		<x path="Int"/>
@@ -48341,13 +48546,13 @@
 	<meta><m n=":throws"><e>"java.nio.channels.ClosedChannelException"</e></m></meta>
 </register></overloads>
 		</register>
-		<keyFor public="1" set="method"><f a="param1">
+		<keyFor abstract="1" public="1" set="method"><f a="param1">
 	<c path="java.nio.channels.Selector"/>
 	<c path="java.nio.channels.SelectionKey"/>
 </f></keyFor>
-		<isRegistered public="1" set="method"><f a=""><x path="Bool"/></f></isRegistered>
-		<validOps public="1" set="method"><f a=""><x path="Int"/></f></validOps>
-		<provider public="1" set="method"><f a=""><c path="java.nio.channels.spi.SelectorProvider"/></f></provider>
+		<isRegistered abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></isRegistered>
+		<validOps abstract="1" public="1" set="method"><f a=""><x path="Int"/></f></validOps>
+		<provider abstract="1" public="1" set="method"><f a=""><c path="java.nio.channels.spi.SelectorProvider"/></f></provider>
 		<new set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":protected"/></meta>
@@ -48364,9 +48569,9 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.spi.AbstractSelectableChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/spi/AbstractSelectableChannel.class" extern="1">
+	<class path="java.nio.channels.spi.AbstractSelectableChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/spi/AbstractSelectableChannel.class" extern="1" abstract="1">
 		<extends path="java.nio.channels.SelectableChannel"/>
-		<implConfigureBlocking set="method">
+		<implConfigureBlocking abstract="1" set="method">
 			<f a="param1">
 				<x path="Bool"/>
 				<x path="Void"/>
@@ -48385,7 +48590,7 @@
 		</configureBlocking>
 		<blockingLock final="1" public="1" set="method" override="1"><f a=""><d/></f></blockingLock>
 		<isBlocking final="1" public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isBlocking>
-		<implCloseSelectableChannel set="method">
+		<implCloseSelectableChannel abstract="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":throws"><e>"java.io.IOException"</e></m>
@@ -48630,7 +48835,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.DatagramChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/DatagramChannel.class" extern="1">
+	<class path="java.nio.channels.DatagramChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/DatagramChannel.class" extern="1" abstract="1">
 		<extends path="java.nio.channels.spi.AbstractSelectableChannel"/>
 		<implements path="java.nio.channels.ByteChannel"/>
 		<implements path="java.nio.channels.ScatteringByteChannel"/>
@@ -48647,7 +48852,7 @@
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 </open></overloads>
 		</open>
-		<bind public="1" set="method">
+		<bind abstract="1" public="1" set="method">
 			<f a="param1">
 				<c path="java.net.SocketAddress"/>
 				<c path="java.nio.channels.DatagramChannel"/>
@@ -48661,7 +48866,7 @@
 				<c path="java.nio.channels.NetworkChannel"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads><setOption public="1" params="T" set="method">
+			<overloads><setOption abstract="1" public="1" params="T" set="method">
 	<f a="param1:param2">
 		<c path="java.net.SocketOption"><c path="setOption.T"/></c>
 		<c path="setOption.T"/>
@@ -48670,7 +48875,7 @@
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 </setOption></overloads>
 		</setOption>
-		<getLocalAddress public="1" set="method">
+		<getLocalAddress abstract="1" public="1" set="method">
 			<f a=""><c path="java.net.SocketAddress"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</getLocalAddress>
@@ -48681,14 +48886,14 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 			<overloads>
-				<write public="1" set="method">
+				<write abstract="1" public="1" set="method">
 					<f a="param1">
 						<c path="java.nio.ByteBuffer"/>
 						<x path="Int"/>
 					</f>
 					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 				</write>
-				<write public="1" set="method">
+				<write abstract="1" public="1" set="method">
 					<f a="param1:param2:param3">
 						<c path="java.NativeArray"><c path="java.nio.ByteBuffer"/></c>
 						<x path="Int"/>
@@ -48706,14 +48911,14 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 			<overloads>
-				<read public="1" set="method">
+				<read abstract="1" public="1" set="method">
 					<f a="param1">
 						<c path="java.nio.ByteBuffer"/>
 						<x path="Int"/>
 					</f>
 					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 				</read>
-				<read public="1" set="method">
+				<read abstract="1" public="1" set="method">
 					<f a="param1:param2:param3">
 						<c path="java.NativeArray"><c path="java.nio.ByteBuffer"/></c>
 						<x path="Int"/>
@@ -48724,7 +48929,7 @@
 				</read>
 			</overloads>
 		</read>
-		<send public="1" set="method">
+		<send abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.nio.ByteBuffer"/>
 				<c path="java.net.SocketAddress"/>
@@ -48732,47 +48937,47 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</send>
-		<receive public="1" set="method">
+		<receive abstract="1" public="1" set="method">
 			<f a="param1">
 				<c path="java.nio.ByteBuffer"/>
 				<c path="java.net.SocketAddress"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</receive>
-		<getRemoteAddress public="1" set="method">
+		<getRemoteAddress abstract="1" public="1" set="method">
 			<f a=""><c path="java.net.SocketAddress"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</getRemoteAddress>
-		<disconnect public="1" set="method">
+		<disconnect abstract="1" public="1" set="method">
 			<f a=""><c path="java.nio.channels.DatagramChannel"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</disconnect>
-		<connect public="1" set="method">
+		<connect abstract="1" public="1" set="method">
 			<f a="param1">
 				<c path="java.net.SocketAddress"/>
 				<c path="java.nio.channels.DatagramChannel"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</connect>
-		<isConnected public="1" set="method"><f a=""><x path="Bool"/></f></isConnected>
-		<socket public="1" set="method"><f a=""><c path="java.net.DatagramSocket"/></f></socket>
+		<isConnected abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></isConnected>
+		<socket abstract="1" public="1" set="method"><f a=""><c path="java.net.DatagramSocket"/></f></socket>
 		<validOps final="1" public="1" set="method" override="1"><f a=""><x path="Int"/></f></validOps>
-		<supportedOptions public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.net.SocketOption"><d/></c></c></f></supportedOptions>
-		<getOption public="1" params="T" set="method">
+		<supportedOptions abstract="1" public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.net.SocketOption"><d/></c></c></f></supportedOptions>
+		<getOption abstract="1" public="1" params="T" set="method">
 			<f a="param1">
 				<c path="java.net.SocketOption"><c path="getOption.T"/></c>
 				<c path="getOption.T"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</getOption>
-		<join public="1" set="method">
+		<join abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.net.InetAddress"/>
 				<c path="java.net.NetworkInterface"/>
 				<c path="java.nio.channels.MembershipKey"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads><join public="1" set="method">
+			<overloads><join abstract="1" public="1" set="method">
 	<f a="param1:param2:param3">
 		<c path="java.net.InetAddress"/>
 		<c path="java.net.NetworkInterface"/>
@@ -48856,7 +49061,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.FileChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/FileChannel.class" extern="1">
+	<class path="java.nio.channels.FileChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/FileChannel.class" extern="1" abstract="1">
 		<extends path="java.nio.channels.spi.AbstractInterruptibleChannel"/>
 		<implements path="java.nio.channels.SeekableByteChannel"/>
 		<implements path="java.nio.channels.GatheringByteChannel"/>
@@ -48878,18 +49083,18 @@
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 </open></overloads>
 		</open>
-		<position public="1" set="method">
+		<position abstract="1" public="1" set="method">
 			<f a="param1">
 				<x path="haxe.Int64"/>
 				<c path="java.nio.channels.FileChannel"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads><position public="1" set="method">
+			<overloads><position abstract="1" public="1" set="method">
 	<f a=""><x path="haxe.Int64"/></f>
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 </position></overloads>
 		</position>
-		<truncate public="1" set="method">
+		<truncate abstract="1" public="1" set="method">
 			<f a="param1">
 				<x path="haxe.Int64"/>
 				<c path="java.nio.channels.FileChannel"/>
@@ -48899,7 +49104,7 @@
 		<tryLock final="1" public="1" set="method">
 			<f a=""><c path="java.nio.channels.FileLock"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads><tryLock public="1" set="method">
+			<overloads><tryLock abstract="1" public="1" set="method">
 	<f a="param1:param2:param3">
 		<x path="haxe.Int64"/>
 		<x path="haxe.Int64"/>
@@ -48912,7 +49117,7 @@
 		<lock final="1" public="1" set="method">
 			<f a=""><c path="java.nio.channels.FileLock"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads><lock public="1" set="method">
+			<overloads><lock abstract="1" public="1" set="method">
 	<f a="param1:param2:param3">
 		<x path="haxe.Int64"/>
 		<x path="haxe.Int64"/>
@@ -48922,7 +49127,7 @@
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 </lock></overloads>
 		</lock>
-		<map public="1" set="method">
+		<map abstract="1" public="1" set="method">
 			<f a="param1:param2:param3">
 				<c path="java.nio.channels.FileChannel_MapMode"/>
 				<x path="haxe.Int64"/>
@@ -48931,7 +49136,7 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</map>
-		<write public="1" set="method">
+		<write abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.nio.ByteBuffer"/>
 				<x path="haxe.Int64"/>
@@ -48939,14 +49144,14 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 			<overloads>
-				<write public="1" set="method">
+				<write abstract="1" public="1" set="method">
 					<f a="param1">
 						<c path="java.nio.ByteBuffer"/>
 						<x path="Int"/>
 					</f>
 					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 				</write>
-				<write public="1" set="method">
+				<write abstract="1" public="1" set="method">
 					<f a="param1:param2:param3">
 						<c path="java.NativeArray"><c path="java.nio.ByteBuffer"/></c>
 						<x path="Int"/>
@@ -48964,7 +49169,7 @@
 				</write>
 			</overloads>
 		</write>
-		<read public="1" set="method">
+		<read abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.nio.ByteBuffer"/>
 				<x path="haxe.Int64"/>
@@ -48972,14 +49177,14 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 			<overloads>
-				<read public="1" set="method">
+				<read abstract="1" public="1" set="method">
 					<f a="param1">
 						<c path="java.nio.ByteBuffer"/>
 						<x path="Int"/>
 					</f>
 					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 				</read>
-				<read public="1" set="method">
+				<read abstract="1" public="1" set="method">
 					<f a="param1:param2:param3">
 						<c path="java.NativeArray"><c path="java.nio.ByteBuffer"/></c>
 						<x path="Int"/>
@@ -48997,7 +49202,7 @@
 				</read>
 			</overloads>
 		</read>
-		<transferFrom public="1" set="method">
+		<transferFrom abstract="1" public="1" set="method">
 			<f a="param1:param2:param3">
 				<c path="java.nio.channels.ReadableByteChannel"/>
 				<x path="haxe.Int64"/>
@@ -49006,7 +49211,7 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</transferFrom>
-		<transferTo public="1" set="method">
+		<transferTo abstract="1" public="1" set="method">
 			<f a="param1:param2:param3">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -49015,14 +49220,14 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</transferTo>
-		<force public="1" set="method">
+		<force abstract="1" public="1" set="method">
 			<f a="param1">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</force>
-		<size public="1" set="method">
+		<size abstract="1" public="1" set="method">
 			<f a=""><x path="haxe.Int64"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</size>
@@ -49058,18 +49263,18 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.FileLock" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/FileLock.class" extern="1">
+	<class path="java.nio.channels.FileLock" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/FileLock.class" extern="1" abstract="1">
 		<implements path="java.lang.AutoCloseable"/>
 		<toString final="1" public="1" set="method"><f a=""><c path="String"/></f></toString>
 		<close final="1" public="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</close>
-		<release public="1" set="method">
+		<release abstract="1" public="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</release>
-		<isValid public="1" set="method"><f a=""><x path="Bool"/></f></isValid>
+		<isValid abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></isValid>
 		<overlaps final="1" public="1" set="method"><f a="param1:param2">
 	<x path="haxe.Int64"/>
 	<x path="haxe.Int64"/>
@@ -49112,24 +49317,24 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.MembershipKey" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/MembershipKey.class" extern="1">
-		<sourceAddress public="1" set="method"><f a=""><c path="java.net.InetAddress"/></f></sourceAddress>
-		<networkInterface public="1" set="method"><f a=""><c path="java.net.NetworkInterface"/></f></networkInterface>
-		<group public="1" set="method"><f a=""><c path="java.net.InetAddress"/></f></group>
-		<channel public="1" set="method"><f a=""><c path="java.nio.channels.MulticastChannel"/></f></channel>
-		<unblock public="1" set="method"><f a="param1">
+	<class path="java.nio.channels.MembershipKey" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/MembershipKey.class" extern="1" abstract="1">
+		<sourceAddress abstract="1" public="1" set="method"><f a=""><c path="java.net.InetAddress"/></f></sourceAddress>
+		<networkInterface abstract="1" public="1" set="method"><f a=""><c path="java.net.NetworkInterface"/></f></networkInterface>
+		<group abstract="1" public="1" set="method"><f a=""><c path="java.net.InetAddress"/></f></group>
+		<channel abstract="1" public="1" set="method"><f a=""><c path="java.nio.channels.MulticastChannel"/></f></channel>
+		<unblock abstract="1" public="1" set="method"><f a="param1">
 	<c path="java.net.InetAddress"/>
 	<c path="java.nio.channels.MembershipKey"/>
 </f></unblock>
-		<block public="1" set="method">
+		<block abstract="1" public="1" set="method">
 			<f a="param1">
 				<c path="java.net.InetAddress"/>
 				<c path="java.nio.channels.MembershipKey"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</block>
-		<drop public="1" set="method"><f a=""><x path="Void"/></f></drop>
-		<isValid public="1" set="method"><f a=""><x path="Bool"/></f></isValid>
+		<drop abstract="1" public="1" set="method"><f a=""><x path="Void"/></f></drop>
+		<isValid abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></isValid>
 		<new set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":protected"/></meta>
@@ -49146,13 +49351,13 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.Pipe" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/Pipe.class" extern="1">
+	<class path="java.nio.channels.Pipe" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/Pipe.class" extern="1" abstract="1">
 		<open public="1" set="method" static="1">
 			<f a=""><c path="java.nio.channels.Pipe"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</open>
-		<sink public="1" set="method"><f a=""><c path="java.nio.channels.Pipe_SinkChannel"/></f></sink>
-		<source public="1" set="method"><f a=""><c path="java.nio.channels.Pipe_SourceChannel"/></f></source>
+		<sink abstract="1" public="1" set="method"><f a=""><c path="java.nio.channels.Pipe_SinkChannel"/></f></sink>
+		<source abstract="1" public="1" set="method"><f a=""><c path="java.nio.channels.Pipe_SourceChannel"/></f></source>
 		<new set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":protected"/></meta>
@@ -49169,26 +49374,26 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.Pipe_SourceChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/Pipe$SourceChannel.class" module="java.nio.channels.Pipe" extern="1">
+	<class path="java.nio.channels.Pipe_SourceChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/Pipe$SourceChannel.class" module="java.nio.channels.Pipe" extern="1" abstract="1">
 		<extends path="java.nio.channels.spi.AbstractSelectableChannel"/>
 		<implements path="java.nio.channels.ReadableByteChannel"/>
 		<implements path="java.nio.channels.ScatteringByteChannel"/>
 		<validOps final="1" public="1" set="method" override="1"><f a=""><x path="Int"/></f></validOps>
-		<read public="1" set="method">
+		<read abstract="1" public="1" set="method">
 			<f a="param1">
 				<c path="java.nio.ByteBuffer"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 			<overloads>
-				<read public="1" set="method">
+				<read abstract="1" public="1" set="method">
 					<f a="param1">
 						<c path="java.NativeArray"><c path="java.nio.ByteBuffer"/></c>
 						<x path="haxe.Int64"/>
 					</f>
 					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 				</read>
-				<read public="1" set="method">
+				<read abstract="1" public="1" set="method">
 					<f a="param1:param2:param3">
 						<c path="java.NativeArray"><c path="java.nio.ByteBuffer"/></c>
 						<x path="Int"/>
@@ -49218,26 +49423,26 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.Pipe_SinkChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/Pipe$SinkChannel.class" module="java.nio.channels.Pipe" extern="1">
+	<class path="java.nio.channels.Pipe_SinkChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/Pipe$SinkChannel.class" module="java.nio.channels.Pipe" extern="1" abstract="1">
 		<extends path="java.nio.channels.spi.AbstractSelectableChannel"/>
 		<implements path="java.nio.channels.WritableByteChannel"/>
 		<implements path="java.nio.channels.GatheringByteChannel"/>
 		<validOps final="1" public="1" set="method" override="1"><f a=""><x path="Int"/></f></validOps>
-		<write public="1" set="method">
+		<write abstract="1" public="1" set="method">
 			<f a="param1">
 				<c path="java.nio.ByteBuffer"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 			<overloads>
-				<write public="1" set="method">
+				<write abstract="1" public="1" set="method">
 					<f a="param1">
 						<c path="java.NativeArray"><c path="java.nio.ByteBuffer"/></c>
 						<x path="haxe.Int64"/>
 					</f>
 					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 				</write>
-				<write public="1" set="method">
+				<write abstract="1" public="1" set="method">
 					<f a="param1:param2:param3">
 						<c path="java.NativeArray"><c path="java.nio.ByteBuffer"/></c>
 						<x path="Int"/>
@@ -49267,7 +49472,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.SelectionKey" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/SelectionKey.class" extern="1">
+	<class path="java.nio.channels.SelectionKey" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/SelectionKey.class" extern="1" abstract="1">
 		<OP_READ public="1" set="null" static="1"><x path="Int"/></OP_READ>
 		<OP_WRITE public="1" set="null" static="1"><x path="Int"/></OP_WRITE>
 		<OP_CONNECT public="1" set="null" static="1"><x path="Int"/></OP_CONNECT>
@@ -49281,18 +49486,18 @@
 		<isConnectable final="1" public="1" set="method"><f a=""><x path="Bool"/></f></isConnectable>
 		<isWritable final="1" public="1" set="method"><f a=""><x path="Bool"/></f></isWritable>
 		<isReadable final="1" public="1" set="method"><f a=""><x path="Bool"/></f></isReadable>
-		<readyOps public="1" set="method"><f a=""><x path="Int"/></f></readyOps>
-		<interestOps public="1" set="method">
+		<readyOps abstract="1" public="1" set="method"><f a=""><x path="Int"/></f></readyOps>
+		<interestOps abstract="1" public="1" set="method">
 			<f a="param1">
 				<x path="Int"/>
 				<c path="java.nio.channels.SelectionKey"/>
 			</f>
-			<overloads><interestOps public="1" set="method"><f a=""><x path="Int"/></f></interestOps></overloads>
+			<overloads><interestOps abstract="1" public="1" set="method"><f a=""><x path="Int"/></f></interestOps></overloads>
 		</interestOps>
-		<cancel public="1" set="method"><f a=""><x path="Void"/></f></cancel>
-		<isValid public="1" set="method"><f a=""><x path="Bool"/></f></isValid>
-		<selector public="1" set="method"><f a=""><c path="java.nio.channels.Selector"/></f></selector>
-		<channel public="1" set="method"><f a=""><c path="java.nio.channels.SelectableChannel"/></f></channel>
+		<cancel abstract="1" public="1" set="method"><f a=""><x path="Void"/></f></cancel>
+		<isValid abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></isValid>
+		<selector abstract="1" public="1" set="method"><f a=""><c path="java.nio.channels.Selector"/></f></selector>
+		<channel abstract="1" public="1" set="method"><f a=""><c path="java.nio.channels.SelectableChannel"/></f></channel>
 		<new set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":protected"/></meta>
@@ -49309,21 +49514,21 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.Selector" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/Selector.class" extern="1">
+	<class path="java.nio.channels.Selector" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/Selector.class" extern="1" abstract="1">
 		<implements path="java.io.Closeable"/>
 		<open public="1" set="method" static="1">
 			<f a=""><c path="java.nio.channels.Selector"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</open>
-		<close public="1" set="method">
+		<close abstract="1" public="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</close>
-		<wakeup public="1" set="method"><f a=""><c path="java.nio.channels.Selector"/></f></wakeup>
-		<select public="1" set="method">
+		<wakeup abstract="1" public="1" set="method"><f a=""><c path="java.nio.channels.Selector"/></f></wakeup>
+		<select abstract="1" public="1" set="method">
 			<f a=""><x path="Int"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads><select public="1" set="method">
+			<overloads><select abstract="1" public="1" set="method">
 	<f a="param1">
 		<x path="haxe.Int64"/>
 		<x path="Int"/>
@@ -49331,14 +49536,14 @@
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 </select></overloads>
 		</select>
-		<selectNow public="1" set="method">
+		<selectNow abstract="1" public="1" set="method">
 			<f a=""><x path="Int"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</selectNow>
-		<selectedKeys public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.nio.channels.SelectionKey"/></c></f></selectedKeys>
-		<keys public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.nio.channels.SelectionKey"/></c></f></keys>
-		<provider public="1" set="method"><f a=""><c path="java.nio.channels.spi.SelectorProvider"/></f></provider>
-		<isOpen public="1" set="method"><f a=""><x path="Bool"/></f></isOpen>
+		<selectedKeys abstract="1" public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.nio.channels.SelectionKey"/></c></f></selectedKeys>
+		<keys abstract="1" public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.nio.channels.SelectionKey"/></c></f></keys>
+		<provider abstract="1" public="1" set="method"><f a=""><c path="java.nio.channels.spi.SelectorProvider"/></f></provider>
+		<isOpen abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></isOpen>
 		<new set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":protected"/></meta>
@@ -49355,7 +49560,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.ServerSocketChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/ServerSocketChannel.class" extern="1">
+	<class path="java.nio.channels.ServerSocketChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/ServerSocketChannel.class" extern="1" abstract="1">
 		<extends path="java.nio.channels.spi.AbstractSelectableChannel"/>
 		<implements path="java.nio.channels.NetworkChannel"/>
 		<open public="1" set="method" static="1">
@@ -49368,7 +49573,7 @@
 				<c path="java.nio.channels.ServerSocketChannel"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads><bind public="1" set="method">
+			<overloads><bind abstract="1" public="1" set="method">
 	<f a="param1:param2">
 		<c path="java.net.SocketAddress"/>
 		<x path="Int"/>
@@ -49384,7 +49589,7 @@
 				<c path="java.nio.channels.NetworkChannel"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads><setOption public="1" params="T" set="method">
+			<overloads><setOption abstract="1" public="1" params="T" set="method">
 	<f a="param1:param2">
 		<c path="java.net.SocketOption"><c path="setOption.T"/></c>
 		<c path="setOption.T"/>
@@ -49393,24 +49598,24 @@
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 </setOption></overloads>
 		</setOption>
-		<getLocalAddress public="1" set="method">
+		<getLocalAddress abstract="1" public="1" set="method">
 			<f a=""><c path="java.net.SocketAddress"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</getLocalAddress>
-		<accept public="1" set="method">
+		<accept abstract="1" public="1" set="method">
 			<f a=""><c path="java.nio.channels.SocketChannel"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</accept>
-		<socket public="1" set="method"><f a=""><c path="java.net.ServerSocket"/></f></socket>
+		<socket abstract="1" public="1" set="method"><f a=""><c path="java.net.ServerSocket"/></f></socket>
 		<validOps final="1" public="1" set="method" override="1"><f a=""><x path="Int"/></f></validOps>
-		<getOption public="1" params="T" set="method">
+		<getOption abstract="1" public="1" params="T" set="method">
 			<f a="param1">
 				<c path="java.net.SocketOption"><c path="getOption.T"/></c>
 				<c path="getOption.T"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</getOption>
-		<supportedOptions public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.net.SocketOption"><d/></c></c></f></supportedOptions>
+		<supportedOptions abstract="1" public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.net.SocketOption"><d/></c></c></f></supportedOptions>
 		<new set="method">
 			<f a="param1">
 				<c path="java.nio.channels.spi.SelectorProvider"/>
@@ -49430,7 +49635,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.SocketChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/SocketChannel.class" extern="1">
+	<class path="java.nio.channels.SocketChannel" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/SocketChannel.class" extern="1" abstract="1">
 		<extends path="java.nio.channels.spi.AbstractSelectableChannel"/>
 		<implements path="java.nio.channels.ByteChannel"/>
 		<implements path="java.nio.channels.ScatteringByteChannel"/>
@@ -49447,7 +49652,7 @@
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 </open></overloads>
 		</open>
-		<bind public="1" set="method">
+		<bind abstract="1" public="1" set="method">
 			<f a="param1">
 				<c path="java.net.SocketAddress"/>
 				<c path="java.nio.channels.SocketChannel"/>
@@ -49461,7 +49666,7 @@
 				<c path="java.nio.channels.NetworkChannel"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads><setOption public="1" params="T" set="method">
+			<overloads><setOption abstract="1" public="1" params="T" set="method">
 	<f a="param1:param2">
 		<c path="java.net.SocketOption"><c path="setOption.T"/></c>
 		<c path="setOption.T"/>
@@ -49470,7 +49675,7 @@
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 </setOption></overloads>
 		</setOption>
-		<getLocalAddress public="1" set="method">
+		<getLocalAddress abstract="1" public="1" set="method">
 			<f a=""><c path="java.net.SocketAddress"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</getLocalAddress>
@@ -49481,14 +49686,14 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 			<overloads>
-				<write public="1" set="method">
+				<write abstract="1" public="1" set="method">
 					<f a="param1">
 						<c path="java.nio.ByteBuffer"/>
 						<x path="Int"/>
 					</f>
 					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 				</write>
-				<write public="1" set="method">
+				<write abstract="1" public="1" set="method">
 					<f a="param1:param2:param3">
 						<c path="java.NativeArray"><c path="java.nio.ByteBuffer"/></c>
 						<x path="Int"/>
@@ -49506,14 +49711,14 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 			<overloads>
-				<read public="1" set="method">
+				<read abstract="1" public="1" set="method">
 					<f a="param1">
 						<c path="java.nio.ByteBuffer"/>
 						<x path="Int"/>
 					</f>
 					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 				</read>
-				<read public="1" set="method">
+				<read abstract="1" public="1" set="method">
 					<f a="param1:param2:param3">
 						<c path="java.NativeArray"><c path="java.nio.ByteBuffer"/></c>
 						<x path="Int"/>
@@ -49524,41 +49729,41 @@
 				</read>
 			</overloads>
 		</read>
-		<getRemoteAddress public="1" set="method">
+		<getRemoteAddress abstract="1" public="1" set="method">
 			<f a=""><c path="java.net.SocketAddress"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</getRemoteAddress>
-		<finishConnect public="1" set="method">
+		<finishConnect abstract="1" public="1" set="method">
 			<f a=""><x path="Bool"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</finishConnect>
-		<connect public="1" set="method">
+		<connect abstract="1" public="1" set="method">
 			<f a="param1">
 				<c path="java.net.SocketAddress"/>
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</connect>
-		<isConnectionPending public="1" set="method"><f a=""><x path="Bool"/></f></isConnectionPending>
-		<isConnected public="1" set="method"><f a=""><x path="Bool"/></f></isConnected>
-		<socket public="1" set="method"><f a=""><c path="java.net.Socket"/></f></socket>
-		<shutdownOutput public="1" set="method">
+		<isConnectionPending abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></isConnectionPending>
+		<isConnected abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></isConnected>
+		<socket abstract="1" public="1" set="method"><f a=""><c path="java.net.Socket"/></f></socket>
+		<shutdownOutput abstract="1" public="1" set="method">
 			<f a=""><c path="java.nio.channels.SocketChannel"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</shutdownOutput>
-		<shutdownInput public="1" set="method">
+		<shutdownInput abstract="1" public="1" set="method">
 			<f a=""><c path="java.nio.channels.SocketChannel"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</shutdownInput>
 		<validOps final="1" public="1" set="method" override="1"><f a=""><x path="Int"/></f></validOps>
-		<getOption public="1" params="T" set="method">
+		<getOption abstract="1" public="1" params="T" set="method">
 			<f a="param1">
 				<c path="java.net.SocketOption"><c path="getOption.T"/></c>
 				<c path="getOption.T"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</getOption>
-		<supportedOptions public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.net.SocketOption"><d/></c></c></f></supportedOptions>
+		<supportedOptions abstract="1" public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.net.SocketOption"><d/></c></c></f></supportedOptions>
 		<new set="method">
 			<f a="param1">
 				<c path="java.nio.channels.spi.SelectorProvider"/>
@@ -49578,7 +49783,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.spi.AbstractSelectionKey" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/spi/AbstractSelectionKey.class" extern="1">
+	<class path="java.nio.channels.spi.AbstractSelectionKey" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/spi/AbstractSelectionKey.class" extern="1" abstract="1">
 		<extends path="java.nio.channels.SelectionKey"/>
 		<cancel final="1" public="1" set="method" override="1"><f a=""><x path="Void"/></f></cancel>
 		<isValid final="1" public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isValid>
@@ -49598,7 +49803,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.spi.AbstractSelector" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/spi/AbstractSelector.class" extern="1">
+	<class path="java.nio.channels.spi.AbstractSelector" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/spi/AbstractSelector.class" extern="1" abstract="1">
 		<extends path="java.nio.channels.Selector"/>
 		<end final="1" set="method">
 			<f a=""><x path="Void"/></f>
@@ -49615,7 +49820,7 @@
 			</f>
 			<meta><m n=":protected"/></meta>
 		</deregister>
-		<register set="method">
+		<register abstract="1" set="method">
 			<f a="param1:param2:param3">
 				<c path="java.nio.channels.spi.AbstractSelectableChannel"/>
 				<x path="Int"/>
@@ -49630,7 +49835,7 @@
 		</cancelledKeys>
 		<provider final="1" public="1" set="method" override="1"><f a=""><c path="java.nio.channels.spi.SelectorProvider"/></f></provider>
 		<isOpen final="1" public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isOpen>
-		<implCloseSelector set="method">
+		<implCloseSelector abstract="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":throws"><e>"java.io.IOException"</e></m>
@@ -49660,35 +49865,35 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.channels.spi.SelectorProvider" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/spi/SelectorProvider.class" extern="1">
+	<class path="java.nio.channels.spi.SelectorProvider" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/channels/spi/SelectorProvider.class" extern="1" abstract="1">
 		<provider public="1" set="method" static="1"><f a=""><c path="java.nio.channels.spi.SelectorProvider"/></f></provider>
 		<inheritedChannel public="1" set="method">
 			<f a=""><c path="java.nio.channels.Channel"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</inheritedChannel>
-		<openSocketChannel public="1" set="method">
+		<openSocketChannel abstract="1" public="1" set="method">
 			<f a=""><c path="java.nio.channels.SocketChannel"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</openSocketChannel>
-		<openServerSocketChannel public="1" set="method">
+		<openServerSocketChannel abstract="1" public="1" set="method">
 			<f a=""><c path="java.nio.channels.ServerSocketChannel"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</openServerSocketChannel>
-		<openSelector public="1" set="method">
+		<openSelector abstract="1" public="1" set="method">
 			<f a=""><c path="java.nio.channels.spi.AbstractSelector"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</openSelector>
-		<openPipe public="1" set="method">
+		<openPipe abstract="1" public="1" set="method">
 			<f a=""><c path="java.nio.channels.Pipe"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</openPipe>
-		<openDatagramChannel public="1" set="method">
+		<openDatagramChannel abstract="1" public="1" set="method">
 			<f a="param1">
 				<c path="java.net.ProtocolFamily"/>
 				<c path="java.nio.channels.DatagramChannel"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads><openDatagramChannel public="1" set="method">
+			<overloads><openDatagramChannel abstract="1" public="1" set="method">
 	<f a=""><c path="java.nio.channels.DatagramChannel"/></f>
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 </openDatagramChannel></overloads>
@@ -49723,7 +49928,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.charset.Charset" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/charset/Charset.class" extern="1">
+	<class path="java.nio.charset.Charset" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/charset/Charset.class" extern="1" abstract="1">
 		<implements path="java.lang.Comparable"><c path="java.nio.charset.Charset"/></implements>
 		<defaultCharset public="1" set="method" static="1"><f a=""><c path="java.nio.charset.Charset"/></f></defaultCharset>
 		<availableCharsets public="1" set="method" static="1"><f a=""><c path="java.util.SortedMap">
@@ -49769,9 +49974,9 @@
 	<c path="java.nio.CharBuffer"/>
 </f></decode>
 		<canEncode public="1" set="method"><f a=""><x path="Bool"/></f></canEncode>
-		<newEncoder public="1" set="method"><f a=""><c path="java.nio.charset.CharsetEncoder"/></f></newEncoder>
-		<newDecoder public="1" set="method"><f a=""><c path="java.nio.charset.CharsetDecoder"/></f></newDecoder>
-		<contains public="1" set="method"><f a="param1">
+		<newEncoder abstract="1" public="1" set="method"><f a=""><c path="java.nio.charset.CharsetEncoder"/></f></newEncoder>
+		<newDecoder abstract="1" public="1" set="method"><f a=""><c path="java.nio.charset.CharsetDecoder"/></f></newDecoder>
+		<contains abstract="1" public="1" set="method"><f a="param1">
 	<c path="java.nio.charset.Charset"/>
 	<x path="Bool"/>
 </f></contains>
@@ -49815,7 +50020,7 @@
 		<e>"Charset.ExtendedProviderHolder"</e>
 	</m>
 </meta></class>
-	<class path="java.nio.charset.CharsetDecoder" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/charset/CharsetDecoder.class" extern="1">
+	<class path="java.nio.charset.CharsetDecoder" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/charset/CharsetDecoder.class" extern="1" abstract="1">
 		<detectedCharset public="1" set="method"><f a=""><c path="java.nio.charset.Charset"/></f></detectedCharset>
 		<isCharsetDetected public="1" set="method"><f a=""><x path="Bool"/></f></isCharsetDetected>
 		<isAutoDetecting public="1" set="method"><f a=""><x path="Bool"/></f></isAutoDetecting>
@@ -49832,7 +50037,7 @@
 	<c path="java.nio.charset.CoderResult"/>
 </f></decode></overloads>
 		</decode>
-		<decodeLoop set="method">
+		<decodeLoop abstract="1" set="method">
 			<f a="param1:param2">
 				<c path="java.nio.ByteBuffer"/>
 				<c path="java.nio.CharBuffer"/>
@@ -49916,7 +50121,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.charset.CharsetEncoder" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/charset/CharsetEncoder.class" extern="1">
+	<class path="java.nio.charset.CharsetEncoder" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/charset/CharsetEncoder.class" extern="1" abstract="1">
 		<canEncode public="1" set="method">
 			<f a="param1">
 				<c path="java.lang.CharSequence"/>
@@ -49940,7 +50145,7 @@
 	<c path="java.nio.charset.CoderResult"/>
 </f></encode></overloads>
 		</encode>
-		<encodeLoop set="method">
+		<encodeLoop abstract="1" set="method">
 			<f a="param1:param2">
 				<c path="java.nio.CharBuffer"/>
 				<c path="java.nio.ByteBuffer"/>
@@ -50071,8 +50276,8 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.charset.CoderResult_Cache" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/charset/CoderResult$Cache.class" module="java.nio.charset.CoderResult" extern="1">
-		<create set="method">
+	<class path="java.nio.charset.CoderResult_Cache" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/charset/CoderResult$Cache.class" module="java.nio.charset.CoderResult" extern="1" abstract="1">
+		<create abstract="1" set="method">
 			<f a="param1">
 				<x path="Int"/>
 				<c path="java.nio.charset.CoderResult"/>
@@ -50195,43 +50400,43 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.file.FileStore" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/FileStore.class" extern="1">
-		<getAttribute public="1" set="method">
+	<class path="java.nio.file.FileStore" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/FileStore.class" extern="1" abstract="1">
+		<getAttribute abstract="1" public="1" set="method">
 			<f a="param1">
 				<c path="String"/>
 				<d/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</getAttribute>
-		<getFileStoreAttributeView public="1" params="V" set="method"><f a="param1">
+		<getFileStoreAttributeView abstract="1" public="1" params="V" set="method"><f a="param1">
 	<c path="java.lang.Class"><c path="getFileStoreAttributeView.V"/></c>
 	<c path="getFileStoreAttributeView.V"/>
 </f></getFileStoreAttributeView>
-		<supportsFileAttributeView public="1" set="method">
+		<supportsFileAttributeView abstract="1" public="1" set="method">
 			<f a="param1">
 				<c path="String"/>
 				<x path="Bool"/>
 			</f>
-			<overloads><supportsFileAttributeView public="1" set="method"><f a="param1">
+			<overloads><supportsFileAttributeView abstract="1" public="1" set="method"><f a="param1">
 	<c path="java.lang.Class"><c path="java.nio.file.attribute.FileAttributeView"/></c>
 	<x path="Bool"/>
 </f></supportsFileAttributeView></overloads>
 		</supportsFileAttributeView>
-		<getUnallocatedSpace public="1" set="method">
+		<getUnallocatedSpace abstract="1" public="1" set="method">
 			<f a=""><x path="haxe.Int64"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</getUnallocatedSpace>
-		<getUsableSpace public="1" set="method">
+		<getUsableSpace abstract="1" public="1" set="method">
 			<f a=""><x path="haxe.Int64"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</getUsableSpace>
-		<getTotalSpace public="1" set="method">
+		<getTotalSpace abstract="1" public="1" set="method">
 			<f a=""><x path="haxe.Int64"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</getTotalSpace>
-		<isReadOnly public="1" set="method"><f a=""><x path="Bool"/></f></isReadOnly>
-		<type public="1" set="method"><f a=""><c path="String"/></f></type>
-		<name public="1" set="method"><f a=""><c path="String"/></f></name>
+		<isReadOnly abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></isReadOnly>
+		<type abstract="1" public="1" set="method"><f a=""><c path="String"/></f></type>
+		<name abstract="1" public="1" set="method"><f a=""><c path="String"/></f></name>
 		<new set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":protected"/></meta>
@@ -50248,33 +50453,33 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.file.FileSystem" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/FileSystem.class" extern="1">
+	<class path="java.nio.file.FileSystem" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/FileSystem.class" extern="1" abstract="1">
 		<implements path="java.io.Closeable"/>
-		<newWatchService public="1" set="method">
+		<newWatchService abstract="1" public="1" set="method">
 			<f a=""><c path="java.nio.file.WatchService"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</newWatchService>
-		<getUserPrincipalLookupService public="1" set="method"><f a=""><c path="java.nio.file.attribute.UserPrincipalLookupService"/></f></getUserPrincipalLookupService>
-		<getPathMatcher public="1" set="method"><f a="param1">
+		<getUserPrincipalLookupService abstract="1" public="1" set="method"><f a=""><c path="java.nio.file.attribute.UserPrincipalLookupService"/></f></getUserPrincipalLookupService>
+		<getPathMatcher abstract="1" public="1" set="method"><f a="param1">
 	<c path="String"/>
 	<c path="java.nio.file.PathMatcher"/>
 </f></getPathMatcher>
-		<getPath public="1" set="method"><f a="param1:param2">
+		<getPath abstract="1" public="1" set="method"><f a="param1:param2">
 	<c path="String"/>
 	<c path="java.NativeArray"><c path="String"/></c>
 	<c path="java.nio.file.Path"/>
 </f></getPath>
-		<supportedFileAttributeViews public="1" set="method"><f a=""><c path="java.util.Set"><c path="String"/></c></f></supportedFileAttributeViews>
-		<getFileStores public="1" set="method"><f a=""><c path="java.lang.Iterable"><c path="java.nio.file.FileStore"/></c></f></getFileStores>
-		<getRootDirectories public="1" set="method"><f a=""><c path="java.lang.Iterable"><c path="java.nio.file.Path"/></c></f></getRootDirectories>
-		<getSeparator public="1" set="method"><f a=""><c path="String"/></f></getSeparator>
-		<isReadOnly public="1" set="method"><f a=""><x path="Bool"/></f></isReadOnly>
-		<isOpen public="1" set="method"><f a=""><x path="Bool"/></f></isOpen>
-		<close public="1" set="method">
+		<supportedFileAttributeViews abstract="1" public="1" set="method"><f a=""><c path="java.util.Set"><c path="String"/></c></f></supportedFileAttributeViews>
+		<getFileStores abstract="1" public="1" set="method"><f a=""><c path="java.lang.Iterable"><c path="java.nio.file.FileStore"/></c></f></getFileStores>
+		<getRootDirectories abstract="1" public="1" set="method"><f a=""><c path="java.lang.Iterable"><c path="java.nio.file.Path"/></c></f></getRootDirectories>
+		<getSeparator abstract="1" public="1" set="method"><f a=""><c path="String"/></f></getSeparator>
+		<isReadOnly abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></isReadOnly>
+		<isOpen abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></isOpen>
+		<close abstract="1" public="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</close>
-		<provider public="1" set="method"><f a=""><c path="java.nio.file.spi.FileSystemProvider"/></f></provider>
+		<provider abstract="1" public="1" set="method"><f a=""><c path="java.nio.file.spi.FileSystemProvider"/></f></provider>
 		<new set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":protected"/></meta>
@@ -50761,15 +50966,15 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.file.attribute.UserPrincipalLookupService" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/attribute/UserPrincipalLookupService.class" extern="1">
-		<lookupPrincipalByGroupName public="1" set="method">
+	<class path="java.nio.file.attribute.UserPrincipalLookupService" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/attribute/UserPrincipalLookupService.class" extern="1" abstract="1">
+		<lookupPrincipalByGroupName abstract="1" public="1" set="method">
 			<f a="param1">
 				<c path="String"/>
 				<c path="java.nio.file.attribute.GroupPrincipal"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</lookupPrincipalByGroupName>
-		<lookupPrincipalByName public="1" set="method">
+		<lookupPrincipalByName abstract="1" public="1" set="method">
 			<f a="param1">
 				<c path="String"/>
 				<c path="java.nio.file.attribute.UserPrincipal"/>
@@ -50792,9 +50997,9 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.nio.file.spi.FileSystemProvider" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/spi/FileSystemProvider.class" extern="1">
+	<class path="java.nio.file.spi.FileSystemProvider" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/spi/FileSystemProvider.class" extern="1" abstract="1">
 		<installedProviders public="1" set="method" static="1"><f a=""><c path="java.util.List"><c path="java.nio.file.spi.FileSystemProvider"/></c></f></installedProviders>
-		<setAttribute public="1" set="method">
+		<setAttribute abstract="1" public="1" set="method">
 			<f a="param1:param2:param3:param4">
 				<c path="java.nio.file.Path"/>
 				<c path="String"/>
@@ -50804,7 +51009,7 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</setAttribute>
-		<readAttributes public="1" set="method">
+		<readAttributes abstract="1" public="1" set="method">
 			<f a="param1:param2:param3">
 				<c path="java.nio.file.Path"/>
 				<c path="String"/>
@@ -50815,7 +51020,7 @@
 				</c>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads><readAttributes public="1" params="A" set="method">
+			<overloads><readAttributes abstract="1" public="1" params="A" set="method">
 	<f a="param1:param2:param3">
 		<c path="java.nio.file.Path"/>
 		<c path="java.lang.Class"><c path="readAttributes.A"/></c>
@@ -50825,13 +51030,13 @@
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 </readAttributes></overloads>
 		</readAttributes>
-		<getFileAttributeView public="1" params="V" set="method"><f a="param1:param2:param3">
+		<getFileAttributeView abstract="1" public="1" params="V" set="method"><f a="param1:param2:param3">
 	<c path="java.nio.file.Path"/>
 	<c path="java.lang.Class"><c path="getFileAttributeView.V"/></c>
 	<c path="java.NativeArray"><e path="java.nio.file.LinkOption"/></c>
 	<c path="getFileAttributeView.V"/>
 </f></getFileAttributeView>
-		<checkAccess public="1" set="method">
+		<checkAccess abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.nio.file.Path"/>
 				<c path="java.NativeArray"><e path="java.nio.file.AccessMode"/></c>
@@ -50839,21 +51044,21 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</checkAccess>
-		<getFileStore public="1" set="method">
+		<getFileStore abstract="1" public="1" set="method">
 			<f a="param1">
 				<c path="java.nio.file.Path"/>
 				<c path="java.nio.file.FileStore"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</getFileStore>
-		<isHidden public="1" set="method">
+		<isHidden abstract="1" public="1" set="method">
 			<f a="param1">
 				<c path="java.nio.file.Path"/>
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</isHidden>
-		<isSameFile public="1" set="method">
+		<isSameFile abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.nio.file.Path"/>
 				<c path="java.nio.file.Path"/>
@@ -50861,7 +51066,7 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</isSameFile>
-		<move public="1" set="method">
+		<move abstract="1" public="1" set="method">
 			<f a="param1:param2:param3">
 				<c path="java.nio.file.Path"/>
 				<c path="java.nio.file.Path"/>
@@ -50870,7 +51075,7 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</move>
-		<copy public="1" set="method">
+		<copy abstract="1" public="1" set="method">
 			<f a="param1:param2:param3">
 				<c path="java.nio.file.Path"/>
 				<c path="java.nio.file.Path"/>
@@ -50893,7 +51098,7 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</deleteIfExists>
-		<delete public="1" set="method">
+		<delete abstract="1" public="1" set="method">
 			<f a="param1">
 				<c path="java.nio.file.Path"/>
 				<x path="Void"/>
@@ -50917,7 +51122,7 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</createSymbolicLink>
-		<createDirectory public="1" set="method">
+		<createDirectory abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.nio.file.Path"/>
 				<c path="java.NativeArray"><c path="java.nio.file.attribute.FileAttribute"><d/></c></c>
@@ -50925,7 +51130,7 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</createDirectory>
-		<newDirectoryStream public="1" set="method">
+		<newDirectoryStream abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.nio.file.Path"/>
 				<c path="java.nio.file.DirectoryStream_Filter"><d/></c>
@@ -50933,7 +51138,7 @@
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 		</newDirectoryStream>
-		<newByteChannel public="1" set="method">
+		<newByteChannel abstract="1" public="1" set="method">
 			<f a="param1:param2:param3">
 				<c path="java.nio.file.Path"/>
 				<c path="java.util.Set"><c path="java.nio.file.OpenOption"/></c>
@@ -50987,7 +51192,7 @@
 				<c path="java.nio.file.FileSystem"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads><newFileSystem public="1" set="method">
+			<overloads><newFileSystem abstract="1" public="1" set="method">
 	<f a="param1:param2">
 		<c path="java.net.URI"/>
 		<c path="java.util.Map">
@@ -50999,15 +51204,15 @@
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
 </newFileSystem></overloads>
 		</newFileSystem>
-		<getPath public="1" set="method"><f a="param1">
+		<getPath abstract="1" public="1" set="method"><f a="param1">
 	<c path="java.net.URI"/>
 	<c path="java.nio.file.Path"/>
 </f></getPath>
-		<getFileSystem public="1" set="method"><f a="param1">
+		<getFileSystem abstract="1" public="1" set="method"><f a="param1">
 	<c path="java.net.URI"/>
 	<c path="java.nio.file.FileSystem"/>
 </f></getFileSystem>
-		<getScheme public="1" set="method"><f a=""><c path="String"/></f></getScheme>
+		<getScheme abstract="1" public="1" set="method"><f a=""><c path="String"/></f></getScheme>
 		<new set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":protected"/></meta>
@@ -51341,12 +51546,12 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.security.MessageDigestSpi" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/security/MessageDigestSpi.class" extern="1">
+	<class path="java.security.MessageDigestSpi" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/security/MessageDigestSpi.class" extern="1" abstract="1">
 		<clone public="1" set="method">
 			<f a=""><d/></f>
 			<meta><m n=":throws"><e>"java.lang.CloneNotSupportedException"</e></m></meta>
 		</clone>
-		<engineReset set="method">
+		<engineReset abstract="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":protected"/></meta>
 		</engineReset>
@@ -51361,7 +51566,7 @@
 				<m n=":throws"><e>"java.security.DigestException"</e></m>
 				<m n=":protected"/>
 			</meta>
-			<overloads><engineDigest set="method">
+			<overloads><engineDigest abstract="1" set="method">
 	<f a=""><c path="java.NativeArray"><t path="java.types.Int8"/></c></f>
 	<meta><m n=":protected"/></meta>
 </engineDigest></overloads>
@@ -51373,14 +51578,14 @@
 			</f>
 			<meta><m n=":protected"/></meta>
 			<overloads>
-				<engineUpdate set="method">
+				<engineUpdate abstract="1" set="method">
 					<f a="param1">
 						<t path="java.types.Int8"/>
 						<x path="Void"/>
 					</f>
 					<meta><m n=":protected"/></meta>
 				</engineUpdate>
-				<engineUpdate set="method">
+				<engineUpdate abstract="1" set="method">
 					<f a="param1:param2:param3">
 						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
 						<x path="Int"/>
@@ -51408,7 +51613,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.security.MessageDigest" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/security/MessageDigest.class" extern="1">
+	<class path="java.security.MessageDigest" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/security/MessageDigest.class" extern="1" abstract="1">
 		<extends path="java.security.MessageDigestSpi"/>
 		<isEqual public="1" set="method" static="1"><f a="param1:param2">
 	<c path="java.NativeArray"><t path="java.types.Int8"/></c>
@@ -51633,19 +51838,19 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.security.Permission" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/security/Permission.class" extern="1">
+	<class path="java.security.Permission" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/security/Permission.class" extern="1" abstract="1">
 		<implements path="java.security.Guard"/>
 		<implements path="java.io.Serializable"/>
 		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
 		<newPermissionCollection public="1" set="method"><f a=""><c path="java.security.PermissionCollection"/></f></newPermissionCollection>
-		<getActions public="1" set="method"><f a=""><c path="String"/></f></getActions>
+		<getActions abstract="1" public="1" set="method"><f a=""><c path="String"/></f></getActions>
 		<getName final="1" public="1" set="method"><f a=""><c path="String"/></f></getName>
-		<hashCode public="1" set="method"><f a=""><x path="Int"/></f></hashCode>
-		<equals public="1" set="method"><f a="param1">
+		<hashCode abstract="1" public="1" set="method"><f a=""><x path="Int"/></f></hashCode>
+		<equals abstract="1" public="1" set="method"><f a="param1">
 	<d/>
 	<x path="Bool"/>
 </f></equals>
-		<implies public="1" set="method"><f a="param1">
+		<implies abstract="1" public="1" set="method"><f a="param1">
 	<c path="java.security.Permission"/>
 	<x path="Bool"/>
 </f></implies>
@@ -51672,17 +51877,17 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.security.PermissionCollection" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/security/PermissionCollection.class" extern="1">
+	<class path="java.security.PermissionCollection" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/security/PermissionCollection.class" extern="1" abstract="1">
 		<implements path="java.io.Serializable"/>
 		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
 		<isReadOnly public="1" set="method"><f a=""><x path="Bool"/></f></isReadOnly>
 		<setReadOnly public="1" set="method"><f a=""><x path="Void"/></f></setReadOnly>
-		<elements public="1" set="method"><f a=""><c path="java.util.Enumeration"><c path="java.security.Permission"/></c></f></elements>
-		<implies public="1" set="method"><f a="param1">
+		<elements abstract="1" public="1" set="method"><f a=""><c path="java.util.Enumeration"><c path="java.security.Permission"/></c></f></elements>
+		<implies abstract="1" public="1" set="method"><f a="param1">
 	<c path="java.security.Permission"/>
 	<x path="Bool"/>
 </f></implies>
-		<add public="1" set="method"><f a="param1">
+		<add abstract="1" public="1" set="method"><f a="param1">
 	<c path="java.security.Permission"/>
 	<x path="Void"/>
 </f></add>
@@ -51795,24 +52000,24 @@
 		<e>"ProtectionDomain.Key"</e>
 	</m>
 </meta></class>
-	<class path="java.util.Dictionary" params="K:V" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Dictionary.class" extern="1">
-		<remove public="1" set="method"><f a="param1">
+	<class path="java.util.Dictionary" params="K:V" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Dictionary.class" extern="1" abstract="1">
+		<remove abstract="1" public="1" set="method"><f a="param1">
 	<d/>
 	<c path="java.util.Dictionary.V"/>
 </f></remove>
-		<put public="1" set="method"><f a="param1:param2">
+		<put abstract="1" public="1" set="method"><f a="param1:param2">
 	<c path="java.util.Dictionary.K"/>
 	<c path="java.util.Dictionary.V"/>
 	<c path="java.util.Dictionary.V"/>
 </f></put>
-		<get public="1" set="method"><f a="param1">
+		<get abstract="1" public="1" set="method"><f a="param1">
 	<d/>
 	<c path="java.util.Dictionary.V"/>
 </f></get>
-		<elements public="1" set="method"><f a=""><c path="java.util.Enumeration"><c path="java.util.Dictionary.V"/></c></f></elements>
-		<keys public="1" set="method"><f a=""><c path="java.util.Enumeration"><c path="java.util.Dictionary.K"/></c></f></keys>
-		<isEmpty public="1" set="method"><f a=""><x path="Bool"/></f></isEmpty>
-		<size public="1" set="method"><f a=""><x path="Int"/></f></size>
+		<elements abstract="1" public="1" set="method"><f a=""><c path="java.util.Enumeration"><c path="java.util.Dictionary.V"/></c></f></elements>
+		<keys abstract="1" public="1" set="method"><f a=""><c path="java.util.Enumeration"><c path="java.util.Dictionary.K"/></c></f></keys>
+		<isEmpty abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></isEmpty>
+		<size abstract="1" public="1" set="method"><f a=""><x path="Int"/></f></size>
 		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
 		<meta>
 			<m n=":nativeGen"/>
@@ -52255,7 +52460,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.security.Provider" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/security/Provider.class" extern="1">
+	<class path="java.security.Provider" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/security/Provider.class" extern="1" abstract="1">
 		<extends path="java.util.Properties"/>
 		<removeService set="method">
 			<f a="param1">
@@ -52599,7 +52804,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.security.cert.CertPath" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/security/cert/CertPath.class" extern="1">
+	<class path="java.security.cert.CertPath" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/security/cert/CertPath.class" extern="1" abstract="1">
 		<implements path="java.io.Serializable"/>
 		<writeReplace set="method">
 			<f a=""><d/></f>
@@ -52608,14 +52813,14 @@
 				<m n=":protected"/>
 			</meta>
 		</writeReplace>
-		<getCertificates public="1" set="method"><f a=""><c path="java.util.List"><c path="java.security.cert.Certificate"/></c></f></getCertificates>
-		<getEncoded public="1" set="method">
+		<getCertificates abstract="1" public="1" set="method"><f a=""><c path="java.util.List"><c path="java.security.cert.Certificate"/></c></f></getCertificates>
+		<getEncoded abstract="1" public="1" set="method">
 			<f a="param1">
 				<c path="String"/>
 				<c path="java.NativeArray"><t path="java.types.Int8"/></c>
 			</f>
 			<meta><m n=":throws"><e>"java.security.cert.CertificateEncodingException"</e></m></meta>
-			<overloads><getEncoded public="1" set="method">
+			<overloads><getEncoded abstract="1" public="1" set="method">
 	<f a=""><c path="java.NativeArray"><t path="java.types.Int8"/></c></f>
 	<meta><m n=":throws"><e>"java.security.cert.CertificateEncodingException"</e></m></meta>
 </getEncoded></overloads>
@@ -52626,7 +52831,7 @@
 	<d/>
 	<x path="Bool"/>
 </f></equals>
-		<getEncodings public="1" set="method"><f a=""><c path="java.util.Iterator"><c path="String"/></c></f></getEncodings>
+		<getEncodings abstract="1" public="1" set="method"><f a=""><c path="java.util.Iterator"><c path="String"/></c></f></getEncodings>
 		<getType public="1" set="method"><f a=""><c path="String"/></f></getType>
 		<new set="method">
 			<f a="param1">
@@ -52675,7 +52880,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.security.cert.Certificate" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/security/cert/Certificate.class" extern="1">
+	<class path="java.security.cert.Certificate" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/security/cert/Certificate.class" extern="1" abstract="1">
 		<implements path="java.io.Serializable"/>
 		<writeReplace set="method">
 			<f a=""><d/></f>
@@ -52684,8 +52889,8 @@
 				<m n=":protected"/>
 			</meta>
 		</writeReplace>
-		<getPublicKey public="1" set="method"><f a=""><c path="java.security.PublicKey"/></f></getPublicKey>
-		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
+		<getPublicKey abstract="1" public="1" set="method"><f a=""><c path="java.security.PublicKey"/></f></getPublicKey>
+		<toString abstract="1" public="1" set="method"><f a=""><c path="String"/></f></toString>
 		<verify public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.security.PublicKey"/>
@@ -52699,7 +52904,7 @@
 				<m n=":throws"><e>"java.security.cert.CertificateException"</e></m>
 			</meta>
 			<overloads>
-				<verify public="1" set="method">
+				<verify abstract="1" public="1" set="method">
 					<f a="param1">
 						<c path="java.security.PublicKey"/>
 						<x path="Void"/>
@@ -52712,7 +52917,7 @@
 						<m n=":throws"><e>"java.security.cert.CertificateException"</e></m>
 					</meta>
 				</verify>
-				<verify public="1" set="method">
+				<verify abstract="1" public="1" set="method">
 					<f a="param1:param2">
 						<c path="java.security.PublicKey"/>
 						<c path="String"/>
@@ -52728,7 +52933,7 @@
 				</verify>
 			</overloads>
 		</verify>
-		<getEncoded public="1" set="method">
+		<getEncoded abstract="1" public="1" set="method">
 			<f a=""><c path="java.NativeArray"><t path="java.types.Int8"/></c></f>
 			<meta><m n=":throws"><e>"java.security.cert.CertificateEncodingException"</e></m></meta>
 		</getEncoded>
@@ -60466,7 +60671,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.sun.util.locale.LocaleObjectCache" params="K:V" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@sun/util/locale/LocaleObjectCache.class" extern="1">
+	<class path="java.sun.util.locale.LocaleObjectCache" params="K:V" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@sun/util/locale/LocaleObjectCache.class" extern="1" abstract="1">
 		<normalizeKey set="method">
 			<f a="param1">
 				<c path="java.sun.util.locale.LocaleObjectCache.K"/>
@@ -60474,7 +60679,7 @@
 			</f>
 			<meta><m n=":protected"/></meta>
 		</normalizeKey>
-		<createObject set="method">
+		<createObject abstract="1" set="method">
 			<f a="param1">
 				<c path="java.sun.util.locale.LocaleObjectCache.K"/>
 				<c path="java.sun.util.locale.LocaleObjectCache.V"/>
@@ -60900,7 +61105,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.text.Format" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/text/Format.class" extern="1">
+	<class path="java.text.Format" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/text/Format.class" extern="1" abstract="1">
 		<implements path="java.io.Serializable"/>
 		<implements path="java.lang.Cloneable"/>
 		<clone public="1" set="method"><f a=""><d/></f></clone>
@@ -60910,7 +61115,7 @@
 				<d/>
 			</f>
 			<meta><m n=":throws"><e>"java.text.ParseException"</e></m></meta>
-			<overloads><parseObject public="1" set="method"><f a="param1:param2">
+			<overloads><parseObject abstract="1" public="1" set="method"><f a="param1:param2">
 	<c path="String"/>
 	<c path="java.text.ParsePosition"/>
 	<d/>
@@ -60920,7 +61125,7 @@
 	<d/>
 	<c path="java.text.AttributedCharacterIterator"/>
 </f></formatToCharacterIterator>
-		<format public="1" set="method">
+		<format abstract="1" public="1" set="method">
 			<f a="param1:param2:param3">
 				<d/>
 				<c path="java.lang.StringBuffer"/>
@@ -61019,7 +61224,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.time.Clock" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/time/Clock.class" extern="1">
+	<class path="java.time.Clock" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/time/Clock.class" extern="1" abstract="1">
 		<offset public="1" set="method" static="1"><f a="param1:param2">
 	<c path="java.time.Clock"/>
 	<c path="java.time.Duration"/>
@@ -61054,13 +61259,13 @@
 	<d/>
 	<x path="Bool"/>
 </f></equals>
-		<instant public="1" set="method"><f a=""><c path="java.time.Instant"/></f></instant>
+		<instant abstract="1" public="1" set="method"><f a=""><c path="java.time.Instant"/></f></instant>
 		<millis public="1" set="method"><f a=""><x path="haxe.Int64"/></f></millis>
-		<withZone public="1" set="method"><f a="param1">
+		<withZone abstract="1" public="1" set="method"><f a="param1">
 	<c path="java.time.ZoneId"/>
 	<c path="java.time.Clock"/>
 </f></withZone>
-		<getZone public="1" set="method"><f a=""><c path="java.time.ZoneId"/></f></getZone>
+		<getZone abstract="1" public="1" set="method"><f a=""><c path="java.time.ZoneId"/></f></getZone>
 		<new set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":protected"/></meta>
@@ -63591,7 +63796,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.time.ZoneId" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/time/ZoneId.class" extern="1">
+	<class path="java.time.ZoneId" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/time/ZoneId.class" extern="1" abstract="1">
 		<implements path="java.io.Serializable"/>
 		<from public="1" set="method" static="1"><f a="param1">
 	<c path="java.time.temporal.TemporalAccessor"/>
@@ -63629,13 +63834,13 @@
 	<x path="Bool"/>
 </f></equals>
 		<normalized public="1" set="method"><f a=""><c path="java.time.ZoneId"/></f></normalized>
-		<getRules public="1" set="method"><f a=""><c path="java.time.zone.ZoneRules"/></f></getRules>
+		<getRules abstract="1" public="1" set="method"><f a=""><c path="java.time.zone.ZoneRules"/></f></getRules>
 		<getDisplayName public="1" set="method"><f a="param1:param2">
 	<e path="java.time.format.TextStyle"/>
 	<c path="java.util.Locale"/>
 	<c path="String"/>
 </f></getDisplayName>
-		<getId public="1" set="method"><f a=""><c path="String"/></f></getId>
+		<getId abstract="1" public="1" set="method"><f a=""><c path="String"/></f></getId>
 		<meta>
 			<m n=":nativeGen"/>
 			<m n=":abstract"/>
@@ -64330,7 +64535,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.time.chrono.AbstractChronology" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/time/chrono/AbstractChronology.class" extern="1">
+	<class path="java.time.chrono.AbstractChronology" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/time/chrono/AbstractChronology.class" extern="1" abstract="1">
 		<implements path="java.time.chrono.Chronology"/>
 		<compareTo public="1" set="method">
 			<f a="param1">
@@ -64356,8 +64561,8 @@
 	<e path="java.time.format.ResolverStyle"/>
 	<c path="java.time.chrono.ChronoLocalDate"/>
 </f></resolveDate>
-		<getId public="1" set="method"><f a=""><c path="String"/></f></getId>
-		<getCalendarType public="1" set="method"><f a=""><c path="String"/></f></getCalendarType>
+		<getId abstract="1" public="1" set="method"><f a=""><c path="String"/></f></getId>
+		<getCalendarType abstract="1" public="1" set="method"><f a=""><c path="String"/></f></getCalendarType>
 		<date public="1" set="method">
 			<f a="param1:param2:param3:param4">
 				<c path="java.time.chrono.Era"/>
@@ -64367,11 +64572,11 @@
 				<c path="java.time.chrono.ChronoLocalDate"/>
 			</f>
 			<overloads>
-				<date public="1" set="method"><f a="param1">
+				<date abstract="1" public="1" set="method"><f a="param1">
 	<c path="java.time.temporal.TemporalAccessor"/>
 	<c path="java.time.chrono.ChronoLocalDate"/>
 </f></date>
-				<date public="1" set="method"><f a="param1:param2:param3">
+				<date abstract="1" public="1" set="method"><f a="param1:param2:param3">
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
@@ -64386,13 +64591,13 @@
 				<x path="Int"/>
 				<c path="java.time.chrono.ChronoLocalDate"/>
 			</f>
-			<overloads><dateYearDay public="1" set="method"><f a="param1:param2">
+			<overloads><dateYearDay abstract="1" public="1" set="method"><f a="param1:param2">
 	<x path="Int"/>
 	<x path="Int"/>
 	<c path="java.time.chrono.ChronoLocalDate"/>
 </f></dateYearDay></overloads>
 		</dateYearDay>
-		<dateEpochDay public="1" set="method"><f a="param1">
+		<dateEpochDay abstract="1" public="1" set="method"><f a="param1">
 	<x path="haxe.Int64"/>
 	<c path="java.time.chrono.ChronoLocalDate"/>
 </f></dateEpochDay>
@@ -64424,21 +64629,21 @@
 	<c path="java.time.chrono.ChronoZonedDateTime"><c path="java.time.chrono.ChronoLocalDate"/></c>
 </f></zonedDateTime></overloads>
 		</zonedDateTime>
-		<isLeapYear public="1" set="method"><f a="param1">
+		<isLeapYear abstract="1" public="1" set="method"><f a="param1">
 	<x path="haxe.Int64"/>
 	<x path="Bool"/>
 </f></isLeapYear>
-		<prolepticYear public="1" set="method"><f a="param1:param2">
+		<prolepticYear abstract="1" public="1" set="method"><f a="param1:param2">
 	<c path="java.time.chrono.Era"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></prolepticYear>
-		<eraOf public="1" set="method"><f a="param1">
+		<eraOf abstract="1" public="1" set="method"><f a="param1">
 	<x path="Int"/>
 	<c path="java.time.chrono.Era"/>
 </f></eraOf>
-		<eras public="1" set="method"><f a=""><c path="java.util.List"><c path="java.time.chrono.Era"/></c></f></eras>
-		<range public="1" set="method"><f a="param1">
+		<eras abstract="1" public="1" set="method"><f a=""><c path="java.util.List"><c path="java.time.chrono.Era"/></c></f></eras>
+		<range abstract="1" public="1" set="method"><f a="param1">
 	<e path="java.time.temporal.ChronoField"/>
 	<c path="java.time.temporal.ValueRange"/>
 </f></range>
@@ -65525,7 +65730,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.AbstractList" params="E" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/AbstractList.class" extern="1">
+	<class path="java.util.AbstractList" params="E" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/AbstractList.class" extern="1" abstract="1">
 		<extends path="java.util.AbstractCollection"><c path="java.util.AbstractList.E"/></extends>
 		<implements path="java.util.List"><c path="java.util.AbstractList.E"/></implements>
 		<removeRange set="method">
@@ -65588,7 +65793,7 @@
 	<c path="java.util.AbstractList.E"/>
 	<c path="java.util.AbstractList.E"/>
 </f></set>
-		<get public="1" set="method"><f a="param1">
+		<get abstract="1" public="1" set="method"><f a="param1">
 	<x path="Int"/>
 	<c path="java.util.AbstractList.E"/>
 </f></get>
@@ -65722,7 +65927,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.AbstractMap" params="K:V" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/AbstractMap.class" extern="1">
+	<class path="java.util.AbstractMap" params="K:V" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/AbstractMap.class" extern="1" abstract="1">
 		<implements path="java.util.Map">
 			<c path="java.util.AbstractMap.K"/>
 			<c path="java.util.AbstractMap.V"/>
@@ -65740,7 +65945,7 @@
 	<d/>
 	<x path="Bool"/>
 </f></equals>
-		<entrySet public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.util.Map_Entry">
+		<entrySet abstract="1" public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.util.Map_Entry">
 	<c path="java.util.AbstractMap.K"/>
 	<c path="java.util.AbstractMap.V"/>
 </c></c></f></entrySet>
@@ -66053,7 +66258,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.AbstractQueue" params="E" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/AbstractQueue.class" extern="1">
+	<class path="java.util.AbstractQueue" params="E" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/AbstractQueue.class" extern="1" abstract="1">
 		<extends path="java.util.AbstractCollection"><c path="java.util.AbstractQueue.E"/></extends>
 		<implements path="java.util.Queue"><c path="java.util.AbstractQueue.E"/></implements>
 		<addAll public="1" set="method" override="1"><f a="param1">
@@ -66067,12 +66272,12 @@
 	<c path="java.util.AbstractQueue.E"/>
 	<x path="Bool"/>
 </f></add>
-		<offer public="1" set="method"><f a="param1">
+		<offer abstract="1" public="1" set="method"><f a="param1">
 	<c path="java.util.AbstractQueue.E"/>
 	<x path="Bool"/>
 </f></offer>
-		<poll public="1" set="method"><f a=""><c path="java.util.AbstractQueue.E"/></f></poll>
-		<peek public="1" set="method"><f a=""><c path="java.util.AbstractQueue.E"/></f></peek>
+		<poll abstract="1" public="1" set="method"><f a=""><c path="java.util.AbstractQueue.E"/></f></poll>
+		<peek abstract="1" public="1" set="method"><f a=""><c path="java.util.AbstractQueue.E"/></f></peek>
 		<new set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":protected"/></meta>
@@ -67470,7 +67675,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.Calendar" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Calendar.class" extern="1">
+	<class path="java.util.Calendar" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Calendar.class" extern="1" abstract="1">
 		<implements path="java.lang.Comparable"><c path="java.util.Calendar"/></implements>
 		<implements path="java.lang.Cloneable"/>
 		<implements path="java.io.Serializable"/>
@@ -67565,19 +67770,19 @@
 	<x path="Int"/>
 	<x path="Int"/>
 </f></getActualMinimum>
-		<getLeastMaximum public="1" set="method"><f a="param1">
+		<getLeastMaximum abstract="1" public="1" set="method"><f a="param1">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></getLeastMaximum>
-		<getGreatestMinimum public="1" set="method"><f a="param1">
+		<getGreatestMinimum abstract="1" public="1" set="method"><f a="param1">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></getGreatestMinimum>
-		<getMaximum public="1" set="method"><f a="param1">
+		<getMaximum abstract="1" public="1" set="method"><f a="param1">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></getMaximum>
-		<getMinimum public="1" set="method"><f a="param1">
+		<getMinimum abstract="1" public="1" set="method"><f a="param1">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></getMinimum>
@@ -67616,13 +67821,13 @@
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
-			<overloads><roll public="1" set="method"><f a="param1:param2">
+			<overloads><roll abstract="1" public="1" set="method"><f a="param1:param2">
 	<x path="Int"/>
 	<x path="Bool"/>
 	<x path="Void"/>
 </f></roll></overloads>
 		</roll>
-		<add public="1" set="method"><f a="param1:param2">
+		<add abstract="1" public="1" set="method"><f a="param1:param2">
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
@@ -67724,11 +67929,11 @@
 	<x path="Void"/>
 </f></setTime>
 		<getTime final="1" public="1" set="method"><f a=""><c path="java.util.Date"/></f></getTime>
-		<computeFields set="method">
+		<computeFields abstract="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":protected"/></meta>
 		</computeFields>
-		<computeTime set="method">
+		<computeTime abstract="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":protected"/></meta>
 		</computeTime>
@@ -73767,7 +73972,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.ResourceBundle" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/ResourceBundle.class" extern="1">
+	<class path="java.util.ResourceBundle" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/ResourceBundle.class" extern="1" abstract="1">
 		<clearCache final="1" public="1" set="method" static="1">
 			<f a="param1">
 				<c path="java.lang.ClassLoader"/>
@@ -73821,8 +74026,8 @@
 	<c path="String"/>
 	<x path="Bool"/>
 </f></containsKey>
-		<getKeys public="1" set="method"><f a=""><c path="java.util.Enumeration"><c path="String"/></c></f></getKeys>
-		<handleGetObject set="method">
+		<getKeys abstract="1" public="1" set="method"><f a=""><c path="java.util.Enumeration"><c path="String"/></c></f></getKeys>
+		<handleGetObject abstract="1" set="method">
 			<f a="param1">
 				<c path="String"/>
 				<d/>
@@ -74140,7 +74345,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.TimeZone" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/TimeZone.class" extern="1">
+	<class path="java.util.TimeZone" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/TimeZone.class" extern="1" abstract="1">
 		<implements path="java.io.Serializable"/>
 		<implements path="java.lang.Cloneable"/>
 		<setDefault public="1" set="method" static="1"><f a="param1">
@@ -74173,12 +74378,12 @@
 	<x path="Bool"/>
 </f></hasSameRules>
 		<toZoneId public="1" set="method"><f a=""><c path="java.time.ZoneId"/></f></toZoneId>
-		<inDaylightTime public="1" set="method"><f a="param1">
+		<inDaylightTime abstract="1" public="1" set="method"><f a="param1">
 	<c path="java.util.Date"/>
 	<x path="Bool"/>
 </f></inDaylightTime>
 		<observesDaylightTime public="1" set="method"><f a=""><x path="Bool"/></f></observesDaylightTime>
-		<useDaylightTime public="1" set="method"><f a=""><x path="Bool"/></f></useDaylightTime>
+		<useDaylightTime abstract="1" public="1" set="method"><f a=""><x path="Bool"/></f></useDaylightTime>
 		<getDSTSavings public="1" set="method"><f a=""><x path="Int"/></f></getDSTSavings>
 		<getDisplayName public="1" set="method">
 			<f a="param1:param2:param3">
@@ -74205,8 +74410,8 @@
 	<x path="Void"/>
 </f></setID>
 		<getID public="1" set="method"><f a=""><c path="String"/></f></getID>
-		<getRawOffset public="1" set="method"><f a=""><x path="Int"/></f></getRawOffset>
-		<setRawOffset public="1" set="method"><f a="param1">
+		<getRawOffset abstract="1" public="1" set="method"><f a=""><x path="Int"/></f></getRawOffset>
+		<setRawOffset abstract="1" public="1" set="method"><f a="param1">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></setRawOffset>
@@ -74215,7 +74420,7 @@
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
 			</f>
-			<overloads><getOffset public="1" set="method"><f a="param1:param2:param3:param4:param5:param6">
+			<overloads><getOffset abstract="1" public="1" set="method"><f a="param1:param2:param3:param4:param5:param6">
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
@@ -74361,7 +74566,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.WeakHashMap_HashIterator" params="T" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/WeakHashMap$HashIterator.class" module="java.util.WeakHashMap" extern="1">
+	<class path="java.util.WeakHashMap_HashIterator" params="T" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/WeakHashMap$HashIterator.class" module="java.util.WeakHashMap" extern="1" abstract="1">
 		<implements path="java.util.Iterator"><c path="java.util.WeakHashMap_HashIterator.T"/></implements>
 		<remove public="1" set="method"><f a=""><x path="Void"/></f></remove>
 		<nextEntry set="method">
@@ -74372,7 +74577,7 @@
 			<meta><m n=":protected"/></meta>
 		</nextEntry>
 		<hasNext public="1" set="method"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" set="method"><f a=""><c path="java.util.WeakHashMap_HashIterator.T"/></f></next>
+		<next abstract="1" public="1" set="method"><f a=""><c path="java.util.WeakHashMap_HashIterator.T"/></f></next>
 		<forEachRemaining public="1" set="method"><f a="param1">
 	<c path="java.util.function.Consumer"><d/></c>
 	<x path="Void"/>
@@ -75372,7 +75577,7 @@
 		<e>"LinkedBlockingDeque.Node"</e>
 	</m>
 </meta></class>
-	<class path="java.util.concurrent.LinkedBlockingDeque_AbstractItr" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/LinkedBlockingDeque$AbstractItr.class" module="java.util.concurrent.LinkedBlockingDeque" extern="1">
+	<class path="java.util.concurrent.LinkedBlockingDeque_AbstractItr" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/LinkedBlockingDeque$AbstractItr.class" module="java.util.concurrent.LinkedBlockingDeque" extern="1" abstract="1">
 		<implements path="java.util.Iterator"><d/></implements>
 		<remove public="1" set="method"><f a=""><x path="Void"/></f></remove>
 		<next public="1" set="method"><f a=""><d/></f></next>
@@ -75550,7 +75755,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.concurrent.locks.AbstractOwnableSynchronizer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/locks/AbstractOwnableSynchronizer.class" extern="1">
+	<class path="java.util.concurrent.locks.AbstractOwnableSynchronizer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/locks/AbstractOwnableSynchronizer.class" extern="1" abstract="1">
 		<implements path="java.io.Serializable"/>
 		<getExclusiveOwnerThread final="1" set="method">
 			<f a=""><c path="java.lang.Thread"/></f>
@@ -75579,7 +75784,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.concurrent.locks.AbstractQueuedSynchronizer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/locks/AbstractQueuedSynchronizer.class" extern="1">
+	<class path="java.util.concurrent.locks.AbstractQueuedSynchronizer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/locks/AbstractQueuedSynchronizer.class" extern="1" abstract="1">
 		<extends path="java.util.concurrent.locks.AbstractOwnableSynchronizer"/>
 		<implements path="java.io.Serializable"/>
 		<getWaitingThreads final="1" public="1" set="method"><f a="param1">
@@ -75835,7 +76040,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.concurrent.locks.ReentrantLock_Sync" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/locks/ReentrantLock$Sync.class" module="java.util.concurrent.locks.ReentrantLock" extern="1">
+	<class path="java.util.concurrent.locks.ReentrantLock_Sync" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/locks/ReentrantLock$Sync.class" module="java.util.concurrent.locks.ReentrantLock" extern="1" abstract="1">
 		<extends path="java.util.concurrent.locks.AbstractQueuedSynchronizer"/>
 		<isHeldExclusively final="1" set="method" override="1">
 			<f a=""><x path="Bool"/></f>
@@ -76783,7 +76988,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.logging.Formatter" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/logging/Formatter.class" extern="1">
+	<class path="java.util.logging.Formatter" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/logging/Formatter.class" extern="1" abstract="1">
 		<formatMessage public="1" set="method"><f a="param1">
 	<c path="java.util.logging.LogRecord"/>
 	<c path="String"/>
@@ -76796,7 +77001,7 @@
 	<c path="java.util.logging.Handler"/>
 	<c path="String"/>
 </f></getHead>
-		<format public="1" set="method"><f a="param1">
+		<format abstract="1" public="1" set="method"><f a="param1">
 	<c path="java.util.logging.LogRecord"/>
 	<c path="String"/>
 </f></format>
@@ -76816,7 +77021,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.logging.Handler" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/logging/Handler.class" extern="1">
+	<class path="java.util.logging.Handler" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/logging/Handler.class" extern="1" abstract="1">
 		<isLoggable public="1" set="method"><f a="param1">
 	<c path="java.util.logging.LogRecord"/>
 	<x path="Bool"/>
@@ -76870,12 +77075,12 @@
 			</f>
 			<meta><m n=":throws"><e>"java.lang.SecurityException"</e></m></meta>
 		</setFormatter>
-		<close public="1" set="method">
+		<close abstract="1" public="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":throws"><e>"java.lang.SecurityException"</e></m></meta>
 		</close>
-		<flush public="1" set="method"><f a=""><x path="Void"/></f></flush>
-		<publish public="1" set="method"><f a="param1">
+		<flush abstract="1" public="1" set="method"><f a=""><x path="Void"/></f></flush>
+		<publish abstract="1" public="1" set="method"><f a="param1">
 	<c path="java.util.logging.LogRecord"/>
 	<x path="Void"/>
 </f></publish>
@@ -77597,7 +77802,7 @@
 		<e>"Pattern.Node"</e>
 	</m>
 </meta></class>
-	<class path="java.util.regex.Pattern_CharProperty" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/regex/Pattern$CharProperty.class" module="java.util.regex.Pattern" extern="1">
+	<class path="java.util.regex.Pattern_CharProperty" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/regex/Pattern$CharProperty.class" module="java.util.regex.Pattern" extern="1" abstract="1">
 		<extends path="java.util.regex.Pattern_Node"/>
 		<meta>
 			<m n=":nativeGen"/>
@@ -77611,7 +77816,7 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.regex.Pattern_BmpCharProperty" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/regex/Pattern$BmpCharProperty.class" module="java.util.regex.Pattern" extern="1">
+	<class path="java.util.regex.Pattern_BmpCharProperty" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/regex/Pattern$BmpCharProperty.class" module="java.util.regex.Pattern" extern="1" abstract="1">
 		<extends path="java.util.regex.Pattern_CharProperty"/>
 		<meta>
 			<m n=":nativeGen"/>
@@ -78376,7 +78581,7 @@
 		<e>"Pattern.CharPropertyNames"</e>
 	</m>
 </meta></class>
-	<class path="java.util.regex.Pattern_CharPropertyNames_CharPropertyFactory" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/regex/Pattern$CharPropertyNames$CharPropertyFactory.class" module="java.util.regex.Pattern" extern="1"><meta>
+	<class path="java.util.regex.Pattern_CharPropertyNames_CharPropertyFactory" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/regex/Pattern$CharPropertyNames$CharPropertyFactory.class" module="java.util.regex.Pattern" extern="1" abstract="1"><meta>
 	<m n=":nativeGen"/>
 	<m n=":abstract"/>
 	<m n=":libType"/>
@@ -78387,7 +78592,7 @@
 		<e>"Pattern.CharPropertyNames.CharPropertyFactory"</e>
 	</m>
 </meta></class>
-	<class path="java.util.regex.Pattern_CharPropertyNames_CloneableProperty" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/regex/Pattern$CharPropertyNames$CloneableProperty.class" module="java.util.regex.Pattern" extern="1">
+	<class path="java.util.regex.Pattern_CharPropertyNames_CloneableProperty" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/regex/Pattern$CharPropertyNames$CloneableProperty.class" module="java.util.regex.Pattern" extern="1" abstract="1">
 		<extends path="java.util.regex.Pattern_CharProperty"/>
 		<implements path="java.lang.Cloneable"/>
 		<clone public="1" set="method"><f a=""><c path="java.util.regex.Pattern_CharPropertyNames_CloneableProperty"/></f></clone>
@@ -78403,12 +78608,12 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.spi.LocaleServiceProvider" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/spi/LocaleServiceProvider.class" extern="1">
+	<class path="java.util.spi.LocaleServiceProvider" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/spi/LocaleServiceProvider.class" extern="1" abstract="1">
 		<isSupportedLocale public="1" set="method"><f a="param1">
 	<c path="java.util.Locale"/>
 	<x path="Bool"/>
 </f></isSupportedLocale>
-		<getAvailableLocales public="1" set="method"><f a=""><c path="java.NativeArray"><c path="java.util.Locale"/></c></f></getAvailableLocales>
+		<getAvailableLocales abstract="1" public="1" set="method"><f a=""><c path="java.NativeArray"><c path="java.util.Locale"/></c></f></getAvailableLocales>
 		<new set="method">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":protected"/></meta>
@@ -78425,14 +78630,14 @@
 			</m>
 		</meta>
 	</class>
-	<class path="java.util.spi.LocaleNameProvider" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/spi/LocaleNameProvider.class" extern="1">
+	<class path="java.util.spi.LocaleNameProvider" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/spi/LocaleNameProvider.class" extern="1" abstract="1">
 		<extends path="java.util.spi.LocaleServiceProvider"/>
-		<getDisplayVariant public="1" set="method"><f a="param1:param2">
+		<getDisplayVariant abstract="1" public="1" set="method"><f a="param1:param2">
 	<c path="String"/>
 	<c path="java.util.Locale"/>
 	<c path="String"/>
 </f></getDisplayVariant>
-		<getDisplayCountry public="1" set="method"><f a="param1:param2">
+		<getDisplayCountry abstract="1" public="1" set="method"><f a="param1:param2">
 	<c path="String"/>
 	<c path="java.util.Locale"/>
 	<c path="String"/>
@@ -78442,7 +78647,7 @@
 	<c path="java.util.Locale"/>
 	<c path="String"/>
 </f></getDisplayScript>
-		<getDisplayLanguage public="1" set="method"><f a="param1:param2">
+		<getDisplayLanguage abstract="1" public="1" set="method"><f a="param1:param2">
 	<c path="String"/>
 	<c path="java.util.Locale"/>
 	<c path="String"/>

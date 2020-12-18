@@ -3312,7 +3312,7 @@
 		<code public="1" set="method" static="1">
 			<f a="code:args">
 				<c path="String"/>
-				<x path="haxe.extern.Rest"><d/></x>
+				<x path="haxe.Rest"><d/></x>
 				<d/>
 			</f>
 			<haxe_doc>Embeds plain php code.
@@ -3330,7 +3330,7 @@
 		<codeDeref public="1" set="method" static="1">
 			<f a="code:args">
 				<c path="String"/>
-				<x path="haxe.extern.Rest"><d/></x>
+				<x path="haxe.Rest"><d/></x>
 				<d/>
 			</f>
 			<haxe_doc>The same as `code()`, but adds dereferencing
@@ -3545,14 +3545,14 @@
 		<construct public="1" params="T" set="method" static="1">
 			<f a="cls:args">
 				<x path="haxe.extern.AsVar"><x path="Class"><c path="construct.T"/></x></x>
-				<x path="haxe.extern.Rest"><d/></x>
+				<x path="haxe.Rest"><d/></x>
 				<c path="construct.T"/>
 			</f>
 			<haxe_doc>Generates `new $className($arg1, ...$argN)`</haxe_doc>
 			<overloads><construct public="1" set="method">
 	<f a="className:args">
 		<x path="haxe.extern.AsVar"><c path="String"/></x>
-		<x path="haxe.extern.Rest"><d/></x>
+		<x path="haxe.Rest"><d/></x>
 		<d/>
 	</f>
 	<haxe_doc>Generates `new $className($arg1, ...$argN)`</haxe_doc>
@@ -3611,7 +3611,7 @@
 			<f a="object:methodName:args">
 				<x path="haxe.extern.AsVar"><c path="call.T"/></x>
 				<c path="String"/>
-				<x path="haxe.extern.Rest"><d/></x>
+				<x path="haxe.Rest"><d/></x>
 				<d/>
 			</f>
 			<haxe_doc><![CDATA[Generates a call to instance method: `$object->{$methodName}(<args>)`]]></haxe_doc>
@@ -3623,14 +3623,14 @@
 	<c path="String"/>
 </x></x>
 				<c path="String"/>
-				<x path="haxe.extern.Rest"><d/></x>
+				<x path="haxe.Rest"><d/></x>
 				<d/>
 			</f>
 			<haxe_doc><![CDATA[Generates a call to static method: `$className::{$methodName}(<args>)`]]></haxe_doc>
 		</staticCall>
 		<arrayDecl public="1" params="T" set="method" static="1">
 			<f a="args">
-				<x path="haxe.extern.Rest"><c path="arrayDecl.T"/></x>
+				<x path="haxe.Rest"><c path="arrayDecl.T"/></x>
 				<x path="php.NativeIndexedArray"><c path="arrayDecl.T"/></x>
 			</f>
 			<haxe_doc>```haxe
@@ -3673,7 +3673,7 @@
 		</assocDecl>
 		<keepVar public="1" set="method" static="1">
 			<f a="localVar">
-				<x path="haxe.extern.Rest"><d/></x>
+				<x path="haxe.Rest"><d/></x>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Don't let compiler to optimize away local var passed to this method.</haxe_doc>
@@ -3684,7 +3684,7 @@
 					<x path="php.NativeArray"/>
 					<c path="php.Traversable"/>
 				</x>
-				<x path="haxe.extern.Rest"><d/></x>
+				<x path="haxe.Rest"><d/></x>
 			</f>
 			<haxe_doc>Adds `...` operator before `args`</haxe_doc>
 		</splat>
@@ -4038,21 +4038,21 @@
 					</f>
 					<c path="String"/>
 				</x>
-				<x path="haxe.extern.Rest"><x path="php.NativeArray"/></x>
+				<t path="haxe.extern.Rest"><x path="php.NativeArray"/></t>
 				<x path="php.NativeArray"/>
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.array-map.php</haxe_doc>
 		</array_map>
 		<array_merge public="1" set="method" static="1">
 			<f a="array">
-				<x path="haxe.extern.Rest"><x path="php.NativeArray"/></x>
+				<t path="haxe.extern.Rest"><x path="php.NativeArray"/></t>
 				<x path="php.NativeArray"/>
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.array-merge.php</haxe_doc>
 		</array_merge>
 		<array_diff public="1" set="method" static="1">
 			<f a="array">
-				<x path="haxe.extern.Rest"><x path="php.NativeArray"/></x>
+				<t path="haxe.extern.Rest"><x path="php.NativeArray"/></t>
 				<x path="php.NativeArray"/>
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.array-diff.php</haxe_doc>
@@ -4067,7 +4067,7 @@
 		<array_push public="1" set="method" static="1">
 			<f a="array:value">
 				<t path="php.Ref"><x path="php.NativeArray"/></t>
-				<x path="haxe.extern.Rest"><d/></x>
+				<t path="haxe.extern.Rest"><d/></t>
 				<x path="Int"/>
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.array-push.php</haxe_doc>
@@ -4129,7 +4129,7 @@
 		<array_unshift public="1" set="method" static="1">
 			<f a="arr:value">
 				<t path="php.Ref"><x path="php.NativeArray"/></t>
-				<x path="haxe.extern.Rest"><d/></x>
+				<t path="haxe.extern.Rest"><d/></t>
 				<x path="Int"/>
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.array-unshift.php</haxe_doc>
@@ -4280,7 +4280,7 @@
 		</define>
 		<echo public="1" set="method" static="1">
 			<f a="args">
-				<x path="haxe.extern.Rest"><c path="String"/></x>
+				<t path="haxe.extern.Rest"><c path="String"/></t>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.echo.php</haxe_doc>
@@ -4299,7 +4299,7 @@
 		<sprintf public="1" set="method" static="1">
 			<f a="format:args">
 				<c path="String"/>
-				<x path="haxe.extern.Rest"><d/></x>
+				<t path="haxe.extern.Rest"><d/></t>
 				<x path="haxe.extern.EitherType">
 					<c path="String"/>
 					<x path="Bool"/>
@@ -4336,7 +4336,7 @@
 		<isset public="1" set="method" static="1">
 			<f a="value:args">
 				<d/>
-				<x path="haxe.extern.Rest"><d/></x>
+				<t path="haxe.extern.Rest"><d/></t>
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.isset.php</haxe_doc>
@@ -4344,7 +4344,7 @@
 		<unset public="1" set="method" static="1">
 			<f a="value:values">
 				<d/>
-				<x path="haxe.extern.Rest"><d/></x>
+				<t path="haxe.extern.Rest"><d/></t>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.unset.php</haxe_doc>
@@ -4379,7 +4379,7 @@
 		</get_parent_class>
 		<var_dump public="1" set="method" static="1">
 			<f a="args">
-				<x path="haxe.extern.Rest"><d/></x>
+				<t path="haxe.extern.Rest"><d/></t>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.var-dump.php</haxe_doc>
@@ -4582,7 +4582,7 @@
 		<call_user_func public="1" set="method" static="1">
 			<f a="callback:arguments">
 				<d/>
-				<x path="haxe.extern.Rest"><d/></x>
+				<t path="haxe.extern.Rest"><d/></t>
 				<d/>
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.call-user-func.php</haxe_doc>
@@ -4608,14 +4608,14 @@
 		</abs>
 		<min public="1" set="method" static="1">
 			<f a="values">
-				<x path="haxe.extern.Rest"><d/></x>
+				<t path="haxe.extern.Rest"><d/></t>
 				<d/>
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.min.php</haxe_doc>
 		</min>
 		<max public="1" set="method" static="1">
 			<f a="values">
-				<x path="haxe.extern.Rest"><d/></x>
+				<t path="haxe.extern.Rest"><d/></t>
 				<d/>
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.max.php</haxe_doc>
@@ -4829,7 +4829,7 @@
 		<setlocale public="1" set="method" static="1">
 			<f a="category:locale">
 				<x path="Int"/>
-				<x path="haxe.extern.Rest"><c path="String"/></x>
+				<t path="haxe.extern.Rest"><c path="String"/></t>
 				<x path="haxe.extern.EitherType">
 					<x path="Bool"/>
 					<c path="String"/>
@@ -5431,7 +5431,7 @@
 		<pack public="1" set="method" static="1">
 			<f a="format:args">
 				<c path="String"/>
-				<x path="haxe.extern.Rest"><d/></x>
+				<t path="haxe.extern.Rest"><d/></t>
 				<c path="String"/>
 			</f>
 			<haxe_doc>@see http://php.net/manual/en/function.pack.php</haxe_doc>
@@ -11484,6 +11484,158 @@
 	`getString(name)`, or as binary data through `getBytes(name)`.
 
 	A list of all available resource names can be obtained from `listNames()`.</haxe_doc>
+		<meta><m n=":coreApi"/></meta>
+	</class>
+	<typedef path="haxe._Rest.NativeRest" params="T" file="/home/runner/work/haxe/haxe/std/php/_std/haxe/Rest.hx" private="1" module="haxe.Rest"><x path="php.NativeIndexedArray"><c path="haxe._Rest.NativeRest.T"/></x></typedef>
+	<abstract path="haxe.Rest" params="T" file="/home/runner/work/haxe/haxe/std/php/_std/haxe/Rest.hx">
+		<from><icast field="of"><c path="Array"><c path="of.T"/></c></icast></from>
+		<this><t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t></this>
+		<to><icast field="toArray"><c path="Array"><c path="haxe.Rest.T"/></c></icast></to>
+		<meta>
+			<m n=":coreApi"/>
+			<m n=":semantics"><e>value</e></m>
+		</meta>
+		<impl><class path="haxe._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/php/_std/haxe/Rest.hx" private="1" module="haxe.Rest" final="1">
+	<length public="1" get="accessor" set="null" static="1">
+		<x path="Int"/>
+		<haxe_doc>Amount of arguments passed as rest arguments</haxe_doc>
+	</length>
+	<get_length get="inline" set="null" line="14" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<x path="Int"/>
+</f></get_length>
+	<of public="1" params="T" get="inline" set="null" line="18" static="1">
+		<f a="array">
+			<c path="Array"><c path="of.T"/></c>
+			<x path="haxe.Rest"><c path="of.T"/></x>
+		</f>
+		<meta><m n=":from"/></meta>
+		<haxe_doc>Create rest arguments using contents of `array`.
+
+		WARNING:
+		Depending on a target platform modifying `array` after using this method
+		may affect the created `Rest` instance.
+		Use `Rest.of(array.copy())` to avoid that.</haxe_doc>
+	</of>
+	<_new get="inline" set="null" line="20" static="1">
+		<f a="a">
+			<x path="php.NativeIndexedArray"><c path="haxe.Rest.T"/></x>
+			<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+		</f>
+		<meta><m n=":noCompletion"/></meta>
+	</_new>
+	<get get="inline" set="null" line="24" static="1">
+		<f a="this:index">
+			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+			<x path="Int"/>
+			<c path="haxe.Rest.T"/>
+		</f>
+		<meta><m n=":arrayAccess"/></meta>
+	</get>
+	<toArray public="1" get="inline" set="null" line="27" static="1">
+		<f a="this">
+			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+			<c path="Array"><c path="haxe.Rest.T"/></c>
+		</f>
+		<meta><m n=":to"/></meta>
+		<haxe_doc>Creates an array containing all the values of rest arguments.</haxe_doc>
+	</toArray>
+	<iterator public="1" get="inline" set="null" line="30" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.iterators.RestIterator"><c path="haxe.Rest.T"/></c>
+</f></iterator>
+	<keyValueIterator public="1" get="inline" set="null" line="33" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.iterators.RestKeyValueIterator"><c path="haxe.Rest.T"/></c>
+</f></keyValueIterator>
+	<append public="1" get="inline" set="null" line="35" static="1">
+		<f a="this:item">
+			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+			<c path="haxe.Rest.T"/>
+			<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+		</f>
+		<haxe_doc>Create a new rest arguments collection by appending `item` to this one.</haxe_doc>
+	</append>
+	<prepend public="1" get="inline" set="null" line="41" static="1">
+		<f a="this:item">
+			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+			<c path="haxe.Rest.T"/>
+			<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+		</f>
+		<haxe_doc>Create a new rest arguments collection by prepending this one with `item`.</haxe_doc>
+	</prepend>
+	<meta><m n=":coreApi"/></meta>
+</class></impl>
+	</abstract>
+	<class path="haxe._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/php/_std/haxe/Rest.hx" private="1" module="haxe.Rest" final="1">
+		<length public="1" get="accessor" set="null" static="1">
+			<x path="Int"/>
+			<haxe_doc>Amount of arguments passed as rest arguments</haxe_doc>
+		</length>
+		<get_length get="inline" set="null" line="14" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<x path="Int"/>
+</f></get_length>
+		<of public="1" params="T" get="inline" set="null" line="18" static="1">
+			<f a="array">
+				<c path="Array"><c path="of.T"/></c>
+				<x path="haxe.Rest"><c path="of.T"/></x>
+			</f>
+			<meta><m n=":from"/></meta>
+			<haxe_doc>Create rest arguments using contents of `array`.
+
+		WARNING:
+		Depending on a target platform modifying `array` after using this method
+		may affect the created `Rest` instance.
+		Use `Rest.of(array.copy())` to avoid that.</haxe_doc>
+		</of>
+		<_new get="inline" set="null" line="20" static="1">
+			<f a="a">
+				<x path="php.NativeIndexedArray"><c path="haxe.Rest.T"/></x>
+				<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</_new>
+		<get get="inline" set="null" line="24" static="1">
+			<f a="this:index">
+				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+				<x path="Int"/>
+				<c path="haxe.Rest.T"/>
+			</f>
+			<meta><m n=":arrayAccess"/></meta>
+		</get>
+		<toArray public="1" get="inline" set="null" line="27" static="1">
+			<f a="this">
+				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+				<c path="Array"><c path="haxe.Rest.T"/></c>
+			</f>
+			<meta><m n=":to"/></meta>
+			<haxe_doc>Creates an array containing all the values of rest arguments.</haxe_doc>
+		</toArray>
+		<iterator public="1" get="inline" set="null" line="30" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.iterators.RestIterator"><c path="haxe.Rest.T"/></c>
+</f></iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="33" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.iterators.RestKeyValueIterator"><c path="haxe.Rest.T"/></c>
+</f></keyValueIterator>
+		<append public="1" get="inline" set="null" line="35" static="1">
+			<f a="this:item">
+				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+				<c path="haxe.Rest.T"/>
+				<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+			</f>
+			<haxe_doc>Create a new rest arguments collection by appending `item` to this one.</haxe_doc>
+		</append>
+		<prepend public="1" get="inline" set="null" line="41" static="1">
+			<f a="this:item">
+				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+				<c path="haxe.Rest.T"/>
+				<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+			</f>
+			<haxe_doc>Create a new rest arguments collection by prepending this one with `item`.</haxe_doc>
+		</prepend>
 		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="haxe.Serializer" params="" file="/home/runner/work/haxe/haxe/std/haxe/Serializer.hx">
@@ -19847,18 +19999,16 @@
 		<impl><class path="haxe.extern._EitherType.EitherType_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/extern/EitherType.hx" private="1" module="haxe.extern.EitherType" extern="1" final="1"/></impl>
 	</abstract>
 	<class path="haxe.extern._EitherType.EitherType_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/extern/EitherType.hx" private="1" module="haxe.extern.EitherType" extern="1" final="1"/>
-	<abstract path="haxe.extern.Rest" params="T" file="/home/runner/work/haxe/haxe/std/haxe/extern/Rest.hx">
-		<this><c path="Array"><c path="haxe.extern.Rest.T"/></c></this>
-		<haxe_doc><![CDATA[A special abstract type that represents "rest" function argument.
-
+	<typedef path="haxe.extern.Rest" params="T" file="/home/runner/work/haxe/haxe/std/haxe/extern/Rest.hx">
+		<x path="haxe.Rest"><c path="haxe.extern.Rest.T"/></x>
+		<haxe_doc><![CDATA[DEPRECATED: use haxe.Rest instead.
+	
+	A special type that represents "rest" function argument.
 	Should be used as a type for the last argument of an extern method,
 	representing that arbitrary number of arguments of given type can be
 	passed to that method.
-
 	@see <https://haxe.org/manual/lf-externs.html>]]></haxe_doc>
-		<impl><class path="haxe.extern._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/extern/Rest.hx" private="1" module="haxe.extern.Rest" extern="1" final="1"/></impl>
-	</abstract>
-	<class path="haxe.extern._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/extern/Rest.hx" private="1" module="haxe.extern.Rest" extern="1" final="1"/>
+	</typedef>
 	<class path="haxe.format.JsonParser" params="" file="/home/runner/work/haxe/haxe/std/php/_std/haxe/format/JsonParser.hx">
 		<parse public="1" get="inline" set="null" line="32" static="1"><f a="str">
 	<c path="String"/>
@@ -28571,6 +28721,41 @@
 	<e>"dynamic_read.keyValueIterator"</e>
 </m></meta>
 	</class>
+	<class path="haxe.iterators.RestIterator" params="T" file="/home/runner/work/haxe/haxe/std/haxe/iterators/RestIterator.hx">
+		<args final="1"><x path="haxe.Rest"><c path="haxe.iterators.RestIterator.T"/></x></args>
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<hasNext public="1" get="inline" set="null" line="12"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="16"><f a=""><c path="haxe.iterators.RestIterator.T"/></f></next>
+		<new get="inline" set="null" line="8">
+			<f a="args">
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":allow"><e>haxe.Rest</e></m></meta>
+		</new>
+	</class>
+	<class path="haxe.iterators.RestKeyValueIterator" params="T" file="/home/runner/work/haxe/haxe/std/haxe/iterators/RestKeyValueIterator.hx">
+		<args final="1"><x path="haxe.Rest"><c path="haxe.iterators.RestKeyValueIterator.T"/></x></args>
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<hasNext public="1" get="inline" set="null" line="12"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="16"><f a=""><a>
+	<value><c path="haxe.iterators.RestKeyValueIterator.T"/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new get="inline" set="null" line="8">
+			<f a="args">
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":allow"><e>haxe.Rest</e></m></meta>
+		</new>
+	</class>
 	<class path="haxe.iterators.StringIterator" params="" file="/home/runner/work/haxe/haxe/std/haxe/iterators/StringIterator.hx">
 		<offset expr="0">
 			<x path="Int"/>
@@ -28863,7 +29048,7 @@
 		<to><icast><c path="String"/></icast></to>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1" final="1">
-	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="508" static="1">
+	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="510" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "top"</e></m>
@@ -28872,7 +29057,7 @@
 		</meta>
 		<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 	</Top>
-	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="515" static="1">
+	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="517" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "closure"</e></m>
@@ -28883,7 +29068,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 	</Closure>
-	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="520" static="1">
+	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="522" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "inline"</e></m>
@@ -28896,7 +29081,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1" final="1">
-		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="508" static="1">
+		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="510" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "top"</e></m>
@@ -28905,7 +29090,7 @@
 			</meta>
 			<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 		</Top>
-		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="515" static="1">
+		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="517" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "closure"</e></m>
@@ -28916,7 +29101,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 		</Closure>
-		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="520" static="1">
+		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="522" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "inline"</e></m>
@@ -29204,6 +29389,7 @@
 		<OpNot><haxe_doc>`!`</haxe_doc></OpNot>
 		<OpNeg><haxe_doc>`-`</haxe_doc></OpNeg>
 		<OpNegBits><haxe_doc>`~`</haxe_doc></OpNegBits>
+		<OpSpread><haxe_doc>`...`</haxe_doc></OpSpread>
 		<haxe_doc>A unary operator.
 	@see https://haxe.org/manual/types-numeric-operators.html</haxe_doc>
 		<meta><m n=":flatEnum"/></meta>
@@ -29825,7 +30011,7 @@
 			<t path="haxe.macro.Position"/>
 			<haxe_doc>The position of the error.</haxe_doc>
 		</pos>
-		<new public="1" set="method" line="995">
+		<new public="1" set="method" line="1000">
 			<f a="message:pos:?previous">
 				<c path="String"/>
 				<t path="haxe.macro.Position"/>
@@ -30164,95 +30350,95 @@
 	<e path="haxe.macro.Unop"/>
 	<c path="String"/>
 </f></printUnop>
-		<printBinop public="1" set="method" line="53"><f a="op">
+		<printBinop public="1" set="method" line="54"><f a="op">
 	<e path="haxe.macro.Binop"/>
 	<c path="String"/>
 </f></printBinop>
-		<escapeString set="method" line="81"><f a="s:delim">
+		<escapeString set="method" line="82"><f a="s:delim">
 	<c path="String"/>
 	<c path="String"/>
 	<c path="String"/>
 </f></escapeString>
-		<printFormatString public="1" set="method" line="90"><f a="s">
+		<printFormatString public="1" set="method" line="91"><f a="s">
 	<c path="String"/>
 	<c path="String"/>
 </f></printFormatString>
-		<printString public="1" set="method" line="94"><f a="s">
+		<printString public="1" set="method" line="95"><f a="s">
 	<c path="String"/>
 	<c path="String"/>
 </f></printString>
-		<printConstant public="1" set="method" line="99"><f a="c">
+		<printConstant public="1" set="method" line="100"><f a="c">
 	<e path="haxe.macro.Constant"/>
 	<c path="String"/>
 </f></printConstant>
-		<printTypeParam public="1" set="method" line="108"><f a="param">
+		<printTypeParam public="1" set="method" line="109"><f a="param">
 	<e path="haxe.macro.TypeParam"/>
 	<c path="String"/>
 </f></printTypeParam>
-		<printTypePath public="1" set="method" line="114"><f a="tp">
+		<printTypePath public="1" set="method" line="115"><f a="tp">
 	<t path="haxe.macro.TypePath"/>
 	<c path="String"/>
 </f></printTypePath>
-		<printComplexType public="1" set="method" line="121"><f a="ct">
+		<printComplexType public="1" set="method" line="122"><f a="ct">
 	<e path="haxe.macro.ComplexType"/>
 	<c path="String"/>
 </f></printComplexType>
-		<printMetadata public="1" set="method" line="149"><f a="meta">
+		<printMetadata public="1" set="method" line="150"><f a="meta">
 	<t path="haxe.macro.MetadataEntry"/>
 	<c path="String"/>
 </f></printMetadata>
-		<printAccess public="1" set="method" line="152"><f a="access">
+		<printAccess public="1" set="method" line="153"><f a="access">
 	<e path="haxe.macro.Access"/>
 	<c path="String"/>
 </f></printAccess>
-		<printField public="1" set="method" line="166"><f a="field">
+		<printField public="1" set="method" line="167"><f a="field">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printField>
-		<printTypeParamDecl public="1" set="method" line="191"><f a="tpd">
+		<printTypeParamDecl public="1" set="method" line="192"><f a="tpd">
 	<t path="haxe.macro.TypeParamDecl"/>
 	<c path="String"/>
 </f></printTypeParamDecl>
-		<printFunctionArg public="1" set="method" line="197"><f a="arg">
+		<printFunctionArg public="1" set="method" line="198"><f a="arg">
 	<t path="haxe.macro.FunctionArg"/>
 	<c path="String"/>
 </f></printFunctionArg>
-		<printFunction public="1" set="method" line="199"><f a="func:?kind">
+		<printFunction public="1" set="method" line="200"><f a="func:?kind">
 	<t path="haxe.macro.Function"/>
 	<e path="haxe.macro.FunctionKind"/>
 	<c path="String"/>
 </f></printFunction>
-		<printVar public="1" set="method" line="213"><f a="v">
+		<printVar public="1" set="method" line="214"><f a="v">
 	<t path="haxe.macro.Var"/>
 	<c path="String"/>
 </f></printVar>
-		<printObjectFieldKey public="1" set="method" line="221"><f a="of">
+		<printObjectFieldKey public="1" set="method" line="222"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectFieldKey>
-		<printObjectField public="1" set="method" line="228"><f a="of">
+		<printObjectField public="1" set="method" line="229"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectField>
-		<printExpr public="1" set="method" line="233"><f a="e">
+		<printExpr public="1" set="method" line="234"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExpr>
-		<printExprs public="1" set="method" line="290"><f a="el:sep">
+		<printExprs public="1" set="method" line="291"><f a="el:sep">
 	<c path="Array"><t path="haxe.macro.Expr"/></c>
 	<c path="String"/>
 	<c path="String"/>
 </f></printExprs>
-		<printExtension set="method" line="294"><f a="tpl:fields">
+		<printExtension set="method" line="295"><f a="tpl:fields">
 	<c path="Array"><t path="haxe.macro.TypePath"/></c>
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printExtension>
-		<printStructure set="method" line="301"><f a="fields">
+		<printStructure set="method" line="302"><f a="fields">
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printStructure>
-		<printTypeDefinition public="1" set="method" line="305">
+		<printTypeDefinition public="1" set="method" line="306">
 			<f a="t:?printPackage" v=":true">
 				<t path="haxe.macro.TypeDefinition"/>
 				<x path="Bool"/>
@@ -30260,11 +30446,11 @@
 			</f>
 			<meta><m n=":value"><e>{ printPackage : true }</e></m></meta>
 		</printTypeDefinition>
-		<printFieldWithDelimiter set="method" line="406"><f a="f">
+		<printFieldWithDelimiter set="method" line="407"><f a="f">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printFieldWithDelimiter>
-		<opt params="T" set="method" line="417">
+		<opt params="T" set="method" line="418">
 			<f a="v:f:?prefix" v="::&quot;&quot;">
 				<c path="opt.T"/>
 				<f a="">
@@ -30276,7 +30462,7 @@
 			</f>
 			<meta><m n=":value"><e>{ prefix : "" }</e></m></meta>
 		</opt>
-		<printExprWithPositions public="1" set="method" line="419"><f a="e">
+		<printExprWithPositions public="1" set="method" line="420"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExprWithPositions>
@@ -30498,6 +30684,10 @@
 				<x path="Bool"/>
 				<haxe_doc>Whether or not the class field is extern.</haxe_doc>
 			</isExtern>
+			<isAbstract>
+				<x path="Bool"/>
+				<haxe_doc>Whether or not the class field is abstract.</haxe_doc>
+			</isAbstract>
 			<expr set="method">
 				<f a=""><x path="Null"><t path="haxe.macro.TypedExpr"/></x></f>
 				<haxe_doc>Returns the typed expression of the class field.</haxe_doc>
@@ -30682,6 +30872,10 @@
 				<x path="Bool"/>
 				<haxe_doc>Whether or not the type is extern.</haxe_doc>
 			</isExtern>
+			<isAbstract>
+				<x path="Bool"/>
+				<haxe_doc>If true the class is abstract and cannot be instantiated directly.</haxe_doc>
+			</isAbstract>
 			<interfaces>
 				<c path="Array"><a>
 	<t><t path="haxe.macro.Ref"><t path="haxe.macro.ClassType"/></t></t>
@@ -34428,7 +34622,7 @@
 		</bindTo>
 		<call public="1" set="method"><f a="newthis:args">
 	<a/>
-	<x path="haxe.extern.Rest"><d/></x>
+	<t path="haxe.extern.Rest"><d/></t>
 	<d/>
 </f></call>
 		<haxe_doc>@see http://php.net/manual/en/class.closure.php</haxe_doc>
@@ -37041,12 +37235,12 @@
 		<bind_param public="1" set="method"><f a="types:var1:args">
 	<c path="String"/>
 	<t path="php.Ref"><d/></t>
-	<x path="haxe.extern.Rest"><t path="php.Ref"><d/></t></x>
+	<t path="haxe.extern.Rest"><t path="php.Ref"><d/></t></t>
 	<x path="Bool"/>
 </f></bind_param>
 		<bind_result public="1" set="method"><f a="var1:args">
 	<t path="php.Ref"><d/></t>
-	<x path="haxe.extern.Rest"><t path="php.Ref"><d/></t></x>
+	<t path="haxe.extern.Rest"><t path="php.Ref"><d/></t></t>
 	<x path="Bool"/>
 </f></bind_result>
 		<close public="1" set="method"><f a=""><x path="Bool"/></f></close>
@@ -37982,7 +38176,7 @@
 		<isTrait public="1" set="method"><f a=""><x path="Bool"/></f></isTrait>
 		<isUserDefined public="1" set="method"><f a=""><x path="Bool"/></f></isUserDefined>
 		<newInstance public="1" set="method"><f a="args">
-	<x path="haxe.extern.Rest"><d/></x>
+	<t path="haxe.extern.Rest"><d/></t>
 	<d/>
 </f></newInstance>
 		<newInstanceArgs public="1" set="method"><f a="?args">
@@ -38077,7 +38271,7 @@
 		<getPrototype public="1" set="method"><f a=""><c path="php.reflection.ReflectionMethod"/></f></getPrototype>
 		<invoke public="1" set="method"><f a="object:args">
 	<a/>
-	<x path="haxe.extern.Rest"><d/></x>
+	<t path="haxe.extern.Rest"><d/></t>
 	<d/>
 </f></invoke>
 		<invokeArgs public="1" set="method"><f a="object:args">

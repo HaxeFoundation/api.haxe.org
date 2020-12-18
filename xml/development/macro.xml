@@ -17759,6 +17759,162 @@
 	A list of all available resource names can be obtained from `listNames()`.</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
+	<typedef path="haxe._Rest.NativeRest" params="T" file="/home/runner/work/haxe/haxe/std/haxe/Rest.hx" private="1" module="haxe.Rest"><c path="Array"><c path="haxe._Rest.NativeRest.T"/></c></typedef>
+	<abstract path="haxe.Rest" params="T" file="/home/runner/work/haxe/haxe/std/haxe/Rest.hx">
+		<from><icast field="of"><c path="Array"><c path="of.T"/></c></icast></from>
+		<this><t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t></this>
+		<to><icast field="toArray"><c path="Array"><c path="haxe.Rest.T"/></c></icast></to>
+		<haxe_doc>A special type that represents "rest" function argument.
+
+	Should be used as a type for the last argument of a method, representing that
+	arbitrary number of arguments of given type can be passed to that method.
+
+	Allows to use array access by index to get values of rest arguments.
+	If the index exceeds the amount of rest arguments passed, the result is unspecified.</haxe_doc>
+		<meta><m n=":coreApi"/></meta>
+		<impl><class path="haxe._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/Rest.hx" private="1" module="haxe.Rest" final="1">
+	<length public="1" get="accessor" set="null" static="1">
+		<x path="Int"/>
+		<haxe_doc>Amount of arguments passed as rest arguments</haxe_doc>
+	</length>
+	<get_length get="inline" set="null" line="22" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<x path="Int"/>
+</f></get_length>
+	<of public="1" params="T" get="inline" set="null" line="33" static="1">
+		<f a="array">
+			<c path="Array"><c path="of.T"/></c>
+			<x path="haxe.Rest"><c path="of.T"/></x>
+		</f>
+		<meta><m n=":from"/></meta>
+		<haxe_doc>Create rest arguments using contents of `array`.
+
+		WARNING:
+		Depending on a target platform modifying `array` after using this method
+		may affect the created `Rest` instance.
+		Use `Rest.of(array.copy())` to avoid that.</haxe_doc>
+	</of>
+	<_new get="inline" set="null" line="35" static="1">
+		<f a="array">
+			<c path="Array"><c path="haxe.Rest.T"/></c>
+			<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+		</f>
+		<meta><m n=":noCompletion"/></meta>
+	</_new>
+	<get get="inline" set="null" line="39" static="1">
+		<f a="this:index">
+			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+			<x path="Int"/>
+			<c path="haxe.Rest.T"/>
+		</f>
+		<meta><m n=":arrayAccess"/></meta>
+	</get>
+	<toArray public="1" get="inline" set="null" line="45" static="1">
+		<f a="this">
+			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+			<c path="Array"><c path="haxe.Rest.T"/></c>
+		</f>
+		<meta><m n=":to"/></meta>
+		<haxe_doc>Creates an array containing all the values of rest arguments.</haxe_doc>
+	</toArray>
+	<iterator public="1" get="inline" set="null" line="48" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.iterators.RestIterator"><c path="haxe.Rest.T"/></c>
+</f></iterator>
+	<keyValueIterator public="1" get="inline" set="null" line="51" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.iterators.RestKeyValueIterator"><c path="haxe.Rest.T"/></c>
+</f></keyValueIterator>
+	<append public="1" set="method" line="56" static="1">
+		<f a="this:item">
+			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+			<c path="haxe.Rest.T"/>
+			<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+		</f>
+		<haxe_doc>Create a new rest arguments collection by appending `item` to this one.</haxe_doc>
+	</append>
+	<prepend public="1" set="method" line="65" static="1">
+		<f a="this:item">
+			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+			<c path="haxe.Rest.T"/>
+			<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+		</f>
+		<haxe_doc>Create a new rest arguments collection by prepending this one with `item`.</haxe_doc>
+	</prepend>
+	<meta><m n=":coreApi"/></meta>
+</class></impl>
+	</abstract>
+	<class path="haxe._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/Rest.hx" private="1" module="haxe.Rest" final="1">
+		<length public="1" get="accessor" set="null" static="1">
+			<x path="Int"/>
+			<haxe_doc>Amount of arguments passed as rest arguments</haxe_doc>
+		</length>
+		<get_length get="inline" set="null" line="22" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<x path="Int"/>
+</f></get_length>
+		<of public="1" params="T" get="inline" set="null" line="33" static="1">
+			<f a="array">
+				<c path="Array"><c path="of.T"/></c>
+				<x path="haxe.Rest"><c path="of.T"/></x>
+			</f>
+			<meta><m n=":from"/></meta>
+			<haxe_doc>Create rest arguments using contents of `array`.
+
+		WARNING:
+		Depending on a target platform modifying `array` after using this method
+		may affect the created `Rest` instance.
+		Use `Rest.of(array.copy())` to avoid that.</haxe_doc>
+		</of>
+		<_new get="inline" set="null" line="35" static="1">
+			<f a="array">
+				<c path="Array"><c path="haxe.Rest.T"/></c>
+				<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</_new>
+		<get get="inline" set="null" line="39" static="1">
+			<f a="this:index">
+				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+				<x path="Int"/>
+				<c path="haxe.Rest.T"/>
+			</f>
+			<meta><m n=":arrayAccess"/></meta>
+		</get>
+		<toArray public="1" get="inline" set="null" line="45" static="1">
+			<f a="this">
+				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+				<c path="Array"><c path="haxe.Rest.T"/></c>
+			</f>
+			<meta><m n=":to"/></meta>
+			<haxe_doc>Creates an array containing all the values of rest arguments.</haxe_doc>
+		</toArray>
+		<iterator public="1" get="inline" set="null" line="48" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.iterators.RestIterator"><c path="haxe.Rest.T"/></c>
+</f></iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="51" static="1"><f a="this">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.iterators.RestKeyValueIterator"><c path="haxe.Rest.T"/></c>
+</f></keyValueIterator>
+		<append public="1" set="method" line="56" static="1">
+			<f a="this:item">
+				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+				<c path="haxe.Rest.T"/>
+				<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+			</f>
+			<haxe_doc>Create a new rest arguments collection by appending `item` to this one.</haxe_doc>
+		</append>
+		<prepend public="1" set="method" line="65" static="1">
+			<f a="this:item">
+				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+				<c path="haxe.Rest.T"/>
+				<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+			</f>
+			<haxe_doc>Create a new rest arguments collection by prepending this one with `item`.</haxe_doc>
+		</prepend>
+		<meta><m n=":coreApi"/></meta>
+	</class>
 	<class path="haxe.Serializer" params="" file="/home/runner/work/haxe/haxe/std/haxe/Serializer.hx">
 		<USE_CACHE public="1" expr="false" line="57" static="1">
 			<x path="Bool"/>
@@ -26504,18 +26660,16 @@
 		<impl><class path="haxe.extern._EitherType.EitherType_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/extern/EitherType.hx" private="1" module="haxe.extern.EitherType" extern="1" final="1"/></impl>
 	</abstract>
 	<class path="haxe.extern._EitherType.EitherType_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/extern/EitherType.hx" private="1" module="haxe.extern.EitherType" extern="1" final="1"/>
-	<abstract path="haxe.extern.Rest" params="T" file="/home/runner/work/haxe/haxe/std/haxe/extern/Rest.hx">
-		<this><c path="Array"><c path="haxe.extern.Rest.T"/></c></this>
-		<haxe_doc><![CDATA[A special abstract type that represents "rest" function argument.
-
+	<typedef path="haxe.extern.Rest" params="T" file="/home/runner/work/haxe/haxe/std/haxe/extern/Rest.hx">
+		<x path="haxe.Rest"><c path="haxe.extern.Rest.T"/></x>
+		<haxe_doc><![CDATA[DEPRECATED: use haxe.Rest instead.
+	
+	A special type that represents "rest" function argument.
 	Should be used as a type for the last argument of an extern method,
 	representing that arbitrary number of arguments of given type can be
 	passed to that method.
-
 	@see <https://haxe.org/manual/lf-externs.html>]]></haxe_doc>
-		<impl><class path="haxe.extern._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/extern/Rest.hx" private="1" module="haxe.extern.Rest" extern="1" final="1"/></impl>
-	</abstract>
-	<class path="haxe.extern._Rest.Rest_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/extern/Rest.hx" private="1" module="haxe.extern.Rest" extern="1" final="1"/>
+	</typedef>
 	<class path="haxe.format.JsonParser" params="" file="/home/runner/work/haxe/haxe/std/haxe/format/JsonParser.hx">
 		<parse public="1" get="inline" set="null" line="44" static="1">
 			<f a="str">
@@ -35115,6 +35269,41 @@
 	<e>"dynamic_read.keyValueIterator"</e>
 </m></meta>
 	</class>
+	<class path="haxe.iterators.RestIterator" params="T" file="/home/runner/work/haxe/haxe/std/haxe/iterators/RestIterator.hx">
+		<args final="1"><x path="haxe.Rest"><c path="haxe.iterators.RestIterator.T"/></x></args>
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<hasNext public="1" get="inline" set="null" line="12"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="16"><f a=""><c path="haxe.iterators.RestIterator.T"/></f></next>
+		<new get="inline" set="null" line="8">
+			<f a="args">
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":allow"><e>haxe.Rest</e></m></meta>
+		</new>
+	</class>
+	<class path="haxe.iterators.RestKeyValueIterator" params="T" file="/home/runner/work/haxe/haxe/std/haxe/iterators/RestKeyValueIterator.hx">
+		<args final="1"><x path="haxe.Rest"><c path="haxe.iterators.RestKeyValueIterator.T"/></x></args>
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<hasNext public="1" get="inline" set="null" line="12"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="16"><f a=""><a>
+	<value><c path="haxe.iterators.RestKeyValueIterator.T"/></value>
+	<key><x path="Int"/></key>
+</a></f></next>
+		<new get="inline" set="null" line="8">
+			<f a="args">
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":allow"><e>haxe.Rest</e></m></meta>
+		</new>
+	</class>
 	<class path="haxe.iterators.StringIterator" params="" file="/home/runner/work/haxe/haxe/std/haxe/iterators/StringIterator.hx">
 		<offset expr="0">
 			<x path="Int"/>
@@ -35560,7 +35749,7 @@
 			</f>
 			<haxe_doc>Adds an argument to be passed to the native compiler (e.g. `-javac-arg` for Java).</haxe_doc>
 		</addNativeArg>
-		<include public="1" set="method" line="202" static="1">
+		<include public="1" set="method" line="203" static="1">
 			<f a="pack:?rec:?ignore:?classPaths:?strict" v=":true:::false">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -35579,6 +35768,7 @@
 		If you want to specify a different set of paths to search for modules, you can use the optional
 		argument `classPath`.
 
+		@param pack The package dot-path as String. Use `''` to include the root package.
 		@param rec If true, recursively adds all sub-packages.
 		@param ignore Array of module names to ignore for inclusion.
 			   You can use `module*` with a * at the end for Wildcard matching
@@ -35586,14 +35776,14 @@
 			   Note that if you pass this argument, only the specified paths will be used for inclusion.
 		@param strict If true and given package wasn't found in any of class paths, fail with an error.</haxe_doc>
 		</include>
-		<excludeBaseType set="method" line="271" static="1">
+		<excludeBaseType set="method" line="272" static="1">
 			<f a="baseType">
 				<t path="haxe.macro.BaseType"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Exclude a class or an enum without changing it to `@:nativeGen`.</haxe_doc>
 		</excludeBaseType>
-		<exclude public="1" set="method" line="287" static="1">
+		<exclude public="1" set="method" line="289" static="1">
 			<f a="pack:?rec" v=":true">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -35603,23 +35793,24 @@
 			<haxe_doc>Exclude a specific class, enum, or all classes and enums in a
 		package from being generated. Excluded types become `extern`.
 
+		@param pack The package dot-path as String. Use `''` to exclude the root package.
 		@param rec If true, recursively excludes all sub-packages.</haxe_doc>
 		</exclude>
-		<excludeFile public="1" set="method" line="311" static="1">
+		<excludeFile public="1" set="method" line="313" static="1">
 			<f a="fileName">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Exclude classes and enums listed in an extern file (one per line) from being generated.</haxe_doc>
 		</excludeFile>
-		<patchTypes public="1" set="method" line="341" static="1">
+		<patchTypes public="1" set="method" line="343" static="1">
 			<f a="file">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Load a type patch file that can modify the field types within declared classes and enums.</haxe_doc>
 		</patchTypes>
-		<keep public="1" set="method" line="409" static="1">
+		<keep public="1" set="method" line="411" static="1">
 			<f a="?path:?paths:?recursive" v="::true">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -35642,7 +35833,7 @@
 		@param paths An Array of package, module or sub-type dot paths to keep.
 		@param recursive If true, recurses into sub-packages for package paths.</haxe_doc>
 		</keep>
-		<nullSafety public="1" set="method" line="425" static="1">
+		<nullSafety public="1" set="method" line="427" static="1">
 			<f a="path:?mode:?recursive" v=":Loose:true">
 				<c path="String"/>
 				<x path="haxe.macro.NullSafetyMode"/>
@@ -35655,7 +35846,7 @@
 		@param path A package, module or sub-type dot path to enable null safety for.
 		@param recursive If true, recurses into sub-packages for package paths.</haxe_doc>
 		</nullSafety>
-		<addGlobalMetadata public="1" set="method" line="443" static="1">
+		<addGlobalMetadata public="1" set="method" line="445" static="1">
 			<f a="pathFilter:meta:?recursive:?toTypes:?toFields" v="::true:true:false">
 				<c path="String"/>
 				<c path="String"/>
@@ -35678,7 +35869,7 @@
 		This operation has no effect if the type has already been loaded, e.g.
 		through `Context.getType`.</haxe_doc>
 		</addGlobalMetadata>
-		<setCustomJSGenerator public="1" set="method" line="454" static="1">
+		<setCustomJSGenerator public="1" set="method" line="456" static="1">
 			<f a="callb">
 				<f a="">
 					<t path="haxe.macro.JSGenApi"/>
@@ -35688,16 +35879,16 @@
 			</f>
 			<haxe_doc>Change the default JS output by using a custom generator callback</haxe_doc>
 		</setCustomJSGenerator>
-		<load get="inline" set="null" line="461" static="1"><f a="f:nargs">
+		<load get="inline" set="null" line="463" static="1"><f a="f:nargs">
 	<c path="String"/>
 	<x path="Int"/>
 	<d/>
 </f></load>
-		<flushDiskCache public="1" set="method" line="469" static="1">
+		<flushDiskCache public="1" set="method" line="471" static="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Clears cached results of file lookups</haxe_doc>
 		</flushDiskCache>
-		<includeFile public="1" set="method" line="481" static="1">
+		<includeFile public="1" set="method" line="483" static="1">
 			<f a="file:?position" v=":Top">
 				<c path="String"/>
 				<x path="haxe.macro.IncludePosition"/>
@@ -35717,7 +35908,7 @@
 		<to><icast><c path="String"/></icast></to>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1" final="1">
-	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="508" static="1">
+	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="510" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "top"</e></m>
@@ -35726,7 +35917,7 @@
 		</meta>
 		<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 	</Top>
-	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="515" static="1">
+	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="517" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "closure"</e></m>
@@ -35737,7 +35928,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 	</Closure>
-	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="520" static="1">
+	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="522" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "inline"</e></m>
@@ -35750,7 +35941,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1" final="1">
-		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="508" static="1">
+		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="510" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "top"</e></m>
@@ -35759,7 +35950,7 @@
 			</meta>
 			<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 		</Top>
-		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="515" static="1">
+		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="517" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "closure"</e></m>
@@ -35770,7 +35961,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 		</Closure>
-		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="520" static="1">
+		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="522" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "inline"</e></m>
@@ -36744,6 +36935,7 @@
 		<OpNot><haxe_doc>`!`</haxe_doc></OpNot>
 		<OpNeg><haxe_doc>`-`</haxe_doc></OpNeg>
 		<OpNegBits><haxe_doc>`~`</haxe_doc></OpNegBits>
+		<OpSpread><haxe_doc>`...`</haxe_doc></OpSpread>
 		<haxe_doc>A unary operator.
 	@see https://haxe.org/manual/types-numeric-operators.html</haxe_doc>
 		<meta><m n=":flatEnum"/></meta>
@@ -37365,7 +37557,7 @@
 			<t path="haxe.macro.Position"/>
 			<haxe_doc>The position of the error.</haxe_doc>
 		</pos>
-		<new public="1" set="method" line="995">
+		<new public="1" set="method" line="1000">
 			<f a="message:pos:?previous">
 				<c path="String"/>
 				<t path="haxe.macro.Position"/>
@@ -37743,95 +37935,95 @@
 	<e path="haxe.macro.Unop"/>
 	<c path="String"/>
 </f></printUnop>
-		<printBinop public="1" set="method" line="53"><f a="op">
+		<printBinop public="1" set="method" line="54"><f a="op">
 	<e path="haxe.macro.Binop"/>
 	<c path="String"/>
 </f></printBinop>
-		<escapeString set="method" line="81"><f a="s:delim">
+		<escapeString set="method" line="82"><f a="s:delim">
 	<c path="String"/>
 	<c path="String"/>
 	<c path="String"/>
 </f></escapeString>
-		<printFormatString public="1" set="method" line="90"><f a="s">
+		<printFormatString public="1" set="method" line="91"><f a="s">
 	<c path="String"/>
 	<c path="String"/>
 </f></printFormatString>
-		<printString public="1" set="method" line="94"><f a="s">
+		<printString public="1" set="method" line="95"><f a="s">
 	<c path="String"/>
 	<c path="String"/>
 </f></printString>
-		<printConstant public="1" set="method" line="99"><f a="c">
+		<printConstant public="1" set="method" line="100"><f a="c">
 	<e path="haxe.macro.Constant"/>
 	<c path="String"/>
 </f></printConstant>
-		<printTypeParam public="1" set="method" line="108"><f a="param">
+		<printTypeParam public="1" set="method" line="109"><f a="param">
 	<e path="haxe.macro.TypeParam"/>
 	<c path="String"/>
 </f></printTypeParam>
-		<printTypePath public="1" set="method" line="114"><f a="tp">
+		<printTypePath public="1" set="method" line="115"><f a="tp">
 	<t path="haxe.macro.TypePath"/>
 	<c path="String"/>
 </f></printTypePath>
-		<printComplexType public="1" set="method" line="121"><f a="ct">
+		<printComplexType public="1" set="method" line="122"><f a="ct">
 	<e path="haxe.macro.ComplexType"/>
 	<c path="String"/>
 </f></printComplexType>
-		<printMetadata public="1" set="method" line="149"><f a="meta">
+		<printMetadata public="1" set="method" line="150"><f a="meta">
 	<t path="haxe.macro.MetadataEntry"/>
 	<c path="String"/>
 </f></printMetadata>
-		<printAccess public="1" set="method" line="152"><f a="access">
+		<printAccess public="1" set="method" line="153"><f a="access">
 	<e path="haxe.macro.Access"/>
 	<c path="String"/>
 </f></printAccess>
-		<printField public="1" set="method" line="166"><f a="field">
+		<printField public="1" set="method" line="167"><f a="field">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printField>
-		<printTypeParamDecl public="1" set="method" line="191"><f a="tpd">
+		<printTypeParamDecl public="1" set="method" line="192"><f a="tpd">
 	<t path="haxe.macro.TypeParamDecl"/>
 	<c path="String"/>
 </f></printTypeParamDecl>
-		<printFunctionArg public="1" set="method" line="197"><f a="arg">
+		<printFunctionArg public="1" set="method" line="198"><f a="arg">
 	<t path="haxe.macro.FunctionArg"/>
 	<c path="String"/>
 </f></printFunctionArg>
-		<printFunction public="1" set="method" line="199"><f a="func:?kind">
+		<printFunction public="1" set="method" line="200"><f a="func:?kind">
 	<t path="haxe.macro.Function"/>
 	<e path="haxe.macro.FunctionKind"/>
 	<c path="String"/>
 </f></printFunction>
-		<printVar public="1" set="method" line="213"><f a="v">
+		<printVar public="1" set="method" line="214"><f a="v">
 	<t path="haxe.macro.Var"/>
 	<c path="String"/>
 </f></printVar>
-		<printObjectFieldKey public="1" set="method" line="221"><f a="of">
+		<printObjectFieldKey public="1" set="method" line="222"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectFieldKey>
-		<printObjectField public="1" set="method" line="228"><f a="of">
+		<printObjectField public="1" set="method" line="229"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectField>
-		<printExpr public="1" set="method" line="233"><f a="e">
+		<printExpr public="1" set="method" line="234"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExpr>
-		<printExprs public="1" set="method" line="290"><f a="el:sep">
+		<printExprs public="1" set="method" line="291"><f a="el:sep">
 	<c path="Array"><t path="haxe.macro.Expr"/></c>
 	<c path="String"/>
 	<c path="String"/>
 </f></printExprs>
-		<printExtension set="method" line="294"><f a="tpl:fields">
+		<printExtension set="method" line="295"><f a="tpl:fields">
 	<c path="Array"><t path="haxe.macro.TypePath"/></c>
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printExtension>
-		<printStructure set="method" line="301"><f a="fields">
+		<printStructure set="method" line="302"><f a="fields">
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printStructure>
-		<printTypeDefinition public="1" set="method" line="305">
+		<printTypeDefinition public="1" set="method" line="306">
 			<f a="t:?printPackage" v=":true">
 				<t path="haxe.macro.TypeDefinition"/>
 				<x path="Bool"/>
@@ -37839,11 +38031,11 @@
 			</f>
 			<meta><m n=":value"><e>{ printPackage : true }</e></m></meta>
 		</printTypeDefinition>
-		<printFieldWithDelimiter set="method" line="406"><f a="f">
+		<printFieldWithDelimiter set="method" line="407"><f a="f">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printFieldWithDelimiter>
-		<opt params="T" set="method" line="417">
+		<opt params="T" set="method" line="418">
 			<f a="v:f:?prefix" v="::&quot;&quot;">
 				<c path="opt.T"/>
 				<f a="">
@@ -37855,7 +38047,7 @@
 			</f>
 			<meta><m n=":value"><e>{ prefix : "" }</e></m></meta>
 		</opt>
-		<printExprWithPositions public="1" set="method" line="419"><f a="e">
+		<printExprWithPositions public="1" set="method" line="420"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExprWithPositions>
@@ -38077,6 +38269,10 @@
 				<x path="Bool"/>
 				<haxe_doc>Whether or not the class field is extern.</haxe_doc>
 			</isExtern>
+			<isAbstract>
+				<x path="Bool"/>
+				<haxe_doc>Whether or not the class field is abstract.</haxe_doc>
+			</isAbstract>
 			<expr set="method">
 				<f a=""><x path="Null"><t path="haxe.macro.TypedExpr"/></x></f>
 				<haxe_doc>Returns the typed expression of the class field.</haxe_doc>
@@ -38261,6 +38457,10 @@
 				<x path="Bool"/>
 				<haxe_doc>Whether or not the type is extern.</haxe_doc>
 			</isExtern>
+			<isAbstract>
+				<x path="Bool"/>
+				<haxe_doc>If true the class is abstract and cannot be instantiated directly.</haxe_doc>
+			</isAbstract>
 			<interfaces>
 				<c path="Array"><a>
 	<t><t path="haxe.macro.Ref"><t path="haxe.macro.ClassType"/></t></t>
