@@ -9337,6 +9337,43 @@
 		</postDecrement>
 		<meta><m n=":hxGen"/></meta>
 	</class>
+	<class path="cs.Syntax" params="" file="/home/runner/work/haxe/haxe/std/cs/Syntax.hx" extern="1">
+		<code public="1" set="method" static="1">
+			<f a="code:args">
+				<c path="String"/>
+				<x path="haxe.Rest"><d/></x>
+				<d/>
+			</f>
+			<haxe_doc>Inject `code` directly into generated source.
+
+		`code` must be a string constant.
+
+		Additional `args` are supported to provide code interpolation, for example:
+		```haxe
+		Syntax.code("System.Console.WriteLine({0} + {1})", "hi", 42);
+		```
+		will generate
+		```haxe
+		System.Console.WriteLine("hi" + 42);
+		```
+
+		Emits a compilation error if the count of `args` does not match the count of placeholders in `code`.</haxe_doc>
+		</code>
+		<plainCode public="1" set="method" static="1">
+			<f a="code">
+				<c path="String"/>
+				<d/>
+			</f>
+			<haxe_doc>Inject `code` directly into generated source.
+		The same as `cs.Syntax.code` except this one does not provide code interpolation.</haxe_doc>
+		</plainCode>
+		<haxe_doc>Generate C# syntax not directly supported by Haxe.
+	Use only at low-level when specific target-specific code-generation is required.</haxe_doc>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":noClosure"/>
+		</meta>
+	</class>
 	<class path="cs.internal.BoxedPointer" params="" file="/home/runner/work/haxe/haxe/std/cs/internal/BoxedPointer.hx">
 		<value public="1" set="null">
 			<x path="cs.Pointer"><d/></x>
