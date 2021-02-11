@@ -19,6 +19,7 @@ class Gen {
     inline static var htmlDir = "html";
     inline static var xmlDir = "xml";
     inline static var xmlTagsDir = "xml/refs/tags";
+    static var skipXmlDirs = ["xml/refs"];
     inline static var themeDir = "theme";
 
     static function requestUrl(url:String):Promise<String> {
@@ -86,11 +87,11 @@ class Gen {
         deleteRecursive(htmlDir);
         createDirectory(htmlDir);
         function generate(dir:String) {
-            for (item in readDirectory(xmlDir)) {
-                var path = Path.join([xmlDir, item]);
-                if (!isDirectory(path))
+            for (item in readDirectory(dir)) {
+                var path = Path.join([dir, item]);
+                if (skipXmlDirs.indexOf(path) >= 0 || !isDirectory(path))
                     continue;
-
+                trace(path);
                 var version = item;
                 var version_long = version;
                 var versionDir, gitRef;
