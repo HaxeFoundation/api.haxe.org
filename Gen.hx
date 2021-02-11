@@ -142,8 +142,8 @@ class Gen {
                 }
             }
         }
-        generate(xmlDir);
         generate(xmlTagsDir);
+        generate(xmlDir);
 
         if (cname != null)
             saveContent(Path.join([htmlDir, "CNAME"]), cname);
