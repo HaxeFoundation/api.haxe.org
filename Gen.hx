@@ -20,7 +20,6 @@ class Gen {
     inline static var xmlDir = "xml";
     inline static var xmlTagsDir = "xml/refs/tags";
     inline static var developmentBranch = "development";
-    static var skipXmlDirs = ["xml/refs"];
     inline static var themeDir = "theme";
 
     static function requestUrl(url:String):Promise<String> {
@@ -90,17 +89,17 @@ class Gen {
         function generate(dir:String) {
             for (item in readDirectory(dir)) {
                 var path = Path.join([dir, item]);
-                if (skipXmlDirs.indexOf(path) >= 0 || !isDirectory(path))
+                if (!isDirectory(path))
                     continue;
                 var version = item;
                 var version_long = version;
                 var versionDir, gitRef;
-                var allowFailure = false;
                 switch(versionInfo.find(function(v) return v.name == version)) {
                     case null: // it is not a release, but a branch
                         gitRef = version;
                         versionDir = versionedPath(gitRef);
-                        allowFailure = version != developmentBranch;
+                        if(version != developmentBranch) 
+                            continue;
                         try {
                             var info:DocInfo = Json.parse(getContent(Path.join([path, "info.json"])));
                             version_long = '${version} @ ${info.commit.substr(0, 7)}';
@@ -129,12 +128,7 @@ class Gen {
                         "-D", "origin", Path.join([origin, versionDir]),
                     ]);
                 }
-                try {
-                    dox(args);
-                } catch(e) {
-                    if(!allowFailure) throw e;
-                }
-
+                dox(args);
                 if (version == latestVersion) {
                     var args = args.concat([
                         "-o", absolutePath(htmlDir),
