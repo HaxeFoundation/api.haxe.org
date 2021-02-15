@@ -47914,6 +47914,425 @@
 		</keyValueIterator>
 		<meta><m n=":hxGen"/></meta>
 	</class>
+	<class path="haxe.ds._Map.Map_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/ds/Map.hx" private="1" module="haxe.ds.Map" final="1">
+		<_new public="1" set="method" static="1">
+			<f a=""><x path="haxe.ds.Map">
+	<c path="haxe.ds.Map.K"/>
+	<c path="haxe.ds.Map.V"/>
+</x></f>
+			<meta><m n=":noCompletion"/></meta>
+			<haxe_doc>Creates a new Map.
+
+		This becomes a constructor call to one of the specialization types in
+		the output. The rules for that are as follows:
+
+		1. if `K` is a `String`, `haxe.ds.StringMap` is used
+		2. if `K` is an `Int`, `haxe.ds.IntMap` is used
+		3. if `K` is an `EnumValue`, `haxe.ds.EnumValueMap` is used
+		4. if `K` is any other class or structure, `haxe.ds.ObjectMap` is used
+		5. if `K` is any other type, it causes a compile-time error
+
+		(Cpp) Map does not use weak keys on `ObjectMap` by default.</haxe_doc>
+		</_new>
+		<set public="1" get="inline" set="null" line="76" static="1">
+			<f a="this:key:value">
+				<c path="haxe.IMap">
+					<c path="haxe.ds.Map.K"/>
+					<c path="haxe.ds.Map.V"/>
+				</c>
+				<c path="haxe.ds.Map.K"/>
+				<c path="haxe.ds.Map.V"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Maps `key` to `value`.
+
+		If `key` already has a mapping, the previous value disappears.
+
+		If `key` is `null`, the result is unspecified.</haxe_doc>
+		</set>
+		<get public="1" get="inline" set="null" line="94" static="1">
+			<f a="this:key">
+				<c path="haxe.IMap">
+					<c path="haxe.ds.Map.K"/>
+					<c path="haxe.ds.Map.V"/>
+				</c>
+				<c path="haxe.ds.Map.K"/>
+				<x path="Null"><c path="haxe.ds.Map.V"/></x>
+			</f>
+			<meta><m n=":arrayAccess"/></meta>
+			<haxe_doc>Returns the current mapping of `key`.
+
+		If no such mapping exists, `null` is returned.
+
+		Note that a check like `map.get(key) == null` can hold for two reasons:
+
+		1. the map has no mapping for `key`
+		2. the map has a mapping with a value of `null`
+
+		If it is important to distinguish these cases, `exists()` should be
+		used.
+
+		If `key` is `null`, the result is unspecified.</haxe_doc>
+		</get>
+		<exists public="1" get="inline" set="null" line="102" static="1">
+			<f a="this:key">
+				<c path="haxe.IMap">
+					<c path="haxe.ds.Map.K"/>
+					<c path="haxe.ds.Map.V"/>
+				</c>
+				<c path="haxe.ds.Map.K"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Returns true if `key` has a mapping, false otherwise.
+
+		If `key` is `null`, the result is unspecified.</haxe_doc>
+		</exists>
+		<remove public="1" get="inline" set="null" line="111" static="1">
+			<f a="this:key">
+				<c path="haxe.IMap">
+					<c path="haxe.ds.Map.K"/>
+					<c path="haxe.ds.Map.V"/>
+				</c>
+				<c path="haxe.ds.Map.K"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Removes the mapping of `key` and returns true if such a mapping existed,
+		false otherwise.
+
+		If `key` is `null`, the result is unspecified.</haxe_doc>
+		</remove>
+		<keys public="1" get="inline" set="null" line="118" static="1">
+			<f a="this">
+				<c path="haxe.IMap">
+					<c path="haxe.ds.Map.K"/>
+					<c path="haxe.ds.Map.V"/>
+				</c>
+				<t path="Iterator"><c path="haxe.ds.Map.K"/></t>
+			</f>
+			<haxe_doc>Returns an Iterator over the keys of `this` Map.
+
+		The order of keys is undefined.</haxe_doc>
+		</keys>
+		<iterator public="1" get="inline" set="null" line="127" static="1">
+			<f a="this">
+				<c path="haxe.IMap">
+					<c path="haxe.ds.Map.K"/>
+					<c path="haxe.ds.Map.V"/>
+				</c>
+				<t path="Iterator"><c path="haxe.ds.Map.V"/></t>
+			</f>
+			<haxe_doc>Returns an Iterator over the values of `this` Map.
+
+		The order of values is undefined.</haxe_doc>
+		</iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="136" static="1">
+			<f a="this">
+				<c path="haxe.IMap">
+					<c path="haxe.ds.Map.K"/>
+					<c path="haxe.ds.Map.V"/>
+				</c>
+				<t path="KeyValueIterator">
+					<c path="haxe.ds.Map.K"/>
+					<c path="haxe.ds.Map.V"/>
+				</t>
+			</f>
+			<haxe_doc>Returns an Iterator over the keys and values of `this` Map.
+
+		The order of values is undefined.</haxe_doc>
+		</keyValueIterator>
+		<copy public="1" get="inline" set="null" line="145" static="1">
+			<f a="this">
+				<c path="haxe.IMap">
+					<c path="haxe.ds.Map.K"/>
+					<c path="haxe.ds.Map.V"/>
+				</c>
+				<x path="haxe.ds.Map">
+					<c path="haxe.ds.Map.K"/>
+					<c path="haxe.ds.Map.V"/>
+				</x>
+			</f>
+			<haxe_doc>Returns a shallow copy of `this` map.
+
+		The order of values is undefined.</haxe_doc>
+		</copy>
+		<toString public="1" get="inline" set="null" line="154" static="1">
+			<f a="this">
+				<c path="haxe.IMap">
+					<c path="haxe.ds.Map.K"/>
+					<c path="haxe.ds.Map.V"/>
+				</c>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a String representation of `this` Map.
+
+		The exact representation depends on the platform and key-type.</haxe_doc>
+		</toString>
+		<clear public="1" get="inline" set="null" line="161" static="1">
+			<f a="this">
+				<c path="haxe.IMap">
+					<c path="haxe.ds.Map.K"/>
+					<c path="haxe.ds.Map.V"/>
+				</c>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Removes all keys from `this` Map.</haxe_doc>
+		</clear>
+		<arrayWrite public="1" get="inline" set="null" line="165" static="1">
+			<f a="this:k:v">
+				<c path="haxe.IMap">
+					<c path="haxe.ds.Map.K"/>
+					<c path="haxe.ds.Map.V"/>
+				</c>
+				<c path="haxe.ds.Map.K"/>
+				<c path="haxe.ds.Map.V"/>
+				<c path="haxe.ds.Map.V"/>
+			</f>
+			<meta>
+				<m n=":arrayAccess"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</arrayWrite>
+		<toStringMap params="K:V" get="inline" set="null" line="170" static="1">
+			<f a="t">
+				<c path="haxe.IMap">
+					<c path="toStringMap.K"/>
+					<c path="toStringMap.V"/>
+				</c>
+				<c path="haxe.ds.StringMap"><c path="toStringMap.V"/></c>
+			</f>
+			<meta><m n=":to"/></meta>
+		</toStringMap>
+		<toIntMap params="K:V" get="inline" set="null" line="174" static="1">
+			<f a="t">
+				<c path="haxe.IMap">
+					<c path="toIntMap.K"/>
+					<c path="toIntMap.V"/>
+				</c>
+				<c path="haxe.ds.IntMap"><c path="toIntMap.V"/></c>
+			</f>
+			<meta><m n=":to"/></meta>
+		</toIntMap>
+		<toEnumValueMapMap params="K:V" get="inline" set="null" line="178" static="1">
+			<f a="t">
+				<c path="haxe.IMap">
+					<c path="toEnumValueMapMap.K"/>
+					<c path="toEnumValueMapMap.V"/>
+				</c>
+				<c path="haxe.ds.EnumValueMap">
+					<c path="toEnumValueMapMap.K"/>
+					<c path="toEnumValueMapMap.V"/>
+				</c>
+			</f>
+			<meta><m n=":to"/></meta>
+		</toEnumValueMapMap>
+		<toObjectMap params="K:V" get="inline" set="null" line="182" static="1">
+			<f a="t">
+				<c path="haxe.IMap">
+					<c path="toObjectMap.K"/>
+					<c path="toObjectMap.V"/>
+				</c>
+				<c path="haxe.ds.ObjectMap">
+					<c path="toObjectMap.K"/>
+					<c path="toObjectMap.V"/>
+				</c>
+			</f>
+			<meta><m n=":to"/></meta>
+		</toObjectMap>
+		<fromStringMap params="V" get="inline" set="null" line="186" static="1">
+			<f a="map">
+				<c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c>
+				<x path="haxe.ds.Map">
+					<c path="String"/>
+					<c path="fromStringMap.V"/>
+				</x>
+			</f>
+			<meta><m n=":from"/></meta>
+		</fromStringMap>
+		<fromIntMap params="V" get="inline" set="null" line="190" static="1">
+			<f a="map">
+				<c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c>
+				<x path="haxe.ds.Map">
+					<x path="Int"/>
+					<c path="fromIntMap.V"/>
+				</x>
+			</f>
+			<meta><m n=":from"/></meta>
+		</fromIntMap>
+		<fromObjectMap params="K:V" get="inline" set="null" line="194" static="1">
+			<f a="map">
+				<c path="haxe.ds.ObjectMap">
+					<c path="fromObjectMap.K"/>
+					<c path="fromObjectMap.V"/>
+				</c>
+				<x path="haxe.ds.Map">
+					<c path="fromObjectMap.K"/>
+					<c path="fromObjectMap.V"/>
+				</x>
+			</f>
+			<meta><m n=":from"/></meta>
+		</fromObjectMap>
+		<meta><m n=":hxGen"/></meta>
+	</class>
+	<class path="sys.thread.EventLoop" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/EventLoop.hx">
+		<mutex final="1" expr="new Mutex()" line="25">
+			<c path="sys.thread.Mutex"/>
+			<meta><m n=":value"><e>new Mutex()</e></m></meta>
+		</mutex>
+		<oneTimeEvents final="1" expr="new Array&lt;Null&lt;Void -&gt; Void&gt;&gt;()" line="26">
+			<c path="Array"><x path="Null"><f a=""><x path="Void"/></f></x></c>
+			<meta><m n=":value"><e><![CDATA[new Array<Null<Void -> Void>>()]]></e></m></meta>
+		</oneTimeEvents>
+		<oneTimeEventsIdx expr="0" line="27">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</oneTimeEventsIdx>
+		<waitLock final="1" expr="new Lock()" line="28">
+			<c path="sys.thread.Lock"/>
+			<meta><m n=":value"><e>new Lock()</e></m></meta>
+		</waitLock>
+		<promisedEventsCount expr="0" line="29">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</promisedEventsCount>
+		<regularEvents><x path="Null"><c path="sys.thread._EventLoop.RegularEvent"/></x></regularEvents>
+		<repeat public="1" set="method" line="37">
+			<f a="event:intervalMs">
+				<f a=""><x path="Void"/></f>
+				<x path="Int"/>
+				<x path="sys.thread.EventHandler"/>
+			</f>
+			<haxe_doc>Schedule event for execution every `intervalMs` milliseconds in current loop.</haxe_doc>
+		</repeat>
+		<cancel public="1" set="method" line="56">
+			<f a="eventHandler">
+				<x path="sys.thread.EventHandler"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Prevent execution of a previously scheduled event in current loop.</haxe_doc>
+		</cancel>
+		<promise public="1" set="method" line="78">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Notify this loop about an upcoming event.
+		This makes the thread to stay alive and wait for as many events as many times
+		`.promise()` was called. These events should be added via `.runPromised()`</haxe_doc>
+		</promise>
+		<run public="1" set="method" line="87">
+			<f a="event">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Execute `event` as soon as possible.</haxe_doc>
+		</run>
+		<runPromised public="1" set="method" line="97">
+			<f a="event">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Add previously promised `event` for execution.</haxe_doc>
+		</runPromised>
+		<progress public="1" set="method" line="113">
+			<f a=""><e path="sys.thread.NextEventTime"/></f>
+			<haxe_doc>Executes all pending events.
+
+		The returned time stamps can be used with `Sys.time()` for calculations.
+
+		Depending on a target platform this method may be non-reentrant. It must
+		not be called from event callbacks.</haxe_doc>
+		</progress>
+		<wait public="1" set="method" line="135">
+			<f a="?timeout">
+				<x path="Float"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Blocks until a new event is added or `timeout` (in seconds) to expires.
+
+		Depending on a target platform this method may also automatically execute arriving
+		events while waiting. However if any event is executed it will stop waiting.
+
+		Returns `true` if more events are expected.
+		Returns `false` if no more events expected.
+
+		Depending on a target platform this method may be non-reentrant. It must
+		not be called from event callbacks.</haxe_doc>
+		</wait>
+		<loop public="1" set="method" line="147">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Execute all pending events.
+		Wait and execute as many events as many times `promiseEvent()` was called.
+		Runs until all repeating events are cancelled and no more events is expected.
+
+		Depending on a target platform this method may be non-reentrant. It must
+		not be called from event callbacks.</haxe_doc>
+		</loop>
+		<__progress get="inline" set="null" line="172">
+			<f a="now:recycle">
+				<x path="Float"/>
+				<c path="Array"><f a=""><x path="Void"/></f></c>
+				<a>
+					<nextEventAt><x path="Float"/></nextEventAt>
+					<anyTime><x path="Bool"/></anyTime>
+				</a>
+			</f>
+			<haxe_doc>`.progress` implementation with a reusable array for internal usage.
+		The `nextEventAt` field of the return value denotes when the next event
+		is expected to run:
+		* -1 - never
+		* -2 - now
+		* other values - at specified time</haxe_doc>
+		</__progress>
+		<new public="1" set="method" line="32"><f a=""><x path="Void"/></f></new>
+		<haxe_doc>An event loop implementation used for `sys.thread.Thread`</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":hxGen"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<class path="sys.thread._Thread.HaxeThread" params="" file="/home/runner/work/haxe/haxe/std/cs/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
+		<mainNativeThread static="1"><t path="cs.system.threading._Thread.NativeThread"/></mainNativeThread>
+		<mainHaxeThread static="1"><c path="sys.thread._Thread.HaxeThread"/></mainHaxeThread>
+		<threads static="1"><t path="Map">
+	<x path="Int"/>
+	<c path="cs.system.WeakReference"/>
+</t></threads>
+		<threadsMutex static="1"><t path="cs.system.threading._Mutex.NativeMutex"/></threadsMutex>
+		<allocateCount static="1"><x path="Int"/></allocateCount>
+		<get public="1" set="method" line="119" static="1"><f a="native">
+	<t path="cs.system.threading._Thread.NativeThread"/>
+	<c path="sys.thread._Thread.HaxeThread"/>
+</f></get>
+		<allocate public="1" set="method" line="134" static="1"><f a="native:withEventLoop">
+	<t path="cs.system.threading._Thread.NativeThread"/>
+	<x path="Bool"/>
+	<c path="sys.thread._Thread.HaxeThread"/>
+</f></allocate>
+		<runWithEventLoop public="1" set="method" line="156" static="1"><f a="job">
+	<f a=""><x path="Void"/></f>
+	<x path="Void"/>
+</f></runWithEventLoop>
+		<native final="1" public="1"><t path="cs.system.threading._Thread.NativeThread"/></native>
+		<events public="1" set="null"><x path="Null"><c path="sys.thread.EventLoop"/></x></events>
+		<messages final="1" expr="new Deque&lt;Dynamic&gt;()" line="117">
+			<c path="sys.thread.Deque"><d/></c>
+			<meta><m n=":value"><e><![CDATA[new Deque<Dynamic>()]]></e></m></meta>
+		</messages>
+		<readMessage public="1" get="inline" set="null" line="177"><f a="block">
+	<x path="Bool"/>
+	<d/>
+</f></readMessage>
+		<sendMessage public="1" set="method" line="181"><f a="msg">
+	<d/>
+	<x path="Void"/>
+</f></sendMessage>
+		<new set="method" line="173"><f a="native">
+	<t path="cs.system.threading._Thread.NativeThread"/>
+	<x path="Void"/>
+</f></new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":hxGen"/>
+		</meta>
+	</class>
 	<class path="sys.thread.Mutex" params="" file="/home/runner/work/haxe/haxe/std/cs/_std/sys/thread/Mutex.hx">
 		<native final="1" expr="new NativeMutex()" line="28">
 			<c path="cs.system.threading.Mutex"/>
@@ -47933,33 +48352,32 @@
 			<c path="sys.thread.Mutex"/>
 			<meta><m n=":value"><e>new Mutex()</e></m></meta>
 		</mutex>
-		<mainThread static="1"><x path="sys.thread.Thread"/></mainThread>
-		<init set="method" line="40" static="1">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":keep"/></meta>
-		</init>
-		<pending expr="new Array&lt;Void&gt;()" line="47" static="1">
+		<mainThread expr="Thread.current()" line="39" static="1">
+			<x path="sys.thread.Thread"/>
+			<meta><m n=":value"><e>Thread.current()</e></m></meta>
+		</mainThread>
+		<pending expr="new Array&lt;Void&gt;()" line="44" static="1">
 			<c path="Array"><f a=""><x path="Void"/></f></c>
 			<meta><m n=":value"><e><![CDATA[new Array<Void>()]]></e></m></meta>
 		</pending>
-		<threadCount public="1" set="null" expr="0" line="48" static="1">
+		<threadCount public="1" set="null" expr="0" line="45" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>0</e></m></meta>
 		</threadCount>
-		<wakeup public="1" set="method" line="53" static="1">
+		<wakeup public="1" set="method" line="50" static="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Wakeup a sleeping `run()`</haxe_doc>
 		</wakeup>
-		<runInMainThread public="1" set="method" line="59" static="1"><f a="f">
+		<runInMainThread public="1" set="method" line="56" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runInMainThread>
-		<addThread public="1" set="method" line="74" static="1"><f a="f">
+		<addThread public="1" set="method" line="71" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></addThread>
-		<processEvents set="method" line="102" static="1"><f a=""><x path="Float"/></f></processEvents>
-		<run public="1" set="method" line="129" static="1">
+		<processEvents set="method" line="99" static="1"><f a=""><x path="Float"/></f></processEvents>
+		<run public="1" set="method" line="126" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Start the main loop. Depending on the platform, this can return immediately or will only return when the application exits.</haxe_doc>
@@ -49901,21 +50319,23 @@
 			<c path="sys.thread.Mutex"/>
 			<meta><m n=":value"><e>new sys.thread.Mutex()</e></m></meta>
 		</mutex>
-		<mainThread get="accessor" set="null" static="1"><x path="sys.thread.Thread"/></mainThread>
-		<get_mainThread get="inline" set="null" line="68" static="1"><f a=""><x path="sys.thread.Thread"/></f></get_mainThread>
+		<mainThread expr="Thread.current()" line="66" static="1">
+			<x path="sys.thread.Thread"/>
+			<meta><m n=":value"><e>Thread.current()</e></m></meta>
+		</mainThread>
 		<pending static="1"><c path="haxe.MainEvent"/></pending>
 		<threadCount public="1" get="accessor" set="null" static="1"><x path="Int"/></threadCount>
-		<get_threadCount get="inline" set="null" line="76" static="1"><f a=""><x path="Int"/></f></get_threadCount>
-		<hasEvents public="1" set="method" line="78" static="1"><f a=""><x path="Bool"/></f></hasEvents>
-		<addThread public="1" set="method" line="88" static="1"><f a="f">
+		<get_threadCount get="inline" set="null" line="74" static="1"><f a=""><x path="Int"/></f></get_threadCount>
+		<hasEvents public="1" set="method" line="76" static="1"><f a=""><x path="Bool"/></f></hasEvents>
+		<addThread public="1" set="method" line="86" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></addThread>
-		<runInMainThread public="1" set="method" line="92" static="1"><f a="f">
+		<runInMainThread public="1" set="method" line="90" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runInMainThread>
-		<add public="1" set="method" line="99" static="1">
+		<add public="1" set="method" line="97" static="1">
 			<f a="f:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -49924,12 +50344,12 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a pending event to be run into the main loop.</haxe_doc>
 		</add>
-		<injectIntoEventLoop set="method" line="112" static="1"><f a="waitMs">
+		<injectIntoEventLoop set="method" line="110" static="1"><f a="waitMs">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></injectIntoEventLoop>
-		<sortEvents set="method" line="131" static="1"><f a=""><x path="Void"/></f></sortEvents>
-		<tick set="method" line="196" static="1">
+		<sortEvents set="method" line="129" static="1"><f a=""><x path="Void"/></f></sortEvents>
+		<tick set="method" line="194" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Run the pending events. Return the time for next event.</haxe_doc>
 		</tick>
@@ -58743,265 +59163,6 @@
 	<meta><m n=":hxGen"/></meta>
 </class></impl>
 	</abstract>
-	<class path="haxe.ds._Map.Map_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/ds/Map.hx" private="1" module="haxe.ds.Map" final="1">
-		<_new public="1" set="method" static="1">
-			<f a=""><x path="haxe.ds.Map">
-	<c path="haxe.ds.Map.K"/>
-	<c path="haxe.ds.Map.V"/>
-</x></f>
-			<meta><m n=":noCompletion"/></meta>
-			<haxe_doc>Creates a new Map.
-
-		This becomes a constructor call to one of the specialization types in
-		the output. The rules for that are as follows:
-
-		1. if `K` is a `String`, `haxe.ds.StringMap` is used
-		2. if `K` is an `Int`, `haxe.ds.IntMap` is used
-		3. if `K` is an `EnumValue`, `haxe.ds.EnumValueMap` is used
-		4. if `K` is any other class or structure, `haxe.ds.ObjectMap` is used
-		5. if `K` is any other type, it causes a compile-time error
-
-		(Cpp) Map does not use weak keys on `ObjectMap` by default.</haxe_doc>
-		</_new>
-		<set public="1" get="inline" set="null" line="76" static="1">
-			<f a="this:key:value">
-				<c path="haxe.IMap">
-					<c path="haxe.ds.Map.K"/>
-					<c path="haxe.ds.Map.V"/>
-				</c>
-				<c path="haxe.ds.Map.K"/>
-				<c path="haxe.ds.Map.V"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Maps `key` to `value`.
-
-		If `key` already has a mapping, the previous value disappears.
-
-		If `key` is `null`, the result is unspecified.</haxe_doc>
-		</set>
-		<get public="1" get="inline" set="null" line="94" static="1">
-			<f a="this:key">
-				<c path="haxe.IMap">
-					<c path="haxe.ds.Map.K"/>
-					<c path="haxe.ds.Map.V"/>
-				</c>
-				<c path="haxe.ds.Map.K"/>
-				<x path="Null"><c path="haxe.ds.Map.V"/></x>
-			</f>
-			<meta><m n=":arrayAccess"/></meta>
-			<haxe_doc>Returns the current mapping of `key`.
-
-		If no such mapping exists, `null` is returned.
-
-		Note that a check like `map.get(key) == null` can hold for two reasons:
-
-		1. the map has no mapping for `key`
-		2. the map has a mapping with a value of `null`
-
-		If it is important to distinguish these cases, `exists()` should be
-		used.
-
-		If `key` is `null`, the result is unspecified.</haxe_doc>
-		</get>
-		<exists public="1" get="inline" set="null" line="102" static="1">
-			<f a="this:key">
-				<c path="haxe.IMap">
-					<c path="haxe.ds.Map.K"/>
-					<c path="haxe.ds.Map.V"/>
-				</c>
-				<c path="haxe.ds.Map.K"/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Returns true if `key` has a mapping, false otherwise.
-
-		If `key` is `null`, the result is unspecified.</haxe_doc>
-		</exists>
-		<remove public="1" get="inline" set="null" line="111" static="1">
-			<f a="this:key">
-				<c path="haxe.IMap">
-					<c path="haxe.ds.Map.K"/>
-					<c path="haxe.ds.Map.V"/>
-				</c>
-				<c path="haxe.ds.Map.K"/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Removes the mapping of `key` and returns true if such a mapping existed,
-		false otherwise.
-
-		If `key` is `null`, the result is unspecified.</haxe_doc>
-		</remove>
-		<keys public="1" get="inline" set="null" line="118" static="1">
-			<f a="this">
-				<c path="haxe.IMap">
-					<c path="haxe.ds.Map.K"/>
-					<c path="haxe.ds.Map.V"/>
-				</c>
-				<t path="Iterator"><c path="haxe.ds.Map.K"/></t>
-			</f>
-			<haxe_doc>Returns an Iterator over the keys of `this` Map.
-
-		The order of keys is undefined.</haxe_doc>
-		</keys>
-		<iterator public="1" get="inline" set="null" line="127" static="1">
-			<f a="this">
-				<c path="haxe.IMap">
-					<c path="haxe.ds.Map.K"/>
-					<c path="haxe.ds.Map.V"/>
-				</c>
-				<t path="Iterator"><c path="haxe.ds.Map.V"/></t>
-			</f>
-			<haxe_doc>Returns an Iterator over the values of `this` Map.
-
-		The order of values is undefined.</haxe_doc>
-		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="136" static="1">
-			<f a="this">
-				<c path="haxe.IMap">
-					<c path="haxe.ds.Map.K"/>
-					<c path="haxe.ds.Map.V"/>
-				</c>
-				<t path="KeyValueIterator">
-					<c path="haxe.ds.Map.K"/>
-					<c path="haxe.ds.Map.V"/>
-				</t>
-			</f>
-			<haxe_doc>Returns an Iterator over the keys and values of `this` Map.
-
-		The order of values is undefined.</haxe_doc>
-		</keyValueIterator>
-		<copy public="1" get="inline" set="null" line="145" static="1">
-			<f a="this">
-				<c path="haxe.IMap">
-					<c path="haxe.ds.Map.K"/>
-					<c path="haxe.ds.Map.V"/>
-				</c>
-				<x path="haxe.ds.Map">
-					<c path="haxe.ds.Map.K"/>
-					<c path="haxe.ds.Map.V"/>
-				</x>
-			</f>
-			<haxe_doc>Returns a shallow copy of `this` map.
-
-		The order of values is undefined.</haxe_doc>
-		</copy>
-		<toString public="1" get="inline" set="null" line="154" static="1">
-			<f a="this">
-				<c path="haxe.IMap">
-					<c path="haxe.ds.Map.K"/>
-					<c path="haxe.ds.Map.V"/>
-				</c>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns a String representation of `this` Map.
-
-		The exact representation depends on the platform and key-type.</haxe_doc>
-		</toString>
-		<clear public="1" get="inline" set="null" line="161" static="1">
-			<f a="this">
-				<c path="haxe.IMap">
-					<c path="haxe.ds.Map.K"/>
-					<c path="haxe.ds.Map.V"/>
-				</c>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Removes all keys from `this` Map.</haxe_doc>
-		</clear>
-		<arrayWrite public="1" get="inline" set="null" line="165" static="1">
-			<f a="this:k:v">
-				<c path="haxe.IMap">
-					<c path="haxe.ds.Map.K"/>
-					<c path="haxe.ds.Map.V"/>
-				</c>
-				<c path="haxe.ds.Map.K"/>
-				<c path="haxe.ds.Map.V"/>
-				<c path="haxe.ds.Map.V"/>
-			</f>
-			<meta>
-				<m n=":arrayAccess"/>
-				<m n=":noCompletion"/>
-			</meta>
-		</arrayWrite>
-		<toStringMap params="K:V" get="inline" set="null" line="170" static="1">
-			<f a="t">
-				<c path="haxe.IMap">
-					<c path="toStringMap.K"/>
-					<c path="toStringMap.V"/>
-				</c>
-				<c path="haxe.ds.StringMap"><c path="toStringMap.V"/></c>
-			</f>
-			<meta><m n=":to"/></meta>
-		</toStringMap>
-		<toIntMap params="K:V" get="inline" set="null" line="174" static="1">
-			<f a="t">
-				<c path="haxe.IMap">
-					<c path="toIntMap.K"/>
-					<c path="toIntMap.V"/>
-				</c>
-				<c path="haxe.ds.IntMap"><c path="toIntMap.V"/></c>
-			</f>
-			<meta><m n=":to"/></meta>
-		</toIntMap>
-		<toEnumValueMapMap params="K:V" get="inline" set="null" line="178" static="1">
-			<f a="t">
-				<c path="haxe.IMap">
-					<c path="toEnumValueMapMap.K"/>
-					<c path="toEnumValueMapMap.V"/>
-				</c>
-				<c path="haxe.ds.EnumValueMap">
-					<c path="toEnumValueMapMap.K"/>
-					<c path="toEnumValueMapMap.V"/>
-				</c>
-			</f>
-			<meta><m n=":to"/></meta>
-		</toEnumValueMapMap>
-		<toObjectMap params="K:V" get="inline" set="null" line="182" static="1">
-			<f a="t">
-				<c path="haxe.IMap">
-					<c path="toObjectMap.K"/>
-					<c path="toObjectMap.V"/>
-				</c>
-				<c path="haxe.ds.ObjectMap">
-					<c path="toObjectMap.K"/>
-					<c path="toObjectMap.V"/>
-				</c>
-			</f>
-			<meta><m n=":to"/></meta>
-		</toObjectMap>
-		<fromStringMap params="V" get="inline" set="null" line="186" static="1">
-			<f a="map">
-				<c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c>
-				<x path="haxe.ds.Map">
-					<c path="String"/>
-					<c path="fromStringMap.V"/>
-				</x>
-			</f>
-			<meta><m n=":from"/></meta>
-		</fromStringMap>
-		<fromIntMap params="V" get="inline" set="null" line="190" static="1">
-			<f a="map">
-				<c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c>
-				<x path="haxe.ds.Map">
-					<x path="Int"/>
-					<c path="fromIntMap.V"/>
-				</x>
-			</f>
-			<meta><m n=":from"/></meta>
-		</fromIntMap>
-		<fromObjectMap params="K:V" get="inline" set="null" line="194" static="1">
-			<f a="map">
-				<c path="haxe.ds.ObjectMap">
-					<c path="fromObjectMap.K"/>
-					<c path="fromObjectMap.V"/>
-				</c>
-				<x path="haxe.ds.Map">
-					<c path="fromObjectMap.K"/>
-					<c path="fromObjectMap.V"/>
-				</x>
-			</f>
-			<meta><m n=":from"/></meta>
-		</fromObjectMap>
-		<meta><m n=":hxGen"/></meta>
-	</class>
 	<class path="haxe.ds.ObjectMap" params="K:V" file="/home/runner/work/haxe/haxe/std/cs/_std/haxe/ds/ObjectMap.hx">
 		<implements path="haxe.IMap">
 			<c path="haxe.ds.ObjectMap.K"/>
@@ -74391,121 +74552,6 @@
 		<haxe_doc>When an event loop has an available event to execute.</haxe_doc>
 		<meta><m n=":hxGen"/></meta>
 	</enum>
-	<class path="sys.thread.EventLoop" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/EventLoop.hx">
-		<mutex final="1" expr="new Mutex()" line="25">
-			<c path="sys.thread.Mutex"/>
-			<meta><m n=":value"><e>new Mutex()</e></m></meta>
-		</mutex>
-		<oneTimeEvents final="1" expr="new Array&lt;Null&lt;Void -&gt; Void&gt;&gt;()" line="26">
-			<c path="Array"><x path="Null"><f a=""><x path="Void"/></f></x></c>
-			<meta><m n=":value"><e><![CDATA[new Array<Null<Void -> Void>>()]]></e></m></meta>
-		</oneTimeEvents>
-		<oneTimeEventsIdx expr="0" line="27">
-			<x path="Int"/>
-			<meta><m n=":value"><e>0</e></m></meta>
-		</oneTimeEventsIdx>
-		<waitLock final="1" expr="new Lock()" line="28">
-			<c path="sys.thread.Lock"/>
-			<meta><m n=":value"><e>new Lock()</e></m></meta>
-		</waitLock>
-		<promisedEventsCount expr="0" line="29">
-			<x path="Int"/>
-			<meta><m n=":value"><e>0</e></m></meta>
-		</promisedEventsCount>
-		<regularEvents><x path="Null"><c path="sys.thread._EventLoop.RegularEvent"/></x></regularEvents>
-		<repeat public="1" set="method" line="37">
-			<f a="event:intervalMs">
-				<f a=""><x path="Void"/></f>
-				<x path="Int"/>
-				<x path="sys.thread.EventHandler"/>
-			</f>
-			<haxe_doc>Schedule event for execution every `intervalMs` milliseconds in current loop.</haxe_doc>
-		</repeat>
-		<cancel public="1" set="method" line="56">
-			<f a="eventHandler">
-				<x path="sys.thread.EventHandler"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Prevent execution of a previously scheduled event in current loop.</haxe_doc>
-		</cancel>
-		<promise public="1" set="method" line="78">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Notify this loop about an upcoming event.
-		This makes the thread to stay alive and wait for as many events as many times
-		`.promise()` was called. These events should be added via `.runPromised()`</haxe_doc>
-		</promise>
-		<run public="1" set="method" line="87">
-			<f a="event">
-				<f a=""><x path="Void"/></f>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Execute `event` as soon as possible.</haxe_doc>
-		</run>
-		<runPromised public="1" set="method" line="97">
-			<f a="event">
-				<f a=""><x path="Void"/></f>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Add previously promised `event` for execution.</haxe_doc>
-		</runPromised>
-		<progress public="1" set="method" line="113">
-			<f a=""><e path="sys.thread.NextEventTime"/></f>
-			<haxe_doc>Executes all pending events.
-
-		The returned time stamps can be used with `Sys.time()` for calculations.
-
-		Depending on a target platform this method may be non-reentrant. It must
-		not be called from event callbacks.</haxe_doc>
-		</progress>
-		<wait public="1" set="method" line="135">
-			<f a="?timeout">
-				<x path="Float"/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Blocks until a new event is added or `timeout` (in seconds) to expires.
-
-		Depending on a target platform this method may also automatically execute arriving
-		events while waiting. However if any event is executed it will stop waiting.
-
-		Returns `true` if more events are expected.
-		Returns `false` if no more events expected.
-
-		Depending on a target platform this method may be non-reentrant. It must
-		not be called from event callbacks.</haxe_doc>
-		</wait>
-		<loop public="1" set="method" line="147">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Execute all pending events.
-		Wait and execute as many events as many times `promiseEvent()` was called.
-		Runs until all repeating events are cancelled and no more events is expected.
-
-		Depending on a target platform this method may be non-reentrant. It must
-		not be called from event callbacks.</haxe_doc>
-		</loop>
-		<__progress get="inline" set="null" line="172">
-			<f a="now:recycle">
-				<x path="Float"/>
-				<c path="Array"><f a=""><x path="Void"/></f></c>
-				<a>
-					<nextEventAt><x path="Float"/></nextEventAt>
-					<anyTime><x path="Bool"/></anyTime>
-				</a>
-			</f>
-			<haxe_doc>`.progress` implementation with a reusable array for internal usage.
-		The `nextEventAt` field of the return value denotes when the next event
-		is expected to run:
-		* -1 - never
-		* -2 - now
-		* other values - at specified time</haxe_doc>
-		</__progress>
-		<new public="1" set="method" line="32"><f a=""><x path="Void"/></f></new>
-		<haxe_doc>An event loop implementation used for `sys.thread.Thread`</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":hxGen"/>
-			<m n=":coreApi"/>
-		</meta>
-	</class>
 	<abstract path="sys.thread.EventHandler" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/EventLoop.hx" module="sys.thread.EventLoop">
 		<from><icast><c path="sys.thread._EventLoop.RegularEvent"/></icast></from>
 		<this><c path="sys.thread._EventLoop.RegularEvent"/></this>
@@ -74568,54 +74614,55 @@
 		</new>
 		<meta><m n=":hxGen"/></meta>
 	</class>
+	<typedef path="sys.thread._Thread.ThreadImpl" params="" file="/home/runner/work/haxe/haxe/std/cs/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
+		<c path="sys.thread._Thread.HaxeThread"/>
+		<meta><m n=":nativeGen"/></meta>
+	</typedef>
 	<abstract path="sys.thread.Thread" params="" file="/home/runner/work/haxe/haxe/std/cs/_std/sys/thread/Thread.hx">
-		<this><c path="sys.thread._Thread.HaxeThread"/></this>
+		<from><icast><t path="sys.thread._Thread.ThreadImpl"/></icast></from>
+		<this><t path="sys.thread._Thread.ThreadImpl"/></this>
 		<meta><m n=":hxGen"/></meta>
 		<impl><class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/runner/work/haxe/haxe/std/cs/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" final="1">
 	<events public="1" get="accessor" set="null" static="1"><c path="sys.thread.EventLoop"/></events>
-	<_new get="inline" set="null" line="32" static="1">
+	<_new get="inline" set="null" line="35" static="1">
 		<f a="thread">
 			<c path="sys.thread._Thread.HaxeThread"/>
 			<x path="sys.thread.Thread"/>
 		</f>
 		<meta><m n=":noCompletion"/></meta>
 	</_new>
-	<create public="1" set="method" line="36" static="1"><f a="job">
+	<create public="1" set="method" line="39" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></create>
-	<runWithEventLoop public="1" get="inline" set="null" line="46" static="1"><f a="job">
+	<runWithEventLoop public="1" get="inline" set="null" line="49" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runWithEventLoop>
-	<createWithEventLoop public="1" get="inline" set="null" line="50" static="1"><f a="job">
+	<createWithEventLoop public="1" get="inline" set="null" line="53" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></createWithEventLoop>
-	<current public="1" get="inline" set="null" line="67" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
-	<readMessage public="1" set="method" line="71" static="1"><f a="block">
+	<current public="1" get="inline" set="null" line="70" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
+	<readMessage public="1" set="method" line="74" static="1"><f a="block">
 	<x path="Bool"/>
 	<d/>
 </f></readMessage>
-	<sendMessage public="1" get="inline" set="null" line="75" static="1"><f a="this:msg">
-	<c path="sys.thread._Thread.HaxeThread"/>
+	<sendMessage public="1" get="inline" set="null" line="78" static="1"><f a="this:msg">
+	<t path="sys.thread._Thread.ThreadImpl"/>
 	<d/>
 	<x path="Void"/>
 </f></sendMessage>
-	<readMessageImpl get="inline" set="null" line="79" static="1"><f a="this:block">
-	<c path="sys.thread._Thread.HaxeThread"/>
+	<readMessageImpl get="inline" set="null" line="82" static="1"><f a="this:block">
+	<t path="sys.thread._Thread.ThreadImpl"/>
 	<x path="Bool"/>
 	<d/>
 </f></readMessageImpl>
-	<get_events set="method" line="83" static="1"><f a="this">
-	<c path="sys.thread._Thread.HaxeThread"/>
+	<get_events set="method" line="86" static="1"><f a="this">
+	<t path="sys.thread._Thread.ThreadImpl"/>
 	<c path="sys.thread.EventLoop"/>
 </f></get_events>
-	<initEventLoop set="method" line="90" static="1">
-		<f a=""><x path="Void"/></f>
-		<meta><m n=":keep"/></meta>
-	</initEventLoop>
-	<processEvents set="method" line="95" static="1">
+	<processEvents set="method" line="93" static="1">
 		<f a=""><x path="Void"/></f>
 		<meta><m n=":keep"/></meta>
 	</processEvents>
@@ -74624,112 +74671,48 @@
 	</abstract>
 	<class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/runner/work/haxe/haxe/std/cs/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" final="1">
 		<events public="1" get="accessor" set="null" static="1"><c path="sys.thread.EventLoop"/></events>
-		<_new get="inline" set="null" line="32" static="1">
+		<_new get="inline" set="null" line="35" static="1">
 			<f a="thread">
 				<c path="sys.thread._Thread.HaxeThread"/>
 				<x path="sys.thread.Thread"/>
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</_new>
-		<create public="1" set="method" line="36" static="1"><f a="job">
+		<create public="1" set="method" line="39" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></create>
-		<runWithEventLoop public="1" get="inline" set="null" line="46" static="1"><f a="job">
+		<runWithEventLoop public="1" get="inline" set="null" line="49" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runWithEventLoop>
-		<createWithEventLoop public="1" get="inline" set="null" line="50" static="1"><f a="job">
+		<createWithEventLoop public="1" get="inline" set="null" line="53" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></createWithEventLoop>
-		<current public="1" get="inline" set="null" line="67" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
-		<readMessage public="1" set="method" line="71" static="1"><f a="block">
+		<current public="1" get="inline" set="null" line="70" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
+		<readMessage public="1" set="method" line="74" static="1"><f a="block">
 	<x path="Bool"/>
 	<d/>
 </f></readMessage>
-		<sendMessage public="1" get="inline" set="null" line="75" static="1"><f a="this:msg">
-	<c path="sys.thread._Thread.HaxeThread"/>
+		<sendMessage public="1" get="inline" set="null" line="78" static="1"><f a="this:msg">
+	<t path="sys.thread._Thread.ThreadImpl"/>
 	<d/>
 	<x path="Void"/>
 </f></sendMessage>
-		<readMessageImpl get="inline" set="null" line="79" static="1"><f a="this:block">
-	<c path="sys.thread._Thread.HaxeThread"/>
+		<readMessageImpl get="inline" set="null" line="82" static="1"><f a="this:block">
+	<t path="sys.thread._Thread.ThreadImpl"/>
 	<x path="Bool"/>
 	<d/>
 </f></readMessageImpl>
-		<get_events set="method" line="83" static="1"><f a="this">
-	<c path="sys.thread._Thread.HaxeThread"/>
+		<get_events set="method" line="86" static="1"><f a="this">
+	<t path="sys.thread._Thread.ThreadImpl"/>
 	<c path="sys.thread.EventLoop"/>
 </f></get_events>
-		<initEventLoop set="method" line="90" static="1">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":keep"/></meta>
-		</initEventLoop>
-		<processEvents set="method" line="95" static="1">
+		<processEvents set="method" line="93" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 		</processEvents>
 		<meta><m n=":hxGen"/></meta>
-	</class>
-	<class path="sys.thread._Thread.HaxeThread" params="" file="/home/runner/work/haxe/haxe/std/cs/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
-		<mainNativeThread final="1" set="null" expr="NativeThread.CurrentThread" line="101" static="1">
-			<c path="cs.system.threading.Thread"/>
-			<meta><m n=":value"><e>NativeThread.CurrentThread</e></m></meta>
-		</mainNativeThread>
-		<mainHaxeThread final="1" set="null" expr="new HaxeThread(NativeThread.CurrentThread)" line="102" static="1">
-			<c path="sys.thread._Thread.HaxeThread"/>
-			<meta><m n=":value"><e>new HaxeThread(NativeThread.CurrentThread)</e></m></meta>
-		</mainHaxeThread>
-		<threads final="1" set="null" expr="new Map&lt;Int,WeakReference&gt;()" line="103" static="1">
-			<x path="haxe.ds.Map">
-				<x path="Int"/>
-				<c path="cs.system.WeakReference"/>
-			</x>
-			<meta><m n=":value"><e><![CDATA[new Map<Int,WeakReference>()]]></e></m></meta>
-		</threads>
-		<threadsMutex final="1" set="null" expr="new cs.system.threading.Mutex()" line="104" static="1">
-			<c path="cs.system.threading.Mutex"/>
-			<meta><m n=":value"><e>new cs.system.threading.Mutex()</e></m></meta>
-		</threadsMutex>
-		<allocateCount expr="0" line="105" static="1">
-			<x path="Int"/>
-			<meta><m n=":value"><e>0</e></m></meta>
-		</allocateCount>
-		<get public="1" set="method" line="112" static="1"><f a="native">
-	<t path="cs.system.threading._Thread.NativeThread"/>
-	<c path="sys.thread._Thread.HaxeThread"/>
-</f></get>
-		<allocate public="1" set="method" line="127" static="1"><f a="native:withEventLoop">
-	<t path="cs.system.threading._Thread.NativeThread"/>
-	<x path="Bool"/>
-	<c path="sys.thread._Thread.HaxeThread"/>
-</f></allocate>
-		<runWithEventLoop public="1" set="method" line="149" static="1"><f a="job">
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></runWithEventLoop>
-		<native final="1" public="1"><t path="cs.system.threading._Thread.NativeThread"/></native>
-		<events public="1" set="null"><x path="Null"><c path="sys.thread.EventLoop"/></x></events>
-		<messages final="1" expr="new Deque&lt;Dynamic&gt;()" line="110">
-			<c path="sys.thread.Deque"><d/></c>
-			<meta><m n=":value"><e><![CDATA[new Deque<Dynamic>()]]></e></m></meta>
-		</messages>
-		<readMessage public="1" get="inline" set="null" line="170"><f a="block">
-	<x path="Bool"/>
-	<d/>
-</f></readMessage>
-		<sendMessage public="1" set="method" line="174"><f a="msg">
-	<d/>
-	<x path="Void"/>
-</f></sendMessage>
-		<new set="method" line="166"><f a="native">
-	<t path="cs.system.threading._Thread.NativeThread"/>
-	<x path="Void"/>
-</f></new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":hxGen"/>
-		</meta>
 	</class>
 </haxe>
