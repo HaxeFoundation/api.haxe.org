@@ -10974,38 +10974,256 @@
 			<m n=":coreApi"/>
 		</meta>
 	</class>
+	<class path="sys.thread.EventLoop" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/EventLoop.hx">
+		<mutex final="1" expr="new Mutex()">
+			<c path="sys.thread.Mutex"/>
+			<meta><m n=":value"><e>new Mutex()</e></m></meta>
+		</mutex>
+		<oneTimeEvents final="1" expr="new Array&lt;Null&lt;Void -&gt; Void&gt;&gt;()">
+			<c path="Array"><x path="Null"><f a=""><x path="Void"/></f></x></c>
+			<meta><m n=":value"><e><![CDATA[new Array<Null<Void -> Void>>()]]></e></m></meta>
+		</oneTimeEvents>
+		<oneTimeEventsIdx expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</oneTimeEventsIdx>
+		<waitLock final="1" expr="new Lock()">
+			<c path="sys.thread.Lock"/>
+			<meta><m n=":value"><e>new Lock()</e></m></meta>
+		</waitLock>
+		<promisedEventsCount expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</promisedEventsCount>
+		<regularEvents><x path="Null"><c path="sys.thread._EventLoop.RegularEvent"/></x></regularEvents>
+		<repeat public="1" set="method" line="37">
+			<f a="event:intervalMs">
+				<f a=""><x path="Void"/></f>
+				<x path="Int"/>
+				<x path="sys.thread.EventHandler"/>
+			</f>
+			<haxe_doc>Schedule event for execution every `intervalMs` milliseconds in current loop.</haxe_doc>
+		</repeat>
+		<cancel public="1" set="method" line="56">
+			<f a="eventHandler">
+				<x path="sys.thread.EventHandler"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Prevent execution of a previously scheduled event in current loop.</haxe_doc>
+		</cancel>
+		<promise public="1" set="method" line="78">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Notify this loop about an upcoming event.
+		This makes the thread to stay alive and wait for as many events as many times
+		`.promise()` was called. These events should be added via `.runPromised()`</haxe_doc>
+		</promise>
+		<run public="1" set="method" line="87">
+			<f a="event">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Execute `event` as soon as possible.</haxe_doc>
+		</run>
+		<runPromised public="1" set="method" line="97">
+			<f a="event">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Add previously promised `event` for execution.</haxe_doc>
+		</runPromised>
+		<progress public="1" set="method" line="113">
+			<f a=""><e path="sys.thread.NextEventTime"/></f>
+			<haxe_doc>Executes all pending events.
+
+		The returned time stamps can be used with `Sys.time()` for calculations.
+
+		Depending on a target platform this method may be non-reentrant. It must
+		not be called from event callbacks.</haxe_doc>
+		</progress>
+		<wait public="1" set="method" line="135">
+			<f a="?timeout">
+				<x path="Float"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Blocks until a new event is added or `timeout` (in seconds) to expires.
+
+		Depending on a target platform this method may also automatically execute arriving
+		events while waiting. However if any event is executed it will stop waiting.
+
+		Returns `true` if more events are expected.
+		Returns `false` if no more events expected.
+
+		Depending on a target platform this method may be non-reentrant. It must
+		not be called from event callbacks.</haxe_doc>
+		</wait>
+		<loop public="1" set="method" line="147">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Execute all pending events.
+		Wait and execute as many events as many times `promiseEvent()` was called.
+		Runs until all repeating events are cancelled and no more events is expected.
+
+		Depending on a target platform this method may be non-reentrant. It must
+		not be called from event callbacks.</haxe_doc>
+		</loop>
+		<__progress get="inline" set="null" line="172">
+			<f a="now:recycle">
+				<x path="Float"/>
+				<c path="Array"><f a=""><x path="Void"/></f></c>
+				<a>
+					<nextEventAt><x path="Float"/></nextEventAt>
+					<anyTime><x path="Bool"/></anyTime>
+				</a>
+			</f>
+			<haxe_doc>`.progress` implementation with a reusable array for internal usage.
+		The `nextEventAt` field of the return value denotes when the next event
+		is expected to run:
+		* -1 - never
+		* -2 - now
+		* other values - at specified time</haxe_doc>
+		</__progress>
+		<new public="1" set="method" line="32"><f a=""><x path="Void"/></f></new>
+		<haxe_doc>An event loop implementation used for `sys.thread.Thread`</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<class path="sys.thread._Thread.HaxeThread" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
+		<threads static="1">
+			<c path="Array"><a>
+	<thread><c path="sys.thread._Thread.HaxeThread"/></thread>
+	<handle><t path="sys.thread._Thread.ThreadHandle"/></handle>
+</a></c>
+			<meta><m n=":keep"/></meta>
+		</threads>
+		<threadsMutex static="1">
+			<c path="sys.thread.Mutex"/>
+			<meta><m n=":keep"/></meta>
+		</threadsMutex>
+		<mainThreadHandle static="1">
+			<t path="sys.thread._Thread.ThreadHandle"/>
+			<meta><m n=":keep"/></meta>
+		</mainThreadHandle>
+		<mainThread static="1">
+			<c path="sys.thread._Thread.HaxeThread"/>
+			<meta><m n=":keep"/></meta>
+		</mainThread>
+		<current public="1" set="method" line="91" static="1">
+			<f a=""><c path="sys.thread._Thread.HaxeThread"/></f>
+			<meta><m n=":keep"/></meta>
+		</current>
+		<create public="1" set="method" line="112" static="1">
+			<f a="job:withEventLoop">
+				<f a=""><x path="Void"/></f>
+				<x path="Bool"/>
+				<x path="sys.thread.Thread"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</create>
+		<runWithEventLoop public="1" set="method" line="138" static="1">
+			<f a="job">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</runWithEventLoop>
+		<dropThread set="method" line="155" static="1">
+			<f a="item:probableIndex">
+				<a>
+					<thread><c path="sys.thread._Thread.HaxeThread"/></thread>
+					<handle><t path="sys.thread._Thread.ThreadHandle"/></handle>
+				</a>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</dropThread>
+		<currentHandle get="inline" set="null" line="178" static="1">
+			<f a=""><t path="sys.thread._Thread.ThreadHandle"/></f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
+		</currentHandle>
+		<createHandle get="inline" set="null" line="182" static="1">
+			<f a="callb">
+				<f a=""><x path="Void"/></f>
+				<t path="sys.thread._Thread.ThreadHandle"/>
+			</f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
+		</createHandle>
+		<readMessage public="1" get="inline" set="null" line="186" static="1">
+			<f a="block">
+				<x path="Bool"/>
+				<d/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</readMessage>
+		<events public="1" set="null">
+			<x path="Null"><c path="sys.thread.EventLoop"/></x>
+			<meta><m n=":keep"/></meta>
+		</events>
+		<handle public="1">
+			<t path="sys.thread._Thread.ThreadHandle"/>
+			<meta><m n=":keep"/></meta>
+		</handle>
+		<messages final="1" expr="new Deque&lt;Dynamic&gt;()">
+			<c path="sys.thread.Deque"><d/></c>
+			<meta>
+				<m n=":value"><e><![CDATA[new Deque<Dynamic>()]]></e></m>
+				<m n=":keep"/>
+			</meta>
+		</messages>
+		<sendMessage public="1" get="inline" set="null" line="174">
+			<f a="msg">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</sendMessage>
+		<new set="method" line="170">
+			<f a="h">
+				<t path="sys.thread._Thread.ThreadHandle"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</new>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
 	<class path="haxe.EntryPoint" params="" file="/home/runner/work/haxe/haxe/std/haxe/EntryPoint.hx">
 		<mutex expr="new Mutex()" line="37" static="1">
 			<c path="sys.thread.Mutex"/>
 			<meta><m n=":value"><e>new Mutex()</e></m></meta>
 		</mutex>
-		<mainThread static="1"><x path="sys.thread.Thread"/></mainThread>
-		<init set="method" line="40" static="1">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":keep"/></meta>
-		</init>
-		<pending expr="new Array&lt;Void&gt;()" line="47" static="1">
+		<mainThread expr="Thread.current()" line="39" static="1">
+			<x path="sys.thread.Thread"/>
+			<meta><m n=":value"><e>Thread.current()</e></m></meta>
+		</mainThread>
+		<pending expr="new Array&lt;Void&gt;()" line="44" static="1">
 			<c path="Array"><f a=""><x path="Void"/></f></c>
 			<meta><m n=":value"><e><![CDATA[new Array<Void>()]]></e></m></meta>
 		</pending>
-		<threadCount public="1" set="null" expr="0" line="48" static="1">
+		<threadCount public="1" set="null" expr="0" line="45" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>0</e></m></meta>
 		</threadCount>
-		<wakeup public="1" set="method" line="53" static="1">
+		<wakeup public="1" set="method" line="50" static="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Wakeup a sleeping `run()`</haxe_doc>
 		</wakeup>
-		<runInMainThread public="1" set="method" line="59" static="1"><f a="f">
+		<runInMainThread public="1" set="method" line="56" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runInMainThread>
-		<addThread public="1" set="method" line="74" static="1"><f a="f">
+		<addThread public="1" set="method" line="71" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></addThread>
-		<processEvents set="method" line="102" static="1"><f a=""><x path="Float"/></f></processEvents>
-		<run public="1" set="method" line="129" static="1">
+		<processEvents set="method" line="99" static="1"><f a=""><x path="Float"/></f></processEvents>
+		<run public="1" set="method" line="126" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Start the main loop. Depending on the platform, this can return immediately or will only return when the application exits.</haxe_doc>
@@ -13554,21 +13772,23 @@
 			<c path="sys.thread.Mutex"/>
 			<meta><m n=":value"><e>new sys.thread.Mutex()</e></m></meta>
 		</mutex>
-		<mainThread get="accessor" set="null" static="1"><x path="sys.thread.Thread"/></mainThread>
-		<get_mainThread get="inline" set="null" line="68" static="1"><f a=""><x path="sys.thread.Thread"/></f></get_mainThread>
+		<mainThread expr="Thread.current()" line="66" static="1">
+			<x path="sys.thread.Thread"/>
+			<meta><m n=":value"><e>Thread.current()</e></m></meta>
+		</mainThread>
 		<pending static="1"><c path="haxe.MainEvent"/></pending>
 		<threadCount public="1" get="accessor" set="null" static="1"><x path="Int"/></threadCount>
-		<get_threadCount get="inline" set="null" line="76" static="1"><f a=""><x path="Int"/></f></get_threadCount>
-		<hasEvents public="1" set="method" line="78" static="1"><f a=""><x path="Bool"/></f></hasEvents>
-		<addThread public="1" set="method" line="88" static="1"><f a="f">
+		<get_threadCount get="inline" set="null" line="74" static="1"><f a=""><x path="Int"/></f></get_threadCount>
+		<hasEvents public="1" set="method" line="76" static="1"><f a=""><x path="Bool"/></f></hasEvents>
+		<addThread public="1" set="method" line="86" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></addThread>
-		<runInMainThread public="1" set="method" line="92" static="1"><f a="f">
+		<runInMainThread public="1" set="method" line="90" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runInMainThread>
-		<add public="1" set="method" line="99" static="1">
+		<add public="1" set="method" line="97" static="1">
 			<f a="f:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -13577,12 +13797,12 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a pending event to be run into the main loop.</haxe_doc>
 		</add>
-		<injectIntoEventLoop set="method" line="112" static="1"><f a="waitMs">
+		<injectIntoEventLoop set="method" line="110" static="1"><f a="waitMs">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></injectIntoEventLoop>
-		<sortEvents set="method" line="131" static="1"><f a=""><x path="Void"/></f></sortEvents>
-		<tick set="method" line="196" static="1">
+		<sortEvents set="method" line="129" static="1"><f a=""><x path="Void"/></f></sortEvents>
+		<tick set="method" line="194" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Run the pending events. Return the time for next event.</haxe_doc>
 		</tick>
@@ -40611,120 +40831,6 @@
 		</At>
 		<haxe_doc>When an event loop has an available event to execute.</haxe_doc>
 	</enum>
-	<class path="sys.thread.EventLoop" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/EventLoop.hx">
-		<mutex final="1" expr="new Mutex()">
-			<c path="sys.thread.Mutex"/>
-			<meta><m n=":value"><e>new Mutex()</e></m></meta>
-		</mutex>
-		<oneTimeEvents final="1" expr="new Array&lt;Null&lt;Void -&gt; Void&gt;&gt;()">
-			<c path="Array"><x path="Null"><f a=""><x path="Void"/></f></x></c>
-			<meta><m n=":value"><e><![CDATA[new Array<Null<Void -> Void>>()]]></e></m></meta>
-		</oneTimeEvents>
-		<oneTimeEventsIdx expr="0">
-			<x path="Int"/>
-			<meta><m n=":value"><e>0</e></m></meta>
-		</oneTimeEventsIdx>
-		<waitLock final="1" expr="new Lock()">
-			<c path="sys.thread.Lock"/>
-			<meta><m n=":value"><e>new Lock()</e></m></meta>
-		</waitLock>
-		<promisedEventsCount expr="0">
-			<x path="Int"/>
-			<meta><m n=":value"><e>0</e></m></meta>
-		</promisedEventsCount>
-		<regularEvents><x path="Null"><c path="sys.thread._EventLoop.RegularEvent"/></x></regularEvents>
-		<repeat public="1" set="method" line="37">
-			<f a="event:intervalMs">
-				<f a=""><x path="Void"/></f>
-				<x path="Int"/>
-				<x path="sys.thread.EventHandler"/>
-			</f>
-			<haxe_doc>Schedule event for execution every `intervalMs` milliseconds in current loop.</haxe_doc>
-		</repeat>
-		<cancel public="1" set="method" line="56">
-			<f a="eventHandler">
-				<x path="sys.thread.EventHandler"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Prevent execution of a previously scheduled event in current loop.</haxe_doc>
-		</cancel>
-		<promise public="1" set="method" line="78">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Notify this loop about an upcoming event.
-		This makes the thread to stay alive and wait for as many events as many times
-		`.promise()` was called. These events should be added via `.runPromised()`</haxe_doc>
-		</promise>
-		<run public="1" set="method" line="87">
-			<f a="event">
-				<f a=""><x path="Void"/></f>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Execute `event` as soon as possible.</haxe_doc>
-		</run>
-		<runPromised public="1" set="method" line="97">
-			<f a="event">
-				<f a=""><x path="Void"/></f>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Add previously promised `event` for execution.</haxe_doc>
-		</runPromised>
-		<progress public="1" set="method" line="113">
-			<f a=""><e path="sys.thread.NextEventTime"/></f>
-			<haxe_doc>Executes all pending events.
-
-		The returned time stamps can be used with `Sys.time()` for calculations.
-
-		Depending on a target platform this method may be non-reentrant. It must
-		not be called from event callbacks.</haxe_doc>
-		</progress>
-		<wait public="1" set="method" line="135">
-			<f a="?timeout">
-				<x path="Float"/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Blocks until a new event is added or `timeout` (in seconds) to expires.
-
-		Depending on a target platform this method may also automatically execute arriving
-		events while waiting. However if any event is executed it will stop waiting.
-
-		Returns `true` if more events are expected.
-		Returns `false` if no more events expected.
-
-		Depending on a target platform this method may be non-reentrant. It must
-		not be called from event callbacks.</haxe_doc>
-		</wait>
-		<loop public="1" set="method" line="147">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Execute all pending events.
-		Wait and execute as many events as many times `promiseEvent()` was called.
-		Runs until all repeating events are cancelled and no more events is expected.
-
-		Depending on a target platform this method may be non-reentrant. It must
-		not be called from event callbacks.</haxe_doc>
-		</loop>
-		<__progress get="inline" set="null" line="172">
-			<f a="now:recycle">
-				<x path="Float"/>
-				<c path="Array"><f a=""><x path="Void"/></f></c>
-				<a>
-					<nextEventAt><x path="Float"/></nextEventAt>
-					<anyTime><x path="Bool"/></anyTime>
-				</a>
-			</f>
-			<haxe_doc>`.progress` implementation with a reusable array for internal usage.
-		The `nextEventAt` field of the return value denotes when the next event
-		is expected to run:
-		* -1 - never
-		* -2 - now
-		* other values - at specified time</haxe_doc>
-		</__progress>
-		<new public="1" set="method" line="32"><f a=""><x path="Void"/></f></new>
-		<haxe_doc>An event loop implementation used for `sys.thread.Thread`</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-		</meta>
-	</class>
 	<abstract path="sys.thread.EventHandler" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/EventLoop.hx" module="sys.thread.EventLoop">
 		<from><icast><c path="sys.thread._EventLoop.RegularEvent"/></icast></from>
 		<this><c path="sys.thread._EventLoop.RegularEvent"/></this>
@@ -40954,14 +41060,7 @@
 		</f>
 		<meta><m n=":keep"/></meta>
 	</get_events>
-	<initEventLoop set="method" line="61" static="1">
-		<f a=""><x path="Void"/></f>
-		<meta>
-			<m n=":keep"/>
-			<m n=":keep"/>
-		</meta>
-	</initEventLoop>
-	<processEvents public="1" set="method" line="66" static="1">
+	<processEvents public="1" set="method" line="61" static="1">
 		<f a=""><x path="Void"/></f>
 		<meta>
 			<m n=":keep"/>
@@ -41022,14 +41121,7 @@
 			</f>
 			<meta><m n=":keep"/></meta>
 		</get_events>
-		<initEventLoop set="method" line="61" static="1">
-			<f a=""><x path="Void"/></f>
-			<meta>
-				<m n=":keep"/>
-				<m n=":keep"/>
-			</meta>
-		</initEventLoop>
-		<processEvents public="1" set="method" line="66" static="1">
+		<processEvents public="1" set="method" line="61" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":keep"/>
@@ -41045,123 +41137,6 @@
 		</meta>
 	</abstract>
 	<typedef path="sys.thread._Thread.ThreadHandle" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread"><x path="sys.thread._Thread.NativeThreadHandle"/></typedef>
-	<class path="sys.thread._Thread.HaxeThread" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
-		<threads final="1" set="null" expr="new Array&lt;{ var thread : HaxeThread; var handle : ThreadHandle}&gt;()" line="79" static="1">
-			<c path="Array"><a>
-	<thread><c path="sys.thread._Thread.HaxeThread"/></thread>
-	<handle><t path="sys.thread._Thread.ThreadHandle"/></handle>
-</a></c>
-			<meta>
-				<m n=":value"><e><![CDATA[new Array<{ var thread : HaxeThread; var handle : ThreadHandle}>()]]></e></m>
-				<m n=":keep"/>
-			</meta>
-		</threads>
-		<threadsMutex final="1" set="null" expr="new Mutex()" line="80" static="1">
-			<c path="sys.thread.Mutex"/>
-			<meta>
-				<m n=":value"><e>new Mutex()</e></m>
-				<m n=":keep"/>
-			</meta>
-		</threadsMutex>
-		<mainThreadHandle expr="currentHandle()" line="81" static="1">
-			<t path="sys.thread._Thread.ThreadHandle"/>
-			<meta>
-				<m n=":value"><e>currentHandle()</e></m>
-				<m n=":keep"/>
-			</meta>
-		</mainThreadHandle>
-		<mainThread expr="new HaxeThread(currentHandle())" line="82" static="1">
-			<c path="sys.thread._Thread.HaxeThread"/>
-			<meta>
-				<m n=":value"><e>new HaxeThread(currentHandle())</e></m>
-				<m n=":keep"/>
-			</meta>
-		</mainThread>
-		<current public="1" set="method" line="88" static="1">
-			<f a=""><c path="sys.thread._Thread.HaxeThread"/></f>
-			<meta><m n=":keep"/></meta>
-		</current>
-		<create public="1" set="method" line="109" static="1">
-			<f a="job:withEventLoop">
-				<f a=""><x path="Void"/></f>
-				<x path="Bool"/>
-				<x path="sys.thread.Thread"/>
-			</f>
-			<meta><m n=":keep"/></meta>
-		</create>
-		<runWithEventLoop public="1" set="method" line="135" static="1">
-			<f a="job">
-				<f a=""><x path="Void"/></f>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":keep"/></meta>
-		</runWithEventLoop>
-		<dropThread set="method" line="152" static="1">
-			<f a="item:probableIndex">
-				<a>
-					<thread><c path="sys.thread._Thread.HaxeThread"/></thread>
-					<handle><t path="sys.thread._Thread.ThreadHandle"/></handle>
-				</a>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":keep"/></meta>
-		</dropThread>
-		<currentHandle get="inline" set="null" line="175" static="1">
-			<f a=""><t path="sys.thread._Thread.ThreadHandle"/></f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
-		</currentHandle>
-		<createHandle get="inline" set="null" line="179" static="1">
-			<f a="callb">
-				<f a=""><x path="Void"/></f>
-				<t path="sys.thread._Thread.ThreadHandle"/>
-			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
-		</createHandle>
-		<readMessage public="1" get="inline" set="null" line="183" static="1">
-			<f a="block">
-				<x path="Bool"/>
-				<d/>
-			</f>
-			<meta><m n=":keep"/></meta>
-		</readMessage>
-		<events public="1" set="null">
-			<x path="Null"><c path="sys.thread.EventLoop"/></x>
-			<meta><m n=":keep"/></meta>
-		</events>
-		<handle public="1">
-			<t path="sys.thread._Thread.ThreadHandle"/>
-			<meta><m n=":keep"/></meta>
-		</handle>
-		<messages final="1" expr="new Deque&lt;Dynamic&gt;()">
-			<c path="sys.thread.Deque"><d/></c>
-			<meta>
-				<m n=":value"><e><![CDATA[new Deque<Dynamic>()]]></e></m>
-				<m n=":keep"/>
-			</meta>
-		</messages>
-		<sendMessage public="1" get="inline" set="null" line="171">
-			<f a="msg">
-				<d/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":keep"/></meta>
-		</sendMessage>
-		<new set="method" line="167">
-			<f a="h">
-				<t path="sys.thread._Thread.ThreadHandle"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":keep"/></meta>
-		</new>
-		<meta><m n=":directlyUsed"/></meta>
-	</class>
 	<class path="sys.thread.ThreadPoolException" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/ThreadPoolException.hx">
 		<extends path="haxe.Exception"/>
 		<new public="1" set="method" line="5"><f a="message:?previous:?native">
