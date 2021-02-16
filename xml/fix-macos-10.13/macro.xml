@@ -15922,33 +15922,32 @@
 			<c path="sys.thread.Mutex"/>
 			<meta><m n=":value"><e>new Mutex()</e></m></meta>
 		</mutex>
-		<mainThread static="1"><x path="sys.thread.Thread"/></mainThread>
-		<init set="method" line="40" static="1">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":keep"/></meta>
-		</init>
-		<pending expr="new Array&lt;Void&gt;()" line="47" static="1">
+		<mainThread expr="Thread.current()" line="39" static="1">
+			<x path="sys.thread.Thread"/>
+			<meta><m n=":value"><e>Thread.current()</e></m></meta>
+		</mainThread>
+		<pending expr="new Array&lt;Void&gt;()" line="44" static="1">
 			<c path="Array"><f a=""><x path="Void"/></f></c>
 			<meta><m n=":value"><e><![CDATA[new Array<Void>()]]></e></m></meta>
 		</pending>
-		<threadCount public="1" set="null" expr="0" line="48" static="1">
+		<threadCount public="1" set="null" expr="0" line="45" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>0</e></m></meta>
 		</threadCount>
-		<wakeup public="1" set="method" line="53" static="1">
+		<wakeup public="1" set="method" line="50" static="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Wakeup a sleeping `run()`</haxe_doc>
 		</wakeup>
-		<runInMainThread public="1" set="method" line="59" static="1"><f a="f">
+		<runInMainThread public="1" set="method" line="56" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runInMainThread>
-		<addThread public="1" set="method" line="74" static="1"><f a="f">
+		<addThread public="1" set="method" line="71" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></addThread>
-		<processEvents set="method" line="102" static="1"><f a=""><x path="Float"/></f></processEvents>
-		<run public="1" set="method" line="129" static="1">
+		<processEvents set="method" line="99" static="1"><f a=""><x path="Float"/></f></processEvents>
+		<run public="1" set="method" line="126" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Start the main loop. Depending on the platform, this can return immediately or will only return when the application exits.</haxe_doc>
@@ -17644,21 +17643,23 @@
 			<c path="sys.thread.Mutex"/>
 			<meta><m n=":value"><e>new sys.thread.Mutex()</e></m></meta>
 		</mutex>
-		<mainThread get="accessor" set="null" static="1"><x path="sys.thread.Thread"/></mainThread>
-		<get_mainThread get="inline" set="null" line="68" static="1"><f a=""><x path="sys.thread.Thread"/></f></get_mainThread>
+		<mainThread expr="Thread.current()" line="66" static="1">
+			<x path="sys.thread.Thread"/>
+			<meta><m n=":value"><e>Thread.current()</e></m></meta>
+		</mainThread>
 		<pending static="1"><c path="haxe.MainEvent"/></pending>
 		<threadCount public="1" get="accessor" set="null" static="1"><x path="Int"/></threadCount>
-		<get_threadCount get="inline" set="null" line="76" static="1"><f a=""><x path="Int"/></f></get_threadCount>
-		<hasEvents public="1" set="method" line="78" static="1"><f a=""><x path="Bool"/></f></hasEvents>
-		<addThread public="1" set="method" line="88" static="1"><f a="f">
+		<get_threadCount get="inline" set="null" line="74" static="1"><f a=""><x path="Int"/></f></get_threadCount>
+		<hasEvents public="1" set="method" line="76" static="1"><f a=""><x path="Bool"/></f></hasEvents>
+		<addThread public="1" set="method" line="86" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></addThread>
-		<runInMainThread public="1" set="method" line="92" static="1"><f a="f">
+		<runInMainThread public="1" set="method" line="90" static="1"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runInMainThread>
-		<add public="1" set="method" line="99" static="1">
+		<add public="1" set="method" line="97" static="1">
 			<f a="f:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -17667,12 +17668,12 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a pending event to be run into the main loop.</haxe_doc>
 		</add>
-		<injectIntoEventLoop set="method" line="112" static="1"><f a="waitMs">
+		<injectIntoEventLoop set="method" line="110" static="1"><f a="waitMs">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></injectIntoEventLoop>
-		<sortEvents set="method" line="131" static="1"><f a=""><x path="Void"/></f></sortEvents>
-		<tick set="method" line="196" static="1">
+		<sortEvents set="method" line="129" static="1"><f a=""><x path="Void"/></f></sortEvents>
+		<tick set="method" line="194" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Run the pending events. Return the time for next event.</haxe_doc>
 		</tick>
@@ -43496,60 +43497,58 @@
 			<meta><m n=":value"><e>{ msg : "Event loop is not available. Refer to sys.thread.Thread.runWithEventLoop." }</e></m></meta>
 		</new>
 	</class>
+	<typedef path="sys.thread._Thread.ThreadImpl" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread"><c path="eval.vm.NativeThread"/></typedef>
 	<abstract path="sys.thread.Thread" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/sys/thread/Thread.hx">
-		<this><c path="eval.vm.NativeThread"/></this>
+		<from><icast><t path="sys.thread._Thread.ThreadImpl"/></icast></from>
+		<this><t path="sys.thread._Thread.ThreadImpl"/></this>
 		<impl><class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" final="1">
 	<events public="1" get="accessor" set="null" static="1"><c path="sys.thread.EventLoop"/></events>
-	<_new get="inline" set="null" line="30" static="1">
+	<_new get="inline" set="null" line="36" static="1">
 		<f a="h">
 			<c path="eval.vm.NativeThread"/>
 			<x path="sys.thread.Thread"/>
 		</f>
 		<meta><m n=":noCompletion"/></meta>
 	</_new>
-	<sendMessage public="1" get="inline" set="null" line="34" static="1"><f a="this:msg">
-	<c path="eval.vm.NativeThread"/>
+	<sendMessage public="1" get="inline" set="null" line="40" static="1"><f a="this:msg">
+	<t path="sys.thread._Thread.ThreadImpl"/>
 	<d/>
 	<x path="Void"/>
 </f></sendMessage>
-	<current public="1" get="inline" set="null" line="38" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
-	<create public="1" get="inline" set="null" line="42" static="1"><f a="job">
+	<current public="1" get="inline" set="null" line="44" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
+	<create public="1" get="inline" set="null" line="48" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></create>
-	<runWithEventLoop public="1" set="method" line="46" static="1"><f a="job">
+	<runWithEventLoop public="1" set="method" line="52" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runWithEventLoop>
-	<createWithEventLoop public="1" get="inline" set="null" line="63" static="1"><f a="job">
+	<createWithEventLoop public="1" get="inline" set="null" line="69" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></createWithEventLoop>
-	<readMessage public="1" get="inline" set="null" line="72" static="1"><f a="block">
+	<readMessage public="1" get="inline" set="null" line="78" static="1"><f a="block">
 	<x path="Bool"/>
 	<d/>
 </f></readMessage>
-	<yield public="1" get="inline" set="null" line="76" static="1"><f a=""><x path="Void"/></f></yield>
-	<equals public="1" get="inline" set="null" line="81" static="1">
+	<yield public="1" get="inline" set="null" line="82" static="1"><f a=""><x path="Void"/></f></yield>
+	<equals public="1" get="inline" set="null" line="87" static="1">
 		<f a="this:other">
-			<c path="eval.vm.NativeThread"/>
+			<t path="sys.thread._Thread.ThreadImpl"/>
 			<x path="sys.thread.Thread"/>
 			<x path="Bool"/>
 		</f>
 		<meta><m n=":op"><e>A == B</e></m></meta>
 	</equals>
-	<getHandle get="inline" set="null" line="85" static="1"><f a="this">
-	<c path="eval.vm.NativeThread"/>
+	<getHandle get="inline" set="null" line="91" static="1"><f a="this">
+	<t path="sys.thread._Thread.ThreadImpl"/>
 	<c path="eval.vm.NativeThread"/>
 </f></getHandle>
-	<get_events set="method" line="89" static="1"><f a="this">
-	<c path="eval.vm.NativeThread"/>
+	<get_events set="method" line="95" static="1"><f a="this">
+	<t path="sys.thread._Thread.ThreadImpl"/>
 	<c path="sys.thread.EventLoop"/>
 </f></get_events>
-	<initEventLoop set="method" line="96" static="1">
-		<f a=""><x path="Void"/></f>
-		<meta><m n=":keep"/></meta>
-	</initEventLoop>
 	<processEvents set="method" line="102" static="1">
 		<f a=""><x path="Void"/></f>
 		<meta><m n=":keep"/></meta>
@@ -43558,56 +43557,52 @@
 	</abstract>
 	<class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" final="1">
 		<events public="1" get="accessor" set="null" static="1"><c path="sys.thread.EventLoop"/></events>
-		<_new get="inline" set="null" line="30" static="1">
+		<_new get="inline" set="null" line="36" static="1">
 			<f a="h">
 				<c path="eval.vm.NativeThread"/>
 				<x path="sys.thread.Thread"/>
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</_new>
-		<sendMessage public="1" get="inline" set="null" line="34" static="1"><f a="this:msg">
-	<c path="eval.vm.NativeThread"/>
+		<sendMessage public="1" get="inline" set="null" line="40" static="1"><f a="this:msg">
+	<t path="sys.thread._Thread.ThreadImpl"/>
 	<d/>
 	<x path="Void"/>
 </f></sendMessage>
-		<current public="1" get="inline" set="null" line="38" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
-		<create public="1" get="inline" set="null" line="42" static="1"><f a="job">
+		<current public="1" get="inline" set="null" line="44" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
+		<create public="1" get="inline" set="null" line="48" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></create>
-		<runWithEventLoop public="1" set="method" line="46" static="1"><f a="job">
+		<runWithEventLoop public="1" set="method" line="52" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runWithEventLoop>
-		<createWithEventLoop public="1" get="inline" set="null" line="63" static="1"><f a="job">
+		<createWithEventLoop public="1" get="inline" set="null" line="69" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></createWithEventLoop>
-		<readMessage public="1" get="inline" set="null" line="72" static="1"><f a="block">
+		<readMessage public="1" get="inline" set="null" line="78" static="1"><f a="block">
 	<x path="Bool"/>
 	<d/>
 </f></readMessage>
-		<yield public="1" get="inline" set="null" line="76" static="1"><f a=""><x path="Void"/></f></yield>
-		<equals public="1" get="inline" set="null" line="81" static="1">
+		<yield public="1" get="inline" set="null" line="82" static="1"><f a=""><x path="Void"/></f></yield>
+		<equals public="1" get="inline" set="null" line="87" static="1">
 			<f a="this:other">
-				<c path="eval.vm.NativeThread"/>
+				<t path="sys.thread._Thread.ThreadImpl"/>
 				<x path="sys.thread.Thread"/>
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":op"><e>A == B</e></m></meta>
 		</equals>
-		<getHandle get="inline" set="null" line="85" static="1"><f a="this">
-	<c path="eval.vm.NativeThread"/>
+		<getHandle get="inline" set="null" line="91" static="1"><f a="this">
+	<t path="sys.thread._Thread.ThreadImpl"/>
 	<c path="eval.vm.NativeThread"/>
 </f></getHandle>
-		<get_events set="method" line="89" static="1"><f a="this">
-	<c path="eval.vm.NativeThread"/>
+		<get_events set="method" line="95" static="1"><f a="this">
+	<t path="sys.thread._Thread.ThreadImpl"/>
 	<c path="sys.thread.EventLoop"/>
 </f></get_events>
-		<initEventLoop set="method" line="96" static="1">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":keep"/></meta>
-		</initEventLoop>
 		<processEvents set="method" line="102" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
