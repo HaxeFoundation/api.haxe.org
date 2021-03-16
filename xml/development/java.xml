@@ -1,7 +1,7 @@
 <!-- This file can be parsed by haxe.rtti.XmlParser -->
 <haxe>
 	<abstract path="Any" params="" file="/home/runner/work/haxe/haxe/std/Any.hx">
-		<from><icast field="__cast"><c path="__cast.T"/></icast></from>
+		<from><icast><d/></icast></from>
 		<this><d/></this>
 		<to><icast field="__promote"><c path="__promote.T"/></icast></to>
 		<haxe_doc>`Any` is a type that is compatible with any other in both ways.
@@ -28,17 +28,7 @@
 			<m n=":to"/>
 		</meta>
 	</__promote>
-	<__cast params="T" get="inline" set="null" line="40" static="1">
-		<f a="value">
-			<c path="__cast.T"/>
-			<x path="Any"/>
-		</f>
-		<meta>
-			<m n=":noCompletion"/>
-			<m n=":from"/>
-		</meta>
-	</__cast>
-	<toString get="inline" set="null" line="43" static="1">
+	<toString get="inline" set="null" line="40" static="1">
 		<f a="this">
 			<d/>
 			<c path="String"/>
@@ -59,17 +49,7 @@
 				<m n=":to"/>
 			</meta>
 		</__promote>
-		<__cast params="T" get="inline" set="null" line="40" static="1">
-			<f a="value">
-				<c path="__cast.T"/>
-				<x path="Any"/>
-			</f>
-			<meta>
-				<m n=":noCompletion"/>
-				<m n=":from"/>
-			</meta>
-		</__cast>
-		<toString get="inline" set="null" line="43" static="1">
+		<toString get="inline" set="null" line="40" static="1">
 			<f a="this">
 				<d/>
 				<c path="String"/>
@@ -8777,7 +8757,7 @@
 		</meta>
 	</class>
 	<typedef path="haxe._Rest.NativeRest" params="T" file="/home/runner/work/haxe/haxe/std/java/_std/haxe/Rest.hx" private="1" module="haxe.Rest">
-		<c path="java.NativeArray"><c path="java.lang.Object"/></c>
+		<c path="java.NativeArray"><c path="haxe._Rest.NativeRest.T"/></c>
 		<meta><m n=":nativeGen"/></meta>
 	</typedef>
 	<abstract path="haxe.Rest" params="T" file="/home/runner/work/haxe/haxe/std/java/_std/haxe/Rest.hx">
@@ -8797,7 +8777,7 @@
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<x path="Int"/>
 </f></get_length>
-	<of public="1" params="T" set="method" line="18" static="1">
+	<of public="1" params="T" get="inline" set="null" line="23" static="1">
 		<f a="array">
 			<c path="Array"><c path="of.T"/></c>
 			<x path="haxe.Rest"><c path="of.T"/></x>
@@ -8810,14 +8790,21 @@
 		may affect the created `Rest` instance.
 		Use `Rest.of(array.copy())` to avoid that.</haxe_doc>
 	</of>
-	<_new get="inline" set="null" line="31" static="1">
+	<_new get="inline" set="null" line="32" static="1">
 		<f a="a">
 			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 			<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
 		</f>
 		<meta><m n=":noCompletion"/></meta>
 	</_new>
-	<get get="inline" set="null" line="35" static="1">
+	<createNative params="T" set="method" line="39" static="1">
+		<f a="length">
+			<x path="Int"/>
+			<t path="haxe._Rest.NativeRest"><c path="createNative.T"/></t>
+		</f>
+		<haxe_doc>* Implemented in genjvm (to auto-box primitive types) and genjava</haxe_doc>
+	</createNative>
+	<get get="inline" set="null" line="42" static="1">
 		<f a="this:index">
 			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 			<x path="Int"/>
@@ -8825,7 +8812,7 @@
 		</f>
 		<meta><m n=":arrayAccess"/></meta>
 	</get>
-	<toArray public="1" set="method" line="37" static="1">
+	<toArray public="1" set="method" line="44" static="1">
 		<f a="this">
 			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 			<c path="Array"><c path="haxe.Rest.T"/></c>
@@ -8833,15 +8820,15 @@
 		<meta><m n=":to"/></meta>
 		<haxe_doc>Creates an array containing all the values of rest arguments.</haxe_doc>
 	</toArray>
-	<iterator public="1" get="inline" set="null" line="42" static="1"><f a="this">
+	<iterator public="1" get="inline" set="null" line="49" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="haxe.iterators.RestIterator"><c path="haxe.Rest.T"/></c>
 </f></iterator>
-	<keyValueIterator public="1" get="inline" set="null" line="45" static="1"><f a="this">
+	<keyValueIterator public="1" get="inline" set="null" line="52" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="haxe.iterators.RestKeyValueIterator"><c path="haxe.Rest.T"/></c>
 </f></keyValueIterator>
-	<append public="1" set="method" line="47" static="1">
+	<append public="1" get="inline" set="null" line="54" static="1">
 		<f a="this:item">
 			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 			<c path="haxe.Rest.T"/>
@@ -8849,7 +8836,13 @@
 		</f>
 		<haxe_doc>Create a new rest arguments collection by appending `item` to this one.</haxe_doc>
 	</append>
-	<prepend public="1" set="method" line="54" static="1">
+	<_append set="method" line="57" static="1"><f a="this:result:item">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.Rest.T"/>
+	<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+</f></_append>
+	<prepend public="1" get="inline" set="null" line="63" static="1">
 		<f a="this:item">
 			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 			<c path="haxe.Rest.T"/>
@@ -8857,7 +8850,13 @@
 		</f>
 		<haxe_doc>Create a new rest arguments collection by prepending this one with `item`.</haxe_doc>
 	</prepend>
-	<toString public="1" set="method" line="61" static="1"><f a="this">
+	<_prepend set="method" line="66" static="1"><f a="this:result:item">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.Rest.T"/>
+	<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+</f></_prepend>
+	<toString public="1" set="method" line="72" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="String"/>
 </f></toString>
@@ -8876,7 +8875,7 @@
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<x path="Int"/>
 </f></get_length>
-		<of public="1" params="T" set="method" line="18" static="1">
+		<of public="1" params="T" get="inline" set="null" line="23" static="1">
 			<f a="array">
 				<c path="Array"><c path="of.T"/></c>
 				<x path="haxe.Rest"><c path="of.T"/></x>
@@ -8889,14 +8888,21 @@
 		may affect the created `Rest` instance.
 		Use `Rest.of(array.copy())` to avoid that.</haxe_doc>
 		</of>
-		<_new get="inline" set="null" line="31" static="1">
+		<_new get="inline" set="null" line="32" static="1">
 			<f a="a">
 				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 				<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</_new>
-		<get get="inline" set="null" line="35" static="1">
+		<createNative params="T" set="method" line="39" static="1">
+			<f a="length">
+				<x path="Int"/>
+				<t path="haxe._Rest.NativeRest"><c path="createNative.T"/></t>
+			</f>
+			<haxe_doc>* Implemented in genjvm (to auto-box primitive types) and genjava</haxe_doc>
+		</createNative>
+		<get get="inline" set="null" line="42" static="1">
 			<f a="this:index">
 				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 				<x path="Int"/>
@@ -8904,7 +8910,7 @@
 			</f>
 			<meta><m n=":arrayAccess"/></meta>
 		</get>
-		<toArray public="1" set="method" line="37" static="1">
+		<toArray public="1" set="method" line="44" static="1">
 			<f a="this">
 				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 				<c path="Array"><c path="haxe.Rest.T"/></c>
@@ -8912,15 +8918,15 @@
 			<meta><m n=":to"/></meta>
 			<haxe_doc>Creates an array containing all the values of rest arguments.</haxe_doc>
 		</toArray>
-		<iterator public="1" get="inline" set="null" line="42" static="1"><f a="this">
+		<iterator public="1" get="inline" set="null" line="49" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="haxe.iterators.RestIterator"><c path="haxe.Rest.T"/></c>
 </f></iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="45" static="1"><f a="this">
+		<keyValueIterator public="1" get="inline" set="null" line="52" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="haxe.iterators.RestKeyValueIterator"><c path="haxe.Rest.T"/></c>
 </f></keyValueIterator>
-		<append public="1" set="method" line="47" static="1">
+		<append public="1" get="inline" set="null" line="54" static="1">
 			<f a="this:item">
 				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 				<c path="haxe.Rest.T"/>
@@ -8928,7 +8934,13 @@
 			</f>
 			<haxe_doc>Create a new rest arguments collection by appending `item` to this one.</haxe_doc>
 		</append>
-		<prepend public="1" set="method" line="54" static="1">
+		<_append set="method" line="57" static="1"><f a="this:result:item">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.Rest.T"/>
+	<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+</f></_append>
+		<prepend public="1" get="inline" set="null" line="63" static="1">
 			<f a="this:item">
 				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 				<c path="haxe.Rest.T"/>
@@ -8936,7 +8948,13 @@
 			</f>
 			<haxe_doc>Create a new rest arguments collection by prepending this one with `item`.</haxe_doc>
 		</prepend>
-		<toString public="1" set="method" line="61" static="1"><f a="this">
+		<_prepend set="method" line="66" static="1"><f a="this:result:item">
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
+	<c path="haxe.Rest.T"/>
+	<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
+</f></_prepend>
+		<toString public="1" set="method" line="72" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="String"/>
 </f></toString>
