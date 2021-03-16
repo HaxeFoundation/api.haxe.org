@@ -3094,37 +3094,6 @@
 		<TUnknown/>
 		<meta><m n=":hxGen"/></meta>
 	</enum>
-	<class path="java.NativeArray" params="T" file="/home/runner/work/haxe/haxe/std/java/NativeArray.hx" extern="1">
-		<make public="1" params="T" set="method" static="1">
-			<f a="elements">
-				<t path="haxe.extern.Rest"><c path="make.T"/></t>
-				<c path="java.NativeArray"><c path="make.T"/></c>
-			</f>
-			<haxe_doc>Creates a new array with the specified elements.
-
-		Usage:
-		```haxe
-		var elements = NativeArray.make(1,2,3,4,5,6);
-		```</haxe_doc>
-		</make>
-		<length public="1" set="null">
-			<x path="Int"/>
-			<haxe_doc>The length of the array</haxe_doc>
-		</length>
-		<new public="1" set="method">
-			<f a="len">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Allocates a new array with size `len`</haxe_doc>
-		</new>
-		<haxe_doc>Represents a java fixed-size Array (`T[]`)</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":nativeGen"/>
-			<m n=":nativeGen"/>
-		</meta>
-	</class>
 	<enum path="java.internal.EmptyObject" params="" file="/home/runner/work/haxe/haxe/std/java/internal/Runtime.hx" module="java.internal.Runtime">
 		<EMPTY/>
 		<meta>
@@ -3273,18 +3242,18 @@
 		In particular, default values of constructor arguments are not
 		guaranteed to be taken into account.</haxe_doc>
 		</createInstance>
-		<__createEmptyInstance_EMPTY_TYPES expr="java.NativeArray.make(java.Lib.toNativeEnum(java.internal.Runtime.EmptyObject))" line="182" static="1">
-			<c path="java.NativeArray"><c path="java.lang.Class"><e path="java.internal.EmptyObject"/></c></c>
+		<__createEmptyInstance_EMPTY_TYPES expr="java.Lib.toNativeEnum(java.internal.Runtime.EmptyObject)" line="182" static="1">
+			<c path="java.lang.Class"><e path="java.internal.EmptyObject"/></c>
 			<meta>
-				<m n=":value"><e>java.NativeArray.make(java.Lib.toNativeEnum(java.internal.Runtime.EmptyObject))</e></m>
+				<m n=":value"><e>java.Lib.toNativeEnum(java.internal.Runtime.EmptyObject)</e></m>
 				<m n=":protected"/>
 				<m n=":readOnly"/>
 			</meta>
 		</__createEmptyInstance_EMPTY_TYPES>
-		<__createEmptyInstance_EMPTY_ARGS expr="java.NativeArray.make(java.internal.Runtime.EmptyObject.EMPTY)" line="183" static="1">
-			<c path="java.NativeArray"><e path="java.internal.EmptyObject"/></c>
+		<__createEmptyInstance_EMPTY_ARGS expr="java.internal.Runtime.EmptyObject.EMPTY" line="183" static="1">
+			<e path="java.internal.EmptyObject"/>
 			<meta>
-				<m n=":value"><e>java.NativeArray.make(java.internal.Runtime.EmptyObject.EMPTY)</e></m>
+				<m n=":value"><e>java.internal.Runtime.EmptyObject.EMPTY</e></m>
 				<m n=":protected"/>
 				<m n=":readOnly"/>
 			</meta>
@@ -5376,7 +5345,7 @@
 </f></newSetFromMap>
 		<addAll public="1" params="T" set="method" static="1"><f a="param1:param2">
 	<c path="java.util.Collection"><d/></c>
-	<c path="java.NativeArray"><c path="addAll.T"/></c>
+	<x path="haxe.Rest"><c path="addAll.T"/></x>
 	<x path="Bool"/>
 </f></addAll>
 		<disjoint public="1" set="method" static="1"><f a="param1:param2">
@@ -6620,6 +6589,37 @@
 				<e>"java.util.concurrent.locks"</e>
 				<e>"ReentrantLock"</e>
 			</m>
+		</meta>
+	</class>
+	<class path="java.NativeArray" params="T" file="/home/runner/work/haxe/haxe/std/java/NativeArray.hx" extern="1">
+		<make public="1" params="T" set="method" static="1">
+			<f a="elements">
+				<t path="haxe.extern.Rest"><c path="make.T"/></t>
+				<c path="java.NativeArray"><c path="make.T"/></c>
+			</f>
+			<haxe_doc>Creates a new array with the specified elements.
+
+		Usage:
+		```haxe
+		var elements = NativeArray.make(1,2,3,4,5,6);
+		```</haxe_doc>
+		</make>
+		<length public="1" set="null">
+			<x path="Int"/>
+			<haxe_doc>The length of the array</haxe_doc>
+		</length>
+		<new public="1" set="method">
+			<f a="len">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Allocates a new array with size `len`</haxe_doc>
+		</new>
+		<haxe_doc>Represents a java fixed-size Array (`T[]`)</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":nativeGen"/>
+			<m n=":nativeGen"/>
 		</meta>
 	</class>
 	<class path="haxe.EntryPoint" params="" file="/home/runner/work/haxe/haxe/std/haxe/EntryPoint.hx">
@@ -8761,7 +8761,18 @@
 		<meta><m n=":nativeGen"/></meta>
 	</typedef>
 	<abstract path="haxe.Rest" params="T" file="/home/runner/work/haxe/haxe/std/java/_std/haxe/Rest.hx">
-		<from><icast field="of"><c path="Array"><c path="of.T"/></c></icast></from>
+		<from>
+			<icast field="of"><c path="Array"><c path="of.T"/></c></icast>
+			<icast field="ofNativeInt"><c path="java.NativeArray"><x path="Int"/></c></icast>
+			<icast field="ofNativeFloat"><c path="java.NativeArray"><x path="Float"/></c></icast>
+			<icast field="ofNativeBool"><c path="java.NativeArray"><x path="Bool"/></c></icast>
+			<icast field="ofNativeInt8"><c path="java.NativeArray"><x path="java.Int8"/></c></icast>
+			<icast field="ofNativeInt16"><c path="java.NativeArray"><x path="java.Int16"/></c></icast>
+			<icast field="ofNativeChar16"><c path="java.NativeArray"><x path="java.Char16"/></c></icast>
+			<icast field="ofNativeHaxeInt64"><c path="java.NativeArray"><x path="haxe.Int64"/></c></icast>
+			<icast field="ofNativeInt64"><c path="java.NativeArray"><x path="java.Int64"/></c></icast>
+			<icast field="ofNative"><c path="java.NativeArray"><c path="ofNative.T"/></c></icast>
+		</from>
 		<this><t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t></this>
 		<to><icast field="toArray"><c path="Array"><c path="haxe.Rest.T"/></c></icast></to>
 		<meta>
@@ -8773,11 +8784,11 @@
 		<x path="Int"/>
 		<haxe_doc>Amount of arguments passed as rest arguments</haxe_doc>
 	</length>
-	<get_length get="inline" set="null" line="16" static="1"><f a="this">
+	<get_length get="inline" set="null" line="17" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<x path="Int"/>
 </f></get_length>
-	<of public="1" params="T" get="inline" set="null" line="23" static="1">
+	<of public="1" params="T" get="inline" set="null" line="24" static="1">
 		<f a="array">
 			<c path="Array"><c path="of.T"/></c>
 			<x path="haxe.Rest"><c path="of.T"/></x>
@@ -8790,21 +8801,92 @@
 		may affect the created `Rest` instance.
 		Use `Rest.of(array.copy())` to avoid that.</haxe_doc>
 	</of>
-	<_new get="inline" set="null" line="32" static="1">
+	<ofNativePrimitive params="TBoxed:TRest" set="method" line="34" static="1">
+		<f a="result:collection">
+			<t path="haxe._Rest.NativeRest"><c path="ofNativePrimitive.TBoxed"/></t>
+			<c path="java.NativeArray"><c path="ofNativePrimitive.TRest"/></c>
+			<x path="haxe.Rest"><c path="ofNativePrimitive.TRest"/></x>
+		</f>
+		<meta><m n=":generic"/></meta>
+	</ofNativePrimitive>
+	<ofNativeInt set="method" line="41" static="1">
+		<f a="collection">
+			<c path="java.NativeArray"><x path="Int"/></c>
+			<x path="haxe.Rest"><x path="Int"/></x>
+		</f>
+		<meta><m n=":from"/></meta>
+	</ofNativeInt>
+	<ofNativeFloat set="method" line="44" static="1">
+		<f a="collection">
+			<c path="java.NativeArray"><x path="Float"/></c>
+			<x path="haxe.Rest"><x path="Float"/></x>
+		</f>
+		<meta><m n=":from"/></meta>
+	</ofNativeFloat>
+	<ofNativeBool set="method" line="47" static="1">
+		<f a="collection">
+			<c path="java.NativeArray"><x path="Bool"/></c>
+			<x path="haxe.Rest"><x path="Bool"/></x>
+		</f>
+		<meta><m n=":from"/></meta>
+	</ofNativeBool>
+	<ofNativeInt8 set="method" line="50" static="1">
+		<f a="collection">
+			<c path="java.NativeArray"><x path="java.Int8"/></c>
+			<x path="haxe.Rest"><x path="java.Int8"/></x>
+		</f>
+		<meta><m n=":from"/></meta>
+	</ofNativeInt8>
+	<ofNativeInt16 set="method" line="53" static="1">
+		<f a="collection">
+			<c path="java.NativeArray"><x path="java.Int16"/></c>
+			<x path="haxe.Rest"><x path="java.Int16"/></x>
+		</f>
+		<meta><m n=":from"/></meta>
+	</ofNativeInt16>
+	<ofNativeChar16 set="method" line="56" static="1">
+		<f a="collection">
+			<c path="java.NativeArray"><x path="java.Char16"/></c>
+			<x path="haxe.Rest"><x path="java.Char16"/></x>
+		</f>
+		<meta><m n=":from"/></meta>
+	</ofNativeChar16>
+	<ofNativeHaxeInt64 set="method" line="59" static="1">
+		<f a="collection">
+			<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+			<x path="haxe.Rest"><x path="haxe.Int64"/></x>
+		</f>
+		<meta><m n=":from"/></meta>
+	</ofNativeHaxeInt64>
+	<ofNativeInt64 set="method" line="62" static="1">
+		<f a="collection">
+			<c path="java.NativeArray"><x path="java.Int64"/></c>
+			<x path="haxe.Rest"><x path="java.Int64"/></x>
+		</f>
+		<meta><m n=":from"/></meta>
+	</ofNativeInt64>
+	<ofNative params="T" set="method" line="64" static="1">
+		<f a="collection">
+			<c path="java.NativeArray"><c path="ofNative.T"/></c>
+			<x path="haxe.Rest"><c path="ofNative.T"/></x>
+		</f>
+		<meta><m n=":from"/></meta>
+	</ofNative>
+	<_new get="inline" set="null" line="68" static="1">
 		<f a="a">
 			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 			<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
 		</f>
 		<meta><m n=":noCompletion"/></meta>
 	</_new>
-	<createNative params="T" set="method" line="39" static="1">
+	<createNative params="T" set="method" line="75" static="1">
 		<f a="length">
 			<x path="Int"/>
 			<t path="haxe._Rest.NativeRest"><c path="createNative.T"/></t>
 		</f>
 		<haxe_doc>* Implemented in genjvm (to auto-box primitive types) and genjava</haxe_doc>
 	</createNative>
-	<get get="inline" set="null" line="42" static="1">
+	<get get="inline" set="null" line="78" static="1">
 		<f a="this:index">
 			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 			<x path="Int"/>
@@ -8812,7 +8894,7 @@
 		</f>
 		<meta><m n=":arrayAccess"/></meta>
 	</get>
-	<toArray public="1" set="method" line="44" static="1">
+	<toArray public="1" set="method" line="80" static="1">
 		<f a="this">
 			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 			<c path="Array"><c path="haxe.Rest.T"/></c>
@@ -8820,15 +8902,15 @@
 		<meta><m n=":to"/></meta>
 		<haxe_doc>Creates an array containing all the values of rest arguments.</haxe_doc>
 	</toArray>
-	<iterator public="1" get="inline" set="null" line="49" static="1"><f a="this">
+	<iterator public="1" get="inline" set="null" line="85" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="haxe.iterators.RestIterator"><c path="haxe.Rest.T"/></c>
 </f></iterator>
-	<keyValueIterator public="1" get="inline" set="null" line="52" static="1"><f a="this">
+	<keyValueIterator public="1" get="inline" set="null" line="88" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="haxe.iterators.RestKeyValueIterator"><c path="haxe.Rest.T"/></c>
 </f></keyValueIterator>
-	<append public="1" get="inline" set="null" line="54" static="1">
+	<append public="1" get="inline" set="null" line="90" static="1">
 		<f a="this:item">
 			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 			<c path="haxe.Rest.T"/>
@@ -8836,13 +8918,13 @@
 		</f>
 		<haxe_doc>Create a new rest arguments collection by appending `item` to this one.</haxe_doc>
 	</append>
-	<_append set="method" line="57" static="1"><f a="this:result:item">
+	<_append set="method" line="93" static="1"><f a="this:result:item">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="haxe.Rest.T"/>
 	<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
 </f></_append>
-	<prepend public="1" get="inline" set="null" line="63" static="1">
+	<prepend public="1" get="inline" set="null" line="99" static="1">
 		<f a="this:item">
 			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 			<c path="haxe.Rest.T"/>
@@ -8850,13 +8932,13 @@
 		</f>
 		<haxe_doc>Create a new rest arguments collection by prepending this one with `item`.</haxe_doc>
 	</prepend>
-	<_prepend set="method" line="66" static="1"><f a="this:result:item">
+	<_prepend set="method" line="102" static="1"><f a="this:result:item">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="haxe.Rest.T"/>
 	<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
 </f></_prepend>
-	<toString public="1" set="method" line="72" static="1"><f a="this">
+	<toString public="1" set="method" line="108" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="String"/>
 </f></toString>
@@ -8871,11 +8953,11 @@
 			<x path="Int"/>
 			<haxe_doc>Amount of arguments passed as rest arguments</haxe_doc>
 		</length>
-		<get_length get="inline" set="null" line="16" static="1"><f a="this">
+		<get_length get="inline" set="null" line="17" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<x path="Int"/>
 </f></get_length>
-		<of public="1" params="T" get="inline" set="null" line="23" static="1">
+		<of public="1" params="T" get="inline" set="null" line="24" static="1">
 			<f a="array">
 				<c path="Array"><c path="of.T"/></c>
 				<x path="haxe.Rest"><c path="of.T"/></x>
@@ -8888,21 +8970,92 @@
 		may affect the created `Rest` instance.
 		Use `Rest.of(array.copy())` to avoid that.</haxe_doc>
 		</of>
-		<_new get="inline" set="null" line="32" static="1">
+		<ofNativePrimitive params="TBoxed:TRest" set="method" line="34" static="1">
+			<f a="result:collection">
+				<t path="haxe._Rest.NativeRest"><c path="ofNativePrimitive.TBoxed"/></t>
+				<c path="java.NativeArray"><c path="ofNativePrimitive.TRest"/></c>
+				<x path="haxe.Rest"><c path="ofNativePrimitive.TRest"/></x>
+			</f>
+			<meta><m n=":generic"/></meta>
+		</ofNativePrimitive>
+		<ofNativeInt set="method" line="41" static="1">
+			<f a="collection">
+				<c path="java.NativeArray"><x path="Int"/></c>
+				<x path="haxe.Rest"><x path="Int"/></x>
+			</f>
+			<meta><m n=":from"/></meta>
+		</ofNativeInt>
+		<ofNativeFloat set="method" line="44" static="1">
+			<f a="collection">
+				<c path="java.NativeArray"><x path="Float"/></c>
+				<x path="haxe.Rest"><x path="Float"/></x>
+			</f>
+			<meta><m n=":from"/></meta>
+		</ofNativeFloat>
+		<ofNativeBool set="method" line="47" static="1">
+			<f a="collection">
+				<c path="java.NativeArray"><x path="Bool"/></c>
+				<x path="haxe.Rest"><x path="Bool"/></x>
+			</f>
+			<meta><m n=":from"/></meta>
+		</ofNativeBool>
+		<ofNativeInt8 set="method" line="50" static="1">
+			<f a="collection">
+				<c path="java.NativeArray"><x path="java.Int8"/></c>
+				<x path="haxe.Rest"><x path="java.Int8"/></x>
+			</f>
+			<meta><m n=":from"/></meta>
+		</ofNativeInt8>
+		<ofNativeInt16 set="method" line="53" static="1">
+			<f a="collection">
+				<c path="java.NativeArray"><x path="java.Int16"/></c>
+				<x path="haxe.Rest"><x path="java.Int16"/></x>
+			</f>
+			<meta><m n=":from"/></meta>
+		</ofNativeInt16>
+		<ofNativeChar16 set="method" line="56" static="1">
+			<f a="collection">
+				<c path="java.NativeArray"><x path="java.Char16"/></c>
+				<x path="haxe.Rest"><x path="java.Char16"/></x>
+			</f>
+			<meta><m n=":from"/></meta>
+		</ofNativeChar16>
+		<ofNativeHaxeInt64 set="method" line="59" static="1">
+			<f a="collection">
+				<c path="java.NativeArray"><x path="haxe.Int64"/></c>
+				<x path="haxe.Rest"><x path="haxe.Int64"/></x>
+			</f>
+			<meta><m n=":from"/></meta>
+		</ofNativeHaxeInt64>
+		<ofNativeInt64 set="method" line="62" static="1">
+			<f a="collection">
+				<c path="java.NativeArray"><x path="java.Int64"/></c>
+				<x path="haxe.Rest"><x path="java.Int64"/></x>
+			</f>
+			<meta><m n=":from"/></meta>
+		</ofNativeInt64>
+		<ofNative params="T" set="method" line="64" static="1">
+			<f a="collection">
+				<c path="java.NativeArray"><c path="ofNative.T"/></c>
+				<x path="haxe.Rest"><c path="ofNative.T"/></x>
+			</f>
+			<meta><m n=":from"/></meta>
+		</ofNative>
+		<_new get="inline" set="null" line="68" static="1">
 			<f a="a">
 				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 				<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</_new>
-		<createNative params="T" set="method" line="39" static="1">
+		<createNative params="T" set="method" line="75" static="1">
 			<f a="length">
 				<x path="Int"/>
 				<t path="haxe._Rest.NativeRest"><c path="createNative.T"/></t>
 			</f>
 			<haxe_doc>* Implemented in genjvm (to auto-box primitive types) and genjava</haxe_doc>
 		</createNative>
-		<get get="inline" set="null" line="42" static="1">
+		<get get="inline" set="null" line="78" static="1">
 			<f a="this:index">
 				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 				<x path="Int"/>
@@ -8910,7 +9063,7 @@
 			</f>
 			<meta><m n=":arrayAccess"/></meta>
 		</get>
-		<toArray public="1" set="method" line="44" static="1">
+		<toArray public="1" set="method" line="80" static="1">
 			<f a="this">
 				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 				<c path="Array"><c path="haxe.Rest.T"/></c>
@@ -8918,15 +9071,15 @@
 			<meta><m n=":to"/></meta>
 			<haxe_doc>Creates an array containing all the values of rest arguments.</haxe_doc>
 		</toArray>
-		<iterator public="1" get="inline" set="null" line="49" static="1"><f a="this">
+		<iterator public="1" get="inline" set="null" line="85" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="haxe.iterators.RestIterator"><c path="haxe.Rest.T"/></c>
 </f></iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="52" static="1"><f a="this">
+		<keyValueIterator public="1" get="inline" set="null" line="88" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="haxe.iterators.RestKeyValueIterator"><c path="haxe.Rest.T"/></c>
 </f></keyValueIterator>
-		<append public="1" get="inline" set="null" line="54" static="1">
+		<append public="1" get="inline" set="null" line="90" static="1">
 			<f a="this:item">
 				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 				<c path="haxe.Rest.T"/>
@@ -8934,13 +9087,13 @@
 			</f>
 			<haxe_doc>Create a new rest arguments collection by appending `item` to this one.</haxe_doc>
 		</append>
-		<_append set="method" line="57" static="1"><f a="this:result:item">
+		<_append set="method" line="93" static="1"><f a="this:result:item">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="haxe.Rest.T"/>
 	<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
 </f></_append>
-		<prepend public="1" get="inline" set="null" line="63" static="1">
+		<prepend public="1" get="inline" set="null" line="99" static="1">
 			<f a="this:item">
 				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 				<c path="haxe.Rest.T"/>
@@ -8948,13 +9101,13 @@
 			</f>
 			<haxe_doc>Create a new rest arguments collection by prepending this one with `item`.</haxe_doc>
 		</prepend>
-		<_prepend set="method" line="66" static="1"><f a="this:result:item">
+		<_prepend set="method" line="102" static="1"><f a="this:result:item">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="haxe.Rest.T"/>
 	<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
 </f></_prepend>
-		<toString public="1" set="method" line="72" static="1"><f a="this">
+		<toString public="1" set="method" line="108" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="String"/>
 </f></toString>
@@ -35434,7 +35587,7 @@
 			<f a=""><c path="java.NativeArray"><t path="java.types.Char16"/></c></f>
 			<overloads><readPassword public="1" set="method"><f a="param1:param2">
 	<c path="String"/>
-	<c path="java.NativeArray"><d/></c>
+	<x path="haxe.Rest"><d/></x>
 	<c path="java.NativeArray"><t path="java.types.Char16"/></c>
 </f></readPassword></overloads>
 		</readPassword>
@@ -35442,18 +35595,18 @@
 			<f a=""><c path="String"/></f>
 			<overloads><readLine public="1" set="method"><f a="param1:param2">
 	<c path="String"/>
-	<c path="java.NativeArray"><d/></c>
+	<x path="haxe.Rest"><d/></x>
 	<c path="String"/>
 </f></readLine></overloads>
 		</readLine>
 		<printf public="1" set="method"><f a="param1:param2">
 	<c path="String"/>
-	<c path="java.NativeArray"><d/></c>
+	<x path="haxe.Rest"><d/></x>
 	<c path="java.io.Console"/>
 </f></printf>
 		<format public="1" set="method"><f a="param1:param2">
 	<c path="String"/>
-	<c path="java.NativeArray"><d/></c>
+	<x path="haxe.Rest"><d/></x>
 	<c path="java.io.Console"/>
 </f></format>
 		<reader public="1" set="method"><f a=""><c path="java.io.Reader"/></f></reader>
@@ -36521,12 +36674,12 @@
 			<f a="param1:param2:param3">
 				<c path="java.util.Locale"/>
 				<c path="String"/>
-				<c path="java.NativeArray"><d/></c>
+				<x path="haxe.Rest"><d/></x>
 				<c path="java.io.PrintStream"/>
 			</f>
 			<overloads><format public="1" set="method"><f a="param1:param2">
 	<c path="String"/>
-	<c path="java.NativeArray"><d/></c>
+	<x path="haxe.Rest"><d/></x>
 	<c path="java.io.PrintStream"/>
 </f></format></overloads>
 		</format>
@@ -36534,12 +36687,12 @@
 			<f a="param1:param2:param3">
 				<c path="java.util.Locale"/>
 				<c path="String"/>
-				<c path="java.NativeArray"><d/></c>
+				<x path="haxe.Rest"><d/></x>
 				<c path="java.io.PrintStream"/>
 			</f>
 			<overloads><printf public="1" set="method"><f a="param1:param2">
 	<c path="String"/>
-	<c path="java.NativeArray"><d/></c>
+	<x path="haxe.Rest"><d/></x>
 	<c path="java.io.PrintStream"/>
 </f></printf></overloads>
 		</printf>
@@ -36843,12 +36996,12 @@
 			<f a="param1:param2:param3">
 				<c path="java.util.Locale"/>
 				<c path="String"/>
-				<c path="java.NativeArray"><d/></c>
+				<x path="haxe.Rest"><d/></x>
 				<c path="java.io.PrintWriter"/>
 			</f>
 			<overloads><format public="1" set="method"><f a="param1:param2">
 	<c path="String"/>
-	<c path="java.NativeArray"><d/></c>
+	<x path="haxe.Rest"><d/></x>
 	<c path="java.io.PrintWriter"/>
 </f></format></overloads>
 		</format>
@@ -36856,12 +37009,12 @@
 			<f a="param1:param2:param3">
 				<c path="java.util.Locale"/>
 				<c path="String"/>
-				<c path="java.NativeArray"><d/></c>
+				<x path="haxe.Rest"><d/></x>
 				<c path="java.io.PrintWriter"/>
 			</f>
 			<overloads><printf public="1" set="method"><f a="param1:param2">
 	<c path="String"/>
-	<c path="java.NativeArray"><d/></c>
+	<x path="haxe.Rest"><d/></x>
 	<c path="java.io.PrintWriter"/>
 </f></printf></overloads>
 		</printf>
@@ -39922,7 +40075,7 @@
 </f></getResourceAsStream>
 		<getDeclaredConstructor public="1" set="method">
 			<f a="param1">
-				<c path="java.NativeArray"><c path="java.lang.Class"><d/></c></c>
+				<x path="haxe.Rest"><c path="java.lang.Class"><d/></c></x>
 				<c path="java.lang.reflect.Constructor"><c path="java.lang.Class.T"/></c>
 			</f>
 			<meta>
@@ -39933,7 +40086,7 @@
 		<getDeclaredMethod public="1" set="method">
 			<f a="param1:param2">
 				<c path="String"/>
-				<c path="java.NativeArray"><c path="java.lang.Class"><d/></c></c>
+				<x path="haxe.Rest"><c path="java.lang.Class"><d/></c></x>
 				<c path="java.lang.reflect.Method"/>
 			</f>
 			<meta>
@@ -39969,7 +40122,7 @@
 		</getDeclaredClasses>
 		<getConstructor public="1" set="method">
 			<f a="param1">
-				<c path="java.NativeArray"><c path="java.lang.Class"><d/></c></c>
+				<x path="haxe.Rest"><c path="java.lang.Class"><d/></c></x>
 				<c path="java.lang.reflect.Constructor"><c path="java.lang.Class.T"/></c>
 			</f>
 			<meta>
@@ -39980,7 +40133,7 @@
 		<getMethod public="1" set="method">
 			<f a="param1:param2">
 				<c path="String"/>
-				<c path="java.NativeArray"><c path="java.lang.Class"><d/></c></c>
+				<x path="haxe.Rest"><c path="java.lang.Class"><d/></c></x>
 				<c path="java.lang.reflect.Method"/>
 			</f>
 			<meta>
@@ -42588,14 +42741,14 @@
 	<c path="java.lang.ProcessBuilder"/>
 </f></command>
 				<command public="1" set="method"><f a="param1">
-	<c path="java.NativeArray"><c path="String"/></c>
+	<x path="haxe.Rest"><c path="String"/></x>
 	<c path="java.lang.ProcessBuilder"/>
 </f></command>
 			</overloads>
 		</command>
 		<new public="1" set="method">
 			<f a="param1">
-				<c path="java.NativeArray"><c path="String"/></c>
+				<x path="haxe.Rest"><c path="String"/></x>
 				<x path="Void"/>
 			</f>
 			<overloads><new public="1" set="method"><f a="param1">
@@ -44513,7 +44666,7 @@
 		<isVarArgs public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isVarArgs>
 		<newInstance public="1" set="method">
 			<f a="param1">
-				<c path="java.NativeArray"><d/></c>
+				<x path="haxe.Rest"><d/></x>
 				<c path="java.lang.reflect.Constructor.T"/>
 			</f>
 			<meta>
@@ -44840,7 +44993,7 @@
 		<invoke public="1" set="method">
 			<f a="param1:param2">
 				<d/>
-				<c path="java.NativeArray"><d/></c>
+				<x path="haxe.Rest"><d/></x>
 				<d/>
 			</f>
 			<meta>
@@ -49154,7 +49307,7 @@
 		<open public="1" set="method" static="1">
 			<f a="param1:param2">
 				<c path="java.nio.file.Path"/>
-				<c path="java.NativeArray"><c path="java.nio.file.OpenOption"/></c>
+				<x path="haxe.Rest"><c path="java.nio.file.OpenOption"/></x>
 				<c path="java.nio.channels.AsynchronousFileChannel"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -49163,7 +49316,7 @@
 		<c path="java.nio.file.Path"/>
 		<c path="java.util.Set"><c path="java.nio.file.OpenOption"/></c>
 		<c path="java.util.concurrent.ExecutorService"/>
-		<c path="java.NativeArray"><c path="java.nio.file.attribute.FileAttribute"><d/></c></c>
+		<x path="haxe.Rest"><c path="java.nio.file.attribute.FileAttribute"><d/></c></x>
 		<c path="java.nio.channels.AsynchronousFileChannel"/>
 	</f>
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -50010,7 +50163,7 @@
 		<open public="1" set="method" static="1">
 			<f a="param1:param2">
 				<c path="java.nio.file.Path"/>
-				<c path="java.NativeArray"><c path="java.nio.file.OpenOption"/></c>
+				<x path="haxe.Rest"><c path="java.nio.file.OpenOption"/></x>
 				<c path="java.nio.channels.FileChannel"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -50018,7 +50171,7 @@
 	<f a="param1:param2:param3">
 		<c path="java.nio.file.Path"/>
 		<c path="java.util.Set"><c path="java.nio.file.OpenOption"/></c>
-		<c path="java.NativeArray"><c path="java.nio.file.attribute.FileAttribute"><d/></c></c>
+		<x path="haxe.Rest"><c path="java.nio.file.attribute.FileAttribute"><d/></c></x>
 		<c path="java.nio.channels.FileChannel"/>
 	</f>
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -51407,7 +51560,7 @@
 </f></getPathMatcher>
 		<getPath abstract="1" public="1" set="method"><f a="param1:param2">
 	<c path="String"/>
-	<c path="java.NativeArray"><c path="String"/></c>
+	<x path="haxe.Rest"><c path="String"/></x>
 	<c path="java.nio.file.Path"/>
 </f></getPath>
 		<supportedFileAttributeViews abstract="1" public="1" set="method"><f a=""><c path="java.util.Set"><c path="String"/></c></f></supportedFileAttributeViews>
@@ -51464,7 +51617,7 @@
 		<register public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.nio.file.WatchService"/>
-				<c path="java.NativeArray"><c path="java.nio.file.WatchEvent_Kind"><d/></c></c>
+				<x path="haxe.Rest"><c path="java.nio.file.WatchEvent_Kind"><d/></c></x>
 				<c path="java.nio.file.WatchKey"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -51472,7 +51625,7 @@
 	<f a="param1:param2:param3">
 		<c path="java.nio.file.WatchService"/>
 		<c path="java.NativeArray"><c path="java.nio.file.WatchEvent_Kind"><d/></c></c>
-		<c path="java.NativeArray"><c path="java.nio.file.WatchEvent_Modifier"/></c>
+		<x path="haxe.Rest"><c path="java.nio.file.WatchEvent_Modifier"/></x>
 		<c path="java.nio.file.WatchKey"/>
 	</f>
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -51508,7 +51661,7 @@
 		<register public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.nio.file.WatchService"/>
-				<c path="java.NativeArray"><c path="java.nio.file.WatchEvent_Kind"><d/></c></c>
+				<x path="haxe.Rest"><c path="java.nio.file.WatchEvent_Kind"><d/></c></x>
 				<c path="java.nio.file.WatchKey"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -51516,7 +51669,7 @@
 	<f a="param1:param2:param3">
 		<c path="java.nio.file.WatchService"/>
 		<c path="java.NativeArray"><c path="java.nio.file.WatchEvent_Kind"><d/></c></c>
-		<c path="java.NativeArray"><c path="java.nio.file.WatchEvent_Modifier"/></c>
+		<x path="haxe.Rest"><c path="java.nio.file.WatchEvent_Modifier"/></x>
 		<c path="java.nio.file.WatchKey"/>
 	</f>
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -51525,7 +51678,7 @@
 		<toFile public="1" set="method"><f a=""><c path="java.io.File"/></f></toFile>
 		<toRealPath public="1" set="method">
 			<f a="param1">
-				<c path="java.NativeArray"><e path="java.nio.file.LinkOption"/></c>
+				<x path="haxe.Rest"><e path="java.nio.file.LinkOption"/></x>
 				<c path="java.nio.file.Path"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -51945,7 +52098,7 @@
 				<c path="java.nio.file.Path"/>
 				<c path="String"/>
 				<d/>
-				<c path="java.NativeArray"><e path="java.nio.file.LinkOption"/></c>
+				<x path="haxe.Rest"><e path="java.nio.file.LinkOption"/></x>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -51954,7 +52107,7 @@
 			<f a="param1:param2:param3">
 				<c path="java.nio.file.Path"/>
 				<c path="String"/>
-				<c path="java.NativeArray"><e path="java.nio.file.LinkOption"/></c>
+				<x path="haxe.Rest"><e path="java.nio.file.LinkOption"/></x>
 				<c path="java.util.Map">
 					<c path="String"/>
 					<d/>
@@ -51965,7 +52118,7 @@
 	<f a="param1:param2:param3">
 		<c path="java.nio.file.Path"/>
 		<c path="java.lang.Class"><c path="readAttributes.A"/></c>
-		<c path="java.NativeArray"><e path="java.nio.file.LinkOption"/></c>
+		<x path="haxe.Rest"><e path="java.nio.file.LinkOption"/></x>
 		<c path="readAttributes.A"/>
 	</f>
 	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -51974,13 +52127,13 @@
 		<getFileAttributeView abstract="1" public="1" params="V" set="method"><f a="param1:param2:param3">
 	<c path="java.nio.file.Path"/>
 	<c path="java.lang.Class"><c path="getFileAttributeView.V"/></c>
-	<c path="java.NativeArray"><e path="java.nio.file.LinkOption"/></c>
+	<x path="haxe.Rest"><e path="java.nio.file.LinkOption"/></x>
 	<c path="getFileAttributeView.V"/>
 </f></getFileAttributeView>
 		<checkAccess abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.nio.file.Path"/>
-				<c path="java.NativeArray"><e path="java.nio.file.AccessMode"/></c>
+				<x path="haxe.Rest"><e path="java.nio.file.AccessMode"/></x>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -52011,7 +52164,7 @@
 			<f a="param1:param2:param3">
 				<c path="java.nio.file.Path"/>
 				<c path="java.nio.file.Path"/>
-				<c path="java.NativeArray"><c path="java.nio.file.CopyOption"/></c>
+				<x path="haxe.Rest"><c path="java.nio.file.CopyOption"/></x>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -52020,7 +52173,7 @@
 			<f a="param1:param2:param3">
 				<c path="java.nio.file.Path"/>
 				<c path="java.nio.file.Path"/>
-				<c path="java.NativeArray"><c path="java.nio.file.CopyOption"/></c>
+				<x path="haxe.Rest"><c path="java.nio.file.CopyOption"/></x>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -52058,7 +52211,7 @@
 			<f a="param1:param2:param3">
 				<c path="java.nio.file.Path"/>
 				<c path="java.nio.file.Path"/>
-				<c path="java.NativeArray"><c path="java.nio.file.attribute.FileAttribute"><d/></c></c>
+				<x path="haxe.Rest"><c path="java.nio.file.attribute.FileAttribute"><d/></c></x>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -52066,7 +52219,7 @@
 		<createDirectory abstract="1" public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.nio.file.Path"/>
-				<c path="java.NativeArray"><c path="java.nio.file.attribute.FileAttribute"><d/></c></c>
+				<x path="haxe.Rest"><c path="java.nio.file.attribute.FileAttribute"><d/></c></x>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -52083,7 +52236,7 @@
 			<f a="param1:param2:param3">
 				<c path="java.nio.file.Path"/>
 				<c path="java.util.Set"><c path="java.nio.file.OpenOption"/></c>
-				<c path="java.NativeArray"><c path="java.nio.file.attribute.FileAttribute"><d/></c></c>
+				<x path="haxe.Rest"><c path="java.nio.file.attribute.FileAttribute"><d/></c></x>
 				<c path="java.nio.channels.SeekableByteChannel"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -52093,7 +52246,7 @@
 				<c path="java.nio.file.Path"/>
 				<c path="java.util.Set"><c path="java.nio.file.OpenOption"/></c>
 				<c path="java.util.concurrent.ExecutorService"/>
-				<c path="java.NativeArray"><c path="java.nio.file.attribute.FileAttribute"><d/></c></c>
+				<x path="haxe.Rest"><c path="java.nio.file.attribute.FileAttribute"><d/></c></x>
 				<c path="java.nio.channels.AsynchronousFileChannel"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -52102,7 +52255,7 @@
 			<f a="param1:param2:param3">
 				<c path="java.nio.file.Path"/>
 				<c path="java.util.Set"><c path="java.nio.file.OpenOption"/></c>
-				<c path="java.NativeArray"><c path="java.nio.file.attribute.FileAttribute"><d/></c></c>
+				<x path="haxe.Rest"><c path="java.nio.file.attribute.FileAttribute"><d/></c></x>
 				<c path="java.nio.channels.FileChannel"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -52110,7 +52263,7 @@
 		<newOutputStream public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.nio.file.Path"/>
-				<c path="java.NativeArray"><c path="java.nio.file.OpenOption"/></c>
+				<x path="haxe.Rest"><c path="java.nio.file.OpenOption"/></x>
 				<c path="java.io.OutputStream"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -52118,7 +52271,7 @@
 		<newInputStream public="1" set="method">
 			<f a="param1:param2">
 				<c path="java.nio.file.Path"/>
-				<c path="java.NativeArray"><c path="java.nio.file.OpenOption"/></c>
+				<x path="haxe.Rest"><c path="java.nio.file.OpenOption"/></x>
 				<c path="java.io.InputStream"/>
 			</f>
 			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
@@ -61604,7 +61757,7 @@
 				</c>
 				<c path="java.util.Locale"/>
 				<c path="String"/>
-				<c path="java.NativeArray"><d/></c>
+				<x path="haxe.Rest"><d/></x>
 				<c path="getLocalizedObject.S"/>
 			</f>
 			<overloads><getLocalizedObject public="1" params="P:S" set="method"><f a="param1:param2:param3">
@@ -61613,7 +61766,7 @@
 		<c path="getLocalizedObject.S"/>
 	</c>
 	<c path="java.util.Locale"/>
-	<c path="java.NativeArray"><d/></c>
+	<x path="haxe.Rest"><d/></x>
 	<c path="getLocalizedObject.S"/>
 </f></getLocalizedObject></overloads>
 		</getLocalizedObject>
@@ -61646,7 +61799,7 @@
 	<c path="java.sun.util.locale.provider.LocaleServiceProviderPool_LocalizedObjectGetter.P"/>
 	<c path="java.util.Locale"/>
 	<c path="String"/>
-	<c path="java.NativeArray"><d/></c>
+	<x path="haxe.Rest"><d/></x>
 	<c path="java.sun.util.locale.provider.LocaleServiceProviderPool_LocalizedObjectGetter.S"/>
 </f></getObject>
 		<meta>
@@ -65813,7 +65966,7 @@
 </f></parseUnresolved>
 		<parseBest public="1" set="method"><f a="param1:param2">
 	<c path="java.lang.CharSequence"/>
-	<c path="java.NativeArray"><c path="java.time.temporal.TemporalQuery"><d/></c></c>
+	<x path="haxe.Rest"><c path="java.time.temporal.TemporalQuery"><d/></c></x>
 	<c path="java.time.temporal.TemporalAccessor"/>
 </f></parseBest>
 		<parse public="1" params="T" set="method">
@@ -65849,7 +66002,7 @@
 				<c path="java.time.format.DateTimeFormatter"/>
 			</f>
 			<overloads><withResolverFields public="1" set="method"><f a="param1">
-	<c path="java.NativeArray"><c path="java.time.temporal.TemporalField"/></c>
+	<x path="haxe.Rest"><c path="java.time.temporal.TemporalField"/></x>
 	<c path="java.time.format.DateTimeFormatter"/>
 </f></withResolverFields></overloads>
 		</withResolverFields>
@@ -67508,7 +67661,7 @@
 			</overloads>
 		</hashCode>
 		<asList public="1" params="T" set="method" static="1"><f a="param1">
-	<c path="java.NativeArray"><c path="asList.T"/></c>
+	<x path="haxe.Rest"><c path="asList.T"/></x>
 	<c path="java.util.List"><c path="asList.T"/></c>
 </f></asList>
 		<copyOfRange public="1" set="method" static="1">
@@ -73126,7 +73279,7 @@
 	<c path="java.util.spi.LocaleNameProvider"/>
 	<c path="java.util.Locale"/>
 	<c path="String"/>
-	<c path="java.NativeArray"><d/></c>
+	<x path="haxe.Rest"><d/></x>
 	<c path="String"/>
 </f></getObject></overloads>
 		</getObject>
@@ -77673,7 +77826,7 @@
 	<c path="String"/>
 	<c path="java.util.ResourceBundle"/>
 	<c path="String"/>
-	<c path="java.NativeArray"><d/></c>
+	<x path="haxe.Rest"><d/></x>
 	<x path="Void"/>
 </f></logrb>
 				<logrb public="1" set="method">
@@ -78930,7 +79083,7 @@
 					<c path="of.A"/>
 					<c path="of.R"/>
 				</c>
-				<c path="java.NativeArray"><e path="java.util.stream.Collector_Characteristics"/></c>
+				<x path="haxe.Rest"><e path="java.util.stream.Collector_Characteristics"/></x>
 				<c path="java.util.stream.Collector">
 					<c path="of.T"/>
 					<c path="of.A"/>
@@ -78944,7 +79097,7 @@
 		<c path="of.T"/>
 	</c>
 	<c path="java.util.function.BinaryOperator"><c path="of.R"/></c>
-	<c path="java.NativeArray"><e path="java.util.stream.Collector_Characteristics"/></c>
+	<x path="haxe.Rest"><e path="java.util.stream.Collector_Characteristics"/></x>
 	<c path="java.util.stream.Collector">
 		<c path="of.T"/>
 		<c path="of.R"/>
@@ -79754,7 +79907,7 @@
 </f></iterate>
 		<of public="1" params="T" set="method" static="1">
 			<f a="param1">
-				<c path="java.NativeArray"><c path="of.T"/></c>
+				<x path="haxe.Rest"><c path="of.T"/></x>
 				<c path="java.util.stream.Stream"><c path="of.T"/></c>
 			</f>
 			<overloads><of public="1" params="T" set="method"><f a="param1">
