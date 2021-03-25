@@ -11613,7 +11613,10 @@
 	</class>
 	<typedef path="haxe._Rest.NativeRest" params="T" file="/home/runner/work/haxe/haxe/std/php/_std/haxe/Rest.hx" private="1" module="haxe.Rest"><x path="php.NativeIndexedArray"><c path="haxe._Rest.NativeRest.T"/></x></typedef>
 	<abstract path="haxe.Rest" params="T" file="/home/runner/work/haxe/haxe/std/php/_std/haxe/Rest.hx">
-		<from><icast field="of"><c path="Array"><c path="of.T"/></c></icast></from>
+		<from>
+			<icast field="of"><c path="Array"><c path="of.T"/></c></icast>
+			<icast field="ofNative"><x path="php.NativeIndexedArray"><c path="ofNative.T"/></x></icast>
+		</from>
 		<this><t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t></this>
 		<to><icast field="toArray"><c path="Array"><c path="haxe.Rest.T"/></c></icast></to>
 		<meta>
@@ -11642,14 +11645,21 @@
 		may affect the created `Rest` instance.
 		Use `Rest.of(array.copy())` to avoid that.</haxe_doc>
 	</of>
-	<_new get="inline" set="null" line="20" static="1">
+	<ofNative params="T" get="inline" set="null" line="22" static="1">
+		<f a="array">
+			<x path="php.NativeIndexedArray"><c path="ofNative.T"/></x>
+			<x path="haxe.Rest"><c path="ofNative.T"/></x>
+		</f>
+		<meta><m n=":from"/></meta>
+	</ofNative>
+	<_new get="inline" set="null" line="24" static="1">
 		<f a="a">
 			<x path="php.NativeIndexedArray"><c path="haxe.Rest.T"/></x>
 			<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
 		</f>
 		<meta><m n=":noCompletion"/></meta>
 	</_new>
-	<get get="inline" set="null" line="24" static="1">
+	<get get="inline" set="null" line="28" static="1">
 		<f a="this:index">
 			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 			<x path="Int"/>
@@ -11657,7 +11667,7 @@
 		</f>
 		<meta><m n=":arrayAccess"/></meta>
 	</get>
-	<toArray public="1" get="inline" set="null" line="27" static="1">
+	<toArray public="1" get="inline" set="null" line="31" static="1">
 		<f a="this">
 			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 			<c path="Array"><c path="haxe.Rest.T"/></c>
@@ -11665,15 +11675,15 @@
 		<meta><m n=":to"/></meta>
 		<haxe_doc>Creates an array containing all the values of rest arguments.</haxe_doc>
 	</toArray>
-	<iterator public="1" get="inline" set="null" line="30" static="1"><f a="this">
+	<iterator public="1" get="inline" set="null" line="34" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="haxe.iterators.RestIterator"><c path="haxe.Rest.T"/></c>
 </f></iterator>
-	<keyValueIterator public="1" get="inline" set="null" line="33" static="1"><f a="this">
+	<keyValueIterator public="1" get="inline" set="null" line="37" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="haxe.iterators.RestKeyValueIterator"><c path="haxe.Rest.T"/></c>
 </f></keyValueIterator>
-	<append public="1" get="inline" set="null" line="35" static="1">
+	<append public="1" get="inline" set="null" line="39" static="1">
 		<f a="this:item">
 			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 			<c path="haxe.Rest.T"/>
@@ -11681,7 +11691,7 @@
 		</f>
 		<haxe_doc>Create a new rest arguments collection by appending `item` to this one.</haxe_doc>
 	</append>
-	<prepend public="1" get="inline" set="null" line="41" static="1">
+	<prepend public="1" get="inline" set="null" line="45" static="1">
 		<f a="this:item">
 			<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 			<c path="haxe.Rest.T"/>
@@ -11689,7 +11699,7 @@
 		</f>
 		<haxe_doc>Create a new rest arguments collection by prepending this one with `item`.</haxe_doc>
 	</prepend>
-	<toString public="1" set="method" line="47" static="1"><f a="this">
+	<toString public="1" set="method" line="51" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="String"/>
 </f></toString>
@@ -11718,14 +11728,21 @@
 		may affect the created `Rest` instance.
 		Use `Rest.of(array.copy())` to avoid that.</haxe_doc>
 		</of>
-		<_new get="inline" set="null" line="20" static="1">
+		<ofNative params="T" get="inline" set="null" line="22" static="1">
+			<f a="array">
+				<x path="php.NativeIndexedArray"><c path="ofNative.T"/></x>
+				<x path="haxe.Rest"><c path="ofNative.T"/></x>
+			</f>
+			<meta><m n=":from"/></meta>
+		</ofNative>
+		<_new get="inline" set="null" line="24" static="1">
 			<f a="a">
 				<x path="php.NativeIndexedArray"><c path="haxe.Rest.T"/></x>
 				<x path="haxe.Rest"><c path="haxe.Rest.T"/></x>
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</_new>
-		<get get="inline" set="null" line="24" static="1">
+		<get get="inline" set="null" line="28" static="1">
 			<f a="this:index">
 				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 				<x path="Int"/>
@@ -11733,7 +11750,7 @@
 			</f>
 			<meta><m n=":arrayAccess"/></meta>
 		</get>
-		<toArray public="1" get="inline" set="null" line="27" static="1">
+		<toArray public="1" get="inline" set="null" line="31" static="1">
 			<f a="this">
 				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 				<c path="Array"><c path="haxe.Rest.T"/></c>
@@ -11741,15 +11758,15 @@
 			<meta><m n=":to"/></meta>
 			<haxe_doc>Creates an array containing all the values of rest arguments.</haxe_doc>
 		</toArray>
-		<iterator public="1" get="inline" set="null" line="30" static="1"><f a="this">
+		<iterator public="1" get="inline" set="null" line="34" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="haxe.iterators.RestIterator"><c path="haxe.Rest.T"/></c>
 </f></iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="33" static="1"><f a="this">
+		<keyValueIterator public="1" get="inline" set="null" line="37" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="haxe.iterators.RestKeyValueIterator"><c path="haxe.Rest.T"/></c>
 </f></keyValueIterator>
-		<append public="1" get="inline" set="null" line="35" static="1">
+		<append public="1" get="inline" set="null" line="39" static="1">
 			<f a="this:item">
 				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 				<c path="haxe.Rest.T"/>
@@ -11757,7 +11774,7 @@
 			</f>
 			<haxe_doc>Create a new rest arguments collection by appending `item` to this one.</haxe_doc>
 		</append>
-		<prepend public="1" get="inline" set="null" line="41" static="1">
+		<prepend public="1" get="inline" set="null" line="45" static="1">
 			<f a="this:item">
 				<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 				<c path="haxe.Rest.T"/>
@@ -11765,7 +11782,7 @@
 			</f>
 			<haxe_doc>Create a new rest arguments collection by prepending this one with `item`.</haxe_doc>
 		</prepend>
-		<toString public="1" set="method" line="47" static="1"><f a="this">
+		<toString public="1" set="method" line="51" static="1"><f a="this">
 	<t path="haxe._Rest.NativeRest"><c path="haxe.Rest.T"/></t>
 	<c path="String"/>
 </f></toString>
