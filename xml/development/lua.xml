@@ -33179,6 +33179,10 @@
 	</class>
 	<typedef path="lua.lib.luv.fs.FileDescriptor" params="" file="/home/runner/work/haxe/haxe/std/lua/lib/luv/fs/FileDescriptor.hx"><x path="Int"/></typedef>
 	<class path="lua.lib.luv.fs.FileSystem" params="" file="/home/runner/work/haxe/haxe/std/lua/lib/luv/fs/FileSystem.hx" extern="1">
+		<constants final="1" public="1" set="null" static="1"><c path="lua.Table">
+	<c path="String"/>
+	<x path="Int"/>
+</c></constants>
 		<close public="1" set="method" static="1">
 			<f a="file">
 				<t path="lua.lib.luv.fs.FileDescriptor"/>
@@ -33206,20 +33210,45 @@
 				<c path="lua.Result"><t path="lua.lib.luv.fs.FileDescriptor"/></c>
 			</f>
 			<meta><m n=":native"><e>"fs_open"</e></m></meta>
-			<overloads><fs_open public="1" set="method">
-	<f a="path:flags:mode:?cb">
-		<c path="String"/>
-		<x path="lua.lib.luv.fs.Open"/>
-		<x path="Int"/>
-		<f a=":">
-			<c path="String"/>
-			<t path="lua.lib.luv.fs.FileDescriptor"/>
-			<x path="Void"/>
-		</f>
-		<c path="lua.lib.luv.Request"/>
-	</f>
-	<meta><m n=":native"><e>"fs_open"</e></m></meta>
-</fs_open></overloads>
+			<overloads>
+				<fs_open public="1" set="method">
+					<f a="path:flags:mode">
+						<c path="String"/>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="lua.Result"><t path="lua.lib.luv.fs.FileDescriptor"/></c>
+					</f>
+					<meta><m n=":native"><e>"fs_open"</e></m></meta>
+				</fs_open>
+				<fs_open public="1" set="method">
+					<f a="path:flags:mode:?cb">
+						<c path="String"/>
+						<x path="Int"/>
+						<x path="Int"/>
+						<f a=":">
+							<c path="String"/>
+							<t path="lua.lib.luv.fs.FileDescriptor"/>
+							<x path="Void"/>
+						</f>
+						<c path="lua.lib.luv.Request"/>
+					</f>
+					<meta><m n=":native"><e>"fs_open"</e></m></meta>
+				</fs_open>
+				<fs_open public="1" set="method">
+					<f a="path:flags:mode:?cb">
+						<c path="String"/>
+						<x path="lua.lib.luv.fs.Open"/>
+						<x path="Int"/>
+						<f a=":">
+							<c path="String"/>
+							<t path="lua.lib.luv.fs.FileDescriptor"/>
+							<x path="Void"/>
+						</f>
+						<c path="lua.lib.luv.Request"/>
+					</f>
+					<meta><m n=":native"><e>"fs_open"</e></m></meta>
+				</fs_open>
+			</overloads>
 		</open>
 		<read public="1" set="method" static="1">
 			<f a="file:len:offset">
@@ -33269,7 +33298,7 @@
 				<t path="lua.lib.luv.fs.FileDescriptor"/>
 				<c path="String"/>
 				<x path="Int"/>
-				<c path="lua.Result"><x path="Bool"/></c>
+				<c path="lua.Result"><x path="Int"/></c>
 			</f>
 			<meta><m n=":native"><e>"fs_write"</e></m></meta>
 			<overloads><fs_write public="1" set="method">
@@ -33279,7 +33308,7 @@
 		<x path="Int"/>
 		<f a=":">
 			<c path="String"/>
-			<x path="Bool"/>
+			<x path="Int"/>
 			<x path="Void"/>
 		</f>
 		<x path="Int"/>
@@ -33769,7 +33798,7 @@
 		</fchown>
 		<lchown public="1" set="method" static="1">
 			<f a="descriptor:uid:gid">
-				<t path="lua.lib.luv.fs.FileDescriptor"/>
+				<c path="String"/>
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Bool"/>
@@ -33778,7 +33807,7 @@
 			<haxe_doc>Not available on windows</haxe_doc>
 			<overloads><fs_lchown public="1" set="method">
 	<f a="descriptor:uid:gid:cb">
-		<t path="lua.lib.luv.fs.FileDescriptor"/>
+		<c path="String"/>
 		<x path="Int"/>
 		<x path="Int"/>
 		<f a=":">
@@ -33792,6 +33821,29 @@
 	<haxe_doc>Not available on windows</haxe_doc>
 </fs_lchown></overloads>
 		</lchown>
+		<copyfile public="1" set="method" static="1">
+			<f a="path:newPath:?flags">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Null"><t path="lua.lib.luv.fs.CopyFlags"/></x>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":native"><e>"fs_copyfile"</e></m></meta>
+			<overloads><fs_copyfile public="1" set="method">
+	<f a="path:newPath:flags:cb">
+		<c path="String"/>
+		<c path="String"/>
+		<x path="Null"><t path="lua.lib.luv.fs.CopyFlags"/></x>
+		<f a=":">
+			<c path="String"/>
+			<x path="Bool"/>
+			<x path="Void"/>
+		</f>
+		<c path="lua.lib.luv.Request"/>
+	</f>
+	<meta><m n=":native"><e>"fs_copyfile"</e></m></meta>
+</fs_copyfile></overloads>
+		</copyfile>
 		<statfs public="1" set="method" static="1">
 			<f a="path">
 				<c path="String"/>
@@ -33821,8 +33873,8 @@
 	<f a="path:cb">
 		<c path="String"/>
 		<f a=":">
+			<c path="String"/>
 			<c path="lua.lib.luv.Handle"/>
-			<x path="Bool"/>
 			<x path="Void"/>
 		</f>
 		<c path="lua.lib.luv.Request"/>
@@ -33832,7 +33884,7 @@
 		</opendir>
 		<readdir public="1" set="method" static="1">
 			<f a="path">
-				<c path="String"/>
+				<c path="lua.lib.luv.Handle"/>
 				<c path="lua.Table">
 					<x path="Int"/>
 					<t path="lua.lib.luv.fs.NameType"/>
@@ -33843,11 +33895,11 @@
 	<f a="dir:cb">
 		<c path="lua.lib.luv.Handle"/>
 		<f a=":">
+			<c path="String"/>
 			<c path="lua.Table">
 				<x path="Int"/>
 				<t path="lua.lib.luv.fs.NameType"/>
 			</c>
-			<x path="Bool"/>
 			<x path="Void"/>
 		</f>
 		<c path="lua.lib.luv.Request"/>
@@ -33864,7 +33916,8 @@
 			<overloads><fs_closedir public="1" set="method">
 	<f a="dir:cb">
 		<c path="lua.lib.luv.Handle"/>
-		<f a="">
+		<f a=":">
+			<c path="String"/>
 			<x path="Bool"/>
 			<x path="Void"/>
 		</f>
@@ -33916,6 +33969,20 @@
 	<blocks><x path="Int"/></blocks>
 	<bfree><x path="Int"/></bfree>
 	<bavail><x path="Int"/></bavail>
+</a></typedef>
+	<typedef path="lua.lib.luv.fs.CopyFlags" params="" file="/home/runner/work/haxe/haxe/std/lua/lib/luv/fs/FileSystem.hx" module="lua.lib.luv.fs.FileSystem"><a>
+	<ficlone_force>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</ficlone_force>
+	<ficlone>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</ficlone>
+	<excl>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+	</excl>
 </a></typedef>
 	<class path="lua.lib.luv.fs.FileSystemEvent" params="" file="/home/runner/work/haxe/haxe/std/lua/lib/luv/fs/FileSystemEvent.hx" extern="1">
 		<new_fs_event public="1" set="method" static="1"><f a=""><c path="lua.lib.luv.fs.FileSystemEvent"/></f></new_fs_event>
