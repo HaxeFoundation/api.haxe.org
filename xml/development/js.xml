@@ -4084,15 +4084,20 @@
 		<from><icast><c path="String"/></icast></from>
 		<this><c path="String"/></this>
 		<to><icast><c path="String"/></icast></to>
-		<haxe_doc>This abstract provides consistent cross-target unicode support.
+		<haxe_doc>This abstract provides consistent cross-target unicode support for characters of any width.
 
-	@see https://haxe.org/manual/std-UnicodeString.html</haxe_doc>
+	Due to differing internal representations of strings across targets, only the basic
+	multilingual plane (BMP) is supported consistently by `String` class.
+
+	This abstract provides API to consistently handle all characters even beyond BMP.
+
+	@see https://haxe.org/manual/std-String-unicode.html</haxe_doc>
 		<meta>
 			<m n=":forward"/>
 			<m n=":access"><e>StringTools</e></m>
 		</meta>
 		<impl><class path="_UnicodeString.UnicodeString_Impl_" params="" file="/home/runner/work/haxe/haxe/std/UnicodeString.hx" private="1" module="UnicodeString" final="1">
-	<validate public="1" set="method" line="39" static="1">
+	<validate public="1" set="method" line="44" static="1">
 		<f a="b:encoding">
 			<c path="haxe.io.Bytes"/>
 			<e path="haxe.io.Encoding"/>
@@ -4100,7 +4105,7 @@
 		</f>
 		<haxe_doc>Tells if `b` is a correctly encoded UTF8 byte sequence.</haxe_doc>
 	</validate>
-	<_new public="1" get="inline" set="null" line="114" static="1">
+	<_new public="1" get="inline" set="null" line="119" static="1">
 		<f a="string">
 			<c path="String"/>
 			<x path="UnicodeString"/>
@@ -4108,14 +4113,14 @@
 		<meta><m n=":noCompletion"/></meta>
 		<haxe_doc>Creates an instance of UnicodeString.</haxe_doc>
 	</_new>
-	<iterator public="1" get="inline" set="null" line="121" static="1">
+	<iterator public="1" get="inline" set="null" line="126" static="1">
 		<f a="this">
 			<c path="String"/>
 			<c path="haxe.iterators.StringIteratorUnicode"/>
 		</f>
 		<haxe_doc>Returns an iterator of the unicode code points.</haxe_doc>
 	</iterator>
-	<keyValueIterator public="1" get="inline" set="null" line="128" static="1">
+	<keyValueIterator public="1" get="inline" set="null" line="133" static="1">
 		<f a="this">
 			<c path="String"/>
 			<c path="haxe.iterators.StringKeyValueIteratorUnicode"/>
@@ -4126,7 +4131,7 @@
 		<x path="Int"/>
 		<haxe_doc>The number of characters in `this` String.</haxe_doc>
 	</length>
-	<charAt public="1" set="method" line="144" static="1">
+	<charAt public="1" set="method" line="149" static="1">
 		<f a="this:index">
 			<c path="String"/>
 			<x path="Int"/>
@@ -4137,7 +4142,7 @@
 		If `index` is negative or exceeds `this.length`, the empty String `""`
 		is returned.</haxe_doc>
 	</charAt>
-	<charCodeAt public="1" set="method" line="167" static="1">
+	<charCodeAt public="1" set="method" line="172" static="1">
 		<f a="this:index">
 			<c path="String"/>
 			<x path="Int"/>
@@ -4147,7 +4152,7 @@
 
 		If `index` is negative or exceeds `this.length`, `null` is returned.</haxe_doc>
 	</charCodeAt>
-	<indexOf public="1" set="method" line="200" static="1">
+	<indexOf public="1" set="method" line="205" static="1">
 		<f a="this:str:?startIndex">
 			<c path="String"/>
 			<c path="String"/>
@@ -4168,7 +4173,7 @@
 
 		If `str` cannot be found, -1 is returned.</haxe_doc>
 	</indexOf>
-	<lastIndexOf public="1" set="method" line="256" static="1">
+	<lastIndexOf public="1" set="method" line="261" static="1">
 		<f a="this:str:?startIndex">
 			<c path="String"/>
 			<c path="String"/>
@@ -4185,7 +4190,7 @@
 
 		If `str` cannot be found, -1 is returned.</haxe_doc>
 	</lastIndexOf>
-	<substr public="1" set="method" line="315" static="1">
+	<substr public="1" set="method" line="320" static="1">
 		<f a="this:pos:?len">
 			<c path="String"/>
 			<x path="Int"/>
@@ -4206,7 +4211,7 @@
 
 		If `len` is negative, the result is unspecified.</haxe_doc>
 	</substr>
-	<substring public="1" set="method" line="370" static="1">
+	<substring public="1" set="method" line="375" static="1">
 		<f a="this:startIndex:?endIndex">
 			<c path="String"/>
 			<x path="Int"/>
@@ -4225,7 +4230,7 @@
 		If the (possibly swapped) `startIndex` exceeds `this.length`, the empty
 		String `""` is returned.</haxe_doc>
 	</substring>
-	<get_length set="method" line="415" static="1"><f a="this">
+	<get_length set="method" line="420" static="1"><f a="this">
 	<c path="String"/>
 	<x path="Int"/>
 </f></get_length>
@@ -4233,7 +4238,7 @@
 </class></impl>
 	</abstract>
 	<class path="_UnicodeString.UnicodeString_Impl_" params="" file="/home/runner/work/haxe/haxe/std/UnicodeString.hx" private="1" module="UnicodeString" final="1">
-		<validate public="1" set="method" line="39" static="1">
+		<validate public="1" set="method" line="44" static="1">
 			<f a="b:encoding">
 				<c path="haxe.io.Bytes"/>
 				<e path="haxe.io.Encoding"/>
@@ -4241,7 +4246,7 @@
 			</f>
 			<haxe_doc>Tells if `b` is a correctly encoded UTF8 byte sequence.</haxe_doc>
 		</validate>
-		<_new public="1" get="inline" set="null" line="114" static="1">
+		<_new public="1" get="inline" set="null" line="119" static="1">
 			<f a="string">
 				<c path="String"/>
 				<x path="UnicodeString"/>
@@ -4249,14 +4254,14 @@
 			<meta><m n=":noCompletion"/></meta>
 			<haxe_doc>Creates an instance of UnicodeString.</haxe_doc>
 		</_new>
-		<iterator public="1" get="inline" set="null" line="121" static="1">
+		<iterator public="1" get="inline" set="null" line="126" static="1">
 			<f a="this">
 				<c path="String"/>
 				<c path="haxe.iterators.StringIteratorUnicode"/>
 			</f>
 			<haxe_doc>Returns an iterator of the unicode code points.</haxe_doc>
 		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="128" static="1">
+		<keyValueIterator public="1" get="inline" set="null" line="133" static="1">
 			<f a="this">
 				<c path="String"/>
 				<c path="haxe.iterators.StringKeyValueIteratorUnicode"/>
@@ -4267,7 +4272,7 @@
 			<x path="Int"/>
 			<haxe_doc>The number of characters in `this` String.</haxe_doc>
 		</length>
-		<charAt public="1" set="method" line="144" static="1">
+		<charAt public="1" set="method" line="149" static="1">
 			<f a="this:index">
 				<c path="String"/>
 				<x path="Int"/>
@@ -4278,7 +4283,7 @@
 		If `index` is negative or exceeds `this.length`, the empty String `""`
 		is returned.</haxe_doc>
 		</charAt>
-		<charCodeAt public="1" set="method" line="167" static="1">
+		<charCodeAt public="1" set="method" line="172" static="1">
 			<f a="this:index">
 				<c path="String"/>
 				<x path="Int"/>
@@ -4288,7 +4293,7 @@
 
 		If `index` is negative or exceeds `this.length`, `null` is returned.</haxe_doc>
 		</charCodeAt>
-		<indexOf public="1" set="method" line="200" static="1">
+		<indexOf public="1" set="method" line="205" static="1">
 			<f a="this:str:?startIndex">
 				<c path="String"/>
 				<c path="String"/>
@@ -4309,7 +4314,7 @@
 
 		If `str` cannot be found, -1 is returned.</haxe_doc>
 		</indexOf>
-		<lastIndexOf public="1" set="method" line="256" static="1">
+		<lastIndexOf public="1" set="method" line="261" static="1">
 			<f a="this:str:?startIndex">
 				<c path="String"/>
 				<c path="String"/>
@@ -4326,7 +4331,7 @@
 
 		If `str` cannot be found, -1 is returned.</haxe_doc>
 		</lastIndexOf>
-		<substr public="1" set="method" line="315" static="1">
+		<substr public="1" set="method" line="320" static="1">
 			<f a="this:pos:?len">
 				<c path="String"/>
 				<x path="Int"/>
@@ -4347,7 +4352,7 @@
 
 		If `len` is negative, the result is unspecified.</haxe_doc>
 		</substr>
-		<substring public="1" set="method" line="370" static="1">
+		<substring public="1" set="method" line="375" static="1">
 			<f a="this:startIndex:?endIndex">
 				<c path="String"/>
 				<x path="Int"/>
@@ -4366,7 +4371,7 @@
 		If the (possibly swapped) `startIndex` exceeds `this.length`, the empty
 		String `""` is returned.</haxe_doc>
 		</substring>
-		<get_length set="method" line="415" static="1"><f a="this">
+		<get_length set="method" line="420" static="1"><f a="this">
 	<c path="String"/>
 	<x path="Int"/>
 </f></get_length>
@@ -22523,6 +22528,14 @@
 			<m n=":enum"/>
 		</meta>
 	</TextXScriptZsh>
+	<ImageAvif public="1" get="inline" set="null" expr="cast &quot;image/avif&quot;" line="321" static="1">
+		<x path="haxe.io.Mime"/>
+		<meta>
+			<m n=":value"><e>cast "image/avif"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</ImageAvif>
 	<meta><m n=":enum"/></meta>
 </class></impl>
 	</abstract>
@@ -25031,6 +25044,14 @@
 				<m n=":enum"/>
 			</meta>
 		</TextXScriptZsh>
+		<ImageAvif public="1" get="inline" set="null" expr="cast &quot;image/avif&quot;" line="321" static="1">
+			<x path="haxe.io.Mime"/>
+			<meta>
+				<m n=":value"><e>cast "image/avif"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</ImageAvif>
 		<meta><m n=":enum"/></meta>
 	</class>
 	<class path="haxe.io.Path" params="" file="/home/runner/work/haxe/haxe/std/haxe/io/Path.hx">

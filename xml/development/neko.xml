@@ -5016,15 +5016,20 @@
 		<from><icast><c path="String"/></icast></from>
 		<this><c path="String"/></this>
 		<to><icast><c path="String"/></icast></to>
-		<haxe_doc>This abstract provides consistent cross-target unicode support.
+		<haxe_doc>This abstract provides consistent cross-target unicode support for characters of any width.
 
-	@see https://haxe.org/manual/std-UnicodeString.html</haxe_doc>
+	Due to differing internal representations of strings across targets, only the basic
+	multilingual plane (BMP) is supported consistently by `String` class.
+
+	This abstract provides API to consistently handle all characters even beyond BMP.
+
+	@see https://haxe.org/manual/std-String-unicode.html</haxe_doc>
 		<meta>
 			<m n=":forward"/>
 			<m n=":access"><e>StringTools</e></m>
 		</meta>
 		<impl><class path="_UnicodeString.UnicodeString_Impl_" params="" file="/home/runner/work/haxe/haxe/std/UnicodeString.hx" private="1" module="UnicodeString" final="1">
-	<validate public="1" set="method" line="39" static="1">
+	<validate public="1" set="method" line="44" static="1">
 		<f a="b:encoding">
 			<c path="haxe.io.Bytes"/>
 			<e path="haxe.io.Encoding"/>
@@ -5036,7 +5041,7 @@
 </class></impl>
 	</abstract>
 	<class path="_UnicodeString.UnicodeString_Impl_" params="" file="/home/runner/work/haxe/haxe/std/UnicodeString.hx" private="1" module="UnicodeString" final="1">
-		<validate public="1" set="method" line="39" static="1">
+		<validate public="1" set="method" line="44" static="1">
 			<f a="b:encoding">
 				<c path="haxe.io.Bytes"/>
 				<e path="haxe.io.Encoding"/>
@@ -22591,6 +22596,14 @@
 			<m n=":enum"/>
 		</meta>
 	</TextXScriptZsh>
+	<ImageAvif public="1" get="inline" set="null" expr="cast &quot;image/avif&quot;" line="321" static="1">
+		<x path="haxe.io.Mime"/>
+		<meta>
+			<m n=":value"><e>cast "image/avif"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</ImageAvif>
 	<meta><m n=":enum"/></meta>
 </class></impl>
 	</abstract>
@@ -25099,6 +25112,14 @@
 				<m n=":enum"/>
 			</meta>
 		</TextXScriptZsh>
+		<ImageAvif public="1" get="inline" set="null" expr="cast &quot;image/avif&quot;" line="321" static="1">
+			<x path="haxe.io.Mime"/>
+			<meta>
+				<m n=":value"><e>cast "image/avif"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</ImageAvif>
 		<meta><m n=":enum"/></meta>
 	</class>
 	<class path="haxe.io.Path" params="" file="/home/runner/work/haxe/haxe/std/haxe/io/Path.hx">
@@ -27350,7 +27371,18 @@
 		the expression returned by this method in a static variable and using the
 		compilation server.</haxe_doc>
 		</storeExpr>
-		<registerModuleDependency public="1" set="method" line="599" static="1">
+		<typeAndStoreExpr public="1" set="method" line="594" static="1">
+			<f a="e">
+				<t path="haxe.macro.Expr"/>
+				<a>
+					<type final="1" set="null"><t path="haxe.macro.Ref"><e path="haxe.macro.Type"/></t></type>
+					<expr final="1" set="null"><t path="haxe.macro.Expr"/></expr>
+				</a>
+			</f>
+			<haxe_doc>This function works like `storeExpr`, but also returns access to the expression's
+		type through the `type` field of the return value.</haxe_doc>
+		</typeAndStoreExpr>
+		<registerModuleDependency public="1" set="method" line="607" static="1">
 			<f a="modulePath:externFile">
 				<c path="String"/>
 				<c path="String"/>
@@ -27364,7 +27396,7 @@
 
 		Has no effect if the compilation cache is not used.</haxe_doc>
 		</registerModuleDependency>
-		<timer public="1" set="method" line="617" static="1">
+		<timer public="1" set="method" line="625" static="1">
 			<f a="id">
 				<c path="String"/>
 				<f a=""><x path="Void"/></f>
@@ -27382,7 +27414,7 @@
 		stopTimer();
 		```</haxe_doc>
 		</timer>
-		<registerModuleReuseCall public="1" set="method" line="622" static="1">
+		<registerModuleReuseCall public="1" set="method" line="630" static="1">
 			<f a="modulePath:macroCall">
 				<c path="String"/>
 				<c path="String"/>
@@ -27390,14 +27422,14 @@
 			</f>
 			<meta><m n=":deprecated"/></meta>
 		</registerModuleReuseCall>
-		<onMacroContextReused public="1" set="method" line="627" static="1">
+		<onMacroContextReused public="1" set="method" line="635" static="1">
 			<f a="callb">
 				<f a=""><x path="Bool"/></f>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":deprecated"/></meta>
 		</onMacroContextReused>
-		<load set="method" line="635" static="1">
+		<load set="method" line="643" static="1">
 			<f a="f:nargs">
 				<c path="String"/>
 				<x path="Int"/>
@@ -27410,12 +27442,12 @@
 				<m n=":allow"><e>haxe.macro.PositionTools</e></m>
 			</meta>
 		</load>
-		<includeFile set="method" line="645" static="1"><f a="file:position">
+		<includeFile set="method" line="653" static="1"><f a="file:position">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></includeFile>
-		<sExpr set="method" line="649" static="1"><f a="e:pretty">
+		<sExpr set="method" line="657" static="1"><f a="e:pretty">
 	<t path="haxe.macro.TypedExpr"/>
 	<x path="Bool"/>
 	<c path="String"/>

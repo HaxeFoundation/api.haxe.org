@@ -4061,15 +4061,20 @@
 		<from><icast><c path="String"/></icast></from>
 		<this><c path="String"/></this>
 		<to><icast><c path="String"/></icast></to>
-		<haxe_doc>This abstract provides consistent cross-target unicode support.
+		<haxe_doc>This abstract provides consistent cross-target unicode support for characters of any width.
 
-	@see https://haxe.org/manual/std-UnicodeString.html</haxe_doc>
+	Due to differing internal representations of strings across targets, only the basic
+	multilingual plane (BMP) is supported consistently by `String` class.
+
+	This abstract provides API to consistently handle all characters even beyond BMP.
+
+	@see https://haxe.org/manual/std-String-unicode.html</haxe_doc>
 		<meta>
 			<m n=":forward"/>
 			<m n=":access"><e>StringTools</e></m>
 		</meta>
 		<impl><class path="_UnicodeString.UnicodeString_Impl_" params="" file="/home/runner/work/haxe/haxe/std/UnicodeString.hx" private="1" module="UnicodeString" final="1">
-	<validate public="1" set="method" line="39" static="1">
+	<validate public="1" set="method" line="44" static="1">
 		<f a="b:encoding">
 			<c path="haxe.io.Bytes"/>
 			<e path="haxe.io.Encoding"/>
@@ -4077,7 +4082,7 @@
 		</f>
 		<haxe_doc>Tells if `b` is a correctly encoded UTF8 byte sequence.</haxe_doc>
 	</validate>
-	<_new public="1" get="inline" set="null" line="114" static="1">
+	<_new public="1" get="inline" set="null" line="119" static="1">
 		<f a="string">
 			<c path="String"/>
 			<x path="UnicodeString"/>
@@ -4085,14 +4090,14 @@
 		<meta><m n=":noCompletion"/></meta>
 		<haxe_doc>Creates an instance of UnicodeString.</haxe_doc>
 	</_new>
-	<iterator public="1" get="inline" set="null" line="121" static="1">
+	<iterator public="1" get="inline" set="null" line="126" static="1">
 		<f a="this">
 			<c path="String"/>
 			<c path="haxe.iterators.StringIteratorUnicode"/>
 		</f>
 		<haxe_doc>Returns an iterator of the unicode code points.</haxe_doc>
 	</iterator>
-	<keyValueIterator public="1" get="inline" set="null" line="128" static="1">
+	<keyValueIterator public="1" get="inline" set="null" line="133" static="1">
 		<f a="this">
 			<c path="String"/>
 			<c path="haxe.iterators.StringKeyValueIteratorUnicode"/>
@@ -4103,7 +4108,7 @@
 </class></impl>
 	</abstract>
 	<class path="_UnicodeString.UnicodeString_Impl_" params="" file="/home/runner/work/haxe/haxe/std/UnicodeString.hx" private="1" module="UnicodeString" final="1">
-		<validate public="1" set="method" line="39" static="1">
+		<validate public="1" set="method" line="44" static="1">
 			<f a="b:encoding">
 				<c path="haxe.io.Bytes"/>
 				<e path="haxe.io.Encoding"/>
@@ -4111,7 +4116,7 @@
 			</f>
 			<haxe_doc>Tells if `b` is a correctly encoded UTF8 byte sequence.</haxe_doc>
 		</validate>
-		<_new public="1" get="inline" set="null" line="114" static="1">
+		<_new public="1" get="inline" set="null" line="119" static="1">
 			<f a="string">
 				<c path="String"/>
 				<x path="UnicodeString"/>
@@ -4119,14 +4124,14 @@
 			<meta><m n=":noCompletion"/></meta>
 			<haxe_doc>Creates an instance of UnicodeString.</haxe_doc>
 		</_new>
-		<iterator public="1" get="inline" set="null" line="121" static="1">
+		<iterator public="1" get="inline" set="null" line="126" static="1">
 			<f a="this">
 				<c path="String"/>
 				<c path="haxe.iterators.StringIteratorUnicode"/>
 			</f>
 			<haxe_doc>Returns an iterator of the unicode code points.</haxe_doc>
 		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="128" static="1">
+		<keyValueIterator public="1" get="inline" set="null" line="133" static="1">
 			<f a="this">
 				<c path="String"/>
 				<c path="haxe.iterators.StringKeyValueIteratorUnicode"/>
@@ -5014,7 +5019,10 @@
 		<processEvents set="method" line="99" static="1"><f a=""><x path="Float"/></f></processEvents>
 		<run public="1" set="method" line="126" static="1">
 			<f a=""><x path="Void"/></f>
-			<meta><m n=":keep"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Start the main loop. Depending on the platform, this can return immediately or will only return when the application exits.</haxe_doc>
 		</run>
 		<haxe_doc>If `haxe.MainLoop` is kept from DCE, then we will insert an `haxe.EntryPoint.run()` call just at then end of `main()`.
@@ -21678,6 +21686,14 @@
 			<m n=":enum"/>
 		</meta>
 	</TextXScriptZsh>
+	<ImageAvif public="1" get="inline" set="null" expr="cast &quot;image/avif&quot;" line="321" static="1">
+		<x path="haxe.io.Mime"/>
+		<meta>
+			<m n=":value"><e>cast "image/avif"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</ImageAvif>
 	<meta><m n=":enum"/></meta>
 </class></impl>
 	</abstract>
@@ -24186,6 +24202,14 @@
 				<m n=":enum"/>
 			</meta>
 		</TextXScriptZsh>
+		<ImageAvif public="1" get="inline" set="null" expr="cast &quot;image/avif&quot;" line="321" static="1">
+			<x path="haxe.io.Mime"/>
+			<meta>
+				<m n=":value"><e>cast "image/avif"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</ImageAvif>
 		<meta><m n=":enum"/></meta>
 	</class>
 	<class path="haxe.io.Path" params="" file="/home/runner/work/haxe/haxe/std/haxe/io/Path.hx">
@@ -32709,10 +32733,15 @@
 	</class>
 	<class path="lua.lib.luv.Loop" params="" file="/home/runner/work/haxe/haxe/std/lua/lib/luv/Loop.hx" extern="1">
 		<loop_close public="1" set="method" static="1"><f a=""><x path="Bool"/></f></loop_close>
-		<run public="1" set="method" static="1"><f a="?mode">
-	<c path="String"/>
-	<x path="Bool"/>
-</f></run>
+		<run public="1" set="method" static="1">
+			<f a="?mode">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Runs the event loop of libuv.
+
+		Haxe compiler automatically inserts a call to this function at the end of user's code if needed.</haxe_doc>
+		</run>
 		<loop_alive public="1" set="method" static="1"><f a=""><x path="Bool"/></f></loop_alive>
 		<stop public="1" set="method" static="1"><f a=""><x path="Void"/></f></stop>
 		<backend_fd public="1" set="method" static="1"><f a=""><x path="Int"/></f></backend_fd>
@@ -33275,17 +33304,17 @@
 		</read>
 		<unlink public="1" set="method" static="1">
 			<f a="file:content">
-				<t path="lua.lib.luv.fs.FileDescriptor"/>
 				<c path="String"/>
-				<c path="lua.Result"><c path="String"/></c>
+				<c path="String"/>
+				<c path="lua.Result"><x path="Bool"/></c>
 			</f>
 			<meta><m n=":native"><e>"fs_unlink"</e></m></meta>
 			<overloads><fs_unlink public="1" set="method">
 	<f a="file:?cb">
-		<t path="lua.lib.luv.fs.FileDescriptor"/>
+		<c path="String"/>
 		<f a=":">
 			<c path="String"/>
-			<c path="String"/>
+			<x path="Bool"/>
 			<x path="Void"/>
 		</f>
 		<c path="lua.lib.luv.Request"/>
@@ -33338,17 +33367,17 @@
 </fs_mkdir></overloads>
 		</mkdir>
 		<mkdtemp public="1" set="method" static="1">
-			<f a="data">
+			<f a="template">
 				<c path="String"/>
-				<c path="lua.Result"><x path="Bool"/></c>
+				<c path="lua.Result"><c path="String"/></c>
 			</f>
 			<meta><m n=":native"><e>"fs_mkdtemp"</e></m></meta>
 			<overloads><fs_mkdtemp public="1" set="method">
-	<f a="data:cb">
+	<f a="template:cb">
 		<c path="String"/>
 		<f a=":">
 			<c path="String"/>
-			<x path="Bool"/>
+			<c path="String"/>
 			<x path="Void"/>
 		</f>
 		<c path="lua.lib.luv.Request"/>
@@ -33356,6 +33385,26 @@
 	<meta><m n=":native"><e>"fs_mkdtemp"</e></m></meta>
 </fs_mkdtemp></overloads>
 		</mkdtemp>
+		<mkstemp public="1" set="method" static="1">
+			<f a="template">
+				<c path="String"/>
+				<c path="lua.Result"><t path="lua.lib.luv.fs.FileDescriptor"/></c>
+			</f>
+			<meta><m n=":native"><e>"fs_mkstemp"</e></m></meta>
+			<overloads><fs_mkstemp public="1" set="method">
+	<f a="template:cb">
+		<c path="String"/>
+		<f a="::">
+			<c path="String"/>
+			<t path="lua.lib.luv.fs.FileDescriptor"/>
+			<c path="String"/>
+			<x path="Void"/>
+		</f>
+		<c path="lua.lib.luv.Request"/>
+	</f>
+	<meta><m n=":native"><e>"fs_mkstemp"</e></m></meta>
+</fs_mkstemp></overloads>
+		</mkstemp>
 		<rmdir public="1" set="method" static="1">
 			<f a="path">
 				<c path="String"/>
@@ -33870,13 +33919,14 @@
 			</f>
 			<meta><m n=":native"><e>"fs_opendir"</e></m></meta>
 			<overloads><fs_opendir public="1" set="method">
-	<f a="path:cb">
+	<f a="path:cb:?entries">
 		<c path="String"/>
 		<f a=":">
 			<c path="String"/>
 			<c path="lua.lib.luv.Handle"/>
 			<x path="Void"/>
 		</f>
+		<x path="Int"/>
 		<c path="lua.lib.luv.Request"/>
 	</f>
 	<meta><m n=":native"><e>"fs_opendir"</e></m></meta>
@@ -33984,6 +34034,81 @@
 		<meta><m n=":optional"/></meta>
 	</excl>
 </a></typedef>
+	<abstract path="lua.lib.luv.fs.AccessMode" params="" file="/home/runner/work/haxe/haxe/std/lua/lib/luv/fs/FileSystem.hx" module="lua.lib.luv.fs.FileSystem">
+		<this><x path="Int"/></this>
+		<to><icast><x path="Int"/></icast></to>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="lua.lib.luv.fs._FileSystem.AccessMode_Impl_" params="" file="/home/runner/work/haxe/haxe/std/lua/lib/luv/fs/FileSystem.hx" private="1" module="lua.lib.luv.fs.FileSystem" extern="1" final="1">
+	<R_OK public="1" get="inline" set="null" expr="cast 4" line="239" static="1">
+		<x path="lua.lib.luv.fs.AccessMode"/>
+		<meta>
+			<m n=":value"><e>cast 4</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</R_OK>
+	<W_OK public="1" get="inline" set="null" expr="cast 2" line="241" static="1">
+		<x path="lua.lib.luv.fs.AccessMode"/>
+		<meta>
+			<m n=":value"><e>cast 2</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</W_OK>
+	<X_OK public="1" get="inline" set="null" expr="cast 1" line="243" static="1">
+		<x path="lua.lib.luv.fs.AccessMode"/>
+		<meta>
+			<m n=":value"><e>cast 1</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</X_OK>
+	<F_OK public="1" get="inline" set="null" expr="cast 0" line="245" static="1">
+		<x path="lua.lib.luv.fs.AccessMode"/>
+		<meta>
+			<m n=":value"><e>cast 0</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</F_OK>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="lua.lib.luv.fs._FileSystem.AccessMode_Impl_" params="" file="/home/runner/work/haxe/haxe/std/lua/lib/luv/fs/FileSystem.hx" private="1" module="lua.lib.luv.fs.FileSystem" extern="1" final="1">
+		<R_OK public="1" get="inline" set="null" expr="cast 4" line="239" static="1">
+			<x path="lua.lib.luv.fs.AccessMode"/>
+			<meta>
+				<m n=":value"><e>cast 4</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</R_OK>
+		<W_OK public="1" get="inline" set="null" expr="cast 2" line="241" static="1">
+			<x path="lua.lib.luv.fs.AccessMode"/>
+			<meta>
+				<m n=":value"><e>cast 2</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</W_OK>
+		<X_OK public="1" get="inline" set="null" expr="cast 1" line="243" static="1">
+			<x path="lua.lib.luv.fs.AccessMode"/>
+			<meta>
+				<m n=":value"><e>cast 1</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</X_OK>
+		<F_OK public="1" get="inline" set="null" expr="cast 0" line="245" static="1">
+			<x path="lua.lib.luv.fs.AccessMode"/>
+			<meta>
+				<m n=":value"><e>cast 0</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</F_OK>
+		<meta><m n=":enum"/></meta>
+	</class>
 	<class path="lua.lib.luv.fs.FileSystemEvent" params="" file="/home/runner/work/haxe/haxe/std/lua/lib/luv/fs/FileSystemEvent.hx" extern="1">
 		<new_fs_event public="1" set="method" static="1"><f a=""><c path="lua.lib.luv.fs.FileSystemEvent"/></f></new_fs_event>
 		<start public="1" set="method"><f a="path:options:cb">
