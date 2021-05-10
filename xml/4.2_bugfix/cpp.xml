@@ -725,36 +725,55 @@
 	<class path="DateTools" params="" file="/home/runner/work/haxe/haxe/std/DateTools.hx">
 		<DAY_SHORT_NAMES expr="[&quot;Sun&quot;, &quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;]" line="35" static="1">
 			<c path="Array"><c path="String"/></c>
-			<meta><m n=":value"><e>["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]</e></m></meta>
+			<meta>
+				<m n=":value"><e>["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]</e></m>
+				<m n=":keep"/>
+			</meta>
 		</DAY_SHORT_NAMES>
 		<DAY_NAMES expr="[&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;]" line="36" static="1">
 			<c path="Array"><c path="String"/></c>
-			<meta><m n=":value"><e>["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]</e></m></meta>
+			<meta>
+				<m n=":value"><e>["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]</e></m>
+				<m n=":keep"/>
+			</meta>
 		</DAY_NAMES>
 		<MONTH_SHORT_NAMES expr="[&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;Apr&quot;, &quot;May&quot;, &quot;Jun&quot;, &quot;Jul&quot;, &quot;Aug&quot;, &quot;Sep&quot;, &quot;Oct&quot;, &quot;Nov&quot;, &quot;Dec&quot;]" line="37" static="1">
 			<c path="Array"><c path="String"/></c>
-			<meta><m n=":value"><e>["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]</e></m></meta>
+			<meta>
+				<m n=":value"><e>["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]</e></m>
+				<m n=":keep"/>
+			</meta>
 		</MONTH_SHORT_NAMES>
 		<MONTH_NAMES expr="[&quot;January&quot;, &quot;February&quot;, &quot;March&quot;, &quot;April&quot;, &quot;May&quot;, &quot;June&quot;, &quot;July&quot;, &quot;August&quot;, &quot;September&quot;, &quot;October&quot;, &quot;November&quot;, &quot;December&quot;]" line="40" static="1">
 			<c path="Array"><c path="String"/></c>
-			<meta><m n=":value"><e>["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]</e></m></meta>
+			<meta>
+				<m n=":value"><e>["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]</e></m>
+				<m n=":keep"/>
+			</meta>
 		</MONTH_NAMES>
-		<__format_get set="method" line="44" static="1"><f a="d:e">
-	<c path="Date"/>
-	<c path="String"/>
-	<c path="String"/>
-</f></__format_get>
-		<__format set="method" line="105" static="1"><f a="d:f">
-	<c path="Date"/>
-	<c path="String"/>
-	<c path="String"/>
-</f></__format>
+		<__format_get set="method" line="44" static="1">
+			<f a="d:e">
+				<c path="Date"/>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</__format_get>
+		<__format set="method" line="105" static="1">
+			<f a="d:f">
+				<c path="Date"/>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</__format>
 		<format public="1" set="method" line="144" static="1">
 			<f a="d:f">
 				<c path="Date"/>
 				<c path="String"/>
 				<c path="String"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Format the date `d` according to the format `f`. The format is
 		compatible with the `strftime` standard format, except that there is no
 		support in Flash and JS for day and months names (due to lack of proper
@@ -781,6 +800,7 @@
 				<x path="Float"/>
 				<c path="Date"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the result of adding timestamp `t` to Date `d`.
 
 		This is a convenience function for calling
@@ -788,13 +808,17 @@
 		</delta>
 		<DAYS_OF_MONTH expr="[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]" line="164" static="1">
 			<c path="Array"><x path="Int"/></c>
-			<meta><m n=":value"><e>[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]</e></m></meta>
+			<meta>
+				<m n=":value"><e>[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]</e></m>
+				<m n=":keep"/>
+			</meta>
 		</DAYS_OF_MONTH>
 		<getMonthDays public="1" set="method" line="171" static="1">
 			<f a="d">
 				<c path="Date"/>
 				<x path="Int"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the number of days in the month of Date `d`.
 
 		This method handles leap years.</haxe_doc>
@@ -804,6 +828,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Converts a number of seconds to a timestamp.</haxe_doc>
 		</seconds>
 		<minutes public="1" get="inline" set="null" line="192" static="1">
@@ -811,6 +836,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Converts a number of minutes to a timestamp.</haxe_doc>
 		</minutes>
 		<hours public="1" get="inline" set="null" line="199" static="1">
@@ -818,6 +844,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Converts a number of hours to a timestamp.</haxe_doc>
 		</hours>
 		<days public="1" get="inline" set="null" line="206" static="1">
@@ -825,6 +852,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Converts a number of days to a timestamp.</haxe_doc>
 		</days>
 		<parse public="1" set="method" line="213" static="1">
@@ -838,6 +866,7 @@
 					<days><x path="Int"/></days>
 				</a>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Separate a date-time into several components</haxe_doc>
 		</parse>
 		<make public="1" set="method" line="235" static="1">
@@ -851,6 +880,7 @@
 				</a>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Build a date-time from several components</haxe_doc>
 		</make>
 		<makeUtc public="1" set="method" line="243" static="1">
@@ -863,7 +893,10 @@
 				<x path="Int"/>
 				<x path="Float"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Retrieve Unix timestamp value from Date components. Takes same argument sequence as the Date constructor.</haxe_doc>
 		</makeUtc>
 		<haxe_doc>The DateTools class contains some extra functionalities for handling `Date`
@@ -5823,13 +5856,19 @@
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="cpp.Finalizable" params="" file="/home/runner/work/haxe/haxe/std/cpp/Finalizable.hx">
-		<finalize public="1" set="method" line="35"><f a=""><x path="Void"/></f></finalize>
+		<finalize public="1" set="method" line="35">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</finalize>
 		<new public="1" set="method" line="31">
 			<f a="?inPin" v="false">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":value"><e>{ inPin : false }</e></m></meta>
+			<meta>
+				<m n=":value"><e>{ inPin : false }</e></m>
+				<m n=":keep"/>
+			</meta>
 		</new>
 		<haxe_doc>This is just a helper class. It is not actually required to inherit from this
 	to use `NativeGc.addFinalizable(this,inPin)`, only a function called
@@ -6106,14 +6145,20 @@
 			<x path="cpp.Int64"/>
 			<x path="haxe.Int64"/>
 		</f>
-		<meta><m n=":to"/></meta>
+		<meta>
+			<m n=":keep"/>
+			<m n=":to"/>
+		</meta>
 	</toInt64>
 	<ofInt64 get="inline" set="null" line="32" static="1">
 		<f a="x">
 			<x path="haxe.Int64"/>
 			<x path="cpp.Int64"/>
 		</f>
-		<meta><m n=":from"/></meta>
+		<meta>
+			<m n=":keep"/>
+			<m n=":from"/>
+		</meta>
 	</ofInt64>
 </class></impl>
 	</abstract>
@@ -6123,14 +6168,20 @@
 				<x path="cpp.Int64"/>
 				<x path="haxe.Int64"/>
 			</f>
-			<meta><m n=":to"/></meta>
+			<meta>
+				<m n=":keep"/>
+				<m n=":to"/>
+			</meta>
 		</toInt64>
 		<ofInt64 get="inline" set="null" line="32" static="1">
 			<f a="x">
 				<x path="haxe.Int64"/>
 				<x path="cpp.Int64"/>
 			</f>
-			<meta><m n=":from"/></meta>
+			<meta>
+				<m n=":keep"/>
+				<m n=":from"/>
+			</meta>
 		</ofInt64>
 	</class>
 	<abstract path="cpp.Int8" params="" file="/home/runner/work/haxe/haxe/std/cpp/Int8.hx">
@@ -6809,6 +6860,7 @@
 			</f>
 			<meta><m n=":native"><e>"__hxcpp_set_minimum_working_memory"</e></m></meta>
 		</setMinimumWorkingMemory>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="cpp.NativeMath" params="" file="/home/runner/work/haxe/haxe/std/cpp/NativeMath.hx" extern="1">
 		<idiv public="1" set="method" static="1">
