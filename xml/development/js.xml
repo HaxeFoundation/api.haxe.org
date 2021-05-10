@@ -84995,10 +84995,10 @@
 			</f>
 			<haxe_doc>Returns a Promise object that is rejected with the given reason.</haxe_doc>
 		</reject>
-		<all public="1" set="method" static="1">
+		<all public="1" params="T" set="method" static="1">
 			<f a="iterable">
-				<c path="Array"><d/></c>
-				<c path="js.lib.Promise"><c path="Array"><d/></c></c>
+				<c path="Array"><c path="js.lib.Promise"><c path="all.T"/></c></c>
+				<c path="js.lib.Promise"><c path="Array"><c path="all.T"/></c></c>
 			</f>
 			<haxe_doc>Returns a promise that either fulfills when all of the promises in the
 		iterable argument have fulfilled or rejects as soon as one of the
@@ -85008,11 +85008,25 @@
 		If the returned promise rejects, it is rejected with the reason from
 		the first promise in the iterable that rejected. This method can be
 		useful for aggregating results of multiple promises.</haxe_doc>
+			<overloads><all public="1" set="method">
+	<f a="iterable">
+		<c path="Array"><d/></c>
+		<c path="js.lib.Promise"><c path="Array"><d/></c></c>
+	</f>
+	<haxe_doc>Returns a promise that either fulfills when all of the promises in the
+		iterable argument have fulfilled or rejects as soon as one of the
+		promises in the iterable argument rejects. If the returned promise
+		fulfills, it is fulfilled with an array of the values from the
+		fulfilled promises in the same order as defined in the iterable.
+		If the returned promise rejects, it is rejected with the reason from
+		the first promise in the iterable that rejected. This method can be
+		useful for aggregating results of multiple promises.</haxe_doc>
+</all></overloads>
 		</all>
-		<allSettled public="1" set="method" static="1">
+		<allSettled public="1" params="T" set="method" static="1">
 			<f a="iterable">
-				<c path="Array"><d/></c>
-				<c path="js.lib.Promise"><c path="Array"><t path="js.lib.PromiseSettleOutcome"/></c></c>
+				<c path="Array"><c path="js.lib.Promise"><c path="allSettled.T"/></c></c>
+				<c path="js.lib.Promise"><c path="Array"><t path="js.lib.PromiseSettleOutcome"><c path="allSettled.T"/></t></c></c>
 			</f>
 			<haxe_doc>Returns a promise that resolves after all of the given promises have either fulfilled or rejected,
 		with an array of objects that each describes the outcome of each promise.
@@ -85022,15 +85036,38 @@
 
 		In comparison, the Promise returned by `Promise.all` may be more appropriate if the tasks are dependent
 		on each other / if you'd like to immediately reject upon any of them rejecting.</haxe_doc>
+			<overloads><allSettled public="1" set="method">
+	<f a="iterable">
+		<c path="Array"><d/></c>
+		<c path="js.lib.Promise"><c path="Array"><t path="js.lib.PromiseSettleOutcome"><d/></t></c></c>
+	</f>
+	<haxe_doc>Returns a promise that resolves after all of the given promises have either fulfilled or rejected,
+		with an array of objects that each describes the outcome of each promise.
+
+		It is typically used when you have multiple asynchronous tasks that are not dependent on one another
+		to complete successfully, or you'd always like to know the result of each promise.
+
+		In comparison, the Promise returned by `Promise.all` may be more appropriate if the tasks are dependent
+		on each other / if you'd like to immediately reject upon any of them rejecting.</haxe_doc>
+</allSettled></overloads>
 		</allSettled>
-		<race public="1" set="method" static="1">
+		<race public="1" params="T" set="method" static="1">
 			<f a="iterable">
-				<c path="Array"><d/></c>
-				<c path="js.lib.Promise"><d/></c>
+				<c path="Array"><c path="js.lib.Promise"><c path="race.T"/></c></c>
+				<c path="js.lib.Promise"><c path="race.T"/></c>
 			</f>
 			<haxe_doc>Returns a promise that fulfills or rejects as soon as one of the
 		promises in the iterable fulfills or rejects, with the value or reason
 		from that promise.</haxe_doc>
+			<overloads><race public="1" set="method">
+	<f a="iterable">
+		<c path="Array"><d/></c>
+		<c path="js.lib.Promise"><d/></c>
+	</f>
+	<haxe_doc>Returns a promise that fulfills or rejects as soon as one of the
+		promises in the iterable fulfills or rejects, with the value or reason
+		from that promise.</haxe_doc>
+</race></overloads>
 		</race>
 		<then public="1" params="TOut" set="method">
 			<f a="onFulfilled:?onRejected">
@@ -85155,9 +85192,9 @@
 	</x>
 	<x path="js.lib.Thenable"><c path="then.TOut"/></x>
 </f></then></a></typedef>
-	<typedef path="js.lib.PromiseSettleOutcome" params="" file="/home/runner/work/haxe/haxe/std/js/lib/Promise.hx" module="js.lib.Promise"><a>
+	<typedef path="js.lib.PromiseSettleOutcome" params="T" file="/home/runner/work/haxe/haxe/std/js/lib/Promise.hx" module="js.lib.Promise"><a>
 	<value>
-		<x path="Null"><d/></x>
+		<x path="Null"><c path="js.lib.PromiseSettleOutcome.T"/></x>
 		<meta><m n=":optional"/></meta>
 	</value>
 	<status><x path="js.lib.PromiseSettleStatus"/></status>
@@ -85171,7 +85208,7 @@
 		<to><icast><c path="String"/></icast></to>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="js.lib._Promise.PromiseSettleStatus_Impl_" params="" file="/home/runner/work/haxe/haxe/std/js/lib/Promise.hx" private="1" module="js.lib.Promise" extern="1" final="1">
-	<Fulfilled public="1" get="inline" set="null" expr="cast &quot;fulfilled&quot;" line="139" static="1">
+	<Fulfilled public="1" get="inline" set="null" expr="cast &quot;fulfilled&quot;" line="142" static="1">
 		<x path="js.lib.PromiseSettleStatus"/>
 		<meta>
 			<m n=":value"><e>cast "fulfilled"</e></m>
@@ -85179,7 +85216,7 @@
 			<m n=":enum"/>
 		</meta>
 	</Fulfilled>
-	<Rejected public="1" get="inline" set="null" expr="cast &quot;rejected&quot;" line="140" static="1">
+	<Rejected public="1" get="inline" set="null" expr="cast &quot;rejected&quot;" line="143" static="1">
 		<x path="js.lib.PromiseSettleStatus"/>
 		<meta>
 			<m n=":value"><e>cast "rejected"</e></m>
@@ -85191,7 +85228,7 @@
 </class></impl>
 	</abstract>
 	<class path="js.lib._Promise.PromiseSettleStatus_Impl_" params="" file="/home/runner/work/haxe/haxe/std/js/lib/Promise.hx" private="1" module="js.lib.Promise" extern="1" final="1">
-		<Fulfilled public="1" get="inline" set="null" expr="cast &quot;fulfilled&quot;" line="139" static="1">
+		<Fulfilled public="1" get="inline" set="null" expr="cast &quot;fulfilled&quot;" line="142" static="1">
 			<x path="js.lib.PromiseSettleStatus"/>
 			<meta>
 				<m n=":value"><e>cast "fulfilled"</e></m>
@@ -85199,7 +85236,7 @@
 				<m n=":enum"/>
 			</meta>
 		</Fulfilled>
-		<Rejected public="1" get="inline" set="null" expr="cast &quot;rejected&quot;" line="140" static="1">
+		<Rejected public="1" get="inline" set="null" expr="cast &quot;rejected&quot;" line="143" static="1">
 			<x path="js.lib.PromiseSettleStatus"/>
 			<meta>
 				<m n=":value"><e>cast "rejected"</e></m>
