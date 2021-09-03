@@ -38230,6 +38230,470 @@
 	@see https://www.php.net/manual/en/class.recursivedirectoryiterator.php</haxe_doc>
 		<meta><m n=":native"><e>"RecursiveDirectoryIterator"</e></m></meta>
 	</class>
+	<class path="php.Phar" params="" file="/home/runner/work/haxe/haxe/std/php/Phar.hx" extern="1">
+		<extends path="php.RecursiveDirectoryIterator"/>
+		<implements path="php.ArrayAccess">
+			<c path="String"/>
+			<c path="php.PharFileInfo"/>
+		</implements>
+		<implements path="php.Countable"/>
+		<BZ2 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</BZ2>
+		<COMPRESSED final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</COMPRESSED>
+		<GZ final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</GZ>
+		<MD5 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</MD5>
+		<NONE final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</NONE>
+		<OPENSSL final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</OPENSSL>
+		<PHAR final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</PHAR>
+		<PHP final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</PHP>
+		<PHPS final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</PHPS>
+		<SHA1 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</SHA1>
+		<SHA256 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</SHA256>
+		<SHA512 final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</SHA512>
+		<TAR final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</TAR>
+		<ZIP final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":phpClassConst"/></meta>
+		</ZIP>
+		<apiVersion final="1" public="1" set="method" static="1"><f a=""><c path="String"/></f></apiVersion>
+		<canCompress final="1" public="1" set="method" static="1">
+			<f a="?type" v="0">
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ type : 0 }</e></m></meta>
+		</canCompress>
+		<canWrite final="1" public="1" set="method" static="1"><f a=""><x path="Bool"/></f></canWrite>
+		<createDefaultStub final="1" public="1" set="method" static="1"><f a="?index:?webIndex">
+	<c path="String"/>
+	<c path="String"/>
+	<c path="String"/>
+</f></createDefaultStub>
+		<getSupportedCompression final="1" public="1" set="method" static="1"><f a=""><x path="php.NativeIndexedArray"><c path="String"/></x></f></getSupportedCompression>
+		<getSupportedSignatures final="1" public="1" set="method" static="1"><f a=""><x path="php.NativeIndexedArray"><c path="String"/></x></f></getSupportedSignatures>
+		<isValidPharFilename final="1" public="1" set="method" static="1">
+			<f a="filename:?executable" v=":true">
+				<c path="String"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ executable : true }</e></m></meta>
+		</isValidPharFilename>
+		<loadPhar final="1" public="1" set="method" static="1"><f a="filename:?alias">
+	<c path="String"/>
+	<c path="String"/>
+	<x path="Bool"/>
+</f></loadPhar>
+		<mapPhar final="1" public="1" set="method" static="1">
+			<f a="?alias:?dataoffset" v=":0">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ dataoffset : 0 }</e></m></meta>
+		</mapPhar>
+		<mount final="1" public="1" set="method" static="1"><f a="pharpath:externalpath">
+	<c path="String"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></mount>
+		<mungServer final="1" public="1" set="method" static="1"><f a="munglist">
+	<x path="php.NativeIndexedArray"><c path="String"/></x>
+	<x path="Void"/>
+</f></mungServer>
+		<running final="1" public="1" set="method" static="1">
+			<f a="?retphar" v="true">
+				<x path="Bool"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":value"><e>{ retphar : true }</e></m></meta>
+		</running>
+		<unlinkArchive final="1" public="1" set="method" static="1"><f a="archive">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></unlinkArchive>
+		<webPhar final="1" public="1" set="method" static="1">
+			<f a="?alias:?index:?f404:?mimetypes:?callable" v=":&quot;index.php&quot;:::">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="String"/>
+				<x path="php.NativeAssocArray"><c path="String"/></x>
+				<f a="">
+					<c path="String"/>
+					<x path="haxe.extern.EitherType">
+						<c path="String"/>
+						<x path="Bool"/>
+					</x>
+				</f>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ index : "index.php" }</e></m></meta>
+		</webPhar>
+		<addEmptyDir public="1" set="method"><f a="dirname">
+	<c path="String"/>
+	<x path="Void"/>
+</f></addEmptyDir>
+		<addFile public="1" set="method"><f a="file:?localname">
+	<c path="String"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></addFile>
+		<addFromString public="1" set="method"><f a="localname:contents">
+	<c path="String"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></addFromString>
+		<buildFromDirectory public="1" set="method"><f a="base_dir:?regex">
+	<c path="String"/>
+	<c path="String"/>
+	<x path="php.NativeAssocArray"><c path="String"/></x>
+</f></buildFromDirectory>
+		<buildFromIterator public="1" set="method"><f a="iter:?base_directory">
+	<x path="haxe.extern.EitherType">
+		<c path="php.NativeIterator">
+			<c path="String"/>
+			<c path="String"/>
+		</c>
+		<c path="php.NativeIterator">
+			<x path="Int"/>
+			<c path="php.SplFileInfo"/>
+		</c>
+	</x>
+	<c path="String"/>
+	<x path="php.NativeAssocArray"><c path="String"/></x>
+</f></buildFromIterator>
+		<compress public="1" set="method"><f a="compression:?extension">
+	<x path="Int"/>
+	<c path="String"/>
+	<c path="php.Phar"/>
+</f></compress>
+		<compressFiles public="1" set="method"><f a="compression">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></compressFiles>
+		<convertToData public="1" set="method"><f a="?format:?compression:?extension">
+	<x path="Int"/>
+	<x path="Int"/>
+	<c path="String"/>
+	<c path="php.PharData"/>
+</f></convertToData>
+		<convertToExecutable public="1" set="method"><f a="?format:?compression:?extension">
+	<x path="Int"/>
+	<x path="Int"/>
+	<c path="String"/>
+	<c path="php.Phar"/>
+</f></convertToExecutable>
+		<copy public="1" set="method"><f a="oldfile:newfile">
+	<c path="String"/>
+	<c path="String"/>
+	<x path="Bool"/>
+</f></copy>
+		<count public="1" set="method"><f a=""><x path="Int"/></f></count>
+		<decompress public="1" set="method"><f a="?extension">
+	<c path="String"/>
+	<c path="php.PharData"/>
+</f></decompress>
+		<decompressFiles public="1" set="method"><f a=""><x path="Void"/></f></decompressFiles>
+		<delete public="1" set="method"><f a="entry">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></delete>
+		<delMetadata public="1" set="method"><f a=""><x path="Bool"/></f></delMetadata>
+		<extractTo public="1" set="method">
+			<f a="pathto:?files:?overwrite" v="::false">
+				<c path="String"/>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<x path="php.NativeIndexedArray"><c path="String"/></x>
+				</x>
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ overwrite : false }</e></m></meta>
+		</extractTo>
+		<getAlias public="1" set="method"><f a=""><c path="String"/></f></getAlias>
+		<getMetadata public="1" set="method"><f a=""><d/></f></getMetadata>
+		<getModified public="1" set="method"><f a=""><x path="Bool"/></f></getModified>
+		<getPath public="1" set="method" override="1"><f a=""><c path="String"/></f></getPath>
+		<getSignature public="1" set="method"><f a=""><x path="php.NativeAssocArray"><c path="String"/></x></f></getSignature>
+		<getStub public="1" set="method"><f a=""><c path="String"/></f></getStub>
+		<getVersion public="1" set="method"><f a=""><c path="String"/></f></getVersion>
+		<hasMetadata public="1" set="method"><f a=""><x path="Bool"/></f></hasMetadata>
+		<isBuffering public="1" set="method"><f a=""><x path="Bool"/></f></isBuffering>
+		<isCompressed public="1" set="method"><f a=""><x path="haxe.extern.EitherType">
+	<x path="Int"/>
+	<x path="Bool"/>
+</x></f></isCompressed>
+		<isFileFormat public="1" set="method"><f a="format">
+	<x path="Int"/>
+	<x path="Bool"/>
+</f></isFileFormat>
+		<isWritable public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isWritable>
+		<offsetExists public="1" set="method"><f a="offset">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></offsetExists>
+		<offsetGet public="1" set="method"><f a="offset">
+	<c path="String"/>
+	<c path="php.PharFileInfo"/>
+</f></offsetGet>
+		<offsetSet public="1" set="method"><f a="offset:value">
+	<c path="String"/>
+	<d/>
+	<x path="Void"/>
+</f></offsetSet>
+		<offsetUnset public="1" set="method"><f a="offset">
+	<c path="String"/>
+	<x path="Void"/>
+</f></offsetUnset>
+		<setAlias public="1" set="method"><f a="alias">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></setAlias>
+		<setDefaultStub public="1" set="method"><f a="?index:?webindex">
+	<c path="String"/>
+	<c path="String"/>
+	<x path="Bool"/>
+</f></setDefaultStub>
+		<setMetadata public="1" set="method"><f a="metadata">
+	<x path="Any"/>
+	<x path="Void"/>
+</f></setMetadata>
+		<setSignatureAlgorithm public="1" set="method"><f a="sigtype:?privatekey">
+	<x path="Int"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></setSignatureAlgorithm>
+		<setStub public="1" set="method">
+			<f a="stub:?len" v=":-1">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ len : -1 }</e></m></meta>
+		</setStub>
+		<startBuffering public="1" set="method"><f a=""><x path="Void"/></f></startBuffering>
+		<stopBuffering public="1" set="method"><f a=""><x path="Void"/></f></stopBuffering>
+		<new public="1" set="method"><f a="fname:?flags:?alias">
+	<c path="String"/>
+	<x path="Int"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>The `Phar` class provides a high-level interface to accessing and creating PHAR archives.
+	@see https://www.php.net/manual/en/class.phar.php</haxe_doc>
+		<meta><m n=":native"><e>"Phar"</e></m></meta>
+	</class>
+	<class path="php.PharData" params="" file="/home/runner/work/haxe/haxe/std/php/PharData.hx" extern="1">
+		<extends path="php.RecursiveDirectoryIterator"/>
+		<implements path="php.ArrayAccess">
+			<c path="String"/>
+			<c path="php.PharFileInfo"/>
+		</implements>
+		<implements path="php.Countable"/>
+		<addEmptyDir public="1" set="method"><f a="dirname">
+	<c path="String"/>
+	<x path="Void"/>
+</f></addEmptyDir>
+		<addFile public="1" set="method"><f a="file:?localname">
+	<c path="String"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></addFile>
+		<addFromString public="1" set="method"><f a="localname:contents">
+	<c path="String"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></addFromString>
+		<buildFromDirectory public="1" set="method"><f a="base_dir:?regex">
+	<c path="String"/>
+	<c path="String"/>
+	<x path="php.NativeAssocArray"><c path="String"/></x>
+</f></buildFromDirectory>
+		<buildFromIterator public="1" set="method"><f a="iter:?base_directory">
+	<x path="haxe.extern.EitherType">
+		<c path="php.NativeIterator">
+			<c path="String"/>
+			<c path="String"/>
+		</c>
+		<c path="php.NativeIterator">
+			<x path="Int"/>
+			<c path="php.SplFileInfo"/>
+		</c>
+	</x>
+	<c path="String"/>
+	<x path="php.NativeAssocArray"><c path="String"/></x>
+</f></buildFromIterator>
+		<compress public="1" set="method"><f a="compression:?extension">
+	<x path="Int"/>
+	<c path="String"/>
+	<c path="php.PharData"/>
+</f></compress>
+		<compressFiles public="1" set="method"><f a="compression">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></compressFiles>
+		<copy public="1" set="method"><f a="oldfile:newfile">
+	<c path="String"/>
+	<c path="String"/>
+	<x path="Bool"/>
+</f></copy>
+		<count public="1" set="method"><f a=""><x path="Int"/></f></count>
+		<decompress public="1" set="method"><f a="?extension">
+	<c path="String"/>
+	<c path="php.PharData"/>
+</f></decompress>
+		<decompressFiles public="1" set="method"><f a=""><x path="Void"/></f></decompressFiles>
+		<delete public="1" set="method"><f a="entry">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></delete>
+		<delMetadata public="1" set="method"><f a=""><x path="Bool"/></f></delMetadata>
+		<extractTo public="1" set="method">
+			<f a="pathto:?files:?overwrite" v="::false">
+				<c path="String"/>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<x path="php.NativeIndexedArray"><c path="String"/></x>
+				</x>
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ overwrite : false }</e></m></meta>
+		</extractTo>
+		<isWritable public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isWritable>
+		<offsetExists public="1" set="method"><f a="offset">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></offsetExists>
+		<offsetGet public="1" set="method"><f a="offset">
+	<c path="String"/>
+	<c path="php.PharFileInfo"/>
+</f></offsetGet>
+		<offsetSet public="1" set="method"><f a="offset:value">
+	<c path="String"/>
+	<d/>
+	<x path="Void"/>
+</f></offsetSet>
+		<offsetUnset public="1" set="method"><f a="offset">
+	<c path="String"/>
+	<x path="Void"/>
+</f></offsetUnset>
+		<setAlias public="1" set="method"><f a="alias">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></setAlias>
+		<setDefaultStub public="1" set="method"><f a="?index:?webindex">
+	<c path="String"/>
+	<c path="String"/>
+	<x path="Bool"/>
+</f></setDefaultStub>
+		<setMetadata public="1" set="method"><f a="metadata">
+	<x path="Any"/>
+	<x path="Void"/>
+</f></setMetadata>
+		<setSignatureAlgorithm public="1" set="method"><f a="sigtype">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></setSignatureAlgorithm>
+		<setStub public="1" set="method">
+			<f a="stub:?len" v=":-1">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ len : -1 }</e></m></meta>
+		</setStub>
+		<new public="1" set="method"><f a="fname:?flags:?alias:?format">
+	<c path="String"/>
+	<x path="Int"/>
+	<c path="String"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>The `PharData` class provides a high-level interface to accessing and creating non-executable TAR and ZIP archives.
+	@see https://www.php.net/manual/en/class.phardata.php</haxe_doc>
+		<meta><m n=":native"><e>"PharData"</e></m></meta>
+	</class>
+	<class path="php.PharException" params="" file="/home/runner/work/haxe/haxe/std/php/PharException.hx" extern="1">
+		<extends path="php.Exception"/>
+		<haxe_doc>The `PharException` class provides a phar-specific exception class for try/catch blocks.
+	@see https://www.php.net/manual/en/class.pharexception.php</haxe_doc>
+		<meta><m n=":native"><e>"PharException"</e></m></meta>
+	</class>
+	<class path="php.PharFileInfo" params="" file="/home/runner/work/haxe/haxe/std/php/PharFileInfo.hx" extern="1">
+		<extends path="php.SplFileInfo"/>
+		<chmod public="1" set="method"><f a="permissions">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></chmod>
+		<compress public="1" set="method"><f a="compression">
+	<x path="Int"/>
+	<x path="Bool"/>
+</f></compress>
+		<decompress public="1" set="method"><f a=""><x path="Bool"/></f></decompress>
+		<delMetadata public="1" set="method"><f a=""><x path="Bool"/></f></delMetadata>
+		<getCompressedSize public="1" set="method"><f a=""><x path="Int"/></f></getCompressedSize>
+		<getContent public="1" set="method"><f a=""><c path="String"/></f></getContent>
+		<getCRC32 public="1" set="method"><f a=""><x path="Int"/></f></getCRC32>
+		<getMetadata public="1" set="method"><f a=""><d/></f></getMetadata>
+		<getPharFlags public="1" set="method"><f a=""><x path="Int"/></f></getPharFlags>
+		<hasMetadata public="1" set="method"><f a=""><x path="Bool"/></f></hasMetadata>
+		<isCompressed public="1" set="method"><f a="?compression_type">
+	<x path="Int"/>
+	<x path="Bool"/>
+</f></isCompressed>
+		<isCRCChecked public="1" set="method"><f a=""><x path="Bool"/></f></isCRCChecked>
+		<setMetadata public="1" set="method"><f a="metadata">
+	<x path="Any"/>
+	<x path="Void"/>
+</f></setMetadata>
+		<new public="1" set="method"><f a="entry">
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>The `PharFileInfo` class provides a high-level interface to the contents and attributes of a single file within a PHAR archive.
+	@see https://www.php.net/manual/en/class.pharfileinfo</haxe_doc>
+		<meta><m n=":native"><e>"PharFileInfo"</e></m></meta>
+	</class>
 	<typedef path="php.Ref" params="T" file="/home/runner/work/haxe/haxe/std/php/Ref.hx">
 		<c path="php.Ref.T"/>
 		<haxe_doc>Special type which allows passing function arguments by reference.
