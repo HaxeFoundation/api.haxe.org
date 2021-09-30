@@ -1983,6 +1983,20 @@
 		<CAL_MONTH_JULIAN_LONG final="1" public="1" set="null" static="1"><x path="Int"/></CAL_MONTH_JULIAN_LONG>
 		<CAL_MONTH_JULIAN_SHORT final="1" public="1" set="null" static="1"><x path="Int"/></CAL_MONTH_JULIAN_SHORT>
 		<CAL_NUM_CALS final="1" public="1" set="null" static="1"><x path="Int"/></CAL_NUM_CALS>
+		<FTP_ASCII final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<haxe_doc>@see http://php.net/manual/en/ftp.constants.php</haxe_doc>
+		</FTP_ASCII>
+		<FTP_AUTORESUME final="1" public="1" set="null" static="1"><x path="Int"/></FTP_AUTORESUME>
+		<FTP_AUTOSEEK final="1" public="1" set="null" static="1"><x path="Int"/></FTP_AUTOSEEK>
+		<FTP_BINARY final="1" public="1" set="null" static="1"><x path="Int"/></FTP_BINARY>
+		<FTP_FAILED final="1" public="1" set="null" static="1"><x path="Int"/></FTP_FAILED>
+		<FTP_FINISHED final="1" public="1" set="null" static="1"><x path="Int"/></FTP_FINISHED>
+		<FTP_IMAGE final="1" public="1" set="null" static="1"><x path="Int"/></FTP_IMAGE>
+		<FTP_MOREDATA final="1" public="1" set="null" static="1"><x path="Int"/></FTP_MOREDATA>
+		<FTP_TEXT final="1" public="1" set="null" static="1"><x path="Int"/></FTP_TEXT>
+		<FTP_TIMEOUT_SEC final="1" public="1" set="null" static="1"><x path="Int"/></FTP_TIMEOUT_SEC>
+		<FTP_USEPASVADDRESS final="1" public="1" set="null" static="1"><x path="Bool"/></FTP_USEPASVADDRESS>
 		<haxe_doc>This class contains externs for native PHP constants defined in global namespace.
 	For native PHP functions in global namespace see `php.Global`.</haxe_doc>
 		<meta>
@@ -7276,6 +7290,358 @@
 </x></f>
 			<haxe_doc>@see http://php.net/manual/en/function.tmpfile.php</haxe_doc>
 		</tmpfile>
+		<ftp_alloc public="1" set="method" static="1">
+			<f a="ftp:size:?response">
+				<x path="php.Resource"/>
+				<x path="Int"/>
+				<t path="php.Ref"><c path="String"/></t>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-alloc.php</haxe_doc>
+		</ftp_alloc>
+		<ftp_append public="1" set="method" static="1">
+			<f a="ftp:remote_filename:local_filename:?mode">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-append.php</haxe_doc>
+		</ftp_append>
+		<ftp_cdup public="1" set="method" static="1">
+			<f a="ftp">
+				<x path="php.Resource"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-cdup.php</haxe_doc>
+		</ftp_cdup>
+		<ftp_chdir public="1" set="method" static="1">
+			<f a="ftp:directory">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-chdir.php</haxe_doc>
+		</ftp_chdir>
+		<ftp_chmod public="1" set="method" static="1">
+			<f a="ftp:permissions:filename">
+				<x path="php.Resource"/>
+				<x path="Int"/>
+				<c path="String"/>
+				<x path="haxe.extern.EitherType">
+					<x path="Int"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-chmod.php</haxe_doc>
+		</ftp_chmod>
+		<ftp_close public="1" set="method" static="1">
+			<f a="ftp">
+				<x path="php.Resource"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-close.php</haxe_doc>
+		</ftp_close>
+		<ftp_connect public="1" set="method" static="1">
+			<f a="hostname:?port:?timeout" v=":21:90">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<x path="php.Resource"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ timeout : 90, port : 21 }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-connect.php</haxe_doc>
+		</ftp_connect>
+		<ftp_delete public="1" set="method" static="1">
+			<f a="ftp:filename">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-delete.php</haxe_doc>
+		</ftp_delete>
+		<ftp_exec public="1" set="method" static="1">
+			<f a="ftp:command">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-exec.php</haxe_doc>
+		</ftp_exec>
+		<ftp_fget public="1" set="method" static="1">
+			<f a="ftp:stream:remote_filename:?mode:?offset" v="::::0">
+				<x path="php.Resource"/>
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ offset : 0 }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-fget.php</haxe_doc>
+		</ftp_fget>
+		<ftp_fput public="1" set="method" static="1">
+			<f a="ftp:remote_filename:stream:?mode:?offset" v="::::0">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="php.Resource"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ offset : 0 }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-fput.php</haxe_doc>
+		</ftp_fput>
+		<ftp_get public="1" set="method" static="1">
+			<f a="ftp:local_filename:remote_filename:?offset" v=":::0">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ offset : 0 }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-get.php</haxe_doc>
+		</ftp_get>
+		<ftp_get_option public="1" set="method" static="1">
+			<f a="ftp:option">
+				<x path="php.Resource"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<x path="Int"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-get-option.php</haxe_doc>
+		</ftp_get_option>
+		<ftp_login public="1" set="method" static="1">
+			<f a="ftp:username:password">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-login.php</haxe_doc>
+		</ftp_login>
+		<ftp_mdtm public="1" set="method" static="1">
+			<f a="ftp:filename">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-mdtm.php</haxe_doc>
+		</ftp_mdtm>
+		<ftp_mkdir public="1" set="method" static="1">
+			<f a="ftp:directory">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-mkdir.php</haxe_doc>
+		</ftp_mkdir>
+		<ftp_mlsd public="1" set="method" static="1">
+			<f a="ftp:directory">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="haxe.extern.EitherType">
+					<x path="php.NativeIndexedArray"><x path="php.NativeAssocArray"><c path="String"/></x></x>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-mlsd.php</haxe_doc>
+		</ftp_mlsd>
+		<ftp_nb_continue public="1" set="method" static="1">
+			<f a="ftp">
+				<x path="php.Resource"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-nb-continue.php</haxe_doc>
+		</ftp_nb_continue>
+		<ftp_nb_fget public="1" set="method" static="1">
+			<f a="ftp:stream:remote_filename:?mode:?offset" v="::::0">
+				<x path="php.Resource"/>
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":value"><e>{ offset : 0 }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-nb-fget.php</haxe_doc>
+		</ftp_nb_fget>
+		<ftp_nb_fput public="1" set="method" static="1">
+			<f a="ftp:remote_filename:stream:?mode:?offset" v="::::0">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="php.Resource"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":value"><e>{ offset : 0 }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-nb-fput.php</haxe_doc>
+		</ftp_nb_fput>
+		<ftp_nb_get public="1" set="method" static="1">
+			<f a="ftp:local_filename:remote_filename:?offset" v=":::0">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":value"><e>{ offset : 0 }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-nb-get.php</haxe_doc>
+		</ftp_nb_get>
+		<ftp_nb_put public="1" set="method" static="1">
+			<f a="ftp:remote_filename:local_filename:?offset" v=":::0">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<x path="Int"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ offset : 0 }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-nb-put.php</haxe_doc>
+		</ftp_nb_put>
+		<ftp_nlist public="1" set="method" static="1">
+			<f a="ftp:directory">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="haxe.extern.EitherType">
+					<x path="php.NativeIndexedArray"><c path="String"/></x>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-nlist.php</haxe_doc>
+		</ftp_nlist>
+		<ftp_pasv public="1" set="method" static="1">
+			<f a="ftp:enable">
+				<x path="php.Resource"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-pasv.php</haxe_doc>
+		</ftp_pasv>
+		<ftp_put public="1" set="method" static="1">
+			<f a="ftp:remote_filename:local_filename:?offset" v=":::0">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ offset : 0 }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-put.php</haxe_doc>
+		</ftp_put>
+		<ftp_pwd public="1" set="method" static="1">
+			<f a="ftp">
+				<x path="php.Resource"/>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-pwd.php</haxe_doc>
+		</ftp_pwd>
+		<ftp_raw public="1" set="method" static="1">
+			<f a="ftp:command">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="php.NativeIndexedArray"><c path="String"/></x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-raw.php</haxe_doc>
+		</ftp_raw>
+		<ftp_rawlist public="1" set="method" static="1">
+			<f a="ftp:directory:?recursive" v="::false">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="Bool"/>
+				<x path="haxe.extern.EitherType">
+					<x path="php.NativeIndexedArray"><c path="String"/></x>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ recursive : false }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-rawlist.php</haxe_doc>
+		</ftp_rawlist>
+		<ftp_rename public="1" set="method" static="1">
+			<f a="ftp:from:to">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-rename.php</haxe_doc>
+		</ftp_rename>
+		<ftp_rmdir public="1" set="method" static="1">
+			<f a="ftp:directory">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-rmdir.php</haxe_doc>
+		</ftp_rmdir>
+		<ftp_set_option public="1" set="method" static="1">
+			<f a="ftp:option:value">
+				<x path="php.Resource"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<x path="Int"/>
+					<x path="Bool"/>
+				</x>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-set-option.php</haxe_doc>
+		</ftp_set_option>
+		<ftp_site public="1" set="method" static="1">
+			<f a="ftp:command">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-site.php</haxe_doc>
+		</ftp_site>
+		<ftp_size public="1" set="method" static="1">
+			<f a="ftp:filename">
+				<x path="php.Resource"/>
+				<c path="String"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-size.php</haxe_doc>
+		</ftp_size>
+		<ftp_ssl_connect public="1" set="method" static="1">
+			<f a="hostname:?port:?timeout" v=":21:90">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<x path="php.Resource"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ timeout : 90, port : 21 }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-ssl-connect.php</haxe_doc>
+		</ftp_ssl_connect>
+		<ftp_systype public="1" set="method" static="1">
+			<f a="ftp">
+				<x path="php.Resource"/>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.ftp-systype.php</haxe_doc>
+		</ftp_systype>
 		<haxe_doc>This class contains externs for native PHP functions defined in global namespace.
 	For native PHP constants in global namespace see `php.Const`.</haxe_doc>
 		<meta>
