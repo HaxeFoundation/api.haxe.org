@@ -35449,6 +35449,26 @@
 			<m n=":native"><e>"haxe.lang.NativeString"</e></m>
 		</meta>
 	</class>
+	<class path="java.lang.Readable" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Readable.class" extern="1" interface="1">
+		<read public="1" set="method">
+			<f a="param1">
+				<c path="java.nio.CharBuffer"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</read>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.lang.Readable"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.lang"</e>
+				<e>"Readable"</e>
+			</m>
+		</meta>
+	</class>
 	<class path="java.lang.AutoCloseable" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/AutoCloseable.class" extern="1" interface="1">
 		<close public="1" set="method">
 			<f a=""><x path="Void"/></f>
@@ -35484,6 +35504,199 @@
 			</m>
 		</meta>
 	</class>
+	<class path="java.io.Reader" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/Reader.class" extern="1" abstract="1">
+		<implements path="java.lang.Readable"/>
+		<implements path="java.io.Closeable"/>
+		<close abstract="1" public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</close>
+		<reset public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</reset>
+		<mark public="1" set="method">
+			<f a="param1">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</mark>
+		<markSupported public="1" set="method"><f a=""><x path="Bool"/></f></markSupported>
+		<ready public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</ready>
+		<skip public="1" set="method">
+			<f a="param1">
+				<x path="haxe.Int64"/>
+				<x path="haxe.Int64"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</skip>
+		<read abstract="1" public="1" set="method">
+			<f a="param1:param2:param3">
+				<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads>
+				<read public="1" set="method">
+					<f a="param1">
+						<c path="java.nio.CharBuffer"/>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</read>
+				<read public="1" set="method">
+					<f a=""><x path="Int"/></f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</read>
+				<read public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<x path="Int"/>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</read>
+			</overloads>
+		</read>
+		<lock>
+			<d/>
+			<meta><m n=":protected"/></meta>
+		</lock>
+		<new set="method">
+			<f a="param1">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":protected"/></meta>
+			<overloads><new set="method">
+	<f a=""><x path="Void"/></f>
+	<meta><m n=":protected"/></meta>
+</new></overloads>
+		</new>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.io.Reader"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.io"</e>
+				<e>"Reader"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.io.BufferedReader" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/BufferedReader.class" extern="1">
+		<extends path="java.io.Reader"/>
+		<lines public="1" set="method"><f a=""><c path="java.util.stream.Stream"><c path="String"/></c></f></lines>
+		<close public="1" set="method" override="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</close>
+		<reset public="1" set="method" override="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</reset>
+		<mark public="1" set="method" override="1">
+			<f a="param1">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</mark>
+		<markSupported public="1" set="method" override="1"><f a=""><x path="Bool"/></f></markSupported>
+		<ready public="1" set="method" override="1">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</ready>
+		<skip public="1" set="method" override="1">
+			<f a="param1">
+				<x path="haxe.Int64"/>
+				<x path="haxe.Int64"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</skip>
+		<readLine public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</readLine>
+		<read public="1" set="method" override="1">
+			<f a="param1:param2:param3">
+				<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads><read public="1" set="method">
+	<f a=""><x path="Int"/></f>
+	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+</read></overloads>
+		</read>
+		<new public="1" set="method">
+			<f a="param1">
+				<c path="java.io.Reader"/>
+				<x path="Void"/>
+			</f>
+			<overloads><new public="1" set="method"><f a="param1:param2">
+	<c path="java.io.Reader"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></new></overloads>
+		</new>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.io.BufferedReader"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.io"</e>
+				<e>"BufferedReader"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.lang.Appendable" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Appendable.class" extern="1" interface="1">
+		<append public="1" set="method">
+			<f a="param1">
+				<t path="java.types.Char16"/>
+				<c path="java.lang.Appendable"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads>
+				<append public="1" set="method">
+					<f a="param1">
+						<c path="java.lang.CharSequence"/>
+						<c path="java.lang.Appendable"/>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</append>
+				<append public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.lang.CharSequence"/>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.lang.Appendable"/>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</append>
+			</overloads>
+		</append>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.lang.Appendable"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.lang"</e>
+				<e>"Appendable"</e>
+			</m>
+		</meta>
+	</class>
 	<class path="java.io.Flushable" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/Flushable.class" extern="1" interface="1">
 		<flush public="1" set="method">
 			<f a=""><x path="Void"/></f>
@@ -35498,6 +35711,174 @@
 			<m n=":javaCanonical">
 				<e>"java.io"</e>
 				<e>"Flushable"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.io.Writer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/Writer.class" extern="1" abstract="1">
+		<implements path="java.lang.Appendable"/>
+		<implements path="java.io.Closeable"/>
+		<implements path="java.io.Flushable"/>
+		<append public="1" set="method">
+			<f a="param1">
+				<c path="java.lang.CharSequence"/>
+				<c path="java.io.Writer"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads>
+				<append public="1" set="method">
+					<f a="param1">
+						<t path="java.types.Char16"/>
+						<c path="java.io.Writer"/>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</append>
+				<append public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.lang.CharSequence"/>
+						<x path="Int"/>
+						<x path="Int"/>
+						<c path="java.io.Writer"/>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</append>
+			</overloads>
+		</append>
+		<close abstract="1" public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</close>
+		<flush abstract="1" public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</flush>
+		<write public="1" set="method">
+			<f a="param1:param2:param3">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads>
+				<write public="1" set="method">
+					<f a="param1">
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</write>
+				<write public="1" set="method">
+					<f a="param1">
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</write>
+				<write abstract="1" public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</write>
+				<write public="1" set="method">
+					<f a="param1">
+						<c path="String"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</write>
+			</overloads>
+		</write>
+		<lock>
+			<d/>
+			<meta><m n=":protected"/></meta>
+		</lock>
+		<new set="method">
+			<f a="param1">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":protected"/></meta>
+			<overloads><new set="method">
+	<f a=""><x path="Void"/></f>
+	<meta><m n=":protected"/></meta>
+</new></overloads>
+		</new>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.io.Writer"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.io"</e>
+				<e>"Writer"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.io.BufferedWriter" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/BufferedWriter.class" extern="1">
+		<extends path="java.io.Writer"/>
+		<close public="1" set="method" override="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</close>
+		<flush public="1" set="method" override="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</flush>
+		<newLine public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</newLine>
+		<write public="1" set="method" override="1">
+			<f a="param1:param2:param3">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads>
+				<write public="1" set="method">
+					<f a="param1">
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</write>
+				<write public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
+						<x path="Int"/>
+						<x path="Int"/>
+						<x path="Void"/>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</write>
+			</overloads>
+		</write>
+		<new public="1" set="method">
+			<f a="param1:param2">
+				<c path="java.io.Writer"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<overloads><new public="1" set="method"><f a="param1">
+	<c path="java.io.Writer"/>
+	<x path="Void"/>
+</f></new></overloads>
+		</new>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.io.BufferedWriter"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.io"</e>
+				<e>"BufferedWriter"</e>
 			</m>
 		</meta>
 	</class>
@@ -35660,112 +36041,6 @@
 			<m n=":javaCanonical">
 				<e>"java.io"</e>
 				<e>"Console"</e>
-			</m>
-		</meta>
-	</class>
-	<class path="java.lang.Readable" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Readable.class" extern="1" interface="1">
-		<read public="1" set="method">
-			<f a="param1">
-				<c path="java.nio.CharBuffer"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-		</read>
-		<meta>
-			<m n=":nativeGen"/>
-			<m n=":abstract"/>
-			<m n=":libType"/>
-			<m n=":javaNative"/>
-			<m n=":native"><e>"java.lang.Readable"</e></m>
-			<m n=":javaCanonical">
-				<e>"java.lang"</e>
-				<e>"Readable"</e>
-			</m>
-		</meta>
-	</class>
-	<class path="java.io.Reader" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/Reader.class" extern="1" abstract="1">
-		<implements path="java.lang.Readable"/>
-		<implements path="java.io.Closeable"/>
-		<close abstract="1" public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-		</close>
-		<reset public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-		</reset>
-		<mark public="1" set="method">
-			<f a="param1">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-		</mark>
-		<markSupported public="1" set="method"><f a=""><x path="Bool"/></f></markSupported>
-		<ready public="1" set="method">
-			<f a=""><x path="Bool"/></f>
-			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-		</ready>
-		<skip public="1" set="method">
-			<f a="param1">
-				<x path="haxe.Int64"/>
-				<x path="haxe.Int64"/>
-			</f>
-			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-		</skip>
-		<read abstract="1" public="1" set="method">
-			<f a="param1:param2:param3">
-				<c path="java.NativeArray"><t path="java.types.Char16"/></c>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads>
-				<read public="1" set="method">
-					<f a="param1">
-						<c path="java.nio.CharBuffer"/>
-						<x path="Int"/>
-					</f>
-					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-				</read>
-				<read public="1" set="method">
-					<f a=""><x path="Int"/></f>
-					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-				</read>
-				<read public="1" set="method">
-					<f a="param1">
-						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
-						<x path="Int"/>
-					</f>
-					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-				</read>
-			</overloads>
-		</read>
-		<lock>
-			<d/>
-			<meta><m n=":protected"/></meta>
-		</lock>
-		<new set="method">
-			<f a="param1">
-				<d/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":protected"/></meta>
-			<overloads><new set="method">
-	<f a=""><x path="Void"/></f>
-	<meta><m n=":protected"/></meta>
-</new></overloads>
-		</new>
-		<meta>
-			<m n=":nativeGen"/>
-			<m n=":abstract"/>
-			<m n=":libType"/>
-			<m n=":javaNative"/>
-			<m n=":native"><e>"java.io.Reader"</e></m>
-			<m n=":javaCanonical">
-				<e>"java.io"</e>
-				<e>"Reader"</e>
 			</m>
 		</meta>
 	</class>
@@ -36651,44 +36926,6 @@
 			<m n=":native"><e>"haxe.java.io.NativeOutput"</e></m>
 		</meta>
 	</class>
-	<class path="java.lang.Appendable" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Appendable.class" extern="1" interface="1">
-		<append public="1" set="method">
-			<f a="param1">
-				<t path="java.types.Char16"/>
-				<c path="java.lang.Appendable"/>
-			</f>
-			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads>
-				<append public="1" set="method">
-					<f a="param1">
-						<c path="java.lang.CharSequence"/>
-						<c path="java.lang.Appendable"/>
-					</f>
-					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-				</append>
-				<append public="1" set="method">
-					<f a="param1:param2:param3">
-						<c path="java.lang.CharSequence"/>
-						<x path="Int"/>
-						<x path="Int"/>
-						<c path="java.lang.Appendable"/>
-					</f>
-					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-				</append>
-			</overloads>
-		</append>
-		<meta>
-			<m n=":nativeGen"/>
-			<m n=":abstract"/>
-			<m n=":libType"/>
-			<m n=":javaNative"/>
-			<m n=":native"><e>"java.lang.Appendable"</e></m>
-			<m n=":javaCanonical">
-				<e>"java.lang"</e>
-				<e>"Appendable"</e>
-			</m>
-		</meta>
-	</class>
 	<class path="java.io.PrintStream" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/PrintStream.class" extern="1">
 		<extends path="java.io.FilterOutputStream"/>
 		<implements path="java.lang.Appendable"/>
@@ -36905,111 +37142,6 @@
 			<m n=":javaCanonical">
 				<e>"java.io"</e>
 				<e>"PrintStream"</e>
-			</m>
-		</meta>
-	</class>
-	<class path="java.io.Writer" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/Writer.class" extern="1" abstract="1">
-		<implements path="java.lang.Appendable"/>
-		<implements path="java.io.Closeable"/>
-		<implements path="java.io.Flushable"/>
-		<append public="1" set="method">
-			<f a="param1">
-				<c path="java.lang.CharSequence"/>
-				<c path="java.io.Writer"/>
-			</f>
-			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads>
-				<append public="1" set="method">
-					<f a="param1">
-						<t path="java.types.Char16"/>
-						<c path="java.io.Writer"/>
-					</f>
-					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-				</append>
-				<append public="1" set="method">
-					<f a="param1:param2:param3">
-						<c path="java.lang.CharSequence"/>
-						<x path="Int"/>
-						<x path="Int"/>
-						<c path="java.io.Writer"/>
-					</f>
-					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-				</append>
-			</overloads>
-		</append>
-		<close abstract="1" public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-		</close>
-		<flush abstract="1" public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-		</flush>
-		<write public="1" set="method">
-			<f a="param1:param2:param3">
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-			<overloads>
-				<write public="1" set="method">
-					<f a="param1">
-						<x path="Int"/>
-						<x path="Void"/>
-					</f>
-					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-				</write>
-				<write public="1" set="method">
-					<f a="param1">
-						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
-						<x path="Void"/>
-					</f>
-					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-				</write>
-				<write abstract="1" public="1" set="method">
-					<f a="param1:param2:param3">
-						<c path="java.NativeArray"><t path="java.types.Char16"/></c>
-						<x path="Int"/>
-						<x path="Int"/>
-						<x path="Void"/>
-					</f>
-					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-				</write>
-				<write public="1" set="method">
-					<f a="param1">
-						<c path="String"/>
-						<x path="Void"/>
-					</f>
-					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
-				</write>
-			</overloads>
-		</write>
-		<lock>
-			<d/>
-			<meta><m n=":protected"/></meta>
-		</lock>
-		<new set="method">
-			<f a="param1">
-				<d/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":protected"/></meta>
-			<overloads><new set="method">
-	<f a=""><x path="Void"/></f>
-	<meta><m n=":protected"/></meta>
-</new></overloads>
-		</new>
-		<meta>
-			<m n=":nativeGen"/>
-			<m n=":abstract"/>
-			<m n=":libType"/>
-			<m n=":javaNative"/>
-			<m n=":native"><e>"java.io.Writer"</e></m>
-			<m n=":javaCanonical">
-				<e>"java.io"</e>
-				<e>"Writer"</e>
 			</m>
 		</meta>
 	</class>
@@ -51631,6 +51763,637 @@
 			</m>
 		</meta>
 	</class>
+	<enum path="java.nio.file.FileVisitOption" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/FileVisitOption.class">
+		<FOLLOW_LINKS/>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":flatEnum"/>
+			<m n=":javaCanonical">
+				<e>"java.nio.file"</e>
+				<e>"FileVisitOption"</e>
+			</m>
+			<m n=":native"><e>"java.nio.file.FileVisitOption"</e></m>
+		</meta>
+	</enum>
+	<enum path="java.nio.file.FileVisitResult" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/FileVisitResult.class">
+		<SKIP_SIBLINGS/>
+		<SKIP_SUBTREE/>
+		<TERMINATE/>
+		<CONTINUE/>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":flatEnum"/>
+			<m n=":javaCanonical">
+				<e>"java.nio.file"</e>
+				<e>"FileVisitResult"</e>
+			</m>
+			<m n=":native"><e>"java.nio.file.FileVisitResult"</e></m>
+		</meta>
+	</enum>
+	<class path="java.nio.file.FileVisitor" params="T" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/FileVisitor.class" extern="1" interface="1">
+		<postVisitDirectory public="1" set="method">
+			<f a="param1:param2">
+				<c path="java.nio.file.FileVisitor.T"/>
+				<c path="java.io.IOException"/>
+				<e path="java.nio.file.FileVisitResult"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</postVisitDirectory>
+		<visitFileFailed public="1" set="method">
+			<f a="param1:param2">
+				<c path="java.nio.file.FileVisitor.T"/>
+				<c path="java.io.IOException"/>
+				<e path="java.nio.file.FileVisitResult"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</visitFileFailed>
+		<visitFile public="1" set="method">
+			<f a="param1:param2">
+				<c path="java.nio.file.FileVisitor.T"/>
+				<c path="java.nio.file.attribute.BasicFileAttributes"/>
+				<e path="java.nio.file.FileVisitResult"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</visitFile>
+		<preVisitDirectory public="1" set="method">
+			<f a="param1:param2">
+				<c path="java.nio.file.FileVisitor.T"/>
+				<c path="java.nio.file.attribute.BasicFileAttributes"/>
+				<e path="java.nio.file.FileVisitResult"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</preVisitDirectory>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.nio.file.FileVisitor"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.nio.file"</e>
+				<e>"FileVisitor"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.nio.file.Files" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/Files.class" extern="1" final="1">
+		<lines public="1" set="method" static="1">
+			<f a="param1">
+				<c path="java.nio.file.Path"/>
+				<c path="java.util.stream.Stream"><c path="String"/></c>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads><lines public="1" set="method">
+	<f a="param1:param2">
+		<c path="java.nio.file.Path"/>
+		<c path="java.nio.charset.Charset"/>
+		<c path="java.util.stream.Stream"><c path="String"/></c>
+	</f>
+	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+</lines></overloads>
+		</lines>
+		<find public="1" set="method" static="1">
+			<f a="param1:param2:param3:param4">
+				<c path="java.nio.file.Path"/>
+				<x path="Int"/>
+				<c path="java.util.function.BiPredicate">
+					<c path="java.nio.file.Path"/>
+					<c path="java.nio.file.attribute.BasicFileAttributes"/>
+				</c>
+				<x path="haxe.Rest"><e path="java.nio.file.FileVisitOption"/></x>
+				<c path="java.util.stream.Stream"><c path="java.nio.file.Path"/></c>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</find>
+		<walk public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<x path="haxe.Rest"><e path="java.nio.file.FileVisitOption"/></x>
+				<c path="java.util.stream.Stream"><c path="java.nio.file.Path"/></c>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads><walk public="1" set="method">
+	<f a="param1:param2:param3">
+		<c path="java.nio.file.Path"/>
+		<x path="Int"/>
+		<x path="haxe.Rest"><e path="java.nio.file.FileVisitOption"/></x>
+		<c path="java.util.stream.Stream"><c path="java.nio.file.Path"/></c>
+	</f>
+	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+</walk></overloads>
+		</walk>
+		<list public="1" set="method" static="1">
+			<f a="param1">
+				<c path="java.nio.file.Path"/>
+				<c path="java.util.stream.Stream"><c path="java.nio.file.Path"/></c>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</list>
+		<write public="1" set="method" static="1">
+			<f a="param1:param2:param3">
+				<c path="java.nio.file.Path"/>
+				<c path="java.lang.Iterable"><c path="java.lang.CharSequence"/></c>
+				<x path="haxe.Rest"><c path="java.nio.file.OpenOption"/></x>
+				<c path="java.nio.file.Path"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads>
+				<write public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.nio.file.Path"/>
+						<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+						<x path="haxe.Rest"><c path="java.nio.file.OpenOption"/></x>
+						<c path="java.nio.file.Path"/>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</write>
+				<write public="1" set="method">
+					<f a="param1:param2:param3:param4">
+						<c path="java.nio.file.Path"/>
+						<c path="java.lang.Iterable"><c path="java.lang.CharSequence"/></c>
+						<c path="java.nio.charset.Charset"/>
+						<x path="haxe.Rest"><c path="java.nio.file.OpenOption"/></x>
+						<c path="java.nio.file.Path"/>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</write>
+			</overloads>
+		</write>
+		<readAllLines public="1" set="method" static="1">
+			<f a="param1">
+				<c path="java.nio.file.Path"/>
+				<c path="java.util.List"><c path="String"/></c>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads><readAllLines public="1" set="method">
+	<f a="param1:param2">
+		<c path="java.nio.file.Path"/>
+		<c path="java.nio.charset.Charset"/>
+		<c path="java.util.List"><c path="String"/></c>
+	</f>
+	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+</readAllLines></overloads>
+		</readAllLines>
+		<readAllBytes public="1" set="method" static="1">
+			<f a="param1">
+				<c path="java.nio.file.Path"/>
+				<c path="java.NativeArray"><t path="java.types.Int8"/></c>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</readAllBytes>
+		<copy public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<c path="java.io.OutputStream"/>
+				<x path="haxe.Int64"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads>
+				<copy public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.nio.file.Path"/>
+						<c path="java.nio.file.Path"/>
+						<x path="haxe.Rest"><c path="java.nio.file.CopyOption"/></x>
+						<c path="java.nio.file.Path"/>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</copy>
+				<copy public="1" set="method">
+					<f a="param1:param2:param3">
+						<c path="java.io.InputStream"/>
+						<c path="java.nio.file.Path"/>
+						<x path="haxe.Rest"><c path="java.nio.file.CopyOption"/></x>
+						<x path="haxe.Int64"/>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</copy>
+			</overloads>
+		</copy>
+		<newBufferedWriter public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<x path="haxe.Rest"><c path="java.nio.file.OpenOption"/></x>
+				<c path="java.io.BufferedWriter"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads><newBufferedWriter public="1" set="method">
+	<f a="param1:param2:param3">
+		<c path="java.nio.file.Path"/>
+		<c path="java.nio.charset.Charset"/>
+		<x path="haxe.Rest"><c path="java.nio.file.OpenOption"/></x>
+		<c path="java.io.BufferedWriter"/>
+	</f>
+	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+</newBufferedWriter></overloads>
+		</newBufferedWriter>
+		<newBufferedReader public="1" set="method" static="1">
+			<f a="param1">
+				<c path="java.nio.file.Path"/>
+				<c path="java.io.BufferedReader"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads><newBufferedReader public="1" set="method">
+	<f a="param1:param2">
+		<c path="java.nio.file.Path"/>
+		<c path="java.nio.charset.Charset"/>
+		<c path="java.io.BufferedReader"/>
+	</f>
+	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+</newBufferedReader></overloads>
+		</newBufferedReader>
+		<walkFileTree public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<c path="java.nio.file.FileVisitor"><d/></c>
+				<c path="java.nio.file.Path"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads><walkFileTree public="1" set="method">
+	<f a="param1:param2:param3:param4">
+		<c path="java.nio.file.Path"/>
+		<c path="java.util.Set"><e path="java.nio.file.FileVisitOption"/></c>
+		<x path="Int"/>
+		<c path="java.nio.file.FileVisitor"><d/></c>
+		<c path="java.nio.file.Path"/>
+	</f>
+	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+</walkFileTree></overloads>
+		</walkFileTree>
+		<isExecutable public="1" set="method" static="1"><f a="param1">
+	<c path="java.nio.file.Path"/>
+	<x path="Bool"/>
+</f></isExecutable>
+		<isWritable public="1" set="method" static="1"><f a="param1">
+	<c path="java.nio.file.Path"/>
+	<x path="Bool"/>
+</f></isWritable>
+		<isReadable public="1" set="method" static="1"><f a="param1">
+	<c path="java.nio.file.Path"/>
+	<x path="Bool"/>
+</f></isReadable>
+		<notExists public="1" set="method" static="1"><f a="param1:param2">
+	<c path="java.nio.file.Path"/>
+	<x path="haxe.Rest"><e path="java.nio.file.LinkOption"/></x>
+	<x path="Bool"/>
+</f></notExists>
+		<exists public="1" set="method" static="1"><f a="param1:param2">
+	<c path="java.nio.file.Path"/>
+	<x path="haxe.Rest"><e path="java.nio.file.LinkOption"/></x>
+	<x path="Bool"/>
+</f></exists>
+		<size public="1" set="method" static="1">
+			<f a="param1">
+				<c path="java.nio.file.Path"/>
+				<x path="haxe.Int64"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</size>
+		<setLastModifiedTime public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<c path="java.nio.file.attribute.FileTime"/>
+				<c path="java.nio.file.Path"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</setLastModifiedTime>
+		<getLastModifiedTime public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<x path="haxe.Rest"><e path="java.nio.file.LinkOption"/></x>
+				<c path="java.nio.file.attribute.FileTime"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</getLastModifiedTime>
+		<isRegularFile public="1" set="method" static="1"><f a="param1:param2">
+	<c path="java.nio.file.Path"/>
+	<x path="haxe.Rest"><e path="java.nio.file.LinkOption"/></x>
+	<x path="Bool"/>
+</f></isRegularFile>
+		<isDirectory public="1" set="method" static="1"><f a="param1:param2">
+	<c path="java.nio.file.Path"/>
+	<x path="haxe.Rest"><e path="java.nio.file.LinkOption"/></x>
+	<x path="Bool"/>
+</f></isDirectory>
+		<isSymbolicLink public="1" set="method" static="1"><f a="param1">
+	<c path="java.nio.file.Path"/>
+	<x path="Bool"/>
+</f></isSymbolicLink>
+		<setOwner public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<c path="java.nio.file.attribute.UserPrincipal"/>
+				<c path="java.nio.file.Path"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</setOwner>
+		<getOwner public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<x path="haxe.Rest"><e path="java.nio.file.LinkOption"/></x>
+				<c path="java.nio.file.attribute.UserPrincipal"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</getOwner>
+		<setPosixFilePermissions public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<c path="java.util.Set"><e path="java.nio.file.attribute.PosixFilePermission"/></c>
+				<c path="java.nio.file.Path"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</setPosixFilePermissions>
+		<getPosixFilePermissions public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<x path="haxe.Rest"><e path="java.nio.file.LinkOption"/></x>
+				<c path="java.util.Set"><e path="java.nio.file.attribute.PosixFilePermission"/></c>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</getPosixFilePermissions>
+		<readAttributes public="1" set="method" static="1">
+			<f a="param1:param2:param3">
+				<c path="java.nio.file.Path"/>
+				<c path="String"/>
+				<x path="haxe.Rest"><e path="java.nio.file.LinkOption"/></x>
+				<c path="java.util.Map">
+					<c path="String"/>
+					<d/>
+				</c>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads><readAttributes public="1" params="A" set="method">
+	<f a="param1:param2:param3">
+		<c path="java.nio.file.Path"/>
+		<c path="java.lang.Class"><c path="readAttributes.A"/></c>
+		<x path="haxe.Rest"><e path="java.nio.file.LinkOption"/></x>
+		<c path="readAttributes.A"/>
+	</f>
+	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+</readAttributes></overloads>
+		</readAttributes>
+		<getAttribute public="1" set="method" static="1">
+			<f a="param1:param2:param3">
+				<c path="java.nio.file.Path"/>
+				<c path="String"/>
+				<x path="haxe.Rest"><e path="java.nio.file.LinkOption"/></x>
+				<d/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</getAttribute>
+		<setAttribute public="1" set="method" static="1">
+			<f a="param1:param2:param3:param4">
+				<c path="java.nio.file.Path"/>
+				<c path="String"/>
+				<d/>
+				<x path="haxe.Rest"><e path="java.nio.file.LinkOption"/></x>
+				<c path="java.nio.file.Path"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</setAttribute>
+		<getFileAttributeView public="1" params="V" set="method" static="1"><f a="param1:param2:param3">
+	<c path="java.nio.file.Path"/>
+	<c path="java.lang.Class"><c path="getFileAttributeView.V"/></c>
+	<x path="haxe.Rest"><e path="java.nio.file.LinkOption"/></x>
+	<c path="getFileAttributeView.V"/>
+</f></getFileAttributeView>
+		<probeContentType public="1" set="method" static="1">
+			<f a="param1">
+				<c path="java.nio.file.Path"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</probeContentType>
+		<isHidden public="1" set="method" static="1">
+			<f a="param1">
+				<c path="java.nio.file.Path"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</isHidden>
+		<isSameFile public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<c path="java.nio.file.Path"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</isSameFile>
+		<getFileStore public="1" set="method" static="1">
+			<f a="param1">
+				<c path="java.nio.file.Path"/>
+				<c path="java.nio.file.FileStore"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</getFileStore>
+		<readSymbolicLink public="1" set="method" static="1">
+			<f a="param1">
+				<c path="java.nio.file.Path"/>
+				<c path="java.nio.file.Path"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</readSymbolicLink>
+		<move public="1" set="method" static="1">
+			<f a="param1:param2:param3">
+				<c path="java.nio.file.Path"/>
+				<c path="java.nio.file.Path"/>
+				<x path="haxe.Rest"><c path="java.nio.file.CopyOption"/></x>
+				<c path="java.nio.file.Path"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</move>
+		<deleteIfExists public="1" set="method" static="1">
+			<f a="param1">
+				<c path="java.nio.file.Path"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</deleteIfExists>
+		<delete public="1" set="method" static="1">
+			<f a="param1">
+				<c path="java.nio.file.Path"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</delete>
+		<createLink public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<c path="java.nio.file.Path"/>
+				<c path="java.nio.file.Path"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</createLink>
+		<createSymbolicLink public="1" set="method" static="1">
+			<f a="param1:param2:param3">
+				<c path="java.nio.file.Path"/>
+				<c path="java.nio.file.Path"/>
+				<x path="haxe.Rest"><c path="java.nio.file.attribute.FileAttribute"><d/></c></x>
+				<c path="java.nio.file.Path"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</createSymbolicLink>
+		<createTempDirectory public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="String"/>
+				<x path="haxe.Rest"><c path="java.nio.file.attribute.FileAttribute"><d/></c></x>
+				<c path="java.nio.file.Path"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads><createTempDirectory public="1" set="method">
+	<f a="param1:param2:param3">
+		<c path="java.nio.file.Path"/>
+		<c path="String"/>
+		<x path="haxe.Rest"><c path="java.nio.file.attribute.FileAttribute"><d/></c></x>
+		<c path="java.nio.file.Path"/>
+	</f>
+	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+</createTempDirectory></overloads>
+		</createTempDirectory>
+		<createTempFile public="1" set="method" static="1">
+			<f a="param1:param2:param3">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="haxe.Rest"><c path="java.nio.file.attribute.FileAttribute"><d/></c></x>
+				<c path="java.nio.file.Path"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads><createTempFile public="1" set="method">
+	<f a="param1:param2:param3:param4">
+		<c path="java.nio.file.Path"/>
+		<c path="String"/>
+		<c path="String"/>
+		<x path="haxe.Rest"><c path="java.nio.file.attribute.FileAttribute"><d/></c></x>
+		<c path="java.nio.file.Path"/>
+	</f>
+	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+</createTempFile></overloads>
+		</createTempFile>
+		<createDirectories public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<x path="haxe.Rest"><c path="java.nio.file.attribute.FileAttribute"><d/></c></x>
+				<c path="java.nio.file.Path"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</createDirectories>
+		<createDirectory public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<x path="haxe.Rest"><c path="java.nio.file.attribute.FileAttribute"><d/></c></x>
+				<c path="java.nio.file.Path"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</createDirectory>
+		<createFile public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<x path="haxe.Rest"><c path="java.nio.file.attribute.FileAttribute"><d/></c></x>
+				<c path="java.nio.file.Path"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</createFile>
+		<newDirectoryStream public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<c path="java.nio.file.DirectoryStream_Filter"><d/></c>
+				<c path="java.nio.file.DirectoryStream"><c path="java.nio.file.Path"/></c>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads>
+				<newDirectoryStream public="1" set="method">
+					<f a="param1">
+						<c path="java.nio.file.Path"/>
+						<c path="java.nio.file.DirectoryStream"><c path="java.nio.file.Path"/></c>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</newDirectoryStream>
+				<newDirectoryStream public="1" set="method">
+					<f a="param1:param2">
+						<c path="java.nio.file.Path"/>
+						<c path="String"/>
+						<c path="java.nio.file.DirectoryStream"><c path="java.nio.file.Path"/></c>
+					</f>
+					<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+				</newDirectoryStream>
+			</overloads>
+		</newDirectoryStream>
+		<newByteChannel public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<x path="haxe.Rest"><c path="java.nio.file.OpenOption"/></x>
+				<c path="java.nio.channels.SeekableByteChannel"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads><newByteChannel public="1" set="method">
+	<f a="param1:param2:param3">
+		<c path="java.nio.file.Path"/>
+		<c path="java.util.Set"><c path="java.nio.file.OpenOption"/></c>
+		<x path="haxe.Rest"><c path="java.nio.file.attribute.FileAttribute"><d/></c></x>
+		<c path="java.nio.channels.SeekableByteChannel"/>
+	</f>
+	<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+</newByteChannel></overloads>
+		</newByteChannel>
+		<newOutputStream public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<x path="haxe.Rest"><c path="java.nio.file.OpenOption"/></x>
+				<c path="java.io.OutputStream"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</newOutputStream>
+		<newInputStream public="1" set="method" static="1">
+			<f a="param1:param2">
+				<c path="java.nio.file.Path"/>
+				<x path="haxe.Rest"><c path="java.nio.file.OpenOption"/></x>
+				<c path="java.io.InputStream"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+		</newInputStream>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.nio.file.Files"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.nio.file"</e>
+				<e>"Files"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.nio.file.Files_AcceptAllFilter" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/Files$AcceptAllFilter.class" module="java.nio.file.Files" extern="1">
+		<implements path="java.nio.file.DirectoryStream_Filter"><c path="java.nio.file.Path"/></implements>
+		<accept public="1" set="method">
+			<f a="param1">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":throws"><e>"java.io.IOException"</e></m></meta>
+			<overloads><accept public="1" set="method"><f a="param1">
+	<c path="java.nio.file.Path"/>
+	<x path="Bool"/>
+</f></accept></overloads>
+		</accept>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.nio.file.Files$AcceptAllFilter"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.nio.file"</e>
+				<e>"Files.AcceptAllFilter"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.nio.file.Files_FileTypeDetectors" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/Files$FileTypeDetectors.class" module="java.nio.file.Files" extern="1"><meta>
+	<m n=":nativeGen"/>
+	<m n=":libType"/>
+	<m n=":javaNative"/>
+	<m n=":native"><e>"java.nio.file.Files$FileTypeDetectors"</e></m>
+	<m n=":javaCanonical">
+		<e>"java.nio.file"</e>
+		<e>"Files.FileTypeDetectors"</e>
+	</m>
+</meta></class>
 	<enum path="java.nio.file.LinkOption" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/LinkOption.class">
 		<NOFOLLOW_LINKS/>
 		<meta>
@@ -51817,6 +52580,29 @@
 			<m n=":javaCanonical">
 				<e>"java.nio.file"</e>
 				<e>"PathMatcher"</e>
+			</m>
+		</meta>
+	</class>
+	<class path="java.nio.file.Paths" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/Paths.class" extern="1" final="1">
+		<get public="1" set="method" static="1">
+			<f a="param1">
+				<c path="java.net.URI"/>
+				<c path="java.nio.file.Path"/>
+			</f>
+			<overloads><get public="1" set="method"><f a="param1:param2">
+	<c path="String"/>
+	<x path="haxe.Rest"><c path="String"/></x>
+	<c path="java.nio.file.Path"/>
+</f></get></overloads>
+		</get>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.nio.file.Paths"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.nio.file"</e>
+				<e>"Paths"</e>
 			</m>
 		</meta>
 	</class>
@@ -52101,6 +52887,26 @@
 			</m>
 		</meta>
 	</class>
+	<enum path="java.nio.file.attribute.PosixFilePermission" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/attribute/PosixFilePermission.class">
+		<OTHERS_EXECUTE/>
+		<OTHERS_WRITE/>
+		<OTHERS_READ/>
+		<GROUP_EXECUTE/>
+		<GROUP_WRITE/>
+		<GROUP_READ/>
+		<OWNER_EXECUTE/>
+		<OWNER_WRITE/>
+		<OWNER_READ/>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":flatEnum"/>
+			<m n=":javaCanonical">
+				<e>"java.nio.file.attribute"</e>
+				<e>"PosixFilePermission"</e>
+			</m>
+			<m n=":native"><e>"java.nio.file.attribute.PosixFilePermission"</e></m>
+		</meta>
+	</enum>
 	<class path="java.nio.file.attribute.UserPrincipalLookupService" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/nio/file/attribute/UserPrincipalLookupService.class" extern="1" abstract="1">
 		<lookupPrincipalByGroupName abstract="1" public="1" set="method">
 			<f a="param1">
@@ -76556,6 +77362,48 @@
 			</m>
 		</meta>
 	</class>
+	<class path="java.util.function.BiPredicate" params="T:U" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/function/BiPredicate.class" extern="1" interface="1">
+		<or public="1" set="method"><f a="param1">
+	<c path="java.util.function.BiPredicate">
+		<d/>
+		<d/>
+	</c>
+	<c path="java.util.function.BiPredicate">
+		<c path="java.util.function.BiPredicate.T"/>
+		<c path="java.util.function.BiPredicate.U"/>
+	</c>
+</f></or>
+		<negate public="1" set="method"><f a=""><c path="java.util.function.BiPredicate">
+	<c path="java.util.function.BiPredicate.T"/>
+	<c path="java.util.function.BiPredicate.U"/>
+</c></f></negate>
+		<and public="1" set="method"><f a="param1">
+	<c path="java.util.function.BiPredicate">
+		<d/>
+		<d/>
+	</c>
+	<c path="java.util.function.BiPredicate">
+		<c path="java.util.function.BiPredicate.T"/>
+		<c path="java.util.function.BiPredicate.U"/>
+	</c>
+</f></and>
+		<test public="1" set="method"><f a="param1:param2">
+	<c path="java.util.function.BiPredicate.T"/>
+	<c path="java.util.function.BiPredicate.U"/>
+	<x path="Bool"/>
+</f></test>
+		<meta>
+			<m n=":nativeGen"/>
+			<m n=":abstract"/>
+			<m n=":libType"/>
+			<m n=":javaNative"/>
+			<m n=":native"><e>"java.util.function.BiPredicate"</e></m>
+			<m n=":javaCanonical">
+				<e>"java.util.function"</e>
+				<e>"BiPredicate"</e>
+			</m>
+		</meta>
+	</class>
 	<class path="java.util.function.BinaryOperator" params="T" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/function/BinaryOperator.class" extern="1" interface="1">
 		<extends path="java.util.function.BiFunction">
 			<c path="java.util.function.BinaryOperator.T"/>
@@ -80363,7 +81211,7 @@
 			<haxe_doc>Returns `FileStat` information for the file or directory specified by
 		`path`.</haxe_doc>
 		</stat>
-		<fullPath public="1" set="method" line="59" static="1">
+		<fullPath public="1" set="method" line="81" static="1">
 			<f a="relPath">
 				<c path="String"/>
 				<c path="String"/>
@@ -80372,7 +81220,7 @@
 		which is relative to the current working directory. Symlinks will be
 		followed and the path will be normalized.</haxe_doc>
 		</fullPath>
-		<absolutePath public="1" set="method" line="67" static="1">
+		<absolutePath public="1" set="method" line="89" static="1">
 			<f a="relPath">
 				<c path="String"/>
 				<c path="String"/>
@@ -80381,7 +81229,7 @@
 		which is relative to the current working directory. The path doesn't
 		have to exist.</haxe_doc>
 		</absolutePath>
-		<isDirectory public="1" set="method" line="73" static="1">
+		<isDirectory public="1" set="method" line="95" static="1">
 			<f a="path">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -80391,7 +81239,7 @@
 		If `path` is not a valid file system entry or if its destination is not
 		accessible, an exception is thrown.</haxe_doc>
 		</isDirectory>
-		<createDirectory public="1" set="method" line="80" static="1">
+		<createDirectory public="1" set="method" line="102" static="1">
 			<f a="path">
 				<c path="String"/>
 				<x path="Void"/>
@@ -80402,7 +81250,7 @@
 
 		If the directory cannot be created, an exception is thrown.</haxe_doc>
 		</createDirectory>
-		<deleteFile public="1" set="method" line="86" static="1">
+		<deleteFile public="1" set="method" line="108" static="1">
 			<f a="path">
 				<c path="String"/>
 				<x path="Void"/>
@@ -80412,7 +81260,7 @@
 		If `path` does not denote a valid file, or if that file cannot be
 		deleted, an exception is thrown.</haxe_doc>
 		</deleteFile>
-		<deleteDirectory public="1" set="method" line="91" static="1">
+		<deleteDirectory public="1" set="method" line="113" static="1">
 			<f a="path">
 				<c path="String"/>
 				<x path="Void"/>
@@ -80423,7 +81271,7 @@
 		If `path` does not denote a valid directory, or if that directory cannot
 		be deleted, an exception is thrown.</haxe_doc>
 		</deleteDirectory>
-		<readDirectory public="1" set="method" line="96" static="1">
+		<readDirectory public="1" set="method" line="118" static="1">
 			<f a="path">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
