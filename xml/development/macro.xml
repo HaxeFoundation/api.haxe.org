@@ -2716,10 +2716,12 @@
 		<putEnv public="1" set="method" static="1">
 			<f a="s:v">
 				<c path="String"/>
-				<c path="String"/>
+				<x path="Null"><c path="String"/></x>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Sets the value of the given environment variable.
+
+		If `v` is `null`, the environment variable is removed.
 
 		(java) This functionality is not available on Java; calling this function will throw.</haxe_doc>
 		</putEnv>
@@ -7394,6 +7396,13 @@
 			</f>
 			<haxe_doc>Sets an environment variable.</haxe_doc>
 		</setEnv>
+		<unsetEnv public="1" set="method" static="1">
+			<f a="name">
+				<c path="String"/>
+				<e path="eval.luv.Result"><x path="eval.luv.NoData"/></e>
+			</f>
+			<haxe_doc>Deletes an environment variable.</haxe_doc>
+		</unsetEnv>
 		<environ public="1" set="method" static="1">
 			<f a=""><e path="eval.luv.Result"><t path="Map">
 	<c path="String"/>
