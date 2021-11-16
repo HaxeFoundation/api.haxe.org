@@ -3212,13 +3212,11 @@
 		</meta>
 	</class>
 	<class path="Sys" params="" file="/home/runner/work/haxe/haxe/std/python/_std/Sys.hx">
-		<environ get="accessor" static="1"><c path="haxe.ds.StringMap"><c path="String"/></c></environ>
-		<get_environ set="method" line="32" static="1"><f a=""><c path="haxe.ds.StringMap"><c path="String"/></c></f></get_environ>
-		<time public="1" get="inline" set="null" line="45" static="1">
+		<time public="1" get="inline" set="null" line="31" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Gives the most precise timestamp value available (in seconds).</haxe_doc>
 		</time>
-		<exit public="1" set="method" line="49" static="1">
+		<exit public="1" set="method" line="35" static="1">
 			<f a="code">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -3228,14 +3226,14 @@
 		(macro)(eval) Being invoked in a macro or eval context (e.g. with `-x` or `--run`) immediately terminates
 		the compilation process, which also prevents the execution of any `--next` sections of compilation arguments.</haxe_doc>
 		</exit>
-		<print public="1" get="inline" set="null" line="53" static="1">
+		<print public="1" get="inline" set="null" line="39" static="1">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Prints any value to the standard output.</haxe_doc>
 		</print>
-		<println public="1" get="inline" set="null" line="57" static="1">
+		<println public="1" get="inline" set="null" line="43" static="1">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
@@ -3244,7 +3242,7 @@
 		On Windows, this function outputs a CRLF newline.
 		LF newlines are printed on all other platforms.</haxe_doc>
 		</println>
-		<args public="1" set="method" line="61" static="1">
+		<args public="1" set="method" line="47" static="1">
 			<f a=""><c path="Array"><c path="String"/></c></f>
 			<haxe_doc>Returns all the arguments that were passed in the command line.
 		This does not include the interpreter or the name of the program file.
@@ -3253,7 +3251,7 @@
 
 		(cs) Non-ASCII Unicode arguments will not work correctly.</haxe_doc>
 		</args>
-		<getEnv public="1" set="method" line="66" static="1">
+		<getEnv public="1" set="method" line="52" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="String"/>
@@ -3261,7 +3259,7 @@
 			<haxe_doc>Returns the value of the given environment variable, or `null` if it
 		doesn't exist.</haxe_doc>
 		</getEnv>
-		<putEnv public="1" set="method" line="70" static="1">
+		<putEnv public="1" set="method" line="56" static="1">
 			<f a="s:v">
 				<c path="String"/>
 				<x path="Null"><c path="String"/></x>
@@ -3273,22 +3271,31 @@
 
 		(java) This functionality is not available on Java; calling this function will throw.</haxe_doc>
 		</putEnv>
-		<environment public="1" set="method" line="79" static="1">
+		<environment public="1" set="method" line="68" static="1">
 			<f a=""><t path="Map">
 	<c path="String"/>
 	<c path="String"/>
 </t></f>
 			<haxe_doc>Returns a map of the current environment variables and their values
-		as of the invocation of the function.</haxe_doc>
+		as of the invocation of the function.
+
+		(python) On Windows, the variable names are always in upper case.
+
+		(cpp)(hl)(neko) On Windows, the variable names match the last capitalization used when modifying
+		the variable if the variable has been modified, otherwise they match their capitalization at
+		the start of the process.
+
+		On Windows on remaining targets, variable name capitalization matches however they were capitalized
+		at the start of the process or at the moment of their creation.</haxe_doc>
 		</environment>
-		<sleep public="1" set="method" line="83" static="1">
+		<sleep public="1" set="method" line="77" static="1">
 			<f a="seconds">
 				<x path="Float"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Suspends execution for the given length of time (in seconds).</haxe_doc>
 		</sleep>
-		<setTimeLocale public="1" set="method" line="87" static="1">
+		<setTimeLocale public="1" set="method" line="81" static="1">
 			<f a="loc">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -3296,11 +3303,11 @@
 			<haxe_doc>Changes the current time locale, which will affect `DateTools.format` date formating.
 		Returns `true` if the locale was successfully changed.</haxe_doc>
 		</setTimeLocale>
-		<getCwd public="1" set="method" line="91" static="1">
+		<getCwd public="1" set="method" line="85" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Gets the current working directory (usually the one in which the program was started).</haxe_doc>
 		</getCwd>
-		<setCwd public="1" set="method" line="95" static="1">
+		<setCwd public="1" set="method" line="89" static="1">
 			<f a="s">
 				<c path="String"/>
 				<x path="Void"/>
@@ -3309,7 +3316,7 @@
 
 		(java) This functionality is not available on Java; calling this function will throw.</haxe_doc>
 		</setCwd>
-		<systemName public="1" set="method" line="99" static="1">
+		<systemName public="1" set="method" line="93" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the type of the current system. Possible values are:
 		 - `"Windows"`
@@ -3317,7 +3324,7 @@
 		 - `"BSD"`
 		 - `"Mac"`</haxe_doc>
 		</systemName>
-		<command public="1" set="method" line="110" static="1">
+		<command public="1" set="method" line="104" static="1">
 			<f a="cmd:?args">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -3337,27 +3344,27 @@
 
 		Use the `sys.io.Process` API for more complex tasks, such as background processes, or providing input to the command.</haxe_doc>
 		</command>
-		<cpuTime public="1" get="inline" set="null" line="117" static="1">
+		<cpuTime public="1" get="inline" set="null" line="111" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Gives the most precise timestamp value available (in seconds),
 		but only accounts for the actual time spent running on the CPU for the current thread/process.</haxe_doc>
 		</cpuTime>
-		<executablePath public="1" set="method" line="121" static="1">
+		<executablePath public="1" set="method" line="115" static="1">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":deprecated"><e>"Use programPath instead"</e></m></meta>
 			<haxe_doc>Returns the path to the current executable that we are running.</haxe_doc>
 		</executablePath>
-		<_programPath expr="sys.FileSystem.fullPath(python.lib.Inspect.getsourcefile(Sys))" line="126" static="1">
+		<_programPath expr="sys.FileSystem.fullPath(python.lib.Inspect.getsourcefile(Sys))" line="120" static="1">
 			<c path="String"/>
 			<meta><m n=":value"><e>sys.FileSystem.fullPath(python.lib.Inspect.getsourcefile(Sys))</e></m></meta>
 		</_programPath>
-		<programPath public="1" set="method" line="128" static="1">
+		<programPath public="1" set="method" line="122" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the absolute path to the current program file that we are running.
 		Concretely, for an executable binary, it returns the path to the binary.
 		For a script (e.g. a PHP file), it returns the path to the script.</haxe_doc>
 		</programPath>
-		<getChar public="1" set="method" line="132" static="1">
+		<getChar public="1" set="method" line="126" static="1">
 			<f a="echo">
 				<x path="Bool"/>
 				<x path="Int"/>
@@ -3365,17 +3372,17 @@
 			<haxe_doc>Reads a single input character from the standard input and returns it.
 		Setting `echo` to `true` will also display the character on the output.</haxe_doc>
 		</getChar>
-		<stdin public="1" set="method" line="162" static="1">
+		<stdin public="1" set="method" line="156" static="1">
 			<f a=""><c path="haxe.io.Input"/></f>
 			<haxe_doc>Returns the standard input of the process, from which user input can be read.
 		Usually it will block until the user sends a full input line.
 		See `getChar` for an alternative.</haxe_doc>
 		</stdin>
-		<stdout public="1" set="method" line="166" static="1">
+		<stdout public="1" set="method" line="160" static="1">
 			<f a=""><c path="haxe.io.Output"/></f>
 			<haxe_doc>Returns the standard output of the process, to which program output can be written.</haxe_doc>
 		</stdout>
-		<stderr public="1" set="method" line="170" static="1">
+		<stderr public="1" set="method" line="164" static="1">
 			<f a=""><c path="haxe.io.Output"/></f>
 			<haxe_doc>Returns the standard error of the process, to which program errors can be written.</haxe_doc>
 		</stderr>
@@ -33573,6 +33580,15 @@
 	<c path="String"/>
 	<x path="Void"/>
 </f></putenv>
+		<unsetenv public="1" set="method" static="1">
+			<f a="name">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Removes the value for the environment variable `name`.
+
+		When targeting python versions prior to 3.9, this function may not exist on some platforms.</haxe_doc>
+		</unsetenv>
 		<chdir public="1" set="method" static="1"><f a="path">
 	<c path="String"/>
 	<x path="Void"/>
