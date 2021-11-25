@@ -5461,25 +5461,25 @@
 		</meta>
 	</class>
 	<class path="sys.thread.Mutex" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Mutex.hx">
-		<lock final="1"><c path="sys.thread._Mutex.NativeRLock"/></lock>
-		<acquire public="1" get="inline" set="null" line="33">
+		<lock final="1"><c path="python.lib.threading.RLock"/></lock>
+		<acquire public="1" get="inline" set="null" line="35">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>The current thread acquire the mutex or wait if not available.
 		The same thread can acquire several times the same mutex but
 		must release it as many times it has been acquired.</haxe_doc>
 		</acquire>
-		<tryAcquire public="1" get="inline" set="null" line="37">
+		<tryAcquire public="1" get="inline" set="null" line="39">
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>Try to acquire the mutex, returns true if acquire or false
 		if it's already locked by another thread.</haxe_doc>
 		</tryAcquire>
-		<release public="1" get="inline" set="null" line="41">
+		<release public="1" get="inline" set="null" line="43">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Release a mutex that has been acquired by the current thread.
 		The behavior is undefined if the current thread does not own
 		the mutex.</haxe_doc>
 		</release>
-		<new public="1" get="inline" set="null" line="29">
+		<new public="1" get="inline" set="null" line="31">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a mutex.</haxe_doc>
 		</new>
@@ -5491,9 +5491,10 @@
 			<m n=":coreApi"/>
 		</meta>
 	</class>
-	<class path="sys.thread._Mutex.NativeRLock" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Mutex.hx" private="1" module="sys.thread.Mutex" extern="1">
-		<acquire public="1" set="method"><f a="blocking">
+	<class path="python.lib.threading.RLock" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/RLock.hx" extern="1">
+		<acquire public="1" set="method"><f a="?blocking:?timeout">
 	<x path="Bool"/>
+	<x path="Float"/>
 	<x path="Bool"/>
 </f></acquire>
 		<release public="1" set="method"><f a=""><x path="Void"/></f></release>
@@ -5506,13 +5507,29 @@
 			</m>
 		</meta>
 	</class>
-	<class path="sys.thread._Thread.PyThreadingAPI" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" extern="1">
-		<current_thread public="1" set="method" static="1"><f a=""><c path="sys.thread._Thread.NativeThread"/></f></current_thread>
-		<main_thread public="1" set="method" static="1"><f a=""><c path="sys.thread._Thread.NativeThread"/></f></main_thread>
+	<class path="python.lib.Threading" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Threading.hx" extern="1">
+		<active_count public="1" set="method" static="1"><f a=""><x path="Int"/></f></active_count>
+		<current_thread public="1" set="method" static="1"><f a=""><c path="python.lib.threading.Thread"/></f></current_thread>
+		<get_ident public="1" set="method" static="1"><f a=""><x path="Int"/></f></get_ident>
+		<enumerate public="1" set="method" static="1"><f a=""><c path="Array"><c path="python.lib.threading.Thread"/></c></f></enumerate>
+		<main_thread public="1" set="method" static="1"><f a=""><c path="python.lib.threading.Thread"/></f></main_thread>
+		<settrace public="1" set="method" static="1"><f a="func">
+	<d/>
+	<x path="Void"/>
+</f></settrace>
+		<setprofile public="1" set="method" static="1"><f a="func">
+	<d/>
+	<x path="Void"/>
+</f></setprofile>
+		<stack_size public="1" set="method" static="1"><f a="?size">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></stack_size>
+		<local public="1" set="method" static="1"><f a=""><d/></f></local>
+		<TIMEOUT_MAX public="1" static="1"><x path="Float"/></TIMEOUT_MAX>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":pythonImport"><e>"threading"</e></m>
-			<m n=":native"><e>"threading"</e></m>
 		</meta>
 	</class>
 	<class path="sys.thread.EventLoop" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/EventLoop.hx">
@@ -5631,41 +5648,41 @@
 	</class>
 	<class path="sys.thread._Thread.HxThread" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
 		<threads static="1"><c path="haxe.ds.ObjectMap">
-	<c path="sys.thread._Thread.NativeThread"/>
+	<t path="python.lib.threading._Thread.NativeThread"/>
 	<c path="sys.thread._Thread.HxThread"/>
 </c></threads>
 		<threadsMutex static="1"><c path="sys.thread.Mutex"/></threadsMutex>
 		<mainThread static="1"><c path="sys.thread._Thread.HxThread"/></mainThread>
-		<current public="1" set="method" line="93" static="1"><f a=""><c path="sys.thread._Thread.HxThread"/></f></current>
-		<create public="1" set="method" line="109" static="1"><f a="callb:withEventLoop">
+		<current public="1" set="method" line="96" static="1"><f a=""><c path="sys.thread._Thread.HxThread"/></f></current>
+		<create public="1" set="method" line="112" static="1"><f a="callb:withEventLoop">
 	<f a=""><x path="Void"/></f>
 	<x path="Bool"/>
 	<c path="sys.thread._Thread.HxThread"/>
 </f></create>
-		<runWithEventLoop public="1" set="method" line="135" static="1"><f a="job">
+		<runWithEventLoop public="1" set="method" line="138" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runWithEventLoop>
-		<dropThread get="inline" set="null" line="152" static="1"><f a="nt">
-	<c path="sys.thread._Thread.NativeThread"/>
+		<dropThread get="inline" set="null" line="155" static="1"><f a="nt">
+	<t path="python.lib.threading._Thread.NativeThread"/>
 	<x path="Void"/>
 </f></dropThread>
-		<readMessage public="1" set="method" line="158" static="1"><f a="block">
+		<readMessage public="1" set="method" line="161" static="1"><f a="block">
 	<x path="Bool"/>
 	<d/>
 </f></readMessage>
 		<events public="1" set="null"><x path="Null"><c path="sys.thread.EventLoop"/></x></events>
-		<nativeThread final="1"><c path="sys.thread._Thread.NativeThread"/></nativeThread>
+		<nativeThread final="1"><t path="python.lib.threading._Thread.NativeThread"/></nativeThread>
 		<messages final="1" expr="new Deque&lt;Dynamic&gt;()">
 			<c path="sys.thread.Deque"><d/></c>
 			<meta><m n=":value"><e><![CDATA[new Deque<Dynamic>()]]></e></m></meta>
 		</messages>
-		<sendMessage public="1" set="method" line="89"><f a="msg">
+		<sendMessage public="1" set="method" line="92"><f a="msg">
 	<d/>
 	<x path="Void"/>
 </f></sendMessage>
-		<new set="method" line="85"><f a="t">
-	<c path="sys.thread._Thread.NativeThread"/>
+		<new set="method" line="88"><f a="t">
+	<t path="python.lib.threading._Thread.NativeThread"/>
 	<x path="Void"/>
 </f></new>
 		<meta><m n=":directlyUsed"/></meta>
@@ -34548,28 +34565,6 @@
 </f></start_new_thread>
 		<meta><m n=":pythonImport"><e>"_thread"</e></m></meta>
 	</class>
-	<class path="python.lib.Threading" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Threading.hx" extern="1">
-		<active_count public="1" set="method" static="1"><f a=""><x path="Int"/></f></active_count>
-		<current_thread public="1" set="method" static="1"><f a=""><c path="python.lib.threading.Thread"/></f></current_thread>
-		<get_ident public="1" set="method" static="1"><f a=""><x path="Int"/></f></get_ident>
-		<enumerate public="1" set="method" static="1"><f a=""><c path="Array"><c path="python.lib.threading.Thread"/></c></f></enumerate>
-		<main_thread public="1" set="method" static="1"><f a=""><c path="python.lib.threading.Thread"/></f></main_thread>
-		<settrace public="1" set="method" static="1"><f a="func">
-	<d/>
-	<x path="Void"/>
-</f></settrace>
-		<setprofile public="1" set="method" static="1"><f a="func">
-	<d/>
-	<x path="Void"/>
-</f></setprofile>
-		<stack_size public="1" set="method" static="1"><f a="?size">
-	<x path="Int"/>
-	<x path="Int"/>
-</f></stack_size>
-		<local public="1" set="method" static="1"><f a=""><d/></f></local>
-		<TIMEOUT_MAX public="1" static="1"><x path="Float"/></TIMEOUT_MAX>
-		<meta><m n=":pythonImport"><e>"threading"</e></m></meta>
-	</class>
 	<class path="python.lib.Time" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Time.hx" extern="1">
 		<time public="1" set="method" static="1"><f a=""><x path="Float"/></f></time>
 		<clock public="1" set="method" static="1"><f a=""><x path="Float"/></f></clock>
@@ -35774,6 +35769,42 @@
 	<e>"Popen"</e>
 </m></meta>
 	</class>
+	<class path="python.lib.threading.Condition" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/Condition.hx" extern="1">
+		<acquire public="1" set="method"><f a="?blocking:?timeout">
+	<x path="Bool"/>
+	<x path="Float"/>
+	<x path="Bool"/>
+</f></acquire>
+		<release public="1" set="method"><f a=""><x path="Void"/></f></release>
+		<wait public="1" set="method"><f a="?timeout">
+	<x path="Float"/>
+	<x path="Bool"/>
+</f></wait>
+		<wait_for public="1" set="method"><f a="predicate:?timeout">
+	<f a=""><x path="Bool"/></f>
+	<x path="Float"/>
+	<x path="Bool"/>
+</f></wait_for>
+		<notify public="1" set="method">
+			<f a="?n" v="1">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ n : 1 }</e></m></meta>
+		</notify>
+		<notify_all public="1" set="method"><f a=""><x path="Void"/></f></notify_all>
+		<new public="1" set="method"><f a="?lock">
+	<x path="haxe.extern.EitherType">
+		<c path="python.lib.threading.Lock"/>
+		<c path="python.lib.threading.RLock"/>
+	</x>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":pythonImport">
+	<e>"threading"</e>
+	<e>"Condition"</e>
+</m></meta>
+	</class>
 	<class path="python.lib.threading.Lock" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/Lock.hx" extern="1">
 		<acquire public="1" set="method"><f a="?blocking:?timeout">
 	<x path="Bool"/>
@@ -35787,18 +35818,33 @@
 	<e>"Lock"</e>
 </m></meta>
 	</class>
-	<class path="python.lib.threading.RLock" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/RLock.hx" extern="1">
-		<acquire public="1" set="method"><f a="?blocking:?timeout">
-	<x path="Bool"/>
-	<x path="Float"/>
-	<x path="Bool"/>
-</f></acquire>
-		<release public="1" set="method"><f a=""><x path="Void"/></f></release>
-		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
-		<meta><m n=":pythonImport">
-	<e>"threading"</e>
-	<e>"RLock"</e>
-</m></meta>
+	<class path="python.lib.threading.Semaphore" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/Semaphore.hx" extern="1">
+		<acquire public="1" set="method">
+			<f a="?blocking:?timeout" v="true:">
+				<x path="Bool"/>
+				<x path="Float"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ blocking : true }</e></m></meta>
+		</acquire>
+		<release public="1" set="method">
+			<f a="?n" v="1">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ n : 1 }</e></m></meta>
+		</release>
+		<new public="1" set="method"><f a="value">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":pythonImport">
+				<e>"threading"</e>
+				<e>"Semaphore"</e>
+			</m>
+		</meta>
 	</class>
 	<typedef path="python.lib.threading.ThreadOptions" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/Thread.hx" module="python.lib.threading.Thread"><a>
 	<target>
@@ -37068,20 +37114,20 @@
 	</class>
 	<class path="sys.thread.Deque" params="T" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Deque.hx">
 		<deque><c path="sys.thread._Deque.NativeDeque"><c path="sys.thread.Deque.T"/></c></deque>
-		<lock><c path="sys.thread._Deque.NativeCondition"/></lock>
-		<add public="1" set="method" line="36"><f a="i">
+		<lock><c path="python.lib.threading.Condition"/></lock>
+		<add public="1" set="method" line="38"><f a="i">
 	<c path="sys.thread.Deque.T"/>
 	<x path="Void"/>
 </f></add>
-		<push public="1" set="method" line="43"><f a="i">
+		<push public="1" set="method" line="45"><f a="i">
 	<c path="sys.thread.Deque.T"/>
 	<x path="Void"/>
 </f></push>
-		<pop public="1" set="method" line="50"><f a="block">
+		<pop public="1" set="method" line="52"><f a="block">
 	<x path="Bool"/>
 	<x path="Null"><c path="sys.thread.Deque.T"/></x>
 </f></pop>
-		<new public="1" set="method" line="31"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="33"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="sys.thread._Deque.NativeDeque" params="T" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Deque.hx" private="1" module="sys.thread.Deque" extern="1">
 		<append public="1" set="method"><f a="x">
@@ -37100,45 +37146,6 @@
 				<e>"deque"</e>
 			</m>
 			<m n=":native"><e>"deque"</e></m>
-		</meta>
-	</class>
-	<class path="sys.thread._Deque.NativeCondition" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Deque.hx" private="1" module="sys.thread.Deque" extern="1">
-		<acquire public="1" set="method">
-			<f a="?blocking:?timeout" v="true:-1">
-				<x path="Bool"/>
-				<x path="Float"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":value"><e>{ timeout : -1, blocking : true }</e></m></meta>
-		</acquire>
-		<release public="1" set="method"><f a=""><x path="Void"/></f></release>
-		<wait public="1" set="method"><f a="?timeout">
-	<x path="Float"/>
-	<x path="Bool"/>
-</f></wait>
-		<wait_for public="1" set="method"><f a="predicate:?timeout">
-	<f a=""><x path="Bool"/></f>
-	<x path="Float"/>
-	<x path="Bool"/>
-</f></wait_for>
-		<notify public="1" set="method">
-			<f a="?n" v="1">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":value"><e>{ n : 1 }</e></m></meta>
-		</notify>
-		<notify_all public="1" set="method"><f a=""><x path="Void"/></f></notify_all>
-		<new public="1" set="method"><f a="?lock">
-	<d/>
-	<x path="Void"/>
-</f></new>
-		<meta>
-			<m n=":pythonImport">
-				<e>"threading"</e>
-				<e>"Condition"</e>
-			</m>
-			<m n=":native"><e>"Condition"</e></m>
 		</meta>
 	</class>
 	<class path="sys.thread.IThreadPool" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/IThreadPool.hx" interface="1">
@@ -37383,8 +37390,8 @@
 </f></new>
 	</class>
 	<class path="sys.thread.Lock" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Lock.hx">
-		<semaphore final="1"><c path="sys.thread._Lock.NativeSemaphore"/></semaphore>
-		<wait public="1" get="inline" set="null" line="33">
+		<semaphore final="1"><c path="python.lib.threading.Semaphore"/></semaphore>
+		<wait public="1" get="inline" set="null" line="35">
 			<f a="?timeout">
 				<x path="Float"/>
 				<x path="Bool"/>
@@ -37393,7 +37400,7 @@
 		to expire. Returns `true` if the lock is released and `false`
 		if a time-out occurs.</haxe_doc>
 		</wait>
-		<release public="1" get="inline" set="null" line="37">
+		<release public="1" get="inline" set="null" line="39">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Releases the lock once.
 
@@ -37401,7 +37408,7 @@
 		it. Each call to `release` allows exactly one call to `wait`
 		to execute.</haxe_doc>
 		</release>
-		<new public="1" get="inline" set="null" line="29">
+		<new public="1" get="inline" set="null" line="31">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new Lock which is initially locked.</haxe_doc>
 		</new>
@@ -37438,29 +37445,6 @@
 			<m n=":coreApi"/>
 		</meta>
 	</class>
-	<class path="sys.thread._Lock.NativeSemaphore" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Lock.hx" private="1" module="sys.thread.Lock" extern="1">
-		<acquire public="1" set="method">
-			<f a="?blocking:?timeout" v="true:">
-				<x path="Bool"/>
-				<x path="Float"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":value"><e>{ blocking : true }</e></m></meta>
-		</acquire>
-		<release public="1" set="method"><f a=""><x path="Void"/></f></release>
-		<new public="1" set="method"><f a="value">
-	<x path="Int"/>
-	<x path="Void"/>
-</f></new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":pythonImport">
-				<e>"threading"</e>
-				<e>"Semaphore"</e>
-			</m>
-			<m n=":native"><e>"Lock"</e></m>
-		</meta>
-	</class>
 	<class path="sys.thread.NoEventLoopException" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/NoEventLoopException.hx">
 		<extends path="haxe.Exception"/>
 		<new public="1" set="method" line="6">
@@ -37478,33 +37462,33 @@
 		<this><t path="sys.thread._Thread.ThreadImpl"/></this>
 		<impl><class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" final="1">
 	<events public="1" get="accessor" set="null" static="1"><c path="sys.thread.EventLoop"/></events>
-	<current public="1" get="inline" set="null" line="32" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
-	<create public="1" get="inline" set="null" line="36" static="1"><f a="callb">
+	<current public="1" get="inline" set="null" line="35" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
+	<create public="1" get="inline" set="null" line="39" static="1"><f a="callb">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></create>
-	<runWithEventLoop public="1" get="inline" set="null" line="40" static="1"><f a="job">
+	<runWithEventLoop public="1" get="inline" set="null" line="43" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runWithEventLoop>
-	<createWithEventLoop public="1" get="inline" set="null" line="44" static="1"><f a="job">
+	<createWithEventLoop public="1" get="inline" set="null" line="47" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></createWithEventLoop>
-	<readMessage public="1" get="inline" set="null" line="48" static="1"><f a="block">
+	<readMessage public="1" get="inline" set="null" line="51" static="1"><f a="block">
 	<x path="Bool"/>
 	<d/>
 </f></readMessage>
-	<sendMessage public="1" get="inline" set="null" line="52" static="1"><f a="this:msg">
+	<sendMessage public="1" get="inline" set="null" line="55" static="1"><f a="this:msg">
 	<t path="sys.thread._Thread.ThreadImpl"/>
 	<d/>
 	<x path="Void"/>
 </f></sendMessage>
-	<get_events set="method" line="56" static="1"><f a="this">
+	<get_events set="method" line="59" static="1"><f a="this">
 	<t path="sys.thread._Thread.ThreadImpl"/>
 	<c path="sys.thread.EventLoop"/>
 </f></get_events>
-	<processEvents public="1" set="method" line="63" static="1">
+	<processEvents public="1" set="method" line="66" static="1">
 		<f a=""><x path="Void"/></f>
 		<meta><m n=":keep"/></meta>
 	</processEvents>
@@ -37512,51 +37496,36 @@
 	</abstract>
 	<class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" final="1">
 		<events public="1" get="accessor" set="null" static="1"><c path="sys.thread.EventLoop"/></events>
-		<current public="1" get="inline" set="null" line="32" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
-		<create public="1" get="inline" set="null" line="36" static="1"><f a="callb">
+		<current public="1" get="inline" set="null" line="35" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
+		<create public="1" get="inline" set="null" line="39" static="1"><f a="callb">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></create>
-		<runWithEventLoop public="1" get="inline" set="null" line="40" static="1"><f a="job">
+		<runWithEventLoop public="1" get="inline" set="null" line="43" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runWithEventLoop>
-		<createWithEventLoop public="1" get="inline" set="null" line="44" static="1"><f a="job">
+		<createWithEventLoop public="1" get="inline" set="null" line="47" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></createWithEventLoop>
-		<readMessage public="1" get="inline" set="null" line="48" static="1"><f a="block">
+		<readMessage public="1" get="inline" set="null" line="51" static="1"><f a="block">
 	<x path="Bool"/>
 	<d/>
 </f></readMessage>
-		<sendMessage public="1" get="inline" set="null" line="52" static="1"><f a="this:msg">
+		<sendMessage public="1" get="inline" set="null" line="55" static="1"><f a="this:msg">
 	<t path="sys.thread._Thread.ThreadImpl"/>
 	<d/>
 	<x path="Void"/>
 </f></sendMessage>
-		<get_events set="method" line="56" static="1"><f a="this">
+		<get_events set="method" line="59" static="1"><f a="this">
 	<t path="sys.thread._Thread.ThreadImpl"/>
 	<c path="sys.thread.EventLoop"/>
 </f></get_events>
-		<processEvents public="1" set="method" line="63" static="1">
+		<processEvents public="1" set="method" line="66" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 		</processEvents>
-	</class>
-	<class path="sys.thread._Thread.NativeThread" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" extern="1">
-		<start public="1" set="method"><f a=""><x path="Void"/></f></start>
-		<new public="1" set="method"><f a="group:target">
-	<d/>
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></new>
-		<meta>
-			<m n=":pythonImport">
-				<e>"threading"</e>
-				<e>"Thread"</e>
-			</m>
-			<m n=":native"><e>"Thread"</e></m>
-		</meta>
 	</class>
 	<class path="sys.thread.ThreadPoolException" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/ThreadPoolException.hx">
 		<extends path="haxe.Exception"/>
