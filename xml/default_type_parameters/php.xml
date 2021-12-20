@@ -115,7 +115,7 @@
 			<x path="Int"/>
 			<c path="Array.T"/>
 		</implements>
-		<wrap params="T" set="method" line="259" static="1"><f a="arr">
+		<wrap params="T" set="method" line="266" static="1"><f a="arr">
 	<x path="php.NativeIndexedArray"><c path="wrap.T"/></x>
 	<c path="Array"><c path="wrap.T"/></c>
 </f></wrap>
@@ -443,7 +443,7 @@
 		- 0, 0.0 or false for Int, Float and Bool respectively on static targets
 		- null for other types on static targets</haxe_doc>
 		</resize>
-		<offsetExists set="method" line="210">
+		<offsetExists set="method" line="211">
 			<f a="offset">
 				<x path="Int"/>
 				<x path="Bool"/>
@@ -451,9 +451,10 @@
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":keep"/>
+				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</offsetExists>
-		<offsetGet set="method" line="215">
+		<offsetGet set="method" line="217">
 			<f a="offset">
 				<x path="Int"/>
 				<t path="php.Ref"><c path="Array.T"/></t>
@@ -461,9 +462,10 @@
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":keep"/>
+				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</offsetGet>
-		<offsetSet set="method" line="224">
+		<offsetSet set="method" line="227">
 			<f a="offset:value">
 				<x path="Int"/>
 				<c path="Array.T"/>
@@ -472,9 +474,10 @@
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":keep"/>
+				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</offsetSet>
-		<offsetUnset set="method" line="236">
+		<offsetUnset set="method" line="240">
 			<f a="offset">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -482,28 +485,32 @@
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":keep"/>
+				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</offsetUnset>
-		<getIterator set="method" line="244">
+		<getIterator set="method" line="249">
 			<f a=""><c path="php.Traversable"/></f>
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":keep"/>
+				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</getIterator>
-		<_hx_count set="method" line="250">
+		<_hx_count set="method" line="256">
 			<f a=""><x path="Int"/></f>
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":keep"/>
 				<m n=":native"><e>"count"</e></m>
+				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</_hx_count>
-		<jsonSerialize set="method" line="255">
+		<jsonSerialize set="method" line="262">
 			<f a=""><x path="php.NativeIndexedArray"><c path="Array.T"/></x></f>
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":keep"/>
+				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</jsonSerialize>
 		<new public="1" set="method" line="36">
@@ -2003,6 +2010,16 @@
 		</CONNECTION_ABORTED>
 		<CONNECTION_NORMAL final="1" public="1" set="null" static="1"><x path="Int"/></CONNECTION_NORMAL>
 		<CONNECTION_TIMEOUT final="1" public="1" set="null" static="1"><x path="Int"/></CONNECTION_TIMEOUT>
+		<FILE_APPEND final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<haxe_doc>@see http://php.net/manual/fr/filesystem.constants.php</haxe_doc>
+		</FILE_APPEND>
+		<FILE_BINARY final="1" public="1" set="null" static="1"><x path="Int"/></FILE_BINARY>
+		<FILE_IGNORE_NEW_LINES final="1" public="1" set="null" static="1"><x path="Int"/></FILE_IGNORE_NEW_LINES>
+		<FILE_NO_DEFAULT_CONTEXT final="1" public="1" set="null" static="1"><x path="Int"/></FILE_NO_DEFAULT_CONTEXT>
+		<FILE_SKIP_EMPTY_LINES final="1" public="1" set="null" static="1"><x path="Int"/></FILE_SKIP_EMPTY_LINES>
+		<FILE_TEXT final="1" public="1" set="null" static="1"><x path="Int"/></FILE_TEXT>
+		<FILE_USE_INCLUDE_PATH final="1" public="1" set="null" static="1"><x path="Int"/></FILE_USE_INCLUDE_PATH>
 		<haxe_doc>This class contains externs for native PHP constants defined in global namespace.
 	For native PHP functions in global namespace see `php.Global`.</haxe_doc>
 		<meta>
@@ -9946,7 +9963,22 @@
 
 		If `v` is `null`, the result is unspecified.</haxe_doc>
 	</unset>
-	<ofInt public="1" params="T" get="inline" set="null" line="83" static="1">
+	<setTo public="1" get="inline" set="null" line="88" static="1">
+		<f a="this:v:condition">
+			<x path="Int"/>
+			<c path="haxe.EnumFlags.T"/>
+			<x path="Bool"/>
+			<x path="Void"/>
+		</f>
+		<haxe_doc>Depending on the value of `condition` sets (`condition=true`) or unsets (`condition=false`)
+		the index of enum instance `v`.
+
+		This method is optimized if `v` is an enum instance expression such as
+		`SomeEnum.SomeCtor`.
+
+		If `v` is `null`, the result is unspecified.</haxe_doc>
+	</setTo>
+	<ofInt public="1" params="T" get="inline" set="null" line="99" static="1">
 		<f a="i">
 			<x path="Int"/>
 			<x path="haxe.EnumFlags"><c path="ofInt.T"/></x>
@@ -9954,7 +9986,7 @@
 		<haxe_doc>Convert a integer bitflag into a typed one (this is a no-op, it does not
 		have any impact on speed).</haxe_doc>
 	</ofInt>
-	<toInt public="1" get="inline" set="null" line="91" static="1">
+	<toInt public="1" get="inline" set="null" line="107" static="1">
 		<f a="this">
 			<x path="Int"/>
 			<x path="Int"/>
@@ -10015,7 +10047,22 @@
 
 		If `v` is `null`, the result is unspecified.</haxe_doc>
 		</unset>
-		<ofInt public="1" params="T" get="inline" set="null" line="83" static="1">
+		<setTo public="1" get="inline" set="null" line="88" static="1">
+			<f a="this:v:condition">
+				<x path="Int"/>
+				<c path="haxe.EnumFlags.T"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Depending on the value of `condition` sets (`condition=true`) or unsets (`condition=false`)
+		the index of enum instance `v`.
+
+		This method is optimized if `v` is an enum instance expression such as
+		`SomeEnum.SomeCtor`.
+
+		If `v` is `null`, the result is unspecified.</haxe_doc>
+		</setTo>
+		<ofInt public="1" params="T" get="inline" set="null" line="99" static="1">
 			<f a="i">
 				<x path="Int"/>
 				<x path="haxe.EnumFlags"><c path="ofInt.T"/></x>
@@ -10023,7 +10070,7 @@
 			<haxe_doc>Convert a integer bitflag into a typed one (this is a no-op, it does not
 		have any impact on speed).</haxe_doc>
 		</ofInt>
-		<toInt public="1" get="inline" set="null" line="91" static="1">
+		<toInt public="1" get="inline" set="null" line="107" static="1">
 			<f a="this">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -30062,11 +30109,13 @@
 		<meta><m n=":flatEnum"/></meta>
 	</enum>
 	<enum path="haxe.macro.Constant" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
-		<CInt a="v">
+		<CInt a="v:?s">
+			<c path="String"/>
 			<c path="String"/>
 			<haxe_doc>Represents an integer literal.</haxe_doc>
 		</CInt>
-		<CFloat a="f">
+		<CFloat a="f:?s">
+			<c path="String"/>
 			<c path="String"/>
 			<haxe_doc>Represents a float literal.</haxe_doc>
 		</CFloat>
@@ -31114,74 +31163,74 @@
 	<e path="haxe.macro.Constant"/>
 	<c path="String"/>
 </f></printConstant>
-		<printTypeParam public="1" set="method" line="110"><f a="param">
+		<printTypeParam public="1" set="method" line="112"><f a="param">
 	<e path="haxe.macro.TypeParam"/>
 	<c path="String"/>
 </f></printTypeParam>
-		<printTypePath public="1" set="method" line="116"><f a="tp">
+		<printTypePath public="1" set="method" line="118"><f a="tp">
 	<t path="haxe.macro.TypePath"/>
 	<c path="String"/>
 </f></printTypePath>
-		<printComplexType public="1" set="method" line="123"><f a="ct">
+		<printComplexType public="1" set="method" line="125"><f a="ct">
 	<e path="haxe.macro.ComplexType"/>
 	<c path="String"/>
 </f></printComplexType>
-		<printMetadata public="1" set="method" line="151"><f a="meta">
+		<printMetadata public="1" set="method" line="153"><f a="meta">
 	<t path="haxe.macro.MetadataEntry"/>
 	<c path="String"/>
 </f></printMetadata>
-		<printAccess public="1" set="method" line="154"><f a="access">
+		<printAccess public="1" set="method" line="156"><f a="access">
 	<e path="haxe.macro.Access"/>
 	<c path="String"/>
 </f></printAccess>
-		<printField public="1" set="method" line="168"><f a="field">
+		<printField public="1" set="method" line="170"><f a="field">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printField>
-		<printTypeParamDecl public="1" set="method" line="193"><f a="tpd">
+		<printTypeParamDecl public="1" set="method" line="195"><f a="tpd">
 	<t path="haxe.macro.TypeParamDecl"/>
 	<c path="String"/>
 </f></printTypeParamDecl>
-		<printFunctionArg public="1" set="method" line="199"><f a="arg">
+		<printFunctionArg public="1" set="method" line="201"><f a="arg">
 	<t path="haxe.macro.FunctionArg"/>
 	<c path="String"/>
 </f></printFunctionArg>
-		<printFunction public="1" set="method" line="201"><f a="func:?kind">
+		<printFunction public="1" set="method" line="203"><f a="func:?kind">
 	<t path="haxe.macro.Function"/>
 	<e path="haxe.macro.FunctionKind"/>
 	<c path="String"/>
 </f></printFunction>
-		<printVar public="1" set="method" line="215"><f a="v">
+		<printVar public="1" set="method" line="217"><f a="v">
 	<t path="haxe.macro.Var"/>
 	<c path="String"/>
 </f></printVar>
-		<printObjectFieldKey public="1" set="method" line="223"><f a="of">
+		<printObjectFieldKey public="1" set="method" line="225"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectFieldKey>
-		<printObjectField public="1" set="method" line="230"><f a="of">
+		<printObjectField public="1" set="method" line="232"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectField>
-		<printExpr public="1" set="method" line="235"><f a="e">
+		<printExpr public="1" set="method" line="237"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExpr>
-		<printExprs public="1" set="method" line="291"><f a="el:sep">
+		<printExprs public="1" set="method" line="293"><f a="el:sep">
 	<c path="Array"><t path="haxe.macro.Expr"/></c>
 	<c path="String"/>
 	<c path="String"/>
 </f></printExprs>
-		<printExtension set="method" line="295"><f a="tpl:fields">
+		<printExtension set="method" line="297"><f a="tpl:fields">
 	<c path="Array"><t path="haxe.macro.TypePath"/></c>
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printExtension>
-		<printStructure set="method" line="302"><f a="fields">
+		<printStructure set="method" line="304"><f a="fields">
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printStructure>
-		<printTypeDefinition public="1" set="method" line="306">
+		<printTypeDefinition public="1" set="method" line="308">
 			<f a="t:?printPackage" v=":true">
 				<t path="haxe.macro.TypeDefinition"/>
 				<x path="Bool"/>
@@ -31189,11 +31238,11 @@
 			</f>
 			<meta><m n=":value"><e>{ printPackage : true }</e></m></meta>
 		</printTypeDefinition>
-		<printFieldWithDelimiter set="method" line="407"><f a="f">
+		<printFieldWithDelimiter set="method" line="409"><f a="f">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printFieldWithDelimiter>
-		<opt params="T" set="method" line="418">
+		<opt params="T" set="method" line="420">
 			<f a="v:f:?prefix" v="::&quot;&quot;">
 				<c path="opt.T"/>
 				<f a="">
@@ -31205,7 +31254,7 @@
 			</f>
 			<meta><m n=":value"><e>{ prefix : "" }</e></m></meta>
 		</opt>
-		<printExprWithPositions public="1" set="method" line="420"><f a="e">
+		<printExprWithPositions public="1" set="method" line="422"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExprWithPositions>
@@ -39166,6 +39215,50 @@
 		<impl><class path="php._Resource.Resource_Impl_" params="" file="/home/runner/work/haxe/haxe/std/php/Resource.hx" private="1" module="php.Resource" extern="1" final="1"/></impl>
 	</abstract>
 	<class path="php._Resource.Resource_Impl_" params="" file="/home/runner/work/haxe/haxe/std/php/Resource.hx" private="1" module="php.Resource" extern="1" final="1"/>
+	<class path="php.ResourceBundle" params="" file="/home/runner/work/haxe/haxe/std/php/ResourceBundle.hx" extern="1">
+		<create public="1" set="method" static="1">
+			<f a="locale:bundle:?fallback" v="::true">
+				<x path="Null"><c path="String"/></x>
+				<x path="Null"><c path="String"/></x>
+				<x path="Bool"/>
+				<x path="Null"><c path="php.ResourceBundle"/></x>
+			</f>
+			<meta><m n=":value"><e>{ fallback : true }</e></m></meta>
+		</create>
+		<getLocales public="1" set="method" static="1"><f a="bundle">
+	<c path="String"/>
+	<x path="haxe.extern.EitherType">
+		<x path="php.NativeIndexedArray"><c path="String"/></x>
+		<x path="Bool"/>
+	</x>
+</f></getLocales>
+		<count public="1" set="method"><f a=""><x path="Int"/></f></count>
+		<get public="1" set="method">
+			<f a="index:?fallback" v=":true">
+				<x path="haxe.extern.EitherType">
+					<x path="Int"/>
+					<c path="String"/>
+				</x>
+				<x path="Bool"/>
+				<d/>
+			</f>
+			<meta><m n=":value"><e>{ fallback : true }</e></m></meta>
+		</get>
+		<getErrorCode public="1" set="method"><f a=""><x path="Int"/></f></getErrorCode>
+		<getErrorMessage public="1" set="method"><f a=""><c path="String"/></f></getErrorMessage>
+		<new public="1" set="method">
+			<f a="locale:bundle:?fallback" v="::true">
+				<x path="Null"><c path="String"/></x>
+				<x path="Null"><c path="String"/></x>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ fallback : true }</e></m></meta>
+		</new>
+		<haxe_doc>The `ResourceBundle` class implements access to ICU resource data files.
+	@see https://www.php.net/manual/en/class.resourcebundle.php</haxe_doc>
+		<meta><m n=":native"><e>"ResourceBundle"</e></m></meta>
+	</class>
 	<class path="php.RuntimeException" params="" file="/home/runner/work/haxe/haxe/std/php/RuntimeException.hx" extern="1">
 		<extends path="php.Exception"/>
 		<haxe_doc>Exception thrown if an error which can only be found on runtime occurs.</haxe_doc>
@@ -40496,6 +40589,7 @@
 			<x path="Int"/>
 			<meta><m n=":phpClassConst"/></meta>
 		</PARAM_EVT_NORMALIZE>
+		<getAvailableDrivers public="1" set="method" static="1"><f a=""><x path="php.NativeIndexedArray"><c path="String"/></x></f></getAvailableDrivers>
 		<beginTransaction public="1" set="method"><f a=""><x path="Bool"/></f></beginTransaction>
 		<commit public="1" set="method"><f a=""><x path="Bool"/></f></commit>
 		<errorCode public="1" set="method"><f a=""><d/></f></errorCode>
@@ -40508,7 +40602,6 @@
 	<x path="Int"/>
 	<d/>
 </f></getAttribute>
-		<getAvailableDrivers public="1" set="method"><f a=""><x path="php.NativeArray"/></f></getAvailableDrivers>
 		<lastInsertId public="1" set="method"><f a="?name">
 	<c path="String"/>
 	<c path="String"/>
