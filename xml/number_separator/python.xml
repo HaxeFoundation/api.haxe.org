@@ -1770,10 +1770,10 @@
 				<x path="Float"/>
 				<x path="Bool"/>
 			</f>
-			<haxe_doc>Tells if `f` is not a valid number.
+			<haxe_doc>Tells if `f` is `Math.NaN`.
 
 		If `f` is `NaN`, the result is `true`, otherwise the result is `false`.
-		In particular, both `POSITIVE_INFINITY` and `NEGATIVE_INFINITY` are
+		In particular, `null`, `POSITIVE_INFINITY` and `NEGATIVE_INFINITY` are
 		not considered `NaN`.</haxe_doc>
 		</isNaN>
 		<haxe_doc>This class defines mathematical functions and constants.
@@ -3212,13 +3212,11 @@
 		</meta>
 	</class>
 	<class path="Sys" params="" file="/home/runner/work/haxe/haxe/std/python/_std/Sys.hx">
-		<environ get="accessor" static="1"><c path="haxe.ds.StringMap"><c path="String"/></c></environ>
-		<get_environ set="method" line="32" static="1"><f a=""><c path="haxe.ds.StringMap"><c path="String"/></c></f></get_environ>
-		<time public="1" get="inline" set="null" line="45" static="1">
+		<time public="1" get="inline" set="null" line="31" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Gives the most precise timestamp value available (in seconds).</haxe_doc>
 		</time>
-		<exit public="1" set="method" line="49" static="1">
+		<exit public="1" set="method" line="35" static="1">
 			<f a="code">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -3228,14 +3226,14 @@
 		(macro)(eval) Being invoked in a macro or eval context (e.g. with `-x` or `--run`) immediately terminates
 		the compilation process, which also prevents the execution of any `--next` sections of compilation arguments.</haxe_doc>
 		</exit>
-		<print public="1" get="inline" set="null" line="53" static="1">
+		<print public="1" get="inline" set="null" line="39" static="1">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Prints any value to the standard output.</haxe_doc>
 		</print>
-		<println public="1" get="inline" set="null" line="57" static="1">
+		<println public="1" get="inline" set="null" line="43" static="1">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
@@ -3244,7 +3242,7 @@
 		On Windows, this function outputs a CRLF newline.
 		LF newlines are printed on all other platforms.</haxe_doc>
 		</println>
-		<args public="1" set="method" line="61" static="1">
+		<args public="1" set="method" line="47" static="1">
 			<f a=""><c path="Array"><c path="String"/></c></f>
 			<haxe_doc>Returns all the arguments that were passed in the command line.
 		This does not include the interpreter or the name of the program file.
@@ -3253,7 +3251,7 @@
 
 		(cs) Non-ASCII Unicode arguments will not work correctly.</haxe_doc>
 		</args>
-		<getEnv public="1" set="method" line="66" static="1">
+		<getEnv public="1" set="method" line="52" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="String"/>
@@ -3261,7 +3259,7 @@
 			<haxe_doc>Returns the value of the given environment variable, or `null` if it
 		doesn't exist.</haxe_doc>
 		</getEnv>
-		<putEnv public="1" set="method" line="70" static="1">
+		<putEnv public="1" set="method" line="56" static="1">
 			<f a="s:v">
 				<c path="String"/>
 				<x path="Null"><c path="String"/></x>
@@ -3273,22 +3271,31 @@
 
 		(java) This functionality is not available on Java; calling this function will throw.</haxe_doc>
 		</putEnv>
-		<environment public="1" set="method" line="79" static="1">
+		<environment public="1" set="method" line="68" static="1">
 			<f a=""><t path="Map">
 	<c path="String"/>
 	<c path="String"/>
 </t></f>
 			<haxe_doc>Returns a map of the current environment variables and their values
-		as of the invocation of the function.</haxe_doc>
+		as of the invocation of the function.
+
+		(python) On Windows, the variable names are always in upper case.
+
+		(cpp)(hl)(neko) On Windows, the variable names match the last capitalization used when modifying
+		the variable if the variable has been modified, otherwise they match their capitalization at
+		the start of the process.
+
+		On Windows on remaining targets, variable name capitalization matches however they were capitalized
+		at the start of the process or at the moment of their creation.</haxe_doc>
 		</environment>
-		<sleep public="1" set="method" line="83" static="1">
+		<sleep public="1" set="method" line="77" static="1">
 			<f a="seconds">
 				<x path="Float"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Suspends execution for the given length of time (in seconds).</haxe_doc>
 		</sleep>
-		<setTimeLocale public="1" set="method" line="87" static="1">
+		<setTimeLocale public="1" set="method" line="81" static="1">
 			<f a="loc">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -3296,11 +3303,11 @@
 			<haxe_doc>Changes the current time locale, which will affect `DateTools.format` date formating.
 		Returns `true` if the locale was successfully changed.</haxe_doc>
 		</setTimeLocale>
-		<getCwd public="1" set="method" line="91" static="1">
+		<getCwd public="1" set="method" line="85" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Gets the current working directory (usually the one in which the program was started).</haxe_doc>
 		</getCwd>
-		<setCwd public="1" set="method" line="95" static="1">
+		<setCwd public="1" set="method" line="89" static="1">
 			<f a="s">
 				<c path="String"/>
 				<x path="Void"/>
@@ -3309,7 +3316,7 @@
 
 		(java) This functionality is not available on Java; calling this function will throw.</haxe_doc>
 		</setCwd>
-		<systemName public="1" set="method" line="99" static="1">
+		<systemName public="1" set="method" line="93" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the type of the current system. Possible values are:
 		 - `"Windows"`
@@ -3317,7 +3324,7 @@
 		 - `"BSD"`
 		 - `"Mac"`</haxe_doc>
 		</systemName>
-		<command public="1" set="method" line="110" static="1">
+		<command public="1" set="method" line="104" static="1">
 			<f a="cmd:?args">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -3337,27 +3344,27 @@
 
 		Use the `sys.io.Process` API for more complex tasks, such as background processes, or providing input to the command.</haxe_doc>
 		</command>
-		<cpuTime public="1" get="inline" set="null" line="117" static="1">
+		<cpuTime public="1" get="inline" set="null" line="111" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Gives the most precise timestamp value available (in seconds),
 		but only accounts for the actual time spent running on the CPU for the current thread/process.</haxe_doc>
 		</cpuTime>
-		<executablePath public="1" set="method" line="121" static="1">
+		<executablePath public="1" set="method" line="115" static="1">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":deprecated"><e>"Use programPath instead"</e></m></meta>
 			<haxe_doc>Returns the path to the current executable that we are running.</haxe_doc>
 		</executablePath>
-		<_programPath expr="sys.FileSystem.fullPath(python.lib.Inspect.getsourcefile(Sys))" line="126" static="1">
+		<_programPath expr="sys.FileSystem.fullPath(python.lib.Inspect.getsourcefile(Sys))" line="120" static="1">
 			<c path="String"/>
 			<meta><m n=":value"><e>sys.FileSystem.fullPath(python.lib.Inspect.getsourcefile(Sys))</e></m></meta>
 		</_programPath>
-		<programPath public="1" set="method" line="128" static="1">
+		<programPath public="1" set="method" line="122" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the absolute path to the current program file that we are running.
 		Concretely, for an executable binary, it returns the path to the binary.
 		For a script (e.g. a PHP file), it returns the path to the script.</haxe_doc>
 		</programPath>
-		<getChar public="1" set="method" line="132" static="1">
+		<getChar public="1" set="method" line="126" static="1">
 			<f a="echo">
 				<x path="Bool"/>
 				<x path="Int"/>
@@ -3365,17 +3372,17 @@
 			<haxe_doc>Reads a single input character from the standard input and returns it.
 		Setting `echo` to `true` will also display the character on the output.</haxe_doc>
 		</getChar>
-		<stdin public="1" set="method" line="162" static="1">
+		<stdin public="1" set="method" line="156" static="1">
 			<f a=""><c path="haxe.io.Input"/></f>
 			<haxe_doc>Returns the standard input of the process, from which user input can be read.
 		Usually it will block until the user sends a full input line.
 		See `getChar` for an alternative.</haxe_doc>
 		</stdin>
-		<stdout public="1" set="method" line="166" static="1">
+		<stdout public="1" set="method" line="160" static="1">
 			<f a=""><c path="haxe.io.Output"/></f>
 			<haxe_doc>Returns the standard output of the process, to which program output can be written.</haxe_doc>
 		</stdout>
-		<stderr public="1" set="method" line="170" static="1">
+		<stderr public="1" set="method" line="164" static="1">
 			<f a=""><c path="haxe.io.Output"/></f>
 			<haxe_doc>Returns the standard error of the process, to which program errors can be written.</haxe_doc>
 		</stderr>
@@ -5454,25 +5461,25 @@
 		</meta>
 	</class>
 	<class path="sys.thread.Mutex" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Mutex.hx">
-		<lock final="1"><c path="sys.thread._Mutex.NativeRLock"/></lock>
-		<acquire public="1" get="inline" set="null" line="33">
+		<lock final="1"><c path="python.lib.threading.RLock"/></lock>
+		<acquire public="1" get="inline" set="null" line="35">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>The current thread acquire the mutex or wait if not available.
 		The same thread can acquire several times the same mutex but
 		must release it as many times it has been acquired.</haxe_doc>
 		</acquire>
-		<tryAcquire public="1" get="inline" set="null" line="37">
+		<tryAcquire public="1" get="inline" set="null" line="39">
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>Try to acquire the mutex, returns true if acquire or false
 		if it's already locked by another thread.</haxe_doc>
 		</tryAcquire>
-		<release public="1" get="inline" set="null" line="41">
+		<release public="1" get="inline" set="null" line="43">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Release a mutex that has been acquired by the current thread.
 		The behavior is undefined if the current thread does not own
 		the mutex.</haxe_doc>
 		</release>
-		<new public="1" get="inline" set="null" line="29">
+		<new public="1" get="inline" set="null" line="31">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a mutex.</haxe_doc>
 		</new>
@@ -5484,9 +5491,10 @@
 			<m n=":coreApi"/>
 		</meta>
 	</class>
-	<class path="sys.thread._Mutex.NativeRLock" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Mutex.hx" private="1" module="sys.thread.Mutex" extern="1">
-		<acquire public="1" set="method"><f a="blocking">
+	<class path="python.lib.threading.RLock" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/RLock.hx" extern="1">
+		<acquire public="1" set="method"><f a="?blocking:?timeout">
 	<x path="Bool"/>
+	<x path="Float"/>
 	<x path="Bool"/>
 </f></acquire>
 		<release public="1" set="method"><f a=""><x path="Void"/></f></release>
@@ -5499,13 +5507,29 @@
 			</m>
 		</meta>
 	</class>
-	<class path="sys.thread._Thread.PyThreadingAPI" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" extern="1">
-		<current_thread public="1" set="method" static="1"><f a=""><c path="sys.thread._Thread.NativeThread"/></f></current_thread>
-		<main_thread public="1" set="method" static="1"><f a=""><c path="sys.thread._Thread.NativeThread"/></f></main_thread>
+	<class path="python.lib.Threading" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Threading.hx" extern="1">
+		<active_count public="1" set="method" static="1"><f a=""><x path="Int"/></f></active_count>
+		<current_thread public="1" set="method" static="1"><f a=""><c path="python.lib.threading.Thread"/></f></current_thread>
+		<get_ident public="1" set="method" static="1"><f a=""><x path="Int"/></f></get_ident>
+		<enumerate public="1" set="method" static="1"><f a=""><c path="Array"><c path="python.lib.threading.Thread"/></c></f></enumerate>
+		<main_thread public="1" set="method" static="1"><f a=""><c path="python.lib.threading.Thread"/></f></main_thread>
+		<settrace public="1" set="method" static="1"><f a="func">
+	<d/>
+	<x path="Void"/>
+</f></settrace>
+		<setprofile public="1" set="method" static="1"><f a="func">
+	<d/>
+	<x path="Void"/>
+</f></setprofile>
+		<stack_size public="1" set="method" static="1"><f a="?size">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></stack_size>
+		<local public="1" set="method" static="1"><f a=""><d/></f></local>
+		<TIMEOUT_MAX public="1" static="1"><x path="Float"/></TIMEOUT_MAX>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":pythonImport"><e>"threading"</e></m>
-			<m n=":native"><e>"threading"</e></m>
 		</meta>
 	</class>
 	<class path="sys.thread.EventLoop" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/EventLoop.hx">
@@ -5624,41 +5648,41 @@
 	</class>
 	<class path="sys.thread._Thread.HxThread" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
 		<threads static="1"><c path="haxe.ds.ObjectMap">
-	<c path="sys.thread._Thread.NativeThread"/>
+	<t path="python.lib.threading._Thread.NativeThread"/>
 	<c path="sys.thread._Thread.HxThread"/>
 </c></threads>
 		<threadsMutex static="1"><c path="sys.thread.Mutex"/></threadsMutex>
 		<mainThread static="1"><c path="sys.thread._Thread.HxThread"/></mainThread>
-		<current public="1" set="method" line="93" static="1"><f a=""><c path="sys.thread._Thread.HxThread"/></f></current>
-		<create public="1" set="method" line="109" static="1"><f a="callb:withEventLoop">
+		<current public="1" set="method" line="96" static="1"><f a=""><c path="sys.thread._Thread.HxThread"/></f></current>
+		<create public="1" set="method" line="112" static="1"><f a="callb:withEventLoop">
 	<f a=""><x path="Void"/></f>
 	<x path="Bool"/>
 	<c path="sys.thread._Thread.HxThread"/>
 </f></create>
-		<runWithEventLoop public="1" set="method" line="135" static="1"><f a="job">
+		<runWithEventLoop public="1" set="method" line="138" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runWithEventLoop>
-		<dropThread get="inline" set="null" line="152" static="1"><f a="nt">
-	<c path="sys.thread._Thread.NativeThread"/>
+		<dropThread get="inline" set="null" line="155" static="1"><f a="nt">
+	<t path="python.lib.threading._Thread.NativeThread"/>
 	<x path="Void"/>
 </f></dropThread>
-		<readMessage public="1" set="method" line="158" static="1"><f a="block">
+		<readMessage public="1" set="method" line="161" static="1"><f a="block">
 	<x path="Bool"/>
 	<d/>
 </f></readMessage>
 		<events public="1" set="null"><x path="Null"><c path="sys.thread.EventLoop"/></x></events>
-		<nativeThread final="1"><c path="sys.thread._Thread.NativeThread"/></nativeThread>
+		<nativeThread final="1"><t path="python.lib.threading._Thread.NativeThread"/></nativeThread>
 		<messages final="1" expr="new Deque&lt;Dynamic&gt;()">
 			<c path="sys.thread.Deque"><d/></c>
 			<meta><m n=":value"><e><![CDATA[new Deque<Dynamic>()]]></e></m></meta>
 		</messages>
-		<sendMessage public="1" set="method" line="89"><f a="msg">
+		<sendMessage public="1" set="method" line="92"><f a="msg">
 	<d/>
 	<x path="Void"/>
 </f></sendMessage>
-		<new set="method" line="85"><f a="t">
-	<c path="sys.thread._Thread.NativeThread"/>
+		<new set="method" line="88"><f a="t">
+	<t path="python.lib.threading._Thread.NativeThread"/>
 	<x path="Void"/>
 </f></new>
 		<meta><m n=":directlyUsed"/></meta>
@@ -5981,7 +6005,22 @@
 
 		If `v` is `null`, the result is unspecified.</haxe_doc>
 	</unset>
-	<ofInt public="1" params="T" get="inline" set="null" line="83" static="1">
+	<setTo public="1" get="inline" set="null" line="88" static="1">
+		<f a="this:v:condition">
+			<x path="Int"/>
+			<c path="haxe.EnumFlags.T"/>
+			<x path="Bool"/>
+			<x path="Void"/>
+		</f>
+		<haxe_doc>Depending on the value of `condition` sets (`condition=true`) or unsets (`condition=false`)
+		the index of enum instance `v`.
+
+		This method is optimized if `v` is an enum instance expression such as
+		`SomeEnum.SomeCtor`.
+
+		If `v` is `null`, the result is unspecified.</haxe_doc>
+	</setTo>
+	<ofInt public="1" params="T" get="inline" set="null" line="99" static="1">
 		<f a="i">
 			<x path="Int"/>
 			<x path="haxe.EnumFlags"><c path="ofInt.T"/></x>
@@ -5989,7 +6028,7 @@
 		<haxe_doc>Convert a integer bitflag into a typed one (this is a no-op, it does not
 		have any impact on speed).</haxe_doc>
 	</ofInt>
-	<toInt public="1" get="inline" set="null" line="91" static="1">
+	<toInt public="1" get="inline" set="null" line="107" static="1">
 		<f a="this">
 			<x path="Int"/>
 			<x path="Int"/>
@@ -6050,7 +6089,22 @@
 
 		If `v` is `null`, the result is unspecified.</haxe_doc>
 		</unset>
-		<ofInt public="1" params="T" get="inline" set="null" line="83" static="1">
+		<setTo public="1" get="inline" set="null" line="88" static="1">
+			<f a="this:v:condition">
+				<x path="Int"/>
+				<c path="haxe.EnumFlags.T"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Depending on the value of `condition` sets (`condition=true`) or unsets (`condition=false`)
+		the index of enum instance `v`.
+
+		This method is optimized if `v` is an enum instance expression such as
+		`SomeEnum.SomeCtor`.
+
+		If `v` is `null`, the result is unspecified.</haxe_doc>
+		</setTo>
+		<ofInt public="1" params="T" get="inline" set="null" line="99" static="1">
 			<f a="i">
 				<x path="Int"/>
 				<x path="haxe.EnumFlags"><c path="ofInt.T"/></x>
@@ -6058,7 +6112,7 @@
 			<haxe_doc>Convert a integer bitflag into a typed one (this is a no-op, it does not
 		have any impact on speed).</haxe_doc>
 		</ofInt>
-		<toInt public="1" get="inline" set="null" line="91" static="1">
+		<toInt public="1" get="inline" set="null" line="107" static="1">
 			<f a="this">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -26420,11 +26474,13 @@
 		<meta><m n=":flatEnum"/></meta>
 	</enum>
 	<enum path="haxe.macro.Constant" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
-		<CInt a="v">
+		<CInt a="v:?s">
+			<c path="String"/>
 			<c path="String"/>
 			<haxe_doc>Represents an integer literal.</haxe_doc>
 		</CInt>
-		<CFloat a="f">
+		<CFloat a="f:?s">
+			<c path="String"/>
 			<c path="String"/>
 			<haxe_doc>Represents a float literal.</haxe_doc>
 		</CFloat>
@@ -26866,6 +26922,11 @@
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>The metadata of the type parameter.</haxe_doc>
 			</meta>
+			<defaultType>
+				<x path="Null"><e path="haxe.macro.ComplexType"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>The optional default type of the type parameter.</haxe_doc>
+			</defaultType>
 			<constraints>
 				<x path="Null"><c path="Array"><e path="haxe.macro.ComplexType"/></c></x>
 				<meta><m n=":optional"/></meta>
@@ -27107,7 +27168,7 @@
 			<t path="haxe.macro.Position"/>
 			<haxe_doc>The position of the error.</haxe_doc>
 		</pos>
-		<new public="1" set="method" line="995">
+		<new public="1" set="method" line="1000">
 			<f a="message:pos:?previous">
 				<c path="String"/>
 				<t path="haxe.macro.Position"/>
@@ -27467,74 +27528,74 @@
 	<e path="haxe.macro.Constant"/>
 	<c path="String"/>
 </f></printConstant>
-		<printTypeParam public="1" set="method" line="110"><f a="param">
+		<printTypeParam public="1" set="method" line="112"><f a="param">
 	<e path="haxe.macro.TypeParam"/>
 	<c path="String"/>
 </f></printTypeParam>
-		<printTypePath public="1" set="method" line="116"><f a="tp">
+		<printTypePath public="1" set="method" line="118"><f a="tp">
 	<t path="haxe.macro.TypePath"/>
 	<c path="String"/>
 </f></printTypePath>
-		<printComplexType public="1" set="method" line="123"><f a="ct">
+		<printComplexType public="1" set="method" line="125"><f a="ct">
 	<e path="haxe.macro.ComplexType"/>
 	<c path="String"/>
 </f></printComplexType>
-		<printMetadata public="1" set="method" line="151"><f a="meta">
+		<printMetadata public="1" set="method" line="153"><f a="meta">
 	<t path="haxe.macro.MetadataEntry"/>
 	<c path="String"/>
 </f></printMetadata>
-		<printAccess public="1" set="method" line="154"><f a="access">
+		<printAccess public="1" set="method" line="156"><f a="access">
 	<e path="haxe.macro.Access"/>
 	<c path="String"/>
 </f></printAccess>
-		<printField public="1" set="method" line="168"><f a="field">
+		<printField public="1" set="method" line="170"><f a="field">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printField>
-		<printTypeParamDecl public="1" set="method" line="193"><f a="tpd">
+		<printTypeParamDecl public="1" set="method" line="195"><f a="tpd">
 	<t path="haxe.macro.TypeParamDecl"/>
 	<c path="String"/>
 </f></printTypeParamDecl>
-		<printFunctionArg public="1" set="method" line="199"><f a="arg">
+		<printFunctionArg public="1" set="method" line="202"><f a="arg">
 	<t path="haxe.macro.FunctionArg"/>
 	<c path="String"/>
 </f></printFunctionArg>
-		<printFunction public="1" set="method" line="201"><f a="func:?kind">
+		<printFunction public="1" set="method" line="204"><f a="func:?kind">
 	<t path="haxe.macro.Function"/>
 	<e path="haxe.macro.FunctionKind"/>
 	<c path="String"/>
 </f></printFunction>
-		<printVar public="1" set="method" line="215"><f a="v">
+		<printVar public="1" set="method" line="218"><f a="v">
 	<t path="haxe.macro.Var"/>
 	<c path="String"/>
 </f></printVar>
-		<printObjectFieldKey public="1" set="method" line="223"><f a="of">
+		<printObjectFieldKey public="1" set="method" line="226"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectFieldKey>
-		<printObjectField public="1" set="method" line="230"><f a="of">
+		<printObjectField public="1" set="method" line="233"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectField>
-		<printExpr public="1" set="method" line="235"><f a="e">
+		<printExpr public="1" set="method" line="238"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExpr>
-		<printExprs public="1" set="method" line="291"><f a="el:sep">
+		<printExprs public="1" set="method" line="294"><f a="el:sep">
 	<c path="Array"><t path="haxe.macro.Expr"/></c>
 	<c path="String"/>
 	<c path="String"/>
 </f></printExprs>
-		<printExtension set="method" line="295"><f a="tpl:fields">
+		<printExtension set="method" line="298"><f a="tpl:fields">
 	<c path="Array"><t path="haxe.macro.TypePath"/></c>
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printExtension>
-		<printStructure set="method" line="302"><f a="fields">
+		<printStructure set="method" line="305"><f a="fields">
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printStructure>
-		<printTypeDefinition public="1" set="method" line="306">
+		<printTypeDefinition public="1" set="method" line="309">
 			<f a="t:?printPackage" v=":true">
 				<t path="haxe.macro.TypeDefinition"/>
 				<x path="Bool"/>
@@ -27542,11 +27603,11 @@
 			</f>
 			<meta><m n=":value"><e>{ printPackage : true }</e></m></meta>
 		</printTypeDefinition>
-		<printFieldWithDelimiter set="method" line="407"><f a="f">
+		<printFieldWithDelimiter set="method" line="410"><f a="f">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printFieldWithDelimiter>
-		<opt params="T" set="method" line="418">
+		<opt params="T" set="method" line="421">
 			<f a="v:f:?prefix" v="::&quot;&quot;">
 				<c path="opt.T"/>
 				<f a="">
@@ -27558,7 +27619,7 @@
 			</f>
 			<meta><m n=":value"><e>{ prefix : "" }</e></m></meta>
 		</opt>
-		<printExprWithPositions public="1" set="method" line="420"><f a="e">
+		<printExprWithPositions public="1" set="method" line="423"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExprWithPositions>
@@ -27735,6 +27796,11 @@
 				<c path="String"/>
 				<haxe_doc>The name of the type parameter.</haxe_doc>
 			</name>
+			<defaultType>
+				<x path="Null"><e path="haxe.macro.Type"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>The default type for this type parameter.</haxe_doc>
+			</defaultType>
 		</a>
 		<haxe_doc>Represents the declaration of type parameters.</haxe_doc>
 	</typedef>
@@ -33573,6 +33639,15 @@
 	<c path="String"/>
 	<x path="Void"/>
 </f></putenv>
+		<unsetenv public="1" set="method" static="1">
+			<f a="name">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Removes the value for the environment variable `name`.
+
+		When targeting python versions prior to 3.9, this function may not exist on some platforms.</haxe_doc>
+		</unsetenv>
 		<chdir public="1" set="method" static="1"><f a="path">
 	<c path="String"/>
 	<x path="Void"/>
@@ -34531,28 +34606,6 @@
 	<d/>
 </f></start_new_thread>
 		<meta><m n=":pythonImport"><e>"_thread"</e></m></meta>
-	</class>
-	<class path="python.lib.Threading" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Threading.hx" extern="1">
-		<active_count public="1" set="method" static="1"><f a=""><x path="Int"/></f></active_count>
-		<current_thread public="1" set="method" static="1"><f a=""><c path="python.lib.threading.Thread"/></f></current_thread>
-		<get_ident public="1" set="method" static="1"><f a=""><x path="Int"/></f></get_ident>
-		<enumerate public="1" set="method" static="1"><f a=""><c path="Array"><c path="python.lib.threading.Thread"/></c></f></enumerate>
-		<main_thread public="1" set="method" static="1"><f a=""><c path="python.lib.threading.Thread"/></f></main_thread>
-		<settrace public="1" set="method" static="1"><f a="func">
-	<d/>
-	<x path="Void"/>
-</f></settrace>
-		<setprofile public="1" set="method" static="1"><f a="func">
-	<d/>
-	<x path="Void"/>
-</f></setprofile>
-		<stack_size public="1" set="method" static="1"><f a="?size">
-	<x path="Int"/>
-	<x path="Int"/>
-</f></stack_size>
-		<local public="1" set="method" static="1"><f a=""><d/></f></local>
-		<TIMEOUT_MAX public="1" static="1"><x path="Float"/></TIMEOUT_MAX>
-		<meta><m n=":pythonImport"><e>"threading"</e></m></meta>
 	</class>
 	<class path="python.lib.Time" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Time.hx" extern="1">
 		<time public="1" set="method" static="1"><f a=""><x path="Float"/></f></time>
@@ -35758,6 +35811,42 @@
 	<e>"Popen"</e>
 </m></meta>
 	</class>
+	<class path="python.lib.threading.Condition" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/Condition.hx" extern="1">
+		<acquire public="1" set="method"><f a="?blocking:?timeout">
+	<x path="Bool"/>
+	<x path="Float"/>
+	<x path="Bool"/>
+</f></acquire>
+		<release public="1" set="method"><f a=""><x path="Void"/></f></release>
+		<wait public="1" set="method"><f a="?timeout">
+	<x path="Float"/>
+	<x path="Bool"/>
+</f></wait>
+		<wait_for public="1" set="method"><f a="predicate:?timeout">
+	<f a=""><x path="Bool"/></f>
+	<x path="Float"/>
+	<x path="Bool"/>
+</f></wait_for>
+		<notify public="1" set="method">
+			<f a="?n" v="1">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ n : 1 }</e></m></meta>
+		</notify>
+		<notify_all public="1" set="method"><f a=""><x path="Void"/></f></notify_all>
+		<new public="1" set="method"><f a="?lock">
+	<x path="haxe.extern.EitherType">
+		<c path="python.lib.threading.Lock"/>
+		<c path="python.lib.threading.RLock"/>
+	</x>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":pythonImport">
+	<e>"threading"</e>
+	<e>"Condition"</e>
+</m></meta>
+	</class>
 	<class path="python.lib.threading.Lock" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/Lock.hx" extern="1">
 		<acquire public="1" set="method"><f a="?blocking:?timeout">
 	<x path="Bool"/>
@@ -35771,18 +35860,33 @@
 	<e>"Lock"</e>
 </m></meta>
 	</class>
-	<class path="python.lib.threading.RLock" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/RLock.hx" extern="1">
-		<acquire public="1" set="method"><f a="?blocking:?timeout">
-	<x path="Bool"/>
-	<x path="Float"/>
-	<x path="Bool"/>
-</f></acquire>
-		<release public="1" set="method"><f a=""><x path="Void"/></f></release>
-		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
-		<meta><m n=":pythonImport">
-	<e>"threading"</e>
-	<e>"RLock"</e>
-</m></meta>
+	<class path="python.lib.threading.Semaphore" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/Semaphore.hx" extern="1">
+		<acquire public="1" set="method">
+			<f a="?blocking:?timeout" v="true:">
+				<x path="Bool"/>
+				<x path="Float"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ blocking : true }</e></m></meta>
+		</acquire>
+		<release public="1" set="method">
+			<f a="?n" v="1">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ n : 1 }</e></m></meta>
+		</release>
+		<new public="1" set="method"><f a="value">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":pythonImport">
+				<e>"threading"</e>
+				<e>"Semaphore"</e>
+			</m>
+		</meta>
 	</class>
 	<typedef path="python.lib.threading.ThreadOptions" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/Thread.hx" module="python.lib.threading.Thread"><a>
 	<target>
@@ -37052,20 +37156,20 @@
 	</class>
 	<class path="sys.thread.Deque" params="T" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Deque.hx">
 		<deque><c path="sys.thread._Deque.NativeDeque"><c path="sys.thread.Deque.T"/></c></deque>
-		<lock><c path="sys.thread._Deque.NativeCondition"/></lock>
-		<add public="1" set="method" line="36"><f a="i">
+		<lock><c path="python.lib.threading.Condition"/></lock>
+		<add public="1" set="method" line="38"><f a="i">
 	<c path="sys.thread.Deque.T"/>
 	<x path="Void"/>
 </f></add>
-		<push public="1" set="method" line="43"><f a="i">
+		<push public="1" set="method" line="45"><f a="i">
 	<c path="sys.thread.Deque.T"/>
 	<x path="Void"/>
 </f></push>
-		<pop public="1" set="method" line="50"><f a="block">
+		<pop public="1" set="method" line="52"><f a="block">
 	<x path="Bool"/>
 	<x path="Null"><c path="sys.thread.Deque.T"/></x>
 </f></pop>
-		<new public="1" set="method" line="31"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="33"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="sys.thread._Deque.NativeDeque" params="T" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Deque.hx" private="1" module="sys.thread.Deque" extern="1">
 		<append public="1" set="method"><f a="x">
@@ -37084,45 +37188,6 @@
 				<e>"deque"</e>
 			</m>
 			<m n=":native"><e>"deque"</e></m>
-		</meta>
-	</class>
-	<class path="sys.thread._Deque.NativeCondition" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Deque.hx" private="1" module="sys.thread.Deque" extern="1">
-		<acquire public="1" set="method">
-			<f a="?blocking:?timeout" v="true:-1">
-				<x path="Bool"/>
-				<x path="Float"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":value"><e>{ timeout : -1, blocking : true }</e></m></meta>
-		</acquire>
-		<release public="1" set="method"><f a=""><x path="Void"/></f></release>
-		<wait public="1" set="method"><f a="?timeout">
-	<x path="Float"/>
-	<x path="Bool"/>
-</f></wait>
-		<wait_for public="1" set="method"><f a="predicate:?timeout">
-	<f a=""><x path="Bool"/></f>
-	<x path="Float"/>
-	<x path="Bool"/>
-</f></wait_for>
-		<notify public="1" set="method">
-			<f a="?n" v="1">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":value"><e>{ n : 1 }</e></m></meta>
-		</notify>
-		<notify_all public="1" set="method"><f a=""><x path="Void"/></f></notify_all>
-		<new public="1" set="method"><f a="?lock">
-	<d/>
-	<x path="Void"/>
-</f></new>
-		<meta>
-			<m n=":pythonImport">
-				<e>"threading"</e>
-				<e>"Condition"</e>
-			</m>
-			<m n=":native"><e>"Condition"</e></m>
 		</meta>
 	</class>
 	<class path="sys.thread.IThreadPool" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/IThreadPool.hx" interface="1">
@@ -37367,8 +37432,8 @@
 </f></new>
 	</class>
 	<class path="sys.thread.Lock" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Lock.hx">
-		<semaphore final="1"><c path="sys.thread._Lock.NativeSemaphore"/></semaphore>
-		<wait public="1" get="inline" set="null" line="33">
+		<semaphore final="1"><c path="python.lib.threading.Semaphore"/></semaphore>
+		<wait public="1" get="inline" set="null" line="35">
 			<f a="?timeout">
 				<x path="Float"/>
 				<x path="Bool"/>
@@ -37377,7 +37442,7 @@
 		to expire. Returns `true` if the lock is released and `false`
 		if a time-out occurs.</haxe_doc>
 		</wait>
-		<release public="1" get="inline" set="null" line="37">
+		<release public="1" get="inline" set="null" line="39">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Releases the lock once.
 
@@ -37385,7 +37450,7 @@
 		it. Each call to `release` allows exactly one call to `wait`
 		to execute.</haxe_doc>
 		</release>
-		<new public="1" get="inline" set="null" line="29">
+		<new public="1" get="inline" set="null" line="31">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new Lock which is initially locked.</haxe_doc>
 		</new>
@@ -37422,29 +37487,6 @@
 			<m n=":coreApi"/>
 		</meta>
 	</class>
-	<class path="sys.thread._Lock.NativeSemaphore" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Lock.hx" private="1" module="sys.thread.Lock" extern="1">
-		<acquire public="1" set="method">
-			<f a="?blocking:?timeout" v="true:">
-				<x path="Bool"/>
-				<x path="Float"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":value"><e>{ blocking : true }</e></m></meta>
-		</acquire>
-		<release public="1" set="method"><f a=""><x path="Void"/></f></release>
-		<new public="1" set="method"><f a="value">
-	<x path="Int"/>
-	<x path="Void"/>
-</f></new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":pythonImport">
-				<e>"threading"</e>
-				<e>"Semaphore"</e>
-			</m>
-			<m n=":native"><e>"Lock"</e></m>
-		</meta>
-	</class>
 	<class path="sys.thread.NoEventLoopException" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/NoEventLoopException.hx">
 		<extends path="haxe.Exception"/>
 		<new public="1" set="method" line="6">
@@ -37462,33 +37504,33 @@
 		<this><t path="sys.thread._Thread.ThreadImpl"/></this>
 		<impl><class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" final="1">
 	<events public="1" get="accessor" set="null" static="1"><c path="sys.thread.EventLoop"/></events>
-	<current public="1" get="inline" set="null" line="32" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
-	<create public="1" get="inline" set="null" line="36" static="1"><f a="callb">
+	<current public="1" get="inline" set="null" line="35" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
+	<create public="1" get="inline" set="null" line="39" static="1"><f a="callb">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></create>
-	<runWithEventLoop public="1" get="inline" set="null" line="40" static="1"><f a="job">
+	<runWithEventLoop public="1" get="inline" set="null" line="43" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runWithEventLoop>
-	<createWithEventLoop public="1" get="inline" set="null" line="44" static="1"><f a="job">
+	<createWithEventLoop public="1" get="inline" set="null" line="47" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></createWithEventLoop>
-	<readMessage public="1" get="inline" set="null" line="48" static="1"><f a="block">
+	<readMessage public="1" get="inline" set="null" line="51" static="1"><f a="block">
 	<x path="Bool"/>
 	<d/>
 </f></readMessage>
-	<sendMessage public="1" get="inline" set="null" line="52" static="1"><f a="this:msg">
+	<sendMessage public="1" get="inline" set="null" line="55" static="1"><f a="this:msg">
 	<t path="sys.thread._Thread.ThreadImpl"/>
 	<d/>
 	<x path="Void"/>
 </f></sendMessage>
-	<get_events set="method" line="56" static="1"><f a="this">
+	<get_events set="method" line="59" static="1"><f a="this">
 	<t path="sys.thread._Thread.ThreadImpl"/>
 	<c path="sys.thread.EventLoop"/>
 </f></get_events>
-	<processEvents public="1" set="method" line="63" static="1">
+	<processEvents public="1" set="method" line="66" static="1">
 		<f a=""><x path="Void"/></f>
 		<meta><m n=":keep"/></meta>
 	</processEvents>
@@ -37496,51 +37538,36 @@
 	</abstract>
 	<class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" final="1">
 		<events public="1" get="accessor" set="null" static="1"><c path="sys.thread.EventLoop"/></events>
-		<current public="1" get="inline" set="null" line="32" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
-		<create public="1" get="inline" set="null" line="36" static="1"><f a="callb">
+		<current public="1" get="inline" set="null" line="35" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
+		<create public="1" get="inline" set="null" line="39" static="1"><f a="callb">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></create>
-		<runWithEventLoop public="1" get="inline" set="null" line="40" static="1"><f a="job">
+		<runWithEventLoop public="1" get="inline" set="null" line="43" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runWithEventLoop>
-		<createWithEventLoop public="1" get="inline" set="null" line="44" static="1"><f a="job">
+		<createWithEventLoop public="1" get="inline" set="null" line="47" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="sys.thread.Thread"/>
 </f></createWithEventLoop>
-		<readMessage public="1" get="inline" set="null" line="48" static="1"><f a="block">
+		<readMessage public="1" get="inline" set="null" line="51" static="1"><f a="block">
 	<x path="Bool"/>
 	<d/>
 </f></readMessage>
-		<sendMessage public="1" get="inline" set="null" line="52" static="1"><f a="this:msg">
+		<sendMessage public="1" get="inline" set="null" line="55" static="1"><f a="this:msg">
 	<t path="sys.thread._Thread.ThreadImpl"/>
 	<d/>
 	<x path="Void"/>
 </f></sendMessage>
-		<get_events set="method" line="56" static="1"><f a="this">
+		<get_events set="method" line="59" static="1"><f a="this">
 	<t path="sys.thread._Thread.ThreadImpl"/>
 	<c path="sys.thread.EventLoop"/>
 </f></get_events>
-		<processEvents public="1" set="method" line="63" static="1">
+		<processEvents public="1" set="method" line="66" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 		</processEvents>
-	</class>
-	<class path="sys.thread._Thread.NativeThread" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" extern="1">
-		<start public="1" set="method"><f a=""><x path="Void"/></f></start>
-		<new public="1" set="method"><f a="group:target">
-	<d/>
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></new>
-		<meta>
-			<m n=":pythonImport">
-				<e>"threading"</e>
-				<e>"Thread"</e>
-			</m>
-			<m n=":native"><e>"Thread"</e></m>
-		</meta>
 	</class>
 	<class path="sys.thread.ThreadPoolException" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/ThreadPoolException.hx">
 		<extends path="haxe.Exception"/>

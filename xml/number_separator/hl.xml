@@ -1513,10 +1513,10 @@
 	<e>"std"</e>
 	<e>"math_isnan"</e>
 </m></meta>
-			<haxe_doc>Tells if `f` is not a valid number.
+			<haxe_doc>Tells if `f` is `Math.NaN`.
 
 		If `f` is `NaN`, the result is `true`, otherwise the result is `false`.
-		In particular, both `POSITIVE_INFINITY` and `NEGATIVE_INFINITY` are
+		In particular, `null`, `POSITIVE_INFINITY` and `NEGATIVE_INFINITY` are
 		not considered `NaN`.</haxe_doc>
 		</isNaN>
 		<ffloor public="1" set="method" line="46" static="1">
@@ -3767,7 +3767,16 @@
 	<c path="String"/>
 </t></f>
 			<haxe_doc>Returns a map of the current environment variables and their values
-		as of the invocation of the function.</haxe_doc>
+		as of the invocation of the function.
+
+		(python) On Windows, the variable names are always in upper case.
+
+		(cpp)(hl)(neko) On Windows, the variable names match the last capitalization used when modifying
+		the variable if the variable has been modified, otherwise they match their capitalization at
+		the start of the process.
+
+		On Windows on remaining targets, variable name capitalization matches however they were capitalized
+		at the start of the process or at the moment of their creation.</haxe_doc>
 		</environment>
 		<sleep public="1" set="method" line="105" static="1">
 			<f a="seconds">
@@ -6420,7 +6429,22 @@
 
 		If `v` is `null`, the result is unspecified.</haxe_doc>
 	</unset>
-	<ofInt public="1" params="T" get="inline" set="null" line="83" static="1">
+	<setTo public="1" get="inline" set="null" line="88" static="1">
+		<f a="this:v:condition">
+			<x path="Int"/>
+			<c path="haxe.EnumFlags.T"/>
+			<x path="Bool"/>
+			<x path="Void"/>
+		</f>
+		<haxe_doc>Depending on the value of `condition` sets (`condition=true`) or unsets (`condition=false`)
+		the index of enum instance `v`.
+
+		This method is optimized if `v` is an enum instance expression such as
+		`SomeEnum.SomeCtor`.
+
+		If `v` is `null`, the result is unspecified.</haxe_doc>
+	</setTo>
+	<ofInt public="1" params="T" get="inline" set="null" line="99" static="1">
 		<f a="i">
 			<x path="Int"/>
 			<x path="haxe.EnumFlags"><c path="ofInt.T"/></x>
@@ -6428,7 +6452,7 @@
 		<haxe_doc>Convert a integer bitflag into a typed one (this is a no-op, it does not
 		have any impact on speed).</haxe_doc>
 	</ofInt>
-	<toInt public="1" get="inline" set="null" line="91" static="1">
+	<toInt public="1" get="inline" set="null" line="107" static="1">
 		<f a="this">
 			<x path="Int"/>
 			<x path="Int"/>
@@ -6489,7 +6513,22 @@
 
 		If `v` is `null`, the result is unspecified.</haxe_doc>
 		</unset>
-		<ofInt public="1" params="T" get="inline" set="null" line="83" static="1">
+		<setTo public="1" get="inline" set="null" line="88" static="1">
+			<f a="this:v:condition">
+				<x path="Int"/>
+				<c path="haxe.EnumFlags.T"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Depending on the value of `condition` sets (`condition=true`) or unsets (`condition=false`)
+		the index of enum instance `v`.
+
+		This method is optimized if `v` is an enum instance expression such as
+		`SomeEnum.SomeCtor`.
+
+		If `v` is `null`, the result is unspecified.</haxe_doc>
+		</setTo>
+		<ofInt public="1" params="T" get="inline" set="null" line="99" static="1">
 			<f a="i">
 				<x path="Int"/>
 				<x path="haxe.EnumFlags"><c path="ofInt.T"/></x>
@@ -6497,7 +6536,7 @@
 			<haxe_doc>Convert a integer bitflag into a typed one (this is a no-op, it does not
 		have any impact on speed).</haxe_doc>
 		</ofInt>
-		<toInt public="1" get="inline" set="null" line="91" static="1">
+		<toInt public="1" get="inline" set="null" line="107" static="1">
 			<f a="this">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -8217,25 +8256,26 @@
 		</tick>
 		<meta><m n=":access"><e>haxe.MainEvent</e></m></meta>
 	</class>
+	<typedef path="haxe.Symbol" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/haxe/NativeStackTrace.hx" module="haxe.NativeStackTrace"><x path="hl.Bytes"/></typedef>
 	<class path="haxe.NativeStackTrace" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/haxe/NativeStackTrace.hx">
-		<saveStack public="1" get="inline" set="null" line="14" static="1">
+		<saveStack public="1" get="inline" set="null" line="16" static="1">
 			<f a="exception">
 				<x path="Any"/>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":ifFeature"><e>"haxe.NativeStackTrace.exceptionStack"</e></m></meta>
 		</saveStack>
-		<exceptionStack public="1" set="method" line="18" static="1">
+		<exceptionStack public="1" set="method" line="53" static="1">
 			<f a=""><x path="hl.NativeArray"><x path="hl.Bytes"/></x></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"exception_stack"</e>
 </m></meta>
 		</exceptionStack>
-		<callStack public="1" set="method" line="23" static="1"><f a=""><x path="hl.NativeArray"><x path="hl.Bytes"/></x></f></callStack>
-		<toHaxe public="1" set="method" line="40" static="1">
+		<callStack public="1" set="method" line="58" static="1"><f a=""><x path="hl.NativeArray"><x path="hl.Bytes"/></x></f></callStack>
+		<toHaxe public="1" set="method" line="77" static="1">
 			<f a="native:?skip" v=":0">
-				<x path="hl.NativeArray"><x path="hl.Bytes"/></x>
+				<x path="hl.NativeArray"><t path="haxe.Symbol"/></x>
 				<x path="Int"/>
 				<c path="Array"><e path="haxe.StackItem"/></c>
 			</f>
@@ -9530,7 +9570,6 @@
 	```haxe
 	throw new ValueException("Terrible error");
 	```</haxe_doc>
-		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="haxe.crypto.Adler32" params="" file="/home/runner/work/haxe/haxe/std/haxe/crypto/Adler32.hx">
 		<read public="1" set="method" line="60" static="1"><f a="i">
@@ -26562,11 +26601,13 @@
 		<meta><m n=":flatEnum"/></meta>
 	</enum>
 	<enum path="haxe.macro.Constant" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
-		<CInt a="v">
+		<CInt a="v:?s">
+			<c path="String"/>
 			<c path="String"/>
 			<haxe_doc>Represents an integer literal.</haxe_doc>
 		</CInt>
-		<CFloat a="f">
+		<CFloat a="f:?s">
+			<c path="String"/>
 			<c path="String"/>
 			<haxe_doc>Represents a float literal.</haxe_doc>
 		</CFloat>
@@ -27008,6 +27049,11 @@
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>The metadata of the type parameter.</haxe_doc>
 			</meta>
+			<defaultType>
+				<x path="Null"><e path="haxe.macro.ComplexType"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>The optional default type of the type parameter.</haxe_doc>
+			</defaultType>
 			<constraints>
 				<x path="Null"><c path="Array"><e path="haxe.macro.ComplexType"/></c></x>
 				<meta><m n=":optional"/></meta>
@@ -27249,7 +27295,7 @@
 			<t path="haxe.macro.Position"/>
 			<haxe_doc>The position of the error.</haxe_doc>
 		</pos>
-		<new public="1" set="method" line="995">
+		<new public="1" set="method" line="1000">
 			<f a="message:pos:?previous">
 				<c path="String"/>
 				<t path="haxe.macro.Position"/>
@@ -27610,74 +27656,74 @@
 	<e path="haxe.macro.Constant"/>
 	<c path="String"/>
 </f></printConstant>
-		<printTypeParam public="1" set="method" line="110"><f a="param">
+		<printTypeParam public="1" set="method" line="112"><f a="param">
 	<e path="haxe.macro.TypeParam"/>
 	<c path="String"/>
 </f></printTypeParam>
-		<printTypePath public="1" set="method" line="116"><f a="tp">
+		<printTypePath public="1" set="method" line="118"><f a="tp">
 	<t path="haxe.macro.TypePath"/>
 	<c path="String"/>
 </f></printTypePath>
-		<printComplexType public="1" set="method" line="123"><f a="ct">
+		<printComplexType public="1" set="method" line="125"><f a="ct">
 	<e path="haxe.macro.ComplexType"/>
 	<c path="String"/>
 </f></printComplexType>
-		<printMetadata public="1" set="method" line="151"><f a="meta">
+		<printMetadata public="1" set="method" line="153"><f a="meta">
 	<t path="haxe.macro.MetadataEntry"/>
 	<c path="String"/>
 </f></printMetadata>
-		<printAccess public="1" set="method" line="154"><f a="access">
+		<printAccess public="1" set="method" line="156"><f a="access">
 	<e path="haxe.macro.Access"/>
 	<c path="String"/>
 </f></printAccess>
-		<printField public="1" set="method" line="168"><f a="field">
+		<printField public="1" set="method" line="170"><f a="field">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printField>
-		<printTypeParamDecl public="1" set="method" line="193"><f a="tpd">
+		<printTypeParamDecl public="1" set="method" line="195"><f a="tpd">
 	<t path="haxe.macro.TypeParamDecl"/>
 	<c path="String"/>
 </f></printTypeParamDecl>
-		<printFunctionArg public="1" set="method" line="199"><f a="arg">
+		<printFunctionArg public="1" set="method" line="202"><f a="arg">
 	<t path="haxe.macro.FunctionArg"/>
 	<c path="String"/>
 </f></printFunctionArg>
-		<printFunction public="1" set="method" line="201"><f a="func:?kind">
+		<printFunction public="1" set="method" line="204"><f a="func:?kind">
 	<t path="haxe.macro.Function"/>
 	<e path="haxe.macro.FunctionKind"/>
 	<c path="String"/>
 </f></printFunction>
-		<printVar public="1" set="method" line="215"><f a="v">
+		<printVar public="1" set="method" line="218"><f a="v">
 	<t path="haxe.macro.Var"/>
 	<c path="String"/>
 </f></printVar>
-		<printObjectFieldKey public="1" set="method" line="223"><f a="of">
+		<printObjectFieldKey public="1" set="method" line="226"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectFieldKey>
-		<printObjectField public="1" set="method" line="230"><f a="of">
+		<printObjectField public="1" set="method" line="233"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectField>
-		<printExpr public="1" set="method" line="235"><f a="e">
+		<printExpr public="1" set="method" line="238"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExpr>
-		<printExprs public="1" set="method" line="291"><f a="el:sep">
+		<printExprs public="1" set="method" line="294"><f a="el:sep">
 	<c path="Array"><t path="haxe.macro.Expr"/></c>
 	<c path="String"/>
 	<c path="String"/>
 </f></printExprs>
-		<printExtension set="method" line="295"><f a="tpl:fields">
+		<printExtension set="method" line="298"><f a="tpl:fields">
 	<c path="Array"><t path="haxe.macro.TypePath"/></c>
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printExtension>
-		<printStructure set="method" line="302"><f a="fields">
+		<printStructure set="method" line="305"><f a="fields">
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printStructure>
-		<printTypeDefinition public="1" set="method" line="306">
+		<printTypeDefinition public="1" set="method" line="309">
 			<f a="t:?printPackage" v=":true">
 				<t path="haxe.macro.TypeDefinition"/>
 				<x path="Bool"/>
@@ -27685,11 +27731,11 @@
 			</f>
 			<meta><m n=":value"><e>{ printPackage : true }</e></m></meta>
 		</printTypeDefinition>
-		<printFieldWithDelimiter set="method" line="407"><f a="f">
+		<printFieldWithDelimiter set="method" line="410"><f a="f">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printFieldWithDelimiter>
-		<opt params="T" set="method" line="418">
+		<opt params="T" set="method" line="421">
 			<f a="v:f:?prefix" v="::&quot;&quot;">
 				<c path="opt.T"/>
 				<f a="">
@@ -27701,7 +27747,7 @@
 			</f>
 			<meta><m n=":value"><e>{ prefix : "" }</e></m></meta>
 		</opt>
-		<printExprWithPositions public="1" set="method" line="420"><f a="e">
+		<printExprWithPositions public="1" set="method" line="423"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExprWithPositions>
@@ -27878,6 +27924,11 @@
 				<c path="String"/>
 				<haxe_doc>The name of the type parameter.</haxe_doc>
 			</name>
+			<defaultType>
+				<x path="Null"><e path="haxe.macro.Type"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>The default type for this type parameter.</haxe_doc>
+			</defaultType>
 		</a>
 		<haxe_doc>Represents the declaration of type parameters.</haxe_doc>
 	</typedef>

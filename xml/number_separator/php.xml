@@ -115,7 +115,7 @@
 			<x path="Int"/>
 			<c path="Array.T"/>
 		</implements>
-		<wrap params="T" set="method" line="259" static="1"><f a="arr">
+		<wrap params="T" set="method" line="266" static="1"><f a="arr">
 	<x path="php.NativeIndexedArray"><c path="wrap.T"/></x>
 	<c path="Array"><c path="wrap.T"/></c>
 </f></wrap>
@@ -443,7 +443,7 @@
 		- 0, 0.0 or false for Int, Float and Bool respectively on static targets
 		- null for other types on static targets</haxe_doc>
 		</resize>
-		<offsetExists set="method" line="210">
+		<offsetExists set="method" line="211">
 			<f a="offset">
 				<x path="Int"/>
 				<x path="Bool"/>
@@ -451,9 +451,10 @@
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":keep"/>
+				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</offsetExists>
-		<offsetGet set="method" line="215">
+		<offsetGet set="method" line="217">
 			<f a="offset">
 				<x path="Int"/>
 				<t path="php.Ref"><c path="Array.T"/></t>
@@ -461,9 +462,10 @@
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":keep"/>
+				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</offsetGet>
-		<offsetSet set="method" line="224">
+		<offsetSet set="method" line="227">
 			<f a="offset:value">
 				<x path="Int"/>
 				<c path="Array.T"/>
@@ -472,9 +474,10 @@
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":keep"/>
+				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</offsetSet>
-		<offsetUnset set="method" line="236">
+		<offsetUnset set="method" line="240">
 			<f a="offset">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -482,28 +485,32 @@
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":keep"/>
+				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</offsetUnset>
-		<getIterator set="method" line="244">
+		<getIterator set="method" line="249">
 			<f a=""><c path="php.Traversable"/></f>
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":keep"/>
+				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</getIterator>
-		<_hx_count set="method" line="250">
+		<_hx_count set="method" line="256">
 			<f a=""><x path="Int"/></f>
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":keep"/>
 				<m n=":native"><e>"count"</e></m>
+				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</_hx_count>
-		<jsonSerialize set="method" line="255">
+		<jsonSerialize set="method" line="262">
 			<f a=""><x path="php.NativeIndexedArray"><c path="Array.T"/></x></f>
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":keep"/>
+				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</jsonSerialize>
 		<new public="1" set="method" line="36">
@@ -2003,6 +2010,16 @@
 		</CONNECTION_ABORTED>
 		<CONNECTION_NORMAL final="1" public="1" set="null" static="1"><x path="Int"/></CONNECTION_NORMAL>
 		<CONNECTION_TIMEOUT final="1" public="1" set="null" static="1"><x path="Int"/></CONNECTION_TIMEOUT>
+		<FILE_APPEND final="1" public="1" set="null" static="1">
+			<x path="Int"/>
+			<haxe_doc>@see http://php.net/manual/fr/filesystem.constants.php</haxe_doc>
+		</FILE_APPEND>
+		<FILE_BINARY final="1" public="1" set="null" static="1"><x path="Int"/></FILE_BINARY>
+		<FILE_IGNORE_NEW_LINES final="1" public="1" set="null" static="1"><x path="Int"/></FILE_IGNORE_NEW_LINES>
+		<FILE_NO_DEFAULT_CONTEXT final="1" public="1" set="null" static="1"><x path="Int"/></FILE_NO_DEFAULT_CONTEXT>
+		<FILE_SKIP_EMPTY_LINES final="1" public="1" set="null" static="1"><x path="Int"/></FILE_SKIP_EMPTY_LINES>
+		<FILE_TEXT final="1" public="1" set="null" static="1"><x path="Int"/></FILE_TEXT>
+		<FILE_USE_INCLUDE_PATH final="1" public="1" set="null" static="1"><x path="Int"/></FILE_USE_INCLUDE_PATH>
 		<haxe_doc>This class contains externs for native PHP constants defined in global namespace.
 	For native PHP functions in global namespace see `php.Global`.</haxe_doc>
 		<meta>
@@ -2250,10 +2267,10 @@
 				<x path="Float"/>
 				<x path="Bool"/>
 			</f>
-			<haxe_doc>Tells if `f` is not a valid number.
+			<haxe_doc>Tells if `f` is `Math.NaN`.
 
 		If `f` is `NaN`, the result is `true`, otherwise the result is `false`.
-		In particular, both `POSITIVE_INFINITY` and `NEGATIVE_INFINITY` are
+		In particular, `null`, `POSITIVE_INFINITY` and `NEGATIVE_INFINITY` are
 		not considered `NaN`.</haxe_doc>
 		</isNaN>
 		<isFinite public="1" get="inline" set="null" line="91" static="1">
@@ -7664,6 +7681,37 @@
 			<meta><m n=":value"><e>{ enable : null }</e></m></meta>
 			<haxe_doc>@see http://php.net/manual/en/function.ignore-user-abort.php</haxe_doc>
 		</ignore_user_abort>
+		<highlight_file public="1" set="method" static="1">
+			<f a="filename:?returns" v=":false">
+				<c path="String"/>
+				<x path="Bool"/>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ returns : false }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.highlight-file.php</haxe_doc>
+		</highlight_file>
+		<highlight_string public="1" set="method" static="1">
+			<f a="string:?returns" v=":false">
+				<c path="String"/>
+				<x path="Bool"/>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<x path="Bool"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ returns : false }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.highlight-string.php</haxe_doc>
+		</highlight_string>
+		<php_strip_whitespace public="1" set="method" static="1">
+			<f a="filename">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>@see http://php.net/manual/en/function.php-strip-whitespace.php</haxe_doc>
+		</php_strip_whitespace>
 		<haxe_doc>This class contains externs for native PHP functions defined in global namespace.
 	For native PHP constants in global namespace see `php.Const`.</haxe_doc>
 		<meta>
@@ -7677,14 +7725,39 @@
 			<meta><m n=":value"><e><![CDATA[new NativeAssocArray<String>()]]></e></m></meta>
 			<haxe_doc>Environment variables set by `Sys.putEnv()`</haxe_doc>
 		</customEnvVars>
-		<print public="1" get="inline" set="null" line="32" static="1">
+		<isWindows final="1" set="null" expr="systemName() == &quot;Windows&quot;" line="33" static="1">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>systemName() == "Windows"</e></m></meta>
+		</isWindows>
+		<envCapitalization get="accessor" set="null" static="1"><t path="Map">
+	<c path="String"/>
+	<c path="String"/>
+</t></envCapitalization>
+		<get_envCapitalization set="method" line="37" static="1"><f a=""><t path="Map">
+	<c path="String"/>
+	<c path="String"/>
+</t></f></get_envCapitalization>
+		<addCustom get="inline" set="null" line="43" static="1"><f a="name:value">
+	<c path="String"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></addCustom>
+		<removeCustom get="inline" set="null" line="53" static="1"><f a="name">
+	<c path="String"/>
+	<x path="Void"/>
+</f></removeCustom>
+		<getCapitalization get="inline" set="null" line="60" static="1"><f a="name">
+	<c path="String"/>
+	<c path="String"/>
+</f></getCapitalization>
+		<print public="1" get="inline" set="null" line="69" static="1">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Prints any value to the standard output.</haxe_doc>
 		</print>
-		<println public="1" get="inline" set="null" line="36" static="1">
+		<println public="1" get="inline" set="null" line="73" static="1">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
@@ -7693,7 +7766,7 @@
 		On Windows, this function outputs a CRLF newline.
 		LF newlines are printed on all other platforms.</haxe_doc>
 		</println>
-		<args public="1" set="method" line="40" static="1">
+		<args public="1" set="method" line="77" static="1">
 			<f a=""><c path="Array"><c path="String"/></c></f>
 			<haxe_doc>Returns all the arguments that were passed in the command line.
 		This does not include the interpreter or the name of the program file.
@@ -7702,7 +7775,7 @@
 
 		(cs) Non-ASCII Unicode arguments will not work correctly.</haxe_doc>
 		</args>
-		<getEnv public="1" set="method" line="48" static="1">
+		<getEnv public="1" set="method" line="85" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="String"/>
@@ -7710,7 +7783,7 @@
 			<haxe_doc>Returns the value of the given environment variable, or `null` if it
 		doesn't exist.</haxe_doc>
 		</getEnv>
-		<putEnv public="1" set="method" line="53" static="1">
+		<putEnv public="1" set="method" line="90" static="1">
 			<f a="s:v">
 				<c path="String"/>
 				<x path="Null"><c path="String"/></x>
@@ -7722,14 +7795,14 @@
 
 		(java) This functionality is not available on Java; calling this function will throw.</haxe_doc>
 		</putEnv>
-		<sleep public="1" get="inline" set="null" line="63" static="1">
+		<sleep public="1" get="inline" set="null" line="100" static="1">
 			<f a="seconds">
 				<x path="Float"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Suspends execution for the given length of time (in seconds).</haxe_doc>
 		</sleep>
-		<setTimeLocale public="1" get="inline" set="null" line="67" static="1">
+		<setTimeLocale public="1" get="inline" set="null" line="104" static="1">
 			<f a="loc">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -7737,11 +7810,11 @@
 			<haxe_doc>Changes the current time locale, which will affect `DateTools.format` date formating.
 		Returns `true` if the locale was successfully changed.</haxe_doc>
 		</setTimeLocale>
-		<getCwd public="1" set="method" line="71" static="1">
+		<getCwd public="1" set="method" line="108" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Gets the current working directory (usually the one in which the program was started).</haxe_doc>
 		</getCwd>
-		<setCwd public="1" get="inline" set="null" line="79" static="1">
+		<setCwd public="1" get="inline" set="null" line="116" static="1">
 			<f a="s">
 				<c path="String"/>
 				<x path="Void"/>
@@ -7750,7 +7823,7 @@
 
 		(java) This functionality is not available on Java; calling this function will throw.</haxe_doc>
 		</setCwd>
-		<systemName public="1" set="method" line="83" static="1">
+		<systemName public="1" set="method" line="120" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the type of the current system. Possible values are:
 		 - `"Windows"`
@@ -7758,7 +7831,7 @@
 		 - `"BSD"`
 		 - `"Mac"`</haxe_doc>
 		</systemName>
-		<command public="1" set="method" line="89" static="1">
+		<command public="1" set="method" line="126" static="1">
 			<f a="cmd:?args">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -7778,7 +7851,7 @@
 
 		Use the `sys.io.Process` API for more complex tasks, such as background processes, or providing input to the command.</haxe_doc>
 		</command>
-		<exit public="1" get="inline" set="null" line="106" static="1">
+		<exit public="1" get="inline" set="null" line="143" static="1">
 			<f a="code">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -7788,53 +7861,62 @@
 		(macro)(eval) Being invoked in a macro or eval context (e.g. with `-x` or `--run`) immediately terminates
 		the compilation process, which also prevents the execution of any `--next` sections of compilation arguments.</haxe_doc>
 		</exit>
-		<time public="1" get="inline" set="null" line="110" static="1">
+		<time public="1" get="inline" set="null" line="147" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Gives the most precise timestamp value available (in seconds).</haxe_doc>
 		</time>
-		<cpuTime public="1" set="method" line="114" static="1">
+		<cpuTime public="1" set="method" line="151" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Gives the most precise timestamp value available (in seconds),
 		but only accounts for the actual time spent running on the CPU for the current thread/process.</haxe_doc>
 		</cpuTime>
-		<executablePath public="1" get="inline" set="null" line="118" static="1">
+		<executablePath public="1" get="inline" set="null" line="155" static="1">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":deprecated"><e>"Use programPath instead"</e></m></meta>
 			<haxe_doc>Returns the path to the current executable that we are running.</haxe_doc>
 		</executablePath>
-		<_programPath expr="sys.FileSystem.fullPath(SuperGlobal._SERVER[&quot;SCRIPT_FILENAME&quot;])" line="123" static="1">
+		<_programPath expr="sys.FileSystem.fullPath(SuperGlobal._SERVER[&quot;SCRIPT_FILENAME&quot;])" line="160" static="1">
 			<c path="String"/>
 			<meta><m n=":value"><e>sys.FileSystem.fullPath(SuperGlobal._SERVER["SCRIPT_FILENAME"])</e></m></meta>
 		</_programPath>
-		<programPath public="1" set="method" line="125" static="1">
+		<programPath public="1" set="method" line="162" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the absolute path to the current program file that we are running.
 		Concretely, for an executable binary, it returns the path to the binary.
 		For a script (e.g. a PHP file), it returns the path to the script.</haxe_doc>
 		</programPath>
-		<environment public="1" set="method" line="129" static="1">
+		<environment public="1" set="method" line="166" static="1">
 			<f a=""><t path="Map">
 	<c path="String"/>
 	<c path="String"/>
 </t></f>
 			<haxe_doc>Returns a map of the current environment variables and their values
-		as of the invocation of the function.</haxe_doc>
+		as of the invocation of the function.
+
+		(python) On Windows, the variable names are always in upper case.
+
+		(cpp)(hl)(neko) On Windows, the variable names match the last capitalization used when modifying
+		the variable if the variable has been modified, otherwise they match their capitalization at
+		the start of the process.
+
+		On Windows on remaining targets, variable name capitalization matches however they were capitalized
+		at the start of the process or at the moment of their creation.</haxe_doc>
 		</environment>
-		<stdin public="1" set="method" line="137" static="1">
+		<stdin public="1" set="method" line="175" static="1">
 			<f a=""><c path="haxe.io.Input"/></f>
 			<haxe_doc>Returns the standard input of the process, from which user input can be read.
 		Usually it will block until the user sends a full input line.
 		See `getChar` for an alternative.</haxe_doc>
 		</stdin>
-		<stdout public="1" set="method" line="142" static="1">
+		<stdout public="1" set="method" line="180" static="1">
 			<f a=""><c path="haxe.io.Output"/></f>
 			<haxe_doc>Returns the standard output of the process, to which program output can be written.</haxe_doc>
 		</stdout>
-		<stderr public="1" set="method" line="147" static="1">
+		<stderr public="1" set="method" line="185" static="1">
 			<f a=""><c path="haxe.io.Output"/></f>
 			<haxe_doc>Returns the standard error of the process, to which program errors can be written.</haxe_doc>
 		</stderr>
-		<getChar public="1" set="method" line="152" static="1">
+		<getChar public="1" set="method" line="190" static="1">
 			<f a="echo">
 				<x path="Bool"/>
 				<x path="Int"/>
@@ -9912,7 +9994,22 @@
 
 		If `v` is `null`, the result is unspecified.</haxe_doc>
 	</unset>
-	<ofInt public="1" params="T" get="inline" set="null" line="83" static="1">
+	<setTo public="1" get="inline" set="null" line="88" static="1">
+		<f a="this:v:condition">
+			<x path="Int"/>
+			<c path="haxe.EnumFlags.T"/>
+			<x path="Bool"/>
+			<x path="Void"/>
+		</f>
+		<haxe_doc>Depending on the value of `condition` sets (`condition=true`) or unsets (`condition=false`)
+		the index of enum instance `v`.
+
+		This method is optimized if `v` is an enum instance expression such as
+		`SomeEnum.SomeCtor`.
+
+		If `v` is `null`, the result is unspecified.</haxe_doc>
+	</setTo>
+	<ofInt public="1" params="T" get="inline" set="null" line="99" static="1">
 		<f a="i">
 			<x path="Int"/>
 			<x path="haxe.EnumFlags"><c path="ofInt.T"/></x>
@@ -9920,7 +10017,7 @@
 		<haxe_doc>Convert a integer bitflag into a typed one (this is a no-op, it does not
 		have any impact on speed).</haxe_doc>
 	</ofInt>
-	<toInt public="1" get="inline" set="null" line="91" static="1">
+	<toInt public="1" get="inline" set="null" line="107" static="1">
 		<f a="this">
 			<x path="Int"/>
 			<x path="Int"/>
@@ -9981,7 +10078,22 @@
 
 		If `v` is `null`, the result is unspecified.</haxe_doc>
 		</unset>
-		<ofInt public="1" params="T" get="inline" set="null" line="83" static="1">
+		<setTo public="1" get="inline" set="null" line="88" static="1">
+			<f a="this:v:condition">
+				<x path="Int"/>
+				<c path="haxe.EnumFlags.T"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Depending on the value of `condition` sets (`condition=true`) or unsets (`condition=false`)
+		the index of enum instance `v`.
+
+		This method is optimized if `v` is an enum instance expression such as
+		`SomeEnum.SomeCtor`.
+
+		If `v` is `null`, the result is unspecified.</haxe_doc>
+		</setTo>
+		<ofInt public="1" params="T" get="inline" set="null" line="99" static="1">
 			<f a="i">
 				<x path="Int"/>
 				<x path="haxe.EnumFlags"><c path="ofInt.T"/></x>
@@ -9989,7 +10101,7 @@
 			<haxe_doc>Convert a integer bitflag into a typed one (this is a no-op, it does not
 		have any impact on speed).</haxe_doc>
 		</ofInt>
-		<toInt public="1" get="inline" set="null" line="91" static="1">
+		<toInt public="1" get="inline" set="null" line="107" static="1">
 			<f a="this">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -30028,11 +30140,13 @@
 		<meta><m n=":flatEnum"/></meta>
 	</enum>
 	<enum path="haxe.macro.Constant" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
-		<CInt a="v">
+		<CInt a="v:?s">
+			<c path="String"/>
 			<c path="String"/>
 			<haxe_doc>Represents an integer literal.</haxe_doc>
 		</CInt>
-		<CFloat a="f">
+		<CFloat a="f:?s">
+			<c path="String"/>
 			<c path="String"/>
 			<haxe_doc>Represents a float literal.</haxe_doc>
 		</CFloat>
@@ -30474,6 +30588,11 @@
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>The metadata of the type parameter.</haxe_doc>
 			</meta>
+			<defaultType>
+				<x path="Null"><e path="haxe.macro.ComplexType"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>The optional default type of the type parameter.</haxe_doc>
+			</defaultType>
 			<constraints>
 				<x path="Null"><c path="Array"><e path="haxe.macro.ComplexType"/></c></x>
 				<meta><m n=":optional"/></meta>
@@ -30715,7 +30834,7 @@
 			<t path="haxe.macro.Position"/>
 			<haxe_doc>The position of the error.</haxe_doc>
 		</pos>
-		<new public="1" set="method" line="995">
+		<new public="1" set="method" line="1000">
 			<f a="message:pos:?previous">
 				<c path="String"/>
 				<t path="haxe.macro.Position"/>
@@ -31075,74 +31194,74 @@
 	<e path="haxe.macro.Constant"/>
 	<c path="String"/>
 </f></printConstant>
-		<printTypeParam public="1" set="method" line="110"><f a="param">
+		<printTypeParam public="1" set="method" line="112"><f a="param">
 	<e path="haxe.macro.TypeParam"/>
 	<c path="String"/>
 </f></printTypeParam>
-		<printTypePath public="1" set="method" line="116"><f a="tp">
+		<printTypePath public="1" set="method" line="118"><f a="tp">
 	<t path="haxe.macro.TypePath"/>
 	<c path="String"/>
 </f></printTypePath>
-		<printComplexType public="1" set="method" line="123"><f a="ct">
+		<printComplexType public="1" set="method" line="125"><f a="ct">
 	<e path="haxe.macro.ComplexType"/>
 	<c path="String"/>
 </f></printComplexType>
-		<printMetadata public="1" set="method" line="151"><f a="meta">
+		<printMetadata public="1" set="method" line="153"><f a="meta">
 	<t path="haxe.macro.MetadataEntry"/>
 	<c path="String"/>
 </f></printMetadata>
-		<printAccess public="1" set="method" line="154"><f a="access">
+		<printAccess public="1" set="method" line="156"><f a="access">
 	<e path="haxe.macro.Access"/>
 	<c path="String"/>
 </f></printAccess>
-		<printField public="1" set="method" line="168"><f a="field">
+		<printField public="1" set="method" line="170"><f a="field">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printField>
-		<printTypeParamDecl public="1" set="method" line="193"><f a="tpd">
+		<printTypeParamDecl public="1" set="method" line="195"><f a="tpd">
 	<t path="haxe.macro.TypeParamDecl"/>
 	<c path="String"/>
 </f></printTypeParamDecl>
-		<printFunctionArg public="1" set="method" line="199"><f a="arg">
+		<printFunctionArg public="1" set="method" line="202"><f a="arg">
 	<t path="haxe.macro.FunctionArg"/>
 	<c path="String"/>
 </f></printFunctionArg>
-		<printFunction public="1" set="method" line="201"><f a="func:?kind">
+		<printFunction public="1" set="method" line="204"><f a="func:?kind">
 	<t path="haxe.macro.Function"/>
 	<e path="haxe.macro.FunctionKind"/>
 	<c path="String"/>
 </f></printFunction>
-		<printVar public="1" set="method" line="215"><f a="v">
+		<printVar public="1" set="method" line="218"><f a="v">
 	<t path="haxe.macro.Var"/>
 	<c path="String"/>
 </f></printVar>
-		<printObjectFieldKey public="1" set="method" line="223"><f a="of">
+		<printObjectFieldKey public="1" set="method" line="226"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectFieldKey>
-		<printObjectField public="1" set="method" line="230"><f a="of">
+		<printObjectField public="1" set="method" line="233"><f a="of">
 	<t path="haxe.macro.ObjectField"/>
 	<c path="String"/>
 </f></printObjectField>
-		<printExpr public="1" set="method" line="235"><f a="e">
+		<printExpr public="1" set="method" line="238"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExpr>
-		<printExprs public="1" set="method" line="291"><f a="el:sep">
+		<printExprs public="1" set="method" line="294"><f a="el:sep">
 	<c path="Array"><t path="haxe.macro.Expr"/></c>
 	<c path="String"/>
 	<c path="String"/>
 </f></printExprs>
-		<printExtension set="method" line="295"><f a="tpl:fields">
+		<printExtension set="method" line="298"><f a="tpl:fields">
 	<c path="Array"><t path="haxe.macro.TypePath"/></c>
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printExtension>
-		<printStructure set="method" line="302"><f a="fields">
+		<printStructure set="method" line="305"><f a="fields">
 	<c path="Array"><t path="haxe.macro.Field"/></c>
 	<c path="String"/>
 </f></printStructure>
-		<printTypeDefinition public="1" set="method" line="306">
+		<printTypeDefinition public="1" set="method" line="309">
 			<f a="t:?printPackage" v=":true">
 				<t path="haxe.macro.TypeDefinition"/>
 				<x path="Bool"/>
@@ -31150,11 +31269,11 @@
 			</f>
 			<meta><m n=":value"><e>{ printPackage : true }</e></m></meta>
 		</printTypeDefinition>
-		<printFieldWithDelimiter set="method" line="407"><f a="f">
+		<printFieldWithDelimiter set="method" line="410"><f a="f">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printFieldWithDelimiter>
-		<opt params="T" set="method" line="418">
+		<opt params="T" set="method" line="421">
 			<f a="v:f:?prefix" v="::&quot;&quot;">
 				<c path="opt.T"/>
 				<f a="">
@@ -31166,7 +31285,7 @@
 			</f>
 			<meta><m n=":value"><e>{ prefix : "" }</e></m></meta>
 		</opt>
-		<printExprWithPositions public="1" set="method" line="420"><f a="e">
+		<printExprWithPositions public="1" set="method" line="423"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExprWithPositions>
@@ -31343,6 +31462,11 @@
 				<c path="String"/>
 				<haxe_doc>The name of the type parameter.</haxe_doc>
 			</name>
+			<defaultType>
+				<x path="Null"><e path="haxe.macro.Type"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>The default type for this type parameter.</haxe_doc>
+			</defaultType>
 		</a>
 		<haxe_doc>Represents the declaration of type parameters.</haxe_doc>
 	</typedef>
@@ -39122,6 +39246,50 @@
 		<impl><class path="php._Resource.Resource_Impl_" params="" file="/home/runner/work/haxe/haxe/std/php/Resource.hx" private="1" module="php.Resource" extern="1" final="1"/></impl>
 	</abstract>
 	<class path="php._Resource.Resource_Impl_" params="" file="/home/runner/work/haxe/haxe/std/php/Resource.hx" private="1" module="php.Resource" extern="1" final="1"/>
+	<class path="php.ResourceBundle" params="" file="/home/runner/work/haxe/haxe/std/php/ResourceBundle.hx" extern="1">
+		<create public="1" set="method" static="1">
+			<f a="locale:bundle:?fallback" v="::true">
+				<x path="Null"><c path="String"/></x>
+				<x path="Null"><c path="String"/></x>
+				<x path="Bool"/>
+				<x path="Null"><c path="php.ResourceBundle"/></x>
+			</f>
+			<meta><m n=":value"><e>{ fallback : true }</e></m></meta>
+		</create>
+		<getLocales public="1" set="method" static="1"><f a="bundle">
+	<c path="String"/>
+	<x path="haxe.extern.EitherType">
+		<x path="php.NativeIndexedArray"><c path="String"/></x>
+		<x path="Bool"/>
+	</x>
+</f></getLocales>
+		<count public="1" set="method"><f a=""><x path="Int"/></f></count>
+		<get public="1" set="method">
+			<f a="index:?fallback" v=":true">
+				<x path="haxe.extern.EitherType">
+					<x path="Int"/>
+					<c path="String"/>
+				</x>
+				<x path="Bool"/>
+				<d/>
+			</f>
+			<meta><m n=":value"><e>{ fallback : true }</e></m></meta>
+		</get>
+		<getErrorCode public="1" set="method"><f a=""><x path="Int"/></f></getErrorCode>
+		<getErrorMessage public="1" set="method"><f a=""><c path="String"/></f></getErrorMessage>
+		<new public="1" set="method">
+			<f a="locale:bundle:?fallback" v="::true">
+				<x path="Null"><c path="String"/></x>
+				<x path="Null"><c path="String"/></x>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ fallback : true }</e></m></meta>
+		</new>
+		<haxe_doc>The `ResourceBundle` class implements access to ICU resource data files.
+	@see https://www.php.net/manual/en/class.resourcebundle.php</haxe_doc>
+		<meta><m n=":native"><e>"ResourceBundle"</e></m></meta>
+	</class>
 	<class path="php.RuntimeException" params="" file="/home/runner/work/haxe/haxe/std/php/RuntimeException.hx" extern="1">
 		<extends path="php.Exception"/>
 		<haxe_doc>Exception thrown if an error which can only be found on runtime occurs.</haxe_doc>
@@ -40452,6 +40620,7 @@
 			<x path="Int"/>
 			<meta><m n=":phpClassConst"/></meta>
 		</PARAM_EVT_NORMALIZE>
+		<getAvailableDrivers public="1" set="method" static="1"><f a=""><x path="php.NativeIndexedArray"><c path="String"/></x></f></getAvailableDrivers>
 		<beginTransaction public="1" set="method"><f a=""><x path="Bool"/></f></beginTransaction>
 		<commit public="1" set="method"><f a=""><x path="Bool"/></f></commit>
 		<errorCode public="1" set="method"><f a=""><d/></f></errorCode>
@@ -40464,7 +40633,6 @@
 	<x path="Int"/>
 	<d/>
 </f></getAttribute>
-		<getAvailableDrivers public="1" set="method"><f a=""><x path="php.NativeArray"/></f></getAvailableDrivers>
 		<lastInsertId public="1" set="method"><f a="?name">
 	<c path="String"/>
 	<c path="String"/>
