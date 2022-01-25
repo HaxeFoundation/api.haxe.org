@@ -6180,34 +6180,38 @@
 			</f>
 			<haxe_doc>Schedule event for execution every `intervalMs` milliseconds in current loop.</haxe_doc>
 		</repeat>
-		<cancel public="1" set="method" line="56">
+		<insertEventByTime set="method" line="47"><f a="event">
+	<c path="sys.thread._EventLoop.RegularEvent"/>
+	<x path="Void"/>
+</f></insertEventByTime>
+		<cancel public="1" set="method" line="81">
 			<f a="eventHandler">
 				<x path="sys.thread.EventHandler"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Prevent execution of a previously scheduled event in current loop.</haxe_doc>
 		</cancel>
-		<promise public="1" set="method" line="78">
+		<promise public="1" set="method" line="104">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Notify this loop about an upcoming event.
 		This makes the thread to stay alive and wait for as many events as many times
 		`.promise()` was called. These events should be added via `.runPromised()`</haxe_doc>
 		</promise>
-		<run public="1" set="method" line="87">
+		<run public="1" set="method" line="113">
 			<f a="event">
 				<f a=""><x path="Void"/></f>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Execute `event` as soon as possible.</haxe_doc>
 		</run>
-		<runPromised public="1" set="method" line="97">
+		<runPromised public="1" set="method" line="123">
 			<f a="event">
 				<f a=""><x path="Void"/></f>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Add previously promised `event` for execution.</haxe_doc>
 		</runPromised>
-		<progress public="1" set="method" line="113">
+		<progress public="1" set="method" line="139">
 			<f a=""><e path="sys.thread.NextEventTime"/></f>
 			<haxe_doc>Executes all pending events.
 
@@ -6216,7 +6220,7 @@
 		Depending on a target platform this method may be non-reentrant. It must
 		not be called from event callbacks.</haxe_doc>
 		</progress>
-		<wait public="1" set="method" line="135">
+		<wait public="1" set="method" line="161">
 			<f a="?timeout">
 				<x path="Float"/>
 				<x path="Bool"/>
@@ -6232,7 +6236,7 @@
 		Depending on a target platform this method may be non-reentrant. It must
 		not be called from event callbacks.</haxe_doc>
 		</wait>
-		<loop public="1" set="method" line="147">
+		<loop public="1" set="method" line="173">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Execute all pending events.
 		Wait and execute as many events as many times `promiseEvent()` was called.
@@ -6241,9 +6245,10 @@
 		Depending on a target platform this method may be non-reentrant. It must
 		not be called from event callbacks.</haxe_doc>
 		</loop>
-		<__progress get="inline" set="null" line="172">
-			<f a="now:recycle">
+		<__progress get="inline" set="null" line="199">
+			<f a="now:recycleRegular:recycleOneTimers">
 				<x path="Float"/>
+				<c path="Array"><c path="sys.thread._EventLoop.RegularEvent"/></c>
 				<c path="Array"><f a=""><x path="Void"/></f></c>
 				<a>
 					<nextEventAt><x path="Float"/></nextEventAt>
@@ -37894,7 +37899,11 @@
 		<run final="1" public="1"><f a=""><x path="Void"/></f></run>
 		<next public="1"><x path="Null"><c path="sys.thread._EventLoop.RegularEvent"/></x></next>
 		<previous public="1"><x path="Null"><c path="sys.thread._EventLoop.RegularEvent"/></x></previous>
-		<new public="1" set="method" line="240"><f a="run:nextRunTime:interval">
+		<cancelled public="1" expr="false">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>false</e></m></meta>
+		</cancelled>
+		<new public="1" set="method" line="270"><f a="run:nextRunTime:interval">
 	<f a=""><x path="Void"/></f>
 	<x path="Float"/>
 	<x path="Float"/>
