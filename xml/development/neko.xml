@@ -35291,6 +35291,52 @@
 		<haxe_doc>A TLS socket class : allow you to both connect to a given server and exchange messages or start your own server and wait for connections.</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
+	<class path="sys.thread.Condition" params="" file="/usr/local/share/haxe/std/sys/thread/Condition.hx" extern="1">
+		<acquire public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Acquires the internal mutex.</haxe_doc>
+		</acquire>
+		<tryAcquire public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>Tries to acquire the internal mutex.
+		@see `Mutex.tryAcquire`</haxe_doc>
+		</tryAcquire>
+		<release public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>*
+		Releases the internal mutex.</haxe_doc>
+		</release>
+		<wait public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Atomically releases the mutex and blocks until the condition variable pointed is signaled by a call to
+		`signal` or to `broadcast`. When the calling thread becomes unblocked it
+		acquires the internal mutex.
+		The internal mutex should be locked before this function is called.</haxe_doc>
+		</wait>
+		<signal public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Unblocks one of the threads that are blocked on the
+		condition variable at the time of the call. If no threads are blocked
+		on the condition variable at the time of the call, the function does nothing.</haxe_doc>
+		</signal>
+		<broadcast public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Unblocks all of the threads that are blocked on the
+		condition variable at the time of the call. If no threads are blocked
+		on the condition variable at the time of the call, the function does
+		nothing.</haxe_doc>
+		</broadcast>
+		<new public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Create a new condition variable.
+		A thread that waits on a newly created condition variable will block.</haxe_doc>
+		</new>
+		<haxe_doc>Creates a new condition variable.
+	Conditions variables can be used to block one or more threads at the same time,
+	until another thread modifies a shared variable (the condition)
+	and signals the condition variable.</haxe_doc>
+		<meta><m n=":coreApi"/></meta>
+	</class>
 	<class path="sys.thread.Deque" params="T" file="/usr/local/share/haxe/std/neko/_std/sys/thread/Deque.hx">
 		<deque_create expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;deque_create&quot;, 0)" line="45" static="1">
 			<f a=""><unknown/></f>
@@ -35690,6 +35736,38 @@
 			</f>
 			<meta><m n=":value"><e>{ msg : "Event loop is not available. Refer to sys.thread.Thread.runWithEventLoop." }</e></m></meta>
 		</new>
+	</class>
+	<class path="sys.thread.Semaphore" params="" file="/usr/local/share/haxe/std/sys/thread/Semaphore.hx" extern="1">
+		<acquire public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Locks the semaphore.
+		If the value of the semaphore is zero, then the thread will block until it is able to lock the semaphore.
+		If the value is non-zero, it is decreased by one.</haxe_doc>
+		</acquire>
+		<tryAcquire public="1" set="method">
+			<f a="?timeout">
+				<x path="Float"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Try to lock the semaphore.
+		If the value of the semaphore is zero, `false` is returned, else the value is increased.
+
+		If `timeout` is specified, this function will block until the thread is able to acquire the semaphore, or the timout expires.
+		`timeout` is in seconds.</haxe_doc>
+		</tryAcquire>
+		<release public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Release the semaphore.
+		The value of the semaphore is increased by one.</haxe_doc>
+		</release>
+		<new public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new semaphore with an initial value.</haxe_doc>
+		</new>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<typedef path="sys.thread._Thread.ThreadImpl" params="" file="/usr/local/share/haxe/std/neko/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread"><c path="sys.thread._Thread.HaxeThread"/></typedef>
 	<abstract path="sys.thread.Thread" params="" file="/usr/local/share/haxe/std/neko/_std/sys/thread/Thread.hx">
