@@ -7707,7 +7707,7 @@
 	<https://haxe.org/manual/std-template.html>]]></haxe_doc>
 	</class>
 	<class path="haxe.Timer" params="" file="/usr/local/share/haxe/std/haxe/Timer.hx">
-		<delay public="1" set="method" line="140" static="1">
+		<delay public="1" set="method" line="145" static="1">
 			<f a="f:time_ms">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -7721,7 +7721,7 @@
 
 		If `f` is `null`, the result is unspecified.</haxe_doc>
 		</delay>
-		<measure public="1" params="T" set="method" line="160" static="1">
+		<measure public="1" params="T" set="method" line="165" static="1">
 			<f a="f:?pos">
 				<f a=""><c path="measure.T"/></f>
 				<x path="Null"><t path="haxe.PosInfos"/></x>
@@ -7737,7 +7737,7 @@
 
 		If `f` is `null`, the result is unspecified.</haxe_doc>
 		</measure>
-		<stamp public="1" get="inline" set="null" line="173" static="1">
+		<stamp public="1" get="inline" set="null" line="178" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Returns a timestamp, in seconds with fractions.
 
@@ -7745,7 +7745,7 @@
 		between two values make sense.</haxe_doc>
 		</stamp>
 		<event><c path="haxe.MainEvent"/></event>
-		<stop public="1" set="method" line="95">
+		<stop public="1" set="method" line="100">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Stops `this` Timer.
 
@@ -7754,7 +7754,7 @@
 
 		It is not possible to restart `this` Timer once stopped.</haxe_doc>
 		</stop>
-		<run public="1" set="dynamic" line="129">
+		<run public="1" set="dynamic" line="134">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>This method is invoked repeatedly on `this` Timer.
 
@@ -7769,7 +7769,7 @@
 		Once bound, it can still be rebound to different functions until `this`
 		Timer is stopped through a call to `this.stop`.</haxe_doc>
 		</run>
-		<new public="1" set="method" line="65">
+		<new public="1" set="method" line="70">
 			<f a="time_ms">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -7795,7 +7795,12 @@
 	automatically when `main()` returns.
 
 	It is also possible to extend this class and override its `run()` method in
-	the child class.</haxe_doc>
+	the child class.
+
+	Notice for threaded targets:
+	`Timer` instances require threads they were created in to run with Haxe's event loops.
+	Main thread of a Haxe program always contains an event loop. For other cases use 
+	`sys.thread.Thread.createWithEventLoop` and `sys.thread.Thread.runWithEventLoop` methods.</haxe_doc>
 	</class>
 	<abstract path="haxe.Ucs2" params="" file="/usr/local/share/haxe/std/haxe/Ucs2.hx">
 		<this><c path="String"/></this>
