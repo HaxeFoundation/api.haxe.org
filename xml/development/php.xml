@@ -30238,6 +30238,11 @@
 	@see https://haxe.org/manual/types-numeric-operators.html</haxe_doc>
 		<meta><m n=":flatEnum"/></meta>
 	</enum>
+	<enum path="haxe.macro.EFieldKind" params="" file="/usr/local/share/haxe/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
+		<Normal/>
+		<Safe/>
+		<meta><m n=":flatEnum"/></meta>
+	</enum>
 	<typedef path="haxe.macro.Expr" params="" file="/usr/local/share/haxe/std/haxe/macro/Expr.hx">
 		<a>
 			<pos>
@@ -30382,10 +30387,13 @@
 			<t path="haxe.macro.Expr"/>
 			<haxe_doc>Binary operator `e1 op e2`.</haxe_doc>
 		</EBinop>
-		<EField a="e:field">
+		<EField a="e:field:?kind">
 			<t path="haxe.macro.Expr"/>
 			<c path="String"/>
-			<haxe_doc>Field access on `e.field`.</haxe_doc>
+			<e path="haxe.macro.EFieldKind"/>
+			<haxe_doc>Field access on `e.field`.
+
+		If `kind` is null, it is equal to Normal.</haxe_doc>
 		</EField>
 		<EParenthesis a="e">
 			<t path="haxe.macro.Expr"/>
@@ -30861,7 +30869,7 @@
 			<t path="haxe.macro.Position"/>
 			<haxe_doc>The position of the error.</haxe_doc>
 		</pos>
-		<new public="1" set="method" line="1010">
+		<new public="1" set="method" line="1017">
 			<f a="message:pos:?previous">
 				<c path="String"/>
 				<t path="haxe.macro.Position"/>
