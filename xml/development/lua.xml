@@ -32423,6 +32423,86 @@
 </f></parse>
 		<meta><m n=":luaRequire"><e>"hxsimdjson"</e></m></meta>
 	</class>
+	<class path="lua.lib.luasec.Ssl" params="" file="/usr/local/share/haxe/std/lua/lib/luasec/Ssl.hx" extern="1">
+		<wrap public="1" set="method" static="1"><f a="sock:params">
+	<t path="lua.lib.luasocket._Socket.LuaSocket"/>
+	<t path="lua.lib.luasec.SslParams"/>
+	<c path="lua.Result"><c path="lua.lib.luasec.SslTcpClient"/></c>
+</f></wrap>
+		<meta><m n=":luaRequire"><e>"ssl"</e></m></meta>
+	</class>
+	<typedef path="lua.lib.luasec.SslParams" params="" file="/usr/local/share/haxe/std/lua/lib/luasec/Ssl.hx" module="lua.lib.luasec.Ssl"><a>
+	<protocol><x path="lua.lib.luasec.Protocol"/></protocol>
+	<mode><x path="lua.lib.luasec.Mode"/></mode>
+</a></typedef>
+	<abstract path="lua.lib.luasec.Mode" params="" file="/usr/local/share/haxe/std/lua/lib/luasec/Ssl.hx" module="lua.lib.luasec.Ssl">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="lua.lib.luasec._Ssl.Mode_Impl_" params="" file="/usr/local/share/haxe/std/lua/lib/luasec/Ssl.hx" private="1" module="lua.lib.luasec.Ssl" extern="1" final="1">
+	<Client public="1" get="inline" set="null" expr="cast &quot;client&quot;" line="38" static="1">
+		<x path="lua.lib.luasec.Mode"/>
+		<meta>
+			<m n=":value"><e>cast "client"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</Client>
+	<Server public="1" get="inline" set="null" expr="cast &quot;server&quot;" line="39" static="1">
+		<x path="lua.lib.luasec.Mode"/>
+		<meta>
+			<m n=":value"><e>cast "server"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</Server>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="lua.lib.luasec._Ssl.Mode_Impl_" params="" file="/usr/local/share/haxe/std/lua/lib/luasec/Ssl.hx" private="1" module="lua.lib.luasec.Ssl" extern="1" final="1">
+		<Client public="1" get="inline" set="null" expr="cast &quot;client&quot;" line="38" static="1">
+			<x path="lua.lib.luasec.Mode"/>
+			<meta>
+				<m n=":value"><e>cast "client"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</Client>
+		<Server public="1" get="inline" set="null" expr="cast &quot;server&quot;" line="39" static="1">
+			<x path="lua.lib.luasec.Mode"/>
+			<meta>
+				<m n=":value"><e>cast "server"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</Server>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<abstract path="lua.lib.luasec.Protocol" params="" file="/usr/local/share/haxe/std/lua/lib/luasec/Ssl.hx" module="lua.lib.luasec.Ssl">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="lua.lib.luasec._Ssl.Protocol_Impl_" params="" file="/usr/local/share/haxe/std/lua/lib/luasec/Ssl.hx" private="1" module="lua.lib.luasec.Ssl" extern="1" final="1">
+	<Any public="1" get="inline" set="null" expr="cast &quot;any&quot;" line="43" static="1">
+		<x path="lua.lib.luasec.Protocol"/>
+		<meta>
+			<m n=":value"><e>cast "any"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</Any>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="lua.lib.luasec._Ssl.Protocol_Impl_" params="" file="/usr/local/share/haxe/std/lua/lib/luasec/Ssl.hx" private="1" module="lua.lib.luasec.Ssl" extern="1" final="1">
+		<Any public="1" get="inline" set="null" expr="cast &quot;any&quot;" line="43" static="1">
+			<x path="lua.lib.luasec.Protocol"/>
+			<meta>
+				<m n=":value"><e>cast "any"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</Any>
+		<meta><m n=":enum"/></meta>
+	</class>
 	<class path="lua.lib.luasocket.Socket" params="" file="/usr/local/share/haxe/std/lua/lib/luasocket/Socket.hx" extern="1">
 		<_DEBUG public="1" static="1"><x path="Bool"/></_DEBUG>
 		<_VERSION public="1" static="1"><c path="String"/></_VERSION>
@@ -32461,6 +32541,48 @@
 	<x path="Void"/>
 </f></settimeout>
 		<meta><m n=":luaRequire"><e>"socket"</e></m></meta>
+	</class>
+	<class path="lua.lib.luasocket.socket.TcpClient" params="" file="/usr/local/share/haxe/std/lua/lib/luasocket/socket/TcpClient.hx" extern="1">
+		<extends path="lua.lib.luasocket.Socket"/>
+		<getpeername public="1" set="method"><f a=""><c path="lua.lib.luasocket.socket.AddrInfo"/></f></getpeername>
+		<receive public="1" set="method"><f a="pattern:?prefix">
+	<x path="haxe.extern.EitherType">
+		<x path="lua.lib.luasocket.socket.ReceivePattern"/>
+		<x path="Int"/>
+	</x>
+	<c path="String"/>
+	<c path="lua.Result"><c path="String"/></c>
+</f></receive>
+		<send public="1" set="method"><f a="data:?i:?j">
+	<c path="String"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<c path="lua.Result"><x path="Int"/></c>
+</f></send>
+		<shutdown public="1" set="method"><f a="mode">
+	<x path="lua.lib.luasocket.socket.ShutdownMode"/>
+	<c path="lua.Result"><x path="Int"/></c>
+</f></shutdown>
+		<settimeout public="1" set="method" override="1"><f a="value:?mode">
+	<x path="Float"/>
+	<x path="lua.lib.luasocket.socket.TimeoutMode"/>
+	<x path="Void"/>
+</f></settimeout>
+		<setoption public="1" set="method"><f a="option:value">
+	<x path="lua.lib.luasocket.socket.TcpOption"/>
+	<x path="haxe.extern.EitherType">
+		<x path="Bool"/>
+		<a>
+			<timeout><x path="Float"/></timeout>
+			<on><x path="Bool"/></on>
+		</a>
+	</x>
+	<x path="Void"/>
+</f></setoption>
+	</class>
+	<class path="lua.lib.luasec.SslTcpClient" params="" file="/usr/local/share/haxe/std/lua/lib/luasec/SslTcpClient.hx" extern="1">
+		<extends path="lua.lib.luasocket.socket.TcpClient"/>
+		<dohandshake public="1" set="method"><f a=""><c path="lua.Result"><x path="Bool"/></c></f></dohandshake>
 	</class>
 	<class path="lua.lib.luasocket.socket.AddrInfo" params="" file="/usr/local/share/haxe/std/lua/lib/luasocket/socket/AddrInfo.hx" extern="1">
 		<address public="1"><c path="String"/></address>
@@ -32584,44 +32706,6 @@
 			</meta>
 		</Receive>
 		<meta><m n=":enum"/></meta>
-	</class>
-	<class path="lua.lib.luasocket.socket.TcpClient" params="" file="/usr/local/share/haxe/std/lua/lib/luasocket/socket/TcpClient.hx" extern="1">
-		<extends path="lua.lib.luasocket.Socket"/>
-		<getpeername public="1" set="method"><f a=""><c path="lua.lib.luasocket.socket.AddrInfo"/></f></getpeername>
-		<receive public="1" set="method"><f a="pattern:?prefix">
-	<x path="haxe.extern.EitherType">
-		<x path="lua.lib.luasocket.socket.ReceivePattern"/>
-		<x path="Int"/>
-	</x>
-	<c path="String"/>
-	<c path="lua.Result"><c path="String"/></c>
-</f></receive>
-		<send public="1" set="method"><f a="data:?i:?j">
-	<c path="String"/>
-	<x path="Int"/>
-	<x path="Int"/>
-	<c path="lua.Result"><x path="Int"/></c>
-</f></send>
-		<shutdown public="1" set="method"><f a="mode">
-	<x path="lua.lib.luasocket.socket.ShutdownMode"/>
-	<c path="lua.Result"><x path="Int"/></c>
-</f></shutdown>
-		<settimeout public="1" set="method" override="1"><f a="value:?mode">
-	<x path="Float"/>
-	<x path="lua.lib.luasocket.socket.TimeoutMode"/>
-	<x path="Void"/>
-</f></settimeout>
-		<setoption public="1" set="method"><f a="option:value">
-	<x path="lua.lib.luasocket.socket.TcpOption"/>
-	<x path="haxe.extern.EitherType">
-		<x path="Bool"/>
-		<a>
-			<timeout><x path="Float"/></timeout>
-			<on><x path="Bool"/></on>
-		</a>
-	</x>
-	<x path="Void"/>
-</f></setoption>
 	</class>
 	<class path="lua.lib.luasocket.socket.TcpMaster" params="" file="/usr/local/share/haxe/std/lua/lib/luasocket/socket/TcpMaster.hx" extern="1">
 		<extends path="lua.lib.luasocket.Socket"/>
@@ -35399,35 +35483,35 @@
 </f></setFastSend>
 		<new public="1" set="method" line="44"><f a=""><x path="Void"/></f></new>
 	</class>
-	<class path="sys.net._Socket.SocketInput" params="" file="/usr/local/share/haxe/std/lua/_std/sys/net/Socket.hx" private="1" module="sys.net.Socket">
+	<class path="sys.net.SocketInput" params="" file="/usr/local/share/haxe/std/lua/_std/sys/net/SocketInput.hx">
 		<extends path="haxe.io.Input"/>
 		<tcp><c path="lua.lib.luasocket.socket.TcpClient"/></tcp>
-		<readByte public="1" set="method" line="171" override="1"><f a=""><x path="Int"/></f></readByte>
-		<readBytes public="1" set="method" line="181" override="1"><f a="s:pos:len">
+		<readByte public="1" set="method" line="38" override="1"><f a=""><x path="Int"/></f></readByte>
+		<readBytes public="1" set="method" line="48" override="1"><f a="s:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></readBytes>
-		<new public="1" set="method" line="167"><f a="tcp">
+		<new public="1" set="method" line="34"><f a="tcp">
 	<c path="lua.lib.luasocket.socket.TcpClient"/>
 	<x path="Void"/>
 </f></new>
 	</class>
-	<class path="sys.net._Socket.SocketOutput" params="" file="/usr/local/share/haxe/std/lua/_std/sys/net/Socket.hx" private="1" module="sys.net.Socket">
+	<class path="sys.net.SocketOutput" params="" file="/usr/local/share/haxe/std/lua/_std/sys/net/SocketOutput.hx">
 		<extends path="haxe.io.Output"/>
 		<tcp><c path="lua.lib.luasocket.socket.TcpClient"/></tcp>
-		<writeByte public="1" set="method" line="211" override="1"><f a="c">
+		<writeByte public="1" set="method" line="38" override="1"><f a="c">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></writeByte>
-		<writeBytes public="1" set="method" line="219" override="1"><f a="s:pos:len">
+		<writeBytes public="1" set="method" line="46" override="1"><f a="s:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></writeBytes>
-		<new public="1" set="method" line="207"><f a="tcp">
+		<new public="1" set="method" line="34"><f a="tcp">
 	<c path="lua.lib.luasocket.socket.TcpClient"/>
 	<x path="Void"/>
 </f></new>
@@ -35666,58 +35750,19 @@
 	<c path="sys.ssl.Key"/>
 </f></readDER>
 	</class>
-	<class path="sys.ssl.Socket" params="" file="/usr/local/share/haxe/std/sys/ssl/Socket.hx" extern="1">
+	<class path="sys.ssl.Socket" params="" file="/usr/local/share/haxe/std/lua/_std/sys/ssl/Socket.hx">
 		<extends path="sys.net.Socket"/>
-		<DEFAULT_VERIFY_CERT public="1" static="1"><x path="Null"><x path="Bool"/></x></DEFAULT_VERIFY_CERT>
-		<DEFAULT_CA public="1" static="1"><x path="Null"><c path="sys.ssl.Certificate"/></x></DEFAULT_CA>
-		<verifyCert public="1">
-			<x path="Null"><x path="Bool"/></x>
-			<haxe_doc>Define if peer certificate is verified during SSL handshake.</haxe_doc>
-		</verifyCert>
-		<handshake public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Perform the SSL handshake.</haxe_doc>
-		</handshake>
-		<setCA public="1" set="method">
-			<f a="cert">
-				<c path="sys.ssl.Certificate"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Configure the certificate chain for peer certificate verification.</haxe_doc>
-		</setCA>
-		<setHostname public="1" set="method">
-			<f a="name">
-				<c path="String"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Configure the hostname for Server Name Indication TLS extension.</haxe_doc>
-		</setHostname>
-		<setCertificate public="1" set="method">
-			<f a="cert:key">
-				<c path="sys.ssl.Certificate"/>
-				<c path="sys.ssl.Key"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Configure own certificate and private key.</haxe_doc>
-		</setCertificate>
-		<addSNICertificate public="1" set="method">
-			<f a="cbServernameMatch:cert:key">
-				<f a="">
-					<c path="String"/>
-					<x path="Bool"/>
-				</f>
-				<c path="sys.ssl.Certificate"/>
-				<c path="sys.ssl.Key"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Configure additionals certificates and private keys for Server Name Indication extension.
-		The callback may be called during handshake to determine the certificate to use.</haxe_doc>
-		</addSNICertificate>
-		<peerCertificate public="1" set="method">
-			<f a=""><c path="sys.ssl.Certificate"/></f>
-			<haxe_doc>Return the certificate received from the other side of a connection.</haxe_doc>
-		</peerCertificate>
-		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
-		<haxe_doc>A TLS socket class : allow you to both connect to a given server and exchange messages or start your own server and wait for connections.</haxe_doc>
+		<_sslSocket><c path="lua.lib.luasec.SslTcpClient"/></_sslSocket>
+		<wrap set="method" line="39"><f a="sock">
+	<t path="lua.lib.luasocket._Socket.LuaSocket"/>
+	<c path="lua.lib.luasec.SslTcpClient"/>
+</f></wrap>
+		<handshake public="1" set="method" line="47"><f a=""><x path="Void"/></f></handshake>
+		<connect public="1" set="method" line="54" override="1"><f a="host:port">
+	<c path="sys.net.Host"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></connect>
+		<new public="1" set="method" line="36"><f a=""><x path="Void"/></f></new>
 	</class>
 </haxe>
