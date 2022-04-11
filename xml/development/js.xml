@@ -41440,6 +41440,39 @@
 		<meta><m n=":optional"/></meta>
 	</alpha>
 </a></typedef>
+	<class path="js.html.DialogElement" params="" file="/usr/local/share/haxe/std/js/html/DialogElement.hx" extern="1">
+		<extends path="js.html.Element"/>
+		<open public="1">
+			<x path="Bool"/>
+			<haxe_doc>A `Boolean` reflecting the open HTML attribute, indicating whether the dialog is available for interaction.</haxe_doc>
+		</open>
+		<returnValue public="1">
+			<c path="String"/>
+			<haxe_doc>A `DOMString` that sets or returns the return value for the dialog.</haxe_doc>
+		</returnValue>
+		<close public="1" set="method">
+			<f a="?returnValue">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Closes the dialog.
+		An optional `DOMString` may be passed as an argument, updating the `returnValue` of the the dialog.</haxe_doc>
+		</close>
+		<show public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Displays the dialog modelessly, i.e. still allowing interaction with content outside of the dialog.</haxe_doc>
+		</show>
+		<showModal public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Displays the dialog as a modal, over the top of any other dialogs that might be present.
+		Interaction outside the dialog is blocked.</haxe_doc>
+		</showModal>
+		<haxe_doc><![CDATA[The `HTMLDialogElement` interface provides methods to manipulate `<dialog>` elements.
+	It inherits properties and methods from the `HTMLElement` interface.
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement>]]></haxe_doc>
+		<meta><m n=":native"><e>"HTMLDialogElement"</e></m></meta>
+	</class>
 	<abstract path="js.html.DirectionSetting" params="" file="/usr/local/share/haxe/std/js/html/DirectionSetting.hx">
 		<this><c path="String"/></this>
 		<meta><m n=":enum"/></meta>
@@ -45580,6 +45613,10 @@
 			<f a=""><c path="js.html.HtmlElement"/></f>
 			<haxe_doc><![CDATA[Shorthand for creating an HTML `<html>` element.]]></haxe_doc>
 		</createHtmlElement>
+		<createDialoglElement public="1" get="inline" set="null" line="196">
+			<f a=""><c path="js.html.DialogElement"/></f>
+			<haxe_doc><![CDATA[Shorthand for creating an HTML `<dialog>` element.]]></haxe_doc>
+		</createDialoglElement>
 		<haxe_doc><![CDATA[`HTMLDocument` is an abstract interface which extends the `Document` interface to add HTML-specific features to the document object. It represents the root of the HTML document, within which its entire DOM hierarchy resides.
 
 	Documentation [HTMLDocument](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDocument) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDocument$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
