@@ -13772,6 +13772,24 @@
 		</meta>
 		<haxe_doc>illegal byte sequence</haxe_doc>
 	</UV_EILSEQ>
+	<UV_EOVERFLOW public="1" get="inline" set="null" expr="cast 78" line="166" static="1">
+		<x path="eval.luv.UVError"/>
+		<meta>
+			<m n=":value"><e>cast 78</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+		<haxe_doc>value too large for defined data type</haxe_doc>
+	</UV_EOVERFLOW>
+	<UV_ESOCKTNOSUPPORT public="1" get="inline" set="null" expr="cast 79" line="168" static="1">
+		<x path="eval.luv.UVError"/>
+		<meta>
+			<m n=":value"><e>cast 79</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+		<haxe_doc>socket type not supported</haxe_doc>
+	</UV_ESOCKTNOSUPPORT>
 	<translateSysError public="1" set="method" static="1">
 		<f a="code">
 			<x path="Int"/>
@@ -14505,6 +14523,24 @@
 			</meta>
 			<haxe_doc>illegal byte sequence</haxe_doc>
 		</UV_EILSEQ>
+		<UV_EOVERFLOW public="1" get="inline" set="null" expr="cast 78" line="166" static="1">
+			<x path="eval.luv.UVError"/>
+			<meta>
+				<m n=":value"><e>cast 78</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+			<haxe_doc>value too large for defined data type</haxe_doc>
+		</UV_EOVERFLOW>
+		<UV_ESOCKTNOSUPPORT public="1" get="inline" set="null" expr="cast 79" line="168" static="1">
+			<x path="eval.luv.UVError"/>
+			<meta>
+				<m n=":value"><e>cast 79</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+			<haxe_doc>socket type not supported</haxe_doc>
+		</UV_ESOCKTNOSUPPORT>
 		<translateSysError public="1" set="method" static="1">
 			<f a="code">
 				<x path="Int"/>
@@ -36911,7 +36947,19 @@
 
 		If any argument is `null`, the result is unspecified.</haxe_doc>
 		</withImports>
-		<registerModuleReuseCall public="1" set="method" line="646" static="1">
+		<withOptions public="1" params="X" set="method" line="650" static="1">
+			<f a="options:code">
+				<a><inlining>
+	<x path="Null"><x path="Bool"/></x>
+	<meta><m n=":optional"/></meta>
+</inlining></a>
+				<f a=""><c path="withOptions.X"/></f>
+				<c path="withOptions.X"/>
+			</f>
+			<haxe_doc>Executes `code` in a context that has some compiler options set, restore the compiler to its
+		default behavior afterwards.</haxe_doc>
+		</withOptions>
+		<registerModuleReuseCall public="1" set="method" line="655" static="1">
 			<f a="modulePath:macroCall">
 				<c path="String"/>
 				<c path="String"/>
@@ -36919,14 +36967,14 @@
 			</f>
 			<meta><m n=":deprecated"/></meta>
 		</registerModuleReuseCall>
-		<onMacroContextReused public="1" set="method" line="651" static="1">
+		<onMacroContextReused public="1" set="method" line="660" static="1">
 			<f a="callb">
 				<f a=""><x path="Bool"/></f>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":deprecated"/></meta>
 		</onMacroContextReused>
-		<load set="method" line="659" static="1">
+		<load set="method" line="668" static="1">
 			<f a="f:nargs">
 				<c path="String"/>
 				<x path="Int"/>
@@ -36939,12 +36987,12 @@
 				<m n=":allow"><e>haxe.macro.PositionTools</e></m>
 			</meta>
 		</load>
-		<includeFile set="method" line="669" static="1"><f a="file:position">
+		<includeFile set="method" line="678" static="1"><f a="file:position">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></includeFile>
-		<sExpr set="method" line="673" static="1"><f a="e:pretty">
+		<sExpr set="method" line="682" static="1"><f a="e:pretty">
 	<t path="haxe.macro.TypedExpr"/>
 	<x path="Bool"/>
 	<c path="String"/>
@@ -39502,7 +39550,15 @@
 			</f>
 			<haxe_doc>Converts type `t` to a human-readable String representation.</haxe_doc>
 		</toString>
-		<findField public="1" set="method" line="380" static="1">
+		<setVarName public="1" set="method" line="370" static="1">
+			<f a="t:name">
+				<t path="haxe.macro.TVar"/>
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Changes the name of the variable in the typed expression.</haxe_doc>
+		</setVarName>
+		<findField public="1" set="method" line="387" static="1">
 			<f a="c:name:?isStatic" v="::false">
 				<t path="haxe.macro.ClassType"/>
 				<c path="String"/>

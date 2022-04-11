@@ -28950,7 +28950,7 @@
 	<c path="Array"><e path="haxe.macro.Type"/></c>
 	<t path="haxe.macro.TypePath"/>
 </f></toTypePath>
-		<findField public="1" set="method" line="380" static="1">
+		<findField public="1" set="method" line="387" static="1">
 			<f a="c:name:?isStatic" v="::false">
 				<t path="haxe.macro.ClassType"/>
 				<c path="String"/>
@@ -32832,7 +32832,10 @@
 		@throws DOMError</haxe_doc>
 		</attachShadow>
 		<requestFullscreen public="1" set="method">
-			<f a=""><x path="Void"/></f>
+			<f a="?options">
+				<x path="Null"><t path="js.html.FullscreenOptions"/></x>
+				<c path="js.lib.Promise"><x path="Void"/></c>
+			</f>
 			<haxe_doc>Asynchronously asks the browser to make the element full-screen.
 		@throws DOMError</haxe_doc>
 		</requestFullscreen>
@@ -34152,13 +34155,14 @@
 	before a user is prompted to install a web site to a home screen.
 
 	@see https://developer.mozilla.org/en-US/docs/Web/API/BeforeInstallPromptEvent</haxe_doc>
+		<meta><m n=":native"><e>"BeforeInstallPromptEvent"</e></m></meta>
 	</class>
 	<typedef path="js.html.BeforeInstallPromptUserChoice" params="" file="/usr/local/share/haxe/std/js/html/BeforeInstallPromptEvent.hx" module="js.html.BeforeInstallPromptEvent"><a><outcome final="1" set="null"><x path="js.html.BeforeInstallPromptUserChoiceOutcome"/></outcome></a></typedef>
 	<abstract path="js.html.BeforeInstallPromptUserChoiceOutcome" params="" file="/usr/local/share/haxe/std/js/html/BeforeInstallPromptEvent.hx" module="js.html.BeforeInstallPromptEvent">
 		<this><c path="String"/></this>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="js.html._BeforeInstallPromptEvent.BeforeInstallPromptUserChoiceOutcome_Impl_" params="" file="/usr/local/share/haxe/std/js/html/BeforeInstallPromptEvent.hx" private="1" module="js.html.BeforeInstallPromptEvent" extern="1" final="1">
-	<Accepted public="1" get="inline" set="null" expr="cast &quot;accepted&quot;" line="31" static="1">
+	<Accepted public="1" get="inline" set="null" expr="cast &quot;accepted&quot;" line="32" static="1">
 		<x path="js.html.BeforeInstallPromptUserChoiceOutcome"/>
 		<meta>
 			<m n=":value"><e>cast "accepted"</e></m>
@@ -34166,7 +34170,7 @@
 			<m n=":enum"/>
 		</meta>
 	</Accepted>
-	<Dismissed public="1" get="inline" set="null" expr="cast &quot;dismissed&quot;" line="32" static="1">
+	<Dismissed public="1" get="inline" set="null" expr="cast &quot;dismissed&quot;" line="33" static="1">
 		<x path="js.html.BeforeInstallPromptUserChoiceOutcome"/>
 		<meta>
 			<m n=":value"><e>cast "dismissed"</e></m>
@@ -34178,7 +34182,7 @@
 </class></impl>
 	</abstract>
 	<class path="js.html._BeforeInstallPromptEvent.BeforeInstallPromptUserChoiceOutcome_Impl_" params="" file="/usr/local/share/haxe/std/js/html/BeforeInstallPromptEvent.hx" private="1" module="js.html.BeforeInstallPromptEvent" extern="1" final="1">
-		<Accepted public="1" get="inline" set="null" expr="cast &quot;accepted&quot;" line="31" static="1">
+		<Accepted public="1" get="inline" set="null" expr="cast &quot;accepted&quot;" line="32" static="1">
 			<x path="js.html.BeforeInstallPromptUserChoiceOutcome"/>
 			<meta>
 				<m n=":value"><e>cast "accepted"</e></m>
@@ -34186,7 +34190,7 @@
 				<m n=":enum"/>
 			</meta>
 		</Accepted>
-		<Dismissed public="1" get="inline" set="null" expr="cast &quot;dismissed&quot;" line="32" static="1">
+		<Dismissed public="1" get="inline" set="null" expr="cast &quot;dismissed&quot;" line="33" static="1">
 			<x path="js.html.BeforeInstallPromptUserChoiceOutcome"/>
 			<meta>
 				<m n=":value"><e>cast "dismissed"</e></m>
@@ -42099,7 +42103,11 @@
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Releases the current mouse capture if it's on an element in this document.</haxe_doc>
 		</releaseCapture>
-		<exitFullscreen public="1" set="method"><f a=""><x path="Void"/></f></exitFullscreen>
+		<exitFullscreen public="1" set="method">
+			<f a=""><c path="js.lib.Promise"><x path="Void"/></c></f>
+			<haxe_doc>Requests that the element on this document which is currently being presented in fullscreen mode
+		be taken out of fullscreen mode, restoring the previous state of the screen.</haxe_doc>
+		</exitFullscreen>
 		<exitPointerLock public="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Release the pointer lock.</haxe_doc>
@@ -44894,6 +44902,72 @@
 				<m n=":enum"/>
 			</meta>
 		</NONE>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<typedef path="js.html.FullscreenOptions" params="" file="/usr/local/share/haxe/std/js/html/FullscreenOptions.hx">
+		<a><navigationUI>
+	<x path="Null"><x path="js.html.FullscreenOptionsNavigationUI"/></x>
+	<meta><m n=":optional"/></meta>
+	<haxe_doc>Controls whether or not to show navigation UI while the element is in fullscreen mode.</haxe_doc>
+</navigationUI></a>
+		<haxe_doc>An object that controls the behavior of the transition to fullscreen mode.</haxe_doc>
+	</typedef>
+	<abstract path="js.html.FullscreenOptionsNavigationUI" params="" file="/usr/local/share/haxe/std/js/html/FullscreenOptions.hx" module="js.html.FullscreenOptions">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.html._FullscreenOptions.FullscreenOptionsNavigationUI_Impl_" params="" file="/usr/local/share/haxe/std/js/html/FullscreenOptions.hx" private="1" module="js.html.FullscreenOptions" extern="1" final="1">
+	<Auto public="1" get="inline" set="null" expr="cast &quot;auto&quot;" line="37" static="1">
+		<x path="js.html.FullscreenOptionsNavigationUI"/>
+		<meta>
+			<m n=":value"><e>cast "auto"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</Auto>
+	<Hide public="1" get="inline" set="null" expr="cast &quot;hide&quot;" line="38" static="1">
+		<x path="js.html.FullscreenOptionsNavigationUI"/>
+		<meta>
+			<m n=":value"><e>cast "hide"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</Hide>
+	<Show public="1" get="inline" set="null" expr="cast &quot;show&quot;" line="39" static="1">
+		<x path="js.html.FullscreenOptionsNavigationUI"/>
+		<meta>
+			<m n=":value"><e>cast "show"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</Show>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.html._FullscreenOptions.FullscreenOptionsNavigationUI_Impl_" params="" file="/usr/local/share/haxe/std/js/html/FullscreenOptions.hx" private="1" module="js.html.FullscreenOptions" extern="1" final="1">
+		<Auto public="1" get="inline" set="null" expr="cast &quot;auto&quot;" line="37" static="1">
+			<x path="js.html.FullscreenOptionsNavigationUI"/>
+			<meta>
+				<m n=":value"><e>cast "auto"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</Auto>
+		<Hide public="1" get="inline" set="null" expr="cast &quot;hide&quot;" line="38" static="1">
+			<x path="js.html.FullscreenOptionsNavigationUI"/>
+			<meta>
+				<m n=":value"><e>cast "hide"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</Hide>
+		<Show public="1" get="inline" set="null" expr="cast &quot;show&quot;" line="39" static="1">
+			<x path="js.html.FullscreenOptionsNavigationUI"/>
+			<meta>
+				<m n=":value"><e>cast "show"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</Show>
 		<meta><m n=":enum"/></meta>
 	</class>
 	<class path="js.html.Gamepad" params="" file="/usr/local/share/haxe/std/js/html/Gamepad.hx" extern="1">
