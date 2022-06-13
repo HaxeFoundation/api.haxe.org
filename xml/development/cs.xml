@@ -2846,7 +2846,7 @@
 		</meta>
 	</class>
 	<class path="Std" params="" file="/usr/local/share/haxe/std/cs/_std/Std.hx">
-		<is public="1" get="inline" set="null" line="28" static="1">
+		<is public="1" get="inline" set="null" line="30" static="1">
 			<f a="v:t">
 				<d/>
 				<d/>
@@ -2859,7 +2859,7 @@
 
 		If `t` is a class or interface with `@:generic` meta, the result is `false`.</haxe_doc>
 		</is>
-		<isOfType public="1" set="method" line="32" static="1">
+		<isOfType public="1" set="method" line="34" static="1">
 			<f a="v:t">
 				<d/>
 				<d/>
@@ -2870,7 +2870,7 @@
 
 		If `t` is a class or interface with `@:generic` meta, the result is `false`.</haxe_doc>
 		</isOfType>
-		<string public="1" set="method" line="69" static="1">
+		<string public="1" set="method" line="71" static="1">
 			<f a="s">
 				<d/>
 				<c path="String"/>
@@ -2892,7 +2892,7 @@
 
 		If s is null, "null" is returned.</haxe_doc>
 		</string>
-		<int public="1" set="method" line="78" static="1">
+		<int public="1" set="method" line="80" static="1">
 			<f a="x">
 				<x path="Float"/>
 				<x path="Int"/>
@@ -2901,7 +2901,24 @@
 
 		If `x` is outside of the signed Int32 range, or is `NaN`, `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`, the result is unspecified.</haxe_doc>
 		</int>
-		<parseInt public="1" set="method" line="82" static="1">
+		<isSpaceChar get="inline" set="null" line="85" static="1"><f a="code">
+	<x path="Int"/>
+	<x path="Bool"/>
+</f></isSpaceChar>
+		<isHexPrefix get="inline" set="null" line="88" static="1"><f a="cur:next">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Bool"/>
+</f></isHexPrefix>
+		<isDecimalDigit get="inline" set="null" line="91" static="1"><f a="code">
+	<x path="Int"/>
+	<x path="Bool"/>
+</f></isDecimalDigit>
+		<isHexadecimalDigit get="inline" set="null" line="94" static="1"><f a="code">
+	<x path="Int"/>
+	<x path="Bool"/>
+</f></isHexadecimalDigit>
+		<parseInt public="1" set="method" line="96" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Null"><x path="Int"/></x>
@@ -2910,23 +2927,25 @@
 
 		Leading whitespaces are ignored.
 
-		If `x` starts with 0x or 0X, hexadecimal notation is recognized where the following digits may
-		contain 0-9 and A-F.
+		`x` may optionally start with a + or - to denote a postive or negative value respectively.
 
-		Otherwise `x` is read as decimal number with 0-9 being allowed characters. `x` may also start with
-		a - to denote a negative value.
+		If the optional sign is followed 0x or 0X, hexadecimal notation is recognized where the following
+		digits may contain 0-9 and A-F. Both the prefix and digits are case insensitive.
 
-		In decimal mode, parsing continues until an invalid character is detected, in which case the
-		result up to that point is returned. For hexadecimal notation, the effect of invalid characters
-		is unspecified.
+		Otherwise `x` is read as decimal number with 0-9 being allowed characters. Octal and binary
+		notations are not supported.
 
-		Leading 0s that are not part of the 0x/0X hexadecimal notation are ignored, which means octal
-		notation is not supported.
+		Parsing continues until an invalid character is detected, in which case the result up to
+		that point is returned. However, in decimal mode, the effect of `x` containing an e or E
+		is unspecified, and it may be taken as scientific exponential notation.
 
-		If `x` is null, the result is unspecified.
-		If `x` cannot be parsed as integer, the result is `null`.</haxe_doc>
+		If `x` is `null`, the result is `null`.
+		If `x` cannot be parsed as integer or is empty, the result is `null`.
+
+		If `x` starts with a hexadecimal prefix which is not followed by at least one valid hexadecimal
+		digit, the result is unspecified.</haxe_doc>
 		</parseInt>
-		<parseFloat public="1" set="method" line="132" static="1">
+		<parseFloat public="1" set="method" line="154" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Float"/>
@@ -2935,11 +2954,14 @@
 			<haxe_doc>Converts a `String` to a `Float`.
 
 		The parsing rules for `parseInt` apply here as well, with the exception of invalid input
-		resulting in a `NaN` value instead of null.
+		resulting in a `NaN` value instead of `null`. Also, hexadecimal support is **not** specified.
 
-		Additionally, decimal notation may contain a single `.` to denote the start of the fractions.</haxe_doc>
+		Additionally, decimal notation may contain a single `.` to denote the start of the fractions.
+
+		It may also end with `e` or `E` followed by optional minus or plus sign and a sequence of
+		digits (defines exponent to base 10).</haxe_doc>
 		</parseFloat>
-		<downcast public="1" params="T:S" get="inline" set="null" line="178" static="1">
+		<downcast public="1" params="T:S" get="inline" set="null" line="200" static="1">
 			<f a="value:c">
 				<c path="downcast.T"/>
 				<x path="Class"><c path="downcast.S"/></x>
@@ -2960,7 +2982,7 @@
 		If `value` is null, the result is null. If `c` is null, the result is
 		unspecified.</haxe_doc>
 		</downcast>
-		<instance public="1" params="T:S" get="inline" set="null" line="183" static="1">
+		<instance public="1" params="T:S" get="inline" set="null" line="205" static="1">
 			<f a="value:c">
 				<c path="instance.T"/>
 				<x path="Class"><c path="instance.S"/></x>
@@ -2968,7 +2990,7 @@
 			</f>
 			<meta><m n=":deprecated"><e>"Std.instance() is deprecated. Use Std.downcast() instead."</e></m></meta>
 		</instance>
-		<random public="1" set="method" line="187" static="1">
+		<random public="1" set="method" line="209" static="1">
 			<f a="x">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -19327,37 +19349,6 @@
 			<meta><m n=":op"><e>A - B</e></m></meta>
 		</Remove>
 		<meta><m n=":nativeGen"/></meta>
-	</class>
-	<class path="cs.system.FormatException" params="" file="/workspace/extra/.haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.FormatException" extern="1">
-		<extends path="cs.system.SystemException"/>
-		<new final="1" public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<overloads>
-				<new final="1" set="method">
-					<f a="info:context">
-						<c path="cs.system.runtime.serialization.SerializationInfo"/>
-						<c path="cs.system.runtime.serialization.StreamingContext"/>
-						<x path="Void"/>
-					</f>
-					<meta><m n=":protected"/></meta>
-				</new>
-				<new final="1" public="1" set="method"><f a="message:innerException">
-	<c path="String"/>
-	<c path="cs.system.Exception"/>
-	<x path="Void"/>
-</f></new>
-				<new final="1" public="1" set="method"><f a="message">
-	<c path="String"/>
-	<x path="Void"/>
-</f></new>
-			</overloads>
-		</new>
-		<meta>
-			<m n=":nativeGen"/>
-			<m n=":libType"/>
-			<m n=":csNative"/>
-			<m n=":native"><e>"System.FormatException"</e></m>
-		</meta>
 	</class>
 	<class path="cs.system.Guid_GuidParser" params="" file="/workspace/extra/.haxelib/hxcs/git/netlib/net-20/mscorlib.dll @ cs.system.Guid" module="cs.system.Guid" extern="1">
 		<Parse final="1" public="1" set="method">

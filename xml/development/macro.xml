@@ -1896,21 +1896,23 @@
 
 		Leading whitespaces are ignored.
 
-		If `x` starts with 0x or 0X, hexadecimal notation is recognized where the following digits may
-		contain 0-9 and A-F.
+		`x` may optionally start with a + or - to denote a postive or negative value respectively.
 
-		Otherwise `x` is read as decimal number with 0-9 being allowed characters. `x` may also start with
-		a - to denote a negative value.
+		If the optional sign is followed 0x or 0X, hexadecimal notation is recognized where the following
+		digits may contain 0-9 and A-F. Both the prefix and digits are case insensitive.
 
-		In decimal mode, parsing continues until an invalid character is detected, in which case the
-		result up to that point is returned. For hexadecimal notation, the effect of invalid characters
-		is unspecified.
+		Otherwise `x` is read as decimal number with 0-9 being allowed characters. Octal and binary
+		notations are not supported.
 
-		Leading 0s that are not part of the 0x/0X hexadecimal notation are ignored, which means octal
-		notation is not supported.
+		Parsing continues until an invalid character is detected, in which case the result up to
+		that point is returned. However, in decimal mode, the effect of `x` containing an e or E
+		is unspecified, and it may be taken as scientific exponential notation.
 
-		If `x` is null, the result is unspecified.
-		If `x` cannot be parsed as integer, the result is `null`.</haxe_doc>
+		If `x` is `null`, the result is `null`.
+		If `x` cannot be parsed as integer or is empty, the result is `null`.
+
+		If `x` starts with a hexadecimal prefix which is not followed by at least one valid hexadecimal
+		digit, the result is unspecified.</haxe_doc>
 		</parseInt>
 		<parseFloat public="1" set="method" static="1">
 			<f a="x">
@@ -1920,9 +1922,12 @@
 			<haxe_doc>Converts a `String` to a `Float`.
 
 		The parsing rules for `parseInt` apply here as well, with the exception of invalid input
-		resulting in a `NaN` value instead of null.
+		resulting in a `NaN` value instead of `null`. Also, hexadecimal support is **not** specified.
 
-		Additionally, decimal notation may contain a single `.` to denote the start of the fractions.</haxe_doc>
+		Additionally, decimal notation may contain a single `.` to denote the start of the fractions.
+
+		It may also end with `e` or `E` followed by optional minus or plus sign and a sequence of
+		digits (defines exponent to base 10).</haxe_doc>
 		</parseFloat>
 		<random public="1" set="method" static="1">
 			<f a="x">
@@ -36815,7 +36820,14 @@
 		a module path that will be used as a dependency for the newly defined module
 		instead of the current module.</haxe_doc>
 		</defineType>
-		<defineModule public="1" set="method" line="541" static="1">
+		<makeMonomorph public="1" set="method" line="539" static="1">
+			<f a=""><e path="haxe.macro.Type"/></f>
+			<haxe_doc>Creates and returns a new instance of monomorph (`TMono`) type.
+
+		Returned monomorph can be used with e.g. `Context.unify` to make the compiler
+		bind the monomorph to an actual type and let macro further process the resulting type.</haxe_doc>
+		</makeMonomorph>
+		<defineModule public="1" set="method" line="551" static="1">
 			<f a="modulePath:types:?imports:?usings">
 				<c path="String"/>
 				<c path="Array"><t path="haxe.macro.TypeDefinition"/></c>
@@ -36830,7 +36842,7 @@
 		respects the `imports` and `usings` as usual, expect that imports are
 		not allowed to have `.*` wildcards or `as s` shorthands.</haxe_doc>
 		</defineModule>
-		<getTypedExpr public="1" set="method" line="554" static="1">
+		<getTypedExpr public="1" set="method" line="564" static="1">
 			<f a="t">
 				<t path="haxe.macro.TypedExpr"/>
 				<t path="haxe.macro.Expr"/>
@@ -36839,7 +36851,7 @@
 
 		This process may lose some information.</haxe_doc>
 		</getTypedExpr>
-		<storeTypedExpr public="1" set="method" line="570" static="1">
+		<storeTypedExpr public="1" set="method" line="580" static="1">
 			<f a="t">
 				<t path="haxe.macro.TypedExpr"/>
 				<t path="haxe.macro.Expr"/>
@@ -36855,7 +36867,7 @@
 		the expression returned by this method in a static variable and using the
 		compilation server.</haxe_doc>
 		</storeTypedExpr>
-		<storeExpr public="1" set="method" line="589" static="1">
+		<storeExpr public="1" set="method" line="599" static="1">
 			<f a="e">
 				<t path="haxe.macro.Expr"/>
 				<t path="haxe.macro.Expr"/>
@@ -36874,7 +36886,7 @@
 		the expression returned by this method in a static variable and using the
 		compilation server.</haxe_doc>
 		</storeExpr>
-		<typeAndStoreExpr public="1" set="method" line="597" static="1">
+		<typeAndStoreExpr public="1" set="method" line="607" static="1">
 			<f a="e">
 				<t path="haxe.macro.Expr"/>
 				<a>
@@ -36885,7 +36897,7 @@
 			<haxe_doc>This function works like `storeExpr`, but also returns access to the expression's
 		type through the `type` field of the return value.</haxe_doc>
 		</typeAndStoreExpr>
-		<registerModuleDependency public="1" set="method" line="610" static="1">
+		<registerModuleDependency public="1" set="method" line="620" static="1">
 			<f a="modulePath:externFile">
 				<c path="String"/>
 				<c path="String"/>
@@ -36899,7 +36911,7 @@
 
 		Has no effect if the compilation cache is not used.</haxe_doc>
 		</registerModuleDependency>
-		<timer public="1" set="method" line="628" static="1">
+		<timer public="1" set="method" line="638" static="1">
 			<f a="id">
 				<c path="String"/>
 				<f a=""><x path="Void"/></f>
@@ -36917,7 +36929,7 @@
 		stopTimer();
 		```</haxe_doc>
 		</timer>
-		<withImports public="1" params="X" set="method" line="641" static="1">
+		<withImports public="1" params="X" set="method" line="651" static="1">
 			<f a="imports:usings:code">
 				<c path="Array"><c path="String"/></c>
 				<c path="Array"><c path="String"/></c>
@@ -36932,7 +36944,7 @@
 
 		If any argument is `null`, the result is unspecified.</haxe_doc>
 		</withImports>
-		<withOptions public="1" params="X" set="method" line="655" static="1">
+		<withOptions public="1" params="X" set="method" line="665" static="1">
 			<f a="options:code">
 				<a>
 					<allowTransform>
@@ -36955,7 +36967,7 @@
 		`allowTransform`: when disabled, the code typed with `typeExpr` will be almost exactly the same
 		as the input code. This will disable some abstract types transformations.</haxe_doc>
 		</withOptions>
-		<registerModuleReuseCall public="1" set="method" line="660" static="1">
+		<registerModuleReuseCall public="1" set="method" line="670" static="1">
 			<f a="modulePath:macroCall">
 				<c path="String"/>
 				<c path="String"/>
@@ -36963,14 +36975,14 @@
 			</f>
 			<meta><m n=":deprecated"/></meta>
 		</registerModuleReuseCall>
-		<onMacroContextReused public="1" set="method" line="665" static="1">
+		<onMacroContextReused public="1" set="method" line="675" static="1">
 			<f a="callb">
 				<f a=""><x path="Bool"/></f>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":deprecated"/></meta>
 		</onMacroContextReused>
-		<load set="method" line="673" static="1">
+		<load set="method" line="683" static="1">
 			<f a="f:nargs">
 				<c path="String"/>
 				<x path="Int"/>
@@ -36983,12 +36995,12 @@
 				<m n=":allow"><e>haxe.macro.PositionTools</e></m>
 			</meta>
 		</load>
-		<includeFile set="method" line="683" static="1"><f a="file:position">
+		<includeFile set="method" line="693" static="1"><f a="file:position">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></includeFile>
-		<sExpr set="method" line="687" static="1"><f a="e:pretty">
+		<sExpr set="method" line="697" static="1"><f a="e:pretty">
 	<t path="haxe.macro.TypedExpr"/>
 	<x path="Bool"/>
 	<c path="String"/>
