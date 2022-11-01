@@ -17659,7 +17659,7 @@
 		</stringify>
 		<haxe_doc>Cross-platform JSON API: it will automatically use the optimized native API if available.
 	Use `-D haxeJSON` to force usage of the Haxe implementation even if a native API is found:
-	This will provide extra encoding features such as enums (replaced by their index) and StringMaps.
+	This will provide extra encoding (but not decoding) features such as enums (replaced by their index) and StringMaps.
 
 	@see https://haxe.org/manual/std-Json.html</haxe_doc>
 	</class>
@@ -18049,7 +18049,7 @@
 			<meta><m n=":value"><e>"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:"</e></m></meta>
 		</BASE64>
 		<BASE64_CODES expr="null" line="72" static="1">
-			<x path="haxe.ds.Vector"><x path="Null"><x path="Int"/></x></x>
+			<x path="Null"><x path="Null"><x path="haxe.ds.Vector"><x path="Null"><x path="Int"/></x></x></x></x>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</BASE64_CODES>
 		<run public="1" set="method" line="582" static="1">
@@ -18811,7 +18811,7 @@
 			<meta><m n=":value"><e>"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:"</e></m></meta>
 		</BASE64>
 		<CODES expr="null" line="72" static="1">
-			<c path="Array"><x path="Int"/></c>
+			<x path="Null"><x path="Null"><c path="Array"><x path="Int"/></c></x></x>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</CODES>
 		<initCodes set="method" line="74" static="1"><f a=""><c path="Array"><x path="Int"/></c></f></initCodes>
@@ -18854,7 +18854,7 @@
 		<resolver><t path="haxe.TypeResolver"/></resolver>
 		<setResolver public="1" set="method" line="126">
 			<f a="r">
-				<t path="haxe.TypeResolver"/>
+				<x path="Null"><t path="haxe.TypeResolver"/></x>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Sets the type resolver of `this` Unserializer instance to `r`.
@@ -24721,18 +24721,18 @@
 	<x path="Void"/>
 </f></keysLoop>
 		<merge set="method" line="188"><f a="t1:t2">
-	<c path="haxe.ds.TreeNode">
-		<c path="haxe.ds.BalancedTree.K"/>
-		<c path="haxe.ds.BalancedTree.V"/>
-	</c>
-	<c path="haxe.ds.TreeNode">
-		<c path="haxe.ds.BalancedTree.K"/>
-		<c path="haxe.ds.BalancedTree.V"/>
-	</c>
-	<c path="haxe.ds.TreeNode">
-		<c path="haxe.ds.BalancedTree.K"/>
-		<c path="haxe.ds.BalancedTree.V"/>
-	</c>
+	<x path="Null"><c path="haxe.ds.TreeNode">
+	<c path="haxe.ds.BalancedTree.K"/>
+	<c path="haxe.ds.BalancedTree.V"/>
+</c></x>
+	<x path="Null"><c path="haxe.ds.TreeNode">
+	<c path="haxe.ds.BalancedTree.K"/>
+	<c path="haxe.ds.BalancedTree.V"/>
+</c></x>
+	<x path="Null"><c path="haxe.ds.TreeNode">
+	<c path="haxe.ds.BalancedTree.K"/>
+	<c path="haxe.ds.BalancedTree.V"/>
+</c></x>
 </f></merge>
 		<minBinding set="method" line="197"><f a="t">
 	<c path="haxe.ds.TreeNode">
@@ -36442,11 +36442,12 @@
 			</f>
 			<haxe_doc>Check if current display position is within `pos`.</haxe_doc>
 		</containsDisplayPosition>
-		<currentPos public="1" set="method" line="133" static="1">
+		<getDisplayMode public="1" set="method" line="130" static="1"><f a=""><e path="haxe.macro.DisplayMode"/></f></getDisplayMode>
+		<currentPos public="1" set="method" line="137" static="1">
 			<f a=""><t path="haxe.macro.Position"/></f>
 			<haxe_doc>Returns the position at which the macro was called.</haxe_doc>
 		</currentPos>
-		<getExpectedType public="1" set="method" line="146" static="1">
+		<getExpectedType public="1" set="method" line="150" static="1">
 			<f a=""><x path="Null"><e path="haxe.macro.Type"/></x></f>
 			<haxe_doc>Returns the type which is expected at the place the macro is called.
 
@@ -36456,49 +36457,49 @@
 		Might return `null` if no specific type is expected or if the calling
 		macro is not an expression-macro.</haxe_doc>
 		</getExpectedType>
-		<getCallArguments public="1" set="method" line="156" static="1">
+		<getCallArguments public="1" set="method" line="160" static="1">
 			<f a=""><x path="Null"><c path="Array"><t path="haxe.macro.Expr"/></c></x></f>
 			<haxe_doc>Returns the call arguments that lead to the invocation of the current
 		`@:genericBuild` macro, if available.
 
 		Returns `null` if the current macro is not a `@:genericBuild` macro.</haxe_doc>
 		</getCallArguments>
-		<getLocalClass public="1" set="method" line="165" static="1">
+		<getLocalClass public="1" set="method" line="169" static="1">
 			<f a=""><x path="Null"><t path="haxe.macro.Ref"><t path="haxe.macro.ClassType"/></t></x></f>
 			<haxe_doc>Returns the current class in which the macro was called.
 
 		If no such class exists, `null` is returned.</haxe_doc>
 		</getLocalClass>
-		<getLocalModule public="1" set="method" line="178" static="1">
+		<getLocalModule public="1" set="method" line="182" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the current module path in/on which the macro was called.</haxe_doc>
 		</getLocalModule>
-		<getLocalType public="1" set="method" line="187" static="1">
+		<getLocalType public="1" set="method" line="191" static="1">
 			<f a=""><x path="Null"><e path="haxe.macro.Type"/></x></f>
 			<haxe_doc>Returns the current type in/on which the macro was called.
 
 		If no such type exists, `null` is returned.</haxe_doc>
 		</getLocalType>
-		<getLocalMethod public="1" set="method" line="196" static="1">
+		<getLocalMethod public="1" set="method" line="200" static="1">
 			<f a=""><x path="Null"><c path="String"/></x></f>
 			<haxe_doc>Returns the name of the method from which the macro was called.
 
 		If no such method exists, `null` is returned.</haxe_doc>
 		</getLocalMethod>
-		<getLocalUsing public="1" set="method" line="206" static="1">
+		<getLocalUsing public="1" set="method" line="210" static="1">
 			<f a=""><c path="Array"><t path="haxe.macro.Ref"><t path="haxe.macro.ClassType"/></t></c></f>
 			<haxe_doc>Returns an `Array` of classes which are available for `using` usage in
 		the context the macro was called.
 
 		Modifying the returned array has no effect on the compiler.</haxe_doc>
 		</getLocalUsing>
-		<getLocalImports public="1" set="method" line="215" static="1">
+		<getLocalImports public="1" set="method" line="219" static="1">
 			<f a=""><c path="Array"><t path="haxe.macro.ImportExpr"/></c></f>
 			<haxe_doc>Returns an `Array` of all imports in the context the macro was called.
 
 		Modifying the returned array has no effect on the compiler.</haxe_doc>
 		</getLocalImports>
-		<getLocalVars public="1" set="method" line="229" static="1">
+		<getLocalVars public="1" set="method" line="233" static="1">
 			<f a=""><t path="Map">
 	<c path="String"/>
 	<e path="haxe.macro.Type"/>
@@ -36512,7 +36513,7 @@
 
 		Modifying the returned map has no effect on the compiler.</haxe_doc>
 		</getLocalVars>
-		<getLocalTVars public="1" set="method" line="237" static="1">
+		<getLocalTVars public="1" set="method" line="241" static="1">
 			<f a=""><t path="Map">
 	<c path="String"/>
 	<t path="haxe.macro.TVar"/>
@@ -36520,7 +36521,7 @@
 			<haxe_doc>Similar to `getLocalVars`, but returns elements of type `TVar` instead
 		of `Type`.</haxe_doc>
 		</getLocalTVars>
-		<defined public="1" set="method" line="249" static="1">
+		<defined public="1" set="method" line="253" static="1">
 			<f a="s">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -36532,7 +36533,7 @@
 
 		@see https://haxe.org/manual/lf-condition-compilation.html</haxe_doc>
 		</defined>
-		<definedValue public="1" set="method" line="265" static="1">
+		<definedValue public="1" set="method" line="269" static="1">
 			<f a="key">
 				<c path="String"/>
 				<c path="String"/>
@@ -36548,7 +36549,7 @@
 
 		@see https://haxe.org/manual/lf-condition-compilation.html</haxe_doc>
 		</definedValue>
-		<getDefines public="1" set="method" line="279" static="1">
+		<getDefines public="1" set="method" line="283" static="1">
 			<f a=""><t path="Map">
 	<c path="String"/>
 	<c path="String"/>
@@ -36562,7 +36563,7 @@
 
 		@see https://haxe.org/manual/lf-condition-compilation.html</haxe_doc>
 		</getDefines>
-		<getType public="1" set="method" line="291" static="1">
+		<getType public="1" set="method" line="295" static="1">
 			<f a="name">
 				<c path="String"/>
 				<e path="haxe.macro.Type"/>
@@ -36574,7 +36575,7 @@
 
 		If no type can be found, an exception of type `String` is thrown.</haxe_doc>
 		</getType>
-		<getModule public="1" set="method" line="304" static="1">
+		<getModule public="1" set="method" line="308" static="1">
 			<f a="name">
 				<c path="String"/>
 				<c path="Array"><e path="haxe.macro.Type"/></c>
@@ -36587,7 +36588,7 @@
 
 		If no module can be found, an exception of type `String` is thrown.</haxe_doc>
 		</getModule>
-		<parse public="1" set="method" line="316" static="1">
+		<parse public="1" set="method" line="320" static="1">
 			<f a="expr:pos">
 				<c path="String"/>
 				<t path="haxe.macro.Position"/>
@@ -36600,7 +36601,7 @@
 
 		The provided `Position` `pos` is used for all generated inner AST nodes.</haxe_doc>
 		</parse>
-		<parseInlineString public="1" set="method" line="324" static="1">
+		<parseInlineString public="1" set="method" line="328" static="1">
 			<f a="expr:pos">
 				<c path="String"/>
 				<t path="haxe.macro.Position"/>
@@ -36609,7 +36610,7 @@
 			<haxe_doc>Similar to `parse`, but error positions are reported within the provided
 		String `expr`.</haxe_doc>
 		</parseInlineString>
-		<makeExpr public="1" set="method" line="337" static="1">
+		<makeExpr public="1" set="method" line="341" static="1">
 			<f a="v:pos">
 				<d/>
 				<t path="haxe.macro.Position"/>
@@ -36623,14 +36624,14 @@
 
 		The provided `Position` `pos` is used for all generated inner AST nodes.</haxe_doc>
 		</makeExpr>
-		<signature public="1" set="method" line="344" static="1">
+		<signature public="1" set="method" line="348" static="1">
 			<f a="v">
 				<d/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Returns a hashed MD5 signature of value `v`.</haxe_doc>
 		</signature>
-		<onGenerate public="1" set="method" line="364" static="1">
+		<onGenerate public="1" set="method" line="368" static="1">
 			<f a="callback:?persistent" v=":true">
 				<f a="">
 					<c path="Array"><e path="haxe.macro.Type"/></c>
@@ -36655,7 +36656,7 @@
 
 		*Note*: the callback is still invoked when generation is disabled with  `--no-output`.</haxe_doc>
 		</onGenerate>
-		<onAfterGenerate public="1" set="method" line="377" static="1">
+		<onAfterGenerate public="1" set="method" line="381" static="1">
 			<f a="callback">
 				<f a=""><x path="Void"/></f>
 				<x path="Void"/>
@@ -36668,7 +36669,7 @@
 
 		*Note*: the callback is still invoked when generation is disabled with  `--no-output`.</haxe_doc>
 		</onAfterGenerate>
-		<onAfterTyping public="1" set="method" line="389" static="1">
+		<onAfterTyping public="1" set="method" line="393" static="1">
 			<f a="callback">
 				<f a="">
 					<c path="Array"><e path="haxe.macro.ModuleType"/></c>
@@ -36683,7 +36684,7 @@
 		It is possible to define new types in the callback, in which case it
 		will be called again with the new types as argument.</haxe_doc>
 		</onAfterTyping>
-		<onTypeNotFound public="1" set="method" line="401" static="1">
+		<onTypeNotFound public="1" set="method" line="405" static="1">
 			<f a="callback">
 				<f a="">
 					<c path="String"/>
@@ -36698,7 +36699,7 @@
 		expected type. If it returns `null`, the type is considered to still not
 		exist.</haxe_doc>
 		</onTypeNotFound>
-		<typeof public="1" set="method" line="411" static="1">
+		<typeof public="1" set="method" line="415" static="1">
 			<f a="e">
 				<t path="haxe.macro.Expr"/>
 				<e path="haxe.macro.Type"/>
@@ -36708,7 +36709,7 @@
 		Typing the expression may result in a compiler error which can be
 		caught using `try ... catch`.</haxe_doc>
 		</typeof>
-		<typeExpr public="1" set="method" line="424" static="1">
+		<typeExpr public="1" set="method" line="428" static="1">
 			<f a="e">
 				<t path="haxe.macro.Expr"/>
 				<t path="haxe.macro.TypedExpr"/>
@@ -36721,7 +36722,7 @@
 		to a later stage, at which point the exception handler is no longer
 		active.</haxe_doc>
 		</typeExpr>
-		<resolveType public="1" set="method" line="435" static="1">
+		<resolveType public="1" set="method" line="439" static="1">
 			<f a="t:p">
 				<e path="haxe.macro.ComplexType"/>
 				<t path="haxe.macro.Position"/>
@@ -36733,7 +36734,7 @@
 		caught using `try ... catch`.
 		Resolution is performed based on the current context in which the macro is called.</haxe_doc>
 		</resolveType>
-		<toComplexType public="1" set="method" line="444" static="1">
+		<toComplexType public="1" set="method" line="448" static="1">
 			<f a="t">
 				<e path="haxe.macro.Type"/>
 				<x path="Null"><e path="haxe.macro.ComplexType"/></x>
@@ -36742,7 +36743,7 @@
 
 		See `haxe.macro.TypeTools.toComplexType` for details.</haxe_doc>
 		</toComplexType>
-		<unify public="1" set="method" line="451" static="1">
+		<unify public="1" set="method" line="455" static="1">
 			<f a="t1:t2">
 				<e path="haxe.macro.Type"/>
 				<e path="haxe.macro.Type"/>
@@ -36750,7 +36751,7 @@
 			</f>
 			<haxe_doc>Tries to unify `t1` and `t2` and returns `true` if successful.</haxe_doc>
 		</unify>
-		<follow public="1" set="method" line="460" static="1">
+		<follow public="1" set="method" line="464" static="1">
 			<f a="t:?once">
 				<e path="haxe.macro.Type"/>
 				<x path="Bool"/>
@@ -36760,7 +36761,7 @@
 
 		See `haxe.macro.TypeTools.follow` for details.</haxe_doc>
 		</follow>
-		<followWithAbstracts public="1" set="method" line="469" static="1">
+		<followWithAbstracts public="1" set="method" line="473" static="1">
 			<f a="t:?once" v=":false">
 				<e path="haxe.macro.Type"/>
 				<x path="Bool"/>
@@ -36771,7 +36772,7 @@
 
 		See `haxe.macro.TypeTools.followWithAbstracts` for details.</haxe_doc>
 		</followWithAbstracts>
-		<getPosInfos public="1" set="method" line="476" static="1">
+		<getPosInfos public="1" set="method" line="480" static="1">
 			<f a="p">
 				<t path="haxe.macro.Position"/>
 				<a>
@@ -36782,7 +36783,7 @@
 			</f>
 			<haxe_doc>Returns the information stored in `Position` `p`.</haxe_doc>
 		</getPosInfos>
-		<makePosition public="1" set="method" line="483" static="1">
+		<makePosition public="1" set="method" line="487" static="1">
 			<f a="inf">
 				<a>
 					<min><x path="Int"/></min>
@@ -36793,7 +36794,7 @@
 			</f>
 			<haxe_doc>Builds a `Position` from `inf`.</haxe_doc>
 		</makePosition>
-		<getResources public="1" set="method" line="493" static="1">
+		<getResources public="1" set="method" line="497" static="1">
 			<f a=""><t path="Map">
 	<c path="String"/>
 	<c path="haxe.io.Bytes"/>
@@ -36803,7 +36804,7 @@
 		Modifying the returned map has no effect on the compilation, use
 		`haxe.macro.Context.addResource` to add new resources to the compilation unit.</haxe_doc>
 		</getResources>
-		<addResource public="1" set="method" line="509" static="1">
+		<addResource public="1" set="method" line="513" static="1">
 			<f a="name:data">
 				<c path="String"/>
 				<c path="haxe.io.Bytes"/>
@@ -36820,13 +36821,13 @@
 		that module is reused. If this resource concerns several modules, prefix its
 		name with a `$` sign, this will bind it to the macro module instead.</haxe_doc>
 		</addResource>
-		<getBuildFields public="1" set="method" line="518" static="1">
+		<getBuildFields public="1" set="method" line="522" static="1">
 			<f a=""><c path="Array"><t path="haxe.macro.Field"/></c></f>
 			<haxe_doc>Returns an `Array` of fields of the class which is to be built.
 
 		This is only defined for `@:build/@:autoBuild` macros.</haxe_doc>
 		</getBuildFields>
-		<defineType public="1" set="method" line="529" static="1">
+		<defineType public="1" set="method" line="533" static="1">
 			<f a="t:?moduleDependency">
 				<t path="haxe.macro.TypeDefinition"/>
 				<c path="String"/>
@@ -36838,14 +36839,14 @@
 		a module path that will be used as a dependency for the newly defined module
 		instead of the current module.</haxe_doc>
 		</defineType>
-		<makeMonomorph public="1" set="method" line="539" static="1">
+		<makeMonomorph public="1" set="method" line="543" static="1">
 			<f a=""><e path="haxe.macro.Type"/></f>
 			<haxe_doc>Creates and returns a new instance of monomorph (`TMono`) type.
 
 		Returned monomorph can be used with e.g. `Context.unify` to make the compiler
 		bind the monomorph to an actual type and let macro further process the resulting type.</haxe_doc>
 		</makeMonomorph>
-		<defineModule public="1" set="method" line="551" static="1">
+		<defineModule public="1" set="method" line="555" static="1">
 			<f a="modulePath:types:?imports:?usings">
 				<c path="String"/>
 				<c path="Array"><t path="haxe.macro.TypeDefinition"/></c>
@@ -36860,7 +36861,7 @@
 		respects the `imports` and `usings` as usual, expect that imports are
 		not allowed to have `.*` wildcards or `as s` shorthands.</haxe_doc>
 		</defineModule>
-		<getTypedExpr public="1" set="method" line="564" static="1">
+		<getTypedExpr public="1" set="method" line="568" static="1">
 			<f a="t">
 				<t path="haxe.macro.TypedExpr"/>
 				<t path="haxe.macro.Expr"/>
@@ -36869,7 +36870,7 @@
 
 		This process may lose some information.</haxe_doc>
 		</getTypedExpr>
-		<storeTypedExpr public="1" set="method" line="580" static="1">
+		<storeTypedExpr public="1" set="method" line="584" static="1">
 			<f a="t">
 				<t path="haxe.macro.TypedExpr"/>
 				<t path="haxe.macro.Expr"/>
@@ -36885,7 +36886,7 @@
 		the expression returned by this method in a static variable and using the
 		compilation server.</haxe_doc>
 		</storeTypedExpr>
-		<storeExpr public="1" set="method" line="599" static="1">
+		<storeExpr public="1" set="method" line="603" static="1">
 			<f a="e">
 				<t path="haxe.macro.Expr"/>
 				<t path="haxe.macro.Expr"/>
@@ -36904,7 +36905,7 @@
 		the expression returned by this method in a static variable and using the
 		compilation server.</haxe_doc>
 		</storeExpr>
-		<typeAndStoreExpr public="1" set="method" line="607" static="1">
+		<typeAndStoreExpr public="1" set="method" line="611" static="1">
 			<f a="e">
 				<t path="haxe.macro.Expr"/>
 				<a>
@@ -36915,7 +36916,7 @@
 			<haxe_doc>This function works like `storeExpr`, but also returns access to the expression's
 		type through the `type` field of the return value.</haxe_doc>
 		</typeAndStoreExpr>
-		<registerModuleDependency public="1" set="method" line="620" static="1">
+		<registerModuleDependency public="1" set="method" line="624" static="1">
 			<f a="modulePath:externFile">
 				<c path="String"/>
 				<c path="String"/>
@@ -36929,7 +36930,7 @@
 
 		Has no effect if the compilation cache is not used.</haxe_doc>
 		</registerModuleDependency>
-		<timer public="1" set="method" line="638" static="1">
+		<timer public="1" set="method" line="642" static="1">
 			<f a="id">
 				<c path="String"/>
 				<f a=""><x path="Void"/></f>
@@ -36947,7 +36948,7 @@
 		stopTimer();
 		```</haxe_doc>
 		</timer>
-		<withImports public="1" params="X" set="method" line="651" static="1">
+		<withImports public="1" params="X" set="method" line="655" static="1">
 			<f a="imports:usings:code">
 				<c path="Array"><c path="String"/></c>
 				<c path="Array"><c path="String"/></c>
@@ -36962,7 +36963,7 @@
 
 		If any argument is `null`, the result is unspecified.</haxe_doc>
 		</withImports>
-		<withOptions public="1" params="X" set="method" line="665" static="1">
+		<withOptions public="1" params="X" set="method" line="669" static="1">
 			<f a="options:code">
 				<a>
 					<allowTransform>
@@ -36985,7 +36986,7 @@
 		`allowTransform`: when disabled, the code typed with `typeExpr` will be almost exactly the same
 		as the input code. This will disable some abstract types transformations.</haxe_doc>
 		</withOptions>
-		<registerModuleReuseCall public="1" set="method" line="670" static="1">
+		<registerModuleReuseCall public="1" set="method" line="674" static="1">
 			<f a="modulePath:macroCall">
 				<c path="String"/>
 				<c path="String"/>
@@ -36993,14 +36994,14 @@
 			</f>
 			<meta><m n=":deprecated"/></meta>
 		</registerModuleReuseCall>
-		<onMacroContextReused public="1" set="method" line="675" static="1">
+		<onMacroContextReused public="1" set="method" line="679" static="1">
 			<f a="callb">
 				<f a=""><x path="Bool"/></f>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":deprecated"/></meta>
 		</onMacroContextReused>
-		<load set="method" line="683" static="1">
+		<load set="method" line="687" static="1">
 			<f a="f:nargs">
 				<c path="String"/>
 				<x path="Int"/>
@@ -37013,12 +37014,12 @@
 				<m n=":allow"><e>haxe.macro.PositionTools</e></m>
 			</meta>
 		</load>
-		<includeFile set="method" line="693" static="1"><f a="file:position">
+		<includeFile set="method" line="697" static="1"><f a="file:position">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></includeFile>
-		<sExpr set="method" line="697" static="1"><f a="e:pretty">
+		<sExpr set="method" line="701" static="1"><f a="e:pretty">
 	<t path="haxe.macro.TypedExpr"/>
 	<x path="Bool"/>
 	<c path="String"/>
@@ -37033,6 +37034,23 @@
 	- `haxe.macro.ExprTools`
 	- `haxe.macro.TypeTools`</haxe_doc>
 	</class>
+	<enum path="haxe.macro.DisplayMode" params="" file="/usr/local/share/haxe/std/haxe/macro/DisplayMode.hx">
+		<None/>
+		<Default/>
+		<Definition/>
+		<TypeDefinition/>
+		<Implementation/>
+		<Package/>
+		<Hover/>
+		<References a="withDefinition:findDescendants:findBase">
+			<x path="Bool"/>
+			<x path="Bool"/>
+			<x path="Bool"/>
+		</References>
+		<ModuleSymbols/>
+		<WorkspaceSymbols a="filter"><c path="String"/></WorkspaceSymbols>
+		<Signature/>
+	</enum>
 	<class path="haxe.macro.ExampleJSGenerator" params="" file="/usr/local/share/haxe/std/haxe/macro/ExampleJSGenerator.hx">
 		<use public="1" set="method" line="260" static="1"><f a=""><x path="Void"/></f></use>
 		<api><t path="haxe.macro.JSGenApi"/></api>
@@ -39477,7 +39495,98 @@
 		<getClass public="1" set="method" line="219" static="1">
 			<f a="t">
 				<e path="haxe.macro.Type"/>
-				<t path="haxe.macro.ClassType"/>
+				<x path="Null"><a>
+	<superClass>
+		<x path="Null"><a>
+	<t><t path="haxe.macro.Ref"><t path="haxe.macro.ClassType"/></t></t>
+	<params><c path="Array"><e path="haxe.macro.Type"/></c></params>
+</a></x>
+		<haxe_doc>The parent class and its type parameters, if available.</haxe_doc>
+	</superClass>
+	<statics>
+		<t path="haxe.macro.Ref"><c path="Array"><t path="haxe.macro.ClassField"/></c></t>
+		<haxe_doc>The static fields of the class.</haxe_doc>
+	</statics>
+	<pos>
+		<t path="haxe.macro.Position"/>
+		<haxe_doc>The position of the type.</haxe_doc>
+	</pos>
+	<params>
+		<c path="Array"><t path="haxe.macro.TypeParameter"/></c>
+		<haxe_doc>The type parameters of the type.</haxe_doc>
+	</params>
+	<pack>
+		<c path="Array"><c path="String"/></c>
+		<haxe_doc>The package of the type.</haxe_doc>
+	</pack>
+	<overrides>
+		<c path="Array"><t path="haxe.macro.Ref"><t path="haxe.macro.ClassField"/></t></c>
+		<haxe_doc>The list of fields that have override status.</haxe_doc>
+	</overrides>
+	<name>
+		<c path="String"/>
+		<haxe_doc>The name of the type.</haxe_doc>
+	</name>
+	<module>
+		<c path="String"/>
+		<haxe_doc>The module name of the type, which might be different.</haxe_doc>
+	</module>
+	<meta>
+		<t path="haxe.macro.MetaAccess"/>
+		<haxe_doc>The metadata of the type.</haxe_doc>
+	</meta>
+	<kind>
+		<e path="haxe.macro.ClassKind"/>
+		<haxe_doc>The kind of the class.</haxe_doc>
+	</kind>
+	<isPrivate>
+		<x path="Bool"/>
+		<haxe_doc>Whether or not the type is private.</haxe_doc>
+	</isPrivate>
+	<isInterface>
+		<x path="Bool"/>
+		<haxe_doc>If true the type is an interface, otherwise it is a class.</haxe_doc>
+	</isInterface>
+	<isFinal>
+		<x path="Bool"/>
+		<haxe_doc>If true the class is final and cannot be extended.</haxe_doc>
+	</isFinal>
+	<isExtern>
+		<x path="Bool"/>
+		<haxe_doc>Whether or not the type is extern.</haxe_doc>
+	</isExtern>
+	<isAbstract>
+		<x path="Bool"/>
+		<haxe_doc>If true the class is abstract and cannot be instantiated directly.</haxe_doc>
+	</isAbstract>
+	<interfaces>
+		<c path="Array"><a>
+	<t><t path="haxe.macro.Ref"><t path="haxe.macro.ClassType"/></t></t>
+	<params><c path="Array"><e path="haxe.macro.Type"/></c></params>
+</a></c>
+		<haxe_doc>The implemented interfaces and their type parameters.</haxe_doc>
+	</interfaces>
+	<init>
+		<x path="Null"><t path="haxe.macro.TypedExpr"/></x>
+		<haxe_doc>The `__init__` expression of the class, if available.</haxe_doc>
+	</init>
+	<fields>
+		<t path="haxe.macro.Ref"><c path="Array"><t path="haxe.macro.ClassField"/></c></t>
+		<haxe_doc>The member fields of the class.</haxe_doc>
+	</fields>
+	<exclude set="method">
+		<f a=""><x path="Void"/></f>
+		<haxe_doc>Allows excluding the type from compilation.</haxe_doc>
+	</exclude>
+	<doc>
+		<x path="Null"><c path="String"/></x>
+		<haxe_doc>The associated documentation of the class field.</haxe_doc>
+	</doc>
+	<constructor>
+		<x path="Null"><t path="haxe.macro.Ref"><t path="haxe.macro.ClassField"/></t></x>
+		<haxe_doc>The constructor of the class, if available.</haxe_doc>
+	</constructor>
+</a></x>
 			</f>
 			<haxe_doc>Tries to extract the class instance stored inside `t`.
 
@@ -39490,7 +39599,59 @@
 		<getEnum public="1" set="method" line="234" static="1">
 			<f a="t">
 				<e path="haxe.macro.Type"/>
-				<t path="haxe.macro.EnumType"/>
+				<x path="Null"><a>
+	<pos>
+		<t path="haxe.macro.Position"/>
+		<haxe_doc>The position of the type.</haxe_doc>
+	</pos>
+	<params>
+		<c path="Array"><t path="haxe.macro.TypeParameter"/></c>
+		<haxe_doc>The type parameters of the type.</haxe_doc>
+	</params>
+	<pack>
+		<c path="Array"><c path="String"/></c>
+		<haxe_doc>The package of the type.</haxe_doc>
+	</pack>
+	<names>
+		<c path="Array"><c path="String"/></c>
+		<haxe_doc>An ordered list of enum constructor names.</haxe_doc>
+	</names>
+	<name>
+		<c path="String"/>
+		<haxe_doc>The name of the type.</haxe_doc>
+	</name>
+	<module>
+		<c path="String"/>
+		<haxe_doc>The module name of the type, which might be different.</haxe_doc>
+	</module>
+	<meta>
+		<t path="haxe.macro.MetaAccess"/>
+		<haxe_doc>The metadata of the type.</haxe_doc>
+	</meta>
+	<isPrivate>
+		<x path="Bool"/>
+		<haxe_doc>Whether or not the type is private.</haxe_doc>
+	</isPrivate>
+	<isExtern>
+		<x path="Bool"/>
+		<haxe_doc>Whether or not the type is extern.</haxe_doc>
+	</isExtern>
+	<exclude set="method">
+		<f a=""><x path="Void"/></f>
+		<haxe_doc>Allows excluding the type from compilation.</haxe_doc>
+	</exclude>
+	<doc>
+		<x path="Null"><c path="String"/></x>
+		<haxe_doc>The associated documentation of the class field.</haxe_doc>
+	</doc>
+	<constructs>
+		<t path="Map">
+			<c path="String"/>
+			<t path="haxe.macro.EnumField"/>
+		</t>
+		<haxe_doc>The available enum constructors.</haxe_doc>
+	</constructs>
+</a></x>
 			</f>
 			<haxe_doc>Tries to extract the enum instance stored inside `t`.
 
@@ -41590,7 +41751,7 @@
 			<meta><m n=":value"><e>[16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15]</e></m></meta>
 		</CODE_LENGTHS_POS>
 		<FIXED_HUFFMAN expr="null" line="127" static="1">
-			<e path="haxe.zip.Huffman"/>
+			<x path="Null"><x path="Null"><e path="haxe.zip.Huffman"/></x></x>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</FIXED_HUFFMAN>
 		<run public="1" set="method" line="388" static="1">
@@ -41616,7 +41777,7 @@
 		<input><c path="haxe.io.Input"/></input>
 		<lengths><c path="Array"><x path="Int"/></c></lengths>
 		<window><c path="haxe.zip._InflateImpl.Window"/></window>
-		<buildFixedHuffman set="method" line="149"><f a=""><e path="haxe.zip.Huffman"/></f></buildFixedHuffman>
+		<buildFixedHuffman set="method" line="149"><f a=""><x path="Null"><x path="Null"><e path="haxe.zip.Huffman"/></x></x></f></buildFixedHuffman>
 		<readBytes public="1" set="method" line="159"><f a="b:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
@@ -42194,7 +42355,7 @@
 			</a>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</PROXY>
-		<requestUrl public="1" set="method" line="488" static="1">
+		<requestUrl public="1" set="method" line="492" static="1">
 			<f a="url">
 				<c path="String"/>
 				<c path="String"/>
@@ -42271,7 +42432,7 @@
 	<c path="sys.net.Socket"/>
 	<x path="Void"/>
 </f></readHttpResponse>
-		<readChunk set="method" line="422"><f a="chunk_re:api:buf:len">
+		<readChunk set="method" line="426"><f a="chunk_re:api:buf:len">
 	<c path="EReg"/>
 	<c path="haxe.io.Output"/>
 	<c path="haxe.io.Bytes"/>
