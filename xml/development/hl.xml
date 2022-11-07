@@ -6116,11 +6116,16 @@
 	<x path="sys.thread.Thread"/>
 </f></createWithEventLoop>
 		<current public="1" set="method" line="50" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
-		<get_events set="method" line="54" static="1"><f a="this">
+		<setName public="1" set="method" line="55" static="1"><f a="this:name">
+	<t path="sys.thread._Thread.ThreadImpl"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></setName>
+		<get_events set="method" line="65" static="1"><f a="this">
 	<t path="sys.thread._Thread.ThreadImpl"/>
 	<c path="sys.thread.EventLoop"/>
 </f></get_events>
-		<processEvents public="1" set="method" line="61" static="1">
+		<processEvents public="1" set="method" line="72" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 		</processEvents>
@@ -6277,18 +6282,14 @@
 		</meta>
 	</class>
 	<class path="sys.thread._Thread.HaxeThread" params="" file="/usr/local/share/haxe/std/hl/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
-		<mainThreadHandle static="1"><t path="sys.thread._Thread.ThreadHandle"/></mainThreadHandle>
 		<mainThread static="1"><c path="sys.thread._Thread.HaxeThread"/></mainThread>
-		<threads static="1"><c path="Array"><a>
-	<thread><c path="sys.thread._Thread.HaxeThread"/></thread>
-	<handle><t path="sys.thread._Thread.ThreadHandle"/></handle>
-</a></c></threads>
+		<threads static="1"><c path="Array"><c path="sys.thread._Thread.HaxeThread"/></c></threads>
 		<threadsMutex static="1"><c path="sys.thread.Mutex"/></threadsMutex>
-		<ids expr="0" line="85" static="1">
+		<UID expr="0" line="84" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>0</e></m></meta>
-		</ids>
-		<createHandle set="method" line="89" static="1">
+		</UID>
+		<createHandle set="method" line="99" static="1">
 			<f a="callb">
 				<f a=""><x path="Void"/></f>
 				<t path="sys.thread._Thread.ThreadHandle"/>
@@ -6298,48 +6299,49 @@
 	<e>"thread_create"</e>
 </m></meta>
 		</createHandle>
-		<currentHandle set="method" line="94" static="1">
+		<currentHandle set="method" line="104" static="1">
 			<f a=""><t path="sys.thread._Thread.ThreadHandle"/></f>
 			<meta><m n=":hlNative">
 	<e>"std"</e>
 	<e>"thread_current"</e>
 </m></meta>
 		</currentHandle>
-		<current public="1" set="method" line="98" static="1"><f a=""><c path="sys.thread._Thread.HaxeThread"/></f></current>
-		<create public="1" set="method" line="119" static="1"><f a="callb:withEventLoop">
+		<current public="1" set="method" line="108" static="1"><f a=""><c path="sys.thread._Thread.HaxeThread"/></f></current>
+		<create public="1" set="method" line="129" static="1"><f a="callb:withEventLoop">
 	<f a=""><x path="Void"/></f>
 	<x path="Bool"/>
 	<x path="sys.thread.Thread"/>
 </f></create>
-		<runWithEventLoop public="1" set="method" line="143" static="1"><f a="job">
+		<runWithEventLoop public="1" set="method" line="153" static="1"><f a="job">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></runWithEventLoop>
-		<dropThread set="method" line="160" static="1"><f a="deleteItem">
-	<a>
-		<thread><c path="sys.thread._Thread.HaxeThread"/></thread>
-		<handle><t path="sys.thread._Thread.ThreadHandle"/></handle>
-	</a>
+		<dropThread set="method" line="170" static="1"><f a="deleteItem">
+	<c path="sys.thread._Thread.HaxeThread"/>
 	<x path="Void"/>
 </f></dropThread>
+		<id expr="UID++">
+			<x path="Int"/>
+			<meta><m n=":value"><e>UID++</e></m></meta>
+		</id>
 		<events public="1" set="null"><x path="Null"><c path="sys.thread.EventLoop"/></x></events>
+		<handle><t path="sys.thread._Thread.ThreadHandle"/></handle>
 		<messages final="1" expr="new Deque()">
 			<c path="sys.thread.Deque"><d/></c>
 			<meta><m n=":value"><e>new Deque()</e></m></meta>
 		</messages>
-		<id expr="ids++">
-			<x path="Int"/>
-			<meta><m n=":value"><e>ids++</e></m></meta>
-		</id>
-		<readMessage public="1" set="method" line="171"><f a="block">
+		<readMessage public="1" set="method" line="181"><f a="block">
 	<x path="Bool"/>
 	<d/>
 </f></readMessage>
-		<sendMessage public="1" set="method" line="177"><f a="msg">
+		<sendMessage public="1" set="method" line="189"><f a="msg">
 	<d/>
 	<x path="Void"/>
 </f></sendMessage>
-		<new public="1" set="method" line="175"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="185"><f a="h">
+	<t path="sys.thread._Thread.ThreadHandle"/>
+	<x path="Void"/>
+</f></new>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="haxe.EntryPoint" params="" file="/usr/local/share/haxe/std/haxe/EntryPoint.hx">
@@ -39030,11 +39032,16 @@
 	<x path="sys.thread.Thread"/>
 </f></createWithEventLoop>
 	<current public="1" set="method" line="50" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
-	<get_events set="method" line="54" static="1"><f a="this">
+	<setName public="1" set="method" line="55" static="1"><f a="this:name">
+	<t path="sys.thread._Thread.ThreadImpl"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></setName>
+	<get_events set="method" line="65" static="1"><f a="this">
 	<t path="sys.thread._Thread.ThreadImpl"/>
 	<c path="sys.thread.EventLoop"/>
 </f></get_events>
-	<processEvents public="1" set="method" line="61" static="1">
+	<processEvents public="1" set="method" line="72" static="1">
 		<f a=""><x path="Void"/></f>
 		<meta><m n=":keep"/></meta>
 	</processEvents>
