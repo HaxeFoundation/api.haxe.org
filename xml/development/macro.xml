@@ -42344,7 +42344,7 @@
 	</class>
 	<class path="sys.Http" params="" file="/usr/local/share/haxe/std/sys/Http.hx">
 		<extends path="haxe.http.HttpBase"/>
-		<PROXY public="1" expr="null" line="46" static="1">
+		<PROXY public="1" expr="null" line="48" static="1">
 			<a>
 				<port><x path="Int"/></port>
 				<host><c path="String"/></host>
@@ -42355,7 +42355,7 @@
 			</a>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</PROXY>
-		<requestUrl public="1" set="method" line="492" static="1">
+		<requestUrl public="1" set="method" line="527" static="1">
 			<f a="url">
 				<c path="String"/>
 				<c path="String"/>
@@ -42373,6 +42373,10 @@
 	<c path="String"/>
 	<c path="String"/>
 </t></responseHeaders>
+		<responseHeadersSameKey><t path="Map">
+	<c path="String"/>
+	<c path="Array"><c path="String"/></c>
+</t></responseHeadersSameKey>
 		<chunk_size><x path="Null"><x path="Int"/></x></chunk_size>
 		<chunk_buf><c path="haxe.io.Bytes"/></chunk_buf>
 		<file><a>
@@ -42382,11 +42386,11 @@
 	<io><c path="haxe.io.Input"/></io>
 	<filename><c path="String"/></filename>
 </a></file>
-		<request public="1" set="method" line="56" override="1"><f a="?post">
+		<request public="1" set="method" line="58" override="1"><f a="?post">
 	<x path="Bool"/>
 	<x path="Void"/>
 </f></request>
-		<fileTransfert public="1" get="inline" set="null" line="76">
+		<fileTransfert public="1" get="inline" set="null" line="78">
 			<f a="argname:filename:file:size:?mimeType" v="::::&quot;application/octet-stream&quot;">
 				<c path="String"/>
 				<c path="String"/>
@@ -42401,7 +42405,7 @@
 				<m n=":deprecated"><e>"Use fileTransfer instead"</e></m>
 			</meta>
 		</fileTransfert>
-		<fileTransfer public="1" set="method" line="80">
+		<fileTransfer public="1" set="method" line="82">
 			<f a="argname:filename:file:size:?mimeType" v="::::&quot;application/octet-stream&quot;">
 				<c path="String"/>
 				<c path="String"/>
@@ -42412,14 +42416,25 @@
 			</f>
 			<meta><m n=":value"><e>{ mimeType : "application/octet-stream" }</e></m></meta>
 		</fileTransfer>
-		<customRequest public="1" set="method" line="90"><f a="post:api:?sock:?method">
+		<customRequest public="1" set="method" line="92"><f a="post:api:?sock:?method">
 	<x path="Bool"/>
 	<c path="haxe.io.Output"/>
 	<c path="sys.net.Socket"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></customRequest>
-		<writeBody set="method" line="255"><f a="body:fileInput:fileSize:boundary:sock">
+		<getResponseHeaderValues public="1" set="method" line="264">
+			<f a="key">
+				<c path="String"/>
+				<x path="Null"><c path="Array"><c path="String"/></c></x>
+			</f>
+			<haxe_doc>Returns an array of values for a single response header or returns
+		null if no such header exists.
+		This method can be useful when you need to get a multiple headers with
+		the same name (e.g. `Set-Cookie`), that are unreachable via the
+		`responseHeaders` variable.</haxe_doc>
+		</getResponseHeaderValues>
+		<writeBody set="method" line="274"><f a="body:fileInput:fileSize:boundary:sock">
 	<x path="Null"><c path="haxe.io.BytesOutput"/></x>
 	<x path="Null"><c path="haxe.io.Input"/></x>
 	<x path="Int"/>
@@ -42427,19 +42442,19 @@
 	<c path="sys.net.Socket"/>
 	<x path="Void"/>
 </f></writeBody>
-		<readHttpResponse set="method" line="280"><f a="api:sock">
+		<readHttpResponse set="method" line="299"><f a="api:sock">
 	<c path="haxe.io.Output"/>
 	<c path="sys.net.Socket"/>
 	<x path="Void"/>
 </f></readHttpResponse>
-		<readChunk set="method" line="426"><f a="chunk_re:api:buf:len">
+		<readChunk set="method" line="461"><f a="chunk_re:api:buf:len">
 	<c path="EReg"/>
 	<c path="haxe.io.Output"/>
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Bool"/>
 </f></readChunk>
-		<new public="1" set="method" line="48"><f a="url">
+		<new public="1" set="method" line="50"><f a="url">
 	<c path="String"/>
 	<x path="Void"/>
 </f></new>
