@@ -6203,6 +6203,7 @@
 			<m n=":from"/>
 		</meta>
 	</ofInt64>
+	<meta><m n=":directlyUsed"/></meta>
 </class></impl>
 	</abstract>
 	<class path="cpp._Int64.Int64_Impl_" params="" file="/usr/local/share/haxe/std/cpp/Int64.hx" private="1" module="cpp.Int64" final="1">
@@ -6245,6 +6246,142 @@
 				<m n=":from"/>
 			</meta>
 		</ofInt64>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="haxe.IMap" params="K:V" file="/usr/local/share/haxe/std/haxe/Constraints.hx" module="haxe.Constraints" interface="1">
+		<get public="1" set="method"><f a="k">
+	<c path="haxe.IMap.K"/>
+	<x path="Null"><c path="haxe.IMap.V"/></x>
+</f></get>
+		<set public="1" set="method"><f a="k:v">
+	<c path="haxe.IMap.K"/>
+	<c path="haxe.IMap.V"/>
+	<x path="Void"/>
+</f></set>
+		<exists public="1" set="method"><f a="k">
+	<c path="haxe.IMap.K"/>
+	<x path="Bool"/>
+</f></exists>
+		<remove public="1" set="method"><f a="k">
+	<c path="haxe.IMap.K"/>
+	<x path="Bool"/>
+</f></remove>
+		<keys public="1" set="method"><f a=""><t path="Iterator"><c path="haxe.IMap.K"/></t></f></keys>
+		<iterator public="1" set="method"><f a=""><t path="Iterator"><c path="haxe.IMap.V"/></t></f></iterator>
+		<keyValueIterator public="1" set="method"><f a=""><t path="KeyValueIterator">
+	<c path="haxe.IMap.K"/>
+	<c path="haxe.IMap.V"/>
+</t></f></keyValueIterator>
+		<copy public="1" set="method"><f a=""><c path="haxe.IMap">
+	<c path="haxe.IMap.K"/>
+	<c path="haxe.IMap.V"/>
+</c></f></copy>
+		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
+		<clear public="1" set="method"><f a=""><x path="Void"/></f></clear>
+	</class>
+	<class path="cpp.Int64Map" params="T" file="/usr/local/share/haxe/std/cpp/Int64Map.hx">
+		<implements path="haxe.IMap">
+			<x path="haxe.Int64"/>
+			<c path="cpp.Int64Map.T"/>
+		</implements>
+		<h>
+			<d/>
+			<meta>
+				<m n=":keep"/>
+				<m n=":ifFeature"><e>"cpp.Int64Map.*"</e></m>
+			</meta>
+		</h>
+		<set public="1" set="method" line="64">
+			<f a="key:value">
+				<x path="haxe.Int64"/>
+				<c path="cpp.Int64Map.T"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
+		</set>
+		<get public="1" set="method" line="68">
+			<f a="key">
+				<x path="haxe.Int64"/>
+				<x path="Null"><c path="cpp.Int64Map.T"/></x>
+			</f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
+		</get>
+		<exists public="1" set="method" line="72">
+			<f a="key">
+				<x path="haxe.Int64"/>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
+		</exists>
+		<remove public="1" set="method" line="76">
+			<f a="key">
+				<x path="haxe.Int64"/>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
+		</remove>
+		<keys public="1" set="method" line="80">
+			<f a=""><t path="Iterator"><x path="haxe.Int64"/></t></f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
+		</keys>
+		<iterator public="1" set="method" line="85">
+			<f a=""><t path="Iterator"><c path="cpp.Int64Map.T"/></t></f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
+		</iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="90">
+			<f a=""><t path="KeyValueIterator">
+	<x path="haxe.Int64"/>
+	<c path="cpp.Int64Map.T"/>
+</t></f>
+			<meta>
+				<m n=":keep"/>
+				<m n=":runtime"/>
+			</meta>
+		</keyValueIterator>
+		<copy public="1" set="method" line="94">
+			<f a=""><c path="cpp.Int64Map"><c path="cpp.Int64Map.T"/></c></f>
+			<meta><m n=":keep"/></meta>
+		</copy>
+		<toString public="1" set="method" line="101">
+			<f a=""><c path="String"/></f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
+		</toString>
+		<clear public="1" set="method" line="105">
+			<f a=""><x path="Void"/></f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
+		</clear>
+		<new public="1" set="method" line="62">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</new>
+		<meta>
+			<m n=":headerClassCode"><e><![CDATA["\n  inline void set(cpp::Int64 key, ::null value) { __int64_hash_set(HX_MAP_THIS,key,value); }\n  inline void set(cpp::Int64 key, bool value) { __int64_hash_set(HX_MAP_THIS,key,value); }\n  inline void set(cpp::Int64 key, char value) { __int64_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(cpp::Int64 key, unsigned char value) { __int64_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(cpp::Int64 key, signed char value) { __int64_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(cpp::Int64 key, short value) { __int64_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(cpp::Int64 key, unsigned short value) { __int64_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(cpp::Int64 key, int value) { __int64_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(cpp::Int64 key, unsigned int value) { __int64_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(cpp::Int64 key, float value) { __int64_hash_set_float(HX_MAP_THIS,key,value); }\n  inline void set(cpp::Int64 key, double value) { __int64_hash_set_float(HX_MAP_THIS,key,value); }\n  inline void set(cpp::Int64 key, ::String value) { __int64_hash_set_string(HX_MAP_THIS,key,value); }\n  inline void set(cpp::Int64 key, cpp::Int64 value) { __int64_hash_set_int64(HX_MAP_THIS,key,value); }\n\n  template<typename V, typename H>\n  inline void set(cpp::Int64 key, const ::cpp::Struct<V,H> &value) {__int64_hash_set(HX_MAP_THIS,key,value); }\n  template<typename F>\n  inline void set(cpp::Int64 key, const ::cpp::Function<F> &value) {__int64_hash_set(HX_MAP_THIS,key,value); }\n  template<typename V>\n  inline void set(cpp::Int64 key, const ::cpp::Pointer<V> &value) {__int64_hash_set(HX_MAP_THIS,key,(Dynamic)value ); }\n\n  template<typename VALUE>\n  inline void set(Dynamic &key, const VALUE &value) { set( (cpp::Int64)key, value ); }\n\n  inline bool get_bool(cpp::Int64 key) { return __int64_hash_get_bool(h,key); }\n  inline int get_int(cpp::Int64 key) { return __int64_hash_get_int(h,key); }\n  inline Float get_float(cpp::Int64 key) { return __int64_hash_get_float(h,key); }\n  inline String get_string(cpp::Int64 key) { return __int64_hash_get_string(h,key); }\n  inline cpp::Int64 get_int64(cpp::Int64 key) { return __int64_hash_get_int64(h,key); }\n"]]></e></m>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
 	<abstract path="cpp.Int8" params="" file="/usr/local/share/haxe/std/cpp/Int8.hx">
 		<from><icast><x path="Int"/></icast></from>
@@ -11052,37 +11189,6 @@
 		<impl><class path="haxe._Constraints.Constructible_Impl_" params="" file="/usr/local/share/haxe/std/haxe/Constraints.hx" private="1" module="haxe.Constraints" extern="1" final="1"/></impl>
 	</abstract>
 	<class path="haxe._Constraints.Constructible_Impl_" params="" file="/usr/local/share/haxe/std/haxe/Constraints.hx" private="1" module="haxe.Constraints" extern="1" final="1"/>
-	<class path="haxe.IMap" params="K:V" file="/usr/local/share/haxe/std/haxe/Constraints.hx" module="haxe.Constraints" interface="1">
-		<get public="1" set="method"><f a="k">
-	<c path="haxe.IMap.K"/>
-	<x path="Null"><c path="haxe.IMap.V"/></x>
-</f></get>
-		<set public="1" set="method"><f a="k:v">
-	<c path="haxe.IMap.K"/>
-	<c path="haxe.IMap.V"/>
-	<x path="Void"/>
-</f></set>
-		<exists public="1" set="method"><f a="k">
-	<c path="haxe.IMap.K"/>
-	<x path="Bool"/>
-</f></exists>
-		<remove public="1" set="method"><f a="k">
-	<c path="haxe.IMap.K"/>
-	<x path="Bool"/>
-</f></remove>
-		<keys public="1" set="method"><f a=""><t path="Iterator"><c path="haxe.IMap.K"/></t></f></keys>
-		<iterator public="1" set="method"><f a=""><t path="Iterator"><c path="haxe.IMap.V"/></t></f></iterator>
-		<keyValueIterator public="1" set="method"><f a=""><t path="KeyValueIterator">
-	<c path="haxe.IMap.K"/>
-	<c path="haxe.IMap.V"/>
-</t></f></keyValueIterator>
-		<copy public="1" set="method"><f a=""><c path="haxe.IMap">
-	<c path="haxe.IMap.K"/>
-	<c path="haxe.IMap.V"/>
-</c></f></copy>
-		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
-		<clear public="1" set="method"><f a=""><x path="Void"/></f></clear>
-	</class>
 	<abstract path="haxe.DynamicAccess" params="T" file="/usr/local/share/haxe/std/haxe/DynamicAccess.hx">
 		<from><icast><d><c path="haxe.DynamicAccess.T"/></d></icast></from>
 		<this><d><c path="haxe.DynamicAccess.T"/></d></this>
@@ -12330,7 +12436,7 @@
 			<meta><m n=":keep"/></meta>
 		</clamp>
 	</class>
-	<class path="haxe._Int64.___Int64" params="" file="/usr/local/share/haxe/std/cpp/_std/haxe/Int64.hx" private="1" module="haxe.Int64" extern="1">
+	<class path="haxe._Int64.NativeInt64Helper" params="" file="/usr/local/share/haxe/std/cpp/_std/haxe/Int64.hx" private="1" module="haxe.Int64" extern="1">
 		<make public="1" set="method" static="1">
 			<f a="high:low">
 				<x path="haxe.Int32"/>
@@ -12694,25 +12800,24 @@
 		</low>
 		<meta>
 			<m n=":directlyUsed"/>
-			<m n=":notNull"/>
 			<m n=":include"><e>"cpp/Int64.h"</e></m>
-			<m n=":native"><e>"cpp::Int64Struct"</e></m>
 		</meta>
 	</class>
-	<typedef path="haxe._Int64.__Int64" params="" file="/usr/local/share/haxe/std/cpp/_std/haxe/Int64.hx" private="1" module="haxe.Int64"><c path="haxe._Int64.___Int64"/></typedef>
+	<typedef path="haxe._Int64.__Int64" params="" file="/usr/local/share/haxe/std/cpp/_std/haxe/Int64.hx" private="1" module="haxe.Int64"><x path="cpp.Int64"/></typedef>
 	<abstract path="haxe.Int64" params="" file="/usr/local/share/haxe/std/cpp/_std/haxe/Int64.hx">
 		<from>
 			<icast><t path="haxe._Int64.__Int64"/></icast>
-			<icast field="ofInt"><x path="Int"/></icast>
+			<icast><x path="Int"/></icast>
 		</from>
 		<this><t path="haxe._Int64.__Int64"/></this>
 		<to><icast><t path="haxe._Int64.__Int64"/></icast></to>
 		<meta>
 			<m n=":coreApi"/>
 			<m n=":transitive"/>
+			<m n=":notNull"/>
 		</meta>
 		<impl><class path="haxe._Int64.Int64_Impl_" params="" file="/usr/local/share/haxe/std/cpp/_std/haxe/Int64.hx" private="1" module="haxe.Int64" final="1">
-	<copy public="1" get="inline" set="null" line="141" static="1">
+	<copy public="1" get="inline" set="null" line="137" static="1">
 		<f a="this">
 			<t path="haxe._Int64.__Int64"/>
 			<x path="haxe.Int64"/>
@@ -12720,7 +12825,7 @@
 		<meta><m n=":keep"/></meta>
 		<haxe_doc>Makes a copy of `this` Int64.</haxe_doc>
 	</copy>
-	<make public="1" get="inline" set="null" line="143" static="1">
+	<make public="1" get="inline" set="null" line="139" static="1">
 		<f a="high:low">
 			<x path="haxe.Int32"/>
 			<x path="haxe.Int32"/>
@@ -12729,19 +12834,16 @@
 		<meta><m n=":keep"/></meta>
 		<haxe_doc>Construct an Int64 from two 32-bit words `high` and `low`.</haxe_doc>
 	</make>
-	<ofInt public="1" get="inline" set="null" line="148" static="1">
+	<ofInt public="1" get="inline" set="null" line="143" static="1">
 		<f a="x">
 			<x path="Int"/>
 			<x path="haxe.Int64"/>
 		</f>
-		<meta>
-			<m n=":keep"/>
-			<m n=":from"/>
-		</meta>
+		<meta><m n=":keep"/></meta>
 		<haxe_doc>Returns an Int64 with the value of the Int `x`.
 		`x` is sign-extended to fill 64 bits.</haxe_doc>
 	</ofInt>
-	<toInt public="1" get="inline" set="null" line="152" static="1">
+	<toInt public="1" get="inline" set="null" line="147" static="1">
 		<f a="x">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -12750,7 +12852,7 @@
 		<haxe_doc>Returns an Int with the value of the Int64 `x`.
 		Throws an exception  if `x` cannot be represented in 32 bits.</haxe_doc>
 	</toInt>
-	<is public="1" get="inline" set="null" line="160" static="1">
+	<is public="1" get="inline" set="null" line="155" static="1">
 		<f a="val">
 			<d/>
 			<x path="Bool"/>
@@ -12760,7 +12862,7 @@
 			<m n=":deprecated"><e>"haxe.Int64.is() is deprecated. Use haxe.Int64.isInt64() instead"</e></m>
 		</meta>
 	</is>
-	<isInt64 public="1" get="inline" set="null" line="165" static="1">
+	<isInt64 public="1" get="inline" set="null" line="160" static="1">
 		<f a="val">
 			<d/>
 			<x path="Bool"/>
@@ -12768,7 +12870,7 @@
 		<meta><m n=":keep"/></meta>
 		<haxe_doc>Returns whether the value `val` is of type `haxe.Int64`</haxe_doc>
 	</isInt64>
-	<getHigh public="1" get="inline" set="null" line="169" static="1">
+	<getHigh public="1" get="inline" set="null" line="164" static="1">
 		<f a="x">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int32"/>
@@ -12779,7 +12881,7 @@
 		</meta>
 		<haxe_doc>Returns the high 32-bit word of `x`.</haxe_doc>
 	</getHigh>
-	<getLow public="1" get="inline" set="null" line="173" static="1">
+	<getLow public="1" get="inline" set="null" line="168" static="1">
 		<f a="x">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int32"/>
@@ -12790,7 +12892,7 @@
 		</meta>
 		<haxe_doc>Returns the low 32-bit word of `x`.</haxe_doc>
 	</getLow>
-	<isNeg public="1" get="inline" set="null" line="176" static="1">
+	<isNeg public="1" get="inline" set="null" line="171" static="1">
 		<f a="x">
 			<x path="haxe.Int64"/>
 			<x path="Bool"/>
@@ -12798,7 +12900,7 @@
 		<meta><m n=":keep"/></meta>
 		<haxe_doc>Returns `true` if `x` is less than zero.</haxe_doc>
 	</isNeg>
-	<isZero public="1" get="inline" set="null" line="179" static="1">
+	<isZero public="1" get="inline" set="null" line="174" static="1">
 		<f a="x">
 			<x path="haxe.Int64"/>
 			<x path="Bool"/>
@@ -12806,7 +12908,7 @@
 		<meta><m n=":keep"/></meta>
 		<haxe_doc>Returns `true` if `x` is exactly zero.</haxe_doc>
 	</isZero>
-	<compare public="1" get="inline" set="null" line="182" static="1">
+	<compare public="1" get="inline" set="null" line="177" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -12817,7 +12919,7 @@
 		Returns a negative value if `a < b`, positive if `a > b`,
 		or 0 if `a == b`.]]></haxe_doc>
 	</compare>
-	<ucompare public="1" get="inline" set="null" line="185" static="1">
+	<ucompare public="1" get="inline" set="null" line="180" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -12828,7 +12930,7 @@
 		Returns a negative value if `a < b`, positive if `a > b`,
 		or 0 if `a == b`.]]></haxe_doc>
 	</ucompare>
-	<toStr public="1" get="inline" set="null" line="188" static="1">
+	<toStr public="1" get="inline" set="null" line="183" static="1">
 		<f a="x">
 			<x path="haxe.Int64"/>
 			<c path="String"/>
@@ -12836,28 +12938,28 @@
 		<meta><m n=":keep"/></meta>
 		<haxe_doc>Returns a signed decimal `String` representation of `x`.</haxe_doc>
 	</toStr>
-	<toString get="inline" set="null" line="191" static="1">
+	<toString get="inline" set="null" line="186" static="1">
 		<f a="this">
 			<t path="haxe._Int64.__Int64"/>
 			<c path="String"/>
 		</f>
 		<meta><m n=":keep"/></meta>
 	</toString>
-	<parseString public="1" set="method" line="193" static="1">
+	<parseString public="1" set="method" line="188" static="1">
 		<f a="sParam">
 			<c path="String"/>
 			<x path="haxe.Int64"/>
 		</f>
 		<meta><m n=":keep"/></meta>
 	</parseString>
-	<fromFloat public="1" set="method" line="197" static="1">
+	<fromFloat public="1" set="method" line="192" static="1">
 		<f a="f">
 			<x path="Float"/>
 			<x path="haxe.Int64"/>
 		</f>
 		<meta><m n=":keep"/></meta>
 	</fromFloat>
-	<divMod public="1" set="method" line="201" static="1">
+	<divMod public="1" set="method" line="196" static="1">
 		<f a="dividend:divisor">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -12870,7 +12972,7 @@
 		<haxe_doc>Performs signed integer divison of `dividend` by `divisor`.
 		Returns `{ quotient : Int64, modulus : Int64 }`.</haxe_doc>
 	</divMod>
-	<neg public="1" get="inline" set="null" line="214" static="1">
+	<neg public="1" get="inline" set="null" line="209" static="1">
 		<f a="x">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -12881,7 +12983,7 @@
 		</meta>
 		<haxe_doc>Returns the negative of `x`.</haxe_doc>
 	</neg>
-	<preIncrement get="inline" set="null" line="216" static="1">
+	<preIncrement get="inline" set="null" line="211" static="1">
 		<f a="this">
 			<t path="haxe._Int64.__Int64"/>
 			<x path="haxe.Int64"/>
@@ -12891,7 +12993,7 @@
 			<m n=":op"><e>++A</e></m>
 		</meta>
 	</preIncrement>
-	<postIncrement get="inline" set="null" line="225" static="1">
+	<postIncrement get="inline" set="null" line="220" static="1">
 		<f a="this">
 			<t path="haxe._Int64.__Int64"/>
 			<x path="haxe.Int64"/>
@@ -12901,7 +13003,7 @@
 			<m n=":op"><e>A++</e></m>
 		</meta>
 	</postIncrement>
-	<preDecrement get="inline" set="null" line="235" static="1">
+	<preDecrement get="inline" set="null" line="230" static="1">
 		<f a="this">
 			<t path="haxe._Int64.__Int64"/>
 			<x path="haxe.Int64"/>
@@ -12911,7 +13013,7 @@
 			<m n=":op"><e>--A</e></m>
 		</meta>
 	</preDecrement>
-	<postDecrement get="inline" set="null" line="244" static="1">
+	<postDecrement get="inline" set="null" line="239" static="1">
 		<f a="this">
 			<t path="haxe._Int64.__Int64"/>
 			<x path="haxe.Int64"/>
@@ -12921,7 +13023,7 @@
 			<m n=":op"><e>A--</e></m>
 		</meta>
 	</postDecrement>
-	<add public="1" get="inline" set="null" line="256" static="1">
+	<add public="1" get="inline" set="null" line="251" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -12933,7 +13035,7 @@
 		</meta>
 		<haxe_doc>Returns the sum of `a` and `b`.</haxe_doc>
 	</add>
-	<addInt get="inline" set="null" line="261" static="1">
+	<addInt get="inline" set="null" line="256" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -12945,7 +13047,7 @@
 			<m n=":commutative"/>
 		</meta>
 	</addInt>
-	<sub public="1" get="inline" set="null" line="264" static="1">
+	<sub public="1" get="inline" set="null" line="259" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -12957,7 +13059,7 @@
 		</meta>
 		<haxe_doc>Returns `a` minus `b`.</haxe_doc>
 	</sub>
-	<subInt get="inline" set="null" line="270" static="1">
+	<subInt get="inline" set="null" line="265" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -12968,7 +13070,7 @@
 			<m n=":op"><e>A - B</e></m>
 		</meta>
 	</subInt>
-	<intSub get="inline" set="null" line="274" static="1">
+	<intSub get="inline" set="null" line="269" static="1">
 		<f a="a:b">
 			<x path="Int"/>
 			<x path="haxe.Int64"/>
@@ -12979,7 +13081,7 @@
 			<m n=":op"><e>A - B</e></m>
 		</meta>
 	</intSub>
-	<mul public="1" get="inline" set="null" line="278" static="1">
+	<mul public="1" get="inline" set="null" line="273" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -12991,7 +13093,7 @@
 		</meta>
 		<haxe_doc>Returns the product of `a` and `b`.</haxe_doc>
 	</mul>
-	<mulInt get="inline" set="null" line="283" static="1">
+	<mulInt get="inline" set="null" line="278" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -13003,7 +13105,7 @@
 			<m n=":commutative"/>
 		</meta>
 	</mulInt>
-	<div public="1" get="inline" set="null" line="286" static="1">
+	<div public="1" get="inline" set="null" line="281" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -13015,7 +13117,7 @@
 		</meta>
 		<haxe_doc>Returns the quotient of `a` divided by `b`.</haxe_doc>
 	</div>
-	<divInt get="inline" set="null" line="294" static="1">
+	<divInt get="inline" set="null" line="289" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -13026,7 +13128,7 @@
 			<m n=":op"><e>A / B</e></m>
 		</meta>
 	</divInt>
-	<intDiv get="inline" set="null" line="298" static="1">
+	<intDiv get="inline" set="null" line="293" static="1">
 		<f a="a:b">
 			<x path="Int"/>
 			<x path="haxe.Int64"/>
@@ -13037,7 +13139,7 @@
 			<m n=":op"><e>A / B</e></m>
 		</meta>
 	</intDiv>
-	<mod public="1" get="inline" set="null" line="301" static="1">
+	<mod public="1" get="inline" set="null" line="296" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -13049,7 +13151,7 @@
 		</meta>
 		<haxe_doc>Returns the modulus of `a` divided by `b`.</haxe_doc>
 	</mod>
-	<modInt get="inline" set="null" line="309" static="1">
+	<modInt get="inline" set="null" line="304" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -13060,7 +13162,7 @@
 			<m n=":op"><e>A % B</e></m>
 		</meta>
 	</modInt>
-	<intMod get="inline" set="null" line="313" static="1">
+	<intMod get="inline" set="null" line="308" static="1">
 		<f a="a:b">
 			<x path="Int"/>
 			<x path="haxe.Int64"/>
@@ -13071,7 +13173,7 @@
 			<m n=":op"><e>A % B</e></m>
 		</meta>
 	</intMod>
-	<eq public="1" get="inline" set="null" line="317" static="1">
+	<eq public="1" get="inline" set="null" line="312" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -13083,7 +13185,7 @@
 		</meta>
 		<haxe_doc>Returns `true` if `a` is equal to `b`.</haxe_doc>
 	</eq>
-	<eqInt get="inline" set="null" line="322" static="1">
+	<eqInt get="inline" set="null" line="317" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -13095,7 +13197,7 @@
 			<m n=":commutative"/>
 		</meta>
 	</eqInt>
-	<neq public="1" get="inline" set="null" line="326" static="1">
+	<neq public="1" get="inline" set="null" line="321" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -13107,7 +13209,7 @@
 		</meta>
 		<haxe_doc>Returns `true` if `a` is not equal to `b`.</haxe_doc>
 	</neq>
-	<neqInt get="inline" set="null" line="331" static="1">
+	<neqInt get="inline" set="null" line="326" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -13119,7 +13221,7 @@
 			<m n=":commutative"/>
 		</meta>
 	</neqInt>
-	<lt get="inline" set="null" line="335" static="1">
+	<lt get="inline" set="null" line="330" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -13130,7 +13232,7 @@
 			<m n=":op"><e><![CDATA[A < B]]></e></m>
 		</meta>
 	</lt>
-	<ltInt get="inline" set="null" line="339" static="1">
+	<ltInt get="inline" set="null" line="334" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -13141,7 +13243,7 @@
 			<m n=":op"><e><![CDATA[A < B]]></e></m>
 		</meta>
 	</ltInt>
-	<intLt get="inline" set="null" line="343" static="1">
+	<intLt get="inline" set="null" line="338" static="1">
 		<f a="a:b">
 			<x path="Int"/>
 			<x path="haxe.Int64"/>
@@ -13152,7 +13254,7 @@
 			<m n=":op"><e><![CDATA[A < B]]></e></m>
 		</meta>
 	</intLt>
-	<lte get="inline" set="null" line="347" static="1">
+	<lte get="inline" set="null" line="342" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -13163,7 +13265,7 @@
 			<m n=":op"><e><![CDATA[A <= B]]></e></m>
 		</meta>
 	</lte>
-	<lteInt get="inline" set="null" line="351" static="1">
+	<lteInt get="inline" set="null" line="346" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -13174,7 +13276,7 @@
 			<m n=":op"><e><![CDATA[A <= B]]></e></m>
 		</meta>
 	</lteInt>
-	<intLte get="inline" set="null" line="355" static="1">
+	<intLte get="inline" set="null" line="350" static="1">
 		<f a="a:b">
 			<x path="Int"/>
 			<x path="haxe.Int64"/>
@@ -13185,7 +13287,7 @@
 			<m n=":op"><e><![CDATA[A <= B]]></e></m>
 		</meta>
 	</intLte>
-	<gt get="inline" set="null" line="359" static="1">
+	<gt get="inline" set="null" line="354" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -13196,7 +13298,7 @@
 			<m n=":op"><e><![CDATA[A > B]]></e></m>
 		</meta>
 	</gt>
-	<gtInt get="inline" set="null" line="363" static="1">
+	<gtInt get="inline" set="null" line="358" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -13207,7 +13309,7 @@
 			<m n=":op"><e><![CDATA[A > B]]></e></m>
 		</meta>
 	</gtInt>
-	<intGt get="inline" set="null" line="367" static="1">
+	<intGt get="inline" set="null" line="362" static="1">
 		<f a="a:b">
 			<x path="Int"/>
 			<x path="haxe.Int64"/>
@@ -13218,7 +13320,7 @@
 			<m n=":op"><e><![CDATA[A > B]]></e></m>
 		</meta>
 	</intGt>
-	<gte get="inline" set="null" line="371" static="1">
+	<gte get="inline" set="null" line="366" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -13229,7 +13331,7 @@
 			<m n=":op"><e><![CDATA[A >= B]]></e></m>
 		</meta>
 	</gte>
-	<gteInt get="inline" set="null" line="375" static="1">
+	<gteInt get="inline" set="null" line="370" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -13240,7 +13342,7 @@
 			<m n=":op"><e><![CDATA[A >= B]]></e></m>
 		</meta>
 	</gteInt>
-	<intGte get="inline" set="null" line="379" static="1">
+	<intGte get="inline" set="null" line="374" static="1">
 		<f a="a:b">
 			<x path="Int"/>
 			<x path="haxe.Int64"/>
@@ -13251,7 +13353,7 @@
 			<m n=":op"><e><![CDATA[A >= B]]></e></m>
 		</meta>
 	</intGte>
-	<complement get="inline" set="null" line="383" static="1">
+	<complement get="inline" set="null" line="378" static="1">
 		<f a="a">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -13261,7 +13363,7 @@
 			<m n=":op"><e>~A</e></m>
 		</meta>
 	</complement>
-	<and public="1" get="inline" set="null" line="387" static="1">
+	<and public="1" get="inline" set="null" line="382" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -13273,7 +13375,7 @@
 		</meta>
 		<haxe_doc>Returns the bitwise AND of `a` and `b`.</haxe_doc>
 	</and>
-	<or public="1" get="inline" set="null" line="391" static="1">
+	<or public="1" get="inline" set="null" line="386" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -13285,7 +13387,7 @@
 		</meta>
 		<haxe_doc>Returns the bitwise OR of `a` and `b`.</haxe_doc>
 	</or>
-	<xor public="1" get="inline" set="null" line="395" static="1">
+	<xor public="1" get="inline" set="null" line="390" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="haxe.Int64"/>
@@ -13297,7 +13399,7 @@
 		</meta>
 		<haxe_doc>Returns the bitwise XOR of `a` and `b`.</haxe_doc>
 	</xor>
-	<shl public="1" get="inline" set="null" line="399" static="1">
+	<shl public="1" get="inline" set="null" line="394" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -13309,7 +13411,7 @@
 		</meta>
 		<haxe_doc>Returns `a` left-shifted by `b` bits.</haxe_doc>
 	</shl>
-	<shr public="1" get="inline" set="null" line="403" static="1">
+	<shr public="1" get="inline" set="null" line="398" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -13322,7 +13424,7 @@
 		<haxe_doc>Returns `a` right-shifted by `b` bits in signed mode.
 		`a` is sign-extended.</haxe_doc>
 	</shr>
-	<ushr public="1" get="inline" set="null" line="407" static="1">
+	<ushr public="1" get="inline" set="null" line="402" static="1">
 		<f a="a:b">
 			<x path="haxe.Int64"/>
 			<x path="Int"/>
@@ -13339,7 +13441,7 @@
 		<x path="haxe.Int32"/>
 		<meta><m n=":keep"/></meta>
 	</high>
-	<get_high get="inline" set="null" line="412" static="1">
+	<get_high get="inline" set="null" line="407" static="1">
 		<f a="this">
 			<t path="haxe._Int64.__Int64"/>
 			<x path="haxe.Int32"/>
@@ -13350,18 +13452,29 @@
 		<x path="haxe.Int32"/>
 		<meta><m n=":keep"/></meta>
 	</low>
-	<get_low get="inline" set="null" line="417" static="1">
+	<get_low get="inline" set="null" line="412" static="1">
 		<f a="this">
 			<t path="haxe._Int64.__Int64"/>
 			<x path="haxe.Int32"/>
 		</f>
 		<meta><m n=":keep"/></meta>
 	</get_low>
+	<val get="accessor" set="null" static="1">
+		<t path="haxe._Int64.__Int64"/>
+		<meta><m n=":keep"/></meta>
+	</val>
+	<get_val get="inline" set="null" line="417" static="1">
+		<f a="this">
+			<t path="haxe._Int64.__Int64"/>
+			<t path="haxe._Int64.__Int64"/>
+		</f>
+		<meta><m n=":keep"/></meta>
+	</get_val>
 	<meta><m n=":coreApi"/></meta>
 </class></impl>
 	</abstract>
 	<class path="haxe._Int64.Int64_Impl_" params="" file="/usr/local/share/haxe/std/cpp/_std/haxe/Int64.hx" private="1" module="haxe.Int64" final="1">
-		<copy public="1" get="inline" set="null" line="141" static="1">
+		<copy public="1" get="inline" set="null" line="137" static="1">
 			<f a="this">
 				<t path="haxe._Int64.__Int64"/>
 				<x path="haxe.Int64"/>
@@ -13369,7 +13482,7 @@
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Makes a copy of `this` Int64.</haxe_doc>
 		</copy>
-		<make public="1" get="inline" set="null" line="143" static="1">
+		<make public="1" get="inline" set="null" line="139" static="1">
 			<f a="high:low">
 				<x path="haxe.Int32"/>
 				<x path="haxe.Int32"/>
@@ -13378,19 +13491,16 @@
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Construct an Int64 from two 32-bit words `high` and `low`.</haxe_doc>
 		</make>
-		<ofInt public="1" get="inline" set="null" line="148" static="1">
+		<ofInt public="1" get="inline" set="null" line="143" static="1">
 			<f a="x">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
 			</f>
-			<meta>
-				<m n=":keep"/>
-				<m n=":from"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns an Int64 with the value of the Int `x`.
 		`x` is sign-extended to fill 64 bits.</haxe_doc>
 		</ofInt>
-		<toInt public="1" get="inline" set="null" line="152" static="1">
+		<toInt public="1" get="inline" set="null" line="147" static="1">
 			<f a="x">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -13399,7 +13509,7 @@
 			<haxe_doc>Returns an Int with the value of the Int64 `x`.
 		Throws an exception  if `x` cannot be represented in 32 bits.</haxe_doc>
 		</toInt>
-		<is public="1" get="inline" set="null" line="160" static="1">
+		<is public="1" get="inline" set="null" line="155" static="1">
 			<f a="val">
 				<d/>
 				<x path="Bool"/>
@@ -13409,7 +13519,7 @@
 				<m n=":deprecated"><e>"haxe.Int64.is() is deprecated. Use haxe.Int64.isInt64() instead"</e></m>
 			</meta>
 		</is>
-		<isInt64 public="1" get="inline" set="null" line="165" static="1">
+		<isInt64 public="1" get="inline" set="null" line="160" static="1">
 			<f a="val">
 				<d/>
 				<x path="Bool"/>
@@ -13417,7 +13527,7 @@
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns whether the value `val` is of type `haxe.Int64`</haxe_doc>
 		</isInt64>
-		<getHigh public="1" get="inline" set="null" line="169" static="1">
+		<getHigh public="1" get="inline" set="null" line="164" static="1">
 			<f a="x">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int32"/>
@@ -13428,7 +13538,7 @@
 			</meta>
 			<haxe_doc>Returns the high 32-bit word of `x`.</haxe_doc>
 		</getHigh>
-		<getLow public="1" get="inline" set="null" line="173" static="1">
+		<getLow public="1" get="inline" set="null" line="168" static="1">
 			<f a="x">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int32"/>
@@ -13439,7 +13549,7 @@
 			</meta>
 			<haxe_doc>Returns the low 32-bit word of `x`.</haxe_doc>
 		</getLow>
-		<isNeg public="1" get="inline" set="null" line="176" static="1">
+		<isNeg public="1" get="inline" set="null" line="171" static="1">
 			<f a="x">
 				<x path="haxe.Int64"/>
 				<x path="Bool"/>
@@ -13447,7 +13557,7 @@
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns `true` if `x` is less than zero.</haxe_doc>
 		</isNeg>
-		<isZero public="1" get="inline" set="null" line="179" static="1">
+		<isZero public="1" get="inline" set="null" line="174" static="1">
 			<f a="x">
 				<x path="haxe.Int64"/>
 				<x path="Bool"/>
@@ -13455,7 +13565,7 @@
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns `true` if `x` is exactly zero.</haxe_doc>
 		</isZero>
-		<compare public="1" get="inline" set="null" line="182" static="1">
+		<compare public="1" get="inline" set="null" line="177" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13466,7 +13576,7 @@
 		Returns a negative value if `a < b`, positive if `a > b`,
 		or 0 if `a == b`.]]></haxe_doc>
 		</compare>
-		<ucompare public="1" get="inline" set="null" line="185" static="1">
+		<ucompare public="1" get="inline" set="null" line="180" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13477,7 +13587,7 @@
 		Returns a negative value if `a < b`, positive if `a > b`,
 		or 0 if `a == b`.]]></haxe_doc>
 		</ucompare>
-		<toStr public="1" get="inline" set="null" line="188" static="1">
+		<toStr public="1" get="inline" set="null" line="183" static="1">
 			<f a="x">
 				<x path="haxe.Int64"/>
 				<c path="String"/>
@@ -13485,28 +13595,28 @@
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns a signed decimal `String` representation of `x`.</haxe_doc>
 		</toStr>
-		<toString get="inline" set="null" line="191" static="1">
+		<toString get="inline" set="null" line="186" static="1">
 			<f a="this">
 				<t path="haxe._Int64.__Int64"/>
 				<c path="String"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</toString>
-		<parseString public="1" set="method" line="193" static="1">
+		<parseString public="1" set="method" line="188" static="1">
 			<f a="sParam">
 				<c path="String"/>
 				<x path="haxe.Int64"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</parseString>
-		<fromFloat public="1" set="method" line="197" static="1">
+		<fromFloat public="1" set="method" line="192" static="1">
 			<f a="f">
 				<x path="Float"/>
 				<x path="haxe.Int64"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</fromFloat>
-		<divMod public="1" set="method" line="201" static="1">
+		<divMod public="1" set="method" line="196" static="1">
 			<f a="dividend:divisor">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13519,7 +13629,7 @@
 			<haxe_doc>Performs signed integer divison of `dividend` by `divisor`.
 		Returns `{ quotient : Int64, modulus : Int64 }`.</haxe_doc>
 		</divMod>
-		<neg public="1" get="inline" set="null" line="214" static="1">
+		<neg public="1" get="inline" set="null" line="209" static="1">
 			<f a="x">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13530,7 +13640,7 @@
 			</meta>
 			<haxe_doc>Returns the negative of `x`.</haxe_doc>
 		</neg>
-		<preIncrement get="inline" set="null" line="216" static="1">
+		<preIncrement get="inline" set="null" line="211" static="1">
 			<f a="this">
 				<t path="haxe._Int64.__Int64"/>
 				<x path="haxe.Int64"/>
@@ -13540,7 +13650,7 @@
 				<m n=":op"><e>++A</e></m>
 			</meta>
 		</preIncrement>
-		<postIncrement get="inline" set="null" line="225" static="1">
+		<postIncrement get="inline" set="null" line="220" static="1">
 			<f a="this">
 				<t path="haxe._Int64.__Int64"/>
 				<x path="haxe.Int64"/>
@@ -13550,7 +13660,7 @@
 				<m n=":op"><e>A++</e></m>
 			</meta>
 		</postIncrement>
-		<preDecrement get="inline" set="null" line="235" static="1">
+		<preDecrement get="inline" set="null" line="230" static="1">
 			<f a="this">
 				<t path="haxe._Int64.__Int64"/>
 				<x path="haxe.Int64"/>
@@ -13560,7 +13670,7 @@
 				<m n=":op"><e>--A</e></m>
 			</meta>
 		</preDecrement>
-		<postDecrement get="inline" set="null" line="244" static="1">
+		<postDecrement get="inline" set="null" line="239" static="1">
 			<f a="this">
 				<t path="haxe._Int64.__Int64"/>
 				<x path="haxe.Int64"/>
@@ -13570,7 +13680,7 @@
 				<m n=":op"><e>A--</e></m>
 			</meta>
 		</postDecrement>
-		<add public="1" get="inline" set="null" line="256" static="1">
+		<add public="1" get="inline" set="null" line="251" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13582,7 +13692,7 @@
 			</meta>
 			<haxe_doc>Returns the sum of `a` and `b`.</haxe_doc>
 		</add>
-		<addInt get="inline" set="null" line="261" static="1">
+		<addInt get="inline" set="null" line="256" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -13594,7 +13704,7 @@
 				<m n=":commutative"/>
 			</meta>
 		</addInt>
-		<sub public="1" get="inline" set="null" line="264" static="1">
+		<sub public="1" get="inline" set="null" line="259" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13606,7 +13716,7 @@
 			</meta>
 			<haxe_doc>Returns `a` minus `b`.</haxe_doc>
 		</sub>
-		<subInt get="inline" set="null" line="270" static="1">
+		<subInt get="inline" set="null" line="265" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -13617,7 +13727,7 @@
 				<m n=":op"><e>A - B</e></m>
 			</meta>
 		</subInt>
-		<intSub get="inline" set="null" line="274" static="1">
+		<intSub get="inline" set="null" line="269" static="1">
 			<f a="a:b">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
@@ -13628,7 +13738,7 @@
 				<m n=":op"><e>A - B</e></m>
 			</meta>
 		</intSub>
-		<mul public="1" get="inline" set="null" line="278" static="1">
+		<mul public="1" get="inline" set="null" line="273" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13640,7 +13750,7 @@
 			</meta>
 			<haxe_doc>Returns the product of `a` and `b`.</haxe_doc>
 		</mul>
-		<mulInt get="inline" set="null" line="283" static="1">
+		<mulInt get="inline" set="null" line="278" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -13652,7 +13762,7 @@
 				<m n=":commutative"/>
 			</meta>
 		</mulInt>
-		<div public="1" get="inline" set="null" line="286" static="1">
+		<div public="1" get="inline" set="null" line="281" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13664,7 +13774,7 @@
 			</meta>
 			<haxe_doc>Returns the quotient of `a` divided by `b`.</haxe_doc>
 		</div>
-		<divInt get="inline" set="null" line="294" static="1">
+		<divInt get="inline" set="null" line="289" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -13675,7 +13785,7 @@
 				<m n=":op"><e>A / B</e></m>
 			</meta>
 		</divInt>
-		<intDiv get="inline" set="null" line="298" static="1">
+		<intDiv get="inline" set="null" line="293" static="1">
 			<f a="a:b">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
@@ -13686,7 +13796,7 @@
 				<m n=":op"><e>A / B</e></m>
 			</meta>
 		</intDiv>
-		<mod public="1" get="inline" set="null" line="301" static="1">
+		<mod public="1" get="inline" set="null" line="296" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13698,7 +13808,7 @@
 			</meta>
 			<haxe_doc>Returns the modulus of `a` divided by `b`.</haxe_doc>
 		</mod>
-		<modInt get="inline" set="null" line="309" static="1">
+		<modInt get="inline" set="null" line="304" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -13709,7 +13819,7 @@
 				<m n=":op"><e>A % B</e></m>
 			</meta>
 		</modInt>
-		<intMod get="inline" set="null" line="313" static="1">
+		<intMod get="inline" set="null" line="308" static="1">
 			<f a="a:b">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
@@ -13720,7 +13830,7 @@
 				<m n=":op"><e>A % B</e></m>
 			</meta>
 		</intMod>
-		<eq public="1" get="inline" set="null" line="317" static="1">
+		<eq public="1" get="inline" set="null" line="312" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13732,7 +13842,7 @@
 			</meta>
 			<haxe_doc>Returns `true` if `a` is equal to `b`.</haxe_doc>
 		</eq>
-		<eqInt get="inline" set="null" line="322" static="1">
+		<eqInt get="inline" set="null" line="317" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -13744,7 +13854,7 @@
 				<m n=":commutative"/>
 			</meta>
 		</eqInt>
-		<neq public="1" get="inline" set="null" line="326" static="1">
+		<neq public="1" get="inline" set="null" line="321" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13756,7 +13866,7 @@
 			</meta>
 			<haxe_doc>Returns `true` if `a` is not equal to `b`.</haxe_doc>
 		</neq>
-		<neqInt get="inline" set="null" line="331" static="1">
+		<neqInt get="inline" set="null" line="326" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -13768,7 +13878,7 @@
 				<m n=":commutative"/>
 			</meta>
 		</neqInt>
-		<lt get="inline" set="null" line="335" static="1">
+		<lt get="inline" set="null" line="330" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13779,7 +13889,7 @@
 				<m n=":op"><e><![CDATA[A < B]]></e></m>
 			</meta>
 		</lt>
-		<ltInt get="inline" set="null" line="339" static="1">
+		<ltInt get="inline" set="null" line="334" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -13790,7 +13900,7 @@
 				<m n=":op"><e><![CDATA[A < B]]></e></m>
 			</meta>
 		</ltInt>
-		<intLt get="inline" set="null" line="343" static="1">
+		<intLt get="inline" set="null" line="338" static="1">
 			<f a="a:b">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
@@ -13801,7 +13911,7 @@
 				<m n=":op"><e><![CDATA[A < B]]></e></m>
 			</meta>
 		</intLt>
-		<lte get="inline" set="null" line="347" static="1">
+		<lte get="inline" set="null" line="342" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13812,7 +13922,7 @@
 				<m n=":op"><e><![CDATA[A <= B]]></e></m>
 			</meta>
 		</lte>
-		<lteInt get="inline" set="null" line="351" static="1">
+		<lteInt get="inline" set="null" line="346" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -13823,7 +13933,7 @@
 				<m n=":op"><e><![CDATA[A <= B]]></e></m>
 			</meta>
 		</lteInt>
-		<intLte get="inline" set="null" line="355" static="1">
+		<intLte get="inline" set="null" line="350" static="1">
 			<f a="a:b">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
@@ -13834,7 +13944,7 @@
 				<m n=":op"><e><![CDATA[A <= B]]></e></m>
 			</meta>
 		</intLte>
-		<gt get="inline" set="null" line="359" static="1">
+		<gt get="inline" set="null" line="354" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13845,7 +13955,7 @@
 				<m n=":op"><e><![CDATA[A > B]]></e></m>
 			</meta>
 		</gt>
-		<gtInt get="inline" set="null" line="363" static="1">
+		<gtInt get="inline" set="null" line="358" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -13856,7 +13966,7 @@
 				<m n=":op"><e><![CDATA[A > B]]></e></m>
 			</meta>
 		</gtInt>
-		<intGt get="inline" set="null" line="367" static="1">
+		<intGt get="inline" set="null" line="362" static="1">
 			<f a="a:b">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
@@ -13867,7 +13977,7 @@
 				<m n=":op"><e><![CDATA[A > B]]></e></m>
 			</meta>
 		</intGt>
-		<gte get="inline" set="null" line="371" static="1">
+		<gte get="inline" set="null" line="366" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13878,7 +13988,7 @@
 				<m n=":op"><e><![CDATA[A >= B]]></e></m>
 			</meta>
 		</gte>
-		<gteInt get="inline" set="null" line="375" static="1">
+		<gteInt get="inline" set="null" line="370" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -13889,7 +13999,7 @@
 				<m n=":op"><e><![CDATA[A >= B]]></e></m>
 			</meta>
 		</gteInt>
-		<intGte get="inline" set="null" line="379" static="1">
+		<intGte get="inline" set="null" line="374" static="1">
 			<f a="a:b">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
@@ -13900,7 +14010,7 @@
 				<m n=":op"><e><![CDATA[A >= B]]></e></m>
 			</meta>
 		</intGte>
-		<complement get="inline" set="null" line="383" static="1">
+		<complement get="inline" set="null" line="378" static="1">
 			<f a="a">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13910,7 +14020,7 @@
 				<m n=":op"><e>~A</e></m>
 			</meta>
 		</complement>
-		<and public="1" get="inline" set="null" line="387" static="1">
+		<and public="1" get="inline" set="null" line="382" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13922,7 +14032,7 @@
 			</meta>
 			<haxe_doc>Returns the bitwise AND of `a` and `b`.</haxe_doc>
 		</and>
-		<or public="1" get="inline" set="null" line="391" static="1">
+		<or public="1" get="inline" set="null" line="386" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13934,7 +14044,7 @@
 			</meta>
 			<haxe_doc>Returns the bitwise OR of `a` and `b`.</haxe_doc>
 		</or>
-		<xor public="1" get="inline" set="null" line="395" static="1">
+		<xor public="1" get="inline" set="null" line="390" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="haxe.Int64"/>
@@ -13946,7 +14056,7 @@
 			</meta>
 			<haxe_doc>Returns the bitwise XOR of `a` and `b`.</haxe_doc>
 		</xor>
-		<shl public="1" get="inline" set="null" line="399" static="1">
+		<shl public="1" get="inline" set="null" line="394" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -13958,7 +14068,7 @@
 			</meta>
 			<haxe_doc>Returns `a` left-shifted by `b` bits.</haxe_doc>
 		</shl>
-		<shr public="1" get="inline" set="null" line="403" static="1">
+		<shr public="1" get="inline" set="null" line="398" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -13971,7 +14081,7 @@
 			<haxe_doc>Returns `a` right-shifted by `b` bits in signed mode.
 		`a` is sign-extended.</haxe_doc>
 		</shr>
-		<ushr public="1" get="inline" set="null" line="407" static="1">
+		<ushr public="1" get="inline" set="null" line="402" static="1">
 			<f a="a:b">
 				<x path="haxe.Int64"/>
 				<x path="Int"/>
@@ -13988,7 +14098,7 @@
 			<x path="haxe.Int32"/>
 			<meta><m n=":keep"/></meta>
 		</high>
-		<get_high get="inline" set="null" line="412" static="1">
+		<get_high get="inline" set="null" line="407" static="1">
 			<f a="this">
 				<t path="haxe._Int64.__Int64"/>
 				<x path="haxe.Int32"/>
@@ -13999,13 +14109,24 @@
 			<x path="haxe.Int32"/>
 			<meta><m n=":keep"/></meta>
 		</low>
-		<get_low get="inline" set="null" line="417" static="1">
+		<get_low get="inline" set="null" line="412" static="1">
 			<f a="this">
 				<t path="haxe._Int64.__Int64"/>
 				<x path="haxe.Int32"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</get_low>
+		<val get="accessor" set="null" static="1">
+			<t path="haxe._Int64.__Int64"/>
+			<meta><m n=":keep"/></meta>
+		</val>
+		<get_val get="inline" set="null" line="417" static="1">
+			<f a="this">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</get_val>
 		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="haxe.Int64Helper" params="" file="/usr/local/share/haxe/std/haxe/Int64Helper.hx">
@@ -22767,7 +22888,7 @@
 				<m n=":ifFeature"><e>"haxe.ds.IntMap.*"</e></m>
 			</meta>
 		</h>
-		<set public="1" set="method" line="60">
+		<set public="1" set="method" line="62">
 			<f a="key:value">
 				<x path="Int"/>
 				<c path="haxe.ds.IntMap.T"/>
@@ -22780,7 +22901,7 @@
 			</meta>
 			<haxe_doc>See `Map.set`</haxe_doc>
 		</set>
-		<get public="1" set="method" line="64">
+		<get public="1" set="method" line="66">
 			<f a="key">
 				<x path="Int"/>
 				<x path="Null"><c path="haxe.ds.IntMap.T"/></x>
@@ -22792,7 +22913,7 @@
 			</meta>
 			<haxe_doc>See `Map.get`</haxe_doc>
 		</get>
-		<exists public="1" set="method" line="68">
+		<exists public="1" set="method" line="70">
 			<f a="key">
 				<x path="Int"/>
 				<x path="Bool"/>
@@ -22804,7 +22925,7 @@
 			</meta>
 			<haxe_doc>See `Map.exists`</haxe_doc>
 		</exists>
-		<remove public="1" set="method" line="72">
+		<remove public="1" set="method" line="74">
 			<f a="key">
 				<x path="Int"/>
 				<x path="Bool"/>
@@ -22816,7 +22937,7 @@
 			</meta>
 			<haxe_doc>See `Map.remove`</haxe_doc>
 		</remove>
-		<keys public="1" set="method" line="76">
+		<keys public="1" set="method" line="78">
 			<f a=""><t path="Iterator"><x path="Int"/></t></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -22828,7 +22949,7 @@
 		(cs, java) Implementation detail: Do not `set()` any new value while
 		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</keys>
-		<iterator public="1" set="method" line="81">
+		<iterator public="1" set="method" line="83">
 			<f a=""><t path="Iterator"><c path="haxe.ds.IntMap.T"/></t></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -22840,7 +22961,7 @@
 		(cs, java) Implementation detail: Do not `set()` any new value while
 		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="86">
+		<keyValueIterator public="1" get="inline" set="null" line="88">
 			<f a=""><t path="KeyValueIterator">
 	<x path="Int"/>
 	<c path="haxe.ds.IntMap.T"/>
@@ -22852,7 +22973,7 @@
 			</meta>
 			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
 		</keyValueIterator>
-		<copy public="1" set="method" line="90">
+		<copy public="1" set="method" line="92">
 			<f a=""><c path="haxe.ds.IntMap"><c path="haxe.ds.IntMap.T"/></c></f>
 			<meta>
 				<m n=":keep"/>
@@ -22860,7 +22981,7 @@
 			</meta>
 			<haxe_doc>See `Map.copy`</haxe_doc>
 		</copy>
-		<toString public="1" set="method" line="97">
+		<toString public="1" set="method" line="99">
 			<f a=""><c path="String"/></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -22869,7 +22990,7 @@
 			</meta>
 			<haxe_doc>See `Map.toString`</haxe_doc>
 		</toString>
-		<clear public="1" set="method" line="101">
+		<clear public="1" set="method" line="103">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -22878,7 +22999,7 @@
 			</meta>
 			<haxe_doc>See `Map.clear`</haxe_doc>
 		</clear>
-		<new public="1" set="method" line="58">
+		<new public="1" set="method" line="60">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":keep"/>
@@ -22893,7 +23014,7 @@
 	@see https://haxe.org/manual/std-Map.html</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
-			<m n=":headerClassCode"><e><![CDATA["\n  inline void set(int key, ::null value) { __int_hash_set(HX_MAP_THIS,key,value); }\n  inline void set(int key, bool value) { __int_hash_set(HX_MAP_THIS,key,value); }\n  inline void set(int key, char value) { __int_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(int key, unsigned char value) { __int_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(int key, signed char value) { __int_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(int key, short value) { __int_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(int key, unsigned short value) { __int_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(int key, int value) { __int_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(int key, unsigned int value) { __int_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(int key, float value) { __int_hash_set_float(HX_MAP_THIS,key,value); }\n  inline void set(int key, double value) { __int_hash_set_float(HX_MAP_THIS,key,value); }\n  inline void set(int key, ::String value) { __int_hash_set_string(HX_MAP_THIS,key,value); }\n\n  template<typename V, typename H>\n  inline void set(int key, const ::cpp::Struct<V,H> &value) {__int_hash_set(HX_MAP_THIS,key,value); }\n  template<typename F>\n  inline void set(int key, const ::cpp::Function<F> &value) {__int_hash_set(HX_MAP_THIS,key,value); }\n  template<typename V>\n  inline void set(int key, const ::cpp::Pointer<V> &value) {__int_hash_set(HX_MAP_THIS,key,(Dynamic)value ); }\n\n  template<typename VALUE>\n  inline void set(Dynamic &key, const VALUE &value) { set( (int)key, value ); }\n\n  inline bool get_bool(int key) { return __int_hash_get_bool(h,key); }\n  inline int get_int(int key) { return __int_hash_get_int(h,key); }\n  inline Float get_float(int key) { return __int_hash_get_float(h,key); }\n  inline String get_string(int key) { return __int_hash_get_string(h,key); }\n"]]></e></m>
+			<m n=":headerClassCode"><e><![CDATA["\n  inline void set(int key, ::null value) { __int_hash_set(HX_MAP_THIS,key,value); }\n  inline void set(int key, bool value) { __int_hash_set(HX_MAP_THIS,key,value); }\n  inline void set(int key, char value) { __int_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(int key, unsigned char value) { __int_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(int key, signed char value) { __int_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(int key, short value) { __int_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(int key, unsigned short value) { __int_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(int key, int value) { __int_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(int key, unsigned int value) { __int_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(int key, float value) { __int_hash_set_float(HX_MAP_THIS,key,value); }\n  inline void set(int key, double value) { __int_hash_set_float(HX_MAP_THIS,key,value); }\n  inline void set(int key, ::String value) { __int_hash_set_string(HX_MAP_THIS,key,value); }\n  inline void set(int key, cpp::Int64 value) { __int_hash_set_int64(HX_MAP_THIS,key,value); }\n\n  template<typename V, typename H>\n  inline void set(int key, const ::cpp::Struct<V,H> &value) {__int_hash_set(HX_MAP_THIS,key,value); }\n  template<typename F>\n  inline void set(int key, const ::cpp::Function<F> &value) {__int_hash_set(HX_MAP_THIS,key,value); }\n  template<typename V>\n  inline void set(int key, const ::cpp::Pointer<V> &value) {__int_hash_set(HX_MAP_THIS,key,(Dynamic)value ); }\n\n  template<typename VALUE>\n  inline void set(Dynamic &key, const VALUE &value) { set( (int)key, value ); }\n\n  inline bool get_bool(int key) { return __int_hash_get_bool(h,key); }\n  inline int get_int(int key) { return __int_hash_get_int(h,key); }\n  inline Float get_float(int key) { return __int_hash_get_float(h,key); }\n  inline String get_string(int key) { return __int_hash_get_string(h,key); }\n  inline cpp::Int64 get_int64(int key) { return __int_hash_get_int64(h,key); }\n"]]></e></m>
 			<m n=":coreApi"/>
 		</meta>
 	</class>
@@ -23092,10 +23213,11 @@
 		<haxe_doc>ListSort provides a stable implementation of merge sort through its `sort`
 	method. It has a O(N.log(N)) complexity and does not require additional memory allocation.</haxe_doc>
 	</class>
-	<abstract path="haxe.ds.Map" params="K:V" file="/usr/local/share/haxe/std/haxe/ds/Map.hx">
+	<abstract path="haxe.ds.Map" params="K:V" file="/usr/local/share/haxe/std/cpp/_std/haxe/ds/Map.hx">
 		<from>
 			<icast field="fromStringMap"><c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c></icast>
 			<icast field="fromIntMap"><c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c></icast>
+			<icast field="fromInt64Map"><c path="cpp.Int64Map"><c path="fromInt64Map.V"/></c></icast>
 			<icast field="fromObjectMap"><c path="haxe.ds.ObjectMap">
 	<c path="fromObjectMap.K"/>
 	<c path="fromObjectMap.V"/>
@@ -23108,6 +23230,7 @@
 		<to>
 			<icast field="toStringMap"><c path="haxe.ds.StringMap"><c path="toStringMap.V"/></c></icast>
 			<icast field="toIntMap"><c path="haxe.ds.IntMap"><c path="toIntMap.V"/></c></icast>
+			<icast field="toInt64Map"><c path="cpp.Int64Map"><c path="toInt64Map.V"/></c></icast>
 			<icast field="toEnumValueMapMap"><c path="haxe.ds.EnumValueMap">
 	<c path="toEnumValueMapMap.K"/>
 	<c path="toEnumValueMapMap.V"/>
@@ -23135,7 +23258,7 @@
 			<m n=":transitive"/>
 			<m n=":multiType"><e>@:followWithAbstracts K</e></m>
 		</meta>
-		<impl><class path="haxe.ds._Map.Map_Impl_" params="" file="/usr/local/share/haxe/std/haxe/ds/Map.hx" private="1" module="haxe.ds.Map" final="1">
+		<impl><class path="haxe.ds._Map.Map_Impl_" params="" file="/usr/local/share/haxe/std/cpp/_std/haxe/ds/Map.hx" private="1" module="haxe.ds.Map" final="1">
 	<_new public="1" set="method" static="1">
 		<f a=""><x path="haxe.ds.Map">
 	<c path="haxe.ds.Map.K"/>
@@ -23155,7 +23278,7 @@
 
 		(Cpp) Map does not use weak keys on `ObjectMap` by default.</haxe_doc>
 	</_new>
-	<set public="1" get="inline" set="null" line="74" static="1">
+	<set public="1" get="inline" set="null" line="78" static="1">
 		<f a="this:key:value">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -23171,7 +23294,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 	</set>
-	<get public="1" get="inline" set="null" line="92" static="1">
+	<get public="1" get="inline" set="null" line="96" static="1">
 		<f a="this:key">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -23195,7 +23318,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 	</get>
-	<exists public="1" get="inline" set="null" line="100" static="1">
+	<exists public="1" get="inline" set="null" line="104" static="1">
 		<f a="this:key">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -23208,7 +23331,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 	</exists>
-	<remove public="1" get="inline" set="null" line="109" static="1">
+	<remove public="1" get="inline" set="null" line="113" static="1">
 		<f a="this:key">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -23222,7 +23345,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 	</remove>
-	<keys public="1" get="inline" set="null" line="116" static="1">
+	<keys public="1" get="inline" set="null" line="120" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -23234,7 +23357,7 @@
 
 		The order of keys is undefined.</haxe_doc>
 	</keys>
-	<iterator public="1" get="inline" set="null" line="125" static="1">
+	<iterator public="1" get="inline" set="null" line="129" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -23246,7 +23369,7 @@
 
 		The order of values is undefined.</haxe_doc>
 	</iterator>
-	<keyValueIterator public="1" get="inline" set="null" line="134" static="1">
+	<keyValueIterator public="1" get="inline" set="null" line="138" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -23261,7 +23384,7 @@
 
 		The order of values is undefined.</haxe_doc>
 	</keyValueIterator>
-	<copy public="1" get="inline" set="null" line="143" static="1">
+	<copy public="1" get="inline" set="null" line="147" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -23276,7 +23399,7 @@
 
 		The order of values is undefined.</haxe_doc>
 	</copy>
-	<toString public="1" get="inline" set="null" line="152" static="1">
+	<toString public="1" get="inline" set="null" line="156" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -23288,7 +23411,7 @@
 
 		The exact representation depends on the platform and key-type.</haxe_doc>
 	</toString>
-	<clear public="1" get="inline" set="null" line="159" static="1">
+	<clear public="1" get="inline" set="null" line="163" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -23298,7 +23421,7 @@
 		</f>
 		<haxe_doc>Removes all keys from `this` Map.</haxe_doc>
 	</clear>
-	<arrayWrite public="1" get="inline" set="null" line="163" static="1">
+	<arrayWrite public="1" get="inline" set="null" line="167" static="1">
 		<f a="this:k:v">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -23313,7 +23436,7 @@
 			<m n=":noCompletion"/>
 		</meta>
 	</arrayWrite>
-	<toStringMap params="K:V" get="inline" set="null" line="168" static="1">
+	<toStringMap params="K:V" get="inline" set="null" line="172" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toStringMap.K"/>
@@ -23326,7 +23449,7 @@
 			<m n=":to"/>
 		</meta>
 	</toStringMap>
-	<toIntMap params="K:V" get="inline" set="null" line="172" static="1">
+	<toIntMap params="K:V" get="inline" set="null" line="176" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toIntMap.K"/>
@@ -23339,7 +23462,20 @@
 			<m n=":to"/>
 		</meta>
 	</toIntMap>
-	<toEnumValueMapMap params="K:V" get="inline" set="null" line="176" static="1">
+	<toInt64Map params="K:V" get="inline" set="null" line="180" static="1">
+		<f a="t">
+			<c path="haxe.IMap">
+				<c path="toInt64Map.K"/>
+				<c path="toInt64Map.V"/>
+			</c>
+			<c path="cpp.Int64Map"><c path="toInt64Map.V"/></c>
+		</f>
+		<meta>
+			<m n=":multiType"/>
+			<m n=":to"/>
+		</meta>
+	</toInt64Map>
+	<toEnumValueMapMap params="K:V" get="inline" set="null" line="184" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toEnumValueMapMap.K"/>
@@ -23355,7 +23491,7 @@
 			<m n=":to"/>
 		</meta>
 	</toEnumValueMapMap>
-	<toObjectMap params="K:V" get="inline" set="null" line="180" static="1">
+	<toObjectMap params="K:V" get="inline" set="null" line="188" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toObjectMap.K"/>
@@ -23371,7 +23507,7 @@
 			<m n=":to"/>
 		</meta>
 	</toObjectMap>
-	<fromStringMap params="V" get="inline" set="null" line="184" static="1">
+	<fromStringMap params="V" get="inline" set="null" line="192" static="1">
 		<f a="map">
 			<c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c>
 			<x path="haxe.ds.Map">
@@ -23381,7 +23517,7 @@
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromStringMap>
-	<fromIntMap params="V" get="inline" set="null" line="188" static="1">
+	<fromIntMap params="V" get="inline" set="null" line="196" static="1">
 		<f a="map">
 			<c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c>
 			<x path="haxe.ds.Map">
@@ -23391,7 +23527,17 @@
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromIntMap>
-	<fromObjectMap params="K:V" get="inline" set="null" line="192" static="1">
+	<fromInt64Map params="V" get="inline" set="null" line="200" static="1">
+		<f a="map">
+			<c path="cpp.Int64Map"><c path="fromInt64Map.V"/></c>
+			<x path="haxe.ds.Map">
+				<x path="haxe.Int64"/>
+				<c path="fromInt64Map.V"/>
+			</x>
+		</f>
+		<meta><m n=":from"/></meta>
+	</fromInt64Map>
+	<fromObjectMap params="K:V" get="inline" set="null" line="204" static="1">
 		<f a="map">
 			<c path="haxe.ds.ObjectMap">
 				<c path="fromObjectMap.K"/>
@@ -23406,7 +23552,7 @@
 	</fromObjectMap>
 </class></impl>
 	</abstract>
-	<class path="haxe.ds._Map.Map_Impl_" params="" file="/usr/local/share/haxe/std/haxe/ds/Map.hx" private="1" module="haxe.ds.Map" final="1">
+	<class path="haxe.ds._Map.Map_Impl_" params="" file="/usr/local/share/haxe/std/cpp/_std/haxe/ds/Map.hx" private="1" module="haxe.ds.Map" final="1">
 		<_new public="1" set="method" static="1">
 			<f a=""><x path="haxe.ds.Map">
 	<c path="haxe.ds.Map.K"/>
@@ -23426,7 +23572,7 @@
 
 		(Cpp) Map does not use weak keys on `ObjectMap` by default.</haxe_doc>
 		</_new>
-		<set public="1" get="inline" set="null" line="74" static="1">
+		<set public="1" get="inline" set="null" line="78" static="1">
 			<f a="this:key:value">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -23442,7 +23588,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 		</set>
-		<get public="1" get="inline" set="null" line="92" static="1">
+		<get public="1" get="inline" set="null" line="96" static="1">
 			<f a="this:key">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -23466,7 +23612,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 		</get>
-		<exists public="1" get="inline" set="null" line="100" static="1">
+		<exists public="1" get="inline" set="null" line="104" static="1">
 			<f a="this:key">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -23479,7 +23625,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 		</exists>
-		<remove public="1" get="inline" set="null" line="109" static="1">
+		<remove public="1" get="inline" set="null" line="113" static="1">
 			<f a="this:key">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -23493,7 +23639,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 		</remove>
-		<keys public="1" get="inline" set="null" line="116" static="1">
+		<keys public="1" get="inline" set="null" line="120" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -23505,7 +23651,7 @@
 
 		The order of keys is undefined.</haxe_doc>
 		</keys>
-		<iterator public="1" get="inline" set="null" line="125" static="1">
+		<iterator public="1" get="inline" set="null" line="129" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -23517,7 +23663,7 @@
 
 		The order of values is undefined.</haxe_doc>
 		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="134" static="1">
+		<keyValueIterator public="1" get="inline" set="null" line="138" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -23532,7 +23678,7 @@
 
 		The order of values is undefined.</haxe_doc>
 		</keyValueIterator>
-		<copy public="1" get="inline" set="null" line="143" static="1">
+		<copy public="1" get="inline" set="null" line="147" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -23547,7 +23693,7 @@
 
 		The order of values is undefined.</haxe_doc>
 		</copy>
-		<toString public="1" get="inline" set="null" line="152" static="1">
+		<toString public="1" get="inline" set="null" line="156" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -23559,7 +23705,7 @@
 
 		The exact representation depends on the platform and key-type.</haxe_doc>
 		</toString>
-		<clear public="1" get="inline" set="null" line="159" static="1">
+		<clear public="1" get="inline" set="null" line="163" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -23569,7 +23715,7 @@
 			</f>
 			<haxe_doc>Removes all keys from `this` Map.</haxe_doc>
 		</clear>
-		<arrayWrite public="1" get="inline" set="null" line="163" static="1">
+		<arrayWrite public="1" get="inline" set="null" line="167" static="1">
 			<f a="this:k:v">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -23584,7 +23730,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</arrayWrite>
-		<toStringMap params="K:V" get="inline" set="null" line="168" static="1">
+		<toStringMap params="K:V" get="inline" set="null" line="172" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toStringMap.K"/>
@@ -23597,7 +23743,7 @@
 				<m n=":to"/>
 			</meta>
 		</toStringMap>
-		<toIntMap params="K:V" get="inline" set="null" line="172" static="1">
+		<toIntMap params="K:V" get="inline" set="null" line="176" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toIntMap.K"/>
@@ -23610,7 +23756,20 @@
 				<m n=":to"/>
 			</meta>
 		</toIntMap>
-		<toEnumValueMapMap params="K:V" get="inline" set="null" line="176" static="1">
+		<toInt64Map params="K:V" get="inline" set="null" line="180" static="1">
+			<f a="t">
+				<c path="haxe.IMap">
+					<c path="toInt64Map.K"/>
+					<c path="toInt64Map.V"/>
+				</c>
+				<c path="cpp.Int64Map"><c path="toInt64Map.V"/></c>
+			</f>
+			<meta>
+				<m n=":multiType"/>
+				<m n=":to"/>
+			</meta>
+		</toInt64Map>
+		<toEnumValueMapMap params="K:V" get="inline" set="null" line="184" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toEnumValueMapMap.K"/>
@@ -23626,7 +23785,7 @@
 				<m n=":to"/>
 			</meta>
 		</toEnumValueMapMap>
-		<toObjectMap params="K:V" get="inline" set="null" line="180" static="1">
+		<toObjectMap params="K:V" get="inline" set="null" line="188" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toObjectMap.K"/>
@@ -23642,7 +23801,7 @@
 				<m n=":to"/>
 			</meta>
 		</toObjectMap>
-		<fromStringMap params="V" get="inline" set="null" line="184" static="1">
+		<fromStringMap params="V" get="inline" set="null" line="192" static="1">
 			<f a="map">
 				<c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c>
 				<x path="haxe.ds.Map">
@@ -23652,7 +23811,7 @@
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromStringMap>
-		<fromIntMap params="V" get="inline" set="null" line="188" static="1">
+		<fromIntMap params="V" get="inline" set="null" line="196" static="1">
 			<f a="map">
 				<c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c>
 				<x path="haxe.ds.Map">
@@ -23662,7 +23821,17 @@
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromIntMap>
-		<fromObjectMap params="K:V" get="inline" set="null" line="192" static="1">
+		<fromInt64Map params="V" get="inline" set="null" line="200" static="1">
+			<f a="map">
+				<c path="cpp.Int64Map"><c path="fromInt64Map.V"/></c>
+				<x path="haxe.ds.Map">
+					<x path="haxe.Int64"/>
+					<c path="fromInt64Map.V"/>
+				</x>
+			</f>
+			<meta><m n=":from"/></meta>
+		</fromInt64Map>
+		<fromObjectMap params="K:V" get="inline" set="null" line="204" static="1">
 			<f a="map">
 				<c path="haxe.ds.ObjectMap">
 					<c path="fromObjectMap.K"/>
@@ -23689,7 +23858,7 @@
 				<m n=":ifFeature"><e>"haxe.ds.ObjectMap.*"</e></m>
 			</meta>
 		</h>
-		<set public="1" set="method" line="60">
+		<set public="1" set="method" line="61">
 			<f a="key:value">
 				<c path="haxe.ds.ObjectMap.K"/>
 				<c path="haxe.ds.ObjectMap.V"/>
@@ -23702,7 +23871,7 @@
 			</meta>
 			<haxe_doc>See `Map.set`</haxe_doc>
 		</set>
-		<get public="1" set="method" line="64">
+		<get public="1" set="method" line="65">
 			<f a="key">
 				<c path="haxe.ds.ObjectMap.K"/>
 				<x path="Null"><c path="haxe.ds.ObjectMap.V"/></x>
@@ -23714,7 +23883,7 @@
 			</meta>
 			<haxe_doc>See `Map.get`</haxe_doc>
 		</get>
-		<exists public="1" set="method" line="68">
+		<exists public="1" set="method" line="69">
 			<f a="key">
 				<c path="haxe.ds.ObjectMap.K"/>
 				<x path="Bool"/>
@@ -23726,7 +23895,7 @@
 			</meta>
 			<haxe_doc>See `Map.exists`</haxe_doc>
 		</exists>
-		<remove public="1" set="method" line="72">
+		<remove public="1" set="method" line="73">
 			<f a="key">
 				<c path="haxe.ds.ObjectMap.K"/>
 				<x path="Bool"/>
@@ -23738,7 +23907,7 @@
 			</meta>
 			<haxe_doc>See `Map.remove`</haxe_doc>
 		</remove>
-		<keys public="1" set="method" line="76">
+		<keys public="1" set="method" line="77">
 			<f a=""><t path="Iterator"><c path="haxe.ds.ObjectMap.K"/></t></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -23750,7 +23919,7 @@
 		(cs, java) Implementation detail: Do not `set()` any new value while
 		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</keys>
-		<iterator public="1" set="method" line="81">
+		<iterator public="1" set="method" line="82">
 			<f a=""><t path="Iterator"><c path="haxe.ds.ObjectMap.V"/></t></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -23762,7 +23931,7 @@
 		(cs, java) Implementation detail: Do not `set()` any new value while
 		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="86">
+		<keyValueIterator public="1" get="inline" set="null" line="87">
 			<f a=""><t path="KeyValueIterator">
 	<c path="haxe.ds.ObjectMap.K"/>
 	<c path="haxe.ds.ObjectMap.V"/>
@@ -23774,7 +23943,7 @@
 			</meta>
 			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
 		</keyValueIterator>
-		<copy public="1" set="method" line="90">
+		<copy public="1" set="method" line="91">
 			<f a=""><c path="haxe.ds.ObjectMap">
 	<c path="haxe.ds.ObjectMap.K"/>
 	<c path="haxe.ds.ObjectMap.V"/>
@@ -23785,7 +23954,7 @@
 			</meta>
 			<haxe_doc>See `Map.copy`</haxe_doc>
 		</copy>
-		<toString public="1" set="method" line="97">
+		<toString public="1" set="method" line="98">
 			<f a=""><c path="String"/></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -23794,7 +23963,7 @@
 			</meta>
 			<haxe_doc>See `Map.toString`</haxe_doc>
 		</toString>
-		<clear public="1" set="method" line="101">
+		<clear public="1" set="method" line="102">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -23803,7 +23972,7 @@
 			</meta>
 			<haxe_doc>See `Map.clear`</haxe_doc>
 		</clear>
-		<new public="1" set="method" line="58">
+		<new public="1" set="method" line="59">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":keep"/>
@@ -23821,7 +23990,7 @@
 	@see https://haxe.org/manual/std-Map.html</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
-			<m n=":headerClassCode"><e><![CDATA["\n  inline void set(Dynamic key, ::null value) { __object_hash_set(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, bool value) { __object_hash_set(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, char value) { __object_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, unsigned char value) { __object_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, signed char value) { __object_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, short value) { __object_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, unsigned short value) { __object_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, int value) { __object_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, unsigned int value) { __object_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, float value) { __object_hash_set_float(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, double value) { __object_hash_set_float(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, ::String value) { __object_hash_set_string(HX_MAP_THIS,key,value); }\n\n\n  template<typename V, typename H>\n  inline void set(Dynamic key, const ::cpp::Struct<V,H> &value) {__object_hash_set(HX_MAP_THIS,key,value); }\n  template<typename V>\n  inline void set(Dynamic key, const ::cpp::Function<V> &value) {__object_hash_set(HX_MAP_THIS,key,(Dynamic)value ); }\n  template<typename V>\n  inline void set(Dynamic key, const ::cpp::Pointer<V> &value) {__object_hash_set(HX_MAP_THIS,key,(Dynamic)value ); }\n\n  inline bool get_bool(Dynamic key) { return __object_hash_get_bool(h,key); }\n  inline int get_int(Dynamic key) { return __object_hash_get_int(h,key); }\n  inline Float get_float(Dynamic key) { return __object_hash_get_float(h,key); }\n  inline String get_string(Dynamic key) { return __object_hash_get_string(h,key); }\n\n"]]></e></m>
+			<m n=":headerClassCode"><e><![CDATA["\n  inline void set(Dynamic key, ::null value) { __object_hash_set(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, bool value) { __object_hash_set(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, char value) { __object_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, unsigned char value) { __object_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, signed char value) { __object_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, short value) { __object_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, unsigned short value) { __object_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, int value) { __object_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, unsigned int value) { __object_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, float value) { __object_hash_set_float(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, double value) { __object_hash_set_float(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, ::String value) { __object_hash_set_string(HX_MAP_THIS,key,value); }\n  inline void set(Dynamic key, cpp::Int64 value) { __object_hash_set_int64(HX_MAP_THIS,key,value); }\n\n\n  template<typename V, typename H>\n  inline void set(Dynamic key, const ::cpp::Struct<V,H> &value) {__object_hash_set(HX_MAP_THIS,key,value); }\n  template<typename V>\n  inline void set(Dynamic key, const ::cpp::Function<V> &value) {__object_hash_set(HX_MAP_THIS,key,(Dynamic)value ); }\n  template<typename V>\n  inline void set(Dynamic key, const ::cpp::Pointer<V> &value) {__object_hash_set(HX_MAP_THIS,key,(Dynamic)value ); }\n\n  inline bool get_bool(Dynamic key) { return __object_hash_get_bool(h,key); }\n  inline int get_int(Dynamic key) { return __object_hash_get_int(h,key); }\n  inline Float get_float(Dynamic key) { return __object_hash_get_float(h,key); }\n  inline String get_string(Dynamic key) { return __object_hash_get_string(h,key); }\n  inline cpp::Int64 get_int64(Dynamic key) { return __object_hash_get_int64(h,key); }\n"]]></e></m>
 			<m n=":coreApi"/>
 		</meta>
 	</class>
@@ -23942,7 +24111,7 @@
 				<m n=":ifFeature"><e>"haxe.ds.StringMap.*"</e></m>
 			</meta>
 		</h>
-		<set public="1" set="method" line="60">
+		<set public="1" set="method" line="62">
 			<f a="key:value">
 				<c path="String"/>
 				<c path="haxe.ds.StringMap.T"/>
@@ -23955,7 +24124,7 @@
 			</meta>
 			<haxe_doc>See `Map.set`</haxe_doc>
 		</set>
-		<get public="1" set="method" line="64">
+		<get public="1" set="method" line="66">
 			<f a="key">
 				<c path="String"/>
 				<x path="Null"><c path="haxe.ds.StringMap.T"/></x>
@@ -23967,7 +24136,7 @@
 			</meta>
 			<haxe_doc>See `Map.get`</haxe_doc>
 		</get>
-		<exists public="1" set="method" line="68">
+		<exists public="1" set="method" line="70">
 			<f a="key">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -23979,7 +24148,7 @@
 			</meta>
 			<haxe_doc>See `Map.exists`</haxe_doc>
 		</exists>
-		<remove public="1" set="method" line="72">
+		<remove public="1" set="method" line="74">
 			<f a="key">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -23991,7 +24160,7 @@
 			</meta>
 			<haxe_doc>See `Map.remove`</haxe_doc>
 		</remove>
-		<keys public="1" set="method" line="76">
+		<keys public="1" set="method" line="78">
 			<f a=""><t path="Iterator"><c path="String"/></t></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -24003,7 +24172,7 @@
 		(cs, java) Implementation detail: Do not `set()` any new value while
 		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</keys>
-		<iterator public="1" set="method" line="81">
+		<iterator public="1" set="method" line="83">
 			<f a=""><t path="Iterator"><c path="haxe.ds.StringMap.T"/></t></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -24015,7 +24184,7 @@
 		(cs, java) Implementation detail: Do not `set()` any new value while
 		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="86">
+		<keyValueIterator public="1" get="inline" set="null" line="88">
 			<f a=""><t path="KeyValueIterator">
 	<c path="String"/>
 	<c path="haxe.ds.StringMap.T"/>
@@ -24027,7 +24196,7 @@
 			</meta>
 			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
 		</keyValueIterator>
-		<copy public="1" set="method" line="90">
+		<copy public="1" set="method" line="92">
 			<f a=""><c path="haxe.ds.StringMap"><c path="haxe.ds.StringMap.T"/></c></f>
 			<meta>
 				<m n=":keep"/>
@@ -24035,7 +24204,7 @@
 			</meta>
 			<haxe_doc>See `Map.copy`</haxe_doc>
 		</copy>
-		<toString public="1" set="method" line="97">
+		<toString public="1" set="method" line="99">
 			<f a=""><c path="String"/></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -24044,7 +24213,7 @@
 			</meta>
 			<haxe_doc>See `Map.toString`</haxe_doc>
 		</toString>
-		<clear public="1" set="method" line="101">
+		<clear public="1" set="method" line="103">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -24053,7 +24222,7 @@
 			</meta>
 			<haxe_doc>See `Map.clear`</haxe_doc>
 		</clear>
-		<new public="1" set="method" line="58">
+		<new public="1" set="method" line="60">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":keep"/>
@@ -24068,7 +24237,7 @@
 	@see https://haxe.org/manual/std-Map.html</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
-			<m n=":headerClassCode"><e><![CDATA["\n  inline void set(String key, ::null value) { __string_hash_set(HX_MAP_THIS,key,value); }\n  inline void set(String key, bool value) { __string_hash_set(HX_MAP_THIS,key,value); }\n  inline void set(String key, char value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(String key, unsigned char value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(String key, signed char value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(String key, short value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(String key, unsigned short value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(String key, int value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(String key, unsigned int value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(String key, float value) { __string_hash_set_float(HX_MAP_THIS,key,value); }\n  inline void set(String key, double value) { __string_hash_set_float(HX_MAP_THIS,key,value); }\n  inline void set(String key, ::String value) { __string_hash_set_string(HX_MAP_THIS,key,value); }\n\n  template<typename V, typename H>\n  inline void set(String key, const ::cpp::Struct<V,H> &value) {__string_hash_set(HX_MAP_THIS,key,value); }\n  template<typename V>\n  inline void set(String key, const ::cpp::Function<V> &value) {__string_hash_set(HX_MAP_THIS,key,(Dynamic)value ); }\n  template<typename V>\n  inline void set(String key, const ::cpp::Pointer<V> &value) {__string_hash_set(HX_MAP_THIS,key,(Dynamic)value ); }\n\n  template<typename VALUE>\n  inline void set(Dynamic &key, const VALUE &value) { set( (String)key, value ); }\n\n  inline bool get_bool(String key) { return __string_hash_get_bool(h,key); }\n  inline int get_int(String key) { return __string_hash_get_int(h,key); }\n  inline Float get_float(String key) { return __string_hash_get_float(h,key); }\n  inline String get_string(String key) { return __string_hash_get_string(h,key); }\n"]]></e></m>
+			<m n=":headerClassCode"><e><![CDATA["\n  inline void set(String key, ::null value) { __string_hash_set(HX_MAP_THIS,key,value); }\n  inline void set(String key, bool value) { __string_hash_set(HX_MAP_THIS,key,value); }\n  inline void set(String key, char value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(String key, unsigned char value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(String key, signed char value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(String key, short value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(String key, unsigned short value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(String key, int value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(String key, unsigned int value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\n  inline void set(String key, float value) { __string_hash_set_float(HX_MAP_THIS,key,value); }\n  inline void set(String key, double value) { __string_hash_set_float(HX_MAP_THIS,key,value); }\n  inline void set(String key, ::String value) { __string_hash_set_string(HX_MAP_THIS,key,value); }\n  inline void set(String key, cpp::Int64 value) { __string_hash_set_int64(HX_MAP_THIS,key,value); }\n\n  template<typename V, typename H>\n  inline void set(String key, const ::cpp::Struct<V,H> &value) {__string_hash_set(HX_MAP_THIS,key,value); }\n  template<typename V>\n  inline void set(String key, const ::cpp::Function<V> &value) {__string_hash_set(HX_MAP_THIS,key,(Dynamic)value ); }\n  template<typename V>\n  inline void set(String key, const ::cpp::Pointer<V> &value) {__string_hash_set(HX_MAP_THIS,key,(Dynamic)value ); }\n\n  template<typename VALUE>\n  inline void set(Dynamic &key, const VALUE &value) { set( (String)key, value ); }\n\n  inline bool get_bool(String key) { return __string_hash_get_bool(h,key); }\n  inline int get_int(String key) { return __string_hash_get_int(h,key); }\n  inline Float get_float(String key) { return __string_hash_get_float(h,key); }\n  inline String get_string(String key) { return __string_hash_get_string(h,key); }\n  inline cpp::Int64 get_int64(String key) { return __string_hash_get_int64(h,key); }\n"]]></e></m>
 			<m n=":coreApi"/>
 		</meta>
 	</class>
@@ -24488,7 +24657,7 @@
 				<m n=":ifFeature"><e>"haxe.ds.WeakMap.*"</e></m>
 			</meta>
 		</h>
-		<set public="1" set="method" line="53">
+		<set public="1" set="method" line="54">
 			<f a="key:value">
 				<c path="haxe.ds.WeakMap.K"/>
 				<c path="haxe.ds.WeakMap.V"/>
@@ -24500,7 +24669,7 @@
 			</meta>
 			<haxe_doc>See `Map.set`</haxe_doc>
 		</set>
-		<get public="1" set="method" line="57">
+		<get public="1" set="method" line="58">
 			<f a="key">
 				<c path="haxe.ds.WeakMap.K"/>
 				<x path="Null"><c path="haxe.ds.WeakMap.V"/></x>
@@ -24511,7 +24680,7 @@
 			</meta>
 			<haxe_doc>See `Map.get`</haxe_doc>
 		</get>
-		<exists public="1" set="method" line="61">
+		<exists public="1" set="method" line="62">
 			<f a="key">
 				<c path="haxe.ds.WeakMap.K"/>
 				<x path="Bool"/>
@@ -24522,7 +24691,7 @@
 			</meta>
 			<haxe_doc>See `Map.exists`</haxe_doc>
 		</exists>
-		<remove public="1" set="method" line="65">
+		<remove public="1" set="method" line="66">
 			<f a="key">
 				<c path="haxe.ds.WeakMap.K"/>
 				<x path="Bool"/>
@@ -24533,7 +24702,7 @@
 			</meta>
 			<haxe_doc>See `Map.remove`</haxe_doc>
 		</remove>
-		<keys public="1" set="method" line="69">
+		<keys public="1" set="method" line="70">
 			<f a=""><t path="Iterator"><c path="haxe.ds.WeakMap.K"/></t></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -24541,7 +24710,7 @@
 			</meta>
 			<haxe_doc>See `Map.keys`</haxe_doc>
 		</keys>
-		<iterator public="1" set="method" line="74">
+		<iterator public="1" set="method" line="75">
 			<f a=""><t path="Iterator"><c path="haxe.ds.WeakMap.V"/></t></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -24549,7 +24718,7 @@
 			</meta>
 			<haxe_doc>See `Map.iterator`</haxe_doc>
 		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="79">
+		<keyValueIterator public="1" get="inline" set="null" line="80">
 			<f a=""><t path="KeyValueIterator">
 	<c path="haxe.ds.WeakMap.K"/>
 	<c path="haxe.ds.WeakMap.V"/>
@@ -24557,7 +24726,7 @@
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
 		</keyValueIterator>
-		<copy public="1" set="method" line="83">
+		<copy public="1" set="method" line="84">
 			<f a=""><c path="haxe.ds.WeakMap">
 	<c path="haxe.ds.WeakMap.K"/>
 	<c path="haxe.ds.WeakMap.V"/>
@@ -24565,7 +24734,7 @@
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>See `Map.copy`</haxe_doc>
 		</copy>
-		<toString public="1" set="method" line="90">
+		<toString public="1" set="method" line="91">
 			<f a=""><c path="String"/></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -24573,7 +24742,7 @@
 			</meta>
 			<haxe_doc>See `Map.toString`</haxe_doc>
 		</toString>
-		<clear public="1" set="method" line="94">
+		<clear public="1" set="method" line="95">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -24581,7 +24750,7 @@
 			</meta>
 			<haxe_doc>See `Map.clear`</haxe_doc>
 		</clear>
-		<new public="1" set="method" line="51">
+		<new public="1" set="method" line="52">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Creates a new WeakMap.</haxe_doc>
@@ -24594,7 +24763,7 @@
 
 	@see https://haxe.org/manual/std-Map.html</haxe_doc>
 		<meta>
-			<m n=":headerClassCode"><e><![CDATA["\n  inline void set(Dynamic key, ::null value) { __object_hash_set(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, bool value) { __object_hash_set(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, char value) { __object_hash_set_int(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, unsigned char value) { __object_hash_set_int(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, signed char value) { __object_hash_set_int(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, short value) { __object_hash_set_int(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, unsigned short value) { __object_hash_set_int(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, int value) { __object_hash_set_int(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, unsigned int value) { __object_hash_set_int(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, float value) { __object_hash_set_float(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, double value) { __object_hash_set_float(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, ::String value) { __object_hash_set_string(HX_MAP_THIS,key,value,true); }\n\n  template<typename V, typename H>\n  inline void set(Dynamic key, const ::cpp::Struct<V,H> &value) {__object_hash_set(HX_MAP_THIS,key,value,true); }\n  template<typename V>\n  inline void set(Dynamic key, const ::cpp::Pointer<V> &value) {__object_hash_set(HX_MAP_THIS,key,(Dynamic)value,true ); }\n  template<typename V>\n  inline void set(Dynamic key, const ::cpp::Function<V> &value) {__object_hash_set(HX_MAP_THIS,key,(Dynamic)value,true ); }\n"]]></e></m>
+			<m n=":headerClassCode"><e><![CDATA["\n  inline void set(Dynamic key, ::null value) { __object_hash_set(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, bool value) { __object_hash_set(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, char value) { __object_hash_set_int(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, unsigned char value) { __object_hash_set_int(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, signed char value) { __object_hash_set_int(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, short value) { __object_hash_set_int(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, unsigned short value) { __object_hash_set_int(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, int value) { __object_hash_set_int(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, unsigned int value) { __object_hash_set_int(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, float value) { __object_hash_set_float(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, double value) { __object_hash_set_float(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, ::String value) { __object_hash_set_string(HX_MAP_THIS,key,value,true); }\n  inline void set(Dynamic key, cpp::Int64 value) { __object_hash_set_int64(HX_MAP_THIS,key,value,true); }\n\n  template<typename V, typename H>\n  inline void set(Dynamic key, const ::cpp::Struct<V,H> &value) {__object_hash_set(HX_MAP_THIS,key,value,true); }\n  template<typename V>\n  inline void set(Dynamic key, const ::cpp::Pointer<V> &value) {__object_hash_set(HX_MAP_THIS,key,(Dynamic)value,true ); }\n  template<typename V>\n  inline void set(Dynamic key, const ::cpp::Function<V> &value) {__object_hash_set(HX_MAP_THIS,key,(Dynamic)value,true ); }\n"]]></e></m>
 			<m n=":coreApi"/>
 		</meta>
 	</class>
