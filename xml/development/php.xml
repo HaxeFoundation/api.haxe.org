@@ -115,7 +115,7 @@
 			<x path="Int"/>
 			<c path="Array.T"/>
 		</implements>
-		<wrap params="T" set="method" line="266" static="1"><f a="arr">
+		<wrap params="T" set="method" line="269" static="1"><f a="arr">
 	<x path="php.NativeIndexedArray"><c path="wrap.T"/></x>
 	<c path="Array"><c path="wrap.T"/></c>
 </f></wrap>
@@ -465,7 +465,7 @@
 				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</offsetGet>
-		<offsetSet set="method" line="227">
+		<offsetSet set="method" line="230">
 			<f a="offset:value">
 				<x path="Int"/>
 				<c path="Array.T"/>
@@ -477,7 +477,7 @@
 				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</offsetSet>
-		<offsetUnset set="method" line="240">
+		<offsetUnset set="method" line="243">
 			<f a="offset">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -488,7 +488,7 @@
 				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</offsetUnset>
-		<getIterator set="method" line="249">
+		<getIterator set="method" line="252">
 			<f a=""><c path="php.Traversable"/></f>
 			<meta>
 				<m n=":noCompletion"/>
@@ -496,7 +496,7 @@
 				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</getIterator>
-		<_hx_count set="method" line="256">
+		<_hx_count set="method" line="259">
 			<f a=""><x path="Int"/></f>
 			<meta>
 				<m n=":noCompletion"/>
@@ -505,7 +505,7 @@
 				<m n=":php.attribute"><e>"\\ReturnTypeWillChange"</e></m>
 			</meta>
 		</_hx_count>
-		<jsonSerialize set="method" line="262">
+		<jsonSerialize set="method" line="265">
 			<f a=""><x path="php.NativeIndexedArray"><c path="Array.T"/></x></f>
 			<meta>
 				<m n=":noCompletion"/>
@@ -2636,8 +2636,7 @@
 		notations are not supported.
 
 		Parsing continues until an invalid character is detected, in which case the result up to
-		that point is returned. However, in decimal mode, the effect of `x` containing an e or E
-		is unspecified, and it may be taken as scientific exponential notation.
+		that point is returned. Scientific notation is not supported. That is `Std.parseInt('10e2')` produces `10`.
 
 		If `x` is `null`, the result is `null`.
 		If `x` cannot be parsed as integer or is empty, the result is `null`.
@@ -2645,7 +2644,7 @@
 		If `x` starts with a hexadecimal prefix which is not followed by at least one valid hexadecimal
 		digit, the result is unspecified.</haxe_doc>
 		</parseInt>
-		<parseFloat public="1" set="method" line="72" static="1">
+		<parseFloat public="1" set="method" line="78" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Float"/>
@@ -2660,7 +2659,7 @@
 		It may also end with `e` or `E` followed by optional minus or plus sign and a sequence of
 		digits (defines exponent to base 10).</haxe_doc>
 		</parseFloat>
-		<random public="1" get="inline" set="null" line="92" static="1">
+		<random public="1" get="inline" set="null" line="98" static="1">
 			<f a="x">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -2669,7 +2668,7 @@
 
 		If `x <= 1`, the result is always 0.]]></haxe_doc>
 		</random>
-		<isDigitCode get="inline" set="null" line="96" static="1"><f a="charCode">
+		<isDigitCode get="inline" set="null" line="102" static="1"><f a="charCode">
 	<x path="Null"><x path="Int"/></x>
 	<x path="Bool"/>
 </f></isDigitCode>
@@ -4531,6 +4530,19 @@
 			<meta><m n=":value"><e>{ offset : 0 }</e></m></meta>
 			<haxe_doc>@see http://php.net/manual/en/function.strpos.php</haxe_doc>
 		</strpos>
+		<stripos public="1" set="method" static="1">
+			<f a="haystack:needle:?offset" v="::0">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="haxe.extern.EitherType">
+					<x path="Bool"/>
+					<x path="Int"/>
+				</x>
+			</f>
+			<meta><m n=":value"><e>{ offset : 0 }</e></m></meta>
+			<haxe_doc>@see http://php.net/manual/en/function.stripos.php</haxe_doc>
+		</stripos>
 		<strrpos public="1" set="method" static="1">
 			<f a="haystack:needle:?offset" v="::0">
 				<c path="String"/>
