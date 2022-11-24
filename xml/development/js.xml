@@ -8619,6 +8619,234 @@
 	throw new ValueException("Terrible error");
 	```</haxe_doc>
 	</class>
+	<abstract path="haxe.atomic.AtomicBool" params="" file="/usr/local/share/haxe/std/haxe/atomic/AtomicBool.hx">
+		<this><x path="haxe.atomic.AtomicInt"/></this>
+		<haxe_doc>Atomic boolean.
+	(js) The Atomics and SharedArrayBuffer objects need to be available. Errors will be thrown if this is not the case.</haxe_doc>
+		<meta><m n=":coreApi"/></meta>
+		<impl><class path="haxe.atomic._AtomicBool.AtomicBool_Impl_" params="" file="/usr/local/share/haxe/std/haxe/atomic/AtomicBool.hx" private="1" module="haxe.atomic.AtomicBool" final="1">
+	<toInt get="inline" set="null" line="13" static="1"><f a="this:v">
+	<x path="haxe.atomic.AtomicInt"/>
+	<x path="Bool"/>
+	<x path="Int"/>
+</f></toInt>
+	<toBool get="inline" set="null" line="17" static="1"><f a="this:v">
+	<x path="haxe.atomic.AtomicInt"/>
+	<x path="Int"/>
+	<x path="Bool"/>
+</f></toBool>
+	<_new public="1" get="inline" set="null" line="21" static="1">
+		<f a="value">
+			<x path="Bool"/>
+			<x path="haxe.atomic.AtomicBool"/>
+		</f>
+		<meta><m n=":noCompletion"/></meta>
+	</_new>
+	<compareExchange public="1" get="inline" set="null" line="29" static="1">
+		<f a="this:expected:replacement">
+			<x path="haxe.atomic.AtomicInt"/>
+			<x path="Bool"/>
+			<x path="Bool"/>
+			<x path="Bool"/>
+		</f>
+		<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
+		Returns the original value of `a`.</haxe_doc>
+	</compareExchange>
+	<exchange public="1" get="inline" set="null" line="37" static="1">
+		<f a="this:value">
+			<x path="haxe.atomic.AtomicInt"/>
+			<x path="Bool"/>
+			<x path="Bool"/>
+		</f>
+		<haxe_doc>Atomically exchanges `a` with `value`.
+		Returns the original value of `a`.</haxe_doc>
+	</exchange>
+	<load public="1" get="inline" set="null" line="44" static="1">
+		<f a="this">
+			<x path="haxe.atomic.AtomicInt"/>
+			<x path="Bool"/>
+		</f>
+		<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
+	</load>
+	<store public="1" get="inline" set="null" line="52" static="1">
+		<f a="this:value">
+			<x path="haxe.atomic.AtomicInt"/>
+			<x path="Bool"/>
+			<x path="Bool"/>
+		</f>
+		<haxe_doc>Atomically stores `value` into `a`.
+		Returns the value that has been stored.</haxe_doc>
+	</store>
+	<meta><m n=":coreApi"/></meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.atomic._AtomicBool.AtomicBool_Impl_" params="" file="/usr/local/share/haxe/std/haxe/atomic/AtomicBool.hx" private="1" module="haxe.atomic.AtomicBool" final="1">
+		<toInt get="inline" set="null" line="13" static="1"><f a="this:v">
+	<x path="haxe.atomic.AtomicInt"/>
+	<x path="Bool"/>
+	<x path="Int"/>
+</f></toInt>
+		<toBool get="inline" set="null" line="17" static="1"><f a="this:v">
+	<x path="haxe.atomic.AtomicInt"/>
+	<x path="Int"/>
+	<x path="Bool"/>
+</f></toBool>
+		<_new public="1" get="inline" set="null" line="21" static="1">
+			<f a="value">
+				<x path="Bool"/>
+				<x path="haxe.atomic.AtomicBool"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</_new>
+		<compareExchange public="1" get="inline" set="null" line="29" static="1">
+			<f a="this:expected:replacement">
+				<x path="haxe.atomic.AtomicInt"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
+		Returns the original value of `a`.</haxe_doc>
+		</compareExchange>
+		<exchange public="1" get="inline" set="null" line="37" static="1">
+			<f a="this:value">
+				<x path="haxe.atomic.AtomicInt"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Atomically exchanges `a` with `value`.
+		Returns the original value of `a`.</haxe_doc>
+		</exchange>
+		<load public="1" get="inline" set="null" line="44" static="1">
+			<f a="this">
+				<x path="haxe.atomic.AtomicInt"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
+		</load>
+		<store public="1" get="inline" set="null" line="52" static="1">
+			<f a="this:value">
+				<x path="haxe.atomic.AtomicInt"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Atomically stores `value` into `a`.
+		Returns the value that has been stored.</haxe_doc>
+		</store>
+		<meta><m n=":coreApi"/></meta>
+	</class>
+	<abstract path="haxe.atomic.AtomicInt" params="" file="/usr/local/share/haxe/std/js/_std/haxe/atomic/AtomicInt.hx">
+		<this><c path="js.lib.Int32Array"/></this>
+		<to><icast><c path="js.lib.Int32Array"/></icast></to>
+		<impl><class path="haxe.atomic._AtomicInt.AtomicInt_Impl_" params="" file="/usr/local/share/haxe/std/js/_std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt" final="1">
+	<_new public="1" get="inline" set="null" line="6" static="1">
+		<f a="value">
+			<x path="Int"/>
+			<x path="haxe.atomic.AtomicInt"/>
+		</f>
+		<meta><m n=":noCompletion"/></meta>
+	</_new>
+	<add public="1" get="inline" set="null" line="11" static="1"><f a="this:b">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></add>
+	<sub public="1" get="inline" set="null" line="15" static="1"><f a="this:b">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></sub>
+	<and public="1" get="inline" set="null" line="19" static="1"><f a="this:b">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></and>
+	<or public="1" get="inline" set="null" line="23" static="1"><f a="this:b">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></or>
+	<xor public="1" get="inline" set="null" line="27" static="1"><f a="this:b">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></xor>
+	<compareExchange public="1" get="inline" set="null" line="31" static="1"><f a="this:expected:replacement">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></compareExchange>
+	<exchange public="1" get="inline" set="null" line="35" static="1"><f a="this:value">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></exchange>
+	<load public="1" get="inline" set="null" line="39" static="1"><f a="this">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+</f></load>
+	<store public="1" get="inline" set="null" line="43" static="1"><f a="this:value">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></store>
+</class></impl>
+	</abstract>
+	<class path="haxe.atomic._AtomicInt.AtomicInt_Impl_" params="" file="/usr/local/share/haxe/std/js/_std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt" final="1">
+		<_new public="1" get="inline" set="null" line="6" static="1">
+			<f a="value">
+				<x path="Int"/>
+				<x path="haxe.atomic.AtomicInt"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</_new>
+		<add public="1" get="inline" set="null" line="11" static="1"><f a="this:b">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></add>
+		<sub public="1" get="inline" set="null" line="15" static="1"><f a="this:b">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></sub>
+		<and public="1" get="inline" set="null" line="19" static="1"><f a="this:b">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></and>
+		<or public="1" get="inline" set="null" line="23" static="1"><f a="this:b">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></or>
+		<xor public="1" get="inline" set="null" line="27" static="1"><f a="this:b">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></xor>
+		<compareExchange public="1" get="inline" set="null" line="31" static="1"><f a="this:expected:replacement">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></compareExchange>
+		<exchange public="1" get="inline" set="null" line="35" static="1"><f a="this:value">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></exchange>
+		<load public="1" get="inline" set="null" line="39" static="1"><f a="this">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+</f></load>
+		<store public="1" get="inline" set="null" line="43" static="1"><f a="this:value">
+	<c path="js.lib.Int32Array"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></store>
+	</class>
 	<class path="haxe.crypto.Adler32" params="" file="/usr/local/share/haxe/std/haxe/crypto/Adler32.hx">
 		<read public="1" set="method" line="60" static="1"><f a="i">
 	<c path="haxe.io.Input"/>
@@ -80803,6 +81031,218 @@
 </f></sliceImpl>
 		<meta><m n=":ifFeature"><e>"js.lib.ArrayBuffer.slice"</e></m></meta>
 	</class>
+	<typedef path="js.lib._Atomics.E" params="A:B" file="/usr/local/share/haxe/std/js/lib/Atomics.hx" private="1" module="js.lib.Atomics"><x path="haxe.extern.EitherType">
+	<c path="js.lib._Atomics.E.A"/>
+	<c path="js.lib._Atomics.E.B"/>
+</x></typedef>
+	<typedef path="js.lib._Atomics.IntTypedArray" params="" file="/usr/local/share/haxe/std/js/lib/Atomics.hx" private="1" module="js.lib.Atomics"><t path="js.lib._Atomics.E">
+	<c path="js.lib.Int8Array"/>
+	<t path="js.lib._Atomics.E">
+		<c path="js.lib.Uint8Array"/>
+		<t path="js.lib._Atomics.E">
+			<c path="js.lib.Int16Array"/>
+			<t path="js.lib._Atomics.E">
+				<c path="js.lib.Uint16Array"/>
+				<t path="js.lib._Atomics.E">
+					<c path="js.lib.Int32Array"/>
+					<c path="js.lib.Uint32Array"/>
+				</t>
+			</t>
+		</t>
+	</t>
+</t></typedef>
+	<class path="js.lib.Atomics" params="" file="/usr/local/share/haxe/std/js/lib/Atomics.hx" extern="1">
+		<add public="1" set="method" static="1">
+			<f a="typedArray:index:value">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Adds the provided value to the existing value at the specified index of the array.
+		Returns the old value at that index.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</add>
+		<and public="1" set="method" static="1">
+			<f a="typedArray:index:value">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Computes a bitwise AND on the value at the specified index of the array with the provided value.
+		Returns the old value at that index.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</and>
+		<compareExchange public="1" set="method" static="1">
+			<f a="typedArray:index:expectedValue:replacementValue">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Stores a value at the specified index of the array, if it equals a value.
+		Returns the old value.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</compareExchange>
+		<exchange public="1" set="method" static="1">
+			<f a="typedArray:index:value">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Stores a value at the specified index of the array.
+		Returns the old value.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</exchange>
+		<isLockFree public="1" set="method" static="1">
+			<f a="size">
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>An optimization primitive that can be used to determine whether to use locks or atomic operations.
+		Returns `true` if an atomic operation on arrays of the given element size will be implemented using a hardware atomic operation (as opposed to a lock). Experts only.</haxe_doc>
+		</isLockFree>
+		<load public="1" set="method" static="1">
+			<f a="typedArray:index">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the value at the specified index of the array.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</load>
+		<notify public="1" set="method" static="1">
+			<f a="typedArray:index:?count">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Notifies agents that are waiting on the specified index of the array.
+		Returns the number of agents that were notified.</haxe_doc>
+		</notify>
+		<or public="1" set="method" static="1">
+			<f a="typedArray:index:value">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Computes a bitwise OR on the value at the specified index of the array with the provided value.
+		Returns the old value at that index.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</or>
+		<store public="1" set="method" static="1">
+			<f a="typedArray:index:value">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Stores a value at the specified index of the array.
+		Returns the value.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</store>
+		<sub public="1" set="method" static="1">
+			<f a="typedArray:index:value">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Subtracts a value at the specified index of the array.
+		Returns the old value at that index.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</sub>
+		<wait public="1" set="method" static="1">
+			<f a="typedArray:index:value:?timeout">
+				<c path="js.lib.Int32Array"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="js.lib.WaitValue"/>
+			</f>
+			<haxe_doc>Verifies that the specified index of the array still contains a value and sleeps awaiting or times out.
+		Returns either "ok", "not-equal", or "timed-out". If waiting is not allowed in the calling agent then it throws an Error exception.
+		Most browsers will not allow wait() on the browser's main thread.)</haxe_doc>
+		</wait>
+		<xor public="1" set="method" static="1">
+			<f a="typedArray:index:value">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Computes a bitwise XOR on the value at the specified index of the array with the provided value.
+		Returns the old value at that index.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</xor>
+		<haxe_doc>The Atomics object provides atomic operations as static methods. They are used with SharedArrayBuffer and ArrayBuffer objects.
+
+	Documentation [Atomics](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics/contributors.txt), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"Atomics"</e></m></meta>
+	</class>
+	<abstract path="js.lib.WaitValue" params="" file="/usr/local/share/haxe/std/js/lib/Atomics.hx" module="js.lib.Atomics">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.lib._Atomics.WaitValue_Impl_" params="" file="/usr/local/share/haxe/std/js/lib/Atomics.hx" private="1" module="js.lib.Atomics" extern="1" final="1">
+	<OK public="1" get="inline" set="null" expr="cast &quot;ok&quot;" line="96" static="1">
+		<x path="js.lib.WaitValue"/>
+		<meta>
+			<m n=":value"><e>cast "ok"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</OK>
+	<NotEqual public="1" get="inline" set="null" expr="cast &quot;not-equal&quot;" line="97" static="1">
+		<x path="js.lib.WaitValue"/>
+		<meta>
+			<m n=":value"><e>cast "not-equal"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</NotEqual>
+	<TimedOut public="1" get="inline" set="null" expr="cast &quot;timed-out&quot;" line="98" static="1">
+		<x path="js.lib.WaitValue"/>
+		<meta>
+			<m n=":value"><e>cast "timed-out"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</TimedOut>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.lib._Atomics.WaitValue_Impl_" params="" file="/usr/local/share/haxe/std/js/lib/Atomics.hx" private="1" module="js.lib.Atomics" extern="1" final="1">
+		<OK public="1" get="inline" set="null" expr="cast &quot;ok&quot;" line="96" static="1">
+			<x path="js.lib.WaitValue"/>
+			<meta>
+				<m n=":value"><e>cast "ok"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</OK>
+		<NotEqual public="1" get="inline" set="null" expr="cast &quot;not-equal&quot;" line="97" static="1">
+			<x path="js.lib.WaitValue"/>
+			<meta>
+				<m n=":value"><e>cast "not-equal"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</NotEqual>
+		<TimedOut public="1" get="inline" set="null" expr="cast &quot;timed-out&quot;" line="98" static="1">
+			<x path="js.lib.WaitValue"/>
+			<meta>
+				<m n=":value"><e>cast "timed-out"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</TimedOut>
+		<meta><m n=":enum"/></meta>
+	</class>
 	<abstract path="js.lib.BufferSource" params="" file="/usr/local/share/haxe/std/js/lib/BufferSource.hx">
 		<from>
 			<icast><c path="js.lib.ArrayBuffer"/></icast>
@@ -86138,6 +86578,23 @@
 	<x path="Void"/>
 </f></new>
 		<haxe_doc><![CDATA[key => value iterator for js.lib.Set, tracking the entry index for the key to match the behavior of haxe.ds.List]]></haxe_doc>
+	</class>
+	<class path="js.lib.SharedArrayBuffer" params="" file="/usr/local/share/haxe/std/js/lib/SharedArrayBuffer.hx" extern="1">
+		<byteLength final="1" public="1"><x path="Int"/></byteLength>
+		<slice public="1" set="method"><f a="?begin:?end">
+	<x path="Int"/>
+	<x path="Int"/>
+	<c path="js.lib.ArrayBuffer"/>
+</f></slice>
+		<new public="1" set="method"><f a="?length">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>The SharedArrayBuffer object is used to represent a generic, fixed-length raw binary data buffer, similar to the ArrayBuffer object, but in a way that they can be used to create views on shared memory.
+	A SharedArrayBuffer is not a Transferable Object, unlike an ArrayBuffer which is transferable.
+
+	Documentation [SharedArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/contributors.txt), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"SharedArrayBuffer"</e></m></meta>
 	</class>
 	<class path="js.lib.Symbol" params="" file="/usr/local/share/haxe/std/js/lib/Symbol.hx" extern="1">
 		<for_ public="1" set="method" static="1">
