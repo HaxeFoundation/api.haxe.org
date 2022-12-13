@@ -25599,7 +25599,7 @@
 		<to><icast><c path="String"/></icast></to>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/usr/local/share/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1" final="1">
-	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="549" static="1">
+	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="562" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "top"</e></m>
@@ -25608,7 +25608,7 @@
 		</meta>
 		<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 	</Top>
-	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="556" static="1">
+	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="569" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "closure"</e></m>
@@ -25619,7 +25619,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 	</Closure>
-	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="561" static="1">
+	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="574" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "inline"</e></m>
@@ -25632,7 +25632,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/usr/local/share/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1" final="1">
-		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="549" static="1">
+		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="562" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "top"</e></m>
@@ -25641,7 +25641,7 @@
 			</meta>
 			<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 		</Top>
-		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="556" static="1">
+		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="569" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "closure"</e></m>
@@ -25652,7 +25652,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 		</Closure>
-		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="561" static="1">
+		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="574" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "inline"</e></m>
@@ -25857,6 +25857,58 @@
 	<doc final="1" set="null"><c path="String"/></doc>
 	<define final="1" set="null"><c path="String"/></define>
 </a></typedef>
+	<typedef path="haxe.macro.CompilerConfiguration" params="" file="/usr/local/share/haxe/std/haxe/macro/Compiler.hx" module="haxe.macro.Compiler"><a>
+	<version final="1" set="null">
+		<x path="Int"/>
+		<haxe_doc>The version integer of the current Haxe compiler build.</haxe_doc>
+	</version>
+	<verbose final="1" set="null">
+		<x path="Bool"/>
+		<haxe_doc>If `--verbose` mode is enabled, this is `true`.</haxe_doc>
+	</verbose>
+	<stdPath final="1" set="null">
+		<c path="Array"><c path="String"/></c>
+		<haxe_doc>A list of paths being used for the standard library.</haxe_doc>
+	</stdPath>
+	<platformConfig final="1" set="null">
+		<t path="haxe.macro.PlatformConfig"/>
+		<haxe_doc>The compilation configuration for the target platform.</haxe_doc>
+	</platformConfig>
+	<platform final="1" set="null">
+		<x path="haxe.display.Platform"/>
+		<haxe_doc>The target platform.</haxe_doc>
+	</platform>
+	<packageRules final="1" set="null">
+		<t path="Map">
+			<c path="String"/>
+			<e path="haxe.macro.PackageRule"/>
+		</t>
+		<haxe_doc>Special access rules for packages depending on the compiler configuration.
+
+		For example, the "java" package is "Forbidden" when the target platform is Python.</haxe_doc>
+	</packageRules>
+	<mainClass final="1" set="null">
+		<t path="haxe.macro.TypePath"/>
+		<haxe_doc>The path of the class passed using the `-main` argument.</haxe_doc>
+	</mainClass>
+	<foptimize final="1" set="null">
+		<x path="Bool"/>
+		<haxe_doc>If `--no-opt` is enabled, this is `false`.</haxe_doc>
+	</foptimize>
+	<debug final="1" set="null">
+		<x path="Bool"/>
+		<haxe_doc>If `--debug` mode is enabled, this is `true`.</haxe_doc>
+	</debug>
+	<args final="1" set="null">
+		<c path="Array"><c path="String"/></c>
+		<haxe_doc>Returns an array of the arguments passed to the compiler from either the `.hxml` file or the command line.</haxe_doc>
+	</args>
+</a></typedef>
+	<enum path="haxe.macro.PackageRule" params="" file="/usr/local/share/haxe/std/haxe/macro/Compiler.hx" module="haxe.macro.Compiler">
+		<Forbidden/>
+		<Directory a="path"><c path="String"/></Directory>
+		<Remap a="path"><c path="String"/></Remap>
+	</enum>
 	<class path="haxe.macro.ComplexTypeTools" params="" file="/usr/local/share/haxe/std/haxe/macro/ComplexTypeTools.hx">
 		<toString public="1" set="method" line="40" static="1">
 			<f a="c">
@@ -26943,6 +26995,139 @@
 	</class>
 	<class path="haxe.macro.MacroType" params="Const" file="/usr/local/share/haxe/std/haxe/macro/MacroType.hx" extern="1"><haxe_doc><![CDATA[This type is meant to be used to generate custom types using a macro.
 	For instance by doing MacroType<[my.Class.myMacro(55)]>]]></haxe_doc></class>
+	<typedef path="haxe.macro.PlatformConfig" params="" file="/usr/local/share/haxe/std/haxe/macro/PlatformConfig.hx">
+		<a>
+			<usesUtf16 final="1" set="null">
+				<x path="Bool"/>
+				<haxe_doc>Uses utf16 encoding with ucs2 api</haxe_doc>
+			</usesUtf16>
+			<thisBeforeSuper final="1" set="null">
+				<x path="Bool"/>
+				<haxe_doc>Target supports accessing `this` before calling `super(...)`</haxe_doc>
+			</thisBeforeSuper>
+			<sys final="1" set="null">
+				<x path="Bool"/>
+				<haxe_doc>Has access to the "sys" package</haxe_doc>
+			</sys>
+			<supportsUnicode final="1" set="null">
+				<x path="Bool"/>
+				<haxe_doc>Target supports Unicode</haxe_doc>
+			</supportsUnicode>
+			<supportsThreads final="1" set="null">
+				<x path="Bool"/>
+				<haxe_doc>Target supports threads</haxe_doc>
+			</supportsThreads>
+			<supportsRestArgs final="1" set="null">
+				<x path="Bool"/>
+				<haxe_doc>Target supports rest arguments</haxe_doc>
+			</supportsRestArgs>
+			<supportsFunctionEquality final="1" set="null">
+				<x path="Bool"/>
+				<haxe_doc>Supports function == function</haxe_doc>
+			</supportsFunctionEquality>
+			<supportsAtomics final="1" set="null">
+				<x path="Bool"/>
+				<haxe_doc>Target supports atomic operations via haxe.Atomic</haxe_doc>
+			</supportsAtomics>
+			<staticTypeSystem final="1" set="null">
+				<x path="Bool"/>
+				<haxe_doc>Has a static type system, with not-nullable basic types (Int/Float/Bool)</haxe_doc>
+			</staticTypeSystem>
+			<scoping final="1" set="null">
+				<t path="haxe.macro.VarScopingConfig"/>
+				<haxe_doc>The scoping of local variables</haxe_doc>
+			</scoping>
+			<reservedTypePaths final="1" set="null">
+				<c path="Array"><t path="haxe.macro.TypePath"/></c>
+				<haxe_doc>Type paths that are reserved on the platform</haxe_doc>
+			</reservedTypePaths>
+			<padNulls final="1" set="null">
+				<x path="Bool"/>
+				<haxe_doc>When calling a method with optional args, do we replace the missing args with "null" constants</haxe_doc>
+			</padNulls>
+			<overloadFunctions final="1" set="null">
+				<x path="Bool"/>
+				<haxe_doc>Does the platform natively support overloaded functions</haxe_doc>
+			</overloadFunctions>
+			<exceptions final="1" set="null">
+				<t path="haxe.macro.ExceptionsConfig"/>
+				<haxe_doc>Exceptions handling config</haxe_doc>
+			</exceptions>
+			<capturePolicy final="1" set="null">
+				<e path="haxe.macro.CapturePolicy"/>
+				<haxe_doc>Captured variables handling (see before)</haxe_doc>
+			</capturePolicy>
+			<canSkipNonNullableArgument final="1" set="null">
+				<x path="Bool"/>
+				<haxe_doc>Can the platform use default values for non-nullable arguments</haxe_doc>
+			</canSkipNonNullableArgument>
+			<addFinalReturn final="1" set="null">
+				<x path="Bool"/>
+				<haxe_doc>Add a final return to methods not having one already - prevent some compiler warnings</haxe_doc>
+			</addFinalReturn>
+		</a>
+		<haxe_doc>Represents the internal structure generated with options assigned based on
+	the target platform.
+
+	Warning: `PlatformConfig` and the typedefs unique to its fields correspond to
+	compiler-internal data structures and might change in minor Haxe releases in
+	order to adapt to internal changes.</haxe_doc>
+	</typedef>
+	<enum path="haxe.macro.CapturePolicy" params="" file="/usr/local/share/haxe/std/haxe/macro/PlatformConfig.hx" module="haxe.macro.PlatformConfig">
+		<None><haxe_doc>Do nothing, let the platform handle it</haxe_doc></None>
+		<WrapRef><haxe_doc>Wrap all captured variables into a single-element array to allow modifications</haxe_doc></WrapRef>
+		<LoopVars><haxe_doc>Similar to wrap ref, but will only apply to the locals that are declared in loops</haxe_doc></LoopVars>
+		<meta><m n=":flatEnum"/></meta>
+	</enum>
+	<typedef path="haxe.macro.VarScopingConfig" params="" file="/usr/local/share/haxe/std/haxe/macro/PlatformConfig.hx" module="haxe.macro.PlatformConfig"><a>
+	<scope final="1" set="null"><e path="haxe.macro.VarScope"/></scope>
+	<flags final="1" set="null"><c path="Array"><e path="haxe.macro.VarScopingFlags"/></c></flags>
+</a></typedef>
+	<enum path="haxe.macro.VarScope" params="" file="/usr/local/share/haxe/std/haxe/macro/PlatformConfig.hx" module="haxe.macro.PlatformConfig">
+		<FunctionScope/>
+		<BlockScope/>
+		<meta><m n=":flatEnum"/></meta>
+	</enum>
+	<enum path="haxe.macro.VarScopingFlags" params="" file="/usr/local/share/haxe/std/haxe/macro/PlatformConfig.hx" module="haxe.macro.PlatformConfig">
+		<VarHoisting><haxe_doc>Variables are hoisted in their scope</haxe_doc></VarHoisting>
+		<NoShadowing><haxe_doc>It's not allowed to shadow existing variables in a scope.</haxe_doc></NoShadowing>
+		<NoCatchVarShadowing><haxe_doc>It's not allowed to shadow a `catch` variable.</haxe_doc></NoCatchVarShadowing>
+		<ReserveCurrentTopLevelSymbol><haxe_doc>Local vars cannot have the same name as the current top-level package or
+		(if in the root package) current class name</haxe_doc></ReserveCurrentTopLevelSymbol>
+		<ReserveAllTopLevelSymbols><haxe_doc>Local vars cannot have a name used for any top-level symbol
+		(packages and classes in the root package)</haxe_doc></ReserveAllTopLevelSymbols>
+		<ReserveAllTypesFlat><haxe_doc>Reserve all type-paths converted to "flat path" with `Path.flat_path`</haxe_doc></ReserveAllTypesFlat>
+		<ReserveNames a="names">
+			<c path="Array"><c path="String"/></c>
+			<haxe_doc>List of names cannot be taken by local vars</haxe_doc>
+		</ReserveNames>
+		<SwitchCasesNoBlocks><haxe_doc>Cases in a `switch` won't have blocks, but will share the same outer scope.</haxe_doc></SwitchCasesNoBlocks>
+	</enum>
+	<typedef path="haxe.macro.ExceptionsConfig" params="" file="/usr/local/share/haxe/std/haxe/macro/PlatformConfig.hx" module="haxe.macro.PlatformConfig"><a>
+	<wildcardCatch final="1" set="null">
+		<t path="haxe.macro.TypePath"/>
+		<haxe_doc>Path of a native class or interface, which can be used for wildcard catches.</haxe_doc>
+	</wildcardCatch>
+	<nativeThrows final="1" set="null">
+		<c path="Array"><t path="haxe.macro.TypePath"/></c>
+		<haxe_doc>Base types which may be thrown from Haxe code without wrapping.</haxe_doc>
+	</nativeThrows>
+	<nativeCatches final="1" set="null">
+		<c path="Array"><t path="haxe.macro.TypePath"/></c>
+		<haxe_doc>Base types which may be caught from Haxe code without wrapping.</haxe_doc>
+	</nativeCatches>
+	<baseThrow final="1" set="null">
+		<t path="haxe.macro.TypePath"/>
+		<haxe_doc>Path of a native base class or interface, which can be thrown.
+		This type is used to cast `haxe.Exception.thrown(v)` calls to.
+		For example `throw 123` is compiled to `throw (cast Exception.thrown(123):ec_base_throw)`</haxe_doc>
+	</baseThrow>
+	<avoidWrapping final="1" set="null">
+		<x path="Bool"/>
+		<haxe_doc>Hint exceptions filter to avoid wrapping for targets, which can throw/catch any type
+		Ignored on targets with a specific native base type for exceptions.</haxe_doc>
+	</avoidWrapping>
+</a></typedef>
 	<class path="haxe.macro.PositionTools" params="" file="/usr/local/share/haxe/std/haxe/macro/PositionTools.hx">
 		<here public="1" set="method" static="1">
 			<f a=""><t path="haxe.macro.Position"/></f>
@@ -28184,7 +28369,7 @@
 	<c path="Array"><e path="haxe.macro.Type"/></c>
 	<t path="haxe.macro.TypePath"/>
 </f></toTypePath>
-		<findField public="1" set="method" line="387" static="1">
+		<findField public="1" set="method" line="409" static="1">
 			<f a="c:name:?isStatic" v="::false">
 				<t path="haxe.macro.ClassType"/>
 				<c path="String"/>
