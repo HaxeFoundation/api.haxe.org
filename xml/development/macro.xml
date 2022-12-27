@@ -39730,7 +39730,7 @@
 	<c path="Array"><e path="haxe.macro.Type"/></c>
 	<t path="haxe.macro.TypePath"/>
 </f></toTypePath>
-		<follow public="1" get="inline" set="null" line="185" static="1">
+		<follow public="1" get="inline" set="null" line="190" static="1">
 			<f a="t:?once">
 				<e path="haxe.macro.Type"/>
 				<x path="Bool"/>
@@ -39746,14 +39746,19 @@
 
 		If `t` is null, an internal exception is thrown.
 
-		Usage example:
+		Usage example with monomorphs:
 			var t = Context.typeof(macro null); // TMono(<mono>)
 			var ts = Context.typeof(macro "foo"); //TInst(String,[])
 			Context.unify(t, ts);
 			trace(t); // TMono(<mono>)
+			trace(t.follow()); //TInst(String,[])
+
+		Usage example with typedefs:
+			var t = Context.typeof(macro ("foo" :MyString)); // typedef MyString = String
+			trace(t); // TType(MyString,[])
 			trace(t.follow()); //TInst(String,[])]]></haxe_doc>
 		</follow>
-		<followWithAbstracts public="1" get="inline" set="null" line="201" static="1">
+		<followWithAbstracts public="1" get="inline" set="null" line="206" static="1">
 			<f a="t:?once" v=":false">
 				<e path="haxe.macro.Type"/>
 				<x path="Bool"/>
@@ -39772,7 +39777,7 @@
 			trace(t); // TAbstract(Map,[TInst(String,[]),TInst(String,[])])
 			trace(t.followWithAbstracts()); // TInst(haxe.ds.StringMap, [TInst(String,[])])]]></haxe_doc>
 		</followWithAbstracts>
-		<unify public="1" get="inline" set="null" line="207" static="1">
+		<unify public="1" get="inline" set="null" line="212" static="1">
 			<f a="t1:t2">
 				<e path="haxe.macro.Type"/>
 				<e path="haxe.macro.Type"/>
@@ -39780,7 +39785,7 @@
 			</f>
 			<haxe_doc>Returns true if `t1` and `t2` unify, false otherwise.</haxe_doc>
 		</unify>
-		<getClass public="1" set="method" line="219" static="1">
+		<getClass public="1" set="method" line="224" static="1">
 			<f a="t">
 				<e path="haxe.macro.Type"/>
 				<x path="Null"><a>
@@ -39884,7 +39889,7 @@
 
 		If `t` is null, the result is null.</haxe_doc>
 		</getClass>
-		<getEnum public="1" set="method" line="234" static="1">
+		<getEnum public="1" set="method" line="239" static="1">
 			<f a="t">
 				<e path="haxe.macro.Type"/>
 				<x path="Null"><a>
@@ -39949,7 +39954,7 @@
 
 		If `t` is null, the result is null.</haxe_doc>
 		</getEnum>
-		<applyTypeParameters public="1" set="method" line="254" static="1">
+		<applyTypeParameters public="1" set="method" line="259" static="1">
 			<f a="t:typeParameters:concreteTypes">
 				<e path="haxe.macro.Type"/>
 				<c path="Array"><t path="haxe.macro.TypeParameter"/></c>
@@ -39970,13 +39975,13 @@
 
 		If either argument is `null`, the result is unspecified.</haxe_doc>
 		</applyTypeParameters>
-		<applyParams set="method" line="267" static="1"><f a="typeParameters:concreteTypes:t">
+		<applyParams set="method" line="272" static="1"><f a="typeParameters:concreteTypes:t">
 	<c path="Array"><t path="haxe.macro.TypeParameter"/></c>
 	<c path="Array"><e path="haxe.macro.Type"/></c>
 	<e path="haxe.macro.Type"/>
 	<e path="haxe.macro.Type"/>
 </f></applyParams>
-		<map public="1" set="method" line="286" static="1">
+		<map public="1" set="method" line="291" static="1">
 			<f a="t:f">
 				<e path="haxe.macro.Type"/>
 				<f a="">
@@ -39998,7 +40003,7 @@
 
 		If `t` or `f` are null, the result is unspecified.</haxe_doc>
 		</map>
-		<iter public="1" set="method" line="332" static="1">
+		<iter public="1" set="method" line="337" static="1">
 			<f a="t:f">
 				<e path="haxe.macro.Type"/>
 				<f a="">
@@ -40018,14 +40023,14 @@
 
 		If `t` or `f` are null, the result is unspecified.</haxe_doc>
 		</iter>
-		<toString public="1" set="method" line="359" static="1">
+		<toString public="1" set="method" line="364" static="1">
 			<f a="t">
 				<e path="haxe.macro.Type"/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Converts type `t` to a human-readable String representation.</haxe_doc>
 		</toString>
-		<setVarName public="1" set="method" line="370" static="1">
+		<setVarName public="1" set="method" line="375" static="1">
 			<f a="t:name">
 				<t path="haxe.macro.TVar"/>
 				<c path="String"/>
@@ -40033,21 +40038,21 @@
 			</f>
 			<haxe_doc>Changes the name of the variable in the typed expression.</haxe_doc>
 		</setVarName>
-		<toModuleType public="1" set="method" line="377" static="1">
+		<toModuleType public="1" set="method" line="382" static="1">
 			<f a="t">
 				<e path="haxe.macro.Type"/>
 				<e path="haxe.macro.ModuleType"/>
 			</f>
 			<haxe_doc>Converts type `t` to `haxe.macro.Type.ModuleType`.</haxe_doc>
 		</toModuleType>
-		<fromModuleType public="1" set="method" line="388" static="1">
+		<fromModuleType public="1" set="method" line="393" static="1">
 			<f a="mt">
 				<e path="haxe.macro.ModuleType"/>
 				<e path="haxe.macro.Type"/>
 			</f>
 			<haxe_doc>Creates a type from the `haxe.macro.Type.ModuleType` argument.</haxe_doc>
 		</fromModuleType>
-		<findField public="1" set="method" line="409" static="1">
+		<findField public="1" set="method" line="414" static="1">
 			<f a="c:name:?isStatic" v="::false">
 				<t path="haxe.macro.ClassType"/>
 				<c path="String"/>
