@@ -36197,34 +36197,6 @@
 	<e>"Lock"</e>
 </m></meta>
 	</class>
-	<class path="python.lib.threading.Semaphore" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/Semaphore.hx" extern="1">
-		<acquire public="1" set="method">
-			<f a="?blocking:?timeout" v="true:">
-				<x path="Bool"/>
-				<x path="Float"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":value"><e>{ blocking : true }</e></m></meta>
-		</acquire>
-		<release public="1" set="method">
-			<f a="?n" v="1">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":value"><e>{ n : 1 }</e></m></meta>
-		</release>
-		<new public="1" set="method"><f a="value">
-	<x path="Int"/>
-	<x path="Void"/>
-</f></new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":pythonImport">
-				<e>"threading"</e>
-				<e>"Semaphore"</e>
-			</m>
-		</meta>
-	</class>
 	<typedef path="python.lib.threading.ThreadOptions" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/Thread.hx" module="python.lib.threading.Thread"><a>
 	<target>
 		<x path="Null"><d/></x>
@@ -37506,53 +37478,6 @@
 		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>A TLS socket class : allow you to both connect to a given server and exchange messages or start your own server and wait for connections.</haxe_doc>
 	</class>
-	<class path="sys.thread.Condition" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Condition.hx">
-		<cond final="1"><c path="python.lib.threading.Condition"/></cond>
-		<acquire public="1" set="method" line="11">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Acquires the internal mutex.</haxe_doc>
-		</acquire>
-		<tryAcquire public="1" set="method" line="15">
-			<f a=""><x path="Bool"/></f>
-			<haxe_doc>Tries to acquire the internal mutex.
-		@see `Mutex.tryAcquire`</haxe_doc>
-		</tryAcquire>
-		<release public="1" set="method" line="19">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>*
-		Releases the internal mutex.</haxe_doc>
-		</release>
-		<wait public="1" set="method" line="23">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Atomically releases the mutex and blocks until the condition variable pointed is signaled by a call to
-		`signal` or to `broadcast`. When the calling thread becomes unblocked it
-		acquires the internal mutex.
-		The internal mutex should be locked before this function is called.</haxe_doc>
-		</wait>
-		<signal public="1" set="method" line="27">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Unblocks one of the threads that are blocked on the
-		condition variable at the time of the call. If no threads are blocked
-		on the condition variable at the time of the call, the function does nothing.</haxe_doc>
-		</signal>
-		<broadcast public="1" set="method" line="31">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Unblocks all of the threads that are blocked on the
-		condition variable at the time of the call. If no threads are blocked
-		on the condition variable at the time of the call, the function does
-		nothing.</haxe_doc>
-		</broadcast>
-		<new public="1" set="method" line="7">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Create a new condition variable.
-		A thread that waits on a newly created condition variable will block.</haxe_doc>
-		</new>
-		<haxe_doc>Creates a new condition variable.
-	Conditions variables can be used to block one or more threads at the same time,
-	until another thread modifies a shared variable (the condition)
-	and signals the condition variable.</haxe_doc>
-		<meta><m n=":coreApi"/></meta>
-	</class>
 	<class path="sys.thread.Deque" params="T" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Deque.hx">
 		<deque><c path="sys.thread._Deque.NativeDeque"><c path="sys.thread.Deque.T"/></c></deque>
 		<lock><c path="python.lib.threading.Condition"/></lock>
@@ -37900,39 +37825,6 @@
 			</f>
 			<meta><m n=":value"><e>{ msg : "Event loop is not available. Refer to sys.thread.Thread.runWithEventLoop." }</e></m></meta>
 		</new>
-	</class>
-	<class path="sys.thread.Semaphore" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Semaphore.hx">
-		<semaphore final="1"><t path="python.lib.threading._Semaphore.NativeSemaphore"/></semaphore>
-		<acquire public="1" set="method" line="13">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Locks the semaphore.
-		If the value of the semaphore is zero, then the thread will block until it is able to lock the semaphore.
-		If the value is non-zero, it is decreased by one.</haxe_doc>
-		</acquire>
-		<tryAcquire public="1" set="method" line="17">
-			<f a="?timeout">
-				<x path="Float"/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Try to lock the semaphore.
-		If the value of the semaphore is zero, `false` is returned, else the value is increased.
-
-		If `timeout` is specified, this function will block until the thread is able to acquire the semaphore, or the timout expires.
-		`timeout` is in seconds.</haxe_doc>
-		</tryAcquire>
-		<release public="1" set="method" line="21">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Release the semaphore.
-		The value of the semaphore is increased by one.</haxe_doc>
-		</release>
-		<new public="1" set="method" line="9">
-			<f a="value">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Creates a new semaphore with an initial value.</haxe_doc>
-		</new>
-		<meta><m n=":coreApi"/></meta>
 	</class>
 	<typedef path="sys.thread._Thread.ThreadImpl" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread"><c path="sys.thread._Thread.HxThread"/></typedef>
 	<abstract path="sys.thread.Thread" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx">
