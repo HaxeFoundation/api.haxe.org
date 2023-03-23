@@ -1568,6 +1568,7 @@
 		<haxe_doc>This class defines mathematical functions and constants.
 
 	@see https://haxe.org/manual/std-math.html</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="Reflect" params="" file="/home/runner/work/haxe/haxe/std/Reflect.hx" extern="1">
 		<hasField public="1" set="method" static="1">
@@ -2860,6 +2861,7 @@
 		<haxe_doc>This class provides access to various base functions of system platforms.
 	Look in the `sys` package for more system APIs.</haxe_doc>
 		<meta>
+			<m n=":directlyUsed"/>
 			<m n=":require"><e>sys</e></m>
 			<m n=":coreApi"/>
 		</meta>
@@ -15979,6 +15981,7 @@
 		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
 	to access some ressource. The main difference with a lock is
 	that a mutex must always be released by the owner thread.</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="haxe.EntryPoint" params="" file="/home/runner/work/haxe/haxe/std/haxe/EntryPoint.hx">
 		<mutex expr="new Mutex()" line="37" static="1">
@@ -17772,7 +17775,10 @@
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Run the pending events. Return the time for next event.</haxe_doc>
 		</tick>
-		<meta><m n=":access"><e>haxe.MainEvent</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":access"><e>haxe.MainEvent</e></m>
+		</meta>
 	</class>
 	<class path="haxe.NativeStackTrace" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/haxe/NativeStackTrace.hx">
 		<saveStack public="1" get="inline" set="null" line="12" static="1">
@@ -44061,10 +44067,18 @@
 </f></new>
 	</class>
 	<enum path="sys.thread.NextEventTime" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/sys/thread/EventLoop.hx" module="sys.thread.EventLoop">
-		<Now/>
-		<Never/>
-		<AnyTime a="time"><x path="Null"><x path="Float"/></x></AnyTime>
-		<At a="time"><x path="Float"/></At>
+		<Now><haxe_doc>There's already an event waiting to be executed</haxe_doc></Now>
+		<Never><haxe_doc>No new events are expected.</haxe_doc></Never>
+		<AnyTime a="time">
+			<x path="Null"><x path="Float"/></x>
+			<haxe_doc>An event is expected to arrive at any time.
+		If `time` is specified, then the event will be ready at that time for sure.</haxe_doc>
+		</AnyTime>
+		<At a="time">
+			<x path="Float"/>
+			<haxe_doc>An event is expected to be ready for execution at `time`.</haxe_doc>
+		</At>
+		<haxe_doc>When an event loop has an available event to execute.</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</enum>
 	<abstract path="sys.thread.EventHandler" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/sys/thread/EventLoop.hx" module="sys.thread.EventLoop">
@@ -44077,14 +44091,15 @@
 	<class path="sys.thread._EventLoop.RegularEvent" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/sys/thread/EventLoop.hx" private="1" module="sys.thread.EventLoop">
 		<timer public="1"><x path="Null"><t path="eval.luv._Timer.LuvTimer"/></x></timer>
 		<event public="1"><f a=""><x path="Void"/></f></event>
-		<run public="1" set="method" line="25"><f a=""><x path="Void"/></f></run>
-		<new public="1" set="method" line="21"><f a="e">
+		<run public="1" set="method" line="36"><f a=""><x path="Void"/></f></run>
+		<new public="1" set="method" line="32"><f a="e">
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></new>
 	</class>
 	<class path="sys.thread.EventLoop" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/sys/thread/EventLoop.hx">
-		<noop final="1" set="null" expr="function() { }" line="72" static="1">
+		<CREATED static="1"><x path="Bool"/></CREATED>
+		<noop final="1" set="null" expr="function() { }" line="93" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":value"><e>function() { }</e></m></meta>
 		</noop>
@@ -44096,14 +44111,6 @@
 			<c path="sys.thread.Mutex"/>
 			<meta><m n=":value"><e>new Mutex()</e></m></meta>
 		</mutex>
-		<oneTimeEvents final="1" expr="new Array&lt;Null&lt;Void -&gt; Void&gt;&gt;()">
-			<c path="Array"><x path="Null"><f a=""><x path="Void"/></f></x></c>
-			<meta><m n=":value"><e><![CDATA[new Array<Null<Void -> Void>>()]]></e></m></meta>
-		</oneTimeEvents>
-		<oneTimeEventsIdx expr="0">
-			<x path="Int"/>
-			<meta><m n=":value"><e>0</e></m></meta>
-		</oneTimeEventsIdx>
 		<wakeup final="1"><x path="eval.luv.Async"/></wakeup>
 		<promisedEventsCount expr="0">
 			<x path="Int"/>
@@ -44113,11 +44120,12 @@
 			<c path="Array"><f a=""><x path="Void"/></f></c>
 			<meta><m n=":value"><e>[]</e></m></meta>
 		</pending>
-		<looping expr="false">
+		<started expr="false">
 			<x path="Bool"/>
 			<meta><m n=":value"><e>false</e></m></meta>
-		</looping>
-		<repeat public="1" set="method" line="49">
+		</started>
+		<isMainThread><x path="Bool"/></isMainThread>
+		<repeat public="1" set="method" line="69">
 			<f a="event:intervalMs">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -44125,35 +44133,35 @@
 			</f>
 			<haxe_doc>Schedule event for execution every `intervalMs` milliseconds in current loop.</haxe_doc>
 		</repeat>
-		<cancel public="1" set="method" line="61">
+		<cancel public="1" set="method" line="82">
 			<f a="eventHandler">
 				<x path="sys.thread.EventHandler"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Prevent execution of a previously scheduled event in current loop.</haxe_doc>
 		</cancel>
-		<promise public="1" set="method" line="74">
+		<promise public="1" set="method" line="100">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Notify this loop about an upcoming event.
 		This makes the thread stay alive and wait for as many events as the number of
 		times `.promise()` was called. These events should be added via `.runPromised()`.</haxe_doc>
 		</promise>
-		<run public="1" set="method" line="82">
+		<run public="1" set="method" line="111">
 			<f a="event">
 				<f a=""><x path="Void"/></f>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Execute `event` as soon as possible.</haxe_doc>
 		</run>
-		<runPromised public="1" set="method" line="89">
+		<runPromised public="1" set="method" line="121">
 			<f a="event">
 				<f a=""><x path="Void"/></f>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Add previously promised `event` for execution.</haxe_doc>
 		</runPromised>
-		<refUnref set="method" line="98"><f a=""><x path="Void"/></f></refUnref>
-		<progress public="1" set="method" line="106">
+		<refUnref set="method" line="130"><f a=""><x path="Void"/></f></refUnref>
+		<progress public="1" set="method" line="138">
 			<f a=""><e path="sys.thread.NextEventTime"/></f>
 			<haxe_doc>Executes all pending events.
 
@@ -44162,7 +44170,7 @@
 		Depending on a target platform this method may be non-reentrant. It must
 		not be called from event callbacks.</haxe_doc>
 		</progress>
-		<wait public="1" set="method" line="115">
+		<wait public="1" set="method" line="160">
 			<f a="?timeout">
 				<x path="Float"/>
 				<x path="Bool"/>
@@ -44178,7 +44186,7 @@
 		Depending on a target platform this method may be non-reentrant. It must
 		not be called from event callbacks.</haxe_doc>
 		</wait>
-		<loop public="1" set="method" line="129">
+		<loop public="1" set="method" line="183">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Execute all pending events.
 		Wait and execute as many events as the number of times `promise()` was called.
@@ -44187,11 +44195,11 @@
 		Depending on a target platform this method may be non-reentrant. It must
 		not be called from event callbacks.</haxe_doc>
 		</loop>
-		<consumePending set="method" line="135"><f a="?_">
+		<consumePending set="method" line="190"><f a="?_">
 	<x path="eval.luv.Async"/>
 	<x path="Void"/>
 </f></consumePending>
-		<new public="1" set="method" line="43"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="58"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>An event loop implementation used for `sys.thread.Thread`</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
