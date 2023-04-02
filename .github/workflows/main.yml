@@ -1,0 +1,53 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git config
+        run: |
+          git config --global gc.auto 0 # we will call gc manually during deploy
+
+      - uses: actions/checkout@v3
+        with:
+          submodules: 'true'
+
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: latest
+
+      - name: Setup Dependencies
+        run: |
+          set -ex
+          haxelib install gen.hxml --always
+          haxelib dev hxparse libs/hxparse
+          haxelib dev hxtemplo libs/hxtemplo
+          haxelib dev hxargs libs/hxargs
+          haxelib dev markdown libs/haxe-markdown
+          haxelib dev dox libs/dox
+
+          # set up latest hxcpp
+          git clone --depth=1 https://github.com/HaxeFoundation/hxcpp.git
+          cd hxcpp/tools/hxcpp
+          haxe compile.hxml
+          cd -
+          haxelib dev hxcpp hxcpp
+
+          haxelib list
+
+      - name: Generate
+        run: |
+          haxe gen.hxml
+          neko Gen.n
+
+      - name: Validate html
+        run: |
+          set -ex
+          wget -q https://github.com/validator/validator/releases/download/18.8.29/vnu.jar_18.8.29.zip
+          unzip vnu.jar_18.8.29.zip
+          java -jar dist/vnu.jar --errors-only html/*.html # only for the top level html for now since there are many errors in e.g. js/html/*.html
+
+      # TODO: deploy
+      # - name: Deploy
+      #   run: haxe --run DeployGhPages
