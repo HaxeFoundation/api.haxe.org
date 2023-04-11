@@ -2875,7 +2875,7 @@
 		<getClass public="1" params="T" set="method" static="1">
 			<f a="o">
 				<c path="getClass.T"/>
-				<x path="Class"><c path="getClass.T"/></x>
+				<x path="Null"><x path="Class"><c path="getClass.T"/></x></x>
 			</f>
 			<haxe_doc>Returns the class of `o`, if `o` is a class instance.
 
@@ -40245,7 +40245,40 @@
 			</f>
 			<haxe_doc>Creates a type from the `haxe.macro.Type.ModuleType` argument.</haxe_doc>
 		</fromModuleType>
-		<findField public="1" set="method" line="414" static="1">
+		<resolveTypeParameters public="1" set="method" line="423" static="1">
+			<f a="type:recursive:f">
+				<e path="haxe.macro.Type"/>
+				<x path="Bool"/>
+				<f a="::">
+					<t path="haxe.macro.TypeParameter"/>
+					<e path="haxe.macro.Type"/>
+					<x path="Int"/>
+					<e path="haxe.macro.Type"/>
+				</f>
+				<e path="haxe.macro.Type"/>
+			</f>
+			<haxe_doc>Calls `f` for each missing `TypeParameter` within Type `type`.
+		The `Type` returned from `f` fills the vacant parameter in a
+		copy returned by the function.
+
+		If `type` does not use type parameters, or all of the type
+		parameters are defined, `type` is returned unchanged.
+
+		Excessive type parameters are truncated.
+
+		If `recursive` is true, all subtypes are resolved.
+
+		The parameters provided to `f` are:
+			- The `TypeParameter` being resolved.
+			- The `Type` missing a type parameter.
+			- The `Int` index of type parameter being resolved.
+
+		Missing type parameters may cause fatal compiler errors.
+		Therefore, this function should be called on user generated
+		`Type`s prior to passing to macro API functions such as
+		`Context.follow` or `Context.unify`.</haxe_doc>
+		</resolveTypeParameters>
+		<findField public="1" set="method" line="469" static="1">
 			<f a="c:name:?isStatic" v="::false">
 				<t path="haxe.macro.ClassType"/>
 				<c path="String"/>
