@@ -28501,7 +28501,7 @@
 			<m n=":enum"/>
 		</meta>
 		<impl><class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1" final="1">
-	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="578" static="1">
+	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="589" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "top"</e></m>
@@ -28510,7 +28510,7 @@
 		</meta>
 		<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 	</Top>
-	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="585" static="1">
+	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="596" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "closure"</e></m>
@@ -28521,7 +28521,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 	</Closure>
-	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="590" static="1">
+	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="601" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "inline"</e></m>
@@ -28537,7 +28537,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1" final="1">
-		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="578" static="1">
+		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="589" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "top"</e></m>
@@ -28546,7 +28546,7 @@
 			</meta>
 			<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 		</Top>
-		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="585" static="1">
+		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="596" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "closure"</e></m>
@@ -28557,7 +28557,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 		</Closure>
-		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="590" static="1">
+		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="601" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "inline"</e></m>
@@ -28739,7 +28739,7 @@
 				<haxe_doc>Places where this metadata can be applied.</haxe_doc>
 			</targets>
 			<platforms final="1" set="null">
-				<x path="Null"><c path="Array"><x path="haxe.display.Platform"/></c></x>
+				<x path="Null"><c path="Array"><e path="haxe.macro.Platform"/></c></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>Haxe target(s) for which this metadata is used.</haxe_doc>
 			</platforms>
@@ -28761,7 +28761,7 @@
 	<typedef path="haxe.macro.DefineDescription" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" module="haxe.macro.Compiler">
 		<a>
 			<platforms final="1" set="null">
-				<x path="Null"><c path="Array"><x path="haxe.display.Platform"/></c></x>
+				<x path="Null"><c path="Array"><e path="haxe.macro.Platform"/></c></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>Haxe target(s) for which this define is used.</haxe_doc>
 			</platforms>
@@ -28799,7 +28799,7 @@
 				<haxe_doc>The compilation configuration for the target platform.</haxe_doc>
 			</platformConfig>
 			<platform final="1" set="null">
-				<x path="haxe.display.Platform"/>
+				<e path="haxe.macro.Platform"/>
 				<haxe_doc>The target platform.</haxe_doc>
 			</platform>
 			<packageRules final="1" set="null">
@@ -28830,6 +28830,22 @@
 		</a>
 		<meta><m n=":nativeGen"/></meta>
 	</typedef>
+	<enum path="haxe.macro.Platform" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" module="haxe.macro.Compiler">
+		<Cross/>
+		<Js/>
+		<Lua/>
+		<Neko/>
+		<Flash/>
+		<Php/>
+		<Cpp/>
+		<Cs/>
+		<Java/>
+		<Python/>
+		<Hl/>
+		<Eval/>
+		<CustomTarget a="name"><c path="String"/></CustomTarget>
+		<meta><m n=":hxGen"/></meta>
+	</enum>
 	<enum path="haxe.macro.PackageRule" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" module="haxe.macro.Compiler">
 		<Forbidden/>
 		<Directory a="path"><c path="String"/></Directory>
@@ -30047,10 +30063,6 @@
 				<e path="haxe.macro.CapturePolicy"/>
 				<haxe_doc>Captured variables handling (see before)</haxe_doc>
 			</capturePolicy>
-			<canSkipNonNullableArgument final="1" set="null">
-				<x path="Bool"/>
-				<haxe_doc>Can the platform use default values for non-nullable arguments</haxe_doc>
-			</canSkipNonNullableArgument>
 			<addFinalReturn final="1" set="null">
 				<x path="Bool"/>
 				<haxe_doc>Add a final return to methods not having one already - prevent some compiler warnings</haxe_doc>

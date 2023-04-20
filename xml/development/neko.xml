@@ -26625,7 +26625,16 @@
 
 		Usage of this function outside a macro context returns `null`.</haxe_doc>
 		</getConfiguration>
-		<addNativeLib public="1" set="method" line="189" static="1">
+		<setPlatformConfiguration public="1" set="method" line="189" static="1">
+			<f a="config">
+				<t path="haxe.macro.PlatformConfig"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the target configuration.
+
+		Usage of this function outside a macro context does nothing.</haxe_doc>
+		</setPlatformConfiguration>
+		<addNativeLib public="1" set="method" line="200" static="1">
 			<f a="name">
 				<c path="String"/>
 				<x path="Void"/>
@@ -26634,14 +26643,14 @@
 
 		Usage of this function outside of initialization macros is deprecated and may cause compilation server issues.</haxe_doc>
 		</addNativeLib>
-		<addNativeArg public="1" set="method" line="199" static="1">
+		<addNativeArg public="1" set="method" line="210" static="1">
 			<f a="argument">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Adds an argument to be passed to the native compiler (e.g. `-javac-arg` for Java).</haxe_doc>
 		</addNativeArg>
-		<include public="1" set="method" line="223" static="1">
+		<include public="1" set="method" line="234" static="1">
 			<f a="pack:?rec:?ignore:?classPaths:?strict" v=":true:::false">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -26668,14 +26677,14 @@
 			   Note that if you pass this argument, only the specified paths will be used for inclusion.
 		@param strict If true and given package wasn't found in any of class paths, fail with an error.</haxe_doc>
 		</include>
-		<excludeBaseType set="method" line="301" static="1">
+		<excludeBaseType set="method" line="312" static="1">
 			<f a="baseType">
 				<t path="haxe.macro.BaseType"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Exclude a class or an enum without changing it to `@:nativeGen`.</haxe_doc>
 		</excludeBaseType>
-		<exclude public="1" set="method" line="318" static="1">
+		<exclude public="1" set="method" line="329" static="1">
 			<f a="pack:?rec" v=":true">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -26688,21 +26697,21 @@
 		@param pack The package dot-path as String. Use `''` to exclude the root package.
 		@param rec If true, recursively excludes all sub-packages.</haxe_doc>
 		</exclude>
-		<excludeFile public="1" set="method" line="342" static="1">
+		<excludeFile public="1" set="method" line="353" static="1">
 			<f a="fileName">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Exclude classes and enums listed in an extern file (one per line) from being generated.</haxe_doc>
 		</excludeFile>
-		<patchTypes public="1" set="method" line="372" static="1">
+		<patchTypes public="1" set="method" line="383" static="1">
 			<f a="file">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Load a type patch file that can modify the field types within declared classes and enums.</haxe_doc>
 		</patchTypes>
-		<keep public="1" set="method" line="440" static="1">
+		<keep public="1" set="method" line="451" static="1">
 			<f a="?path:?paths:?recursive" v="::true">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -26725,7 +26734,7 @@
 		@param paths An Array of package, module or sub-type dot paths to keep.
 		@param recursive If true, recurses into sub-packages for package paths.</haxe_doc>
 		</keep>
-		<nullSafety public="1" set="method" line="456" static="1">
+		<nullSafety public="1" set="method" line="467" static="1">
 			<f a="path:?mode:?recursive" v=":Loose:true">
 				<c path="String"/>
 				<x path="haxe.macro.NullSafetyMode"/>
@@ -26738,7 +26747,7 @@
 		@param path A package, module or sub-type dot path to enable null safety for.
 		@param recursive If true, recurses into sub-packages for package paths.</haxe_doc>
 		</nullSafety>
-		<addGlobalMetadata public="1" set="method" line="474" static="1">
+		<addGlobalMetadata public="1" set="method" line="485" static="1">
 			<f a="pathFilter:meta:?recursive:?toTypes:?toFields" v="::true:true:false">
 				<c path="String"/>
 				<c path="String"/>
@@ -26761,7 +26770,7 @@
 		This operation has no effect if the type has already been loaded, e.g.
 		through `Context.getType`.</haxe_doc>
 		</addGlobalMetadata>
-		<registerMetadataDescriptionFile public="1" set="method" line="486" static="1">
+		<registerMetadataDescriptionFile public="1" set="method" line="497" static="1">
 			<f a="path:?source">
 				<c path="String"/>
 				<c path="String"/>
@@ -26770,7 +26779,7 @@
 			<haxe_doc>Reference a json file describing user-defined metadata
 		See https://github.com/HaxeFoundation/haxe/blob/development/src-json/meta.json</haxe_doc>
 		</registerMetadataDescriptionFile>
-		<registerDefinesDescriptionFile public="1" set="method" line="497" static="1">
+		<registerDefinesDescriptionFile public="1" set="method" line="508" static="1">
 			<f a="path:?source">
 				<c path="String"/>
 				<c path="String"/>
@@ -26779,7 +26788,7 @@
 			<haxe_doc>Reference a json file describing user-defined defines
 		See https://github.com/HaxeFoundation/haxe/blob/development/src-json/define.json</haxe_doc>
 		</registerDefinesDescriptionFile>
-		<registerCustomMetadata public="1" set="method" line="507" static="1">
+		<registerCustomMetadata public="1" set="method" line="518" static="1">
 			<f a="meta:?source">
 				<t path="haxe.macro.MetadataDescription"/>
 				<c path="String"/>
@@ -26787,7 +26796,7 @@
 			</f>
 			<haxe_doc>Register a custom medatada for documentation and completion purposes</haxe_doc>
 		</registerCustomMetadata>
-		<registerCustomDefine public="1" set="method" line="516" static="1">
+		<registerCustomDefine public="1" set="method" line="527" static="1">
 			<f a="define:?source">
 				<t path="haxe.macro.DefineDescription"/>
 				<c path="String"/>
@@ -26795,7 +26804,7 @@
 			</f>
 			<haxe_doc>Register a custom define for documentation purposes</haxe_doc>
 		</registerCustomDefine>
-		<setCustomJSGenerator public="1" set="method" line="525" static="1">
+		<setCustomJSGenerator public="1" set="method" line="536" static="1">
 			<f a="callb">
 				<f a="">
 					<t path="haxe.macro.JSGenApi"/>
@@ -26805,12 +26814,12 @@
 			</f>
 			<haxe_doc>Change the default JS output by using a custom generator callback</haxe_doc>
 		</setCustomJSGenerator>
-		<load get="inline" set="null" line="532" static="1"><f a="f:nargs">
+		<load get="inline" set="null" line="543" static="1"><f a="f:nargs">
 	<c path="String"/>
 	<x path="Int"/>
 	<d/>
 </f></load>
-		<flushDiskCache public="1" set="method" line="540" static="1">
+		<flushDiskCache public="1" set="method" line="551" static="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Clears cached results of file lookups</haxe_doc>
 		</flushDiskCache>
@@ -26822,7 +26831,7 @@
 		<to><icast><c path="String"/></icast></to>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1" final="1">
-	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="578" static="1">
+	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="589" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "top"</e></m>
@@ -26831,7 +26840,7 @@
 		</meta>
 		<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 	</Top>
-	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="585" static="1">
+	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="596" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "closure"</e></m>
@@ -26842,7 +26851,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 	</Closure>
-	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="590" static="1">
+	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="601" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "inline"</e></m>
@@ -26855,7 +26864,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1" final="1">
-		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="578" static="1">
+		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="589" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "top"</e></m>
@@ -26864,7 +26873,7 @@
 			</meta>
 			<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 		</Top>
-		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="585" static="1">
+		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="596" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "closure"</e></m>
@@ -26875,7 +26884,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 		</Closure>
-		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="590" static="1">
+		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="601" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "inline"</e></m>
@@ -27044,7 +27053,7 @@
 		<haxe_doc>Places where this metadata can be applied.</haxe_doc>
 	</targets>
 	<platforms final="1" set="null">
-		<x path="Null"><c path="Array"><x path="haxe.display.Platform"/></c></x>
+		<x path="Null"><c path="Array"><e path="haxe.macro.Platform"/></c></x>
 		<meta><m n=":optional"/></meta>
 		<haxe_doc>Haxe target(s) for which this metadata is used.</haxe_doc>
 	</platforms>
@@ -27063,7 +27072,7 @@
 </a></typedef>
 	<typedef path="haxe.macro.DefineDescription" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" module="haxe.macro.Compiler"><a>
 	<platforms final="1" set="null">
-		<x path="Null"><c path="Array"><x path="haxe.display.Platform"/></c></x>
+		<x path="Null"><c path="Array"><e path="haxe.macro.Platform"/></c></x>
 		<meta><m n=":optional"/></meta>
 		<haxe_doc>Haxe target(s) for which this define is used.</haxe_doc>
 	</platforms>
@@ -27098,7 +27107,7 @@
 		<haxe_doc>The compilation configuration for the target platform.</haxe_doc>
 	</platformConfig>
 	<platform final="1" set="null">
-		<x path="haxe.display.Platform"/>
+		<e path="haxe.macro.Platform"/>
 		<haxe_doc>The target platform.</haxe_doc>
 	</platform>
 	<packageRules final="1" set="null">
@@ -27127,6 +27136,21 @@
 		<haxe_doc>Returns an array of the arguments passed to the compiler from either the `.hxml` file or the command line.</haxe_doc>
 	</args>
 </a></typedef>
+	<enum path="haxe.macro.Platform" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" module="haxe.macro.Compiler">
+		<Cross/>
+		<Js/>
+		<Lua/>
+		<Neko/>
+		<Flash/>
+		<Php/>
+		<Cpp/>
+		<Cs/>
+		<Java/>
+		<Python/>
+		<Hl/>
+		<Eval/>
+		<CustomTarget a="name"><c path="String"/></CustomTarget>
+	</enum>
 	<enum path="haxe.macro.PackageRule" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" module="haxe.macro.Compiler">
 		<Forbidden/>
 		<Directory a="path"><c path="String"/></Directory>
@@ -29091,10 +29115,6 @@
 				<e path="haxe.macro.CapturePolicy"/>
 				<haxe_doc>Captured variables handling (see before)</haxe_doc>
 			</capturePolicy>
-			<canSkipNonNullableArgument final="1" set="null">
-				<x path="Bool"/>
-				<haxe_doc>Can the platform use default values for non-nullable arguments</haxe_doc>
-			</canSkipNonNullableArgument>
 			<addFinalReturn final="1" set="null">
 				<x path="Bool"/>
 				<haxe_doc>Add a final return to methods not having one already - prevent some compiler warnings</haxe_doc>
