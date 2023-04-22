@@ -27633,7 +27633,21 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</resolveType>
-		<toComplexType public="1" set="method" line="532" static="1">
+		<resolveComplexType public="1" set="method" line="536" static="1">
+			<f a="t:p">
+				<e path="haxe.macro.ComplexType"/>
+				<t path="haxe.macro.Position"/>
+				<e path="haxe.macro.ComplexType"/>
+			</f>
+			<haxe_doc>Resolve type `t` and returns the corresponding `ComplexType`.
+
+		Resolving the type may result in a compiler error which can be
+		caught using `try ... catch`.
+		Resolution is performed based on the current context in which the macro is called.
+		The difference with `resolveType` is that it only performs type resolution, it does not
+		build any type or trigger macros.</haxe_doc>
+		</resolveComplexType>
+		<toComplexType public="1" set="method" line="545" static="1">
 			<f a="t">
 				<e path="haxe.macro.Type"/>
 				<x path="Null"><e path="haxe.macro.ComplexType"/></x>
@@ -27642,7 +27656,7 @@
 
 		See `haxe.macro.TypeTools.toComplexType` for details.</haxe_doc>
 		</toComplexType>
-		<unify public="1" set="method" line="543" static="1">
+		<unify public="1" set="method" line="556" static="1">
 			<f a="t1:t2">
 				<e path="haxe.macro.Type"/>
 				<e path="haxe.macro.Type"/>
@@ -27654,7 +27668,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</unify>
-		<follow public="1" set="method" line="557" static="1">
+		<follow public="1" set="method" line="570" static="1">
 			<f a="t:?once">
 				<e path="haxe.macro.Type"/>
 				<x path="Bool"/>
@@ -27668,7 +27682,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</follow>
-		<followWithAbstracts public="1" set="method" line="571" static="1">
+		<followWithAbstracts public="1" set="method" line="584" static="1">
 			<f a="t:?once" v=":false">
 				<e path="haxe.macro.Type"/>
 				<x path="Bool"/>
@@ -27683,7 +27697,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</followWithAbstracts>
-		<getPosInfos public="1" set="method" line="579" static="1">
+		<getPosInfos public="1" set="method" line="592" static="1">
 			<f a="p">
 				<t path="haxe.macro.Position"/>
 				<a>
@@ -27694,7 +27708,7 @@
 			</f>
 			<haxe_doc>Returns the information stored in `Position` `p`.</haxe_doc>
 		</getPosInfos>
-		<makePosition public="1" set="method" line="586" static="1">
+		<makePosition public="1" set="method" line="599" static="1">
 			<f a="inf">
 				<a>
 					<min><x path="Int"/></min>
@@ -27705,7 +27719,7 @@
 			</f>
 			<haxe_doc>Builds a `Position` from `inf`.</haxe_doc>
 		</makePosition>
-		<getResources public="1" set="method" line="596" static="1">
+		<getResources public="1" set="method" line="609" static="1">
 			<f a=""><t path="Map">
 	<c path="String"/>
 	<c path="haxe.io.Bytes"/>
@@ -27715,7 +27729,7 @@
 		Modifying the returned map has no effect on the compilation, use
 		`haxe.macro.Context.addResource` to add new resources to the compilation unit.</haxe_doc>
 		</getResources>
-		<addResource public="1" set="method" line="612" static="1">
+		<addResource public="1" set="method" line="625" static="1">
 			<f a="name:data">
 				<c path="String"/>
 				<c path="haxe.io.Bytes"/>
@@ -27732,13 +27746,13 @@
 		that module is reused. If this resource concerns several modules, prefix its
 		name with a `$` sign, this will bind it to the macro module instead.</haxe_doc>
 		</addResource>
-		<getBuildFields public="1" set="method" line="621" static="1">
+		<getBuildFields public="1" set="method" line="634" static="1">
 			<f a=""><c path="Array"><t path="haxe.macro.Field"/></c></f>
 			<haxe_doc>Returns an `Array` of fields of the class which is to be built.
 
 		This is only defined for `@:build/@:autoBuild` macros.</haxe_doc>
 		</getBuildFields>
-		<defineType public="1" set="method" line="636" static="1">
+		<defineType public="1" set="method" line="649" static="1">
 			<f a="t:?moduleDependency">
 				<t path="haxe.macro.TypeDefinition"/>
 				<c path="String"/>
@@ -27754,7 +27768,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</defineType>
-		<makeMonomorph public="1" set="method" line="651" static="1">
+		<makeMonomorph public="1" set="method" line="664" static="1">
 			<f a=""><e path="haxe.macro.Type"/></f>
 			<haxe_doc>Creates and returns a new instance of monomorph (`TMono`) type.
 
@@ -27765,7 +27779,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</makeMonomorph>
-		<defineModule public="1" set="method" line="668" static="1">
+		<defineModule public="1" set="method" line="681" static="1">
 			<f a="modulePath:types:?imports:?usings">
 				<c path="String"/>
 				<c path="Array"><t path="haxe.macro.TypeDefinition"/></c>
@@ -27784,7 +27798,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</defineModule>
-		<getTypedExpr public="1" set="method" line="686" static="1">
+		<getTypedExpr public="1" set="method" line="699" static="1">
 			<f a="t">
 				<t path="haxe.macro.TypedExpr"/>
 				<t path="haxe.macro.Expr"/>
@@ -27797,7 +27811,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</getTypedExpr>
-		<storeTypedExpr public="1" set="method" line="707" static="1">
+		<storeTypedExpr public="1" set="method" line="720" static="1">
 			<f a="t">
 				<t path="haxe.macro.TypedExpr"/>
 				<t path="haxe.macro.Expr"/>
@@ -27817,7 +27831,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</storeTypedExpr>
-		<storeExpr public="1" set="method" line="731" static="1">
+		<storeExpr public="1" set="method" line="744" static="1">
 			<f a="e">
 				<t path="haxe.macro.Expr"/>
 				<t path="haxe.macro.Expr"/>
@@ -27840,7 +27854,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</storeExpr>
-		<typeAndStoreExpr public="1" set="method" line="744" static="1">
+		<typeAndStoreExpr public="1" set="method" line="757" static="1">
 			<f a="e">
 				<t path="haxe.macro.Expr"/>
 				<a>
@@ -27855,7 +27869,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</typeAndStoreExpr>
-		<registerModuleDependency public="1" set="method" line="762" static="1">
+		<registerModuleDependency public="1" set="method" line="775" static="1">
 			<f a="modulePath:externFile">
 				<c path="String"/>
 				<c path="String"/>
@@ -27873,7 +27887,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</registerModuleDependency>
-		<timer public="1" set="method" line="781" static="1">
+		<timer public="1" set="method" line="794" static="1">
 			<f a="id">
 				<c path="String"/>
 				<f a=""><x path="Void"/></f>
@@ -27891,7 +27905,7 @@
 		stopTimer();
 		```</haxe_doc>
 		</timer>
-		<withImports public="1" params="X" set="method" line="798" static="1">
+		<withImports public="1" params="X" set="method" line="811" static="1">
 			<f a="imports:usings:code">
 				<c path="Array"><c path="String"/></c>
 				<c path="Array"><c path="String"/></c>
@@ -27910,7 +27924,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</withImports>
-		<withOptions public="1" params="X" set="method" line="817" static="1">
+		<withOptions public="1" params="X" set="method" line="830" static="1">
 			<f a="options:code">
 				<a>
 					<allowTransform>
@@ -27937,7 +27951,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</withOptions>
-		<registerModuleReuseCall public="1" set="method" line="823" static="1">
+		<registerModuleReuseCall public="1" set="method" line="836" static="1">
 			<f a="modulePath:macroCall">
 				<c path="String"/>
 				<c path="String"/>
@@ -27945,14 +27959,14 @@
 			</f>
 			<meta><m n=":deprecated"/></meta>
 		</registerModuleReuseCall>
-		<onMacroContextReused public="1" set="method" line="828" static="1">
+		<onMacroContextReused public="1" set="method" line="841" static="1">
 			<f a="callb">
 				<f a=""><x path="Bool"/></f>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":deprecated"/></meta>
 		</onMacroContextReused>
-		<load set="method" line="836" static="1">
+		<load set="method" line="849" static="1">
 			<f a="f:nargs">
 				<c path="String"/>
 				<x path="Int"/>
@@ -27965,21 +27979,21 @@
 				<m n=":allow"><e>haxe.macro.PositionTools</e></m>
 			</meta>
 		</load>
-		<includeFile set="method" line="846" static="1"><f a="file:position">
+		<includeFile set="method" line="859" static="1"><f a="file:position">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></includeFile>
-		<sExpr set="method" line="850" static="1"><f a="e:pretty">
+		<sExpr set="method" line="863" static="1"><f a="e:pretty">
 	<t path="haxe.macro.TypedExpr"/>
 	<x path="Bool"/>
 	<c path="String"/>
 </f></sExpr>
-		<assertInitMacro set="method" line="855" static="1">
+		<assertInitMacro set="method" line="868" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":allow"><e>haxe.macro.Compiler</e></m></meta>
 		</assertInitMacro>
-		<assertInitMacrosDone set="method" line="866" static="1">
+		<assertInitMacrosDone set="method" line="879" static="1">
 			<f a="?includeSuggestion" v="true">
 				<x path="Bool"/>
 				<x path="Void"/>
