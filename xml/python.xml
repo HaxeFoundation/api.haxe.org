@@ -5681,7 +5681,7 @@
 	</class>
 	<class path="sys.thread._Thread.HxThread" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
 		<threads static="1"><c path="haxe.ds.ObjectMap">
-	<c path="python.lib.threading.Thread"/>
+	<t path="python.lib.threading._Thread.NativeThread"/>
 	<c path="sys.thread._Thread.HxThread"/>
 </c></threads>
 		<threadsMutex static="1"><c path="sys.thread.Mutex"/></threadsMutex>
@@ -5697,7 +5697,7 @@
 	<x path="Void"/>
 </f></runWithEventLoop>
 		<dropThread get="inline" set="null" line="155" static="1"><f a="nt">
-	<c path="python.lib.threading.Thread"/>
+	<t path="python.lib.threading._Thread.NativeThread"/>
 	<x path="Void"/>
 </f></dropThread>
 		<readMessage public="1" set="method" line="161" static="1"><f a="block">
@@ -5705,7 +5705,7 @@
 	<d/>
 </f></readMessage>
 		<events public="1" set="null"><x path="Null"><c path="sys.thread.EventLoop"/></x></events>
-		<nativeThread final="1"><c path="python.lib.threading.Thread"/></nativeThread>
+		<nativeThread final="1"><t path="python.lib.threading._Thread.NativeThread"/></nativeThread>
 		<messages final="1" expr="new Deque&lt;Dynamic&gt;()">
 			<c path="sys.thread.Deque"><d/></c>
 			<meta><m n=":value"><e><![CDATA[new Deque<Dynamic>()]]></e></m></meta>
@@ -5715,7 +5715,7 @@
 	<x path="Void"/>
 </f></sendMessage>
 		<new set="method" line="88"><f a="t">
-	<c path="python.lib.threading.Thread"/>
+	<t path="python.lib.threading._Thread.NativeThread"/>
 	<x path="Void"/>
 </f></new>
 		<meta><m n=":directlyUsed"/></meta>
@@ -36485,7 +36485,7 @@
 
 		In case a `timeout` (in seconds) is specified, select might wait at worst until the timeout expires.</haxe_doc>
 		</select>
-		<__s><c path="python.lib.socket.Socket"/></__s>
+		<__s><t path="python.lib.socket._Socket.PSocket"/></__s>
 		<input public="1" set="null">
 			<c path="haxe.io.Input"/>
 			<haxe_doc>The stream on which you can read available data. By default the stream is blocking until the requested data is available,
@@ -37285,7 +37285,7 @@
 	</class>
 	<class path="sys.net._Socket.SocketInput" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/net/Socket.hx" private="1" module="sys.net.Socket">
 		<extends path="haxe.io.Input"/>
-		<__s><c path="python.lib.socket.Socket"/></__s>
+		<__s><t path="python.lib.socket._Socket.PSocket"/></__s>
 		<readByte public="1" set="method" line="42" override="1"><f a=""><x path="Int"/></f></readByte>
 		<readBytes public="1" set="method" line="54" override="1"><f a="buf:pos:len">
 	<c path="haxe.io.Bytes"/>
@@ -37295,14 +37295,14 @@
 </f></readBytes>
 		<close public="1" set="method" line="70" override="1"><f a=""><x path="Void"/></f></close>
 		<new public="1" set="method" line="38"><f a="s">
-	<c path="python.lib.socket.Socket"/>
+	<t path="python.lib.socket._Socket.PSocket"/>
 	<x path="Void"/>
 </f></new>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="sys.net._Socket.SocketOutput" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/net/Socket.hx" private="1" module="sys.net.Socket">
 		<extends path="haxe.io.Output"/>
-		<__s><c path="python.lib.socket.Socket"/></__s>
+		<__s><t path="python.lib.socket._Socket.PSocket"/></__s>
 		<writeByte public="1" set="method" line="84" override="1"><f a="c">
 	<x path="Int"/>
 	<x path="Void"/>
@@ -37315,7 +37315,7 @@
 </f></writeBytes>
 		<close public="1" set="method" line="103" override="1"><f a=""><x path="Void"/></f></close>
 		<new public="1" set="method" line="80"><f a="s">
-	<c path="python.lib.socket.Socket"/>
+	<t path="python.lib.socket._Socket.PSocket"/>
 	<x path="Void"/>
 </f></new>
 		<meta><m n=":directlyUsed"/></meta>
@@ -38004,7 +38004,7 @@
 		</new>
 	</class>
 	<class path="sys.thread.Semaphore" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Semaphore.hx">
-		<semaphore final="1"><c path="python.lib.threading.Semaphore"/></semaphore>
+		<semaphore final="1"><t path="python.lib.threading._Semaphore.NativeSemaphore"/></semaphore>
 		<acquire public="1" set="method" line="13">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Locks the semaphore.
