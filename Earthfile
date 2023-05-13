@@ -38,3 +38,117 @@ xml-4.3.1:
     RUN haxe doc.hxml
     COPY (+info.json/info.json --TAG=4.3.1) doc/info.json
     SAVE ARTIFACT --keep-ts doc AS LOCAL ./xml/4.3.1
+
+neko-latest:
+    FROM curlimages/curl:8.00.1
+    WORKDIR /tmp
+    ARG TARGETARCH
+    ARG FILENAME=neko_latest.tar.gz
+    RUN haxeArch=$(case "$TARGETARCH" in \
+        amd64) echo "linux64";; \
+        arm64) echo "linux-arm64";; \
+    esac); curl -fsSLO "https://build.haxe.org/builds/neko/$haxeArch/$FILENAME"
+    RUN mkdir -p neko
+    RUN tar --strip-components=1 -xf "$FILENAME" -C neko
+    SAVE ARTIFACT neko/*
+
+haxe-latest:
+    FROM curlimages/curl:8.00.1
+    WORKDIR /tmp
+    ARG TARGETARCH
+    ARG FILENAME=haxe_latest.tar.gz
+    RUN haxeArch=$(case "$TARGETARCH" in \
+        amd64) echo "linux64";; \
+        arm64) echo "linux-arm64";; \
+    esac); curl -fsSLO "https://build.haxe.org/builds/haxe/$haxeArch/$FILENAME"
+    RUN mkdir -p haxe
+    RUN tar --strip-components=1 -xf "$FILENAME" -C haxe
+    SAVE ARTIFACT haxe/*
+
+build-env:
+    RUN apt-get update \
+        && apt-get install -qqy --no-install-recommends \
+            ca-certificates \
+        # Clean up
+        && apt-get autoremove -y \
+        && apt-get clean -y \
+        && rm -rf /var/lib/apt/lists/*
+
+    # install neko
+    COPY +neko-latest/neko /usr/bin/neko
+    COPY +neko-latest/libneko.so* /usr/lib/
+    RUN mkdir -p /usr/lib/neko/
+    COPY +neko-latest/*.ndll /usr/lib/neko/
+    RUN neko -version
+
+    # install haxe
+    COPY +haxe-latest/haxe /usr/bin/haxe
+    COPY +haxe-latest/haxelib /usr/bin/haxelib
+    RUN mkdir -p /usr/share/haxe/
+    COPY +haxe-latest/std /usr/share/haxe/std
+    RUN haxe --version
+
+    RUN haxelib newrepo
+
+gen.n:
+    FROM +build-env
+    COPY gen.hxml .
+    RUN haxelib install all --always
+    COPY *.hx .
+    RUN haxe gen.hxml
+    SAVE ARTIFACT gen.n
+
+hxcpp:
+    FROM +build-env
+    GIT CLONE https://github.com/HaxeFoundation/hxcpp.git hxcpp
+    RUN cd hxcpp/tools/hxcpp && haxe compile.hxml
+    SAVE ARTIFACT hxcpp
+
+html:
+    FROM +build-env
+
+    RUN apt-get update \
+        && apt-get install -qqy --no-install-recommends \
+            g++ \
+        # Clean up
+        && apt-get autoremove -y \
+        && apt-get clean -y \
+        && rm -rf /var/lib/apt/lists/*
+
+    COPY libs libs
+    COPY theme theme
+    COPY xml xml
+    COPY dox.hxml .
+    # RUN haxelib install all --always
+    RUN haxelib dev hxparse libs/hxparse
+    RUN haxelib dev hxtemplo libs/hxtemplo
+    RUN haxelib dev hxargs libs/hxargs
+    RUN haxelib dev markdown libs/haxe-markdown
+    RUN haxelib dev dox libs/dox
+    COPY +hxcpp/hxcpp hxcpp
+    RUN haxelib dev hxcpp hxcpp
+    RUN haxelib list
+    RUN haxe dox.hxml
+    COPY +gen.n/gen.n .
+    RUN neko gen.n
+    SAVE ARTIFACT --keep-ts html AS LOCAL ./html
+
+deploy:
+    FROM haxe:$HAXE_VERSION
+    WORKDIR /workspace
+    RUN apt-get update \
+        && apt-get install -qqy --no-install-recommends \
+            awscli \
+        # Clean up
+        && apt-get autoremove -y \
+        && apt-get clean -y \
+        && rm -rf /var/lib/apt/lists/*
+    COPY --keep-ts +generate/out out
+    COPY src src
+    COPY downloads downloads
+    COPY deploy.hxml .
+    RUN --no-cache ls -lah
+    RUN --no-cache \
+        --mount=type=secret,id=+secrets/.envrc,target=.envrc \
+        . ./.envrc \
+        && haxe deploy.hxml
