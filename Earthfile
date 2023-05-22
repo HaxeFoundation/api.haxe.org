@@ -104,7 +104,7 @@ hxcpp:
     RUN cd hxcpp/tools/hxcpp && haxe compile.hxml
     SAVE ARTIFACT hxcpp
 
-html:
+dox-cpp:
     FROM +build-env
 
     RUN apt-get update \
@@ -116,10 +116,6 @@ html:
         && rm -rf /var/lib/apt/lists/*
 
     COPY libs libs
-    COPY theme theme
-    COPY xml xml
-    COPY dox.hxml .
-    # RUN haxelib install all --always
     RUN haxelib dev hxparse libs/hxparse
     RUN haxelib dev hxtemplo libs/hxtemplo
     RUN haxelib dev hxargs libs/hxargs
@@ -128,10 +124,25 @@ html:
     COPY +hxcpp/hxcpp hxcpp
     RUN haxelib dev hxcpp hxcpp
     RUN haxelib list
+    COPY dox.hxml .
     RUN haxe dox.hxml
+    SAVE ARTIFACT libs/dox/cpp/Dox
+
+html:
+    FROM +build-env
+    COPY libs libs
+    COPY theme theme
+    COPY xml xml
+    COPY +dox-cpp/Dox libs/dox/cpp/Dox
     COPY +gen.n/gen.n .
     RUN neko gen.n
     SAVE ARTIFACT --keep-ts html AS LOCAL ./html
+
+validate-html:
+    FROM ghcr.io/validator/validator:23.4.11
+    COPY html html
+    # validate only the top level html files for now since there are many errors in e.g. js/html/*.html
+    RUN vnu --errors-only html/*.html
 
 deploy:
     FROM haxe:$HAXE_VERSION

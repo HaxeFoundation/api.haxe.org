@@ -66,12 +66,15 @@ class Gen {
     }
 
     static function getDox():Array<String>->Void {
-        runCommand("haxe", ["dox.hxml"]);
-        var doxDir = sys.FileSystem.absolutePath("libs/dox");
+        final doxDir = sys.FileSystem.absolutePath("libs/dox");
+        final doxBin = Path.join([doxDir, "cpp/Dox"]);
+        if (!exists(doxBin)) {
+            runCommand("haxe", ["dox.hxml"]);
+        }
         return function(args:Array<String>):Void {
             var cwd = Sys.getCwd();
             Sys.setCwd(doxDir);
-            runCommand("cpp/Dox", args);
+            runCommand(doxBin, args);
             Sys.setCwd(cwd);
         }
     }
