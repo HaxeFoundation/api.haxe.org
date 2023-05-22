@@ -1,0 +1,23 @@
+name: CI
+on: [push, pull_request]
+
+env:
+  FORCE_COLOR: 1
+  EARTHLY_STRICT: "true"
+  PUSH: "${{ github.repository_owner == 'HaxeFoundation' && github.event_name == 'push' }}"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: "true"
+      - uses: earthly/actions-setup@v1
+        with:
+          version: "0.7.5"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: build html
+        run: earthly +html
+      - name: validate html
+        run: earthly +validate-html
