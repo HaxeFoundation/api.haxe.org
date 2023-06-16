@@ -145,21 +145,10 @@ validate-html:
     RUN vnu --errors-only html/*.html
 
 deploy:
-    FROM haxe:$HAXE_VERSION
+    FROM amazon/aws-cli:2.12.0
     WORKDIR /workspace
-    RUN apt-get update \
-        && apt-get install -qqy --no-install-recommends \
-            awscli \
-        # Clean up
-        && apt-get autoremove -y \
-        && apt-get clean -y \
-        && rm -rf /var/lib/apt/lists/*
-    COPY --keep-ts +generate/out out
-    COPY src src
-    COPY downloads downloads
-    COPY deploy.hxml .
-    RUN --no-cache ls -lah
+    COPY html html
     RUN --no-cache \
-        --mount=type=secret,id=+secrets/.envrc,target=.envrc \
+        --mount=type=secret,id=+secrets/envrc,target=.envrc \
         . ./.envrc \
-        && haxe deploy.hxml
+        && aws s3 sync --delete --quiet ./html s3://api.haxe.org

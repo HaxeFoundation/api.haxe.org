@@ -5,7 +5,6 @@ import haxe.io.Path;
 import Sys.*;
 import promhx.*;
 import Utils.*;
-import Config.*;
 import thx.semver.*;
 using Lambda;
 
@@ -21,6 +20,7 @@ class Gen {
     inline static var xmlTagsDir = "xml/refs/tags";
     inline static var developmentBranch = "development";
     inline static var themeDir = "theme";
+    inline static var origin = "https://api.haxe.org";
 
     static function requestUrl(url:String):Promise<String> {
         var d = new Deferred();
@@ -147,9 +147,6 @@ class Gen {
         }
         generate(xmlTagsDir);
         generate(xmlDir);
-
-        if (cname != null)
-            saveContent(Path.join([htmlDir, "CNAME"]), cname);
     }
 
     static function main():Void {
