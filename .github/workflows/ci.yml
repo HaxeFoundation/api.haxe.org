@@ -4,7 +4,7 @@ on: [push, pull_request]
 env:
   FORCE_COLOR: 1
   EARTHLY_STRICT: "true"
-  PUSH: "${{ github.repository_owner == 'HaxeFoundation' && github.event_name == 'push' }}"
+  DEPLOY: "${{ github.repository_owner == 'HaxeFoundation' && github.event_name == 'push' && github.ref == 'refs/heads/master' }}"
 
 jobs:
   build:
@@ -15,9 +15,26 @@ jobs:
           submodules: "true"
       - uses: earthly/actions-setup@v1
         with:
-          version: "0.7.5"
+          version: "0.7.8"
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: build html
         run: earthly +html
       - name: validate html
         run: earthly +validate-html
+      - name: Create .envrc
+        if: success() && env.DEPLOY == 'true'
+        run: |
+          cat > .envrc <<EOT
+          export AWS_DEFAULT_REGION='${{ vars.AWS_DEFAULT_REGION }}'
+          export AWS_ACCESS_KEY_ID='${{ vars.AWS_ACCESS_KEY_ID }}'
+          export AWS_SECRET_ACCESS_KEY='$AWS_SECRET_ACCESS_KEY'
+          export S3_BUCKET='${{ vars.S3_BUCKET }}'
+          export CLOUDFRONT_DISTRIBUTION_ID='${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}'
+          EOT
+        env:
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: Deploy
+        if: success() && env.DEPLOY == 'true'
+        run: earthly +deploy
+        env:
+          EARTHLY_SECRET_FILES: envrc=.envrc

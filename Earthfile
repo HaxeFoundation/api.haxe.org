@@ -151,4 +151,5 @@ deploy:
     RUN --no-cache \
         --mount=type=secret,id=+secrets/envrc,target=.envrc \
         . ./.envrc \
-        && aws s3 sync --delete --quiet ./html s3://api.haxe.org
+        && aws s3 sync --delete --quiet ./html s3://api.haxe.org \
+        && aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths '/*'
