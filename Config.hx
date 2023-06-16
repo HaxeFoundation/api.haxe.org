@@ -7,5 +7,5 @@ class Config {
     static public var username = env("GHP_USERNAME", null);
     static public var email    = env("GHP_EMAIL",    null);
     static public var cname    = env("GHP_CNAME",    null);
-    static public var origin   = env("GHP_ORIGIN", null);
+    static public var origin   = env("GHP_ORIGIN",   "https://api.haxe.org");
 }
