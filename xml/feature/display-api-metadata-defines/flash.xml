@@ -35273,20 +35273,20 @@
 			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<SignatureHelpParams,SignatureHelpResult>("display/signatureHelp")]]></e></m></meta>
 			<haxe_doc>The signature help request is sent from the client to Haxe to request signature information at a given cursor position.</haxe_doc>
 		</SignatureHelp>
-		<Metadata public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;{ },MetadataResult&gt;(&quot;display/metadata&quot;)" line="84" static="1">
+		<Metadata public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;MetadataParams,MetadataResult&gt;(&quot;display/metadata&quot;)" line="84" static="1">
 			<x path="haxe.display.HaxeRequestMethod">
-				<a/>
+				<t path="haxe.display.MetadataParams"/>
 				<t path="haxe.display.MetadataResult"/>
 			</x>
-			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<{ },MetadataResult>("display/metadata")]]></e></m></meta>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<MetadataParams,MetadataResult>("display/metadata")]]></e></m></meta>
 			<haxe_doc>The metadata request is sent from the client to Haxe to get a list of all registered metadata and their documentation.</haxe_doc>
 		</Metadata>
-		<Defines public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;{ },DefinesResult&gt;(&quot;display/defines&quot;)" line="89" static="1">
+		<Defines public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;DefinesParams,DefinesResult&gt;(&quot;display/defines&quot;)" line="89" static="1">
 			<x path="haxe.display.HaxeRequestMethod">
-				<a/>
+				<t path="haxe.display.DefinesParams"/>
 				<t path="haxe.display.DefinesResult"/>
 			</x>
-			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<{ },DefinesResult>("display/defines")]]></e></m></meta>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<DefinesParams,DefinesResult>("display/defines")]]></e></m></meta>
 			<haxe_doc>The defines request is sent from the client to Haxe to get a list of all registered defines and their documentation.</haxe_doc>
 		</Defines>
 		<haxe_doc>Methods of the JSON-RPC-based `--display` protocol in Haxe 4.
@@ -37781,7 +37781,15 @@
 	<activeParameter><x path="Int"/></activeParameter>
 </a></typedef>
 	<typedef path="haxe.display.SignatureHelpResult" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/Display.hx" module="haxe.display.Display"><t path="haxe.display.Response"><x path="Null"><t path="haxe.display.SignatureItem"/></x></t></typedef>
+	<typedef path="haxe.display.MetadataParams" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<user><x path="Bool"/></user>
+	<compiler><x path="Bool"/></compiler>
+</a></typedef>
 	<typedef path="haxe.display.MetadataResult" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/Display.hx" module="haxe.display.Display"><t path="haxe.display.Response"><c path="Array"><t path="haxe.display.Metadata"/></c></t></typedef>
+	<typedef path="haxe.display.DefinesParams" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/Display.hx" module="haxe.display.Display"><a>
+	<user><x path="Bool"/></user>
+	<compiler><x path="Bool"/></compiler>
+</a></typedef>
 	<typedef path="haxe.display.DefinesResult" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/Display.hx" module="haxe.display.Display"><t path="haxe.display.Response"><c path="Array"><t path="haxe.display.Define"/></c></t></typedef>
 	<typedef path="haxe.display.PositionParams" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/Display.hx" module="haxe.display.Display">
 		<a>
