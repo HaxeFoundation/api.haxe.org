@@ -33317,63 +33317,96 @@
 </f></new>
 	</class>
 	<class path="js.lib.Object" params="" file="/home/runner/work/haxe/haxe/std/js/lib/Object.hx" extern="1">
-		<assign public="1" params="T" set="method" static="1">
+		<assign public="1" params="TSource:TDest" set="method" static="1">
 			<f a="target:sources">
-				<c path="assign.T"/>
+				<c path="assign.TSource"/>
 				<t path="haxe.extern.Rest"><a/></t>
-				<c path="assign.T"/>
+				<c path="assign.TDest"/>
 			</f>
-			<haxe_doc>Copies the values of all enumerable own properties from one or more
-		source objects to a target object.</haxe_doc>
+			<haxe_doc>The Object.assign() method is used to copy the values of all enumerable
+		own properties from one or more source objects to a target object. It
+		will return the target object.
+
+		Note: this is an ES2015 feature
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign</haxe_doc>
 		</assign>
 		<create public="1" params="T" set="method" static="1">
 			<f a="proto:?propertiesObject">
-				<a/>
-				<x path="haxe.DynamicAccess"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+				<x path="Null"><a/></x>
+				<x path="haxe.DynamicAccess"><t path="js.lib.ObjectPropertyDescriptor"><x path="Any"/></t></x>
 				<c path="create.T"/>
 			</f>
-			<haxe_doc>Creates a new object with the specified prototype object and properties.</haxe_doc>
+			<haxe_doc>The Object.create() method create a new object, using an existing object
+		to provide the newly created object's __proto__ . (see browser console
+		for visual evidence.)
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create</haxe_doc>
 		</create>
 		<defineProperties public="1" params="T" set="method" static="1">
 			<f a="obj:props">
 				<c path="defineProperties.T"/>
-				<x path="haxe.DynamicAccess"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+				<x path="haxe.DynamicAccess"><t path="js.lib.ObjectPropertyDescriptor"><x path="Any"/></t></x>
 				<c path="defineProperties.T"/>
 			</f>
-			<haxe_doc>Adds the named properties described by the given descriptors to an object.</haxe_doc>
+			<haxe_doc>The Object.defineProperties() method defines new or modifies existing
+		properties directly on an object, returning the object.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties</haxe_doc>
 		</defineProperties>
-		<defineProperty public="1" params="T" set="method" static="1">
+		<defineProperty public="1" params="T:TProp" set="method" static="1">
 			<f a="obj:prop:descriptor">
 				<c path="defineProperty.T"/>
 				<c path="String"/>
-				<t path="js.lib.ObjectPropertyDescriptor"/>
+				<t path="js.lib.ObjectPropertyDescriptor"><c path="defineProperty.TProp"/></t>
 				<c path="defineProperty.T"/>
 			</f>
-			<haxe_doc>Adds the named property described by a given descriptor to an object.</haxe_doc>
-			<overloads><defineProperty public="1" params="T" set="method">
+			<haxe_doc>The static method Object.defineProperty() defines a new property directly
+		on an object, or modifies an existing property on an object, and returns
+		the object.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty</haxe_doc>
+			<overloads><defineProperty public="1" params="T:TProp" set="method">
 	<f a="obj:prop:descriptor">
 		<c path="defineProperty.T"/>
 		<c path="js.lib.Symbol"/>
-		<t path="js.lib.ObjectPropertyDescriptor"/>
+		<t path="js.lib.ObjectPropertyDescriptor"><c path="defineProperty.TProp"/></t>
 		<c path="defineProperty.T"/>
 	</f>
-	<haxe_doc>Adds the named property described by a given descriptor to an object.</haxe_doc>
+	<haxe_doc>The static method Object.defineProperty() defines a new property directly
+		on an object, or modifies an existing property on an object, and returns
+		the object.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty</haxe_doc>
 </defineProperty></overloads>
 		</defineProperty>
-		<entries public="1" set="method" static="1">
+		<entries public="1" params="T" set="method" static="1">
 			<f a="obj">
-				<a/>
+				<c path="entries.T"/>
 				<c path="Array"><x path="js.lib.ObjectEntry"/></c>
 			</f>
-			<haxe_doc>Returns an array containing all of the [key, value] pairs of a given
-		object's own enumerable string properties.</haxe_doc>
+			<haxe_doc>The Object.entries() method returns an array of a given object's own
+		enumerable property [key, value] pairs, in the same order as that
+		provided by a for...in loop (the difference being that a for-in loop
+		enumerates properties in the prototype chain as well).
+
+		Note: this is an ES2017 feature
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries</haxe_doc>
 		</entries>
 		<freeze public="1" params="T" set="method" static="1">
 			<f a="obj">
 				<c path="freeze.T"/>
 				<c path="freeze.T"/>
 			</f>
-			<haxe_doc>Freezes an object: other code can't delete or change any properties.</haxe_doc>
+			<haxe_doc>The Object.freeze() method freezes an object: that is, prevents new
+		properties from being added to it; prevents existing properties from
+		being removed; and prevents existing properties, or their enumerability,
+		configurability, or writability, from being changed, it also prevents the
+		prototype from being changed.
+		The method returns the passed object.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze</haxe_doc>
 		</freeze>
 		<fromEntries public="1" params="T" set="method" static="1">
 			<f a="iterable">
@@ -33383,122 +33416,267 @@
 			<haxe_doc>Returns a new object from an iterable of key-value pairs
 		(reverses Object.entries).</haxe_doc>
 		</fromEntries>
-		<getOwnPropertyDescriptor public="1" set="method" static="1">
+		<getOwnPropertyDescriptor public="1" params="T:TProp" set="method" static="1">
 			<f a="obj:prop">
-				<a/>
+				<c path="getOwnPropertyDescriptor.T"/>
 				<c path="String"/>
-				<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+				<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"><c path="getOwnPropertyDescriptor.TProp"/></t></x>
 			</f>
-			<haxe_doc>Returns a property descriptor for a named property on an object.</haxe_doc>
+			<haxe_doc>The Object.getOwnPropertyDescriptor() method returns a property
+		descriptor for an own property (that is, one directly present on an
+		object and not in the object's prototype chain) of a given object.
+
+		In ES5, if the first argument to this method is not an object (a
+		primitive), then it will cause a TypeError. In ES2015, a non-object
+		first argument will be coerced to an object at first.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor</haxe_doc>
 			<overloads>
+				<getOwnPropertyDescriptor public="1" set="method">
+					<f a="obj:prop">
+						<c path="String"/>
+						<c path="js.lib.Symbol"/>
+						<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"><c path="String"/></t></x>
+					</f>
+					<haxe_doc>The Object.getOwnPropertyDescriptor() method returns a property
+		descriptor for an own property (that is, one directly present on an
+		object and not in the object's prototype chain) of a given object.
+
+		In ES5, if the first argument to this method is not an object (a
+		primitive), then it will cause a TypeError. In ES2015, a non-object
+		first argument will be coerced to an object at first.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor</haxe_doc>
+				</getOwnPropertyDescriptor>
+				<getOwnPropertyDescriptor public="1" set="method">
+					<f a="obj:prop">
+						<c path="String"/>
+						<c path="String"/>
+						<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"><c path="String"/></t></x>
+					</f>
+					<haxe_doc>The Object.getOwnPropertyDescriptor() method returns a property
+		descriptor for an own property (that is, one directly present on an
+		object and not in the object's prototype chain) of a given object.
+
+		In ES5, if the first argument to this method is not an object (a
+		primitive), then it will cause a TypeError. In ES2015, a non-object
+		first argument will be coerced to an object at first.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor</haxe_doc>
+				</getOwnPropertyDescriptor>
 				<getOwnPropertyDescriptor public="1" params="T" set="method">
 					<f a="target:propertyKey">
 						<c path="Array"><c path="getOwnPropertyDescriptor.T"/></c>
 						<x path="Int"/>
-						<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+						<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"><c path="getOwnPropertyDescriptor.T"/></t></x>
 					</f>
-					<haxe_doc>Returns a property descriptor for a named property on an object.</haxe_doc>
+					<haxe_doc>The Object.getOwnPropertyDescriptor() method returns a property
+		descriptor for an own property (that is, one directly present on an
+		object and not in the object's prototype chain) of a given object.
+
+		In ES5, if the first argument to this method is not an object (a
+		primitive), then it will cause a TypeError. In ES2015, a non-object
+		first argument will be coerced to an object at first.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor</haxe_doc>
 				</getOwnPropertyDescriptor>
-				<getOwnPropertyDescriptor public="1" set="method">
+				<getOwnPropertyDescriptor public="1" params="T:TProp" set="method">
 					<f a="obj:prop">
-						<a/>
+						<c path="getOwnPropertyDescriptor.T"/>
 						<c path="js.lib.Symbol"/>
-						<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+						<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"><c path="getOwnPropertyDescriptor.TProp"/></t></x>
 					</f>
-					<haxe_doc>Returns a property descriptor for a named property on an object.</haxe_doc>
+					<haxe_doc>The Object.getOwnPropertyDescriptor() method returns a property
+		descriptor for an own property (that is, one directly present on an
+		object and not in the object's prototype chain) of a given object.
+
+		In ES5, if the first argument to this method is not an object (a
+		primitive), then it will cause a TypeError. In ES2015, a non-object
+		first argument will be coerced to an object at first.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor</haxe_doc>
 				</getOwnPropertyDescriptor>
 			</overloads>
 		</getOwnPropertyDescriptor>
-		<getOwnPropertyNames public="1" set="method" static="1">
+		<getOwnPropertyDescriptors public="1" params="T" set="method" static="1">
 			<f a="obj">
-				<a/>
+				<c path="getOwnPropertyDescriptors.T"/>
+				<x path="haxe.DynamicAccess"><t path="js.lib.ObjectPropertyDescriptor"><x path="Any"/></t></x>
+			</f>
+			<haxe_doc>The Object.getOwnPropertyDescriptors() method returns all own property
+		descriptors of a given object.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors</haxe_doc>
+			<overloads>
+				<getOwnPropertyDescriptors public="1" set="method">
+					<f a="target">
+						<c path="String"/>
+						<x path="haxe.DynamicAccess"><t path="js.lib.ObjectPropertyDescriptor"><c path="String"/></t></x>
+					</f>
+					<haxe_doc>The Object.getOwnPropertyDescriptors() method returns all own property
+		descriptors of a given object.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors</haxe_doc>
+				</getOwnPropertyDescriptors>
+				<getOwnPropertyDescriptors public="1" params="T" set="method">
+					<f a="target">
+						<c path="Array"><c path="getOwnPropertyDescriptors.T"/></c>
+						<x path="haxe.DynamicAccess"><t path="js.lib.ObjectPropertyDescriptor"><c path="getOwnPropertyDescriptors.T"/></t></x>
+					</f>
+					<haxe_doc>The Object.getOwnPropertyDescriptors() method returns all own property
+		descriptors of a given object.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors</haxe_doc>
+				</getOwnPropertyDescriptors>
+			</overloads>
+		</getOwnPropertyDescriptors>
+		<getOwnPropertyNames public="1" params="T" set="method" static="1">
+			<f a="obj">
+				<c path="getOwnPropertyNames.T"/>
 				<c path="Array"><c path="String"/></c>
 			</f>
-			<haxe_doc>Returns an array containing the names of all of the given object's own
-		enumerable and non-enumerable properties.</haxe_doc>
+			<haxe_doc>The Object.getOwnPropertyNames() method returns an array of all
+		properties (including non-enumerable properties except for those which
+		use Symbol) found directly upon a given object.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames</haxe_doc>
 		</getOwnPropertyNames>
-		<getOwnPropertySymbols public="1" set="method" static="1">
+		<getOwnPropertySymbols public="1" params="T" set="method" static="1">
 			<f a="obj">
-				<a/>
+				<c path="getOwnPropertySymbols.T"/>
 				<c path="Array"><c path="js.lib.Symbol"/></c>
 			</f>
-			<haxe_doc>Returns an array of all symbol properties found directly upon a given object.</haxe_doc>
+			<haxe_doc>The Object.getOwnPropertySymbols() method returns an array of all symbol
+		properties found directly upon a given object.
+
+		Note: this is an ES2015 feature
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols</haxe_doc>
 		</getOwnPropertySymbols>
-		<getPrototypeOf public="1" params="TProto" set="method" static="1">
+		<getPrototypeOf public="1" params="T:TProto" set="method" static="1">
 			<f a="obj">
-				<a/>
-				<x path="Null"><c path="getPrototypeOf.TProto"/></x>
+				<c path="getPrototypeOf.T"/>
+				<c path="getPrototypeOf.TProto"/>
 			</f>
-			<haxe_doc>Returns the prototype of the specified object.</haxe_doc>
+			<haxe_doc>The Object.getPrototypeOf() method returns the prototype (i.e. the value
+		of the internal [[Prototype]] property) of the specified object.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf</haxe_doc>
 		</getPrototypeOf>
+		<isSame public="1" params="T" set="method" static="1">
+			<f a="obj1:obj2">
+				<c path="isSame.T"/>
+				<c path="isSame.T"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":native"><e>"is"</e></m></meta>
+			<haxe_doc>The Object.is() method determines whether two values are the same value.
+
+		Note: this is an ES2015 feature
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is</haxe_doc>
+		</isSame>
 		<is public="1" params="T" set="method" static="1">
-			<f a="value1:value2">
+			<f a="obj1:obj2">
 				<c path="is.T"/>
 				<c path="is.T"/>
 				<x path="Bool"/>
 			</f>
-			<haxe_doc>Compares if two values are the same value. Equates all NaN values
-		(which differs from both Abstract Equality Comparison and
-		Strict Equality Comparison).</haxe_doc>
+			<meta><m n=":deprecated"><e>"Use Object.isSame()"</e></m></meta>
+			<haxe_doc>The Object.is() method determines whether two values are the same value.
+
+		Note: this is an ES2015 feature
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is</haxe_doc>
 		</is>
-		<isExtensible public="1" set="method" static="1">
+		<isExtensible public="1" params="T" set="method" static="1">
 			<f a="obj">
-				<a/>
+				<c path="isExtensible.T"/>
 				<x path="Bool"/>
 			</f>
-			<haxe_doc>Determines if extending of an object is allowed.</haxe_doc>
+			<haxe_doc>The Object.isExtensible() method determines if an object is extensible
+		(whether it can have new properties added to it).
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible</haxe_doc>
 		</isExtensible>
-		<isFrozen public="1" set="method" static="1">
+		<isFrozen public="1" params="T" set="method" static="1">
 			<f a="obj">
-				<a/>
+				<c path="isFrozen.T"/>
 				<x path="Bool"/>
 			</f>
-			<haxe_doc>Determines if an object was frozen.</haxe_doc>
+			<haxe_doc>The Object.isFrozen() determines if an object is frozen.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isFrozen</haxe_doc>
 		</isFrozen>
-		<isSealed public="1" set="method" static="1">
+		<isSealed public="1" params="T" set="method" static="1">
 			<f a="obj">
-				<a/>
+				<c path="isSealed.T"/>
 				<x path="Bool"/>
 			</f>
-			<haxe_doc>Determines if an object is sealed.</haxe_doc>
+			<haxe_doc>The Object.isSealed() method determines if an object is sealed.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed</haxe_doc>
 		</isSealed>
-		<keys public="1" set="method" static="1">
+		<keys public="1" params="T" set="method" static="1">
 			<f a="obj">
-				<a/>
+				<c path="keys.T"/>
 				<c path="Array"><c path="String"/></c>
 			</f>
-			<haxe_doc>Returns an array containing the names of all of the given object's own
-		enumerable string properties.</haxe_doc>
+			<haxe_doc>The Object.keys() method returns an array of a given object's own
+		enumerable properties, in the same order as that provided by a for...in
+		loop (the difference being that a for-in loop enumerates properties in
+		the prototype chain as well).
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys</haxe_doc>
 		</keys>
 		<preventExtensions public="1" params="T" set="method" static="1">
 			<f a="obj">
 				<c path="preventExtensions.T"/>
 				<c path="preventExtensions.T"/>
 			</f>
-			<haxe_doc>Prevents any extensions of an object.</haxe_doc>
+			<haxe_doc>The Object.preventExtensions() method prevents new properties from ever
+		being added to an object (i.e. prevents future extensions to the object).
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions</haxe_doc>
 		</preventExtensions>
 		<seal public="1" params="T" set="method" static="1">
 			<f a="obj">
 				<c path="seal.T"/>
 				<c path="seal.T"/>
 			</f>
-			<haxe_doc>Prevents other code from deleting properties of an object.</haxe_doc>
+			<haxe_doc>The Object.seal() method seals an object, preventing new properties from
+		being added to it and marking all existing properties as
+		non-configurable. Values of present properties can still be changed as
+		long as they are writable.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/seal</haxe_doc>
 		</seal>
-		<setPrototypeOf public="1" params="T" set="method" static="1">
-			<f a="obj:prototype">
+		<setPrototypeOf public="1" params="T:TProto" set="method" static="1">
+			<f a="obj:proto">
 				<c path="setPrototypeOf.T"/>
-				<x path="Null"><a/></x>
+				<x path="Null"><c path="setPrototypeOf.TProto"/></x>
 				<c path="setPrototypeOf.T"/>
 			</f>
-			<haxe_doc>Sets the prototype (i.e., the internal Prototype property).</haxe_doc>
+			<haxe_doc>The Object.setPrototypeOf() method sets the prototype (i.e., the internal
+		[[Prototype]] property) of a specified object to another object or null.
+
+		Note: this is an ES2015 feature
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf</haxe_doc>
 		</setPrototypeOf>
-		<values public="1" set="method" static="1">
+		<values public="1" params="T" set="method" static="1">
 			<f a="obj">
-				<a/>
+				<c path="values.T"/>
 				<c path="Array"><x path="Any"/></c>
 			</f>
-			<haxe_doc>Returns an array containing the values that correspond to all of
-		a given object's own enumerable string properties.</haxe_doc>
+			<haxe_doc>The Object.values() method returns an array of a given object's own
+		enumerable property values, in the same order as that provided by a
+		for...in loop (the difference being that a for-in loop enumerates
+		properties in the prototype chain as well).
+
+		Note: this is an ES2017 feature
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values</haxe_doc>
 		</values>
 		<prototype public="1" set="null" static="1">
 			<t path="js.lib.ObjectPrototype"/>
@@ -34331,8 +34509,8 @@
 		<t path="js.lib.ObjectPrototype"/>
 		<meta><m n=":deprecated"/></meta>
 	</typedef>
-	<typedef path="js.ObjectPropertyDescriptor" params="" file="/home/runner/work/haxe/haxe/std/js/Object.hx" module="js.Object">
-		<t path="js.lib.ObjectPropertyDescriptor"/>
+	<typedef path="js.ObjectPropertyDescriptor" params="TProp" file="/home/runner/work/haxe/haxe/std/js/Object.hx" module="js.Object">
+		<t path="js.lib.ObjectPropertyDescriptor"><c path="js.ObjectPropertyDescriptor.TProp"/></t>
 		<meta><m n=":deprecated"/></meta>
 	</typedef>
 	<typedef path="js.Promise" params="T" file="/home/runner/work/haxe/haxe/std/js/Promise.hx">
@@ -53651,6 +53829,10 @@
 		<languages public="1" set="null"><c path="Array"><c path="String"/></c></languages>
 		<onLine public="1" set="null"><x path="Bool"/></onLine>
 		<storage public="1" set="null"><c path="js.html.StorageManager"/></storage>
+		<wakeLock public="1" set="null">
+			<c path="js.html.WakeLock"/>
+			<haxe_doc>Returns a `WakeLock` object which allows a document to acquire a screen wake lock.</haxe_doc>
+		</wakeLock>
 		<vibrate public="1" set="method">
 			<f a="pattern">
 				<c path="Array"><x path="Int"/></c>
@@ -53729,6 +53911,21 @@
 	<c path="js.lib.Promise"><c path="js.html.eme.MediaKeySystemAccess"/></c>
 </f></requestMediaKeySystemAccess>
 		<taintEnabled public="1" set="method"><f a=""><x path="Bool"/></f></taintEnabled>
+		<canShare public="1" set="method">
+			<f a="?data">
+				<x path="Null"><t path="js.html.NavigatorShareData"/></x>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Returns `true` if the equivalent call to `share()` would succeed.
+		Returns `false` if the data cannot be validated.</haxe_doc>
+		</canShare>
+		<share public="1" set="method">
+			<f a="data">
+				<t path="js.html.NavigatorShareData"/>
+				<c path="js.lib.Promise"><x path="Void"/></c>
+			</f>
+			<haxe_doc>Invokes the native sharing mechanism of the device to share data such as text, URLs, or files.</haxe_doc>
+		</share>
 		<haxe_doc><![CDATA[The `Navigator` interface represents the state and the identity of the user agent. It allows scripts to query it and to register themselves to carry on some activities.
 
 	Documentation [Navigator](https://developer.mozilla.org/en-US/docs/Web/API/Navigator) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/Navigator$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
@@ -53736,6 +53933,31 @@
 	@see <https://developer.mozilla.org/en-US/docs/Web/API/Navigator>]]></haxe_doc>
 		<meta><m n=":native"><e>"Navigator"</e></m></meta>
 	</class>
+	<typedef path="js.html.NavigatorShareData" params="" file="/home/runner/work/haxe/haxe/std/js/html/Navigator.hx" module="js.html.Navigator">
+		<a>
+			<url>
+				<x path="Null"><c path="String"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A string representing a URL to be shared</haxe_doc>
+			</url>
+			<title>
+				<x path="Null"><c path="String"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A string representing the title to be shared.</haxe_doc>
+			</title>
+			<text>
+				<x path="Null"><c path="String"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>A string representing text to be shared.</haxe_doc>
+			</text>
+			<files>
+				<x path="Null"><c path="Array"><c path="js.html.File"/></c></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>An array of `File` objects representing files to be shared.</haxe_doc>
+			</files>
+		</a>
+		<haxe_doc>An object containing data to share.</haxe_doc>
+	</typedef>
 	<class path="js.html.NodeFilter" params="" file="/home/runner/work/haxe/haxe/std/js/html/NodeFilter.hx" extern="1">
 		<FILTER_ACCEPT public="1" get="inline" set="null" expr="1" line="36" static="1">
 			<x path="Int"/>
@@ -62740,6 +62962,71 @@
 
 	@see <https://developer.mozilla.org/en-US/docs/Web/API/VisualViewport>]]></haxe_doc>
 		<meta><m n=":native"><e>"VisualViewport"</e></m></meta>
+	</class>
+	<class path="js.html.WakeLock" params="" file="/home/runner/work/haxe/haxe/std/js/html/WakeLock.hx" extern="1">
+		<request public="1" set="method">
+			<f a="?type">
+				<x path="js.html.WakeLockType"/>
+				<c path="js.lib.Promise"><c path="js.html.WakeLockSentinel"/></c>
+			</f>
+			<haxe_doc>Returns a `Promise` that resolves with a `WakeLockSentinel` object, which allows control over screen dimming and locking.</haxe_doc>
+		</request>
+		<haxe_doc><![CDATA[Prevents device screens from dimming or locking when an application needs to keep running.
+
+	Documentation [WakeLock](https://developer.mozilla.org/en-US/docs/Web/API/WakeLock) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/WakeLock/contributors.txt), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/WakeLock>]]></haxe_doc>
+		<meta><m n=":native"><e>"WakeLock"</e></m></meta>
+	</class>
+	<class path="js.html.WakeLockSentinel" params="" file="/home/runner/work/haxe/haxe/std/js/html/WakeLock.hx" module="js.html.WakeLock" extern="1">
+		<extends path="js.html.EventTarget"/>
+		<released final="1" public="1">
+			<x path="Bool"/>
+			<haxe_doc>A boolean a that indicates whether a `WakeLockSentinel` has been released yet.</haxe_doc>
+		</released>
+		<type final="1" public="1">
+			<x path="js.html.WakeLockType"/>
+			<haxe_doc>A string representation of the currently acquired `WakeLockSentinel` type.</haxe_doc>
+		</type>
+		<release public="1" set="method">
+			<f a=""><c path="js.lib.Promise"><x path="Void"/></c></f>
+			<haxe_doc>Releases the `WakeLockSentinel`, returning a `Promise` that is resolved once the sentinel has been successfully released.</haxe_doc>
+		</release>
+		<haxe_doc><![CDATA[Provides a handle to the underlying platform wake lock and can be manually released and reacquired.
+
+	Documentation [WakeLockSentinel](https://developer.mozilla.org/en-US/docs/Web/API/WakeLockSentinel) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/WakeLockSentinel/contributors.txt), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+	@see <https://developer.mozilla.org/en-US/docs/Web/API/WakeLockSentinel>]]></haxe_doc>
+		<meta><m n=":native"><e>"WakeLockSentinel"</e></m></meta>
+	</class>
+	<abstract path="js.html.WakeLockType" params="" file="/home/runner/work/haxe/haxe/std/js/html/WakeLock.hx" module="js.html.WakeLock">
+		<from><icast><c path="String"/></icast></from>
+		<this><c path="String"/></this>
+		<to><icast><c path="String"/></icast></to>
+		<haxe_doc>Indicates the type of `WakeLockSentinel` to be acquired.</haxe_doc>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="js.html._WakeLock.WakeLockType_Impl_" params="" file="/home/runner/work/haxe/haxe/std/js/html/WakeLock.hx" private="1" module="js.html.WakeLock" extern="1" final="1">
+	<Screen public="1" get="inline" set="null" expr="cast &quot;screen&quot;" line="73" static="1">
+		<x path="js.html.WakeLockType"/>
+		<meta>
+			<m n=":value"><e>cast "screen"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</Screen>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="js.html._WakeLock.WakeLockType_Impl_" params="" file="/home/runner/work/haxe/haxe/std/js/html/WakeLock.hx" private="1" module="js.html.WakeLock" extern="1" final="1">
+		<Screen public="1" get="inline" set="null" expr="cast &quot;screen&quot;" line="73" static="1">
+			<x path="js.html.WakeLockType"/>
+			<meta>
+				<m n=":value"><e>cast "screen"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</Screen>
+		<meta><m n=":enum"/></meta>
 	</class>
 	<class path="js.html.WebSocket" params="" file="/home/runner/work/haxe/haxe/std/js/html/WebSocket.hx" extern="1">
 		<extends path="js.html.EventTarget"/>
@@ -88025,25 +88312,24 @@
 		<haxe_doc><![CDATA[Type for
 	@see <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object>]]></haxe_doc>
 	</typedef>
-	<typedef path="js.lib.ObjectPropertyDescriptor" params="" file="/home/runner/work/haxe/haxe/std/js/lib/Object.hx" module="js.lib.Object">
+	<typedef path="js.lib.ObjectPropertyDescriptor" params="TProp" file="/home/runner/work/haxe/haxe/std/js/lib/Object.hx" module="js.lib.Object">
 		<a>
 			<writable>
 				<x path="Null"><x path="Bool"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>`true` if and only if the value associated with the property may be
 		changed with an assignment operator.
-
 		Defaults to `false`.</haxe_doc>
 			</writable>
 			<value>
-				<x path="Null"><x path="Any"/></x>
+				<x path="Null"><c path="js.lib.ObjectPropertyDescriptor.TProp"/></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>The value associated with the property.
 		Can be any valid JavaScript value (number, object, function, etc).</haxe_doc>
 			</value>
 			<set>
 				<x path="Null"><f a="">
-	<x path="Any"/>
+	<c path="js.lib.ObjectPropertyDescriptor.TProp"/>
 	<x path="Void"/>
 </f></x>
 				<meta><m n=":optional"/></meta>
@@ -88053,7 +88339,7 @@
 		and with `this` set to the object through which the property is assigned.</haxe_doc>
 			</set>
 			<get>
-				<x path="Null"><f a=""><x path="Any"/></f></x>
+				<x path="Null"><f a=""><c path="js.lib.ObjectPropertyDescriptor.TProp"/></f></x>
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>A function which serves as a getter for the property, or `undefined` if
 		there is no getter. When the property is accessed, this function is
@@ -88067,7 +88353,6 @@
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>`true` if and only if this property shows up during enumeration of the
 		properties on the corresponding object.
-
 		Defaults to `false`.</haxe_doc>
 			</enumerable>
 			<configurable>
@@ -88075,7 +88360,6 @@
 				<meta><m n=":optional"/></meta>
 				<haxe_doc>`true` if and only if the type of this property descriptor may be
 		changed and if the property may be deleted from the corresponding object.
-
 		Defaults to `false`.</haxe_doc>
 			</configurable>
 		</a>
@@ -88087,11 +88371,11 @@
 		<impl><class path="js.lib._Object.ObjectEntry_Impl_" params="" file="/home/runner/work/haxe/haxe/std/js/lib/Object.hx" private="1" module="js.lib.Object" final="1">
 	<key public="1" get="accessor" set="null" static="1"><c path="String"/></key>
 	<value public="1" get="accessor" set="null" static="1"><x path="Any"/></value>
-	<get_key get="inline" set="null" line="257" static="1"><f a="this">
+	<get_key get="inline" set="null" line="355" static="1"><f a="this">
 	<c path="Array"><x path="Any"/></c>
 	<c path="String"/>
 </f></get_key>
-	<get_value get="inline" set="null" line="260" static="1"><f a="this">
+	<get_value get="inline" set="null" line="358" static="1"><f a="this">
 	<c path="Array"><x path="Any"/></c>
 	<x path="Any"/>
 </f></get_value>
@@ -88100,11 +88384,11 @@
 	<class path="js.lib._Object.ObjectEntry_Impl_" params="" file="/home/runner/work/haxe/haxe/std/js/lib/Object.hx" private="1" module="js.lib.Object" final="1">
 		<key public="1" get="accessor" set="null" static="1"><c path="String"/></key>
 		<value public="1" get="accessor" set="null" static="1"><x path="Any"/></value>
-		<get_key get="inline" set="null" line="257" static="1"><f a="this">
+		<get_key get="inline" set="null" line="355" static="1"><f a="this">
 	<c path="Array"><x path="Any"/></c>
 	<c path="String"/>
 </f></get_key>
-		<get_value get="inline" set="null" line="260" static="1"><f a="this">
+		<get_value get="inline" set="null" line="358" static="1"><f a="this">
 	<c path="Array"><x path="Any"/></c>
 	<x path="Any"/>
 </f></get_value>
@@ -88495,7 +88779,7 @@
 		<c path="String"/>
 		<c path="js.lib.Symbol"/>
 	</x>
-	<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+	<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"><x path="Any"/></t></x>
 </f></x>
 		<meta><m n=":optional"/></meta>
 		<haxe_doc>A trap for `Object.getOwnPropertyDescriptor`.</haxe_doc>
@@ -88538,7 +88822,7 @@
 		<c path="String"/>
 		<c path="js.lib.Symbol"/>
 	</x>
-	<t path="js.lib.ObjectPropertyDescriptor"/>
+	<t path="js.lib.ObjectPropertyDescriptor"><x path="Any"/></t>
 	<x path="Bool"/>
 </f></x>
 		<meta><m n=":optional"/></meta>
@@ -88600,7 +88884,7 @@
 			<f a="target:propertyKey:attributes">
 				<a/>
 				<c path="String"/>
-				<t path="js.lib.ObjectPropertyDescriptor"/>
+				<t path="js.lib.ObjectPropertyDescriptor"><x path="Any"/></t>
 				<x path="Bool"/>
 			</f>
 			<haxe_doc>Similar to `Object.defineProperty()`. Returns a Bool.</haxe_doc>
@@ -88608,7 +88892,7 @@
 	<f a="target:propertyKey:attributes">
 		<a/>
 		<c path="js.lib.Symbol"/>
-		<t path="js.lib.ObjectPropertyDescriptor"/>
+		<t path="js.lib.ObjectPropertyDescriptor"><x path="Any"/></t>
 		<x path="Bool"/>
 	</f>
 	<haxe_doc>Similar to `Object.defineProperty()`. Returns a Bool.</haxe_doc>
@@ -88673,7 +88957,7 @@
 			<f a="target:propertyKey">
 				<a/>
 				<c path="String"/>
-				<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+				<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"><x path="Any"/></t></x>
 			</f>
 			<haxe_doc>Similar to `Object.getOwnPropertyDescriptor()`.
 		Returns a property descriptor of the given property if it exists on the object,
@@ -88683,7 +88967,7 @@
 					<f a="target:propertyKey">
 						<c path="Array"><c path="getOwnPropertyDescriptor.T"/></c>
 						<x path="Int"/>
-						<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+						<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"><x path="Any"/></t></x>
 					</f>
 					<haxe_doc>Similar to `Object.getOwnPropertyDescriptor()`.
 		Returns a property descriptor of the given property if it exists on the object,
@@ -88693,7 +88977,7 @@
 					<f a="target:propertyKey">
 						<a/>
 						<c path="js.lib.Symbol"/>
-						<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"/></x>
+						<x path="Null"><t path="js.lib.ObjectPropertyDescriptor"><x path="Any"/></t></x>
 					</f>
 					<haxe_doc>Similar to `Object.getOwnPropertyDescriptor()`.
 		Returns a property descriptor of the given property if it exists on the object,
@@ -88957,15 +89241,22 @@
 				<c path="js.lib.Symbol"/>
 			</f>
 			<meta><m n=":native"><e>"for"</e></m></meta>
-			<haxe_doc>Searches for existing symbols with the given key and returns it if found.
-		Otherwise a new symbol gets created in the global symbol registry with this key.</haxe_doc>
+			<haxe_doc>The Symbol.for(key) method searches for existing symbols in a
+		runtime-wide symbol registry with the given key and returns it if found.
+		Otherwise a new symbol gets created in the global symbol registry with
+		this key.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/for</haxe_doc>
 		</for_>
 		<keyFor public="1" set="method" static="1">
 			<f a="sym">
 				<c path="js.lib.Symbol"/>
 				<x path="Null"><c path="String"/></x>
 			</f>
-			<haxe_doc>Retrieves a shared symbol key from the global symbol registry for the given symbol.</haxe_doc>
+			<haxe_doc>The Symbol.keyFor(sym) method retrieves a shared symbol key from the
+		global symbol registry for the given symbol.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/keyFor</haxe_doc>
 		</keyFor>
 		<iterator public="1" set="null" static="1">
 			<c path="js.lib.Symbol"/>
@@ -88975,11 +89266,60 @@
 			<c path="js.lib.Symbol"/>
 			<haxe_doc>A method that returns the default AsyncIterator for an object.</haxe_doc>
 		</asyncIterator>
+		<match public="1" set="null" static="1">
+			<c path="js.lib.Symbol"/>
+			<haxe_doc>A method that matches against a string, also used to determine if an
+		object may be used as a regular expression. Used by
+		String.prototype.match().</haxe_doc>
+		</match>
+		<replace public="1" set="null" static="1">
+			<c path="js.lib.Symbol"/>
+			<haxe_doc>A method that replaces matched substrings of a string. Used by
+		String.prototype.replace().</haxe_doc>
+		</replace>
+		<search public="1" set="null" static="1">
+			<c path="js.lib.Symbol"/>
+			<haxe_doc>A method that returns the index within a string that matches the regular
+		expression. Used by String.prototype.search().</haxe_doc>
+		</search>
+		<split public="1" set="null" static="1">
+			<c path="js.lib.Symbol"/>
+			<haxe_doc>A method that splits a string at the indices that match a regular
+		expression. Used by String.prototype.split().</haxe_doc>
+		</split>
+		<hasInstance public="1" set="null" static="1">
+			<c path="js.lib.Symbol"/>
+			<haxe_doc>A method determining if a constructor object recognizes an object as its
+		instance. Used by instanceof.</haxe_doc>
+		</hasInstance>
+		<isConcatSpreadable public="1" set="null" static="1">
+			<c path="js.lib.Symbol"/>
+			<haxe_doc>A Boolean value indicating if an object should be flattened to its array
+		elements. Used by Array.prototype.concat().</haxe_doc>
+		</isConcatSpreadable>
+		<unscopables public="1" set="null" static="1">
+			<c path="js.lib.Symbol"/>
+			<haxe_doc>An object value of whose own and inherited property names are excluded
+		from the with environment bindings of the associated object.</haxe_doc>
+		</unscopables>
+		<species public="1" set="null" static="1">
+			<c path="js.lib.Symbol"/>
+			<haxe_doc>A constructor function that is used to create derived objects.</haxe_doc>
+		</species>
+		<toPrimitive public="1" set="null" static="1">
+			<c path="js.lib.Symbol"/>
+			<haxe_doc>A method converting an object to a primitive value.</haxe_doc>
+		</toPrimitive>
+		<toStringTag public="1" set="null" static="1">
+			<c path="js.lib.Symbol"/>
+			<haxe_doc>A string value used for the default description of an object. Used by
+		Object.prototype.toString().</haxe_doc>
+		</toStringTag>
 		<toString public="1" set="method">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns a string containing the description of the Symbol.</haxe_doc>
 		</toString>
-		<ofObject public="1" params="T" get="inline" set="null" line="67">
+		<ofObject public="1" params="T" get="inline" set="null" line="134">
 			<f a="object">
 				<a/>
 				<x path="Null"><c path="ofObject.T"/></x>
@@ -88995,9 +89335,10 @@
 			</f>
 			<meta><m n=":selfCall"/></meta>
 			<haxe_doc>To create a new primitive symbol, use `new Symbol()` with an optional string as its `description`.
-
 		NOTE: Unlike in plain JavaScript, `new Symbol()` syntax is used in Haxe. This generates a `Symbol(...)`
-		expression as required by the JavaScript specification.</haxe_doc>
+		expression as required by the JavaScript specification.
+
+		See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol</haxe_doc>
 		</new>
 		<meta><m n=":native"><e>"Symbol"</e></m></meta>
 	</class>
