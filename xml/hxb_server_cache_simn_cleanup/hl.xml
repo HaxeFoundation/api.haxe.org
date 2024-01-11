@@ -777,7 +777,7 @@
 	In the context of Haxe dates, a timestamp is defined as the number of
 	milliseconds elapsed since 1st January 1970.</haxe_doc>
 	</class>
-	<typedef path="_EReg.ERegValue" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/EReg.hx" private="1" module="EReg"><c path="hl.Abstract"><c path=""/></c></typedef>
+	<typedef path="_EReg.ERegValue" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/EReg.hx" private="1" module="EReg"><c path="hl.Abstract"><c path="Sereg"/></c></typedef>
 	<class path="EReg" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/EReg.hx" final="1">
 		<escape public="1" set="method" line="185" static="1">
 			<f a="s">
@@ -2043,7 +2043,7 @@
 	@see https://haxe.org/manual/std-reflection.html</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
-	<typedef path="_Std.Rand" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/Std.hx" private="1" module="Std"><c path="hl.Abstract"><c path=""/></c></typedef>
+	<typedef path="_Std.Rand" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/Std.hx" private="1" module="Std"><c path="hl.Abstract"><c path="Shl_random"/></c></typedef>
 	<class path="Std" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/Std.hx">
 		<rnd static="1"><t path="_Std.Rand"/></rnd>
 		<toStringDepth expr="0" line="30" static="1">
@@ -9988,7 +9988,7 @@
 		<trace public="1" set="dynamic" line="62" static="1">
 			<f a="v:?infos">
 				<d/>
-				<t path="haxe.PosInfos"/>
+				<x path="Null"><t path="haxe.PosInfos"/></x>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Outputs `v` in a platform-dependent way.
@@ -10076,7 +10076,7 @@
 			<m n=":access"><e>haxe.MainEvent</e></m>
 		</meta>
 	</class>
-	<typedef path="haxe.Symbol" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/haxe/NativeStackTrace.hx" module="haxe.NativeStackTrace"><c path="hl.Abstract"><c path=""/></c></typedef>
+	<typedef path="haxe.Symbol" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/haxe/NativeStackTrace.hx" module="haxe.NativeStackTrace"><c path="hl.Abstract"><c path="Shl_symbol"/></c></typedef>
 	<class path="haxe.NativeStackTrace" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/haxe/NativeStackTrace.hx">
 		<saveStack public="1" get="inline" set="null" line="16" static="1">
 			<f a="exception">
@@ -10701,7 +10701,7 @@
 		<measure public="1" params="T" set="method" line="165" static="1">
 			<f a="f:?pos">
 				<f a=""><c path="measure.T"/></f>
-				<t path="haxe.PosInfos"/>
+				<x path="Null"><t path="haxe.PosInfos"/></x>
 				<c path="measure.T"/>
 			</f>
 			<haxe_doc>Measures the time it takes to execute `f`, in seconds with fractions.
@@ -19907,7 +19907,7 @@
 		<new public="1" set="method" line="12"><f a="message:?previous:?pos">
 	<c path="String"/>
 	<c path="haxe.Exception"/>
-	<t path="haxe.PosInfos"/>
+	<x path="Null"><t path="haxe.PosInfos"/></x>
 	<x path="Void"/>
 </f></new>
 		<haxe_doc>An exception that carry position information of a place where it was created.</haxe_doc>
@@ -19922,7 +19922,7 @@
 	<c path="String"/>
 	<c path="String"/>
 	<c path="haxe.Exception"/>
-	<t path="haxe.PosInfos"/>
+	<x path="Null"><t path="haxe.PosInfos"/></x>
 	<x path="Void"/>
 </f></new>
 		<haxe_doc>An exception that is thrown when an invalid value provided for an argument of a function.</haxe_doc>
@@ -19933,7 +19933,7 @@
 			<f a="?message:?previous:?pos" v="&quot;Not implemented&quot;::">
 				<c path="String"/>
 				<c path="haxe.Exception"/>
-				<t path="haxe.PosInfos"/>
+				<x path="Null"><t path="haxe.PosInfos"/></x>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":value"><e>{ message : "Not implemented" }</e></m></meta>
@@ -28859,15 +28859,6 @@
 		is added to a class-path that has higher priority than the class-path
 		of the current module file.</haxe_doc>
 	</NoCheckShadowing>
-	<Retype public="1" get="inline" set="null" expr="cast 4" line="58" static="1">
-		<x path="haxe.macro.ModuleCheckPolicy"/>
-		<meta>
-			<m n=":value"><e>cast 4</e></m>
-			<m n=":impl"/>
-			<m n=":enum"/>
-		</meta>
-		<haxe_doc>Retype the module's contents if its file is invalidated. This is currently experimental.</haxe_doc>
-	</Retype>
 	<meta><m n=":enum"/></meta>
 </class></impl>
 	</abstract>
@@ -28916,22 +28907,13 @@
 		is added to a class-path that has higher priority than the class-path
 		of the current module file.</haxe_doc>
 		</NoCheckShadowing>
-		<Retype public="1" get="inline" set="null" expr="cast 4" line="58" static="1">
-			<x path="haxe.macro.ModuleCheckPolicy"/>
-			<meta>
-				<m n=":value"><e>cast 4</e></m>
-				<m n=":impl"/>
-				<m n=":enum"/>
-			</meta>
-			<haxe_doc>Retype the module's contents if its file is invalidated. This is currently experimental.</haxe_doc>
-		</Retype>
 		<meta><m n=":enum"/></meta>
 	</class>
 	<abstract path="haxe.macro.ContextOptions" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/CompilationServer.hx" module="haxe.macro.CompilationServer">
 		<this><x path="Int"/></this>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="haxe.macro._CompilationServer.ContextOptions_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/CompilationServer.hx" private="1" module="haxe.macro.CompilationServer" extern="1" final="1">
-	<NormalContext public="1" get="inline" set="null" expr="cast 0" line="65" static="1">
+	<NormalContext public="1" get="inline" set="null" expr="cast 0" line="61" static="1">
 		<x path="haxe.macro.ContextOptions"/>
 		<meta>
 			<m n=":value"><e>cast 0</e></m>
@@ -28940,7 +28922,7 @@
 		</meta>
 		<haxe_doc>Affects only the normal context.</haxe_doc>
 	</NormalContext>
-	<MacroContext public="1" get="inline" set="null" expr="cast 1" line="70" static="1">
+	<MacroContext public="1" get="inline" set="null" expr="cast 1" line="66" static="1">
 		<x path="haxe.macro.ContextOptions"/>
 		<meta>
 			<m n=":value"><e>cast 1</e></m>
@@ -28949,7 +28931,7 @@
 		</meta>
 		<haxe_doc>Affects only the macro context.</haxe_doc>
 	</MacroContext>
-	<NormalAndMacroContext public="1" get="inline" set="null" expr="cast 2" line="75" static="1">
+	<NormalAndMacroContext public="1" get="inline" set="null" expr="cast 2" line="71" static="1">
 		<x path="haxe.macro.ContextOptions"/>
 		<meta>
 			<m n=":value"><e>cast 2</e></m>
@@ -28962,7 +28944,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.macro._CompilationServer.ContextOptions_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/CompilationServer.hx" private="1" module="haxe.macro.CompilationServer" extern="1" final="1">
-		<NormalContext public="1" get="inline" set="null" expr="cast 0" line="65" static="1">
+		<NormalContext public="1" get="inline" set="null" expr="cast 0" line="61" static="1">
 			<x path="haxe.macro.ContextOptions"/>
 			<meta>
 				<m n=":value"><e>cast 0</e></m>
@@ -28971,7 +28953,7 @@
 			</meta>
 			<haxe_doc>Affects only the normal context.</haxe_doc>
 		</NormalContext>
-		<MacroContext public="1" get="inline" set="null" expr="cast 1" line="70" static="1">
+		<MacroContext public="1" get="inline" set="null" expr="cast 1" line="66" static="1">
 			<x path="haxe.macro.ContextOptions"/>
 			<meta>
 				<m n=":value"><e>cast 1</e></m>
@@ -28980,7 +28962,7 @@
 			</meta>
 			<haxe_doc>Affects only the macro context.</haxe_doc>
 		</MacroContext>
-		<NormalAndMacroContext public="1" get="inline" set="null" expr="cast 2" line="75" static="1">
+		<NormalAndMacroContext public="1" get="inline" set="null" expr="cast 2" line="71" static="1">
 			<x path="haxe.macro.ContextOptions"/>
 			<meta>
 				<m n=":value"><e>cast 2</e></m>
@@ -29745,7 +29727,7 @@
 			<haxe_doc>Represents a `try`-expression with related catches.</haxe_doc>
 		</ETry>
 		<EReturn a="?e">
-			<t path="haxe.macro.Expr"/>
+			<x path="Null"><t path="haxe.macro.Expr"/></x>
 			<haxe_doc>A `return` or `return e` expression.</haxe_doc>
 		</EReturn>
 		<EBreak><haxe_doc>A `break` expression.</haxe_doc></EBreak>
@@ -30041,7 +30023,7 @@
 	<enum path="haxe.macro.FieldType" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Expr.hx" module="haxe.macro.Expr">
 		<FVar a="t:?e">
 			<x path="Null"><e path="haxe.macro.ComplexType"/></x>
-			<t path="haxe.macro.Expr"/>
+			<x path="Null"><t path="haxe.macro.Expr"/></x>
 			<haxe_doc>Represents a variable field type.</haxe_doc>
 		</FVar>
 		<FFun a="f">
@@ -30052,7 +30034,7 @@
 			<c path="String"/>
 			<c path="String"/>
 			<e path="haxe.macro.ComplexType"/>
-			<t path="haxe.macro.Expr"/>
+			<x path="Null"><t path="haxe.macro.Expr"/></x>
 			<haxe_doc>Represents a property with getter and setter field type.</haxe_doc>
 		</FProp>
 		<haxe_doc>Represents the field type in the AST.</haxe_doc>
@@ -30107,7 +30089,7 @@
 		<TDEnum><haxe_doc>Represents an enum kind.</haxe_doc></TDEnum>
 		<TDStructure><haxe_doc>Represents a structure kind.</haxe_doc></TDStructure>
 		<TDClass a="?superClass:?interfaces:?isInterface:?isFinal:?isAbstract">
-			<t path="haxe.macro.TypePath"/>
+			<x path="Null"><t path="haxe.macro.TypePath"/></x>
 			<c path="Array"><t path="haxe.macro.TypePath"/></c>
 			<x path="Bool"/>
 			<x path="Bool"/>
@@ -32581,7 +32563,7 @@
 		<root public="1"><t path="haxe.rtti.TypeRoot"/></root>
 		<curplatform><c path="String"/></curplatform>
 		<sort public="1" set="method" line="43"><f a="?l">
-	<t path="haxe.rtti.TypeRoot"/>
+	<x path="Null"><t path="haxe.rtti.TypeRoot"/></x>
 	<x path="Void"/>
 </f></sort>
 		<sortFields set="method" line="72"><f a="a">
@@ -33753,7 +33735,7 @@
 		<haxe_doc>This class provides utility methods to convert Xml instances to
 	String representation.</haxe_doc>
 	</class>
-	<typedef path="haxe.zip._Compress.Deflater" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/haxe/zip/Compress.hx" private="1" module="haxe.zip.Compress"><c path="hl.Abstract"><c path=""/></c></typedef>
+	<typedef path="haxe.zip._Compress.Deflater" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/haxe/zip/Compress.hx" private="1" module="haxe.zip.Compress"><c path="hl.Abstract"><c path="Sfmt_zip"/></c></typedef>
 	<class path="haxe.zip.Compress" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/haxe/zip/Compress.hx">
 		<run public="1" set="method" line="49" static="1"><f a="s:level">
 	<c path="haxe.io.Bytes"/>
@@ -34063,7 +34045,7 @@
 	<x path="Void"/>
 </f></uncompress>
 	</class>
-	<typedef path="haxe.zip._Uncompress.Inflater" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/haxe/zip/Uncompress.hx" private="1" module="haxe.zip.Uncompress"><c path="hl.Abstract"><c path=""/></c></typedef>
+	<typedef path="haxe.zip._Uncompress.Inflater" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/haxe/zip/Uncompress.hx" private="1" module="haxe.zip.Uncompress"><c path="hl.Abstract"><c path="Sfmt_zip"/></c></typedef>
 	<class path="haxe.zip.Uncompress" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/haxe/zip/Uncompress.hx">
 		<run public="1" set="method" line="49" static="1"><f a="src:?bufsize">
 	<c path="haxe.io.Bytes"/>
@@ -36151,7 +36133,7 @@
 		</blit>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
-	<typedef path="hl.Symbol" params="" file="/home/runner/work/haxe/haxe/std/hl/Profile.hx" module="hl.Profile"><c path="hl.Abstract"><c path=""/></c></typedef>
+	<typedef path="hl.Symbol" params="" file="/home/runner/work/haxe/haxe/std/hl/Profile.hx" module="hl.Profile"><c path="hl.Abstract"><c path="Shl_symbol"/></c></typedef>
 	<enum path="hl.TrackKind" params="" file="/home/runner/work/haxe/haxe/std/hl/Profile.hx" module="hl.Profile">
 		<Alloc/>
 		<Cast/>
@@ -37035,7 +37017,7 @@
 		</allocEnum>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
-	<typedef path="hl.SentinelHandle" params="" file="/home/runner/work/haxe/haxe/std/hl/UI.hx" module="hl.UI"><c path="hl.Abstract"><c path=""/></c></typedef>
+	<typedef path="hl.SentinelHandle" params="" file="/home/runner/work/haxe/haxe/std/hl/UI.hx" module="hl.UI"><c path="hl.Abstract"><c path="Sui_sentinel"/></c></typedef>
 	<abstract path="hl.Sentinel" params="" file="/home/runner/work/haxe/haxe/std/hl/UI.hx" module="hl.UI">
 		<this><t path="hl.SentinelHandle"/></this>
 		<impl><class path="hl._UI.Sentinel_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/UI.hx" private="1" module="hl.UI" final="1">
@@ -37171,7 +37153,7 @@
 </m></meta>
 		</is_paused>
 	</class>
-	<typedef path="hl.WinHandle" params="" file="/home/runner/work/haxe/haxe/std/hl/UI.hx" module="hl.UI"><c path="hl.Abstract"><c path=""/></c></typedef>
+	<typedef path="hl.WinHandle" params="" file="/home/runner/work/haxe/haxe/std/hl/UI.hx" module="hl.UI"><c path="hl.Abstract"><c path="Sui_window"/></c></typedef>
 	<class path="hl.Window" params="" file="/home/runner/work/haxe/haxe/std/hl/UI.hx" module="hl.UI">
 		<win_destroy set="method" line="78" static="1">
 			<f a="win">
@@ -38075,7 +38057,7 @@
 			<m n=":keep"/>
 		</meta>
 	</class>
-	<typedef path="hl.types.BytesMapData" params="" file="/home/runner/work/haxe/haxe/std/hl/types/BytesMap.hx" module="hl.types.BytesMap"><c path="hl.Abstract"><c path=""/></c></typedef>
+	<typedef path="hl.types.BytesMapData" params="" file="/home/runner/work/haxe/haxe/std/hl/types/BytesMap.hx" module="hl.types.BytesMap"><c path="hl.Abstract"><c path="Shl_bytes_map"/></c></typedef>
 	<abstract path="hl.types.BytesMap" params="" file="/home/runner/work/haxe/haxe/std/hl/types/BytesMap.hx">
 		<this><t path="hl.types.BytesMapData"/></this>
 		<impl><class path="hl.types._BytesMap.BytesMap_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/types/BytesMap.hx" private="1" module="hl.types.BytesMap" final="1">
@@ -38172,7 +38154,7 @@
 	<meta><m n=":directlyUsed"/></meta>
 </class></impl>
 	</abstract>
-	<typedef path="hl.types.IntMapData" params="" file="/home/runner/work/haxe/haxe/std/hl/types/IntMap.hx" module="hl.types.IntMap"><c path="hl.Abstract"><c path=""/></c></typedef>
+	<typedef path="hl.types.IntMapData" params="" file="/home/runner/work/haxe/haxe/std/hl/types/IntMap.hx" module="hl.types.IntMap"><c path="hl.Abstract"><c path="Shl_int_map"/></c></typedef>
 	<abstract path="hl.types.IntMap" params="" file="/home/runner/work/haxe/haxe/std/hl/types/IntMap.hx">
 		<this><t path="hl.types.IntMapData"/></this>
 		<impl><class path="hl.types._IntMap.IntMap_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/types/IntMap.hx" private="1" module="hl.types.IntMap" final="1">
@@ -38360,7 +38342,7 @@
 	<c path="hl.NativeArrayIterator_Dynamic"/>
 </f></iterator>
 	</class>
-	<typedef path="hl.types.ObjectMapData" params="" file="/home/runner/work/haxe/haxe/std/hl/types/ObjectMap.hx" module="hl.types.ObjectMap"><c path="hl.Abstract"><c path=""/></c></typedef>
+	<typedef path="hl.types.ObjectMapData" params="" file="/home/runner/work/haxe/haxe/std/hl/types/ObjectMap.hx" module="hl.types.ObjectMap"><c path="hl.Abstract"><c path="Shl_obj_map"/></c></typedef>
 	<abstract path="hl.types.ObjectMap" params="" file="/home/runner/work/haxe/haxe/std/hl/types/ObjectMap.hx">
 		<this><t path="hl.types.ObjectMapData"/></this>
 		<impl><class path="hl.types._ObjectMap.ObjectMap_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/types/ObjectMap.hx" private="1" module="hl.types.ObjectMap" final="1">
@@ -38634,7 +38616,7 @@
 </f></new>
 		<meta><m n=":hlNative"><e>"uv"</e></m></meta>
 	</class>
-	<typedef path="hl.uv.HandleData" params="" file="/home/runner/work/haxe/haxe/std/hl/uv/HandleData.hx"><c path="hl.Abstract"><c path=""/></c></typedef>
+	<typedef path="hl.uv.HandleData" params="" file="/home/runner/work/haxe/haxe/std/hl/uv/HandleData.hx"><c path="hl.Abstract"><c path="Suv_handle"/></c></typedef>
 	<abstract path="hl.uv.LoopRunMode" params="" file="/home/runner/work/haxe/haxe/std/hl/uv/Loop.hx" module="hl.uv.Loop">
 		<this><x path="Int"/></this>
 		<meta><m n=":enum"/></meta>
@@ -38694,11 +38676,11 @@
 		<meta><m n=":enum"/></meta>
 	</class>
 	<abstract path="hl.uv.Loop" params="" file="/home/runner/work/haxe/haxe/std/hl/uv/Loop.hx">
-		<this><c path="hl.Abstract"><c path=""/></c></this>
+		<this><c path="hl.Abstract"><c path="Suv_loop"/></c></this>
 		<impl><class path="hl.uv._Loop.Loop_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/uv/Loop.hx" private="1" module="hl.uv.Loop" final="1">
 	<close public="1" set="method" line="32" static="1">
 		<f a="this">
-			<c path="hl.Abstract"><c path=""/></c>
+			<c path="hl.Abstract"><c path="Suv_loop"/></c>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":hlNative">
@@ -38708,7 +38690,7 @@
 	</close>
 	<run public="1" set="method" line="36" static="1">
 		<f a="this:mode">
-			<c path="hl.Abstract"><c path=""/></c>
+			<c path="hl.Abstract"><c path="Suv_loop"/></c>
 			<x path="hl.uv.LoopRunMode"/>
 			<x path="Int"/>
 		</f>
@@ -38719,7 +38701,7 @@
 	</run>
 	<alive public="1" set="method" line="40" static="1">
 		<f a="this">
-			<c path="hl.Abstract"><c path=""/></c>
+			<c path="hl.Abstract"><c path="Suv_loop"/></c>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":hlNative">
@@ -38729,7 +38711,7 @@
 	</alive>
 	<stop public="1" set="method" line="44" static="1">
 		<f a="this">
-			<c path="hl.Abstract"><c path=""/></c>
+			<c path="hl.Abstract"><c path="Suv_loop"/></c>
 			<x path="Void"/>
 		</f>
 		<meta><m n=":hlNative">
@@ -38751,7 +38733,7 @@
 	<class path="hl.uv._Loop.Loop_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/uv/Loop.hx" private="1" module="hl.uv.Loop" final="1">
 		<close public="1" set="method" line="32" static="1">
 			<f a="this">
-				<c path="hl.Abstract"><c path=""/></c>
+				<c path="hl.Abstract"><c path="Suv_loop"/></c>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":hlNative">
@@ -38761,7 +38743,7 @@
 		</close>
 		<run public="1" set="method" line="36" static="1">
 			<f a="this:mode">
-				<c path="hl.Abstract"><c path=""/></c>
+				<c path="hl.Abstract"><c path="Suv_loop"/></c>
 				<x path="hl.uv.LoopRunMode"/>
 				<x path="Int"/>
 			</f>
@@ -38772,7 +38754,7 @@
 		</run>
 		<alive public="1" set="method" line="40" static="1">
 			<f a="this">
-				<c path="hl.Abstract"><c path=""/></c>
+				<c path="hl.Abstract"><c path="Suv_loop"/></c>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":hlNative">
@@ -38782,7 +38764,7 @@
 		</alive>
 		<stop public="1" set="method" line="44" static="1">
 			<f a="this">
-				<c path="hl.Abstract"><c path=""/></c>
+				<c path="hl.Abstract"><c path="Suv_loop"/></c>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":hlNative">
@@ -39415,7 +39397,7 @@
 		<SeekEnd/>
 		<meta><m n=":flatEnum"/></meta>
 	</enum>
-	<typedef path="sys.io._Process.ProcessHandle" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/sys/io/Process.hx" private="1" module="sys.io.Process"><c path="hl.Abstract"><c path=""/></c></typedef>
+	<typedef path="sys.io._Process.ProcessHandle" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/sys/io/Process.hx" private="1" module="sys.io.Process"><c path="hl.Abstract"><c path="Shl_process"/></c></typedef>
 	<class path="sys.io._Process.Stdin" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/sys/io/Process.hx" private="1" module="sys.io.Process">
 		<extends path="haxe.io.Output"/>
 		<_stdin_write set="method" line="53" static="1">
@@ -40346,8 +40328,8 @@
 		</new>
 		<meta><m n=":coreApi"/></meta>
 	</class>
-	<typedef path="sys.ssl._Context.ConfigPtr" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/sys/ssl/Context.hx" private="1" module="sys.ssl.Context"><c path="hl.Abstract"><c path=""/></c></typedef>
-	<typedef path="sys.ssl._Context.ContextPtr" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/sys/ssl/Context.hx" private="1" module="sys.ssl.Context"><c path="hl.Abstract"><c path=""/></c></typedef>
+	<typedef path="sys.ssl._Context.ConfigPtr" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/sys/ssl/Context.hx" private="1" module="sys.ssl.Context"><c path="hl.Abstract"><c path="Smbedtls_ssl_config"/></c></typedef>
+	<typedef path="sys.ssl._Context.ContextPtr" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/sys/ssl/Context.hx" private="1" module="sys.ssl.Context"><c path="hl.Abstract"><c path="Smbedtls_ssl_context"/></c></typedef>
 	<class path="sys.ssl.SNICbResult" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/sys/ssl/Context.hx" module="sys.ssl.Context">
 		<cert public="1"><t path="sys.ssl.CertificatePtr"/></cert>
 		<key public="1"><t path="sys.ssl.KeyPtr"/></key>
@@ -41322,7 +41304,7 @@
 	<x path="Void"/>
 </f></new>
 	</class>
-	<typedef path="sys.thread.LockHandle" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/sys/thread/Lock.hx" module="sys.thread.Lock"><c path="hl.Abstract"><c path=""/></c></typedef>
+	<typedef path="sys.thread.LockHandle" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/sys/thread/Lock.hx" module="sys.thread.Lock"><c path="hl.Abstract"><c path="Shl_lock"/></c></typedef>
 	<class path="sys.thread.Lock" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/sys/thread/Lock.hx">
 		<lock_wait set="method" line="47" static="1"><f a="handle:?timeout">
 	<t path="sys.thread.LockHandle"/>
@@ -41483,7 +41465,7 @@
 	</processEvents>
 </class></impl>
 	</abstract>
-	<typedef path="sys.thread._Thread.ThreadHandle" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread"><c path="hl.Abstract"><c path=""/></c></typedef>
+	<typedef path="sys.thread._Thread.ThreadHandle" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread"><c path="hl.Abstract"><c path="Shl_thread"/></c></typedef>
 	<class path="sys.thread.ThreadPoolException" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/ThreadPoolException.hx">
 		<extends path="haxe.Exception"/>
 		<new public="1" set="method" line="5"><f a="message:?previous:?native">
