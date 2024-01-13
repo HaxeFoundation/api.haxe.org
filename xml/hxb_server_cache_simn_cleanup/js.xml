@@ -10150,9 +10150,10 @@
 		<extends path="haxe.Exception"/>
 		<value public="1" set="null">
 			<x path="Any"/>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Thrown value.</haxe_doc>
 		</value>
-		<unwrap set="method" line="35" override="1">
+		<unwrap set="method" line="36" override="1">
 			<f a=""><x path="Any"/></f>
 			<haxe_doc>Extract an originally thrown value.
 
@@ -10160,7 +10161,7 @@
 		Used internally for catching non-native exceptions.
 		Do _not_ override unless you know what you are doing.</haxe_doc>
 		</unwrap>
-		<new public="1" set="method" line="23"><f a="value:?previous:?native">
+		<new public="1" set="method" line="24"><f a="value:?previous:?native">
 	<x path="Any"/>
 	<c path="haxe.Exception"/>
 	<x path="Any"/>
@@ -83903,7 +83904,10 @@
 	<c path="String"/>
 	<x path="Void"/>
 </f></new>
-		<meta><m n=":native"><e>"Error"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"Error"</e></m>
+		</meta>
 	</class>
 	<class path="js.lib.EvalError" params="" file="/home/runner/work/haxe/haxe/std/js/lib/Error.hx" module="js.lib.Error" extern="1">
 		<extends path="js.lib.Error"/>
