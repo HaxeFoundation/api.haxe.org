@@ -24457,6 +24457,55 @@
 		</NetworkAuthenticationRequired>
 		<meta><m n=":enum"/></meta>
 	</class>
+	<typedef path="haxe.hxb.WriterTargetConfig" params="" file="/home/runner/work/haxe/haxe/std/haxe/hxb/WriterConfig.hx" module="haxe.hxb.WriterConfig"><a>
+	<include>
+		<x path="Null"><c path="Array"><c path="String"/></c></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>Dot paths of modules or packages to be included in the archive. This takes priority
+		over exclude. By default, all modules that aren't explicitly excluded are
+		included.</haxe_doc>
+	</include>
+	<hxbVersion>
+		<x path="Null"><x path="Int"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The hxb version to target. By default, the version of the Haxe compiler itself
+		is targeted. See https://github.com/HaxeFoundation/haxe/issues/11505</haxe_doc>
+	</hxbVersion>
+	<generateDocumentation>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>If false, no documentation</haxe_doc>
+	</generateDocumentation>
+	<generate>
+		<x path="Null"><x path="Bool"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>If `false`, this target is ignored by the writer.</haxe_doc>
+	</generate>
+	<exclude>
+		<x path="Null"><c path="Array"><c path="String"/></c></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>Dot paths of modules or packages to be exluded from the archive.</haxe_doc>
+	</exclude>
+</a></typedef>
+	<typedef path="haxe.hxb.WriterConfig" params="" file="/home/runner/work/haxe/haxe/std/haxe/hxb/WriterConfig.hx"><a>
+	<targetConfig>
+		<x path="Null"><t path="haxe.hxb.WriterTargetConfig"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The configuration for the current target context. If it is `null`, all data
+		for the target context is generated.</haxe_doc>
+	</targetConfig>
+	<macroConfig>
+		<x path="Null"><t path="haxe.hxb.WriterTargetConfig"/></x>
+		<meta><m n=":optional"/></meta>
+		<haxe_doc>The configuration for the macro context. If it is `null`, all data for the
+		macro context is generated.</haxe_doc>
+	</macroConfig>
+	<archivePath>
+		<c path="String"/>
+		<haxe_doc>The file path for the archive. Occurrences of `$target` are replaced
+		by the name of the current target (js, hl, etc.).</haxe_doc>
+	</archivePath>
+</a></typedef>
 	<typedef path="haxe.io.ArrayBufferViewData" params="" file="/home/runner/work/haxe/haxe/std/haxe/io/ArrayBufferView.hx" module="haxe.io.ArrayBufferView"><c path="haxe.io.ArrayBufferViewImpl"/></typedef>
 	<class path="haxe.io.ArrayBufferViewImpl" params="" file="/home/runner/work/haxe/haxe/std/haxe/io/ArrayBufferView.hx" module="haxe.io.ArrayBufferView">
 		<bytes public="1"><c path="haxe.io.Bytes"/></bytes>
@@ -31984,6 +32033,31 @@
 
 		@see https://haxe.org/manual/lf-condition-compilation.html</haxe_doc>
 		</getDefine>
+		<getHxbWriterConfiguration public="1" set="method" line="584" static="1">
+			<f a=""><x path="Null"><t path="haxe.hxb.WriterConfig"/></x></f>
+			<haxe_doc>Gets the current hxb writer configuration, if any.</haxe_doc>
+		</getHxbWriterConfiguration>
+		<setHxbWriterConfiguration public="1" set="method" line="609" static="1">
+			<f a="config">
+				<x path="Null"><t path="haxe.hxb.WriterConfig"/></x>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the hxb writer configuration to `config`. If no hxb writer configuration
+		exists, it is created.
+
+		The intended usage is
+
+		```
+		var config = Compiler.getHxbWriterConfiguration();
+		config.archivePath = "newPath.zip";
+		// Other changes
+		Compiler.setHxbWriterConfiguration(config);
+		```
+
+		If `config` is `null`, hxb writing is disabled.
+
+		@see haxe.hxb.WriterConfig</haxe_doc>
+		</setHxbWriterConfiguration>
 		<haxe_doc>All these methods can be called for compiler configuration macros.</haxe_doc>
 	</class>
 	<abstract path="haxe.macro.IncludePosition" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" module="haxe.macro.Compiler">
@@ -31992,7 +32066,7 @@
 		<to><icast><c path="String"/></icast></to>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1" final="1">
-	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="585" static="1">
+	<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="620" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "top"</e></m>
@@ -32001,7 +32075,7 @@
 		</meta>
 		<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 	</Top>
-	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="592" static="1">
+	<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="627" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "closure"</e></m>
@@ -32012,7 +32086,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 	</Closure>
-	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="597" static="1">
+	<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="632" static="1">
 		<x path="haxe.macro.IncludePosition"/>
 		<meta>
 			<m n=":value"><e>cast "inline"</e></m>
@@ -32025,7 +32099,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.macro._Compiler.IncludePosition_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx" private="1" module="haxe.macro.Compiler" extern="1" final="1">
-		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="585" static="1">
+		<Top public="1" get="inline" set="null" expr="cast &quot;top&quot;" line="620" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "top"</e></m>
@@ -32034,7 +32108,7 @@
 			</meta>
 			<haxe_doc>Prepend the file content to the output file.</haxe_doc>
 		</Top>
-		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="592" static="1">
+		<Closure public="1" get="inline" set="null" expr="cast &quot;closure&quot;" line="627" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "closure"</e></m>
@@ -32045,7 +32119,7 @@
 
 		Since the closure is in strict-mode, there may be run-time error if the input is not strict-mode-compatible.</haxe_doc>
 		</Closure>
-		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="597" static="1">
+		<Inline public="1" get="inline" set="null" expr="cast &quot;inline&quot;" line="632" static="1">
 			<x path="haxe.macro.IncludePosition"/>
 			<meta>
 				<m n=":value"><e>cast "inline"</e></m>
