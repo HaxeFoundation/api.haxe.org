@@ -37879,6 +37879,14 @@
 			</m>
 		</meta>
 	</class>
+	<class path="python.lib.ssl.SSLWantReadError" params="" file="/home/runner/work/haxe/haxe/std/python/lib/ssl/Errors.hx" module="python.lib.ssl.Errors" extern="1"><meta><m n=":pythonImport">
+	<e>"ssl"</e>
+	<e>"SSLWantReadError"</e>
+</m></meta></class>
+	<class path="python.lib.ssl.SSLWantWriteError" params="" file="/home/runner/work/haxe/haxe/std/python/lib/ssl/Errors.hx" module="python.lib.ssl.Errors" extern="1"><meta><m n=":pythonImport">
+	<e>"ssl"</e>
+	<e>"SSLWantWriteError"</e>
+</m></meta></class>
 	<class path="python.lib.ssl.Purpose" params="" file="/home/runner/work/haxe/haxe/std/python/lib/ssl/Purpose.hx" extern="1">
 		<SERVER_AUTH public="1" static="1"><c path="String"/></SERVER_AUTH>
 		<CLIENT_AUTH public="1" static="1"><c path="String"/></CLIENT_AUTH>
@@ -38275,7 +38283,7 @@
 		<meta><m n=":pythonImport"><e>"xml.etree.ElementTree"</e></m></meta>
 	</class>
 	<class path="sys.net.Socket" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/net/Socket.hx">
-		<select public="1" set="method" line="202" static="1">
+		<select public="1" set="method" line="212" static="1">
 			<f a="read:write:others:?timeout">
 				<c path="Array"><c path="sys.net.Socket"/></c>
 				<c path="Array"><c path="sys.net.Socket"/></c>
@@ -38311,20 +38319,20 @@
 			<haxe_doc>A custom value that can be associated with the socket. Can be used to retrieve your custom infos after a `select`.
 	*</haxe_doc>
 		</custom>
-		<__initSocket set="method" line="125"><f a=""><x path="Void"/></f></__initSocket>
-		<__rebuildIoStreams set="method" line="129"><f a=""><x path="Void"/></f></__rebuildIoStreams>
-		<close public="1" set="method" line="134">
+		<__initSocket set="method" line="135"><f a=""><x path="Void"/></f></__initSocket>
+		<__rebuildIoStreams set="method" line="139"><f a=""><x path="Void"/></f></__rebuildIoStreams>
+		<close public="1" set="method" line="144">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Closes the socket : make sure to properly close all your sockets or you will crash when you run out of file descriptors.</haxe_doc>
 		</close>
-		<read public="1" set="method" line="138">
+		<read public="1" set="method" line="148">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Read the whole data available on the socket.
 
 		*Note*: this is **not** meant to be used together with `setBlocking(false)`,
 		as it will always throw `haxe.io.Error.Blocked`. `input` methods should be used directly instead.</haxe_doc>
 		</read>
-		<write public="1" set="method" line="142">
+		<write public="1" set="method" line="152">
 			<f a="content">
 				<c path="String"/>
 				<x path="Void"/>
@@ -38335,7 +38343,7 @@
 		`haxe.io.Error.Blocked` may be thrown mid-write with no indication of how many bytes have been written.
 		`output.writeBytes()` should be used instead as it returns this information.</haxe_doc>
 		</write>
-		<connect public="1" set="method" line="146">
+		<connect public="1" set="method" line="156">
 			<f a="host:port">
 				<c path="sys.net.Host"/>
 				<x path="Int"/>
@@ -38343,14 +38351,14 @@
 			</f>
 			<haxe_doc>Connect to the given server host/port. Throw an exception in case we couldn't successfully connect.</haxe_doc>
 		</connect>
-		<listen public="1" set="method" line="151">
+		<listen public="1" set="method" line="161">
 			<f a="connections">
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Allow the socket to listen for incoming questions. The parameter tells how many pending connections we can have until they get refused. Use `accept()` to accept incoming connections.</haxe_doc>
 		</listen>
-		<shutdown public="1" set="method" line="156">
+		<shutdown public="1" set="method" line="166">
 			<f a="read:write">
 				<x path="Bool"/>
 				<x path="Bool"/>
@@ -38358,7 +38366,7 @@
 			</f>
 			<haxe_doc>Shutdown the socket, either for reading or writing.</haxe_doc>
 		</shutdown>
-		<bind public="1" set="method" line="158">
+		<bind public="1" set="method" line="168">
 			<f a="host:port">
 				<c path="sys.net.Host"/>
 				<x path="Int"/>
@@ -38366,54 +38374,54 @@
 			</f>
 			<haxe_doc>Bind the socket to the given host/port so it can afterwards listen for connections there.</haxe_doc>
 		</bind>
-		<accept public="1" set="method" line="163">
+		<accept public="1" set="method" line="173">
 			<f a=""><c path="sys.net.Socket"/></f>
 			<haxe_doc>Accept a new connected client. This will return a connected socket on which you can read/write some data.</haxe_doc>
 		</accept>
-		<peer public="1" set="method" line="172">
+		<peer public="1" set="method" line="182">
 			<f a=""><a>
 	<port><x path="Int"/></port>
 	<host><c path="sys.net.Host"/></host>
 </a></f>
 			<haxe_doc>Return the information about the other side of a connected socket.</haxe_doc>
 		</peer>
-		<host public="1" set="method" line="177">
+		<host public="1" set="method" line="187">
 			<f a=""><a>
 	<port><x path="Int"/></port>
 	<host><c path="sys.net.Host"/></host>
 </a></f>
 			<haxe_doc>Return the information about our side of a connected socket.</haxe_doc>
 		</host>
-		<setTimeout public="1" set="method" line="182">
+		<setTimeout public="1" set="method" line="192">
 			<f a="timeout">
 				<x path="Float"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Gives a timeout (in seconds) after which blocking socket operations (such as reading and writing) will abort and throw an exception.</haxe_doc>
 		</setTimeout>
-		<waitForRead public="1" set="method" line="186">
+		<waitForRead public="1" set="method" line="196">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Block until some data is available for read on the socket.</haxe_doc>
 		</waitForRead>
-		<setBlocking public="1" set="method" line="190">
+		<setBlocking public="1" set="method" line="200">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Change the blocking mode of the socket. A blocking socket is the default behavior. A non-blocking socket will abort blocking operations immediately by throwing a haxe.io.Error.Blocked value.</haxe_doc>
 		</setBlocking>
-		<setFastSend public="1" set="method" line="194">
+		<setFastSend public="1" set="method" line="204">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Allows the socket to immediately send the data when written to its output : this will cause less ping but might increase the number of packets / data size, especially when doing a lot of small writes.</haxe_doc>
 		</setFastSend>
-		<fileno set="method" line="199">
+		<fileno set="method" line="209">
 			<f a=""><x path="Int"/></f>
 			<meta><m n=":keep"/></meta>
 		</fileno>
-		<new public="1" set="method" line="119">
+		<new public="1" set="method" line="129">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new unconnected socket.</haxe_doc>
 		</new>
@@ -38969,15 +38977,15 @@
 	<class path="sys.net._Socket.SocketInput" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/net/Socket.hx" private="1" module="sys.net.Socket">
 		<extends path="haxe.io.Input"/>
 		<__s><c path="python.lib.socket.Socket"/></__s>
-		<readByte public="1" set="method" line="42" override="1"><f a=""><x path="Int"/></f></readByte>
-		<readBytes public="1" set="method" line="54" override="1"><f a="buf:pos:len">
+		<readByte public="1" set="method" line="43" override="1"><f a=""><x path="Int"/></f></readByte>
+		<readBytes public="1" set="method" line="55" override="1"><f a="buf:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></readBytes>
-		<close public="1" set="method" line="70" override="1"><f a=""><x path="Void"/></f></close>
-		<new public="1" set="method" line="38"><f a="s">
+		<close public="1" set="method" line="75" override="1"><f a=""><x path="Void"/></f></close>
+		<new public="1" set="method" line="39"><f a="s">
 	<c path="python.lib.socket.Socket"/>
 	<x path="Void"/>
 </f></new>
@@ -38986,18 +38994,18 @@
 	<class path="sys.net._Socket.SocketOutput" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/net/Socket.hx" private="1" module="sys.net.Socket">
 		<extends path="haxe.io.Output"/>
 		<__s><c path="python.lib.socket.Socket"/></__s>
-		<writeByte public="1" set="method" line="84" override="1"><f a="c">
+		<writeByte public="1" set="method" line="89" override="1"><f a="c">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></writeByte>
-		<writeBytes public="1" set="method" line="92" override="1"><f a="buf:pos:len">
+		<writeBytes public="1" set="method" line="97" override="1"><f a="buf:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></writeBytes>
-		<close public="1" set="method" line="103" override="1"><f a=""><x path="Void"/></f></close>
-		<new public="1" set="method" line="80"><f a="s">
+		<close public="1" set="method" line="113" override="1"><f a=""><x path="Void"/></f></close>
+		<new public="1" set="method" line="85"><f a="s">
 	<c path="python.lib.socket.Socket"/>
 	<x path="Void"/>
 </f></new>
