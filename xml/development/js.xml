@@ -2190,20 +2190,22 @@
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<haxe_doc>Returns the position of the leftmost occurrence of `str` within `this`
-		String.
+			<haxe_doc><![CDATA[Returns the position of the leftmost occurrence of `str` within `this` String.
 
-		If `startIndex` is given, the search is performed within the substring
-		of `this` String starting from `startIndex`.
+		If `str` is the empty String `""`, then:
+			* If `startIndex` is not specified or < 0, 0 is returned.
+			* If `startIndex >= this.length`, `this.length` is returned.
+			* Otherwise, `startIndex` is returned,
 
-		If `startIndex` exceeds `this.length`, -1 is returned.
+		Otherwise, if `startIndex` is not specified or < 0, it is treated as 0.
 
-		If `startIndex` is negative, the result is unspecifed.
+		If `startIndex >= this.length`, -1 is returned.
 
-		Otherwise the search is performed within `this` String. In either case,
-		the returned position is relative to the beginning of `this` String.
+		Otherwise the search is performed within the substring of `this` String starting
+		at `startIndex`. If `str` is found, the position of its first character in `this`
+		String relative to position 0 is returned.
 
-		If `str` cannot be found, -1 is returned.</haxe_doc>
+		If `str` cannot be found, -1 is returned.]]></haxe_doc>
 		</indexOf>
 		<lastIndexOf public="1" set="method">
 			<f a="str:?startIndex">
@@ -4163,28 +4165,16 @@
 
 		If `index` is negative or exceeds `this.length`, `null` is returned.</haxe_doc>
 	</charCodeAt>
-	<indexOf public="1" set="method" line="205" static="1">
+	<indexOf public="1" set="method" line="193" static="1">
 		<f a="this:str:?startIndex">
 			<c path="String"/>
 			<c path="String"/>
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
-		<haxe_doc>Returns the position of the leftmost occurrence of `str` within `this`
-		String.
-
-		If `startIndex` is given, the search is performed within the substring
-		of `this` String starting from `startIndex` (if `startIndex` is posivite
-		or 0) or `max(this.length + startIndex, 0)` (if `startIndex` is negative).
-
-		If `startIndex` exceeds `this.length`, -1 is returned.
-
-		Otherwise the search is performed within `this` String. In either case,
-		the returned position is relative to the beginning of `this` String.
-
-		If `str` cannot be found, -1 is returned.</haxe_doc>
+		<haxe_doc>@see String.indexOf</haxe_doc>
 	</indexOf>
-	<lastIndexOf public="1" set="method" line="261" static="1">
+	<lastIndexOf public="1" set="method" line="253" static="1">
 		<f a="this:str:?startIndex">
 			<c path="String"/>
 			<c path="String"/>
@@ -4201,7 +4191,7 @@
 
 		If `str` cannot be found, -1 is returned.</haxe_doc>
 	</lastIndexOf>
-	<substr public="1" set="method" line="320" static="1">
+	<substr public="1" set="method" line="312" static="1">
 		<f a="this:pos:?len">
 			<c path="String"/>
 			<x path="Int"/>
@@ -4222,7 +4212,7 @@
 
 		If `len` is negative, the result is unspecified.</haxe_doc>
 	</substr>
-	<substring public="1" set="method" line="375" static="1">
+	<substring public="1" set="method" line="367" static="1">
 		<f a="this:startIndex:?endIndex">
 			<c path="String"/>
 			<x path="Int"/>
@@ -4241,7 +4231,7 @@
 		If the (possibly swapped) `startIndex` exceeds `this.length`, the empty
 		String `""` is returned.</haxe_doc>
 	</substring>
-	<get_length set="method" line="420" static="1"><f a="this">
+	<get_length set="method" line="412" static="1"><f a="this">
 	<c path="String"/>
 	<x path="Int"/>
 </f></get_length>
@@ -4416,28 +4406,16 @@
 
 		If `index` is negative or exceeds `this.length`, `null` is returned.</haxe_doc>
 		</charCodeAt>
-		<indexOf public="1" set="method" line="205" static="1">
+		<indexOf public="1" set="method" line="193" static="1">
 			<f a="this:str:?startIndex">
 				<c path="String"/>
 				<c path="String"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<haxe_doc>Returns the position of the leftmost occurrence of `str` within `this`
-		String.
-
-		If `startIndex` is given, the search is performed within the substring
-		of `this` String starting from `startIndex` (if `startIndex` is posivite
-		or 0) or `max(this.length + startIndex, 0)` (if `startIndex` is negative).
-
-		If `startIndex` exceeds `this.length`, -1 is returned.
-
-		Otherwise the search is performed within `this` String. In either case,
-		the returned position is relative to the beginning of `this` String.
-
-		If `str` cannot be found, -1 is returned.</haxe_doc>
+			<haxe_doc>@see String.indexOf</haxe_doc>
 		</indexOf>
-		<lastIndexOf public="1" set="method" line="261" static="1">
+		<lastIndexOf public="1" set="method" line="253" static="1">
 			<f a="this:str:?startIndex">
 				<c path="String"/>
 				<c path="String"/>
@@ -4454,7 +4432,7 @@
 
 		If `str` cannot be found, -1 is returned.</haxe_doc>
 		</lastIndexOf>
-		<substr public="1" set="method" line="320" static="1">
+		<substr public="1" set="method" line="312" static="1">
 			<f a="this:pos:?len">
 				<c path="String"/>
 				<x path="Int"/>
@@ -4475,7 +4453,7 @@
 
 		If `len` is negative, the result is unspecified.</haxe_doc>
 		</substr>
-		<substring public="1" set="method" line="375" static="1">
+		<substring public="1" set="method" line="367" static="1">
 			<f a="this:startIndex:?endIndex">
 				<c path="String"/>
 				<x path="Int"/>
@@ -4494,7 +4472,7 @@
 		If the (possibly swapped) `startIndex` exceeds `this.length`, the empty
 		String `""` is returned.</haxe_doc>
 		</substring>
-		<get_length set="method" line="420" static="1"><f a="this">
+		<get_length set="method" line="412" static="1"><f a="this">
 	<c path="String"/>
 	<x path="Int"/>
 </f></get_length>
