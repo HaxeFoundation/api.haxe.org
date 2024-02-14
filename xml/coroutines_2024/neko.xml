@@ -2618,7 +2618,7 @@
 			<d/>
 			<meta><m n=":value"><e>neko.Lib.load("std", "string_split", 2)</e></m></meta>
 		</__split>
-		<fromCharCode public="1" set="method" line="216" static="1">
+		<fromCharCode public="1" set="method" line="225" static="1">
 			<f a="code">
 				<x path="Int"/>
 				<c path="String"/>
@@ -2665,22 +2665,24 @@
 				<x path="Int"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Returns the position of the leftmost occurrence of `str` within `this`
-		String.
+			<haxe_doc><![CDATA[Returns the position of the leftmost occurrence of `str` within `this` String.
 
-		If `startIndex` is given, the search is performed within the substring
-		of `this` String starting from `startIndex`.
+		If `str` is the empty String `""`, then:
+			* If `startIndex` is not specified or < 0, 0 is returned.
+			* If `startIndex >= this.length`, `this.length` is returned.
+			* Otherwise, `startIndex` is returned,
 
-		If `startIndex` exceeds `this.length`, -1 is returned.
+		Otherwise, if `startIndex` is not specified or < 0, it is treated as 0.
 
-		If `startIndex` is negative, the result is unspecifed.
+		If `startIndex >= this.length`, -1 is returned.
 
-		Otherwise the search is performed within `this` String. In either case,
-		the returned position is relative to the beginning of `this` String.
+		Otherwise the search is performed within the substring of `this` String starting
+		at `startIndex`. If `str` is found, the position of its first character in `this`
+		String relative to position 0 is returned.
 
-		If `str` cannot be found, -1 is returned.</haxe_doc>
+		If `str` cannot be found, -1 is returned.]]></haxe_doc>
 		</indexOf>
-		<lastIndexOf public="1" set="method" line="78">
+		<lastIndexOf public="1" set="method" line="83">
 			<f a="str:?startIndex">
 				<c path="String"/>
 				<x path="Int"/>
@@ -2699,7 +2701,7 @@
 
 		If `str` cannot be found, -1 is returned.</haxe_doc>
 		</lastIndexOf>
-		<split public="1" set="method" line="95">
+		<split public="1" set="method" line="105">
 			<f a="delimiter">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -2724,7 +2726,7 @@
 		result `Array` contains a leading (or trailing) empty String `""` element.
 		Two subsequent delimiters also result in an empty String `""` element.</haxe_doc>
 		</split>
-		<substr public="1" set="method" line="111">
+		<substr public="1" set="method" line="121">
 			<f a="pos:?len">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -2745,7 +2747,7 @@
 
 		If `len` is negative, the result is unspecified.</haxe_doc>
 		</substr>
-		<substring public="1" set="method" line="142">
+		<substring public="1" set="method" line="152">
 			<f a="startIndex:?endIndex">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -2763,35 +2765,35 @@
 		If the (possibly swapped) `startIndex` exceeds `this.length`, the empty
 		String `""` is returned.</haxe_doc>
 		</substring>
-		<toLowerCase public="1" set="method" line="166">
+		<toLowerCase public="1" set="method" line="176">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Returns a String where all characters of `this` String are lower case.</haxe_doc>
 		</toLowerCase>
-		<toUpperCase public="1" set="method" line="182">
+		<toUpperCase public="1" set="method" line="192">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Returns a String where all characters of `this` String are upper case.</haxe_doc>
 		</toUpperCase>
-		<toString public="1" set="method" line="198">
+		<toString public="1" set="method" line="208">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the String itself.</haxe_doc>
 		</toString>
-		<__compare set="method" line="203">
+		<__compare set="method" line="213">
 			<f a="o">
 				<c path="String"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</__compare>
-		<__add set="method" line="207">
+		<__add set="method" line="217">
 			<f a="s">
 				<d/>
 				<c path="String"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</__add>
-		<__radd set="method" line="211">
+		<__radd set="method" line="221">
 			<f a="s">
 				<d/>
 				<c path="String"/>
@@ -19705,11 +19707,11 @@
 	<c path="Array"><c path="String"/></c>
 	<x path="Void"/>
 </f></fieldsString>
-		<quote set="method" line="196"><f a="s">
+		<quote set="method" line="195"><f a="s">
 	<c path="String"/>
 	<x path="Void"/>
 </f></quote>
-		<quoteUtf8 set="method" line="260"><f a="s">
+		<quoteUtf8 set="method" line="259"><f a="s">
 	<c path="String"/>
 	<x path="Void"/>
 </f></quoteUtf8>
