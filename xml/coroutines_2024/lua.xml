@@ -2278,52 +2278,6 @@
 	abstract types.
 
 	@see https://haxe.org/manual/types-abstract-array-access.html</haxe_doc></class>
-	<abstract path="Coroutine" params="T" file="/home/runner/work/haxe/haxe/std/StdTypes.hx" module="StdTypes">
-		<this><x path="Coroutine"><c path="Coroutine.T"/></x></this>
-		<haxe_doc>Coroutine function.</haxe_doc>
-		<meta>
-			<m n=":callable"/>
-			<m n=":coreType"/>
-		</meta>
-		<impl><class path="_StdTypes.Coroutine_Impl_" params="" file="/home/runner/work/haxe/haxe/std/StdTypes.hx" private="1" module="StdTypes" final="1"><suspend public="1" params="T" set="method" static="1">
-	<x path="Coroutine"><f a="f">
-	<f a="cont">
-		<f a=":">
-			<c path="suspend.T"/>
-			<x path="Null"><d/></x>
-			<x path="Void"/>
-		</f>
-		<x path="Void"/>
-	</f>
-	<c path="suspend.T"/>
-</f></x>
-	<meta>
-		<m n=":noExpr"/>
-		<m n=":coroutine"/>
-	</meta>
-	<haxe_doc>Suspend running coroutine and expose the continuation callback
-		for resuming coroutine execution.</haxe_doc>
-</suspend></class></impl>
-	</abstract>
-	<class path="_StdTypes.Coroutine_Impl_" params="" file="/home/runner/work/haxe/haxe/std/StdTypes.hx" private="1" module="StdTypes" final="1"><suspend public="1" params="T" set="method" static="1">
-	<x path="Coroutine"><f a="f">
-	<f a="cont">
-		<f a=":">
-			<c path="suspend.T"/>
-			<x path="Null"><d/></x>
-			<x path="Void"/>
-		</f>
-		<x path="Void"/>
-	</f>
-	<c path="suspend.T"/>
-</f></x>
-	<meta>
-		<m n=":noExpr"/>
-		<m n=":coroutine"/>
-	</meta>
-	<haxe_doc>Suspend running coroutine and expose the continuation callback
-		for resuming coroutine execution.</haxe_doc>
-</suspend></class>
 	<typedef path="_String.BaseString" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/String.hx" private="1" module="String"><c path="lua.lib.luautf8.Utf8"/></typedef>
 	<class path="String" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/String.hx">
 		<__oldindex static="1"><f a=":">
@@ -9800,6 +9754,55 @@
 	throw new ValueException("Terrible error");
 	```</haxe_doc>
 	</class>
+	<typedef path="haxe.coro.Continuation" params="Result:Error" file="/home/runner/work/haxe/haxe/std/haxe/coro/Continuation.hx"><f a="result:error">
+	<c path="haxe.coro.Continuation.Result"/>
+	<c path="haxe.coro.Continuation.Error"/>
+	<x path="Void"/>
+</f></typedef>
+	<abstract path="haxe.coro.Coroutine" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/Coroutine.hx">
+		<this><x path="haxe.coro.Coroutine"><c path="haxe.coro.Coroutine.T"/></x></this>
+		<haxe_doc>Coroutine function.</haxe_doc>
+		<meta>
+			<m n=":callable"/>
+			<m n=":coreType"/>
+		</meta>
+		<impl><class path="haxe.coro._Coroutine.Coroutine_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/Coroutine.hx" private="1" module="haxe.coro.Coroutine" final="1"><suspend public="1" params="T" set="method" static="1">
+	<x path="haxe.coro.Coroutine"><f a="f">
+	<f a="cont">
+		<t path="haxe.coro.Continuation">
+			<c path="suspend.T"/>
+			<x path="Null"><d/></x>
+		</t>
+		<x path="Void"/>
+	</f>
+	<c path="suspend.T"/>
+</f></x>
+	<meta>
+		<m n=":noExpr"/>
+		<m n=":coroutine"/>
+	</meta>
+	<haxe_doc>Suspend running coroutine and expose the continuation callback
+		for resuming coroutine execution.</haxe_doc>
+</suspend></class></impl>
+	</abstract>
+	<class path="haxe.coro._Coroutine.Coroutine_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/Coroutine.hx" private="1" module="haxe.coro.Coroutine" final="1"><suspend public="1" params="T" set="method" static="1">
+	<x path="haxe.coro.Coroutine"><f a="f">
+	<f a="cont">
+		<t path="haxe.coro.Continuation">
+			<c path="suspend.T"/>
+			<x path="Null"><d/></x>
+		</t>
+		<x path="Void"/>
+	</f>
+	<c path="suspend.T"/>
+</f></x>
+	<meta>
+		<m n=":noExpr"/>
+		<m n=":coroutine"/>
+	</meta>
+	<haxe_doc>Suspend running coroutine and expose the continuation callback
+		for resuming coroutine execution.</haxe_doc>
+</suspend></class>
 	<class path="haxe.crypto.Adler32" params="" file="/home/runner/work/haxe/haxe/std/haxe/crypto/Adler32.hx">
 		<read public="1" set="method" line="60" static="1"><f a="i">
 	<c path="haxe.io.Input"/>
