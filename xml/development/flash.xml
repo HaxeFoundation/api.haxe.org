@@ -51891,7 +51891,7 @@
 		<this><x path="Int"/></this>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="haxe.macro._CompilationServer.ModuleCheckPolicy_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/CompilationServer.hx" private="1" module="haxe.macro.CompilationServer" extern="1" final="1">
-	<NoCheckFileTimeModification public="1" get="inline" set="null" expr="cast 0" line="31" static="1">
+	<NoFileSystemCheck public="1" get="inline" set="null" expr="cast 0" line="31" static="1">
 		<x path="haxe.macro.ModuleCheckPolicy"/>
 		<meta>
 			<m n=":value"><e>cast 0</e></m>
@@ -51899,47 +51899,31 @@
 			<m n=":enum"/>
 		</meta>
 		<haxe_doc>Disables file modification checks, avoiding some filesystem operations.</haxe_doc>
-	</NoCheckFileTimeModification>
-	<CheckFileContentModification public="1" get="inline" set="null" expr="cast 1" line="37" static="1">
+	</NoFileSystemCheck>
+	<CheckFileModificationTime public="1" get="inline" set="null" expr="cast 1" line="36" static="1">
 		<x path="haxe.macro.ModuleCheckPolicy"/>
 		<meta>
 			<m n=":value"><e>cast 1</e></m>
 			<m n=":impl"/>
 			<m n=":enum"/>
 		</meta>
-		<haxe_doc>If a file is modified, also checks if its content changed. This check
-		is not free, but useful when .hx files are auto-generated.</haxe_doc>
-	</CheckFileContentModification>
-	<NoCheckDependencies public="1" get="inline" set="null" expr="cast 2" line="47" static="1">
+		<haxe_doc>Default behavior: check last modification time.</haxe_doc>
+	</CheckFileModificationTime>
+	<CheckFileContentModification public="1" get="inline" set="null" expr="cast 2" line="42" static="1">
 		<x path="haxe.macro.ModuleCheckPolicy"/>
 		<meta>
 			<m n=":value"><e>cast 2</e></m>
 			<m n=":impl"/>
 			<m n=":enum"/>
 		</meta>
-		<haxe_doc>Disables dependency checks of the module.
-
-		This should only be used for modules that don't depend on any module that
-		might change. It is effectively a promise to the compiler that the module
-		is unaffected by changes made to other modules. If that promise is broken,
-		the compiler is sad and things probably stop working.</haxe_doc>
-	</NoCheckDependencies>
-	<NoCheckShadowing public="1" get="inline" set="null" expr="cast 3" line="54" static="1">
-		<x path="haxe.macro.ModuleCheckPolicy"/>
-		<meta>
-			<m n=":value"><e>cast 3</e></m>
-			<m n=":impl"/>
-			<m n=":enum"/>
-		</meta>
-		<haxe_doc>Disables file shadowing checks. Shadowing can occur when a new file
-		is added to a class-path that has higher priority than the class-path
-		of the current module file.</haxe_doc>
-	</NoCheckShadowing>
+		<haxe_doc>If a file is modified, also checks if its content changed. This check
+		is not free, but useful when .hx files are auto-generated.</haxe_doc>
+	</CheckFileContentModification>
 	<meta><m n=":enum"/></meta>
 </class></impl>
 	</abstract>
 	<class path="haxe.macro._CompilationServer.ModuleCheckPolicy_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/CompilationServer.hx" private="1" module="haxe.macro.CompilationServer" extern="1" final="1">
-		<NoCheckFileTimeModification public="1" get="inline" set="null" expr="cast 0" line="31" static="1">
+		<NoFileSystemCheck public="1" get="inline" set="null" expr="cast 0" line="31" static="1">
 			<x path="haxe.macro.ModuleCheckPolicy"/>
 			<meta>
 				<m n=":value"><e>cast 0</e></m>
@@ -51947,106 +51931,26 @@
 				<m n=":enum"/>
 			</meta>
 			<haxe_doc>Disables file modification checks, avoiding some filesystem operations.</haxe_doc>
-		</NoCheckFileTimeModification>
-		<CheckFileContentModification public="1" get="inline" set="null" expr="cast 1" line="37" static="1">
+		</NoFileSystemCheck>
+		<CheckFileModificationTime public="1" get="inline" set="null" expr="cast 1" line="36" static="1">
 			<x path="haxe.macro.ModuleCheckPolicy"/>
 			<meta>
 				<m n=":value"><e>cast 1</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+			<haxe_doc>Default behavior: check last modification time.</haxe_doc>
+		</CheckFileModificationTime>
+		<CheckFileContentModification public="1" get="inline" set="null" expr="cast 2" line="42" static="1">
+			<x path="haxe.macro.ModuleCheckPolicy"/>
+			<meta>
+				<m n=":value"><e>cast 2</e></m>
 				<m n=":impl"/>
 				<m n=":enum"/>
 			</meta>
 			<haxe_doc>If a file is modified, also checks if its content changed. This check
 		is not free, but useful when .hx files are auto-generated.</haxe_doc>
 		</CheckFileContentModification>
-		<NoCheckDependencies public="1" get="inline" set="null" expr="cast 2" line="47" static="1">
-			<x path="haxe.macro.ModuleCheckPolicy"/>
-			<meta>
-				<m n=":value"><e>cast 2</e></m>
-				<m n=":impl"/>
-				<m n=":enum"/>
-			</meta>
-			<haxe_doc>Disables dependency checks of the module.
-
-		This should only be used for modules that don't depend on any module that
-		might change. It is effectively a promise to the compiler that the module
-		is unaffected by changes made to other modules. If that promise is broken,
-		the compiler is sad and things probably stop working.</haxe_doc>
-		</NoCheckDependencies>
-		<NoCheckShadowing public="1" get="inline" set="null" expr="cast 3" line="54" static="1">
-			<x path="haxe.macro.ModuleCheckPolicy"/>
-			<meta>
-				<m n=":value"><e>cast 3</e></m>
-				<m n=":impl"/>
-				<m n=":enum"/>
-			</meta>
-			<haxe_doc>Disables file shadowing checks. Shadowing can occur when a new file
-		is added to a class-path that has higher priority than the class-path
-		of the current module file.</haxe_doc>
-		</NoCheckShadowing>
-		<meta><m n=":enum"/></meta>
-	</class>
-	<abstract path="haxe.macro.ContextOptions" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/CompilationServer.hx" module="haxe.macro.CompilationServer">
-		<this><x path="Int"/></this>
-		<meta><m n=":enum"/></meta>
-		<impl><class path="haxe.macro._CompilationServer.ContextOptions_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/CompilationServer.hx" private="1" module="haxe.macro.CompilationServer" extern="1" final="1">
-	<NormalContext public="1" get="inline" set="null" expr="cast 0" line="61" static="1">
-		<x path="haxe.macro.ContextOptions"/>
-		<meta>
-			<m n=":value"><e>cast 0</e></m>
-			<m n=":impl"/>
-			<m n=":enum"/>
-		</meta>
-		<haxe_doc>Affects only the normal context.</haxe_doc>
-	</NormalContext>
-	<MacroContext public="1" get="inline" set="null" expr="cast 1" line="66" static="1">
-		<x path="haxe.macro.ContextOptions"/>
-		<meta>
-			<m n=":value"><e>cast 1</e></m>
-			<m n=":impl"/>
-			<m n=":enum"/>
-		</meta>
-		<haxe_doc>Affects only the macro context.</haxe_doc>
-	</MacroContext>
-	<NormalAndMacroContext public="1" get="inline" set="null" expr="cast 2" line="71" static="1">
-		<x path="haxe.macro.ContextOptions"/>
-		<meta>
-			<m n=":value"><e>cast 2</e></m>
-			<m n=":impl"/>
-			<m n=":enum"/>
-		</meta>
-		<haxe_doc>Affects the normal and macro contexts.</haxe_doc>
-	</NormalAndMacroContext>
-	<meta><m n=":enum"/></meta>
-</class></impl>
-	</abstract>
-	<class path="haxe.macro._CompilationServer.ContextOptions_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/CompilationServer.hx" private="1" module="haxe.macro.CompilationServer" extern="1" final="1">
-		<NormalContext public="1" get="inline" set="null" expr="cast 0" line="61" static="1">
-			<x path="haxe.macro.ContextOptions"/>
-			<meta>
-				<m n=":value"><e>cast 0</e></m>
-				<m n=":impl"/>
-				<m n=":enum"/>
-			</meta>
-			<haxe_doc>Affects only the normal context.</haxe_doc>
-		</NormalContext>
-		<MacroContext public="1" get="inline" set="null" expr="cast 1" line="66" static="1">
-			<x path="haxe.macro.ContextOptions"/>
-			<meta>
-				<m n=":value"><e>cast 1</e></m>
-				<m n=":impl"/>
-				<m n=":enum"/>
-			</meta>
-			<haxe_doc>Affects only the macro context.</haxe_doc>
-		</MacroContext>
-		<NormalAndMacroContext public="1" get="inline" set="null" expr="cast 2" line="71" static="1">
-			<x path="haxe.macro.ContextOptions"/>
-			<meta>
-				<m n=":value"><e>cast 2</e></m>
-				<m n=":impl"/>
-				<m n=":enum"/>
-			</meta>
-			<haxe_doc>Affects the normal and macro contexts.</haxe_doc>
-		</NormalAndMacroContext>
 		<meta><m n=":enum"/></meta>
 	</class>
 	<class path="haxe.macro.CompilationServer" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/CompilationServer.hx"><haxe_doc>This class provides some methods which can be invoked from command line using
