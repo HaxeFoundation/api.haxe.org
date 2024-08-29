@@ -19401,12 +19401,15 @@
 			<m n=":coreApi"/>
 		</meta>
 	</class>
-	<typedef path="haxe.ds._Vector.VectorData" params="T" file="/home/runner/work/haxe/haxe/std/hl/_std/haxe/ds/Vector.hx" private="1" module="haxe.ds.Vector"><c path="Array"><c path="haxe.ds._Vector.VectorData.T"/></c></typedef>
-	<abstract path="haxe.ds.Vector" params="T" file="/home/runner/work/haxe/haxe/std/hl/_std/haxe/ds/Vector.hx">
+	<typedef path="haxe.ds._Vector.VectorData" params="T" file="/home/runner/work/haxe/haxe/std/haxe/ds/Vector.hx" private="1" module="haxe.ds.Vector"><x path="hl.NativeArray"><c path="haxe.ds._Vector.VectorData.T"/></x></typedef>
+	<abstract path="haxe.ds.Vector" params="T" file="/home/runner/work/haxe/haxe/std/haxe/ds/Vector.hx">
 		<this><t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t></this>
-		<meta><m n=":coreApi"/></meta>
-		<impl><class path="haxe.ds._Vector.Vector_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/haxe/ds/Vector.hx" private="1" module="haxe.ds.Vector" final="1">
-	<_new public="1" get="inline" set="null" line="29" static="1">
+		<haxe_doc>A Vector is a storage of fixed size. It can be faster than Array on some
+	targets, and is never slower.
+
+	@see https://haxe.org/manual/std-vector.html</haxe_doc>
+		<impl><class path="haxe.ds._Vector.Vector_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/ds/Vector.hx" private="1" module="haxe.ds.Vector" final="1">
+	<_new public="1" get="inline" set="null" line="57" static="1">
 		<f a="length">
 			<x path="Int"/>
 			<x path="haxe.ds.Vector"><c path="haxe.ds.Vector.T"/></x>
@@ -19421,16 +19424,21 @@
 		- null for other types on static targets
 
 		If `length` is less than or equal to 0, the result is unspecified.</haxe_doc>
-		<overloads><_new public="1" get="inline" set="null" line="35">
+		<overloads><_new public="1" get="inline" set="null" line="89">
 	<f a="length:defaultValue">
 		<x path="Int"/>
 		<c path="haxe.ds.Vector.T"/>
 		<x path="haxe.ds.Vector"><c path="haxe.ds.Vector.T"/></x>
 	</f>
 	<meta><m n=":noCompletion"/></meta>
+	<haxe_doc>Creates a new Vector of length `length` filled with `defaultValue` elements.
+
+		Can be faster than `new Vector(length)` for iteration on some targets for non-nullable elements.
+
+		If `length` is less than or equal to 0, the result is unspecified.</haxe_doc>
 </_new></overloads>
 	</_new>
-	<get public="1" get="inline" set="null" line="41" static="1">
+	<get public="1" get="inline" set="null" line="123" static="1">
 		<f a="this:index">
 			<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 			<x path="Int"/>
@@ -19442,7 +19450,7 @@
 		If `index` is negative or exceeds `this.length`, the result is
 		unspecified.</haxe_doc>
 	</get>
-	<set public="1" get="inline" set="null" line="45" static="1">
+	<set public="1" get="inline" set="null" line="141" static="1">
 		<f a="this:index:val">
 			<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 			<x path="Int"/>
@@ -19459,11 +19467,14 @@
 		<x path="Int"/>
 		<haxe_doc>Returns the length of `this` Vector.</haxe_doc>
 	</length>
-	<get_length get="inline" set="null" line="51" static="1"><f a="this">
-	<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
-	<x path="Int"/>
-</f></get_length>
-	<fill public="1" get="inline" set="null" line="56" static="1">
+	<get_length get="inline" set="null" line="158" static="1">
+		<f a="this">
+			<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":has_untyped"/></meta>
+	</get_length>
+	<fill public="1" get="inline" set="null" line="174" static="1">
 		<f a="this:value">
 			<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 			<c path="haxe.ds.Vector.T"/>
@@ -19471,7 +19482,7 @@
 		</f>
 		<haxe_doc>Sets all `length` elements of `this` Vector to `value`.</haxe_doc>
 	</fill>
-	<blit public="1" params="T" get="inline" set="null" line="58" static="1">
+	<blit public="1" params="T" get="inline" set="null" line="184" static="1">
 		<f a="src:srcPos:dest:destPos:len">
 			<x path="haxe.ds.Vector"><c path="blit.T"/></x>
 			<x path="Int"/>
@@ -19486,14 +19497,14 @@
 		The results are unspecified if `length` results in out-of-bounds access,
 		or if `src` or `dest` are null</haxe_doc>
 	</blit>
-	<toArray public="1" get="inline" set="null" line="62" static="1">
+	<toArray public="1" get="inline" set="null" line="223" static="1">
 		<f a="this">
 			<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 			<c path="Array"><c path="haxe.ds.Vector.T"/></c>
 		</f>
 		<haxe_doc>Creates a new Array, copy the content from the Vector to it, and returns it.</haxe_doc>
 	</toArray>
-	<toData public="1" get="inline" set="null" line="67" static="1">
+	<toData public="1" get="inline" set="null" line="252" static="1">
 		<f a="this">
 			<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 			<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
@@ -19502,7 +19513,7 @@
 
 		This returns the internal representation type.</haxe_doc>
 	</toData>
-	<fromData public="1" params="T" get="inline" set="null" line="70" static="1">
+	<fromData public="1" params="T" get="inline" set="null" line="262" static="1">
 		<f a="data">
 			<t path="haxe.ds._Vector.VectorData"><c path="fromData.T"/></t>
 			<x path="haxe.ds.Vector"><c path="fromData.T"/></x>
@@ -19513,7 +19524,7 @@
 
 		If `data` is null, the corresponding Vector is also `null`.</haxe_doc>
 	</fromData>
-	<fromArrayCopy public="1" params="T" get="inline" set="null" line="72" static="1">
+	<fromArrayCopy public="1" params="T" get="inline" set="null" line="275" static="1">
 		<f a="array">
 			<c path="Array"><c path="fromArrayCopy.T"/></c>
 			<x path="haxe.ds.Vector"><c path="fromArrayCopy.T"/></x>
@@ -19528,7 +19539,7 @@
 
 		If `array` is null, the result is unspecified.</haxe_doc>
 	</fromArrayCopy>
-	<copy public="1" params="T" get="inline" set="null" line="76" static="1">
+	<copy public="1" params="T" get="inline" set="null" line="304" static="1">
 		<f a="this">
 			<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 			<x path="haxe.ds.Vector"><c path="copy.T"/></x>
@@ -19539,7 +19550,7 @@
 		`a[i] == a.copy()[i]` is true for any valid `i`. However,
 		`a == a.copy()` is always false.</haxe_doc>
 	</copy>
-	<join public="1" params="T" get="inline" set="null" line="80" static="1">
+	<join public="1" params="T" get="inline" set="null" line="327" static="1">
 		<f a="this:sep">
 			<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 			<c path="String"/>
@@ -19557,7 +19568,22 @@
 
 		If `sep` is null, the result is unspecified.</haxe_doc>
 	</join>
-	<sort public="1" get="inline" set="null" line="84" static="1">
+	<map public="1" params="S" get="inline" set="null" line="350" static="1">
+		<f a="this:f">
+			<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
+			<f a="">
+				<c path="haxe.ds.Vector.T"/>
+				<c path="map.S"/>
+			</f>
+			<x path="haxe.ds.Vector"><c path="map.S"/></x>
+		</f>
+		<haxe_doc>Creates a new Vector by applying function `f` to all elements of `this`.
+
+		The order of elements is preserved.
+
+		If `f` is null, the result is unspecified.</haxe_doc>
+	</map>
+	<sort public="1" get="inline" set="null" line="377" static="1">
 		<f a="this:f">
 			<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 			<f a=":">
@@ -19578,26 +19604,10 @@
 
 		If `f` is null, the result is unspecified.]]></haxe_doc>
 	</sort>
-	<map public="1" params="S" get="inline" set="null" line="88" static="1">
-		<f a="this:f">
-			<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
-			<f a="">
-				<c path="haxe.ds.Vector.T"/>
-				<c path="map.S"/>
-			</f>
-			<x path="haxe.ds.Vector"><c path="map.S"/></x>
-		</f>
-		<haxe_doc>Creates a new Vector by applying function `f` to all elements of `this`.
-
-		The order of elements is preserved.
-
-		If `f` is null, the result is unspecified.</haxe_doc>
-	</map>
-	<meta><m n=":coreApi"/></meta>
 </class></impl>
 	</abstract>
-	<class path="haxe.ds._Vector.Vector_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/haxe/ds/Vector.hx" private="1" module="haxe.ds.Vector" final="1">
-		<_new public="1" get="inline" set="null" line="29" static="1">
+	<class path="haxe.ds._Vector.Vector_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/ds/Vector.hx" private="1" module="haxe.ds.Vector" final="1">
+		<_new public="1" get="inline" set="null" line="57" static="1">
 			<f a="length">
 				<x path="Int"/>
 				<x path="haxe.ds.Vector"><c path="haxe.ds.Vector.T"/></x>
@@ -19612,16 +19622,21 @@
 		- null for other types on static targets
 
 		If `length` is less than or equal to 0, the result is unspecified.</haxe_doc>
-			<overloads><_new public="1" get="inline" set="null" line="35">
+			<overloads><_new public="1" get="inline" set="null" line="89">
 	<f a="length:defaultValue">
 		<x path="Int"/>
 		<c path="haxe.ds.Vector.T"/>
 		<x path="haxe.ds.Vector"><c path="haxe.ds.Vector.T"/></x>
 	</f>
 	<meta><m n=":noCompletion"/></meta>
+	<haxe_doc>Creates a new Vector of length `length` filled with `defaultValue` elements.
+
+		Can be faster than `new Vector(length)` for iteration on some targets for non-nullable elements.
+
+		If `length` is less than or equal to 0, the result is unspecified.</haxe_doc>
 </_new></overloads>
 		</_new>
-		<get public="1" get="inline" set="null" line="41" static="1">
+		<get public="1" get="inline" set="null" line="123" static="1">
 			<f a="this:index">
 				<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 				<x path="Int"/>
@@ -19633,7 +19648,7 @@
 		If `index` is negative or exceeds `this.length`, the result is
 		unspecified.</haxe_doc>
 		</get>
-		<set public="1" get="inline" set="null" line="45" static="1">
+		<set public="1" get="inline" set="null" line="141" static="1">
 			<f a="this:index:val">
 				<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 				<x path="Int"/>
@@ -19650,11 +19665,14 @@
 			<x path="Int"/>
 			<haxe_doc>Returns the length of `this` Vector.</haxe_doc>
 		</length>
-		<get_length get="inline" set="null" line="51" static="1"><f a="this">
-	<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
-	<x path="Int"/>
-</f></get_length>
-		<fill public="1" get="inline" set="null" line="56" static="1">
+		<get_length get="inline" set="null" line="158" static="1">
+			<f a="this">
+				<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</get_length>
+		<fill public="1" get="inline" set="null" line="174" static="1">
 			<f a="this:value">
 				<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 				<c path="haxe.ds.Vector.T"/>
@@ -19662,7 +19680,7 @@
 			</f>
 			<haxe_doc>Sets all `length` elements of `this` Vector to `value`.</haxe_doc>
 		</fill>
-		<blit public="1" params="T" get="inline" set="null" line="58" static="1">
+		<blit public="1" params="T" get="inline" set="null" line="184" static="1">
 			<f a="src:srcPos:dest:destPos:len">
 				<x path="haxe.ds.Vector"><c path="blit.T"/></x>
 				<x path="Int"/>
@@ -19677,14 +19695,14 @@
 		The results are unspecified if `length` results in out-of-bounds access,
 		or if `src` or `dest` are null</haxe_doc>
 		</blit>
-		<toArray public="1" get="inline" set="null" line="62" static="1">
+		<toArray public="1" get="inline" set="null" line="223" static="1">
 			<f a="this">
 				<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 				<c path="Array"><c path="haxe.ds.Vector.T"/></c>
 			</f>
 			<haxe_doc>Creates a new Array, copy the content from the Vector to it, and returns it.</haxe_doc>
 		</toArray>
-		<toData public="1" get="inline" set="null" line="67" static="1">
+		<toData public="1" get="inline" set="null" line="252" static="1">
 			<f a="this">
 				<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 				<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
@@ -19693,7 +19711,7 @@
 
 		This returns the internal representation type.</haxe_doc>
 		</toData>
-		<fromData public="1" params="T" get="inline" set="null" line="70" static="1">
+		<fromData public="1" params="T" get="inline" set="null" line="262" static="1">
 			<f a="data">
 				<t path="haxe.ds._Vector.VectorData"><c path="fromData.T"/></t>
 				<x path="haxe.ds.Vector"><c path="fromData.T"/></x>
@@ -19704,7 +19722,7 @@
 
 		If `data` is null, the corresponding Vector is also `null`.</haxe_doc>
 		</fromData>
-		<fromArrayCopy public="1" params="T" get="inline" set="null" line="72" static="1">
+		<fromArrayCopy public="1" params="T" get="inline" set="null" line="275" static="1">
 			<f a="array">
 				<c path="Array"><c path="fromArrayCopy.T"/></c>
 				<x path="haxe.ds.Vector"><c path="fromArrayCopy.T"/></x>
@@ -19719,7 +19737,7 @@
 
 		If `array` is null, the result is unspecified.</haxe_doc>
 		</fromArrayCopy>
-		<copy public="1" params="T" get="inline" set="null" line="76" static="1">
+		<copy public="1" params="T" get="inline" set="null" line="304" static="1">
 			<f a="this">
 				<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 				<x path="haxe.ds.Vector"><c path="copy.T"/></x>
@@ -19730,7 +19748,7 @@
 		`a[i] == a.copy()[i]` is true for any valid `i`. However,
 		`a == a.copy()` is always false.</haxe_doc>
 		</copy>
-		<join public="1" params="T" get="inline" set="null" line="80" static="1">
+		<join public="1" params="T" get="inline" set="null" line="327" static="1">
 			<f a="this:sep">
 				<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 				<c path="String"/>
@@ -19748,7 +19766,22 @@
 
 		If `sep` is null, the result is unspecified.</haxe_doc>
 		</join>
-		<sort public="1" get="inline" set="null" line="84" static="1">
+		<map public="1" params="S" get="inline" set="null" line="350" static="1">
+			<f a="this:f">
+				<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
+				<f a="">
+					<c path="haxe.ds.Vector.T"/>
+					<c path="map.S"/>
+				</f>
+				<x path="haxe.ds.Vector"><c path="map.S"/></x>
+			</f>
+			<haxe_doc>Creates a new Vector by applying function `f` to all elements of `this`.
+
+		The order of elements is preserved.
+
+		If `f` is null, the result is unspecified.</haxe_doc>
+		</map>
+		<sort public="1" get="inline" set="null" line="377" static="1">
 			<f a="this:f">
 				<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
 				<f a=":">
@@ -19769,22 +19802,6 @@
 
 		If `f` is null, the result is unspecified.]]></haxe_doc>
 		</sort>
-		<map public="1" params="S" get="inline" set="null" line="88" static="1">
-			<f a="this:f">
-				<t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t>
-				<f a="">
-					<c path="haxe.ds.Vector.T"/>
-					<c path="map.S"/>
-				</f>
-				<x path="haxe.ds.Vector"><c path="map.S"/></x>
-			</f>
-			<haxe_doc>Creates a new Vector by applying function `f` to all elements of `this`.
-
-		The order of elements is preserved.
-
-		If `f` is null, the result is unspecified.</haxe_doc>
-		</map>
-		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="haxe.ds.WeakMap" params="K:V" file="/home/runner/work/haxe/haxe/std/haxe/ds/WeakMap.hx">
 		<implements path="haxe.IMap">
