@@ -62436,6 +62436,28 @@
 			</f>
 			<haxe_doc>@throws DOMError</haxe_doc>
 		</revokeObjectURL>
+		<canParse public="1" set="method" static="1">
+			<f a="url:?base">
+				<c path="String"/>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<c path="js.html.URL"/>
+				</x>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Returns a boolean indicating whether or not an absolute URL, or a relative URL combined with a base URL, are parsable and valid.</haxe_doc>
+		</canParse>
+		<parse public="1" set="method" static="1">
+			<f a="url:?base">
+				<c path="String"/>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<c path="js.html.URL"/>
+				</x>
+				<x path="Null"><c path="js.html.URL"/></x>
+			</f>
+			<haxe_doc>Returns a newly created `URL` object representing the URL defined by the parameters.</haxe_doc>
+		</parse>
 		<href public="1">
 			<c path="String"/>
 			<haxe_doc>Is a `DOMString` containing the whole URL.</haxe_doc>
@@ -62484,11 +62506,21 @@
 			<c path="String"/>
 			<haxe_doc>Is a `DOMString` containing a `'#'` followed by the fragment identifier of the URL.</haxe_doc>
 		</hash>
-		<toJSON public="1" set="method"><f a=""><c path="String"/></f></toJSON>
+		<toJSON public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns a JSON representation of this URL.</haxe_doc>
+		</toJSON>
+		<toString public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns a string representation of this URL.</haxe_doc>
+		</toString>
 		<new public="1" set="method">
 			<f a="url:?base">
 				<c path="String"/>
-				<c path="String"/>
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<c path="js.html.URL"/>
+				</x>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>@throws DOMError</haxe_doc>
