@@ -10035,27 +10035,65 @@
 		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
 		<clear public="1" set="method"><f a=""><x path="Void"/></f></clear>
 	</class>
+	<class path="haxe._Copy.ObjectCache" params="K" file="/home/runner/work/haxe/haxe/std/haxe/Copy.hx" private="1" module="haxe.Copy">
+		<cache><c path="haxe.ds.ObjectMap">
+	<c path="haxe._Copy.ObjectCache.K"/>
+	<c path="haxe._Copy.ObjectCache.K"/>
+</c></cache>
+		<get public="1" get="inline" set="null" line="44"><f a="k">
+	<c path="haxe._Copy.ObjectCache.K"/>
+	<x path="Null"><c path="haxe._Copy.ObjectCache.K"/></x>
+</f></get>
+		<set public="1" get="inline" set="null" line="48"><f a="k:v">
+	<c path="haxe._Copy.ObjectCache.K"/>
+	<c path="haxe._Copy.ObjectCache.K"/>
+	<x path="Void"/>
+</f></set>
+		<new public="1" set="method" line="40"><f a=""><x path="Void"/></f></new>
+	</class>
 	<class path="haxe.Copy" params="" file="/home/runner/work/haxe/haxe/std/haxe/Copy.hx">
-		<copy public="1" params="T" set="method" line="159" static="1"><f a="v">
-	<c path="copy.T"/>
-	<c path="copy.T"/>
-</f></copy>
-		<cacheMap><c path="Array"><d/></c></cacheMap>
-		<cache><c path="Array"><d/></c></cache>
-		<copyValue public="1" set="method" line="12"><f a="v">
-	<d/>
-	<d/>
+		<copy public="1" params="T" set="method" line="233" static="1">
+			<f a="v">
+				<c path="copy.T"/>
+				<c path="copy.T"/>
+			</f>
+			<haxe_doc>Creates a deep copy of `v`.
+
+		The following values remain unchanged:
+
+		* null
+		* numeric values
+		* boolean values
+		* strings
+		* functions
+		* type and enum references (e.g. `haxe.Copy`, `haxe.ds.Option`)
+		* instances of Date
+		* enum values without arguments
+
+		Any other value `v` is recursively copied, ensuring
+		that `v != copy(v)` holds.</haxe_doc>
+		</copy>
+		<cache><c path="haxe._Copy.ObjectCache"><a/></c></cache>
+		<workList><c path="Array"><f a=""><x path="Void"/></f></c></workList>
+		<defer set="method" line="63"><f a="f">
+	<f a=""><x path="Void"/></f>
+	<x path="Void"/>
+</f></defer>
+		<copyValue params="T:O" set="method" line="68"><f a="v">
+	<c path="copyValue.T"/>
+	<c path="copyValue.T"/>
 </f></copyValue>
-		<getRefIndex set="method" line="135"><f a="v">
-	<d/>
-	<x path="Int"/>
-</f></getRefIndex>
-		<copyFields set="method" line="152"><f a="v:nv">
+		<getRef params="T" get="inline" set="null" line="185"><f a="v">
+	<c path="getRef.T"/>
+	<c path="getRef.T"/>
+</f></getRef>
+		<copyFields set="method" line="189"><f a="v:nv">
 	<d/>
 	<d/>
 	<x path="Void"/>
 </f></copyFields>
-		<new public="1" set="method" line="7"><f a=""><x path="Void"/></f></new>
+		<finalize set="method" line="196"><f a=""><x path="Void"/></f></finalize>
+		<new set="method" line="58"><f a=""><x path="Void"/></f></new>
 	</class>
 	<abstract path="haxe.DynamicAccess" params="T" file="/home/runner/work/haxe/haxe/std/haxe/DynamicAccess.hx">
 		<from><icast><d><c path="haxe.DynamicAccess.T"/></d></icast></from>
@@ -13883,16 +13921,16 @@
 			<x path="Null"><x path="Any"/></x>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</BASE64_CODES>
-		<run public="1" set="method" line="582" static="1">
+		<run public="1" set="method" line="571" static="1">
 			<f a="v">
 				<d/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Serializes `v` and returns the String representation.
-
-	This is a convenience function for creating a new instance of
-	Serializer, serialize `v` into it and obtain the result through a call
-	to `toString()`.</haxe_doc>
+	
+		This is a convenience function for creating a new instance of
+		Serializer, serialize `v` into it and obtain the result through a call
+		to `toString()`.</haxe_doc>
 		</run>
 		<buf><c path="StringBuf"/></buf>
 		<cache><c path="Array"><d/></c></cache>
@@ -13921,34 +13959,34 @@
 	<c path="String"/>
 	<x path="Void"/>
 </f></serializeString>
-		<serializeRef set="method" line="174"><f a="v">
+		<serializeRef set="method" line="169"><f a="v">
 	<d/>
 	<x path="Bool"/>
 </f></serializeRef>
-		<serializeFields set="method" line="211"><f a="v">
+		<serializeFields set="method" line="206"><f a="v">
 	<a/>
 	<x path="Void"/>
 </f></serializeFields>
-		<serialize public="1" set="method" line="229">
+		<serialize public="1" set="method" line="224">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Serializes `v`.
-
-	All haxe-defined values and objects with the exception of functions can
-	be serialized. Serialization of external/native objects is not
-	guaranteed to work.
-
-	The values of `this.useCache` and `this.useEnumIndex` may affect
-	serialization output.</haxe_doc>
+	
+		All haxe-defined values and objects with the exception of functions can
+		be serialized. Serialization of external/native objects is not
+		guaranteed to work.
+	
+		The values of `this.useCache` and `this.useEnumIndex` may affect
+		serialization output.</haxe_doc>
 		</serialize>
-		<__getField get="inline" set="null" line="557"><f a="o:f">
+		<__getField get="inline" set="null" line="546"><f a="o:f">
 	<d/>
 	<c path="String"/>
 	<d/>
 </f></__getField>
-		<serializeException public="1" set="method" line="559"><f a="e">
+		<serializeException public="1" set="method" line="548"><f a="e">
 	<d/>
 	<x path="Void"/>
 </f></serializeException>
