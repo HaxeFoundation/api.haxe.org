@@ -2383,7 +2383,7 @@
 
 	@see https://haxe.org/manual/types-abstract-array-access.html</haxe_doc></class>
 	<class path="String" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/String.hx">
-		<fromCharCode public="1" set="method" line="180" static="1">
+		<fromCharCode public="1" set="method" line="178" static="1">
 			<f a="code">
 				<x path="Int"/>
 				<c path="String"/>
@@ -2393,7 +2393,7 @@
 		If `code` is negative or has another invalid value, the result is
 		unspecified.</haxe_doc>
 		</fromCharCode>
-		<__alloc__ get="inline" set="null" line="219" static="1">
+		<__alloc__ get="inline" set="null" line="214" static="1">
 			<f a="b:length">
 				<x path="hl.Bytes"/>
 				<x path="Int"/>
@@ -2404,28 +2404,39 @@
 				<m n=":keep"/>
 			</meta>
 		</__alloc__>
-		<call_toString set="method" line="226" static="1">
+		<call_toString set="method" line="221" static="1">
 			<f a="v">
 				<d/>
 				<x path="hl.Bytes"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</call_toString>
-		<fromUCS2 get="inline" set="null" line="231" static="1">
+		<fromUCS2 get="inline" set="null" line="226" static="1">
 			<f a="b">
 				<x path="hl.Bytes"/>
 				<c path="String"/>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</fromUCS2>
-		<fromUTF8 set="method" line="238" static="1">
+		<fromUTF8 set="method" line="233" static="1">
 			<f a="b">
 				<x path="hl.Bytes"/>
 				<c path="String"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</fromUTF8>
-		<__add__ set="method" line="244" static="1">
+		<CHARS expr="new hl.NativeArray&lt;String&gt;(256)" line="243" static="1">
+			<x path="hl.NativeArray"><c path="String"/></x>
+			<meta><m n=":value"><e><![CDATA[new hl.NativeArray<String>(256)]]></e></m></meta>
+		</CHARS>
+		<__char__ set="method" line="244" static="1">
+			<f a="code">
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</__char__>
+		<__add__ set="method" line="262" static="1">
 			<f a="a:b">
 				<c path="String"/>
 				<c path="String"/>
@@ -2456,7 +2467,7 @@
 		If `index` is negative or exceeds `this.length`, the empty String `""`
 		is returned.</haxe_doc>
 		</charAt>
-		<charCodeAt public="1" set="method" line="50">
+		<charCodeAt public="1" set="method" line="47">
 			<f a="index">
 				<x path="Int"/>
 				<x path="Null"><x path="Int"/></x>
@@ -2469,14 +2480,14 @@
 		used instead to inline the character code at compile time. Note that
 		this only works on String literals of length 1.</haxe_doc>
 		</charCodeAt>
-		<findChar get="inline" set="null" line="57"><f a="start:len:src:srcLen">
+		<findChar get="inline" set="null" line="54"><f a="start:len:src:srcLen">
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="hl.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></findChar>
-		<indexOf public="1" set="method" line="68">
+		<indexOf public="1" set="method" line="65">
 			<f a="str:?startIndex">
 				<c path="String"/>
 				<x path="Int"/>
@@ -2499,7 +2510,7 @@
 
 		If `str` cannot be found, -1 is returned.]]></haxe_doc>
 		</indexOf>
-		<lastIndexOf public="1" set="method" line="81">
+		<lastIndexOf public="1" set="method" line="78">
 			<f a="str:?startIndex">
 				<c path="String"/>
 				<x path="Int"/>
@@ -2517,7 +2528,7 @@
 
 		If `str` cannot be found, -1 is returned.</haxe_doc>
 		</lastIndexOf>
-		<split public="1" set="method" line="100">
+		<split public="1" set="method" line="97">
 			<f a="delimiter">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -2541,7 +2552,7 @@
 		result `Array` contains a leading (or trailing) empty String `""` element.
 		Two subsequent delimiters also result in an empty String `""` element.</haxe_doc>
 		</split>
-		<substr public="1" set="method" line="126">
+		<substr public="1" set="method" line="123">
 			<f a="pos:?len">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -2561,7 +2572,7 @@
 
 		If `len` is negative, the result is unspecified.</haxe_doc>
 		</substr>
-		<substring public="1" set="method" line="153">
+		<substring public="1" set="method" line="151">
 			<f a="startIndex:?endIndex">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -2579,16 +2590,16 @@
 		If the (possibly swapped) `startIndex` exceeds `this.length`, the empty
 		String `""` is returned.</haxe_doc>
 		</substring>
-		<toString public="1" set="method" line="176">
+		<toString public="1" set="method" line="174">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the String itself.</haxe_doc>
 		</toString>
-		<toUtf8 set="method" line="199"><f a=""><x path="hl.Bytes"/></f></toUtf8>
-		<__string set="method" line="203">
+		<toUtf8 set="method" line="194"><f a=""><x path="hl.Bytes"/></f></toUtf8>
+		<__string set="method" line="198">
 			<f a=""><x path="hl.Bytes"/></f>
 			<meta><m n=":keep"/></meta>
 		</__string>
-		<__compare set="method" line="207">
+		<__compare set="method" line="202">
 			<f a="v">
 				<d/>
 				<x path="Int"/>
@@ -10607,7 +10618,7 @@
 </f></parse>
 		<parseExpr set="method" line="265"><f a="data">
 	<c path="String"/>
-	<f a=""><x path="Any"/></f>
+	<f a=""><d/></f>
 </f></parseExpr>
 		<makeConst set="method" line="304"><f a="v">
 	<c path="String"/>
@@ -37476,7 +37487,7 @@
 		<extends path="haxe.iterators.ArrayIterator"><d/></extends>
 		<a><c path="hl.types.ArrayBase"/></a>
 		<hasNext public="1" set="method" line="37" override="1"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" set="method" line="41" override="1"><f a=""><x path="Any"/></f></next>
+		<next public="1" set="method" line="41" override="1"><f a=""><d/></f></next>
 		<new public="1" set="method" line="32"><f a="a">
 	<c path="hl.types.ArrayBase"/>
 	<x path="Void"/>
@@ -37502,7 +37513,7 @@
 		<get_length get="inline" set="null" line="59"><f a=""><x path="Int"/></f></get_length>
 		<getDyn public="1" set="method" line="61" override="1"><f a="i">
 	<x path="Int"/>
-	<x path="Any"/>
+	<d/>
 </f></getDyn>
 		<setDyn public="1" set="method" line="65" override="1"><f a="pos:value">
 	<x path="Int"/>
@@ -39166,7 +39177,7 @@
 	<x path="Int"/>
 </f></writeBytes>
 		<new public="1" set="method" line="31"><f a="p">
-	<t path="sys.io._Process.ProcessHandle"/>
+	<d/>
 	<x path="Void"/>
 </f></new>
 	</class>
