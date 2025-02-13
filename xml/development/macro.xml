@@ -38842,13 +38842,17 @@
 
 		This is only defined for `@:build/@:autoBuild` macros.</haxe_doc>
 		</getBuildFields>
-		<defineType public="1" set="method" line="674" static="1">
+		<defineType public="1" set="method" line="678" static="1">
 			<f a="t:?moduleDependency">
 				<t path="haxe.macro.TypeDefinition"/>
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Defines a new type from `TypeDefinition` `t`.
+
+		If a matching module has already been loaded in current context, a
+		`haxe.macro.Expr.Error` compiler error will be raised which can be
+		caught using `try ... catch`.
 
 		If `moduleDependency` is given and is not `null`, it should contain
 		a module path that will be used as a dependency for the newly defined module
@@ -38858,7 +38862,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</defineType>
-		<makeMonomorph public="1" set="method" line="689" static="1">
+		<makeMonomorph public="1" set="method" line="693" static="1">
 			<f a=""><e path="haxe.macro.Type"/></f>
 			<haxe_doc>Creates and returns a new instance of monomorph (`TMono`) type.
 
@@ -38869,7 +38873,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</makeMonomorph>
-		<defineModule public="1" set="method" line="706" static="1">
+		<defineModule public="1" set="method" line="714" static="1">
 			<f a="modulePath:types:?imports:?usings">
 				<c path="String"/>
 				<c path="Array"><t path="haxe.macro.TypeDefinition"/></c>
@@ -38880,6 +38884,10 @@
 			<haxe_doc>Defines a new module as `modulePath` with several `TypeDefinition`
 		`types`. This is analogous to defining a .hx file.
 
+		If a matching module has already been loaded in current context, a
+		`haxe.macro.Expr.Error` compiler error will be raised which can be
+		caught using `try ... catch`.
+
 		The individual `types` can reference each other and any identifier
 		respects the `imports` and `usings` as usual, expect that imports are
 		not allowed to have `.*` wildcards or `as s` shorthands.
@@ -38888,7 +38896,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</defineModule>
-		<getTypedExpr public="1" set="method" line="724" static="1">
+		<getTypedExpr public="1" set="method" line="732" static="1">
 			<f a="t">
 				<t path="haxe.macro.TypedExpr"/>
 				<t path="haxe.macro.Expr"/>
@@ -38901,7 +38909,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</getTypedExpr>
-		<storeTypedExpr public="1" set="method" line="745" static="1">
+		<storeTypedExpr public="1" set="method" line="753" static="1">
 			<f a="t">
 				<t path="haxe.macro.TypedExpr"/>
 				<t path="haxe.macro.Expr"/>
@@ -38921,7 +38929,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</storeTypedExpr>
-		<storeExpr public="1" set="method" line="769" static="1">
+		<storeExpr public="1" set="method" line="777" static="1">
 			<f a="e">
 				<t path="haxe.macro.Expr"/>
 				<t path="haxe.macro.Expr"/>
@@ -38944,7 +38952,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</storeExpr>
-		<typeAndStoreExpr public="1" set="method" line="782" static="1">
+		<typeAndStoreExpr public="1" set="method" line="790" static="1">
 			<f a="e">
 				<t path="haxe.macro.Expr"/>
 				<a>
@@ -38959,7 +38967,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</typeAndStoreExpr>
-		<registerModuleDependency public="1" set="method" line="800" static="1">
+		<registerModuleDependency public="1" set="method" line="808" static="1">
 			<f a="modulePath:externFile">
 				<c path="String"/>
 				<c path="String"/>
@@ -38977,7 +38985,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</registerModuleDependency>
-		<timer public="1" set="method" line="818" static="1">
+		<timer public="1" set="method" line="826" static="1">
 			<f a="id">
 				<c path="String"/>
 				<f a=""><x path="Void"/></f>
@@ -38995,7 +39003,7 @@
 		stopTimer();
 		```</haxe_doc>
 		</timer>
-		<withImports public="1" params="X" set="method" line="835" static="1">
+		<withImports public="1" params="X" set="method" line="843" static="1">
 			<f a="imports:usings:code">
 				<c path="Array"><c path="String"/></c>
 				<c path="Array"><c path="String"/></c>
@@ -39014,7 +39022,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</withImports>
-		<withOptions public="1" params="X" set="method" line="854" static="1">
+		<withOptions public="1" params="X" set="method" line="862" static="1">
 			<f a="options:code">
 				<a>
 					<allowTransform>
@@ -39041,7 +39049,7 @@
 		cause compilation server issues. Use `Context.onAfterInitMacros` to
 		run your code once typer is ready to be used.</haxe_doc>
 		</withOptions>
-		<registerModuleReuseCall public="1" set="method" line="860" static="1">
+		<registerModuleReuseCall public="1" set="method" line="868" static="1">
 			<f a="modulePath:macroCall">
 				<c path="String"/>
 				<c path="String"/>
@@ -39049,14 +39057,14 @@
 			</f>
 			<meta><m n=":deprecated"/></meta>
 		</registerModuleReuseCall>
-		<onMacroContextReused public="1" set="method" line="865" static="1">
+		<onMacroContextReused public="1" set="method" line="873" static="1">
 			<f a="callb">
 				<f a=""><x path="Bool"/></f>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":deprecated"/></meta>
 		</onMacroContextReused>
-		<load set="method" line="873" static="1">
+		<load set="method" line="881" static="1">
 			<f a="f:nargs">
 				<c path="String"/>
 				<x path="Int"/>
@@ -39069,21 +39077,21 @@
 				<m n=":allow"><e>haxe.macro.PositionTools</e></m>
 			</meta>
 		</load>
-		<includeFile set="method" line="877" static="1"><f a="file:position">
+		<includeFile set="method" line="885" static="1"><f a="file:position">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></includeFile>
-		<sExpr set="method" line="881" static="1"><f a="e:pretty">
+		<sExpr set="method" line="889" static="1"><f a="e:pretty">
 	<t path="haxe.macro.TypedExpr"/>
 	<x path="Bool"/>
 	<c path="String"/>
 </f></sExpr>
-		<assertInitMacro set="method" line="886" static="1">
+		<assertInitMacro set="method" line="894" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":allow"><e>haxe.macro.Compiler</e></m></meta>
 		</assertInitMacro>
-		<assertInitMacrosDone set="method" line="898" static="1">
+		<assertInitMacrosDone set="method" line="906" static="1">
 			<f a="?includeSuggestion" v="true">
 				<x path="Bool"/>
 				<x path="Void"/>
