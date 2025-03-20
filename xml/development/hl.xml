@@ -6543,6 +6543,27 @@
 	<t path="sys.thread._Thread.ThreadImpl"/>
 	<x path="Null"><c path="String"/></x>
 </f></getName>
+		<set_name set="method" line="71" static="1">
+			<f a="t:name">
+				<t path="sys.thread._Thread.ThreadHandle"/>
+				<x path="hl.Bytes"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"?std"</e>
+	<e>"thread_set_name"</e>
+</m></meta>
+		</set_name>
+		<get_name set="method" line="72" static="1">
+			<f a="t">
+				<t path="sys.thread._Thread.ThreadHandle"/>
+				<x path="hl.Bytes"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"?std"</e>
+	<e>"thread_get_name"</e>
+</m></meta>
+		</get_name>
 		<get_events set="method" line="75" static="1"><f a="this">
 	<t path="sys.thread._Thread.ThreadImpl"/>
 	<c path="sys.thread.EventLoop"/>
@@ -34368,6 +34389,29 @@
 	<e>"sys_check_reload"</e>
 </m></meta>
 		</checkReload>
+		<hasDebugger public="1" set="method" static="1">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":hlNative">
+	<e>"?std"</e>
+	<e>"sys_has_debugger"</e>
+</m></meta>
+		</hasDebugger>
+		<_registerGUIDName set="method" static="1">
+			<f a="guid:bytes">
+				<x path="hl.I64"/>
+				<x path="hl.Bytes"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"?std"</e>
+	<e>"register_guid_name"</e>
+</m></meta>
+		</_registerGUIDName>
+		<registerGUIDName public="1" get="inline" set="null" line="57" static="1"><f a="guid:name">
+	<x path="hl.GUID"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></registerGUIDName>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="hl.Atomics" params="" file="/home/runner/work/haxe/haxe/std/hl/Atomics.hx" extern="1">
@@ -35008,6 +35052,87 @@
 			</meta>
 		</set>
 	</class>
+	<abstract path="hl.CArray" params="T" file="/home/runner/work/haxe/haxe/std/hl/CArray.hx">
+		<this><c path="hl.Abstract"><c path="Shl_carray"/></c></this>
+		<haxe_doc>CArray is a compact array where all objects are memory aligned and stored as a single GC block.
+	You must hold a reference to the CArray while any of the objects it contains is still referenced somewhere.</haxe_doc>
+		<impl><class path="hl._CArray.CArray_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/CArray.hx" private="1" module="hl.CArray" final="1">
+	<get get="inline" set="null" line="10" static="1">
+		<f a="this:index">
+			<c path="hl.Abstract"><c path="Shl_carray"/></c>
+			<x path="Int"/>
+			<c path="hl.CArray.T"/>
+		</f>
+		<meta>
+			<m n=":has_untyped"/>
+			<m n=":arrayAccess"/>
+		</meta>
+	</get>
+	<unsafeSet public="1" get="inline" set="null" line="12" static="1">
+		<f a="this:index:v">
+			<c path="hl.Abstract"><c path="Shl_carray"/></c>
+			<x path="Int"/>
+			<c path="hl.CArray.T"/>
+			<x path="Any"/>
+		</f>
+		<meta><m n=":has_untyped"/></meta>
+	</unsafeSet>
+	<alloc public="1" params="T" get="inline" set="null" line="14" static="1"><f a="cl:size">
+	<x path="Class"><c path="alloc.T"/></x>
+	<x path="Int"/>
+	<x path="hl.CArray"><c path="alloc.T"/></x>
+</f></alloc>
+	<alloc_carray set="method" line="19" static="1">
+		<f a="t:size">
+			<x path="hl.Type"/>
+			<x path="Int"/>
+			<x path="hl.CArray"><d/></x>
+		</f>
+		<meta><m n=":hlNative">
+	<e>"?std"</e>
+	<e>"alloc_carray"</e>
+</m></meta>
+	</alloc_carray>
+</class></impl>
+	</abstract>
+	<class path="hl._CArray.CArray_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/CArray.hx" private="1" module="hl.CArray" final="1">
+		<get get="inline" set="null" line="10" static="1">
+			<f a="this:index">
+				<c path="hl.Abstract"><c path="Shl_carray"/></c>
+				<x path="Int"/>
+				<c path="hl.CArray.T"/>
+			</f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":arrayAccess"/>
+			</meta>
+		</get>
+		<unsafeSet public="1" get="inline" set="null" line="12" static="1">
+			<f a="this:index:v">
+				<c path="hl.Abstract"><c path="Shl_carray"/></c>
+				<x path="Int"/>
+				<c path="hl.CArray.T"/>
+				<x path="Any"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</unsafeSet>
+		<alloc public="1" params="T" get="inline" set="null" line="14" static="1"><f a="cl:size">
+	<x path="Class"><c path="alloc.T"/></x>
+	<x path="Int"/>
+	<x path="hl.CArray"><c path="alloc.T"/></x>
+</f></alloc>
+		<alloc_carray set="method" line="19" static="1">
+			<f a="t:size">
+				<x path="hl.Type"/>
+				<x path="Int"/>
+				<x path="hl.CArray"><d/></x>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"?std"</e>
+	<e>"alloc_carray"</e>
+</m></meta>
+		</alloc_carray>
+	</class>
 	<typedef path="hl.F32" params="" file="/home/runner/work/haxe/haxe/std/hl/F32.hx"><x path="Single"/></typedef>
 	<typedef path="hl.F64" params="" file="/home/runner/work/haxe/haxe/std/hl/F64.hx"><x path="Float"/></typedef>
 	<class path="hl.Format" params="" file="/home/runner/work/haxe/haxe/std/hl/Format.hx">
@@ -35066,6 +35191,18 @@
 	<x path="haxe.EnumFlags"><e path="hl.GcFlag"/></x>
 	<x path="haxe.EnumFlags"><e path="hl.GcFlag"/></x>
 </f></set_flags>
+		<getLiveObjects public="1" set="method" line="76" static="1">
+			<f a="cl:?maxCount" v=":0">
+				<x path="Class"><d/></x>
+				<x path="Int"/>
+				<a>
+					<objs><c path="Array"><d/></c></objs>
+					<count><x path="Int"/></count>
+				</a>
+			</f>
+			<meta><m n=":value"><e>{ maxCount : 0 }</e></m></meta>
+			<haxe_doc>Count live objects of class `cl`, and get at most `maxCount` elements in an array.</haxe_doc>
+		</getLiveObjects>
 		<blocking public="1" set="method" line="93" static="1">
 			<f a="b">
 				<x path="Bool"/>
@@ -35134,6 +35271,17 @@
 	<e>"gc_set_flags"</e>
 </m></meta>
 		</_set_flags>
+		<_getLiveObjects set="method" line="110" static="1">
+			<f a="type:arr">
+				<x path="hl.Type"/>
+				<x path="hl.NativeArray"><d/></x>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"gc_get_live_objects"</e>
+</m></meta>
+		</_getLiveObjects>
 	</class>
 	<abstract path="hl.I64" params="" file="/home/runner/work/haxe/haxe/std/hl/I64.hx">
 		<from><icast><x path="Int"/></icast></from>
@@ -37895,6 +38043,194 @@
 	<meta><m n=":directlyUsed"/></meta>
 </class></impl>
 	</abstract>
+	<typedef path="hl.types.Int64MapData" params="" file="/home/runner/work/haxe/haxe/std/hl/types/Int64Map.hx" module="hl.types.Int64Map"><c path="hl.Abstract"><c path="Shl_int64_map"/></c></typedef>
+	<abstract path="hl.types.Int64Map" params="" file="/home/runner/work/haxe/haxe/std/hl/types/Int64Map.hx">
+		<this><t path="hl.types.Int64MapData"/></this>
+		<impl><class path="hl.types._Int64Map.Int64Map_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/types/Int64Map.hx" private="1" module="hl.types.Int64Map" final="1">
+	<_hx_new public="1" get="inline" set="null" line="30" static="1">
+		<f a=""><x path="hl.types.Int64Map"/></f>
+		<meta><m n=":noCompletion"/></meta>
+	</_hx_new>
+	<alloc set="method" line="34" static="1">
+		<f a=""><t path="hl.types.Int64MapData"/></f>
+		<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"hi64alloc"</e>
+</m></meta>
+	</alloc>
+	<set public="1" set="method" line="39" static="1">
+		<f a="this:key:value">
+			<t path="hl.types.Int64MapData"/>
+			<x path="haxe.Int64"/>
+			<d/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"hi64set"</e>
+</m></meta>
+	</set>
+	<exists public="1" set="method" line="42" static="1">
+		<f a="this:key">
+			<t path="hl.types.Int64MapData"/>
+			<x path="haxe.Int64"/>
+			<x path="Bool"/>
+		</f>
+		<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"hi64exists"</e>
+</m></meta>
+	</exists>
+	<get public="1" set="method" line="47" static="1">
+		<f a="this:key">
+			<t path="hl.types.Int64MapData"/>
+			<x path="haxe.Int64"/>
+			<d/>
+		</f>
+		<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"hi64get"</e>
+</m></meta>
+	</get>
+	<remove public="1" set="method" line="52" static="1">
+		<f a="this:key">
+			<t path="hl.types.Int64MapData"/>
+			<x path="haxe.Int64"/>
+			<x path="Bool"/>
+		</f>
+		<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"hi64remove"</e>
+</m></meta>
+	</remove>
+	<keysArray public="1" set="method" line="57" static="1">
+		<f a="this">
+			<t path="hl.types.Int64MapData"/>
+			<x path="hl.NativeArray"><x path="haxe.Int64"/></x>
+		</f>
+		<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"hi64keys"</e>
+</m></meta>
+	</keysArray>
+	<valuesArray public="1" set="method" line="62" static="1">
+		<f a="this">
+			<t path="hl.types.Int64MapData"/>
+			<x path="hl.NativeArray"><d/></x>
+		</f>
+		<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"hi64values"</e>
+</m></meta>
+	</valuesArray>
+	<clear public="1" set="method" line="67" static="1">
+		<f a="this">
+			<t path="hl.types.Int64MapData"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"hi64clear"</e>
+</m></meta>
+	</clear>
+	<iterator public="1" get="inline" set="null" line="69" static="1"><f a="this">
+	<t path="hl.types.Int64MapData"/>
+	<c path="hl.NativeArrayIterator_Dynamic"/>
+</f></iterator>
+</class></impl>
+	</abstract>
+	<class path="hl.types._Int64Map.Int64Map_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/types/Int64Map.hx" private="1" module="hl.types.Int64Map" final="1">
+		<_hx_new public="1" get="inline" set="null" line="30" static="1">
+			<f a=""><x path="hl.types.Int64Map"/></f>
+			<meta><m n=":noCompletion"/></meta>
+		</_hx_new>
+		<alloc set="method" line="34" static="1">
+			<f a=""><t path="hl.types.Int64MapData"/></f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"hi64alloc"</e>
+</m></meta>
+		</alloc>
+		<set public="1" set="method" line="39" static="1">
+			<f a="this:key:value">
+				<t path="hl.types.Int64MapData"/>
+				<x path="haxe.Int64"/>
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"hi64set"</e>
+</m></meta>
+		</set>
+		<exists public="1" set="method" line="42" static="1">
+			<f a="this:key">
+				<t path="hl.types.Int64MapData"/>
+				<x path="haxe.Int64"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"hi64exists"</e>
+</m></meta>
+		</exists>
+		<get public="1" set="method" line="47" static="1">
+			<f a="this:key">
+				<t path="hl.types.Int64MapData"/>
+				<x path="haxe.Int64"/>
+				<d/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"hi64get"</e>
+</m></meta>
+		</get>
+		<remove public="1" set="method" line="52" static="1">
+			<f a="this:key">
+				<t path="hl.types.Int64MapData"/>
+				<x path="haxe.Int64"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"hi64remove"</e>
+</m></meta>
+		</remove>
+		<keysArray public="1" set="method" line="57" static="1">
+			<f a="this">
+				<t path="hl.types.Int64MapData"/>
+				<x path="hl.NativeArray"><x path="haxe.Int64"/></x>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"hi64keys"</e>
+</m></meta>
+		</keysArray>
+		<valuesArray public="1" set="method" line="62" static="1">
+			<f a="this">
+				<t path="hl.types.Int64MapData"/>
+				<x path="hl.NativeArray"><d/></x>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"hi64values"</e>
+</m></meta>
+		</valuesArray>
+		<clear public="1" set="method" line="67" static="1">
+			<f a="this">
+				<t path="hl.types.Int64MapData"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"std"</e>
+	<e>"hi64clear"</e>
+</m></meta>
+		</clear>
+		<iterator public="1" get="inline" set="null" line="69" static="1"><f a="this">
+	<t path="hl.types.Int64MapData"/>
+	<c path="hl.NativeArrayIterator_Dynamic"/>
+</f></iterator>
+	</class>
 	<typedef path="hl.types.IntMapData" params="" file="/home/runner/work/haxe/haxe/std/hl/types/IntMap.hx" module="hl.types.IntMap"><c path="hl.Abstract"><c path="Shl_int_map"/></c></typedef>
 	<abstract path="hl.types.IntMap" params="" file="/home/runner/work/haxe/haxe/std/hl/types/IntMap.hx">
 		<this><t path="hl.types.IntMapData"/></this>
@@ -41196,6 +41532,27 @@
 	<t path="sys.thread._Thread.ThreadImpl"/>
 	<x path="Null"><c path="String"/></x>
 </f></getName>
+	<set_name set="method" line="71" static="1">
+		<f a="t:name">
+			<t path="sys.thread._Thread.ThreadHandle"/>
+			<x path="hl.Bytes"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":hlNative">
+	<e>"?std"</e>
+	<e>"thread_set_name"</e>
+</m></meta>
+	</set_name>
+	<get_name set="method" line="72" static="1">
+		<f a="t">
+			<t path="sys.thread._Thread.ThreadHandle"/>
+			<x path="hl.Bytes"/>
+		</f>
+		<meta><m n=":hlNative">
+	<e>"?std"</e>
+	<e>"thread_get_name"</e>
+</m></meta>
+	</get_name>
 	<get_events set="method" line="75" static="1"><f a="this">
 	<t path="sys.thread._Thread.ThreadImpl"/>
 	<c path="sys.thread.EventLoop"/>
