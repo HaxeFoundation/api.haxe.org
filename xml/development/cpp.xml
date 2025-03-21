@@ -16169,40 +16169,47 @@
 		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="haxe.Serializer" params="" file="/home/runner/work/haxe/haxe/std/haxe/Serializer.hx">
-		<USE_CACHE public="1" expr="false" line="57" static="1">
+		<USE_CACHE public="1" expr="false" line="60" static="1">
 			<x path="Bool"/>
 			<meta>
 				<m n=":value"><e>false</e></m>
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
-			<haxe_doc>If the values you are serializing can contain circular references or
-		objects repetitions, you should set `USE_CACHE` to true to prevent
-		infinite loops.
-
-		This may also reduce the size of serialization Strings at the expense of
-		performance.
-
-		This value can be changed for individual instances of `Serializer` by
-		setting their `useCache` field.</haxe_doc>
+			<haxe_doc>Enables object caching during serialization to handle circular references and 
+		repeated objects.
+	
+		Set `USE_CACHE` to `true` if the values you are serializing may contain 
+		circular references or repeated objects. This prevents infinite loops and 
+		ensures that shared references are preserved in the serialized output.
+	
+		Enabling this option may also reduce the size of the resulting serialized 
+		string, but can have a minor performance impact.
+	
+		This is a global default. You can override it per instance using the 
+		`useCache` field on a `Serializer`.</haxe_doc>
 		</USE_CACHE>
-		<USE_ENUM_INDEX public="1" expr="false" line="69" static="1">
+		<USE_ENUM_INDEX public="1" expr="false" line="76" static="1">
 			<x path="Bool"/>
 			<meta>
 				<m n=":value"><e>false</e></m>
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
-			<haxe_doc>Use constructor indexes for enums instead of names.
-
-		This may reduce the size of serialization Strings, but makes them less
-		suited for long-term storage: If constructors are removed or added from
-		the enum, the indices may no longer match.
-
-		This value can be changed for individual instances of `Serializer` by
-		setting their `useEnumIndex` field.</haxe_doc>
+			<haxe_doc>Serializes enum values using constructor indices instead of names.
+	
+		When `USE_ENUM_INDEX` is set to `true`, enum constructors are serialized by 
+		their numeric index. This can reduce the size of the serialized data, 
+		especially for enums with long or frequently used constructor names.
+	
+		However, using indices makes serialized data more fragile for long-term 
+		storage. If enum definitions change (e.g., by adding or removing constructors), 
+		the indices may no longer match the intended constructors.
+	
+		This is a global default. You can override it per instance using the 
+		`useEnumIndex` field on a `Serializer`.</haxe_doc>
 		</USE_ENUM_INDEX>
-		<BASE64 expr="&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:&quot;" line="71" static="1">
+		<BASE64 expr="&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:&quot;" line="78" static="1">
 			<c path="String"/>
 			<meta>
 				<m n=":value"><e>"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:"</e></m>
@@ -16210,7 +16217,7 @@
 				<m n=":keep"/>
 			</meta>
 		</BASE64>
-		<BASE64_CODES expr="null" line="72" static="1">
+		<BASE64_CODES expr="null" line="79" static="1">
 			<x path="Null"><x path="haxe.ds.Vector"><x path="Null"><x path="Int"/></x></x></x>
 			<meta>
 				<m n=":value"><e>null</e></m>
@@ -16218,7 +16225,7 @@
 				<m n=":keep"/>
 			</meta>
 		</BASE64_CODES>
-		<run public="1" set="method" line="571" static="1">
+		<run public="1" set="method" line="598" static="1">
 			<f a="v">
 				<d/>
 				<c path="String"/>
@@ -16267,9 +16274,12 @@
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
-			<haxe_doc>The individual cache setting for `this` Serializer instance.
-
-		See `USE_CACHE` for a complete description.</haxe_doc>
+			<haxe_doc>Determines whether this `Serializer` instance uses object caching.
+	
+	 	When enabled, repeated references to the same object are serialized using references 
+	 	instead of duplicating data, reducing output size and preserving object identity.
+	
+	 	See `USE_CACHE` for a complete description.</haxe_doc>
 		</useCache>
 		<useEnumIndex public="1">
 			<x path="Bool"/>
@@ -16277,11 +16287,26 @@
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
-			<haxe_doc>The individual enum index setting for `this` Serializer instance.
+			<haxe_doc>Determines whether this `Serializer` instance serializes enum values using their index
+		instead of their constructor name.
+
+		Using indexes can reduce the size of the serialized data but may be less readable and 
+		more fragile if enum definitions change.
 
 		See `USE_ENUM_INDEX` for a complete description.</haxe_doc>
 		</useEnumIndex>
-		<toString public="1" set="method" line="118">
+		<reset public="1" set="method" line="132">
+			<f a=""><x path="Void"/></f>
+			<meta>
+				<m n=":keep"/>
+				<m n=":keep"/>
+			</meta>
+			<haxe_doc>Resets the internal state of the Serializer, allowing it to be reused.
+		
+		This does not affect the `useCache` or `useEnumIndex` properties;
+		their values will remain unchanged after calling this method.</haxe_doc>
+		</reset>
+		<toString public="1" set="method" line="145">
 			<f a=""><c path="String"/></f>
 			<meta>
 				<m n=":keep"/>
@@ -16292,7 +16317,7 @@
 		The exact format specification can be found here:
 		https://haxe.org/manual/serialization/format</haxe_doc>
 		</toString>
-		<serializeString set="method" line="154">
+		<serializeString set="method" line="181">
 			<f a="s">
 				<c path="String"/>
 				<x path="Void"/>
@@ -16302,7 +16327,7 @@
 				<m n=":keep"/>
 			</meta>
 		</serializeString>
-		<serializeRef set="method" line="169">
+		<serializeRef set="method" line="196">
 			<f a="v">
 				<d/>
 				<x path="Bool"/>
@@ -16312,7 +16337,7 @@
 				<m n=":keep"/>
 			</meta>
 		</serializeRef>
-		<serializeFields set="method" line="206">
+		<serializeFields set="method" line="233">
 			<f a="v">
 				<a/>
 				<x path="Void"/>
@@ -16322,7 +16347,7 @@
 				<m n=":keep"/>
 			</meta>
 		</serializeFields>
-		<serialize public="1" set="method" line="224">
+		<serialize public="1" set="method" line="251">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
@@ -16340,7 +16365,7 @@
 		The values of `this.useCache` and `this.useEnumIndex` may affect
 		serialization output.</haxe_doc>
 		</serialize>
-		<__getField get="inline" set="null" line="546">
+		<__getField get="inline" set="null" line="573">
 			<f a="o:f">
 				<d/>
 				<c path="String"/>
@@ -16351,7 +16376,7 @@
 				<m n=":keep"/>
 			</meta>
 		</__getField>
-		<serializeException public="1" set="method" line="548">
+		<serializeException public="1" set="method" line="575">
 			<f a="e">
 				<d/>
 				<x path="Void"/>
@@ -16361,7 +16386,7 @@
 				<m n=":keep"/>
 			</meta>
 		</serializeException>
-		<new public="1" set="method" line="103">
+		<new public="1" set="method" line="117">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":keep"/>
