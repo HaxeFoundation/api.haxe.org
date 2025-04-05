@@ -2308,6 +2308,10 @@
 		If `len` is omitted or null, the substring ranges from `pos` to the end
 		of `s`.</haxe_doc>
 		</addSub>
+		<clear public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Removes all characters from `this` StringBuf, making it possible to reuse it.</haxe_doc>
+		</clear>
 		<toString public="1" set="method">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the content of `this` StringBuf as String.
@@ -19644,33 +19648,33 @@
 		<USE_CACHE public="1" expr="false" line="60" static="1">
 			<x path="Bool"/>
 			<meta><m n=":value"><e>false</e></m></meta>
-			<haxe_doc>Enables object caching during serialization to handle circular references and 
+			<haxe_doc>Enables object caching during serialization to handle circular references and
 		repeated objects.
-	
-		Set `USE_CACHE` to `true` if the values you are serializing may contain 
-		circular references or repeated objects. This prevents infinite loops and 
+
+		Set `USE_CACHE` to `true` if the values you are serializing may contain
+		circular references or repeated objects. This prevents infinite loops and
 		ensures that shared references are preserved in the serialized output.
-	
-		Enabling this option may also reduce the size of the resulting serialized 
+
+		Enabling this option may also reduce the size of the resulting serialized
 		string, but can have a minor performance impact.
-	
-		This is a global default. You can override it per instance using the 
+
+		This is a global default. You can override it per instance using the
 		`useCache` field on a `Serializer`.</haxe_doc>
 		</USE_CACHE>
 		<USE_ENUM_INDEX public="1" expr="false" line="76" static="1">
 			<x path="Bool"/>
 			<meta><m n=":value"><e>false</e></m></meta>
 			<haxe_doc>Serializes enum values using constructor indices instead of names.
-	
-		When `USE_ENUM_INDEX` is set to `true`, enum constructors are serialized by 
-		their numeric index. This can reduce the size of the serialized data, 
+
+		When `USE_ENUM_INDEX` is set to `true`, enum constructors are serialized by
+		their numeric index. This can reduce the size of the serialized data,
 		especially for enums with long or frequently used constructor names.
-	
-		However, using indices makes serialized data more fragile for long-term 
-		storage. If enum definitions change (e.g., by adding or removing constructors), 
+
+		However, using indices makes serialized data more fragile for long-term
+		storage. If enum definitions change (e.g., by adding or removing constructors),
 		the indices may no longer match the intended constructors.
-	
-		This is a global default. You can override it per instance using the 
+
+		This is a global default. You can override it per instance using the
 		`useEnumIndex` field on a `Serializer`.</haxe_doc>
 		</USE_ENUM_INDEX>
 		<BASE64 expr="&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:&quot;" line="78" static="1">
@@ -19699,18 +19703,18 @@
 		<useCache public="1">
 			<x path="Bool"/>
 			<haxe_doc>Determines whether this `Serializer` instance uses object caching.
-	
-	 	When enabled, repeated references to the same object are serialized using references 
-	 	instead of duplicating data, reducing output size and preserving object identity.
-	
-	 	See `USE_CACHE` for a complete description.</haxe_doc>
+
+		When enabled, repeated references to the same object are serialized using references
+		instead of duplicating data, reducing output size and preserving object identity.
+
+		See `USE_CACHE` for a complete description.</haxe_doc>
 		</useCache>
 		<useEnumIndex public="1">
 			<x path="Bool"/>
 			<haxe_doc>Determines whether this `Serializer` instance serializes enum values using their index
 		instead of their constructor name.
 
-		Using indexes can reduce the size of the serialized data but may be less readable and 
+		Using indexes can reduce the size of the serialized data but may be less readable and
 		more fragile if enum definitions change.
 
 		See `USE_ENUM_INDEX` for a complete description.</haxe_doc>
@@ -19718,7 +19722,7 @@
 		<reset public="1" set="method" line="132">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Resets the internal state of the Serializer, allowing it to be reused.
-		
+
 		This does not affect the `useCache` or `useEnumIndex` properties;
 		their values will remain unchanged after calling this method.</haxe_doc>
 		</reset>

@@ -2637,18 +2637,19 @@
 			<x path="Int"/>
 			<haxe_doc>The length of `this` StringBuf in characters.</haxe_doc>
 		</length>
-		<get_length get="inline" set="null" line="35"><f a=""><x path="Int"/></f></get_length>
-		<__expand get="inline" set="null" line="39"><f a="need">
+		<initialize get="inline" set="null" line="33"><f a=""><x path="Void"/></f></initialize>
+		<get_length get="inline" set="null" line="39"><f a=""><x path="Int"/></f></get_length>
+		<__expand get="inline" set="null" line="43"><f a="need">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></__expand>
-		<__add get="inline" set="null" line="49"><f a="bytes:spos:ssize">
+		<__add get="inline" set="null" line="53"><f a="bytes:spos:ssize">
 	<x path="hl.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></__add>
-		<add public="1" params="T" set="method" line="56">
+		<add public="1" params="T" set="method" line="60">
 			<f a="x">
 				<c path="add.T"/>
 				<x path="Void"/>
@@ -2661,7 +2662,7 @@
 
 		If `x` is null, the String "null" is appended.</haxe_doc>
 		</add>
-		<addSub public="1" set="method" line="67">
+		<addSub public="1" set="method" line="71">
 			<f a="s:pos:?len">
 				<c path="String"/>
 				<x path="Int"/>
@@ -2679,7 +2680,7 @@
 		If `len` is omitted or null, the substring ranges from `pos` to the end
 		of `s`.</haxe_doc>
 		</addSub>
-		<addChar public="1" set="method" line="85">
+		<addChar public="1" set="method" line="89">
 			<f a="c">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -2689,7 +2690,11 @@
 		If `c` is negative or has another invalid value, the result is
 		unspecified.</haxe_doc>
 		</addChar>
-		<toString public="1" set="method" line="104">
+		<clear public="1" set="method" line="108">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Removes all characters from `this` StringBuf, making it possible to reuse it.</haxe_doc>
+		</clear>
+		<toString public="1" set="method" line="112">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the content of `this` StringBuf as String.
 
@@ -10382,33 +10387,33 @@
 		<USE_CACHE public="1" expr="false" line="60" static="1">
 			<x path="Bool"/>
 			<meta><m n=":value"><e>false</e></m></meta>
-			<haxe_doc>Enables object caching during serialization to handle circular references and 
+			<haxe_doc>Enables object caching during serialization to handle circular references and
 		repeated objects.
-	
-		Set `USE_CACHE` to `true` if the values you are serializing may contain 
-		circular references or repeated objects. This prevents infinite loops and 
+
+		Set `USE_CACHE` to `true` if the values you are serializing may contain
+		circular references or repeated objects. This prevents infinite loops and
 		ensures that shared references are preserved in the serialized output.
-	
-		Enabling this option may also reduce the size of the resulting serialized 
+
+		Enabling this option may also reduce the size of the resulting serialized
 		string, but can have a minor performance impact.
-	
-		This is a global default. You can override it per instance using the 
+
+		This is a global default. You can override it per instance using the
 		`useCache` field on a `Serializer`.</haxe_doc>
 		</USE_CACHE>
 		<USE_ENUM_INDEX public="1" expr="false" line="76" static="1">
 			<x path="Bool"/>
 			<meta><m n=":value"><e>false</e></m></meta>
 			<haxe_doc>Serializes enum values using constructor indices instead of names.
-	
-		When `USE_ENUM_INDEX` is set to `true`, enum constructors are serialized by 
-		their numeric index. This can reduce the size of the serialized data, 
+
+		When `USE_ENUM_INDEX` is set to `true`, enum constructors are serialized by
+		their numeric index. This can reduce the size of the serialized data,
 		especially for enums with long or frequently used constructor names.
-	
-		However, using indices makes serialized data more fragile for long-term 
-		storage. If enum definitions change (e.g., by adding or removing constructors), 
+
+		However, using indices makes serialized data more fragile for long-term
+		storage. If enum definitions change (e.g., by adding or removing constructors),
 		the indices may no longer match the intended constructors.
-	
-		This is a global default. You can override it per instance using the 
+
+		This is a global default. You can override it per instance using the
 		`useEnumIndex` field on a `Serializer`.</haxe_doc>
 		</USE_ENUM_INDEX>
 		<BASE64 expr="&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:&quot;" line="78" static="1">
@@ -10437,18 +10442,18 @@
 		<useCache public="1">
 			<x path="Bool"/>
 			<haxe_doc>Determines whether this `Serializer` instance uses object caching.
-	
-	 	When enabled, repeated references to the same object are serialized using references 
-	 	instead of duplicating data, reducing output size and preserving object identity.
-	
-	 	See `USE_CACHE` for a complete description.</haxe_doc>
+
+		When enabled, repeated references to the same object are serialized using references
+		instead of duplicating data, reducing output size and preserving object identity.
+
+		See `USE_CACHE` for a complete description.</haxe_doc>
 		</useCache>
 		<useEnumIndex public="1">
 			<x path="Bool"/>
 			<haxe_doc>Determines whether this `Serializer` instance serializes enum values using their index
 		instead of their constructor name.
 
-		Using indexes can reduce the size of the serialized data but may be less readable and 
+		Using indexes can reduce the size of the serialized data but may be less readable and
 		more fragile if enum definitions change.
 
 		See `USE_ENUM_INDEX` for a complete description.</haxe_doc>
@@ -10456,7 +10461,7 @@
 		<reset public="1" set="method" line="132">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Resets the internal state of the Serializer, allowing it to be reused.
-		
+
 		This does not affect the `useCache` or `useEnumIndex` properties;
 		their values will remain unchanged after calling this method.</haxe_doc>
 		</reset>
