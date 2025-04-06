@@ -2472,24 +2472,32 @@
 	<x path="Int"/>
 	<c path="String"/>
 </c></b>
+		<bufferLength>
+			<x path="Int"/>
+			<haxe_doc>Count of "good" elements in the internal buffer table.
+
+		If `this` StringBuf has been `clear`ed previously,
+		this value might not be equal to the length (`#`) of that table.</haxe_doc>
+		</bufferLength>
 		<length public="1" get="accessor" set="null"><x path="Int"/></length>
-		<get_length get="inline" set="null" line="35"><f a=""><x path="Int"/></f></get_length>
-		<add public="1" params="T" get="inline" set="null" line="39"><f a="x">
+		<get_length get="inline" set="null" line="45"><f a=""><x path="Int"/></f></get_length>
+		<add public="1" params="T" get="inline" set="null" line="49"><f a="x">
 	<c path="add.T"/>
 	<x path="Void"/>
 </f></add>
-		<addChar public="1" get="inline" set="null" line="45"><f a="c">
+		<addChar public="1" get="inline" set="null" line="56"><f a="c">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addChar>
-		<addSub public="1" get="inline" set="null" line="50"><f a="s:pos:?len">
+		<addSub public="1" get="inline" set="null" line="62"><f a="s:pos:?len">
 	<c path="String"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addSub>
-		<toString public="1" get="inline" set="null" line="56"><f a=""><c path="String"/></f></toString>
-		<new public="1" get="inline" set="null" line="30"><f a=""><x path="Void"/></f></new>
+		<clear public="1" get="inline" set="null" line="66"><f a=""><x path="Void"/></f></clear>
+		<toString public="1" get="inline" set="null" line="71"><f a=""><c path="String"/></f></toString>
+		<new public="1" get="inline" set="null" line="39"><f a=""><x path="Void"/></f></new>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="haxe.SysTools" params="" file="/home/runner/work/haxe/haxe/std/haxe/SysTools.hx">
@@ -8708,40 +8716,47 @@
 		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="haxe.Serializer" params="" file="/home/runner/work/haxe/haxe/std/haxe/Serializer.hx">
-		<USE_CACHE public="1" expr="false" line="57" static="1">
+		<USE_CACHE public="1" expr="false" line="60" static="1">
 			<x path="Bool"/>
 			<meta><m n=":value"><e>false</e></m></meta>
-			<haxe_doc>If the values you are serializing can contain circular references or
-		objects repetitions, you should set `USE_CACHE` to true to prevent
-		infinite loops.
+			<haxe_doc>Enables object caching during serialization to handle circular references and
+		repeated objects.
 
-		This may also reduce the size of serialization Strings at the expense of
-		performance.
+		Set `USE_CACHE` to `true` if the values you are serializing may contain
+		circular references or repeated objects. This prevents infinite loops and
+		ensures that shared references are preserved in the serialized output.
 
-		This value can be changed for individual instances of `Serializer` by
-		setting their `useCache` field.</haxe_doc>
+		Enabling this option may also reduce the size of the resulting serialized
+		string, but can have a minor performance impact.
+
+		This is a global default. You can override it per instance using the
+		`useCache` field on a `Serializer`.</haxe_doc>
 		</USE_CACHE>
-		<USE_ENUM_INDEX public="1" expr="false" line="69" static="1">
+		<USE_ENUM_INDEX public="1" expr="false" line="76" static="1">
 			<x path="Bool"/>
 			<meta><m n=":value"><e>false</e></m></meta>
-			<haxe_doc>Use constructor indexes for enums instead of names.
+			<haxe_doc>Serializes enum values using constructor indices instead of names.
 
-		This may reduce the size of serialization Strings, but makes them less
-		suited for long-term storage: If constructors are removed or added from
-		the enum, the indices may no longer match.
+		When `USE_ENUM_INDEX` is set to `true`, enum constructors are serialized by
+		their numeric index. This can reduce the size of the serialized data,
+		especially for enums with long or frequently used constructor names.
 
-		This value can be changed for individual instances of `Serializer` by
-		setting their `useEnumIndex` field.</haxe_doc>
+		However, using indices makes serialized data more fragile for long-term
+		storage. If enum definitions change (e.g., by adding or removing constructors),
+		the indices may no longer match the intended constructors.
+
+		This is a global default. You can override it per instance using the
+		`useEnumIndex` field on a `Serializer`.</haxe_doc>
 		</USE_ENUM_INDEX>
-		<BASE64 expr="&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:&quot;" line="71" static="1">
+		<BASE64 expr="&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:&quot;" line="78" static="1">
 			<c path="String"/>
 			<meta><m n=":value"><e>"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:"</e></m></meta>
 		</BASE64>
-		<BASE64_CODES expr="null" line="72" static="1">
+		<BASE64_CODES expr="null" line="79" static="1">
 			<x path="Null"><x path="haxe.ds.Vector"><x path="Null"><x path="Int"/></x></x></x>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</BASE64_CODES>
-		<run public="1" set="method" line="571" static="1">
+		<run public="1" set="method" line="598" static="1">
 			<f a="v">
 				<d/>
 				<c path="String"/>
@@ -8758,36 +8773,50 @@
 		<scount><x path="Int"/></scount>
 		<useCache public="1">
 			<x path="Bool"/>
-			<haxe_doc>The individual cache setting for `this` Serializer instance.
+			<haxe_doc>Determines whether this `Serializer` instance uses object caching.
+
+		When enabled, repeated references to the same object are serialized using references
+		instead of duplicating data, reducing output size and preserving object identity.
 
 		See `USE_CACHE` for a complete description.</haxe_doc>
 		</useCache>
 		<useEnumIndex public="1">
 			<x path="Bool"/>
-			<haxe_doc>The individual enum index setting for `this` Serializer instance.
+			<haxe_doc>Determines whether this `Serializer` instance serializes enum values using their index
+		instead of their constructor name.
+
+		Using indexes can reduce the size of the serialized data but may be less readable and
+		more fragile if enum definitions change.
 
 		See `USE_ENUM_INDEX` for a complete description.</haxe_doc>
 		</useEnumIndex>
-		<toString public="1" set="method" line="118">
+		<reset public="1" set="method" line="132">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Resets the internal state of the Serializer, allowing it to be reused.
+
+		This does not affect the `useCache` or `useEnumIndex` properties;
+		their values will remain unchanged after calling this method.</haxe_doc>
+		</reset>
+		<toString public="1" set="method" line="145">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Return the String representation of `this` Serializer.
 
 		The exact format specification can be found here:
 		https://haxe.org/manual/serialization/format</haxe_doc>
 		</toString>
-		<serializeString set="method" line="154"><f a="s">
+		<serializeString set="method" line="181"><f a="s">
 	<c path="String"/>
 	<x path="Void"/>
 </f></serializeString>
-		<serializeRef set="method" line="169"><f a="v">
+		<serializeRef set="method" line="196"><f a="v">
 	<d/>
 	<x path="Bool"/>
 </f></serializeRef>
-		<serializeFields set="method" line="206"><f a="v">
+		<serializeFields set="method" line="233"><f a="v">
 	<a/>
 	<x path="Void"/>
 </f></serializeFields>
-		<serialize public="1" set="method" line="224">
+		<serialize public="1" set="method" line="251">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
@@ -8801,16 +8830,16 @@
 		The values of `this.useCache` and `this.useEnumIndex` may affect
 		serialization output.</haxe_doc>
 		</serialize>
-		<__getField get="inline" set="null" line="546"><f a="o:f">
+		<__getField get="inline" set="null" line="573"><f a="o:f">
 	<d/>
 	<c path="String"/>
 	<d/>
 </f></__getField>
-		<serializeException public="1" set="method" line="548"><f a="e">
+		<serializeException public="1" set="method" line="575"><f a="e">
 	<d/>
 	<x path="Void"/>
 </f></serializeException>
-		<new public="1" set="method" line="103">
+		<new public="1" set="method" line="117">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new Serializer instance.
 
@@ -9114,356 +9143,6 @@
 	`Timer` instances require threads they were created in to run with Haxe's event loops.
 	Main thread of a Haxe program always contains an event loop. For other cases use 
 	`sys.thread.Thread.createWithEventLoop` and `sys.thread.Thread.runWithEventLoop` methods.</haxe_doc>
-	</class>
-	<abstract path="haxe.Ucs2" params="" file="/home/runner/work/haxe/haxe/std/haxe/Ucs2.hx">
-		<this><c path="String"/></this>
-		<haxe_doc>Cross platform UCS2 string API.</haxe_doc>
-		<impl><class path="haxe._Ucs2.Ucs2_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/Ucs2.hx" private="1" module="haxe.Ucs2" final="1">
-	<length public="1" get="accessor" set="null" static="1"><x path="Int"/></length>
-	<_hx_new get="inline" set="null" line="31" static="1">
-		<f a="str">
-			<c path="String"/>
-			<x path="haxe.Ucs2"/>
-		</f>
-		<meta><m n=":noCompletion"/></meta>
-	</_hx_new>
-	<get_length get="inline" set="null" line="40" static="1"><f a="this">
-	<c path="String"/>
-	<x path="Int"/>
-</f></get_length>
-	<toUpperCase public="1" get="inline" set="null" line="49" static="1">
-		<f a="this">
-			<c path="String"/>
-			<x path="haxe.Ucs2"/>
-		</f>
-		<haxe_doc>Returns a Ucs2 where all characters of `this` Ucs2 are upper case.
-
-		Affects the characters `a-z`. Other characters remain unchanged.</haxe_doc>
-	</toUpperCase>
-	<toLowerCase public="1" get="inline" set="null" line="58" static="1">
-		<f a="this">
-			<c path="String"/>
-			<x path="haxe.Ucs2"/>
-		</f>
-		<haxe_doc>Returns a Ucs2 where all characters of `this` Ucs2 are lower case.
-
-		Affects the characters `A-Z`. Other characters remain unchanged.</haxe_doc>
-	</toLowerCase>
-	<charAt public="1" get="inline" set="null" line="68" static="1">
-		<f a="this:index">
-			<c path="String"/>
-			<x path="Int"/>
-			<x path="haxe.Ucs2"/>
-		</f>
-		<haxe_doc>Returns the character at position `index` of `this` Ucs2.
-
-		If `index` is negative or exceeds `this.length`, the empty Ucs2 ""
-		is returned.</haxe_doc>
-	</charAt>
-	<charCodeAt public="1" get="inline" set="null" line="81" static="1">
-		<f a="this:index">
-			<c path="String"/>
-			<x path="Int"/>
-			<x path="Null"><x path="Int"/></x>
-		</f>
-		<haxe_doc>Returns the character code at position `index` of `this` Ucs2.
-
-		If `index` is negative or exceeds `this.length`, `null` is returned.
-
-		To obtain the character code of a single character, `"x".code` can be used
-		instead to extern public inline the character code at compile time. Note that this
-		only works on Ucs2 literals of length 1.</haxe_doc>
-	</charCodeAt>
-	<indexOf public="1" get="inline" set="null" line="96" static="1">
-		<f a="this:str:?startIndex">
-			<c path="String"/>
-			<x path="haxe.Ucs2"/>
-			<x path="Int"/>
-			<x path="Int"/>
-		</f>
-		<haxe_doc>Returns the position of the leftmost occurrence of `str` within `this`
-		Ucs2.
-
-		If `startIndex` is given, the search is performed within the substring
-		of `this` Ucs2 starting from `startIndex`. Otherwise the search is
-		performed within `this` Ucs2. In either case, the returned position
-		is relative to the beginning of `this` Ucs2.
-
-		If `str` cannot be found, -1 is returned.</haxe_doc>
-	</indexOf>
-	<lastIndexOf public="1" get="inline" set="null" line="111" static="1">
-		<f a="this:str:?startIndex">
-			<c path="String"/>
-			<x path="haxe.Ucs2"/>
-			<x path="Int"/>
-			<x path="Int"/>
-		</f>
-		<haxe_doc>Returns the position of the rightmost occurrence of `str` within `this`
-		Ucs2.
-
-		If `startIndex` is given, the search is performed within the substring
-		of `this` Ucs2 from 0 to `startIndex`. Otherwise the search is
-		performed within `this` Ucs2. In either case, the returned position
-		is relative to the beginning of `this` Ucs2.
-
-		If `str` cannot be found, -1 is returned.</haxe_doc>
-	</lastIndexOf>
-	<split public="1" get="inline" set="null" line="135" static="1">
-		<f a="this:delimiter">
-			<c path="String"/>
-			<x path="haxe.Ucs2"/>
-			<c path="Array"><x path="haxe.Ucs2"/></c>
-		</f>
-		<haxe_doc>Splits `this` Ucs2 at each occurrence of `delimiter`.
-
-		If `this` Ucs2 is the empty Ucs2 "", the result is not consistent
-		across targets and may either be `[]` (on Js, Cpp) or `[""]`.
-
-		If `delimiter` is the empty Ucs2 "", `this` Ucs2 is split into an
-		Array of `this.length` elements, where the elements correspond to the
-		characters of `this` Ucs2.
-
-		If `delimiter` is not found within `this` Ucs2, the result is an Array
-		with one element, which equals `this` Ucs2.
-
-		If `delimiter` is null, the result is unspecified.
-
-		Otherwise, `this` Ucs2 is split into parts at each occurrence of
-		`delimiter`. If `this` Ucs2 starts (or ends) with `delimiter`, the
-		result Array contains a leading (or trailing) empty Ucs2 "" element.
-		Two subsequent delimiters also result in an empty Ucs2 "" element.</haxe_doc>
-	</split>
-	<substr public="1" get="inline" set="null" line="154" static="1">
-		<f a="this:pos:?len">
-			<c path="String"/>
-			<x path="Int"/>
-			<x path="Int"/>
-			<x path="haxe.Ucs2"/>
-		</f>
-		<haxe_doc>Returns `len` characters of `this` Ucs2, starting at position `pos`.
-
-		If `len` is omitted, all characters from position `pos` to the end of
-		`this` Ucs2 are included.
-
-		If `pos` is negative, its value is calculated from the end of `this`
-		Ucs2 by `this.length + pos`. If this yields a negative value, 0 is
-		used instead.
-
-		If the calculated position + `len` exceeds `this.length`, the characters
-		from that position to the end of `this` Ucs2 are returned.
-
-		If `len` is negative, the result is unspecified.</haxe_doc>
-	</substr>
-	<substring public="1" get="inline" set="null" line="171" static="1">
-		<f a="this:startIndex:?endIndex">
-			<c path="String"/>
-			<x path="Int"/>
-			<x path="Int"/>
-			<x path="haxe.Ucs2"/>
-		</f>
-		<haxe_doc>Returns the part of `this` Ucs2 from `startIndex` to `endIndex`.
-
-		If `startIndex` or `endIndex` are negative, 0 is used instead.
-
-		If `startIndex` exceeds `endIndex`, they are swapped.
-
-		If the (possibly swapped) `endIndex` is omitted or exceeds
-		`this.length`, `this.length` is used instead.
-
-		If the (possibly swapped) `startIndex` exceeds `this.length`, the empty
-		Ucs2 "" is returned.</haxe_doc>
-	</substring>
-	<toNativeString public="1" get="inline" set="null" line="178" static="1">
-		<f a="this">
-			<c path="String"/>
-			<c path="String"/>
-		</f>
-		<haxe_doc>Returns the native underlying String.</haxe_doc>
-	</toNativeString>
-	<fromCharCode public="1" get="inline" set="null" line="188" static="1">
-		<f a="code">
-			<x path="Int"/>
-			<x path="haxe.Ucs2"/>
-		</f>
-		<haxe_doc>Returns the Ucs2 corresponding to the character code `code`.
-
-		If `code` is negative or has another invalid value, the result is
-		unspecified.</haxe_doc>
-	</fromCharCode>
-</class></impl>
-	</abstract>
-	<class path="haxe._Ucs2.Ucs2_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/Ucs2.hx" private="1" module="haxe.Ucs2" final="1">
-		<length public="1" get="accessor" set="null" static="1"><x path="Int"/></length>
-		<_hx_new get="inline" set="null" line="31" static="1">
-			<f a="str">
-				<c path="String"/>
-				<x path="haxe.Ucs2"/>
-			</f>
-			<meta><m n=":noCompletion"/></meta>
-		</_hx_new>
-		<get_length get="inline" set="null" line="40" static="1"><f a="this">
-	<c path="String"/>
-	<x path="Int"/>
-</f></get_length>
-		<toUpperCase public="1" get="inline" set="null" line="49" static="1">
-			<f a="this">
-				<c path="String"/>
-				<x path="haxe.Ucs2"/>
-			</f>
-			<haxe_doc>Returns a Ucs2 where all characters of `this` Ucs2 are upper case.
-
-		Affects the characters `a-z`. Other characters remain unchanged.</haxe_doc>
-		</toUpperCase>
-		<toLowerCase public="1" get="inline" set="null" line="58" static="1">
-			<f a="this">
-				<c path="String"/>
-				<x path="haxe.Ucs2"/>
-			</f>
-			<haxe_doc>Returns a Ucs2 where all characters of `this` Ucs2 are lower case.
-
-		Affects the characters `A-Z`. Other characters remain unchanged.</haxe_doc>
-		</toLowerCase>
-		<charAt public="1" get="inline" set="null" line="68" static="1">
-			<f a="this:index">
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="haxe.Ucs2"/>
-			</f>
-			<haxe_doc>Returns the character at position `index` of `this` Ucs2.
-
-		If `index` is negative or exceeds `this.length`, the empty Ucs2 ""
-		is returned.</haxe_doc>
-		</charAt>
-		<charCodeAt public="1" get="inline" set="null" line="81" static="1">
-			<f a="this:index">
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="Null"><x path="Int"/></x>
-			</f>
-			<haxe_doc>Returns the character code at position `index` of `this` Ucs2.
-
-		If `index` is negative or exceeds `this.length`, `null` is returned.
-
-		To obtain the character code of a single character, `"x".code` can be used
-		instead to extern public inline the character code at compile time. Note that this
-		only works on Ucs2 literals of length 1.</haxe_doc>
-		</charCodeAt>
-		<indexOf public="1" get="inline" set="null" line="96" static="1">
-			<f a="this:str:?startIndex">
-				<c path="String"/>
-				<x path="haxe.Ucs2"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Returns the position of the leftmost occurrence of `str` within `this`
-		Ucs2.
-
-		If `startIndex` is given, the search is performed within the substring
-		of `this` Ucs2 starting from `startIndex`. Otherwise the search is
-		performed within `this` Ucs2. In either case, the returned position
-		is relative to the beginning of `this` Ucs2.
-
-		If `str` cannot be found, -1 is returned.</haxe_doc>
-		</indexOf>
-		<lastIndexOf public="1" get="inline" set="null" line="111" static="1">
-			<f a="this:str:?startIndex">
-				<c path="String"/>
-				<x path="haxe.Ucs2"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Returns the position of the rightmost occurrence of `str` within `this`
-		Ucs2.
-
-		If `startIndex` is given, the search is performed within the substring
-		of `this` Ucs2 from 0 to `startIndex`. Otherwise the search is
-		performed within `this` Ucs2. In either case, the returned position
-		is relative to the beginning of `this` Ucs2.
-
-		If `str` cannot be found, -1 is returned.</haxe_doc>
-		</lastIndexOf>
-		<split public="1" get="inline" set="null" line="135" static="1">
-			<f a="this:delimiter">
-				<c path="String"/>
-				<x path="haxe.Ucs2"/>
-				<c path="Array"><x path="haxe.Ucs2"/></c>
-			</f>
-			<haxe_doc>Splits `this` Ucs2 at each occurrence of `delimiter`.
-
-		If `this` Ucs2 is the empty Ucs2 "", the result is not consistent
-		across targets and may either be `[]` (on Js, Cpp) or `[""]`.
-
-		If `delimiter` is the empty Ucs2 "", `this` Ucs2 is split into an
-		Array of `this.length` elements, where the elements correspond to the
-		characters of `this` Ucs2.
-
-		If `delimiter` is not found within `this` Ucs2, the result is an Array
-		with one element, which equals `this` Ucs2.
-
-		If `delimiter` is null, the result is unspecified.
-
-		Otherwise, `this` Ucs2 is split into parts at each occurrence of
-		`delimiter`. If `this` Ucs2 starts (or ends) with `delimiter`, the
-		result Array contains a leading (or trailing) empty Ucs2 "" element.
-		Two subsequent delimiters also result in an empty Ucs2 "" element.</haxe_doc>
-		</split>
-		<substr public="1" get="inline" set="null" line="154" static="1">
-			<f a="this:pos:?len">
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="haxe.Ucs2"/>
-			</f>
-			<haxe_doc>Returns `len` characters of `this` Ucs2, starting at position `pos`.
-
-		If `len` is omitted, all characters from position `pos` to the end of
-		`this` Ucs2 are included.
-
-		If `pos` is negative, its value is calculated from the end of `this`
-		Ucs2 by `this.length + pos`. If this yields a negative value, 0 is
-		used instead.
-
-		If the calculated position + `len` exceeds `this.length`, the characters
-		from that position to the end of `this` Ucs2 are returned.
-
-		If `len` is negative, the result is unspecified.</haxe_doc>
-		</substr>
-		<substring public="1" get="inline" set="null" line="171" static="1">
-			<f a="this:startIndex:?endIndex">
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="haxe.Ucs2"/>
-			</f>
-			<haxe_doc>Returns the part of `this` Ucs2 from `startIndex` to `endIndex`.
-
-		If `startIndex` or `endIndex` are negative, 0 is used instead.
-
-		If `startIndex` exceeds `endIndex`, they are swapped.
-
-		If the (possibly swapped) `endIndex` is omitted or exceeds
-		`this.length`, `this.length` is used instead.
-
-		If the (possibly swapped) `startIndex` exceeds `this.length`, the empty
-		Ucs2 "" is returned.</haxe_doc>
-		</substring>
-		<toNativeString public="1" get="inline" set="null" line="178" static="1">
-			<f a="this">
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns the native underlying String.</haxe_doc>
-		</toNativeString>
-		<fromCharCode public="1" get="inline" set="null" line="188" static="1">
-			<f a="code">
-				<x path="Int"/>
-				<x path="haxe.Ucs2"/>
-			</f>
-			<haxe_doc>Returns the Ucs2 corresponding to the character code `code`.
-
-		If `code` is negative or has another invalid value, the result is
-		unspecified.</haxe_doc>
-		</fromCharCode>
 	</class>
 	<class path="haxe._Unserializer.DefaultResolver" params="" file="/home/runner/work/haxe/haxe/std/haxe/Unserializer.hx" private="1" module="haxe.Unserializer">
 		<resolveClass public="1" get="inline" set="null" line="515"><f a="name">
@@ -9784,7 +9463,7 @@
 		<haxe_doc>Calculates the Adler32 of the given Bytes.</haxe_doc>
 	</class>
 	<class path="haxe.io.Bytes" params="" file="/home/runner/work/haxe/haxe/std/haxe/io/Bytes.hx">
-		<alloc public="1" set="method" line="531" static="1">
+		<alloc public="1" set="method" line="529" static="1">
 			<f a="length">
 				<x path="Int"/>
 				<c path="haxe.io.Bytes"/>
@@ -9792,7 +9471,7 @@
 			<haxe_doc>Returns a new `Bytes` instance with the given `length`. The values of the
 		bytes are not initialized and may not be zero.</haxe_doc>
 		</alloc>
-		<ofString public="1" set="method" line="560" static="1">
+		<ofString public="1" set="method" line="558" static="1">
 			<f a="s:?encoding">
 				<c path="String"/>
 				<e path="haxe.io.Encoding"/>
@@ -9801,14 +9480,14 @@
 			<haxe_doc>Returns the `Bytes` representation of the given `String`, using the
 		specified encoding (UTF-8 by default).</haxe_doc>
 		</ofString>
-		<ofData public="1" set="method" line="628" static="1">
+		<ofData public="1" set="method" line="626" static="1">
 			<f a="b">
 				<t path="haxe.io.BytesData"/>
 				<c path="haxe.io.Bytes"/>
 			</f>
 			<haxe_doc>Returns the `Bytes` representation of the given `BytesData`.</haxe_doc>
 		</ofData>
-		<ofHex public="1" set="method" line="643" static="1">
+		<ofHex public="1" set="method" line="641" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="haxe.io.Bytes"/>
@@ -9817,7 +9496,7 @@
 		even length consisting only of hexadecimal digits. For example:
 		`"0FDA14058916052309"`.</haxe_doc>
 		</ofHex>
-		<fastGet public="1" get="inline" set="null" line="664" static="1">
+		<fastGet public="1" get="inline" set="null" line="662" static="1">
 			<f a="b:pos">
 				<t path="haxe.io.BytesData"/>
 				<x path="Int"/>
@@ -9995,7 +9674,7 @@
 			<haxe_doc>Returns the `len`-bytes long string stored at the given position `pos`,
 		interpreted with the given `encoding` (UTF-8 by default).</haxe_doc>
 		</getString>
-		<readString public="1" get="inline" set="null" line="479">
+		<readString public="1" get="inline" set="null" line="477">
 			<f a="pos:len">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -10006,16 +9685,16 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</readString>
-		<toString public="1" set="method" line="486">
+		<toString public="1" set="method" line="484">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns a `String` representation of the bytes interpreted as UTF-8.</haxe_doc>
 		</toString>
-		<toHex public="1" set="method" line="506">
+		<toHex public="1" set="method" line="504">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns a hexadecimal `String` representation of the bytes of `this`
 		instance.</haxe_doc>
 		</toHex>
-		<getData public="1" get="inline" set="null" line="523">
+		<getData public="1" get="inline" set="null" line="521">
 			<f a=""><t path="haxe.io.BytesData"/></f>
 			<haxe_doc>Returns the bytes of `this` instance as `BytesData`.</haxe_doc>
 		</getData>
@@ -28627,7 +28306,7 @@
 		}
 		```</haxe_doc>
 		</map>
-		<getValue public="1" set="method" line="230" static="1">
+		<getValue public="1" set="method" line="232" static="1">
 			<f a="e">
 				<t path="haxe.macro.Expr"/>
 				<d/>
@@ -28650,7 +28329,7 @@
 
 		If `e` is null, the result is unspecified.]]></haxe_doc>
 		</getValue>
-		<opt get="inline" set="null" line="291" static="1"><f a="e:f">
+		<opt get="inline" set="null" line="293" static="1"><f a="e:f">
 	<x path="Null"><t path="haxe.macro.Expr"/></x>
 	<f a="">
 		<t path="haxe.macro.Expr"/>
@@ -28658,7 +28337,7 @@
 	</f>
 	<t path="haxe.macro.Expr"/>
 </f></opt>
-		<opt2 get="inline" set="null" line="294" static="1"><f a="e:f">
+		<opt2 get="inline" set="null" line="296" static="1"><f a="e:f">
 	<x path="Null"><t path="haxe.macro.Expr"/></x>
 	<f a="">
 		<t path="haxe.macro.Expr"/>
@@ -28674,7 +28353,7 @@
 	well.</haxe_doc>
 	</class>
 	<class path="haxe.macro.ExprArrayTools" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/ExprTools.hx" module="haxe.macro.ExprTools">
-		<map public="1" set="method" line="303" static="1"><f a="el:f">
+		<map public="1" set="method" line="305" static="1"><f a="el:f">
 	<c path="Array"><t path="haxe.macro.Expr"/></c>
 	<f a="">
 		<t path="haxe.macro.Expr"/>
@@ -28682,7 +28361,7 @@
 	</f>
 	<c path="Array"><t path="haxe.macro.Expr"/></c>
 </f></map>
-		<iter public="1" set="method" line="310" static="1"><f a="el:f">
+		<iter public="1" set="method" line="312" static="1"><f a="el:f">
 	<c path="Array"><t path="haxe.macro.Expr"/></c>
 	<f a="">
 		<t path="haxe.macro.Expr"/>
@@ -37027,7 +36706,7 @@
 			</a>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</PROXY>
-		<requestUrl public="1" set="method" line="528" static="1">
+		<requestUrl public="1" set="method" line="532" static="1">
 			<f a="url">
 				<c path="String"/>
 				<c path="String"/>
@@ -37095,7 +36774,7 @@
 	<c path="String"/>
 	<x path="Void"/>
 </f></customRequest>
-		<getResponseHeaderValues public="1" set="method" line="265">
+		<getResponseHeaderValues public="1" set="method" line="269">
 			<f a="key">
 				<c path="String"/>
 				<x path="Null"><c path="Array"><c path="String"/></c></x>
@@ -37106,7 +36785,7 @@
 		the same name (e.g. `Set-Cookie`), that are unreachable via the
 		`responseHeaders` variable.</haxe_doc>
 		</getResponseHeaderValues>
-		<writeBody set="method" line="275"><f a="body:fileInput:fileSize:boundary:sock">
+		<writeBody set="method" line="279"><f a="body:fileInput:fileSize:boundary:sock">
 	<x path="Null"><c path="haxe.io.BytesOutput"/></x>
 	<x path="Null"><c path="haxe.io.Input"/></x>
 	<x path="Int"/>
@@ -37114,12 +36793,12 @@
 	<c path="sys.net.Socket"/>
 	<x path="Void"/>
 </f></writeBody>
-		<readHttpResponse set="method" line="300"><f a="api:sock">
+		<readHttpResponse set="method" line="304"><f a="api:sock">
 	<c path="haxe.io.Output"/>
 	<c path="sys.net.Socket"/>
 	<x path="Void"/>
 </f></readHttpResponse>
-		<readChunk set="method" line="462"><f a="chunk_re:api:buf:len">
+		<readChunk set="method" line="466"><f a="chunk_re:api:buf:len">
 	<c path="EReg"/>
 	<c path="haxe.io.Output"/>
 	<c path="haxe.io.Bytes"/>
