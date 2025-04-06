@@ -2675,9 +2675,10 @@
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="StringBuf" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/StringBuf.hx">
-		<b>
-			<c path="Array"><c path="String"/></c>
+		<b expr="null">
+			<x path="Null"><c path="Array"><c path="String"/></c></x>
 			<meta>
+				<m n=":value"><e>null</e></m>
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
@@ -2690,35 +2691,36 @@
 			</meta>
 			<haxe_doc>The length of `this` StringBuf in characters.</haxe_doc>
 		</length>
-		<charBuf>
-			<c path="Array"><x path="cpp.Char"/></c>
+		<charBuf expr="null">
+			<x path="Null"><c path="Array"><x path="cpp.Char"/></c></x>
 			<meta>
+				<m n=":value"><e>null</e></m>
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
 		</charBuf>
-		<charBufAsString set="method" line="37">
+		<drainCharBuf set="method" line="36">
 			<f a=""><c path="String"/></f>
 			<meta>
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
-		</charBufAsString>
-		<flush set="method" line="43">
+		</drainCharBuf>
+		<flush set="method" line="46">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
 		</flush>
-		<get_length set="method" line="51">
+		<get_length set="method" line="54">
 			<f a=""><x path="Int"/></f>
 			<meta>
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
 		</get_length>
-		<add public="1" params="T" get="inline" set="null" line="61">
+		<add public="1" params="T" get="inline" set="null" line="64">
 			<f a="x">
 				<c path="add.T"/>
 				<x path="Void"/>
@@ -2735,7 +2737,7 @@
 
 		If `x` is null, the String "null" is appended.</haxe_doc>
 		</add>
-		<addSub public="1" get="inline" set="null" line="70">
+		<addSub public="1" get="inline" set="null" line="73">
 			<f a="s:pos:?len">
 				<c path="String"/>
 				<x path="Int"/>
@@ -2757,7 +2759,7 @@
 		If `len` is omitted or null, the substring ranges from `pos` to the end
 		of `s`.</haxe_doc>
 		</addSub>
-		<addChar public="1" get="inline" set="null" line="79">
+		<addChar public="1" get="inline" set="null" line="82">
 			<f a="c">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -2771,7 +2773,15 @@
 		If `c` is negative or has another invalid value, the result is
 		unspecified.</haxe_doc>
 		</addChar>
-		<toString public="1" set="method" line="92">
+		<clear public="1" set="method" line="95">
+			<f a=""><x path="Void"/></f>
+			<meta>
+				<m n=":keep"/>
+				<m n=":keep"/>
+			</meta>
+			<haxe_doc>Removes all characters from `this` StringBuf, making it possible to reuse it.</haxe_doc>
+		</clear>
+		<toString public="1" set="method" line="100">
 			<f a=""><c path="String"/></f>
 			<meta>
 				<m n=":keep"/>
@@ -2781,7 +2791,7 @@
 
 		The buffer is not emptied by this operation.</haxe_doc>
 		</toString>
-		<new public="1" set="method" line="35">
+		<new public="1" set="method" line="34">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":keep"/>
@@ -16176,17 +16186,17 @@
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
-			<haxe_doc>Enables object caching during serialization to handle circular references and 
+			<haxe_doc>Enables object caching during serialization to handle circular references and
 		repeated objects.
-	
-		Set `USE_CACHE` to `true` if the values you are serializing may contain 
-		circular references or repeated objects. This prevents infinite loops and 
+
+		Set `USE_CACHE` to `true` if the values you are serializing may contain
+		circular references or repeated objects. This prevents infinite loops and
 		ensures that shared references are preserved in the serialized output.
-	
-		Enabling this option may also reduce the size of the resulting serialized 
+
+		Enabling this option may also reduce the size of the resulting serialized
 		string, but can have a minor performance impact.
-	
-		This is a global default. You can override it per instance using the 
+
+		This is a global default. You can override it per instance using the
 		`useCache` field on a `Serializer`.</haxe_doc>
 		</USE_CACHE>
 		<USE_ENUM_INDEX public="1" expr="false" line="76" static="1">
@@ -16197,16 +16207,16 @@
 				<m n=":keep"/>
 			</meta>
 			<haxe_doc>Serializes enum values using constructor indices instead of names.
-	
-		When `USE_ENUM_INDEX` is set to `true`, enum constructors are serialized by 
-		their numeric index. This can reduce the size of the serialized data, 
+
+		When `USE_ENUM_INDEX` is set to `true`, enum constructors are serialized by
+		their numeric index. This can reduce the size of the serialized data,
 		especially for enums with long or frequently used constructor names.
-	
-		However, using indices makes serialized data more fragile for long-term 
-		storage. If enum definitions change (e.g., by adding or removing constructors), 
+
+		However, using indices makes serialized data more fragile for long-term
+		storage. If enum definitions change (e.g., by adding or removing constructors),
 		the indices may no longer match the intended constructors.
-	
-		This is a global default. You can override it per instance using the 
+
+		This is a global default. You can override it per instance using the
 		`useEnumIndex` field on a `Serializer`.</haxe_doc>
 		</USE_ENUM_INDEX>
 		<BASE64 expr="&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:&quot;" line="78" static="1">
@@ -16275,11 +16285,11 @@
 				<m n=":keep"/>
 			</meta>
 			<haxe_doc>Determines whether this `Serializer` instance uses object caching.
-	
-	 	When enabled, repeated references to the same object are serialized using references 
-	 	instead of duplicating data, reducing output size and preserving object identity.
-	
-	 	See `USE_CACHE` for a complete description.</haxe_doc>
+
+		When enabled, repeated references to the same object are serialized using references
+		instead of duplicating data, reducing output size and preserving object identity.
+
+		See `USE_CACHE` for a complete description.</haxe_doc>
 		</useCache>
 		<useEnumIndex public="1">
 			<x path="Bool"/>
@@ -16290,7 +16300,7 @@
 			<haxe_doc>Determines whether this `Serializer` instance serializes enum values using their index
 		instead of their constructor name.
 
-		Using indexes can reduce the size of the serialized data but may be less readable and 
+		Using indexes can reduce the size of the serialized data but may be less readable and
 		more fragile if enum definitions change.
 
 		See `USE_ENUM_INDEX` for a complete description.</haxe_doc>
@@ -16302,7 +16312,7 @@
 				<m n=":keep"/>
 			</meta>
 			<haxe_doc>Resets the internal state of the Serializer, allowing it to be reused.
-		
+
 		This does not affect the `useCache` or `useEnumIndex` properties;
 		their values will remain unchanged after calling this method.</haxe_doc>
 		</reset>
@@ -41528,7 +41538,7 @@
 			</a>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</PROXY>
-		<requestUrl public="1" set="method" line="528" static="1">
+		<requestUrl public="1" set="method" line="532" static="1">
 			<f a="url">
 				<c path="String"/>
 				<c path="String"/>
@@ -41596,7 +41606,7 @@
 	<c path="String"/>
 	<x path="Void"/>
 </f></customRequest>
-		<getResponseHeaderValues public="1" set="method" line="265">
+		<getResponseHeaderValues public="1" set="method" line="269">
 			<f a="key">
 				<c path="String"/>
 				<x path="Null"><c path="Array"><c path="String"/></c></x>
@@ -41607,7 +41617,7 @@
 		the same name (e.g. `Set-Cookie`), that are unreachable via the
 		`responseHeaders` variable.</haxe_doc>
 		</getResponseHeaderValues>
-		<writeBody set="method" line="275"><f a="body:fileInput:fileSize:boundary:sock">
+		<writeBody set="method" line="279"><f a="body:fileInput:fileSize:boundary:sock">
 	<x path="Null"><c path="haxe.io.BytesOutput"/></x>
 	<x path="Null"><c path="haxe.io.Input"/></x>
 	<x path="Int"/>
@@ -41615,12 +41625,12 @@
 	<c path="sys.net.Socket"/>
 	<x path="Void"/>
 </f></writeBody>
-		<readHttpResponse set="method" line="300"><f a="api:sock">
+		<readHttpResponse set="method" line="304"><f a="api:sock">
 	<c path="haxe.io.Output"/>
 	<c path="sys.net.Socket"/>
 	<x path="Void"/>
 </f></readHttpResponse>
-		<readChunk set="method" line="462"><f a="chunk_re:api:buf:len">
+		<readChunk set="method" line="466"><f a="chunk_re:api:buf:len">
 	<c path="EReg"/>
 	<c path="haxe.io.Output"/>
 	<c path="haxe.io.Bytes"/>
