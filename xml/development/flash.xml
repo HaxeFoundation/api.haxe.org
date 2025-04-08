@@ -1920,7 +1920,7 @@
 			<f a="value:c">
 				<c path="downcast.T"/>
 				<x path="Class"><c path="downcast.S"/></x>
-				<c path="downcast.S"/>
+				<x path="Null"><c path="downcast.S"/></x>
 			</f>
 			<haxe_doc>Checks if object `value` is an instance of class or interface `c`.
 
@@ -1941,7 +1941,7 @@
 			<f a="value:c">
 				<c path="instance.T"/>
 				<x path="Class"><c path="instance.S"/></x>
-				<c path="instance.S"/>
+				<x path="Null"><c path="instance.S"/></x>
 			</f>
 			<meta><m n=":deprecated"><e>"Std.instance() is deprecated. Use Std.downcast() instead."</e></m></meta>
 		</instance>
@@ -2488,11 +2488,12 @@
 			<haxe_doc>Decode an URL using the standard format.</haxe_doc>
 		</urlDecode>
 		<htmlEscape public="1" set="method" line="154" static="1">
-			<f a="s:?quotes">
+			<f a="s:?quotes" v=":false">
 				<c path="String"/>
 				<x path="Bool"/>
 				<c path="String"/>
 			</f>
+			<meta><m n=":value"><e>{ quotes : false }</e></m></meta>
 			<haxe_doc><![CDATA[Escapes HTML special characters of the string `s`.
 
 		The following replacements are made:
@@ -2825,7 +2826,7 @@
 		<getEnum public="1" set="method" line="49" static="1">
 			<f a="o">
 				<x path="EnumValue"/>
-				<x path="Enum"><d/></x>
+				<x path="Null"><x path="Enum"><d/></x></x>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc><![CDATA[Returns the enum of enum instance `o`.
@@ -2840,7 +2841,7 @@
 		<getSuperClass public="1" set="method" line="63" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
-				<x path="Class"><d/></x>
+				<x path="Null"><x path="Class"><d/></x></x>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Returns the super-class of class `c`.
@@ -2893,7 +2894,7 @@
 		<resolveClass public="1" set="method" line="96" static="1">
 			<f a="name">
 				<c path="String"/>
-				<x path="Class"><d/></x>
+				<x path="Null"><x path="Class"><d/></x></x>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Resolves a class by name.
@@ -2910,7 +2911,7 @@
 		<resolveEnum public="1" set="method" line="119" static="1">
 			<f a="name">
 				<c path="String"/>
-				<x path="Enum"><d/></x>
+				<x path="Null"><x path="Enum"><d/></x></x>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Resolves an enum by name.
@@ -4603,7 +4604,7 @@
 			<haxe_doc>Returns the node value. Only works if the Xml node is not an Element or a Document.</haxe_doc>
 		</nodeValue>
 		<parent public="1" set="null">
-			<c path="Xml"/>
+			<x path="Null"><c path="Xml"/></x>
 			<haxe_doc>Returns the parent object in the Xml hierarchy.
 		The parent can be `null`, an Element or a Document.</haxe_doc>
 		</parent>
@@ -4625,7 +4626,7 @@
 		<get public="1" set="method" line="244">
 			<f a="att">
 				<c path="String"/>
-				<c path="String"/>
+				<x path="Null"><c path="String"/></x>
 			</f>
 			<haxe_doc>Get the given attribute of an Element node. Returns `null` if not found.
 		Attributes are case-sensitive.</haxe_doc>
@@ -4682,7 +4683,7 @@
 			<haxe_doc>Returns the first child node.</haxe_doc>
 		</firstChild>
 		<firstElement public="1" set="method" line="337">
-			<f a=""><c path="Xml"/></f>
+			<f a=""><x path="Null"><c path="Xml"/></x></f>
 			<haxe_doc>Returns the first child node which is an Element.</haxe_doc>
 		</firstElement>
 		<addChild public="1" set="method" line="353">
@@ -30288,10 +30289,11 @@
 		This method provides a fluent interface.</haxe_doc>
 		</setPostBytes>
 		<request public="1" set="method" line="185">
-			<f a="?post">
+			<f a="?post" v="false">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
+			<meta><m n=":value"><e>{ post : false }</e></m></meta>
 			<haxe_doc>Sends `this` Http request to the Url specified by `this.url`.
 
 		If `post` is true, the request is sent as POST request, otherwise it is
@@ -30392,10 +30394,13 @@
 			<haxe_doc>Cancels `this` Http request if `request` has been called and a response
 		has not yet been received.</haxe_doc>
 		</cancel>
-		<request public="1" set="method" line="43" override="1"><f a="?post">
-	<x path="Bool"/>
-	<x path="Void"/>
-</f></request>
+		<request public="1" set="method" line="43" override="1">
+			<f a="?post" v="false">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ post : false }</e></m></meta>
+		</request>
 		<new public="1" set="method" line="29"><f a="url">
 	<c path="String"/>
 	<x path="Void"/>
@@ -33466,7 +33471,7 @@
 			<x path="Null"><x path="haxe.ds.Vector"><x path="Null"><x path="Int"/></x></x></x>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</BASE64_CODES>
-		<run public="1" set="method" line="598" static="1">
+		<run public="1" set="method" line="599" static="1">
 			<f a="v">
 				<d/>
 				<c path="String"/>
@@ -33534,7 +33539,7 @@
 	<a/>
 	<x path="Void"/>
 </f></serializeFields>
-		<serialize public="1" set="method" line="251">
+		<serialize public="1" set="method" line="252">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
@@ -33543,17 +33548,18 @@
 	
 		All haxe-defined values and objects with the exception of functions can
 		be serialized. Serialization of external/native objects is not
-		guaranteed to work.
+		guaranteed to work. This is also true for classes extending external/native
+		classes. On some targets, this might include exceptions, too.
 	
 		The values of `this.useCache` and `this.useEnumIndex` may affect
 		serialization output.</haxe_doc>
 		</serialize>
-		<__getField get="inline" set="null" line="573"><f a="o:f">
+		<__getField get="inline" set="null" line="574"><f a="o:f">
 	<d/>
 	<c path="String"/>
 	<d/>
 </f></__getField>
-		<serializeException public="1" set="method" line="575">
+		<serializeException public="1" set="method" line="576">
 			<f a="e">
 				<d/>
 				<x path="Void"/>
@@ -33591,7 +33597,7 @@
 	<enum path="haxe._Template.TemplateExpr" params="" file="/home/runner/work/haxe/haxe/std/haxe/Template.hx" private="1" module="haxe.Template">
 		<OpVar a="v"><c path="String"/></OpVar>
 		<OpExpr a="expr"><f a=""><d/></f></OpExpr>
-		<OpIf a="expr:eif:eelse">
+		<OpIf a="expr:eif:?eelse">
 			<f a=""><d/></f>
 			<e path="haxe._Template.TemplateExpr"/>
 			<e path="haxe._Template.TemplateExpr"/>
@@ -33846,11 +33852,11 @@
 	<class path="haxe._Unserializer.DefaultResolver" params="" file="/home/runner/work/haxe/haxe/std/haxe/Unserializer.hx" private="1" module="haxe.Unserializer">
 		<resolveClass public="1" get="inline" set="null" line="515"><f a="name">
 	<c path="String"/>
-	<x path="Class"><d/></x>
+	<x path="Null"><x path="Class"><d/></x></x>
 </f></resolveClass>
 		<resolveEnum public="1" get="inline" set="null" line="518"><f a="name">
 	<c path="String"/>
-	<x path="Enum"><d/></x>
+	<x path="Null"><x path="Enum"><d/></x></x>
 </f></resolveEnum>
 		<new public="1" set="method" line="512"><f a=""><x path="Void"/></f></new>
 	</class>
@@ -33865,9 +33871,9 @@
 
 		A type resolver must provide two methods:
 
-		1. `resolveClass(name:String):Class<Dynamic>` is called to determine a
+		1. `resolveClass(name:String):Null<Class<Dynamic>>` is called to determine a
 				`Class` from a class name
-		2. `resolveEnum(name:String):Enum<Dynamic>` is called to determine an
+		2. `resolveEnum(name:String):Null<Enum<Dynamic>>` is called to determine an
 				`Enum` from an enum name
 
 		This value is applied when a new `Unserializer` instance is created.
@@ -34005,11 +34011,11 @@
 		<get_instance get="inline" set="null" line="532" static="1"><f a=""><c path="haxe._Unserializer.NullResolver"/></f></get_instance>
 		<resolveClass public="1" get="inline" set="null" line="525"><f a="name">
 	<c path="String"/>
-	<x path="Class"><d/></x>
+	<x path="Null"><x path="Class"><d/></x></x>
 </f></resolveClass>
 		<resolveEnum public="1" get="inline" set="null" line="528"><f a="name">
 	<c path="String"/>
-	<x path="Enum"><d/></x>
+	<x path="Null"><x path="Enum"><d/></x></x>
 </f></resolveEnum>
 		<new set="method" line="522"><f a=""><x path="Void"/></f></new>
 	</class>
@@ -42961,12 +42967,12 @@
 	<x path="Void"/>
 </f></quote>
 		<new set="method" line="56"><f a="replacer:space">
-	<f a="key:value">
-		<d/>
-		<d/>
-		<d/>
-	</f>
-	<c path="String"/>
+	<x path="Null"><f a="key:value">
+	<d/>
+	<d/>
+	<d/>
+</f></x>
+	<x path="Null"><c path="String"/></x>
 	<x path="Void"/>
 </f></new>
 		<haxe_doc>An implementation of JSON printer in Haxe.
@@ -56655,7 +56661,7 @@
 	<x path="Int"/>
 	<c path="haxe.ds.List"><e path="haxe.zip.ExtraField"/></c>
 </f></readExtraFields>
-		<readEntryHeader public="1" set="method" line="78"><f a=""><t path="haxe.zip.Entry"/></f></readEntryHeader>
+		<readEntryHeader public="1" set="method" line="78"><f a=""><x path="Null"><t path="haxe.zip.Entry"/></x></f></readEntryHeader>
 		<read public="1" set="method" line="121"><f a=""><c path="haxe.ds.List"><t path="haxe.zip.Entry"/></c></f></read>
 		<new public="1" set="method" line="32"><f a="i">
 	<c path="haxe.io.Input"/>

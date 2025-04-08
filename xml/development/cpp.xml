@@ -2179,7 +2179,7 @@
 			<f a="value:c">
 				<c path="downcast.T"/>
 				<x path="Class"><c path="downcast.S"/></x>
-				<c path="downcast.S"/>
+				<x path="Null"><c path="downcast.S"/></x>
 			</f>
 			<meta>
 				<m n=":keep"/>
@@ -2204,7 +2204,7 @@
 			<f a="value:c">
 				<c path="instance.T"/>
 				<x path="Class"><c path="instance.S"/></x>
-				<c path="instance.S"/>
+				<x path="Null"><c path="instance.S"/></x>
 			</f>
 			<meta>
 				<m n=":keep"/>
@@ -2365,6 +2365,7 @@
 	@see https://haxe.org/manual/std-math-integer-math.html
 	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
 		<meta>
+			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":notNull"/>
 			<m n=":runtimeValue"/>
@@ -2871,12 +2872,15 @@
 			<haxe_doc>Decode an URL using the standard format.</haxe_doc>
 		</urlDecode>
 		<htmlEscape public="1" set="method" line="154" static="1">
-			<f a="s:?quotes">
+			<f a="s:?quotes" v=":false">
 				<c path="String"/>
 				<x path="Bool"/>
 				<c path="String"/>
 			</f>
-			<meta><m n=":keep"/></meta>
+			<meta>
+				<m n=":value"><e>{ quotes : false }</e></m>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc><![CDATA[Escapes HTML special characters of the string `s`.
 
 		The following replacements are made:
@@ -3269,7 +3273,7 @@
 		<getEnv public="1" set="method" line="59" static="1">
 			<f a="s">
 				<c path="String"/>
-				<c path="String"/>
+				<x path="Null"><c path="String"/></x>
 			</f>
 			<haxe_doc>Returns the value of the given environment variable, or `null` if it
 		doesn't exist.</haxe_doc>
@@ -3430,7 +3434,7 @@
 		<getEnum public="1" set="method" line="50" static="1">
 			<f a="o">
 				<x path="EnumValue"/>
-				<x path="Enum"><d/></x>
+				<x path="Null"><x path="Enum"><d/></x></x>
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -3448,7 +3452,7 @@
 		<getSuperClass public="1" set="method" line="57" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
-				<x path="Class"><d/></x>
+				<x path="Null"><x path="Class"><d/></x></x>
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -3511,7 +3515,7 @@
 		<resolveClass public="1" set="method" line="72" static="1">
 			<f a="name">
 				<c path="String"/>
-				<x path="Class"><d/></x>
+				<x path="Null"><x path="Class"><d/></x></x>
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -3531,7 +3535,7 @@
 		<resolveEnum public="1" set="method" line="80" static="1">
 			<f a="name">
 				<c path="String"/>
-				<x path="Enum"><d/></x>
+				<x path="Null"><x path="Enum"><d/></x></x>
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -5331,7 +5335,7 @@
 			<haxe_doc>Returns the node value. Only works if the Xml node is not an Element or a Document.</haxe_doc>
 		</nodeValue>
 		<parent public="1" set="null">
-			<c path="Xml"/>
+			<x path="Null"><c path="Xml"/></x>
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the parent object in the Xml hierarchy.
 		The parent can be `null`, an Element or a Document.</haxe_doc>
@@ -5372,7 +5376,7 @@
 		<get public="1" set="method" line="244">
 			<f a="att">
 				<c path="String"/>
-				<c path="String"/>
+				<x path="Null"><c path="String"/></x>
 			</f>
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Get the given attribute of an Element node. Returns `null` if not found.
@@ -5438,7 +5442,7 @@
 			<haxe_doc>Returns the first child node.</haxe_doc>
 		</firstChild>
 		<firstElement public="1" set="method" line="337">
-			<f a=""><c path="Xml"/></f>
+			<f a=""><x path="Null"><c path="Xml"/></x></f>
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the first child node which is an Element.</haxe_doc>
 		</firstElement>
@@ -7195,6 +7199,7 @@
 			</f>
 			<meta><m n=":native"><e>"__hxcpp_set_minimum_working_memory"</e></m></meta>
 		</setMinimumWorkingMemory>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="cpp.NativeMath" params="" file="/home/runner/work/haxe/haxe/std/cpp/NativeMath.hx" extern="1">
 		<idiv public="1" set="method" static="1">
@@ -10376,68 +10381,119 @@
 	<class path="cpp.rtti.FieldNumericIntegerLookup" params="" file="/home/runner/work/haxe/haxe/std/cpp/rtti/FieldNumericIntegerLookup.hx" interface="1"><haxe_doc>If you implement this interface, then the backend will generate code that
 	allows fast numeric access to fields by integer id.  This should speed up the CFFI.</haxe_doc></class>
 	<class path="cpp.vm.Parameter" params="" file="/home/runner/work/haxe/haxe/std/cpp/vm/Debugger.hx" module="cpp.vm.Debugger">
-		<name public="1" set="null"><c path="String"/></name>
-		<value public="1" set="null"><d/></value>
-		<new public="1" set="method" line="34"><f a="name:value">
-	<c path="String"/>
-	<d/>
-	<x path="Void"/>
-</f></new>
+		<name public="1" set="null">
+			<c path="String"/>
+			<meta><m n=":keep"/></meta>
+		</name>
+		<value public="1" set="null">
+			<d/>
+			<meta><m n=":keep"/></meta>
+		</value>
+		<new public="1" set="method" line="34">
+			<f a="name:value">
+				<c path="String"/>
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</new>
 		<haxe_doc>Parameter describes a function parameter. Instances of this class are
 	embedded in stack frame objects to describe the function parameters that
 	were used in the invocation of the function that defines that stack frame.</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="cpp.vm.StackFrame" params="" file="/home/runner/work/haxe/haxe/std/cpp/vm/Debugger.hx" module="cpp.vm.Debugger">
-		<fileName public="1" set="null"><c path="String"/></fileName>
-		<lineNumber public="1" set="null"><x path="Int"/></lineNumber>
-		<className public="1" set="null"><c path="String"/></className>
-		<functionName public="1" set="null"><c path="String"/></functionName>
-		<parameters public="1" set="null"><c path="Array"><c path="cpp.vm.Parameter"/></c></parameters>
-		<new public="1" set="method" line="50"><f a="fileName:lineNumber:className:functionName">
-	<c path="String"/>
-	<x path="Int"/>
-	<c path="String"/>
-	<c path="String"/>
-	<x path="Void"/>
-</f></new>
+		<fileName public="1" set="null">
+			<c path="String"/>
+			<meta><m n=":keep"/></meta>
+		</fileName>
+		<lineNumber public="1" set="null">
+			<x path="Int"/>
+			<meta><m n=":keep"/></meta>
+		</lineNumber>
+		<className public="1" set="null">
+			<c path="String"/>
+			<meta><m n=":keep"/></meta>
+		</className>
+		<functionName public="1" set="null">
+			<c path="String"/>
+			<meta><m n=":keep"/></meta>
+		</functionName>
+		<parameters public="1" set="null">
+			<c path="Array"><c path="cpp.vm.Parameter"/></c>
+			<meta><m n=":keep"/></meta>
+		</parameters>
+		<new public="1" set="method" line="50">
+			<f a="fileName:lineNumber:className:functionName">
+				<c path="String"/>
+				<x path="Int"/>
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</new>
 		<haxe_doc>`StackFrame` describes one call stack frame.</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="cpp.vm.ThreadInfo" params="" file="/home/runner/work/haxe/haxe/std/cpp/vm/Debugger.hx" module="cpp.vm.Debugger">
 		<STATUS_RUNNING public="1" get="inline" set="null" expr="1" line="63" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>1</e></m></meta>
+			<meta>
+				<m n=":value"><e>1</e></m>
+				<m n=":keep"/>
+			</meta>
 		</STATUS_RUNNING>
 		<STATUS_STOPPED_BREAK_IMMEDIATE public="1" get="inline" set="null" expr="2" line="64" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>2</e></m></meta>
+			<meta>
+				<m n=":value"><e>2</e></m>
+				<m n=":keep"/>
+			</meta>
 		</STATUS_STOPPED_BREAK_IMMEDIATE>
 		<STATUS_STOPPED_BREAKPOINT public="1" get="inline" set="null" expr="3" line="65" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>3</e></m></meta>
+			<meta>
+				<m n=":value"><e>3</e></m>
+				<m n=":keep"/>
+			</meta>
 		</STATUS_STOPPED_BREAKPOINT>
 		<STATUS_STOPPED_UNCAUGHT_EXCEPTION public="1" get="inline" set="null" expr="4" line="66" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>4</e></m></meta>
+			<meta>
+				<m n=":value"><e>4</e></m>
+				<m n=":keep"/>
+			</meta>
 		</STATUS_STOPPED_UNCAUGHT_EXCEPTION>
 		<STATUS_STOPPED_CRITICAL_ERROR public="1" get="inline" set="null" expr="5" line="67" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>5</e></m></meta>
+			<meta>
+				<m n=":value"><e>5</e></m>
+				<m n=":keep"/>
+			</meta>
 		</STATUS_STOPPED_CRITICAL_ERROR>
 		<number public="1" set="null">
 			<x path="Int"/>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>0 is never a valid thread number</haxe_doc>
 		</number>
-		<status public="1" set="null"><x path="Int"/></status>
+		<status public="1" set="null">
+			<x path="Int"/>
+			<meta><m n=":keep"/></meta>
+		</status>
 		<breakpoint public="1" set="null">
 			<x path="Int"/>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>If status is "stopped breakpoint", this is the breakpoint number</haxe_doc>
 		</breakpoint>
 		<criticalErrorDescription public="1" set="null">
 			<c path="String"/>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>If status is "critical error", this describes the error</haxe_doc>
 		</criticalErrorDescription>
 		<stack public="1" set="null">
 			<c path="Array"><c path="cpp.vm.StackFrame"/></c>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Stack will be listed with the lowest frame first</haxe_doc>
 		</stack>
 		<new public="1" set="method" line="83">
@@ -10448,49 +10504,80 @@
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":value"><e>{ criticalErrorDescription : null, breakpoint : -1 }</e></m></meta>
+			<meta>
+				<m n=":value"><e>{ criticalErrorDescription : null, breakpoint : -1 }</e></m>
+				<m n=":keep"/>
+			</meta>
 		</new>
 		<haxe_doc>`ThreadInfo` describes the state of a single thread.</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="cpp.vm.Debugger" params="" file="/home/runner/work/haxe/haxe/std/cpp/vm/Debugger.hx">
 		<THREAD_CREATED public="1" get="inline" set="null" expr="1" line="97" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>1</e></m></meta>
+			<meta>
+				<m n=":value"><e>1</e></m>
+				<m n=":keep"/>
+			</meta>
 		</THREAD_CREATED>
 		<THREAD_TERMINATED public="1" get="inline" set="null" expr="2" line="98" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>2</e></m></meta>
+			<meta>
+				<m n=":value"><e>2</e></m>
+				<m n=":keep"/>
+			</meta>
 		</THREAD_TERMINATED>
 		<THREAD_STARTED public="1" get="inline" set="null" expr="3" line="99" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>3</e></m></meta>
+			<meta>
+				<m n=":value"><e>3</e></m>
+				<m n=":keep"/>
+			</meta>
 		</THREAD_STARTED>
 		<THREAD_STOPPED public="1" get="inline" set="null" expr="4" line="100" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>4</e></m></meta>
+			<meta>
+				<m n=":value"><e>4</e></m>
+				<m n=":keep"/>
+			</meta>
 		</THREAD_STOPPED>
 		<STEP_INTO public="1" get="inline" set="null" expr="1" line="102" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>1</e></m></meta>
+			<meta>
+				<m n=":value"><e>1</e></m>
+				<m n=":keep"/>
+			</meta>
 		</STEP_INTO>
 		<STEP_OVER public="1" get="inline" set="null" expr="2" line="103" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>2</e></m></meta>
+			<meta>
+				<m n=":value"><e>2</e></m>
+				<m n=":keep"/>
+			</meta>
 		</STEP_OVER>
 		<STEP_OUT public="1" get="inline" set="null" expr="3" line="104" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>3</e></m></meta>
+			<meta>
+				<m n=":value"><e>3</e></m>
+				<m n=":keep"/>
+			</meta>
 		</STEP_OUT>
 		<NONEXISTENT_VALUE public="1" expr="&quot;NONEXISTENT_VALUE&quot;" line="111" static="1">
 			<c path="String"/>
-			<meta><m n=":value"><e>"NONEXISTENT_VALUE"</e></m></meta>
+			<meta>
+				<m n=":value"><e>"NONEXISTENT_VALUE"</e></m>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>This tagging value is returned by `getStackVariableValue()` and
 		`setStackVariableValue()` if the requested value does not exist at the
 		requested stack frame</haxe_doc>
 		</NONEXISTENT_VALUE>
 		<THREAD_NOT_STOPPED public="1" expr="&quot;THREAD_NOT_STOPPED&quot;" line="118" static="1">
 			<c path="String"/>
-			<meta><m n=":value"><e>"THREAD_NOT_STOPPED"</e></m></meta>
+			<meta>
+				<m n=":value"><e>"THREAD_NOT_STOPPED"</e></m>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>This tagging value is returned by `getStackVariableValue()` and
 		`setStackVariableValue()` if the stack variable that is being set is on a
 		thread that is running, in which case the set does not take place.</haxe_doc>
@@ -10509,7 +10596,10 @@
 				</f>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Sets the handler callback to be made when asynchronous events occur,
 		specifically, when threads are created, terminated, started, or
 		stopped. The calling thread becomes the "debugger" thread, which means
@@ -10548,7 +10638,10 @@
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>This can be called to turn off (and then back on) all stopping of
 		debugged threads temporarily. It should only be used by classes that
 		actually implement the debugger to hide themselves from the debugger as
@@ -10556,14 +10649,20 @@
 		</enableCurrentThreadDebugging>
 		<getCurrentThreadNumber public="1" set="method" line="174" static="1">
 			<f a=""><x path="Int"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns the thread number of the calling thread.
 
 		@return the thread number of the calling thread.</haxe_doc>
 		</getCurrentThreadNumber>
 		<getFiles public="1" set="method" line="185" static="1">
 			<f a=""><c path="Array"><c path="String"/></c></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns the set of source files known to the debugger. This is a copy
 		of the original array and could be quite large. The caller should
 		cache this value to avoid multiple copies needing to be made.
@@ -10572,7 +10671,10 @@
 		</getFiles>
 		<getFilesFullPath public="1" set="method" line="198" static="1">
 			<f a=""><c path="Array"><c path="String"/></c></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns the full paths of the set of source files known to the debugger.
 		This is a copy of the original array and could be quite large.
 		It is possible that this set will be empty, in which case the full paths are not known.
@@ -10583,7 +10685,10 @@
 		</getFilesFullPath>
 		<getClasses public="1" set="method" line="210" static="1">
 			<f a=""><c path="Array"><c path="String"/></c></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns the set of class names of all classes known to the debugger.
 		This is a copy of the original array and could be quite large. The
 		caller should cache this value to avoid multiple copies needing to be
@@ -10593,7 +10698,10 @@
 		</getClasses>
 		<getThreadInfos public="1" set="method" line="218" static="1">
 			<f a=""><c path="Array"><c path="cpp.vm.ThreadInfo"/></c></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns a `ThreadInfo` object describing every thread that existed at the
 		moment that the call was made, except for the debugger thread.</haxe_doc>
 		</getThreadInfos>
@@ -10603,7 +10711,10 @@
 				<x path="Bool"/>
 				<c path="cpp.vm.ThreadInfo"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns a `ThreadInfo` object describing a single thread, or `null` if
 		there is no such thread or the thread queried about was the debugger
 		thread and `unsafe` was not `true`.</haxe_doc>
@@ -10614,7 +10725,10 @@
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Adds a new `file:line` breakpoint. The breakpoint number of the newly
 		added breakpoint is returned.</haxe_doc>
 		</addFileLineBreakpoint>
@@ -10624,7 +10738,10 @@
 				<c path="String"/>
 				<x path="Int"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Adds a new `class:function` breakpoint. The breakpoint number of the
 		newly added breakpoint is returned.</haxe_doc>
 		</addClassFunctionBreakpoint>
@@ -10633,7 +10750,10 @@
 				<x path="Null"><x path="Int"/></x>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Deletes a breakpoint, or all breakpoints.</haxe_doc>
 		</deleteBreakpoint>
 		<breakNow public="1" set="method" line="266" static="1">
@@ -10644,6 +10764,7 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":value"><e>{ wait : true }</e></m>
+				<m n=":keep"/>
 			</meta>
 			<haxe_doc>Breaks all threads except the debugger thread (which should be the same
 		as the calling thread!).
@@ -10658,7 +10779,10 @@
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Continue execution of all stopped threads. If `specialThreadNumber`
 		is a valid thread number, then it will be continued past
 		`continueCount` breakpoints instead of just 1 like all of the other
@@ -10674,6 +10798,7 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":value"><e>{ stepCount : 1 }</e></m>
+				<m n=":keep"/>
 			</meta>
 			<haxe_doc>Single steps the given thread.</haxe_doc>
 		</stepThread>
@@ -10684,7 +10809,10 @@
 				<x path="Bool"/>
 				<c path="Array"><c path="String"/></c>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns the list of local variables (including `this`, function
 		arguments, and local variables) visible to the given thread at the
 		given stack frame.
@@ -10705,7 +10833,10 @@
 				<x path="Bool"/>
 				<d/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns the value of a stack variable, or `NONEXISTENT_VALUE` if the
 		requested value does not exist.  If the thread is actively running
 		and `unsafe` is not `true`, returns `THREAD_NOT_STOPPED`.</haxe_doc>
@@ -10719,7 +10850,10 @@
 				<x path="Bool"/>
 				<d/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Sets the value of a stack variable and returns that value. If the
 		variable does not exist, on the stack, this function returns
 		`NONEXISTENT_VALUE`. If the thread is actively running and `unsafe` is not
@@ -10735,39 +10869,61 @@
 	<class path="cpp.vm.ExecutionTrace" params="" file="/home/runner/work/haxe/haxe/std/cpp/vm/ExecutionTrace.hx">
 		<traceOff public="1" set="method" line="26" static="1">
 			<f a=""><x path="Void"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</traceOff>
 		<traceFunctions public="1" set="method" line="30" static="1">
 			<f a=""><x path="Void"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</traceFunctions>
 		<traceLines public="1" set="method" line="34" static="1">
 			<f a=""><x path="Void"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</traceLines>
 	</class>
 	<class path="cpp.vm.Gc" params="" file="/home/runner/work/haxe/haxe/std/cpp/vm/Gc.hx">
 		<MEM_INFO_USAGE public="1" get="inline" set="null" expr="0" line="26" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>0</e></m></meta>
+			<meta>
+				<m n=":value"><e>0</e></m>
+				<m n=":keep"/>
+			</meta>
 		</MEM_INFO_USAGE>
 		<MEM_INFO_RESERVED public="1" get="inline" set="null" expr="1" line="27" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>1</e></m></meta>
+			<meta>
+				<m n=":value"><e>1</e></m>
+				<m n=":keep"/>
+			</meta>
 		</MEM_INFO_RESERVED>
 		<MEM_INFO_CURRENT public="1" get="inline" set="null" expr="2" line="28" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>2</e></m></meta>
+			<meta>
+				<m n=":value"><e>2</e></m>
+				<m n=":keep"/>
+			</meta>
 		</MEM_INFO_CURRENT>
 		<MEM_INFO_LARGE public="1" get="inline" set="null" expr="3" line="29" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>3</e></m></meta>
+			<meta>
+				<m n=":value"><e>3</e></m>
+				<m n=":keep"/>
+			</meta>
 		</MEM_INFO_LARGE>
 		<memInfo public="1" set="method" line="41" static="1">
 			<f a="inWhatInfo">
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Introduced hxcpp_api_level 310
 
 		Returns stats on memory usage:
@@ -10777,49 +10933,94 @@
 			This will generally saw-tooth between USAGE and RESERVED
 		- `MEM_INFO_LARGE` - Size of separate pool used for large allocs.  Included in all the above.</haxe_doc>
 		</memInfo>
-		<memInfo64 public="1" set="method" line="46" static="1"><f a="inWhatInfo">
-	<x path="Int"/>
-	<x path="Float"/>
-</f></memInfo64>
-		<memUsage public="1" set="method" line="50" static="1"><f a=""><x path="Int"/></f></memUsage>
-		<versionCheck public="1" set="method" line="54" static="1"><f a=""><x path="Bool"/></f></versionCheck>
+		<memInfo64 public="1" set="method" line="46" static="1">
+			<f a="inWhatInfo">
+				<x path="Int"/>
+				<x path="Float"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</memInfo64>
+		<memUsage public="1" set="method" line="50" static="1">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":keep"/></meta>
+		</memUsage>
+		<versionCheck public="1" set="method" line="54" static="1">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":keep"/></meta>
+		</versionCheck>
 		<trace public="1" set="method" line="58" static="1">
 			<f a="sought:?printInstances" v=":true">
 				<x path="Class"><d/></x>
 				<x path="Bool"/>
 				<x path="Int"/>
 			</f>
-			<meta><m n=":value"><e>{ printInstances : true }</e></m></meta>
+			<meta>
+				<m n=":value"><e>{ printInstances : true }</e></m>
+				<m n=":keep"/>
+			</meta>
 		</trace>
-		<enable public="1" get="inline" set="null" line="66" static="1"><f a="inEnable">
-	<x path="Bool"/>
-	<x path="Void"/>
-</f></enable>
-		<run public="1" get="inline" set="null" line="72" static="1"><f a="major">
-	<x path="Bool"/>
-	<x path="Void"/>
-</f></run>
-		<compact public="1" get="inline" set="null" line="78" static="1"><f a=""><x path="Void"/></f></compact>
-		<doNotKill public="1" get="inline" set="null" line="84" static="1"><f a="inObject">
-	<d/>
-	<x path="Void"/>
-</f></doNotKill>
-		<getNextZombie public="1" get="inline" set="null" line="90" static="1"><f a=""><d/></f></getNextZombie>
-		<safePoint public="1" get="inline" set="null" line="96" static="1"><f a=""><x path="Void"/></f></safePoint>
-		<enterGCFreeZone public="1" get="inline" set="null" line="102" static="1"><f a=""><x path="Void"/></f></enterGCFreeZone>
-		<exitGCFreeZone public="1" get="inline" set="null" line="108" static="1"><f a=""><x path="Void"/></f></exitGCFreeZone>
-		<setMinimumFreeSpace public="1" get="inline" set="null" line="114" static="1"><f a="inBytes">
-	<x path="Int"/>
-	<x path="Void"/>
-</f></setMinimumFreeSpace>
-		<setTargetFreeSpacePercentage public="1" get="inline" set="null" line="120" static="1"><f a="inPercentage">
-	<x path="Int"/>
-	<x path="Void"/>
-</f></setTargetFreeSpacePercentage>
-		<setMinimumWorkingMemory public="1" get="inline" set="null" line="126" static="1"><f a="inBytes">
-	<x path="Int"/>
-	<x path="Void"/>
-</f></setMinimumWorkingMemory>
+		<enable public="1" get="inline" set="null" line="66" static="1">
+			<f a="inEnable">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</enable>
+		<run public="1" get="inline" set="null" line="72" static="1">
+			<f a="major">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</run>
+		<compact public="1" get="inline" set="null" line="78" static="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</compact>
+		<doNotKill public="1" get="inline" set="null" line="84" static="1">
+			<f a="inObject">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</doNotKill>
+		<getNextZombie public="1" get="inline" set="null" line="90" static="1">
+			<f a=""><d/></f>
+			<meta><m n=":keep"/></meta>
+		</getNextZombie>
+		<safePoint public="1" get="inline" set="null" line="96" static="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</safePoint>
+		<enterGCFreeZone public="1" get="inline" set="null" line="102" static="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</enterGCFreeZone>
+		<exitGCFreeZone public="1" get="inline" set="null" line="108" static="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</exitGCFreeZone>
+		<setMinimumFreeSpace public="1" get="inline" set="null" line="114" static="1">
+			<f a="inBytes">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</setMinimumFreeSpace>
+		<setTargetFreeSpacePercentage public="1" get="inline" set="null" line="120" static="1">
+			<f a="inPercentage">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</setTargetFreeSpacePercentage>
+		<setMinimumWorkingMemory public="1" get="inline" set="null" line="126" static="1">
+			<f a="inBytes">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</setMinimumWorkingMemory>
 		<setFinalizer public="1" params="T" set="method" static="1">
 			<f a="inObject:inFinalizer">
 				<c path="setFinalizer.T"/>
@@ -10829,7 +11030,10 @@
 </f></x>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":native"><e>"__hxcpp_set_finalizer"</e></m></meta>
+			<meta>
+				<m n=":keep"/>
+				<m n=":native"><e>"__hxcpp_set_finalizer"</e></m>
+			</meta>
 		</setFinalizer>
 	</class>
 	<typedef path="cpp.vm.Lock" params="" file="/home/runner/work/haxe/haxe/std/cpp/vm/Lock.hx">
@@ -10846,11 +11050,17 @@
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</start>
 		<stop public="1" set="method" line="30" static="1">
 			<f a=""><x path="Void"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</stop>
 	</class>
 	<typedef path="cpp.vm.Thread" params="" file="/home/runner/work/haxe/haxe/std/cpp/vm/Thread.hx">
@@ -10867,23 +11077,41 @@
 		<d/>
 		<x path="Void"/>
 	</f>
-	<meta><m n=":has_untyped"/></meta>
+	<meta>
+		<m n=":has_untyped"/>
+		<m n=":keep"/>
+	</meta>
 </unsafeSet></class>
 	<class path="cpp.vm.WeakRef" params="T" file="/home/runner/work/haxe/haxe/std/cpp/vm/WeakRef.hx">
-		<ref><d/></ref>
-		<hardRef><x path="Bool"/></hardRef>
+		<ref>
+			<d/>
+			<meta><m n=":keep"/></meta>
+		</ref>
+		<hardRef>
+			<x path="Bool"/>
+			<meta><m n=":keep"/></meta>
+		</hardRef>
 		<get public="1" set="method" line="37">
 			<f a=""><c path="cpp.vm.WeakRef.T"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</get>
 		<set public="1" set="method" line="44">
 			<f a="inObject">
 				<c path="cpp.vm.WeakRef.T"/>
 				<c path="cpp.vm.WeakRef.T"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</set>
-		<toString public="1" set="method" line="52"><f a=""><c path="String"/></f></toString>
+		<toString public="1" set="method" line="52">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":keep"/></meta>
+		</toString>
 		<new public="1" set="method" line="29">
 			<f a="inObject:?inHard" v=":false">
 				<c path="cpp.vm.WeakRef.T"/>
@@ -10893,6 +11121,7 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":value"><e>{ inHard : false }</e></m>
+				<m n=":keep"/>
 			</meta>
 		</new>
 	</class>
@@ -16235,7 +16464,7 @@
 				<m n=":keep"/>
 			</meta>
 		</BASE64_CODES>
-		<run public="1" set="method" line="598" static="1">
+		<run public="1" set="method" line="599" static="1">
 			<f a="v">
 				<d/>
 				<c path="String"/>
@@ -16357,7 +16586,7 @@
 				<m n=":keep"/>
 			</meta>
 		</serializeFields>
-		<serialize public="1" set="method" line="251">
+		<serialize public="1" set="method" line="252">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
@@ -16370,12 +16599,13 @@
 	
 		All haxe-defined values and objects with the exception of functions can
 		be serialized. Serialization of external/native objects is not
-		guaranteed to work.
+		guaranteed to work. This is also true for classes extending external/native
+		classes. On some targets, this might include exceptions, too.
 	
 		The values of `this.useCache` and `this.useEnumIndex` may affect
 		serialization output.</haxe_doc>
 		</serialize>
-		<__getField get="inline" set="null" line="573">
+		<__getField get="inline" set="null" line="574">
 			<f a="o:f">
 				<d/>
 				<c path="String"/>
@@ -16386,7 +16616,7 @@
 				<m n=":keep"/>
 			</meta>
 		</__getField>
-		<serializeException public="1" set="method" line="575">
+		<serializeException public="1" set="method" line="576">
 			<f a="e">
 				<d/>
 				<x path="Void"/>
@@ -16431,7 +16661,7 @@
 	<enum path="haxe._Template.TemplateExpr" params="" file="/home/runner/work/haxe/haxe/std/haxe/Template.hx" private="1" module="haxe.Template">
 		<OpVar a="v"><c path="String"/></OpVar>
 		<OpExpr a="expr"><f a=""><d/></f></OpExpr>
-		<OpIf a="expr:eif:eelse">
+		<OpIf a="expr:eif:?eelse">
 			<f a=""><d/></f>
 			<e path="haxe._Template.TemplateExpr"/>
 			<e path="haxe._Template.TemplateExpr"/>
@@ -16781,7 +17011,7 @@
 		<resolveClass public="1" get="inline" set="null" line="515">
 			<f a="name">
 				<c path="String"/>
-				<x path="Class"><d/></x>
+				<x path="Null"><x path="Class"><d/></x></x>
 			</f>
 			<meta>
 				<m n=":keep"/>
@@ -16791,7 +17021,7 @@
 		<resolveEnum public="1" get="inline" set="null" line="518">
 			<f a="name">
 				<c path="String"/>
-				<x path="Enum"><d/></x>
+				<x path="Null"><x path="Enum"><d/></x></x>
 			</f>
 			<meta>
 				<m n=":keep"/>
@@ -16822,9 +17052,9 @@
 
 		A type resolver must provide two methods:
 
-		1. `resolveClass(name:String):Class<Dynamic>` is called to determine a
+		1. `resolveClass(name:String):Null<Class<Dynamic>>` is called to determine a
 				`Class` from a class name
-		2. `resolveEnum(name:String):Enum<Dynamic>` is called to determine an
+		2. `resolveEnum(name:String):Null<Enum<Dynamic>>` is called to determine an
 				`Enum` from an enum name
 
 		This value is applied when a new `Unserializer` instance is created.
@@ -17099,7 +17329,7 @@
 		<resolveClass public="1" get="inline" set="null" line="525">
 			<f a="name">
 				<c path="String"/>
-				<x path="Class"><d/></x>
+				<x path="Null"><x path="Class"><d/></x></x>
 			</f>
 			<meta>
 				<m n=":keep"/>
@@ -17109,7 +17339,7 @@
 		<resolveEnum public="1" get="inline" set="null" line="528">
 			<f a="name">
 				<c path="String"/>
-				<x path="Enum"><d/></x>
+				<x path="Null"><x path="Enum"><d/></x></x>
 			</f>
 			<meta>
 				<m n=":keep"/>
@@ -27041,12 +27271,12 @@
 	<x path="Void"/>
 </f></quote>
 		<new set="method" line="56"><f a="replacer:space">
-	<f a="key:value">
-		<d/>
-		<d/>
-		<d/>
-	</f>
-	<c path="String"/>
+	<x path="Null"><f a="key:value">
+	<d/>
+	<d/>
+	<d/>
+</f></x>
+	<x path="Null"><c path="String"/></x>
 	<x path="Void"/>
 </f></new>
 		<haxe_doc>An implementation of JSON printer in Haxe.
@@ -27142,10 +27372,11 @@
 		This method provides a fluent interface.</haxe_doc>
 		</setPostBytes>
 		<request public="1" set="method" line="185">
-			<f a="?post">
+			<f a="?post" v="false">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
+			<meta><m n=":value"><e>{ post : false }</e></m></meta>
 			<haxe_doc>Sends `this` Http request to the Url specified by `this.url`.
 
 		If `post` is true, the request is sent as POST request, otherwise it is
@@ -41175,7 +41406,7 @@
 	<x path="Int"/>
 	<c path="haxe.ds.List"><e path="haxe.zip.ExtraField"/></c>
 </f></readExtraFields>
-		<readEntryHeader public="1" set="method" line="78"><f a=""><t path="haxe.zip.Entry"/></f></readEntryHeader>
+		<readEntryHeader public="1" set="method" line="78"><f a=""><x path="Null"><t path="haxe.zip.Entry"/></x></f></readEntryHeader>
 		<read public="1" set="method" line="121"><f a=""><c path="haxe.ds.List"><t path="haxe.zip.Entry"/></c></f></read>
 		<new public="1" set="method" line="32"><f a="i">
 	<c path="haxe.io.Input"/>
@@ -41569,10 +41800,13 @@
 	<io><c path="haxe.io.Input"/></io>
 	<filename><c path="String"/></filename>
 </a></file>
-		<request public="1" set="method" line="58" override="1"><f a="?post">
-	<x path="Bool"/>
-	<x path="Void"/>
-</f></request>
+		<request public="1" set="method" line="58" override="1">
+			<f a="?post" v="false">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ post : false }</e></m></meta>
+		</request>
 		<fileTransfert public="1" get="inline" set="null" line="78">
 			<f a="argname:filename:file:size:?mimeType" v="::::&quot;application/octet-stream&quot;">
 				<c path="String"/>
