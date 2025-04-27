@@ -5046,7 +5046,7 @@
 		</f>
 		<meta><m n=":arrayAccess"/></meta>
 	</get>
-	<asArray get="inline" set="null" line="115" static="1"><f a="this">
+	<asArray public="1" get="inline" set="null" line="115" static="1"><f a="this">
 	<c path="Array"><e path="haxe.StackItem"/></c>
 	<c path="Array"><e path="haxe.StackItem"/></c>
 </f></asArray>
@@ -5127,7 +5127,7 @@
 			</f>
 			<meta><m n=":arrayAccess"/></meta>
 		</get>
-		<asArray get="inline" set="null" line="115" static="1"><f a="this">
+		<asArray public="1" get="inline" set="null" line="115" static="1"><f a="this">
 	<c path="Array"><e path="haxe.StackItem"/></c>
 	<c path="Array"><e path="haxe.StackItem"/></c>
 </f></asArray>
@@ -5901,7 +5901,7 @@
 			<c path="String"/>
 			<haxe_doc>Exception message.</haxe_doc>
 		</message>
-		<stack public="1" get="accessor" set="null">
+		<stack public="1" get="accessor" set="accessor">
 			<x path="haxe.CallStack"/>
 			<haxe_doc>The call stack at the moment of the exception creation.</haxe_doc>
 		</stack>
@@ -5957,7 +5957,11 @@
 			<f a=""><x path="haxe.CallStack"/></f>
 			<meta><m n=":ifFeature"><e>"haxe.NativeStackTrace.exceptionStack"</e></m></meta>
 		</get_stack>
-		<setProperty set="method" line="110">
+		<set_stack set="method" line="109"><f a="stack">
+	<x path="haxe.CallStack"/>
+	<x path="haxe.CallStack"/>
+</f></set_stack>
+		<setProperty set="method" line="114">
 			<f a="name:value">
 				<c path="String"/>
 				<x path="Any"/>
@@ -5965,44 +5969,44 @@
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</setProperty>
-		<get___exceptionStack get="inline" set="null" line="119">
+		<get___exceptionStack get="inline" set="null" line="123">
 			<f a=""><x path="haxe.CallStack"/></f>
 			<meta><m n=":noCompletion"/></meta>
 		</get___exceptionStack>
-		<set___exceptionStack get="inline" set="null" line="124">
+		<set___exceptionStack get="inline" set="null" line="128">
 			<f a="value">
 				<x path="haxe.CallStack"/>
 				<x path="haxe.CallStack"/>
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</set___exceptionStack>
-		<get___skipStack get="inline" set="null" line="130">
+		<get___skipStack get="inline" set="null" line="134">
 			<f a=""><x path="Int"/></f>
 			<meta><m n=":noCompletion"/></meta>
 		</get___skipStack>
-		<set___skipStack get="inline" set="null" line="135">
+		<set___skipStack get="inline" set="null" line="139">
 			<f a="value">
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</set___skipStack>
-		<get___nativeException get="inline" set="null" line="141">
+		<get___nativeException get="inline" set="null" line="145">
 			<f a=""><x path="Any"/></f>
 			<meta><m n=":noCompletion"/></meta>
 		</get___nativeException>
-		<set___nativeException get="inline" set="null" line="146">
+		<set___nativeException get="inline" set="null" line="150">
 			<f a="value">
 				<x path="Any"/>
 				<x path="Any"/>
 			</f>
 			<meta><m n=":noCompletion"/></meta>
 		</set___nativeException>
-		<get___previousException get="inline" set="null" line="152">
+		<get___previousException get="inline" set="null" line="156">
 			<f a=""><x path="Null"><c path="haxe.Exception"/></x></f>
 			<meta><m n=":noCompletion"/></meta>
 		</get___previousException>
-		<set___previousException get="inline" set="null" line="157">
+		<set___previousException get="inline" set="null" line="161">
 			<f a="value">
 				<x path="Null"><c path="haxe.Exception"/></x>
 				<x path="Null"><c path="haxe.Exception"/></x>
