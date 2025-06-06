@@ -10726,7 +10726,7 @@
 	<https://haxe.org/manual/std-template.html>]]></haxe_doc>
 	</class>
 	<class path="haxe.Timer" params="" file="/home/runner/work/haxe/haxe/std/haxe/Timer.hx">
-		<delay public="1" set="method" line="145" static="1">
+		<delay public="1" set="method" line="146" static="1">
 			<f a="f:time_ms">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -10740,7 +10740,7 @@
 
 		If `f` is `null`, the result is unspecified.</haxe_doc>
 		</delay>
-		<measure public="1" params="T" set="method" line="165" static="1">
+		<measure public="1" params="T" set="method" line="166" static="1">
 			<f a="f:?pos">
 				<f a=""><c path="measure.T"/></f>
 				<t path="haxe.PosInfos"/>
@@ -10756,16 +10756,22 @@
 
 		If `f` is `null`, the result is unspecified.</haxe_doc>
 		</measure>
-		<stamp public="1" get="inline" set="null" line="178" static="1">
+		<stamp public="1" get="inline" set="null" line="179" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Returns a timestamp, in seconds with fractions.
 
 		The value itself might differ depending on platforms, only differences
 		between two values make sense.</haxe_doc>
 		</stamp>
+		<milliseconds public="1" get="inline" set="null" line="205" static="1">
+			<f a=""><x path="haxe.Int64"/></f>
+			<haxe_doc>* Returns a monotonically increasing timestamp with millisecond resolution.
+	 *
+	 * The precision and epoch of the timer is platform defined.</haxe_doc>
+		</milliseconds>
 		<thread><x path="sys.thread.Thread"/></thread>
 		<eventHandler><x path="sys.thread.EventHandler"/></eventHandler>
-		<stop public="1" set="method" line="100">
+		<stop public="1" set="method" line="101">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Stops `this` Timer.
 
@@ -10774,7 +10780,7 @@
 
 		It is not possible to restart `this` Timer once stopped.</haxe_doc>
 		</stop>
-		<run public="1" set="dynamic" line="134">
+		<run public="1" set="dynamic" line="135">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>This method is invoked repeatedly on `this` Timer.
 
@@ -10789,7 +10795,7 @@
 		Once bound, it can still be rebound to different functions until `this`
 		Timer is stopped through a call to `this.stop`.</haxe_doc>
 		</run>
-		<new public="1" set="method" line="70">
+		<new public="1" set="method" line="71">
 			<f a="time_ms">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -10819,7 +10825,7 @@
 
 	Notice for threaded targets:
 	`Timer` instances require threads they were created in to run with Haxe's event loops.
-	Main thread of a Haxe program always contains an event loop. For other cases use 
+	Main thread of a Haxe program always contains an event loop. For other cases use
 	`sys.thread.Thread.createWithEventLoop` and `sys.thread.Thread.runWithEventLoop` methods.</haxe_doc>
 	</class>
 	<enum path="haxe.Unit" params="" file="/home/runner/work/haxe/haxe/std/haxe/Unit.hx">
