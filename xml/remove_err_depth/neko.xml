@@ -5763,7 +5763,7 @@
 		</f>
 		<meta><m n=":arrayAccess"/></meta>
 	</get>
-	<asArray get="inline" set="null" line="115" static="1"><f a="this">
+	<asArray public="1" get="inline" set="null" line="115" static="1"><f a="this">
 	<c path="Array"><e path="haxe.StackItem"/></c>
 	<c path="Array"><e path="haxe.StackItem"/></c>
 </f></asArray>
@@ -5844,7 +5844,7 @@
 			</f>
 			<meta><m n=":arrayAccess"/></meta>
 		</get>
-		<asArray get="inline" set="null" line="115" static="1"><f a="this">
+		<asArray public="1" get="inline" set="null" line="115" static="1"><f a="this">
 	<c path="Array"><e path="haxe.StackItem"/></c>
 	<c path="Array"><e path="haxe.StackItem"/></c>
 </f></asArray>
@@ -6831,7 +6831,7 @@
 			<c path="String"/>
 			<haxe_doc>Exception message.</haxe_doc>
 		</message>
-		<stack public="1" get="accessor" set="null">
+		<stack public="1" get="accessor" set="accessor">
 			<x path="haxe.CallStack"/>
 			<haxe_doc>The call stack at the moment of the exception creation.</haxe_doc>
 		</stack>
@@ -6900,6 +6900,10 @@
 		<get_previous set="method" line="79"><f a=""><x path="Null"><c path="haxe.Exception"/></x></f></get_previous>
 		<get_native final="1" set="method" line="83"><f a=""><x path="Any"/></f></get_native>
 		<get_stack set="method" line="87"><f a=""><x path="haxe.CallStack"/></f></get_stack>
+		<set_stack set="method" line="95"><f a="stack">
+	<x path="haxe.CallStack"/>
+	<x path="haxe.CallStack"/>
+</f></set_stack>
 		<new public="1" set="method" line="38">
 			<f a="message:?previous:?native">
 				<c path="String"/>
@@ -10296,7 +10300,7 @@
 	<https://haxe.org/manual/std-template.html>]]></haxe_doc>
 	</class>
 	<class path="haxe.Timer" params="" file="/home/runner/work/haxe/haxe/std/haxe/Timer.hx">
-		<delay public="1" set="method" line="145" static="1">
+		<delay public="1" set="method" line="146" static="1">
 			<f a="f:time_ms">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -10310,7 +10314,7 @@
 
 		If `f` is `null`, the result is unspecified.</haxe_doc>
 		</delay>
-		<measure public="1" params="T" set="method" line="165" static="1">
+		<measure public="1" params="T" set="method" line="166" static="1">
 			<f a="f:?pos">
 				<f a=""><c path="measure.T"/></f>
 				<t path="haxe.PosInfos"/>
@@ -10326,16 +10330,22 @@
 
 		If `f` is `null`, the result is unspecified.</haxe_doc>
 		</measure>
-		<stamp public="1" get="inline" set="null" line="178" static="1">
+		<stamp public="1" get="inline" set="null" line="179" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Returns a timestamp, in seconds with fractions.
 
 		The value itself might differ depending on platforms, only differences
 		between two values make sense.</haxe_doc>
 		</stamp>
+		<milliseconds public="1" get="inline" set="null" line="205" static="1">
+			<f a=""><x path="haxe.Int64"/></f>
+			<haxe_doc>* Returns a monotonically increasing timestamp with millisecond resolution.
+	 *
+	 * The precision and epoch of the timer is platform defined.</haxe_doc>
+		</milliseconds>
 		<thread><x path="sys.thread.Thread"/></thread>
 		<eventHandler><x path="sys.thread.EventHandler"/></eventHandler>
-		<stop public="1" set="method" line="100">
+		<stop public="1" set="method" line="101">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Stops `this` Timer.
 
@@ -10344,7 +10354,7 @@
 
 		It is not possible to restart `this` Timer once stopped.</haxe_doc>
 		</stop>
-		<run public="1" set="dynamic" line="134">
+		<run public="1" set="dynamic" line="135">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>This method is invoked repeatedly on `this` Timer.
 
@@ -10359,7 +10369,7 @@
 		Once bound, it can still be rebound to different functions until `this`
 		Timer is stopped through a call to `this.stop`.</haxe_doc>
 		</run>
-		<new public="1" set="method" line="70">
+		<new public="1" set="method" line="71">
 			<f a="time_ms">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -10389,7 +10399,7 @@
 
 	Notice for threaded targets:
 	`Timer` instances require threads they were created in to run with Haxe's event loops.
-	Main thread of a Haxe program always contains an event loop. For other cases use 
+	Main thread of a Haxe program always contains an event loop. For other cases use
 	`sys.thread.Thread.createWithEventLoop` and `sys.thread.Thread.runWithEventLoop` methods.</haxe_doc>
 	</class>
 	<enum path="haxe.Unit" params="" file="/home/runner/work/haxe/haxe/std/haxe/Unit.hx">
@@ -15597,6 +15607,14 @@
 			<m n=":enum"/>
 		</meta>
 	</AccCall>
+	<AccPrivateCall public="1" get="inline" set="null" expr="cast &quot;AccPrivateCall&quot;" line="1" static="1">
+		<x path="haxe.display.JsonVarAccessKind"><c path="haxe.display.JsonVarAccessKind.T"/></x>
+		<meta>
+			<m n=":value"><e>cast "AccPrivateCall"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</AccPrivateCall>
 	<AccInline public="1" get="inline" set="null" expr="cast &quot;AccInline&quot;" line="1" static="1">
 		<x path="haxe.display.JsonVarAccessKind"><c path="haxe.display.JsonVarAccessKind.T"/></x>
 		<meta>
@@ -15668,6 +15686,14 @@
 				<m n=":enum"/>
 			</meta>
 		</AccCall>
+		<AccPrivateCall public="1" get="inline" set="null" expr="cast &quot;AccPrivateCall&quot;" line="1" static="1">
+			<x path="haxe.display.JsonVarAccessKind"><c path="haxe.display.JsonVarAccessKind.T"/></x>
+			<meta>
+				<m n=":value"><e>cast "AccPrivateCall"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</AccPrivateCall>
 		<AccInline public="1" get="inline" set="null" expr="cast &quot;AccInline&quot;" line="1" static="1">
 			<x path="haxe.display.JsonVarAccessKind"><c path="haxe.display.JsonVarAccessKind.T"/></x>
 			<meta>
@@ -16135,7 +16161,7 @@
 		<this><c path="String"/></this>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="haxe.display._JsonModuleTypes.JsonModuleTypeKind_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" extern="1" final="1">
-	<Class public="1" get="inline" set="null" expr="cast &quot;class&quot;" line="357" static="1">
+	<Class public="1" get="inline" set="null" expr="cast &quot;class&quot;" line="358" static="1">
 		<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonClass"/></x>
 		<meta>
 			<m n=":value"><e>cast "class"</e></m>
@@ -16143,7 +16169,7 @@
 			<m n=":enum"/>
 		</meta>
 	</Class>
-	<Enum public="1" get="inline" set="null" expr="cast &quot;enum&quot;" line="358" static="1">
+	<Enum public="1" get="inline" set="null" expr="cast &quot;enum&quot;" line="359" static="1">
 		<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonEnum"/></x>
 		<meta>
 			<m n=":value"><e>cast "enum"</e></m>
@@ -16151,7 +16177,7 @@
 			<m n=":enum"/>
 		</meta>
 	</Enum>
-	<Typedef public="1" get="inline" set="null" expr="cast &quot;typedef&quot;" line="359" static="1">
+	<Typedef public="1" get="inline" set="null" expr="cast &quot;typedef&quot;" line="360" static="1">
 		<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonTypedef"/></x>
 		<meta>
 			<m n=":value"><e>cast "typedef"</e></m>
@@ -16159,7 +16185,7 @@
 			<m n=":enum"/>
 		</meta>
 	</Typedef>
-	<Abstract public="1" get="inline" set="null" expr="cast &quot;abstract&quot;" line="360" static="1">
+	<Abstract public="1" get="inline" set="null" expr="cast &quot;abstract&quot;" line="361" static="1">
 		<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonAbstract"/></x>
 		<meta>
 			<m n=":value"><e>cast "abstract"</e></m>
@@ -16171,7 +16197,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.display._JsonModuleTypes.JsonModuleTypeKind_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" extern="1" final="1">
-		<Class public="1" get="inline" set="null" expr="cast &quot;class&quot;" line="357" static="1">
+		<Class public="1" get="inline" set="null" expr="cast &quot;class&quot;" line="358" static="1">
 			<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonClass"/></x>
 			<meta>
 				<m n=":value"><e>cast "class"</e></m>
@@ -16179,7 +16205,7 @@
 				<m n=":enum"/>
 			</meta>
 		</Class>
-		<Enum public="1" get="inline" set="null" expr="cast &quot;enum&quot;" line="358" static="1">
+		<Enum public="1" get="inline" set="null" expr="cast &quot;enum&quot;" line="359" static="1">
 			<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonEnum"/></x>
 			<meta>
 				<m n=":value"><e>cast "enum"</e></m>
@@ -16187,7 +16213,7 @@
 				<m n=":enum"/>
 			</meta>
 		</Enum>
-		<Typedef public="1" get="inline" set="null" expr="cast &quot;typedef&quot;" line="359" static="1">
+		<Typedef public="1" get="inline" set="null" expr="cast &quot;typedef&quot;" line="360" static="1">
 			<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonTypedef"/></x>
 			<meta>
 				<m n=":value"><e>cast "typedef"</e></m>
@@ -16195,7 +16221,7 @@
 				<m n=":enum"/>
 			</meta>
 		</Typedef>
-		<Abstract public="1" get="inline" set="null" expr="cast &quot;abstract&quot;" line="360" static="1">
+		<Abstract public="1" get="inline" set="null" expr="cast &quot;abstract&quot;" line="361" static="1">
 			<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonAbstract"/></x>
 			<meta>
 				<m n=":value"><e>cast "abstract"</e></m>
@@ -27940,8 +27966,9 @@
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>See `Iterator.hasNext`</haxe_doc>
 		</hasNext>
-		<next public="1" get="inline" set="null" line="49">
+		<next public="1" get="inline" set="null" line="50">
 			<f a=""><c path="haxe.iterators.DynamicAccessIterator.T"/></f>
+			<meta><m n=":nullSafety"><e>Off</e></m></meta>
 			<haxe_doc>See `Iterator.next`</haxe_doc>
 		</next>
 		<new public="1" get="inline" set="null" line="33"><f a="access">
@@ -27958,11 +27985,12 @@
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>See `Iterator.hasNext`</haxe_doc>
 		</hasNext>
-		<next public="1" get="inline" set="null" line="49">
+		<next public="1" get="inline" set="null" line="50">
 			<f a=""><a>
 	<value><c path="haxe.iterators.DynamicAccessKeyValueIterator.T"/></value>
 	<key><c path="String"/></key>
 </a></f>
+			<meta><m n=":nullSafety"><e>Off</e></m></meta>
 			<haxe_doc>See `Iterator.next`</haxe_doc>
 		</next>
 		<new public="1" get="inline" set="null" line="33"><f a="access">
@@ -28618,6 +28646,14 @@
 			<t path="haxe.macro.Position"/>
 		</Warning>
 	</enum>
+	<typedef path="haxe.macro.MacroError" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Context.hx" module="haxe.macro.Context"><a>
+	<sub>
+		<x path="Null"><c path="Array"><t path="haxe.macro.MacroError"/></c></x>
+		<meta><m n=":optional"/></meta>
+	</sub>
+	<pos><t path="haxe.macro.Position"/></pos>
+	<msg><c path="String"/></msg>
+</a></typedef>
 	<class path="haxe.macro.Context" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Context.hx"><haxe_doc>Context provides an API for macro programming.
 
 	It contains common functions that interact with the macro interpreter to
@@ -30729,6 +30765,7 @@
 		<AccNever><haxe_doc>No access (`never`).</haxe_doc></AccNever>
 		<AccResolve><haxe_doc>Unused.</haxe_doc></AccResolve>
 		<AccCall><haxe_doc>Access through accessor function (`get`, `set`, `dynamic`).</haxe_doc></AccCall>
+		<AccPrivateCall><haxe_doc>Access through private accessor function (`private get`, `private set`).</haxe_doc></AccPrivateCall>
 		<AccInline><haxe_doc>Inline access (`inline`).</haxe_doc></AccInline>
 		<AccRequire a="r:?msg">
 			<c path="String"/>
@@ -31069,7 +31106,7 @@
 	<t path="haxe.macro.ClassField"/>
 	<t path="haxe.macro.Field"/>
 </f></toField>
-		<toComplexType public="1" set="method" line="99" static="1">
+		<toComplexType public="1" set="method" line="100" static="1">
 			<f a="type">
 				<x path="Null"><e path="haxe.macro.Type"/></x>
 				<x path="Null"><e path="haxe.macro.ComplexType"/></x>
@@ -31082,16 +31119,16 @@
 
 		If `t` is null, an internal exception is thrown.</haxe_doc>
 		</toComplexType>
-		<toTypeParam set="method" line="144" static="1"><f a="type">
+		<toTypeParam set="method" line="145" static="1"><f a="type">
 	<e path="haxe.macro.Type"/>
 	<e path="haxe.macro.TypeParam"/>
 </f></toTypeParam>
-		<toTypePath set="method" line="152" static="1"><f a="baseType:params">
+		<toTypePath set="method" line="153" static="1"><f a="baseType:params">
 	<t path="haxe.macro.BaseType"/>
 	<c path="Array"><e path="haxe.macro.Type"/></c>
 	<t path="haxe.macro.TypePath"/>
 </f></toTypePath>
-		<findField public="1" set="method" line="456" static="1">
+		<findField public="1" set="method" line="457" static="1">
 			<f a="c:name:?isStatic" v="::false">
 				<t path="haxe.macro.ClassType"/>
 				<c path="String"/>
@@ -33277,11 +33314,11 @@
 		<haxe_doc>A pure Haxe implementation of the ZLIB Inflate algorithm which allows reading compressed data without any platform-specific support.</haxe_doc>
 	</class>
 	<class path="haxe.zip.Reader" params="" file="/home/runner/work/haxe/haxe/std/haxe/zip/Reader.hx">
-		<readZip public="1" set="method" line="197" static="1"><f a="i">
+		<readZip public="1" set="method" line="196" static="1"><f a="i">
 	<c path="haxe.io.Input"/>
 	<c path="haxe.ds.List"><t path="haxe.zip.Entry"/></c>
 </f></readZip>
-		<unzip public="1" set="method" line="202" static="1"><f a="f">
+		<unzip public="1" set="method" line="201" static="1"><f a="f">
 	<t path="haxe.zip.Entry"/>
 	<x path="Null"><c path="haxe.io.Bytes"/></x>
 </f></unzip>
