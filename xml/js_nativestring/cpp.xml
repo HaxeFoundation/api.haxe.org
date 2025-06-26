@@ -712,36 +712,55 @@
 	<class path="DateTools" params="" file="/home/runner/work/haxe/haxe/std/DateTools.hx">
 		<DAY_SHORT_NAMES expr="[&quot;Sun&quot;, &quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;]" line="35" static="1">
 			<c path="Array"><c path="String"/></c>
-			<meta><m n=":value"><e>["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]</e></m></meta>
+			<meta>
+				<m n=":value"><e>["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]</e></m>
+				<m n=":keep"/>
+			</meta>
 		</DAY_SHORT_NAMES>
 		<DAY_NAMES expr="[&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;]" line="36" static="1">
 			<c path="Array"><c path="String"/></c>
-			<meta><m n=":value"><e>["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]</e></m></meta>
+			<meta>
+				<m n=":value"><e>["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]</e></m>
+				<m n=":keep"/>
+			</meta>
 		</DAY_NAMES>
 		<MONTH_SHORT_NAMES expr="[&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;Apr&quot;, &quot;May&quot;, &quot;Jun&quot;, &quot;Jul&quot;, &quot;Aug&quot;, &quot;Sep&quot;, &quot;Oct&quot;, &quot;Nov&quot;, &quot;Dec&quot;]" line="37" static="1">
 			<c path="Array"><c path="String"/></c>
-			<meta><m n=":value"><e>["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]</e></m></meta>
+			<meta>
+				<m n=":value"><e>["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]</e></m>
+				<m n=":keep"/>
+			</meta>
 		</MONTH_SHORT_NAMES>
 		<MONTH_NAMES expr="[&quot;January&quot;, &quot;February&quot;, &quot;March&quot;, &quot;April&quot;, &quot;May&quot;, &quot;June&quot;, &quot;July&quot;, &quot;August&quot;, &quot;September&quot;, &quot;October&quot;, &quot;November&quot;, &quot;December&quot;]" line="40" static="1">
 			<c path="Array"><c path="String"/></c>
-			<meta><m n=":value"><e>["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]</e></m></meta>
+			<meta>
+				<m n=":value"><e>["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]</e></m>
+				<m n=":keep"/>
+			</meta>
 		</MONTH_NAMES>
-		<__format_get set="method" line="44" static="1"><f a="d:e">
-	<c path="Date"/>
-	<c path="String"/>
-	<c path="String"/>
-</f></__format_get>
-		<__format set="method" line="105" static="1"><f a="d:f">
-	<c path="Date"/>
-	<c path="String"/>
-	<c path="String"/>
-</f></__format>
+		<__format_get set="method" line="44" static="1">
+			<f a="d:e">
+				<c path="Date"/>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</__format_get>
+		<__format set="method" line="105" static="1">
+			<f a="d:f">
+				<c path="Date"/>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</__format>
 		<format public="1" set="method" line="144" static="1">
 			<f a="d:f">
 				<c path="Date"/>
 				<c path="String"/>
 				<c path="String"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Format the date `d` according to the format `f`. The format is
 		compatible with the `strftime` standard format, except that there is no
 		support in Flash and JS for day and months names (due to lack of proper
@@ -768,6 +787,7 @@
 				<x path="Float"/>
 				<c path="Date"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the result of adding timestamp `t` to Date `d`.
 
 		This is a convenience function for calling
@@ -775,13 +795,17 @@
 		</delta>
 		<DAYS_OF_MONTH expr="[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]" line="164" static="1">
 			<c path="Array"><x path="Int"/></c>
-			<meta><m n=":value"><e>[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]</e></m></meta>
+			<meta>
+				<m n=":value"><e>[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]</e></m>
+				<m n=":keep"/>
+			</meta>
 		</DAYS_OF_MONTH>
 		<getMonthDays public="1" set="method" line="171" static="1">
 			<f a="d">
 				<c path="Date"/>
 				<x path="Int"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the number of days in the month of Date `d`.
 
 		This method handles leap years.</haxe_doc>
@@ -791,6 +815,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Converts a number of seconds to a timestamp.</haxe_doc>
 		</seconds>
 		<minutes public="1" get="inline" set="null" line="192" static="1">
@@ -798,6 +823,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Converts a number of minutes to a timestamp.</haxe_doc>
 		</minutes>
 		<hours public="1" get="inline" set="null" line="199" static="1">
@@ -805,6 +831,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Converts a number of hours to a timestamp.</haxe_doc>
 		</hours>
 		<days public="1" get="inline" set="null" line="206" static="1">
@@ -812,6 +839,7 @@
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Converts a number of days to a timestamp.</haxe_doc>
 		</days>
 		<parse public="1" set="method" line="213" static="1">
@@ -825,6 +853,7 @@
 					<days><x path="Int"/></days>
 				</a>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Separate a date-time into several components</haxe_doc>
 		</parse>
 		<make public="1" set="method" line="235" static="1">
@@ -838,6 +867,7 @@
 				</a>
 				<x path="Float"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Build a date-time from several components</haxe_doc>
 		</make>
 		<makeUtc public="1" set="method" line="243" static="1">
@@ -850,7 +880,10 @@
 				<x path="Int"/>
 				<x path="Float"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Retrieve Unix timestamp value from Date components. Takes same argument sequence as the Date constructor.</haxe_doc>
 		</makeUtc>
 		<haxe_doc>The DateTools class contains some extra functionalities for handling `Date`
@@ -2179,7 +2212,7 @@
 			<f a="value:c">
 				<c path="downcast.T"/>
 				<x path="Class"><c path="downcast.S"/></x>
-				<c path="downcast.S"/>
+				<x path="Null"><c path="downcast.S"/></x>
 			</f>
 			<meta>
 				<m n=":keep"/>
@@ -2204,7 +2237,7 @@
 			<f a="value:c">
 				<c path="instance.T"/>
 				<x path="Class"><c path="instance.S"/></x>
-				<c path="instance.S"/>
+				<x path="Null"><c path="instance.S"/></x>
 			</f>
 			<meta>
 				<m n=":keep"/>
@@ -2365,6 +2398,7 @@
 	@see https://haxe.org/manual/std-math-integer-math.html
 	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
 		<meta>
+			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":notNull"/>
 			<m n=":runtimeValue"/>
@@ -2675,9 +2709,10 @@
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="StringBuf" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/StringBuf.hx">
-		<b>
-			<c path="Array"><c path="String"/></c>
+		<b expr="null">
+			<x path="Null"><c path="Array"><c path="String"/></c></x>
 			<meta>
+				<m n=":value"><e>null</e></m>
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
@@ -2690,35 +2725,36 @@
 			</meta>
 			<haxe_doc>The length of `this` StringBuf in characters.</haxe_doc>
 		</length>
-		<charBuf>
-			<c path="Array"><x path="cpp.Char"/></c>
+		<charBuf expr="null">
+			<x path="Null"><c path="Array"><x path="cpp.Char"/></c></x>
 			<meta>
+				<m n=":value"><e>null</e></m>
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
 		</charBuf>
-		<charBufAsString set="method" line="37">
+		<drainCharBuf set="method" line="36">
 			<f a=""><c path="String"/></f>
 			<meta>
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
-		</charBufAsString>
-		<flush set="method" line="43">
+		</drainCharBuf>
+		<flush set="method" line="46">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
 		</flush>
-		<get_length set="method" line="51">
+		<get_length set="method" line="54">
 			<f a=""><x path="Int"/></f>
 			<meta>
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
 		</get_length>
-		<add public="1" params="T" get="inline" set="null" line="61">
+		<add public="1" params="T" get="inline" set="null" line="64">
 			<f a="x">
 				<c path="add.T"/>
 				<x path="Void"/>
@@ -2735,7 +2771,7 @@
 
 		If `x` is null, the String "null" is appended.</haxe_doc>
 		</add>
-		<addSub public="1" get="inline" set="null" line="70">
+		<addSub public="1" get="inline" set="null" line="73">
 			<f a="s:pos:?len">
 				<c path="String"/>
 				<x path="Int"/>
@@ -2757,7 +2793,7 @@
 		If `len` is omitted or null, the substring ranges from `pos` to the end
 		of `s`.</haxe_doc>
 		</addSub>
-		<addChar public="1" get="inline" set="null" line="79">
+		<addChar public="1" get="inline" set="null" line="82">
 			<f a="c">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -2771,7 +2807,15 @@
 		If `c` is negative or has another invalid value, the result is
 		unspecified.</haxe_doc>
 		</addChar>
-		<toString public="1" set="method" line="92">
+		<clear public="1" set="method" line="95">
+			<f a=""><x path="Void"/></f>
+			<meta>
+				<m n=":keep"/>
+				<m n=":keep"/>
+			</meta>
+			<haxe_doc>Removes all characters from `this` StringBuf, making it possible to reuse it.</haxe_doc>
+		</clear>
+		<toString public="1" set="method" line="100">
 			<f a=""><c path="String"/></f>
 			<meta>
 				<m n=":keep"/>
@@ -2781,7 +2825,7 @@
 
 		The buffer is not emptied by this operation.</haxe_doc>
 		</toString>
-		<new public="1" set="method" line="35">
+		<new public="1" set="method" line="34">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":keep"/>
@@ -2861,12 +2905,15 @@
 			<haxe_doc>Decode an URL using the standard format.</haxe_doc>
 		</urlDecode>
 		<htmlEscape public="1" set="method" line="154" static="1">
-			<f a="s:?quotes">
+			<f a="s:?quotes" v=":false">
 				<c path="String"/>
 				<x path="Bool"/>
 				<c path="String"/>
 			</f>
-			<meta><m n=":keep"/></meta>
+			<meta>
+				<m n=":value"><e>{ quotes : false }</e></m>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc><![CDATA[Escapes HTML special characters of the string `s`.
 
 		The following replacements are made:
@@ -3259,7 +3306,7 @@
 		<getEnv public="1" set="method" line="59" static="1">
 			<f a="s">
 				<c path="String"/>
-				<c path="String"/>
+				<x path="Null"><c path="String"/></x>
 			</f>
 			<haxe_doc>Returns the value of the given environment variable, or `null` if it
 		doesn't exist.</haxe_doc>
@@ -3420,7 +3467,7 @@
 		<getEnum public="1" set="method" line="50" static="1">
 			<f a="o">
 				<x path="EnumValue"/>
-				<x path="Enum"><d/></x>
+				<x path="Null"><x path="Enum"><d/></x></x>
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -3438,7 +3485,7 @@
 		<getSuperClass public="1" set="method" line="57" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
-				<x path="Class"><d/></x>
+				<x path="Null"><x path="Class"><d/></x></x>
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -3501,7 +3548,7 @@
 		<resolveClass public="1" set="method" line="72" static="1">
 			<f a="name">
 				<c path="String"/>
-				<x path="Class"><d/></x>
+				<x path="Null"><x path="Class"><d/></x></x>
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -3521,7 +3568,7 @@
 		<resolveEnum public="1" set="method" line="80" static="1">
 			<f a="name">
 				<c path="String"/>
-				<x path="Enum"><d/></x>
+				<x path="Null"><x path="Enum"><d/></x></x>
 			</f>
 			<meta>
 				<m n=":has_untyped"/>
@@ -5321,7 +5368,7 @@
 			<haxe_doc>Returns the node value. Only works if the Xml node is not an Element or a Document.</haxe_doc>
 		</nodeValue>
 		<parent public="1" set="null">
-			<c path="Xml"/>
+			<x path="Null"><c path="Xml"/></x>
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the parent object in the Xml hierarchy.
 		The parent can be `null`, an Element or a Document.</haxe_doc>
@@ -5362,7 +5409,7 @@
 		<get public="1" set="method" line="244">
 			<f a="att">
 				<c path="String"/>
-				<c path="String"/>
+				<x path="Null"><c path="String"/></x>
 			</f>
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Get the given attribute of an Element node. Returns `null` if not found.
@@ -5428,7 +5475,7 @@
 			<haxe_doc>Returns the first child node.</haxe_doc>
 		</firstChild>
 		<firstElement public="1" set="method" line="337">
-			<f a=""><c path="Xml"/></f>
+			<f a=""><x path="Null"><c path="Xml"/></x></f>
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the first child node which is an Element.</haxe_doc>
 		</firstElement>
@@ -6014,13 +6061,19 @@
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="cpp.Finalizable" params="" file="/home/runner/work/haxe/haxe/std/cpp/Finalizable.hx">
-		<finalize public="1" set="method" line="35"><f a=""><x path="Void"/></f></finalize>
+		<finalize public="1" set="method" line="35">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</finalize>
 		<new public="1" set="method" line="31">
 			<f a="?inPin" v="false">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":value"><e>{ inPin : false }</e></m></meta>
+			<meta>
+				<m n=":value"><e>{ inPin : false }</e></m>
+				<m n=":keep"/>
+			</meta>
 		</new>
 		<haxe_doc>This is just a helper class. It is not actually required to inherit from this
 	to use `NativeGc.addFinalizable(this,inPin)`, only a function called
@@ -6527,12 +6580,18 @@
 				<x path="Int"/>
 				<d/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Load and return a Cpp primitive from a DLL library.</haxe_doc>
 		</load>
 		<unloadAllLibraries public="1" set="method" line="46" static="1">
 			<f a=""><x path="Int"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Unloaded all dynamic libraries in reverse order of loading.
 		Returns the number of libraries unloaded.</haxe_doc>
 		</unloadAllLibraries>
@@ -6547,6 +6606,7 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":value"><e>{ quietFail : false }</e></m>
+				<m n=":keep"/>
 			</meta>
 		</_loadPrime>
 		<loadLazy public="1" set="method" line="65" static="1">
@@ -6556,7 +6616,10 @@
 				<x path="Int"/>
 				<d/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Tries to load, and always returns a valid function, but the function may throw
 		if called.</haxe_doc>
 		</loadLazy>
@@ -6566,6 +6629,7 @@
 				<x path="Void"/>
 			</f>
 			<meta>
+				<m n=":keep"/>
 				<m n=":noDebug"/>
 				<m n=":native"><e>"HX_STACK_DO_RETHROW"</e></m>
 			</meta>
@@ -6575,36 +6639,54 @@
 				<d/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":noDebug"/></meta>
+			<meta>
+				<m n=":keep"/>
+				<m n=":noDebug"/>
+			</meta>
 		</rethrow>
 		<stringReference public="1" set="method" line="89" static="1">
 			<f a="inBytes">
 				<c path="haxe.io.Bytes"/>
 				<c path="String"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</stringReference>
 		<pushDllSearchPath public="1" set="method" line="96" static="1">
 			<f a="inPath">
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</pushDllSearchPath>
 		<getDllExtension public="1" set="method" line="99" static="1">
 			<f a=""><c path="String"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</getDllExtension>
 		<getBinDirectory public="1" set="method" line="102" static="1">
 			<f a=""><c path="String"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</getBinDirectory>
 		<bytesReference public="1" get="inline" set="null" line="110" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="haxe.io.Bytes"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns bytes referencing the content of a string.
 		Use with extreme caution - changing constant strings will crash.
 		Changing one string can cause others to change unexpectedly.
@@ -6615,7 +6697,10 @@
 				<d/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Print the specified value on the default output.</haxe_doc>
 		</print>
 		<haxeToNeko public="1" set="method" line="127" static="1">
@@ -6623,6 +6708,7 @@
 				<d/>
 				<d/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>This function is used to make porting from neko to cpp easy.
 		It does not need to do anything because the c-code can work with any Dynamic</haxe_doc>
 		</haxeToNeko>
@@ -6631,6 +6717,7 @@
 				<d/>
 				<d/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>This function is used to make porting from neko to cpp easy.
 		It does not need to do anything because the c-code can work with any Dynamic</haxe_doc>
 		</nekoToHaxe>
@@ -6639,7 +6726,10 @@
 				<d/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Print the specified value on the default output followed by a newline character.</haxe_doc>
 		</println>
 		<setFloatFormat public="1" set="method" line="146" static="1">
@@ -6647,7 +6737,10 @@
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</setFloatFormat>
 		<haxe_doc>Platform-specific Cpp Library. Provides some platform-specific functions
 	for the C++ target, such as conversion from Haxe types to native types
@@ -7185,6 +7278,7 @@
 			</f>
 			<meta><m n=":native"><e>"__hxcpp_set_minimum_working_memory"</e></m></meta>
 		</setMinimumWorkingMemory>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="cpp.NativeMath" params="" file="/home/runner/work/haxe/haxe/std/cpp/NativeMath.hx" extern="1">
 		<idiv public="1" set="method" static="1">
@@ -10366,68 +10460,119 @@
 	<class path="cpp.rtti.FieldNumericIntegerLookup" params="" file="/home/runner/work/haxe/haxe/std/cpp/rtti/FieldNumericIntegerLookup.hx" interface="1"><haxe_doc>If you implement this interface, then the backend will generate code that
 	allows fast numeric access to fields by integer id.  This should speed up the CFFI.</haxe_doc></class>
 	<class path="cpp.vm.Parameter" params="" file="/home/runner/work/haxe/haxe/std/cpp/vm/Debugger.hx" module="cpp.vm.Debugger">
-		<name public="1" set="null"><c path="String"/></name>
-		<value public="1" set="null"><d/></value>
-		<new public="1" set="method" line="34"><f a="name:value">
-	<c path="String"/>
-	<d/>
-	<x path="Void"/>
-</f></new>
+		<name public="1" set="null">
+			<c path="String"/>
+			<meta><m n=":keep"/></meta>
+		</name>
+		<value public="1" set="null">
+			<d/>
+			<meta><m n=":keep"/></meta>
+		</value>
+		<new public="1" set="method" line="34">
+			<f a="name:value">
+				<c path="String"/>
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</new>
 		<haxe_doc>Parameter describes a function parameter. Instances of this class are
 	embedded in stack frame objects to describe the function parameters that
 	were used in the invocation of the function that defines that stack frame.</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="cpp.vm.StackFrame" params="" file="/home/runner/work/haxe/haxe/std/cpp/vm/Debugger.hx" module="cpp.vm.Debugger">
-		<fileName public="1" set="null"><c path="String"/></fileName>
-		<lineNumber public="1" set="null"><x path="Int"/></lineNumber>
-		<className public="1" set="null"><c path="String"/></className>
-		<functionName public="1" set="null"><c path="String"/></functionName>
-		<parameters public="1" set="null"><c path="Array"><c path="cpp.vm.Parameter"/></c></parameters>
-		<new public="1" set="method" line="50"><f a="fileName:lineNumber:className:functionName">
-	<c path="String"/>
-	<x path="Int"/>
-	<c path="String"/>
-	<c path="String"/>
-	<x path="Void"/>
-</f></new>
+		<fileName public="1" set="null">
+			<c path="String"/>
+			<meta><m n=":keep"/></meta>
+		</fileName>
+		<lineNumber public="1" set="null">
+			<x path="Int"/>
+			<meta><m n=":keep"/></meta>
+		</lineNumber>
+		<className public="1" set="null">
+			<c path="String"/>
+			<meta><m n=":keep"/></meta>
+		</className>
+		<functionName public="1" set="null">
+			<c path="String"/>
+			<meta><m n=":keep"/></meta>
+		</functionName>
+		<parameters public="1" set="null">
+			<c path="Array"><c path="cpp.vm.Parameter"/></c>
+			<meta><m n=":keep"/></meta>
+		</parameters>
+		<new public="1" set="method" line="50">
+			<f a="fileName:lineNumber:className:functionName">
+				<c path="String"/>
+				<x path="Int"/>
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</new>
 		<haxe_doc>`StackFrame` describes one call stack frame.</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="cpp.vm.ThreadInfo" params="" file="/home/runner/work/haxe/haxe/std/cpp/vm/Debugger.hx" module="cpp.vm.Debugger">
 		<STATUS_RUNNING public="1" get="inline" set="null" expr="1" line="63" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>1</e></m></meta>
+			<meta>
+				<m n=":value"><e>1</e></m>
+				<m n=":keep"/>
+			</meta>
 		</STATUS_RUNNING>
 		<STATUS_STOPPED_BREAK_IMMEDIATE public="1" get="inline" set="null" expr="2" line="64" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>2</e></m></meta>
+			<meta>
+				<m n=":value"><e>2</e></m>
+				<m n=":keep"/>
+			</meta>
 		</STATUS_STOPPED_BREAK_IMMEDIATE>
 		<STATUS_STOPPED_BREAKPOINT public="1" get="inline" set="null" expr="3" line="65" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>3</e></m></meta>
+			<meta>
+				<m n=":value"><e>3</e></m>
+				<m n=":keep"/>
+			</meta>
 		</STATUS_STOPPED_BREAKPOINT>
 		<STATUS_STOPPED_UNCAUGHT_EXCEPTION public="1" get="inline" set="null" expr="4" line="66" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>4</e></m></meta>
+			<meta>
+				<m n=":value"><e>4</e></m>
+				<m n=":keep"/>
+			</meta>
 		</STATUS_STOPPED_UNCAUGHT_EXCEPTION>
 		<STATUS_STOPPED_CRITICAL_ERROR public="1" get="inline" set="null" expr="5" line="67" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>5</e></m></meta>
+			<meta>
+				<m n=":value"><e>5</e></m>
+				<m n=":keep"/>
+			</meta>
 		</STATUS_STOPPED_CRITICAL_ERROR>
 		<number public="1" set="null">
 			<x path="Int"/>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>0 is never a valid thread number</haxe_doc>
 		</number>
-		<status public="1" set="null"><x path="Int"/></status>
+		<status public="1" set="null">
+			<x path="Int"/>
+			<meta><m n=":keep"/></meta>
+		</status>
 		<breakpoint public="1" set="null">
 			<x path="Int"/>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>If status is "stopped breakpoint", this is the breakpoint number</haxe_doc>
 		</breakpoint>
 		<criticalErrorDescription public="1" set="null">
 			<c path="String"/>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>If status is "critical error", this describes the error</haxe_doc>
 		</criticalErrorDescription>
 		<stack public="1" set="null">
 			<c path="Array"><c path="cpp.vm.StackFrame"/></c>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Stack will be listed with the lowest frame first</haxe_doc>
 		</stack>
 		<new public="1" set="method" line="83">
@@ -10438,49 +10583,80 @@
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":value"><e>{ criticalErrorDescription : null, breakpoint : -1 }</e></m></meta>
+			<meta>
+				<m n=":value"><e>{ criticalErrorDescription : null, breakpoint : -1 }</e></m>
+				<m n=":keep"/>
+			</meta>
 		</new>
 		<haxe_doc>`ThreadInfo` describes the state of a single thread.</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="cpp.vm.Debugger" params="" file="/home/runner/work/haxe/haxe/std/cpp/vm/Debugger.hx">
 		<THREAD_CREATED public="1" get="inline" set="null" expr="1" line="97" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>1</e></m></meta>
+			<meta>
+				<m n=":value"><e>1</e></m>
+				<m n=":keep"/>
+			</meta>
 		</THREAD_CREATED>
 		<THREAD_TERMINATED public="1" get="inline" set="null" expr="2" line="98" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>2</e></m></meta>
+			<meta>
+				<m n=":value"><e>2</e></m>
+				<m n=":keep"/>
+			</meta>
 		</THREAD_TERMINATED>
 		<THREAD_STARTED public="1" get="inline" set="null" expr="3" line="99" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>3</e></m></meta>
+			<meta>
+				<m n=":value"><e>3</e></m>
+				<m n=":keep"/>
+			</meta>
 		</THREAD_STARTED>
 		<THREAD_STOPPED public="1" get="inline" set="null" expr="4" line="100" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>4</e></m></meta>
+			<meta>
+				<m n=":value"><e>4</e></m>
+				<m n=":keep"/>
+			</meta>
 		</THREAD_STOPPED>
 		<STEP_INTO public="1" get="inline" set="null" expr="1" line="102" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>1</e></m></meta>
+			<meta>
+				<m n=":value"><e>1</e></m>
+				<m n=":keep"/>
+			</meta>
 		</STEP_INTO>
 		<STEP_OVER public="1" get="inline" set="null" expr="2" line="103" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>2</e></m></meta>
+			<meta>
+				<m n=":value"><e>2</e></m>
+				<m n=":keep"/>
+			</meta>
 		</STEP_OVER>
 		<STEP_OUT public="1" get="inline" set="null" expr="3" line="104" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>3</e></m></meta>
+			<meta>
+				<m n=":value"><e>3</e></m>
+				<m n=":keep"/>
+			</meta>
 		</STEP_OUT>
 		<NONEXISTENT_VALUE public="1" expr="&quot;NONEXISTENT_VALUE&quot;" line="111" static="1">
 			<c path="String"/>
-			<meta><m n=":value"><e>"NONEXISTENT_VALUE"</e></m></meta>
+			<meta>
+				<m n=":value"><e>"NONEXISTENT_VALUE"</e></m>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>This tagging value is returned by `getStackVariableValue()` and
 		`setStackVariableValue()` if the requested value does not exist at the
 		requested stack frame</haxe_doc>
 		</NONEXISTENT_VALUE>
 		<THREAD_NOT_STOPPED public="1" expr="&quot;THREAD_NOT_STOPPED&quot;" line="118" static="1">
 			<c path="String"/>
-			<meta><m n=":value"><e>"THREAD_NOT_STOPPED"</e></m></meta>
+			<meta>
+				<m n=":value"><e>"THREAD_NOT_STOPPED"</e></m>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>This tagging value is returned by `getStackVariableValue()` and
 		`setStackVariableValue()` if the stack variable that is being set is on a
 		thread that is running, in which case the set does not take place.</haxe_doc>
@@ -10499,7 +10675,10 @@
 				</f>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Sets the handler callback to be made when asynchronous events occur,
 		specifically, when threads are created, terminated, started, or
 		stopped. The calling thread becomes the "debugger" thread, which means
@@ -10538,7 +10717,10 @@
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>This can be called to turn off (and then back on) all stopping of
 		debugged threads temporarily. It should only be used by classes that
 		actually implement the debugger to hide themselves from the debugger as
@@ -10546,14 +10728,20 @@
 		</enableCurrentThreadDebugging>
 		<getCurrentThreadNumber public="1" set="method" line="174" static="1">
 			<f a=""><x path="Int"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns the thread number of the calling thread.
 
 		@return the thread number of the calling thread.</haxe_doc>
 		</getCurrentThreadNumber>
 		<getFiles public="1" set="method" line="185" static="1">
 			<f a=""><c path="Array"><c path="String"/></c></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns the set of source files known to the debugger. This is a copy
 		of the original array and could be quite large. The caller should
 		cache this value to avoid multiple copies needing to be made.
@@ -10562,7 +10750,10 @@
 		</getFiles>
 		<getFilesFullPath public="1" set="method" line="198" static="1">
 			<f a=""><c path="Array"><c path="String"/></c></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns the full paths of the set of source files known to the debugger.
 		This is a copy of the original array and could be quite large.
 		It is possible that this set will be empty, in which case the full paths are not known.
@@ -10573,7 +10764,10 @@
 		</getFilesFullPath>
 		<getClasses public="1" set="method" line="210" static="1">
 			<f a=""><c path="Array"><c path="String"/></c></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns the set of class names of all classes known to the debugger.
 		This is a copy of the original array and could be quite large. The
 		caller should cache this value to avoid multiple copies needing to be
@@ -10583,7 +10777,10 @@
 		</getClasses>
 		<getThreadInfos public="1" set="method" line="218" static="1">
 			<f a=""><c path="Array"><c path="cpp.vm.ThreadInfo"/></c></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns a `ThreadInfo` object describing every thread that existed at the
 		moment that the call was made, except for the debugger thread.</haxe_doc>
 		</getThreadInfos>
@@ -10593,7 +10790,10 @@
 				<x path="Bool"/>
 				<c path="cpp.vm.ThreadInfo"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns a `ThreadInfo` object describing a single thread, or `null` if
 		there is no such thread or the thread queried about was the debugger
 		thread and `unsafe` was not `true`.</haxe_doc>
@@ -10604,7 +10804,10 @@
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Adds a new `file:line` breakpoint. The breakpoint number of the newly
 		added breakpoint is returned.</haxe_doc>
 		</addFileLineBreakpoint>
@@ -10614,7 +10817,10 @@
 				<c path="String"/>
 				<x path="Int"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Adds a new `class:function` breakpoint. The breakpoint number of the
 		newly added breakpoint is returned.</haxe_doc>
 		</addClassFunctionBreakpoint>
@@ -10623,7 +10829,10 @@
 				<x path="Null"><x path="Int"/></x>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Deletes a breakpoint, or all breakpoints.</haxe_doc>
 		</deleteBreakpoint>
 		<breakNow public="1" set="method" line="266" static="1">
@@ -10634,6 +10843,7 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":value"><e>{ wait : true }</e></m>
+				<m n=":keep"/>
 			</meta>
 			<haxe_doc>Breaks all threads except the debugger thread (which should be the same
 		as the calling thread!).
@@ -10648,7 +10858,10 @@
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Continue execution of all stopped threads. If `specialThreadNumber`
 		is a valid thread number, then it will be continued past
 		`continueCount` breakpoints instead of just 1 like all of the other
@@ -10664,6 +10877,7 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":value"><e>{ stepCount : 1 }</e></m>
+				<m n=":keep"/>
 			</meta>
 			<haxe_doc>Single steps the given thread.</haxe_doc>
 		</stepThread>
@@ -10674,7 +10888,10 @@
 				<x path="Bool"/>
 				<c path="Array"><c path="String"/></c>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns the list of local variables (including `this`, function
 		arguments, and local variables) visible to the given thread at the
 		given stack frame.
@@ -10695,7 +10912,10 @@
 				<x path="Bool"/>
 				<d/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns the value of a stack variable, or `NONEXISTENT_VALUE` if the
 		requested value does not exist.  If the thread is actively running
 		and `unsafe` is not `true`, returns `THREAD_NOT_STOPPED`.</haxe_doc>
@@ -10709,7 +10929,10 @@
 				<x path="Bool"/>
 				<d/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Sets the value of a stack variable and returns that value. If the
 		variable does not exist, on the stack, this function returns
 		`NONEXISTENT_VALUE`. If the thread is actively running and `unsafe` is not
@@ -10725,39 +10948,61 @@
 	<class path="cpp.vm.ExecutionTrace" params="" file="/home/runner/work/haxe/haxe/std/cpp/vm/ExecutionTrace.hx">
 		<traceOff public="1" set="method" line="26" static="1">
 			<f a=""><x path="Void"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</traceOff>
 		<traceFunctions public="1" set="method" line="30" static="1">
 			<f a=""><x path="Void"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</traceFunctions>
 		<traceLines public="1" set="method" line="34" static="1">
 			<f a=""><x path="Void"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</traceLines>
 	</class>
 	<class path="cpp.vm.Gc" params="" file="/home/runner/work/haxe/haxe/std/cpp/vm/Gc.hx">
 		<MEM_INFO_USAGE public="1" get="inline" set="null" expr="0" line="26" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>0</e></m></meta>
+			<meta>
+				<m n=":value"><e>0</e></m>
+				<m n=":keep"/>
+			</meta>
 		</MEM_INFO_USAGE>
 		<MEM_INFO_RESERVED public="1" get="inline" set="null" expr="1" line="27" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>1</e></m></meta>
+			<meta>
+				<m n=":value"><e>1</e></m>
+				<m n=":keep"/>
+			</meta>
 		</MEM_INFO_RESERVED>
 		<MEM_INFO_CURRENT public="1" get="inline" set="null" expr="2" line="28" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>2</e></m></meta>
+			<meta>
+				<m n=":value"><e>2</e></m>
+				<m n=":keep"/>
+			</meta>
 		</MEM_INFO_CURRENT>
 		<MEM_INFO_LARGE public="1" get="inline" set="null" expr="3" line="29" static="1">
 			<x path="Int"/>
-			<meta><m n=":value"><e>3</e></m></meta>
+			<meta>
+				<m n=":value"><e>3</e></m>
+				<m n=":keep"/>
+			</meta>
 		</MEM_INFO_LARGE>
 		<memInfo public="1" set="method" line="41" static="1">
 			<f a="inWhatInfo">
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Introduced hxcpp_api_level 310
 
 		Returns stats on memory usage:
@@ -10767,49 +11012,94 @@
 			This will generally saw-tooth between USAGE and RESERVED
 		- `MEM_INFO_LARGE` - Size of separate pool used for large allocs.  Included in all the above.</haxe_doc>
 		</memInfo>
-		<memInfo64 public="1" set="method" line="46" static="1"><f a="inWhatInfo">
-	<x path="Int"/>
-	<x path="Float"/>
-</f></memInfo64>
-		<memUsage public="1" set="method" line="50" static="1"><f a=""><x path="Int"/></f></memUsage>
-		<versionCheck public="1" set="method" line="54" static="1"><f a=""><x path="Bool"/></f></versionCheck>
+		<memInfo64 public="1" set="method" line="46" static="1">
+			<f a="inWhatInfo">
+				<x path="Int"/>
+				<x path="Float"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</memInfo64>
+		<memUsage public="1" set="method" line="50" static="1">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":keep"/></meta>
+		</memUsage>
+		<versionCheck public="1" set="method" line="54" static="1">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":keep"/></meta>
+		</versionCheck>
 		<trace public="1" set="method" line="58" static="1">
 			<f a="sought:?printInstances" v=":true">
 				<x path="Class"><d/></x>
 				<x path="Bool"/>
 				<x path="Int"/>
 			</f>
-			<meta><m n=":value"><e>{ printInstances : true }</e></m></meta>
+			<meta>
+				<m n=":value"><e>{ printInstances : true }</e></m>
+				<m n=":keep"/>
+			</meta>
 		</trace>
-		<enable public="1" get="inline" set="null" line="66" static="1"><f a="inEnable">
-	<x path="Bool"/>
-	<x path="Void"/>
-</f></enable>
-		<run public="1" get="inline" set="null" line="72" static="1"><f a="major">
-	<x path="Bool"/>
-	<x path="Void"/>
-</f></run>
-		<compact public="1" get="inline" set="null" line="78" static="1"><f a=""><x path="Void"/></f></compact>
-		<doNotKill public="1" get="inline" set="null" line="84" static="1"><f a="inObject">
-	<d/>
-	<x path="Void"/>
-</f></doNotKill>
-		<getNextZombie public="1" get="inline" set="null" line="90" static="1"><f a=""><d/></f></getNextZombie>
-		<safePoint public="1" get="inline" set="null" line="96" static="1"><f a=""><x path="Void"/></f></safePoint>
-		<enterGCFreeZone public="1" get="inline" set="null" line="102" static="1"><f a=""><x path="Void"/></f></enterGCFreeZone>
-		<exitGCFreeZone public="1" get="inline" set="null" line="108" static="1"><f a=""><x path="Void"/></f></exitGCFreeZone>
-		<setMinimumFreeSpace public="1" get="inline" set="null" line="114" static="1"><f a="inBytes">
-	<x path="Int"/>
-	<x path="Void"/>
-</f></setMinimumFreeSpace>
-		<setTargetFreeSpacePercentage public="1" get="inline" set="null" line="120" static="1"><f a="inPercentage">
-	<x path="Int"/>
-	<x path="Void"/>
-</f></setTargetFreeSpacePercentage>
-		<setMinimumWorkingMemory public="1" get="inline" set="null" line="126" static="1"><f a="inBytes">
-	<x path="Int"/>
-	<x path="Void"/>
-</f></setMinimumWorkingMemory>
+		<enable public="1" get="inline" set="null" line="66" static="1">
+			<f a="inEnable">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</enable>
+		<run public="1" get="inline" set="null" line="72" static="1">
+			<f a="major">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</run>
+		<compact public="1" get="inline" set="null" line="78" static="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</compact>
+		<doNotKill public="1" get="inline" set="null" line="84" static="1">
+			<f a="inObject">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</doNotKill>
+		<getNextZombie public="1" get="inline" set="null" line="90" static="1">
+			<f a=""><d/></f>
+			<meta><m n=":keep"/></meta>
+		</getNextZombie>
+		<safePoint public="1" get="inline" set="null" line="96" static="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</safePoint>
+		<enterGCFreeZone public="1" get="inline" set="null" line="102" static="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</enterGCFreeZone>
+		<exitGCFreeZone public="1" get="inline" set="null" line="108" static="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</exitGCFreeZone>
+		<setMinimumFreeSpace public="1" get="inline" set="null" line="114" static="1">
+			<f a="inBytes">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</setMinimumFreeSpace>
+		<setTargetFreeSpacePercentage public="1" get="inline" set="null" line="120" static="1">
+			<f a="inPercentage">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</setTargetFreeSpacePercentage>
+		<setMinimumWorkingMemory public="1" get="inline" set="null" line="126" static="1">
+			<f a="inBytes">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</setMinimumWorkingMemory>
 		<setFinalizer public="1" params="T" set="method" static="1">
 			<f a="inObject:inFinalizer">
 				<c path="setFinalizer.T"/>
@@ -10819,7 +11109,10 @@
 </f></x>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":native"><e>"__hxcpp_set_finalizer"</e></m></meta>
+			<meta>
+				<m n=":keep"/>
+				<m n=":native"><e>"__hxcpp_set_finalizer"</e></m>
+			</meta>
 		</setFinalizer>
 	</class>
 	<typedef path="cpp.vm.Lock" params="" file="/home/runner/work/haxe/haxe/std/cpp/vm/Lock.hx">
@@ -10836,11 +11129,17 @@
 				<c path="String"/>
 				<x path="Void"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</start>
 		<stop public="1" set="method" line="30" static="1">
 			<f a=""><x path="Void"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</stop>
 	</class>
 	<typedef path="cpp.vm.Thread" params="" file="/home/runner/work/haxe/haxe/std/cpp/vm/Thread.hx">
@@ -10857,23 +11156,41 @@
 		<d/>
 		<x path="Void"/>
 	</f>
-	<meta><m n=":has_untyped"/></meta>
+	<meta>
+		<m n=":has_untyped"/>
+		<m n=":keep"/>
+	</meta>
 </unsafeSet></class>
 	<class path="cpp.vm.WeakRef" params="T" file="/home/runner/work/haxe/haxe/std/cpp/vm/WeakRef.hx">
-		<ref><d/></ref>
-		<hardRef><x path="Bool"/></hardRef>
+		<ref>
+			<d/>
+			<meta><m n=":keep"/></meta>
+		</ref>
+		<hardRef>
+			<x path="Bool"/>
+			<meta><m n=":keep"/></meta>
+		</hardRef>
 		<get public="1" set="method" line="37">
 			<f a=""><c path="cpp.vm.WeakRef.T"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</get>
 		<set public="1" set="method" line="44">
 			<f a="inObject">
 				<c path="cpp.vm.WeakRef.T"/>
 				<c path="cpp.vm.WeakRef.T"/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 		</set>
-		<toString public="1" set="method" line="52"><f a=""><c path="String"/></f></toString>
+		<toString public="1" set="method" line="52">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":keep"/></meta>
+		</toString>
 		<new public="1" set="method" line="29">
 			<f a="inObject:?inHard" v=":false">
 				<c path="cpp.vm.WeakRef.T"/>
@@ -10883,6 +11200,7 @@
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":value"><e>{ inHard : false }</e></m>
+				<m n=":keep"/>
 			</meta>
 		</new>
 	</class>
@@ -11107,7 +11425,7 @@
 		</f>
 		<meta><m n=":arrayAccess"/></meta>
 	</get>
-	<asArray get="inline" set="null" line="115" static="1"><f a="this">
+	<asArray public="1" get="inline" set="null" line="115" static="1"><f a="this">
 	<c path="Array"><e path="haxe.StackItem"/></c>
 	<c path="Array"><e path="haxe.StackItem"/></c>
 </f></asArray>
@@ -11188,7 +11506,7 @@
 			</f>
 			<meta><m n=":arrayAccess"/></meta>
 		</get>
-		<asArray get="inline" set="null" line="115" static="1"><f a="this">
+		<asArray public="1" get="inline" set="null" line="115" static="1"><f a="this">
 	<c path="Array"><e path="haxe.StackItem"/></c>
 	<c path="Array"><e path="haxe.StackItem"/></c>
 </f></asArray>
@@ -12172,11 +12490,11 @@
 	unspecified.</haxe_doc>
 	</class>
 	<class path="haxe.Exception" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/Exception.hx">
-		<caught set="method" line="18" static="1"><f a="value">
+		<caught set="method" line="19" static="1"><f a="value">
 	<x path="Any"/>
 	<c path="haxe.Exception"/>
 </f></caught>
-		<thrown set="method" line="29" static="1"><f a="value">
+		<thrown set="method" line="30" static="1"><f a="value">
 	<x path="Any"/>
 	<x path="Any"/>
 </f></thrown>
@@ -12184,7 +12502,7 @@
 			<c path="String"/>
 			<haxe_doc>Exception message.</haxe_doc>
 		</message>
-		<stack public="1" get="accessor" set="null">
+		<stack public="1" get="accessor" set="accessor">
 			<x path="haxe.CallStack"/>
 			<haxe_doc>The call stack at the moment of the exception creation.</haxe_doc>
 		</stack>
@@ -12224,36 +12542,44 @@
 			<x path="Null"><c path="haxe.Exception"/></x>
 			<meta><m n=":noCompletion"/></meta>
 		</__previousException>
-		<unwrap set="method" line="51"><f a=""><x path="Any"/></f></unwrap>
-		<toString public="1" set="method" line="55">
+		<_hx_customStack>
+			<x path="Null"><c path="String"/></x>
+			<meta><m n=":noCompletion"/></meta>
+		</_hx_customStack>
+		<unwrap set="method" line="52"><f a=""><x path="Any"/></f></unwrap>
+		<toString public="1" set="method" line="56">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns exception message.</haxe_doc>
 		</toString>
-		<details public="1" set="method" line="59">
+		<details public="1" set="method" line="60">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Detailed exception description.
 
 		Includes message, stack and the chain of previous exceptions (if set).</haxe_doc>
 		</details>
-		<__shiftStack get="inline" set="null" line="65">
+		<__shiftStack get="inline" set="null" line="66">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":ifFeature"><e>"haxe.Exception.get_stack"</e></m>
 			</meta>
 		</__shiftStack>
-		<__unshiftStack get="inline" set="null" line="71">
+		<__unshiftStack get="inline" set="null" line="72">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":noCompletion"/>
 				<m n=":ifFeature"><e>"haxe.Exception.get_stack"</e></m>
 			</meta>
 		</__unshiftStack>
-		<get_message set="method" line="75"><f a=""><c path="String"/></f></get_message>
-		<get_previous set="method" line="79"><f a=""><x path="Null"><c path="haxe.Exception"/></x></f></get_previous>
-		<get_native final="1" set="method" line="83"><f a=""><x path="Any"/></f></get_native>
-		<get_stack set="method" line="87"><f a=""><x path="haxe.CallStack"/></f></get_stack>
-		<new public="1" set="method" line="39">
+		<get_message set="method" line="76"><f a=""><c path="String"/></f></get_message>
+		<get_previous set="method" line="80"><f a=""><x path="Null"><c path="haxe.Exception"/></x></f></get_previous>
+		<get_native final="1" set="method" line="84"><f a=""><x path="Any"/></f></get_native>
+		<get_stack set="method" line="88"><f a=""><x path="haxe.CallStack"/></f></get_stack>
+		<set_stack set="method" line="95"><f a="stack">
+	<x path="haxe.CallStack"/>
+	<x path="haxe.CallStack"/>
+</f></set_stack>
+		<new public="1" set="method" line="40">
 			<f a="message:?previous:?native">
 				<c path="String"/>
 				<c path="haxe.Exception"/>
@@ -16176,17 +16502,17 @@
 				<m n=":keep"/>
 				<m n=":keep"/>
 			</meta>
-			<haxe_doc>Enables object caching during serialization to handle circular references and 
+			<haxe_doc>Enables object caching during serialization to handle circular references and
 		repeated objects.
-	
-		Set `USE_CACHE` to `true` if the values you are serializing may contain 
-		circular references or repeated objects. This prevents infinite loops and 
+
+		Set `USE_CACHE` to `true` if the values you are serializing may contain
+		circular references or repeated objects. This prevents infinite loops and
 		ensures that shared references are preserved in the serialized output.
-	
-		Enabling this option may also reduce the size of the resulting serialized 
+
+		Enabling this option may also reduce the size of the resulting serialized
 		string, but can have a minor performance impact.
-	
-		This is a global default. You can override it per instance using the 
+
+		This is a global default. You can override it per instance using the
 		`useCache` field on a `Serializer`.</haxe_doc>
 		</USE_CACHE>
 		<USE_ENUM_INDEX public="1" expr="false" line="76" static="1">
@@ -16197,16 +16523,16 @@
 				<m n=":keep"/>
 			</meta>
 			<haxe_doc>Serializes enum values using constructor indices instead of names.
-	
-		When `USE_ENUM_INDEX` is set to `true`, enum constructors are serialized by 
-		their numeric index. This can reduce the size of the serialized data, 
+
+		When `USE_ENUM_INDEX` is set to `true`, enum constructors are serialized by
+		their numeric index. This can reduce the size of the serialized data,
 		especially for enums with long or frequently used constructor names.
-	
-		However, using indices makes serialized data more fragile for long-term 
-		storage. If enum definitions change (e.g., by adding or removing constructors), 
+
+		However, using indices makes serialized data more fragile for long-term
+		storage. If enum definitions change (e.g., by adding or removing constructors),
 		the indices may no longer match the intended constructors.
-	
-		This is a global default. You can override it per instance using the 
+
+		This is a global default. You can override it per instance using the
 		`useEnumIndex` field on a `Serializer`.</haxe_doc>
 		</USE_ENUM_INDEX>
 		<BASE64 expr="&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:&quot;" line="78" static="1">
@@ -16225,7 +16551,7 @@
 				<m n=":keep"/>
 			</meta>
 		</BASE64_CODES>
-		<run public="1" set="method" line="598" static="1">
+		<run public="1" set="method" line="599" static="1">
 			<f a="v">
 				<d/>
 				<c path="String"/>
@@ -16275,11 +16601,11 @@
 				<m n=":keep"/>
 			</meta>
 			<haxe_doc>Determines whether this `Serializer` instance uses object caching.
-	
-	 	When enabled, repeated references to the same object are serialized using references 
-	 	instead of duplicating data, reducing output size and preserving object identity.
-	
-	 	See `USE_CACHE` for a complete description.</haxe_doc>
+
+		When enabled, repeated references to the same object are serialized using references
+		instead of duplicating data, reducing output size and preserving object identity.
+
+		See `USE_CACHE` for a complete description.</haxe_doc>
 		</useCache>
 		<useEnumIndex public="1">
 			<x path="Bool"/>
@@ -16290,7 +16616,7 @@
 			<haxe_doc>Determines whether this `Serializer` instance serializes enum values using their index
 		instead of their constructor name.
 
-		Using indexes can reduce the size of the serialized data but may be less readable and 
+		Using indexes can reduce the size of the serialized data but may be less readable and
 		more fragile if enum definitions change.
 
 		See `USE_ENUM_INDEX` for a complete description.</haxe_doc>
@@ -16302,7 +16628,7 @@
 				<m n=":keep"/>
 			</meta>
 			<haxe_doc>Resets the internal state of the Serializer, allowing it to be reused.
-		
+
 		This does not affect the `useCache` or `useEnumIndex` properties;
 		their values will remain unchanged after calling this method.</haxe_doc>
 		</reset>
@@ -16347,7 +16673,7 @@
 				<m n=":keep"/>
 			</meta>
 		</serializeFields>
-		<serialize public="1" set="method" line="251">
+		<serialize public="1" set="method" line="252">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
@@ -16360,12 +16686,13 @@
 	
 		All haxe-defined values and objects with the exception of functions can
 		be serialized. Serialization of external/native objects is not
-		guaranteed to work.
+		guaranteed to work. This is also true for classes extending external/native
+		classes. On some targets, this might include exceptions, too.
 	
 		The values of `this.useCache` and `this.useEnumIndex` may affect
 		serialization output.</haxe_doc>
 		</serialize>
-		<__getField get="inline" set="null" line="573">
+		<__getField get="inline" set="null" line="574">
 			<f a="o:f">
 				<d/>
 				<c path="String"/>
@@ -16376,7 +16703,7 @@
 				<m n=":keep"/>
 			</meta>
 		</__getField>
-		<serializeException public="1" set="method" line="575">
+		<serializeException public="1" set="method" line="576">
 			<f a="e">
 				<d/>
 				<x path="Void"/>
@@ -16421,7 +16748,7 @@
 	<enum path="haxe._Template.TemplateExpr" params="" file="/home/runner/work/haxe/haxe/std/haxe/Template.hx" private="1" module="haxe.Template">
 		<OpVar a="v"><c path="String"/></OpVar>
 		<OpExpr a="expr"><f a=""><d/></f></OpExpr>
-		<OpIf a="expr:eif:eelse">
+		<OpIf a="expr:eif:?eelse">
 			<f a=""><d/></f>
 			<e path="haxe._Template.TemplateExpr"/>
 			<e path="haxe._Template.TemplateExpr"/>
@@ -16670,7 +16997,7 @@
 	<https://haxe.org/manual/std-template.html>]]></haxe_doc>
 	</class>
 	<class path="haxe.Timer" params="" file="/home/runner/work/haxe/haxe/std/haxe/Timer.hx">
-		<delay public="1" set="method" line="145" static="1">
+		<delay public="1" set="method" line="146" static="1">
 			<f a="f:time_ms">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -16684,7 +17011,7 @@
 
 		If `f` is `null`, the result is unspecified.</haxe_doc>
 		</delay>
-		<measure public="1" params="T" set="method" line="165" static="1">
+		<measure public="1" params="T" set="method" line="166" static="1">
 			<f a="f:?pos">
 				<f a=""><c path="measure.T"/></f>
 				<t path="haxe.PosInfos"/>
@@ -16700,7 +17027,7 @@
 
 		If `f` is `null`, the result is unspecified.</haxe_doc>
 		</measure>
-		<stamp public="1" get="inline" set="null" line="178" static="1">
+		<stamp public="1" get="inline" set="null" line="179" static="1">
 			<f a=""><x path="Float"/></f>
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Returns a timestamp, in seconds with fractions.
@@ -16708,9 +17035,16 @@
 		The value itself might differ depending on platforms, only differences
 		between two values make sense.</haxe_doc>
 		</stamp>
+		<milliseconds public="1" get="inline" set="null" line="205" static="1">
+			<f a=""><x path="haxe.Int64"/></f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>* Returns a monotonically increasing timestamp with millisecond resolution.
+	 *
+	 * The precision and epoch of the timer is platform defined.</haxe_doc>
+		</milliseconds>
 		<thread><x path="sys.thread.Thread"/></thread>
 		<eventHandler><x path="sys.thread.EventHandler"/></eventHandler>
-		<stop public="1" set="method" line="100">
+		<stop public="1" set="method" line="101">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Stops `this` Timer.
 
@@ -16719,7 +17053,7 @@
 
 		It is not possible to restart `this` Timer once stopped.</haxe_doc>
 		</stop>
-		<run public="1" set="dynamic" line="134">
+		<run public="1" set="dynamic" line="135">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>This method is invoked repeatedly on `this` Timer.
 
@@ -16734,7 +17068,7 @@
 		Once bound, it can still be rebound to different functions until `this`
 		Timer is stopped through a call to `this.stop`.</haxe_doc>
 		</run>
-		<new public="1" set="method" line="70">
+		<new public="1" set="method" line="71">
 			<f a="time_ms">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -16764,14 +17098,19 @@
 
 	Notice for threaded targets:
 	`Timer` instances require threads they were created in to run with Haxe's event loops.
-	Main thread of a Haxe program always contains an event loop. For other cases use 
+	Main thread of a Haxe program always contains an event loop. For other cases use
 	`sys.thread.Thread.createWithEventLoop` and `sys.thread.Thread.runWithEventLoop` methods.</haxe_doc>
 	</class>
+	<enum path="haxe.Unit" params="" file="/home/runner/work/haxe/haxe/std/haxe/Unit.hx">
+		<Unit/>
+		<haxe_doc>A unit type that only has one value.</haxe_doc>
+		<meta><m n=":flatEnum"/></meta>
+	</enum>
 	<class path="haxe._Unserializer.DefaultResolver" params="" file="/home/runner/work/haxe/haxe/std/haxe/Unserializer.hx" private="1" module="haxe.Unserializer">
 		<resolveClass public="1" get="inline" set="null" line="515">
 			<f a="name">
 				<c path="String"/>
-				<x path="Class"><d/></x>
+				<x path="Null"><x path="Class"><d/></x></x>
 			</f>
 			<meta>
 				<m n=":keep"/>
@@ -16781,7 +17120,7 @@
 		<resolveEnum public="1" get="inline" set="null" line="518">
 			<f a="name">
 				<c path="String"/>
-				<x path="Enum"><d/></x>
+				<x path="Null"><x path="Enum"><d/></x></x>
 			</f>
 			<meta>
 				<m n=":keep"/>
@@ -16812,9 +17151,9 @@
 
 		A type resolver must provide two methods:
 
-		1. `resolveClass(name:String):Class<Dynamic>` is called to determine a
+		1. `resolveClass(name:String):Null<Class<Dynamic>>` is called to determine a
 				`Class` from a class name
-		2. `resolveEnum(name:String):Enum<Dynamic>` is called to determine an
+		2. `resolveEnum(name:String):Null<Enum<Dynamic>>` is called to determine an
 				`Enum` from an enum name
 
 		This value is applied when a new `Unserializer` instance is created.
@@ -17089,7 +17428,7 @@
 		<resolveClass public="1" get="inline" set="null" line="525">
 			<f a="name">
 				<c path="String"/>
-				<x path="Class"><d/></x>
+				<x path="Null"><x path="Class"><d/></x></x>
 			</f>
 			<meta>
 				<m n=":keep"/>
@@ -17099,7 +17438,7 @@
 		<resolveEnum public="1" get="inline" set="null" line="528">
 			<f a="name">
 				<c path="String"/>
-				<x path="Enum"><d/></x>
+				<x path="Null"><x path="Enum"><d/></x></x>
 			</f>
 			<meta>
 				<m n=":keep"/>
@@ -17294,346 +17633,383 @@
 	```</haxe_doc>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
-	<abstract path="haxe.atomic.AtomicBool" params="" file="/home/runner/work/haxe/haxe/std/haxe/atomic/AtomicBool.hx">
-		<this><x path="haxe.atomic.AtomicInt"/></this>
-		<haxe_doc>Atomic boolean.
-	(js) The Atomics and SharedArrayBuffer objects need to be available. Errors will be thrown if this is not the case.</haxe_doc>
-		<meta><m n=":coreApi"/></meta>
-		<impl><class path="haxe.atomic._AtomicBool.AtomicBool_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/atomic/AtomicBool.hx" private="1" module="haxe.atomic.AtomicBool" final="1">
-	<toInt get="inline" set="null" line="13" static="1"><f a="this:v">
-	<x path="haxe.atomic.AtomicInt"/>
-	<x path="Bool"/>
-	<x path="Int"/>
-</f></toInt>
-	<toBool get="inline" set="null" line="17" static="1"><f a="this:v">
-	<x path="haxe.atomic.AtomicInt"/>
-	<x path="Int"/>
-	<x path="Bool"/>
-</f></toBool>
-	<_hx_new public="1" get="inline" set="null" line="21" static="1">
+	<abstract path="haxe.atomic.AtomicBool" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicBool.hx">
+		<this><x path="haxe.atomic.AtomicBool"/></this>
+		<meta>
+			<m n=":coreApi"/>
+			<m n=":coreType"/>
+		</meta>
+		<impl><class path="haxe.atomic._AtomicBool.AtomicBool_Impl_" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicBool.hx" private="1" module="haxe.atomic.AtomicBool" final="1">
+	<_hx_new public="1" set="method" static="1">
 		<f a="value">
 			<x path="Bool"/>
 			<x path="haxe.atomic.AtomicBool"/>
 		</f>
-		<meta><m n=":noCompletion"/></meta>
+		<meta>
+			<m n=":noExpr"/>
+			<m n=":noCompletion"/>
+		</meta>
 	</_hx_new>
-	<compareExchange public="1" get="inline" set="null" line="29" static="1">
+	<compareExchange public="1" set="method" static="1">
 		<f a="this:expected:replacement">
-			<x path="haxe.atomic.AtomicInt"/>
+			<x path="haxe.atomic.AtomicBool"/>
 			<x path="Bool"/>
 			<x path="Bool"/>
 			<x path="Bool"/>
 		</f>
+		<meta><m n=":noExpr"/></meta>
 		<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
 		Returns the original value of `a`.</haxe_doc>
 	</compareExchange>
-	<exchange public="1" get="inline" set="null" line="37" static="1">
+	<exchange public="1" set="method" static="1">
 		<f a="this:value">
-			<x path="haxe.atomic.AtomicInt"/>
+			<x path="haxe.atomic.AtomicBool"/>
 			<x path="Bool"/>
 			<x path="Bool"/>
 		</f>
+		<meta><m n=":noExpr"/></meta>
 		<haxe_doc>Atomically exchanges `a` with `value`.
 		Returns the original value of `a`.</haxe_doc>
 	</exchange>
-	<load public="1" get="inline" set="null" line="44" static="1">
+	<load public="1" set="method" static="1">
 		<f a="this">
-			<x path="haxe.atomic.AtomicInt"/>
+			<x path="haxe.atomic.AtomicBool"/>
 			<x path="Bool"/>
 		</f>
+		<meta><m n=":noExpr"/></meta>
 		<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
 	</load>
-	<store public="1" get="inline" set="null" line="52" static="1">
+	<store public="1" set="method" static="1">
 		<f a="this:value">
-			<x path="haxe.atomic.AtomicInt"/>
+			<x path="haxe.atomic.AtomicBool"/>
 			<x path="Bool"/>
 			<x path="Bool"/>
 		</f>
+		<meta><m n=":noExpr"/></meta>
 		<haxe_doc>Atomically stores `value` into `a`.
 		Returns the value that has been stored.</haxe_doc>
 	</store>
 	<meta><m n=":coreApi"/></meta>
 </class></impl>
 	</abstract>
-	<class path="haxe.atomic._AtomicBool.AtomicBool_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/atomic/AtomicBool.hx" private="1" module="haxe.atomic.AtomicBool" final="1">
-		<toInt get="inline" set="null" line="13" static="1"><f a="this:v">
-	<x path="haxe.atomic.AtomicInt"/>
-	<x path="Bool"/>
-	<x path="Int"/>
-</f></toInt>
-		<toBool get="inline" set="null" line="17" static="1"><f a="this:v">
-	<x path="haxe.atomic.AtomicInt"/>
-	<x path="Int"/>
-	<x path="Bool"/>
-</f></toBool>
-		<_hx_new public="1" get="inline" set="null" line="21" static="1">
+	<class path="haxe.atomic._AtomicBool.AtomicBool_Impl_" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicBool.hx" private="1" module="haxe.atomic.AtomicBool" final="1">
+		<_hx_new public="1" set="method" static="1">
 			<f a="value">
 				<x path="Bool"/>
 				<x path="haxe.atomic.AtomicBool"/>
 			</f>
-			<meta><m n=":noCompletion"/></meta>
+			<meta>
+				<m n=":noExpr"/>
+				<m n=":noCompletion"/>
+			</meta>
 		</_hx_new>
-		<compareExchange public="1" get="inline" set="null" line="29" static="1">
+		<compareExchange public="1" set="method" static="1">
 			<f a="this:expected:replacement">
-				<x path="haxe.atomic.AtomicInt"/>
+				<x path="haxe.atomic.AtomicBool"/>
 				<x path="Bool"/>
 				<x path="Bool"/>
 				<x path="Bool"/>
 			</f>
+			<meta><m n=":noExpr"/></meta>
 			<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
 		Returns the original value of `a`.</haxe_doc>
 		</compareExchange>
-		<exchange public="1" get="inline" set="null" line="37" static="1">
+		<exchange public="1" set="method" static="1">
 			<f a="this:value">
-				<x path="haxe.atomic.AtomicInt"/>
+				<x path="haxe.atomic.AtomicBool"/>
 				<x path="Bool"/>
 				<x path="Bool"/>
 			</f>
+			<meta><m n=":noExpr"/></meta>
 			<haxe_doc>Atomically exchanges `a` with `value`.
 		Returns the original value of `a`.</haxe_doc>
 		</exchange>
-		<load public="1" get="inline" set="null" line="44" static="1">
+		<load public="1" set="method" static="1">
 			<f a="this">
-				<x path="haxe.atomic.AtomicInt"/>
+				<x path="haxe.atomic.AtomicBool"/>
 				<x path="Bool"/>
 			</f>
+			<meta><m n=":noExpr"/></meta>
 			<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
 		</load>
-		<store public="1" get="inline" set="null" line="52" static="1">
+		<store public="1" set="method" static="1">
 			<f a="this:value">
-				<x path="haxe.atomic.AtomicInt"/>
+				<x path="haxe.atomic.AtomicBool"/>
 				<x path="Bool"/>
 				<x path="Bool"/>
 			</f>
+			<meta><m n=":noExpr"/></meta>
 			<haxe_doc>Atomically stores `value` into `a`.
 		Returns the value that has been stored.</haxe_doc>
 		</store>
 		<meta><m n=":coreApi"/></meta>
 	</class>
 	<abstract path="haxe.atomic.AtomicInt" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicInt.hx">
-		<this><c path="cpp.Pointer"><x path="Int"/></c></this>
+		<this><x path="haxe.atomic.AtomicInt"/></this>
+		<meta>
+			<m n=":coreApi"/>
+			<m n=":coreType"/>
+		</meta>
 		<impl><class path="haxe.atomic._AtomicInt.AtomicInt_Impl_" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt" final="1">
-	<_hx_new public="1" get="inline" set="null" line="28" static="1">
+	<_hx_new public="1" set="method" static="1">
 		<f a="value">
 			<x path="Int"/>
 			<x path="haxe.atomic.AtomicInt"/>
 		</f>
 		<meta>
+			<m n=":noExpr"/>
 			<m n=":keep"/>
 			<m n=":noCompletion"/>
 		</meta>
 	</_hx_new>
-	<add public="1" get="inline" set="null" line="32" static="1">
+	<add public="1" set="method" static="1">
 		<f a="this:b">
-			<c path="cpp.Pointer"><x path="Int"/></c>
+			<x path="haxe.atomic.AtomicInt"/>
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
 		<meta>
-			<m n=":has_untyped"/>
+			<m n=":noExpr"/>
 			<m n=":keep"/>
 		</meta>
+		<haxe_doc>Atomically adds `b` to `a`.
+		Returns the original value of `a`.</haxe_doc>
 	</add>
-	<sub public="1" get="inline" set="null" line="36" static="1">
+	<sub public="1" set="method" static="1">
 		<f a="this:b">
-			<c path="cpp.Pointer"><x path="Int"/></c>
+			<x path="haxe.atomic.AtomicInt"/>
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
 		<meta>
-			<m n=":has_untyped"/>
+			<m n=":noExpr"/>
 			<m n=":keep"/>
 		</meta>
+		<haxe_doc>Atomically subtracts `b` from `a`.
+		Returns the original value of `a`.</haxe_doc>
 	</sub>
-	<and public="1" get="inline" set="null" line="40" static="1">
+	<and public="1" set="method" static="1">
 		<f a="this:b">
-			<c path="cpp.Pointer"><x path="Int"/></c>
+			<x path="haxe.atomic.AtomicInt"/>
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
 		<meta>
-			<m n=":has_untyped"/>
+			<m n=":noExpr"/>
 			<m n=":keep"/>
 		</meta>
+		<haxe_doc>Atomically computes the bitwise and of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
 	</and>
-	<or public="1" get="inline" set="null" line="44" static="1">
+	<or public="1" set="method" static="1">
 		<f a="this:b">
-			<c path="cpp.Pointer"><x path="Int"/></c>
+			<x path="haxe.atomic.AtomicInt"/>
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
 		<meta>
-			<m n=":has_untyped"/>
+			<m n=":noExpr"/>
 			<m n=":keep"/>
 		</meta>
+		<haxe_doc>Atomically computes the bitwise or of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
 	</or>
-	<xor public="1" get="inline" set="null" line="48" static="1">
+	<xor public="1" set="method" static="1">
 		<f a="this:b">
-			<c path="cpp.Pointer"><x path="Int"/></c>
+			<x path="haxe.atomic.AtomicInt"/>
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
 		<meta>
-			<m n=":has_untyped"/>
+			<m n=":noExpr"/>
 			<m n=":keep"/>
 		</meta>
+		<haxe_doc>Atomically computes the bitwise xor of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
 	</xor>
-	<compareExchange public="1" get="inline" set="null" line="52" static="1">
+	<compareExchange public="1" set="method" static="1">
 		<f a="this:expected:replacement">
-			<c path="cpp.Pointer"><x path="Int"/></c>
+			<x path="haxe.atomic.AtomicInt"/>
 			<x path="Int"/>
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
 		<meta>
-			<m n=":has_untyped"/>
+			<m n=":noExpr"/>
 			<m n=":keep"/>
 		</meta>
+		<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
+		Returns the original value of `a`.</haxe_doc>
 	</compareExchange>
-	<exchange public="1" get="inline" set="null" line="56" static="1">
+	<exchange public="1" set="method" static="1">
 		<f a="this:value">
-			<c path="cpp.Pointer"><x path="Int"/></c>
+			<x path="haxe.atomic.AtomicInt"/>
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
 		<meta>
-			<m n=":has_untyped"/>
+			<m n=":noExpr"/>
 			<m n=":keep"/>
 		</meta>
+		<haxe_doc>Atomically exchanges `a` with `value`.
+		Returns the original value of `a`.</haxe_doc>
 	</exchange>
-	<load public="1" get="inline" set="null" line="60" static="1">
+	<load public="1" set="method" static="1">
 		<f a="this">
-			<c path="cpp.Pointer"><x path="Int"/></c>
+			<x path="haxe.atomic.AtomicInt"/>
 			<x path="Int"/>
 		</f>
 		<meta>
-			<m n=":has_untyped"/>
+			<m n=":noExpr"/>
 			<m n=":keep"/>
 		</meta>
+		<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
 	</load>
-	<store public="1" get="inline" set="null" line="64" static="1">
+	<store public="1" set="method" static="1">
 		<f a="this:value">
-			<c path="cpp.Pointer"><x path="Int"/></c>
+			<x path="haxe.atomic.AtomicInt"/>
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
 		<meta>
-			<m n=":has_untyped"/>
+			<m n=":noExpr"/>
 			<m n=":keep"/>
 		</meta>
+		<haxe_doc>Atomically stores `value` into `a`.
+		Returns the value that has been stored.</haxe_doc>
 	</store>
+	<meta><m n=":coreApi"/></meta>
 </class></impl>
 	</abstract>
 	<class path="haxe.atomic._AtomicInt.AtomicInt_Impl_" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt" final="1">
-		<_hx_new public="1" get="inline" set="null" line="28" static="1">
+		<_hx_new public="1" set="method" static="1">
 			<f a="value">
 				<x path="Int"/>
 				<x path="haxe.atomic.AtomicInt"/>
 			</f>
 			<meta>
+				<m n=":noExpr"/>
 				<m n=":keep"/>
 				<m n=":noCompletion"/>
 			</meta>
 		</_hx_new>
-		<add public="1" get="inline" set="null" line="32" static="1">
+		<add public="1" set="method" static="1">
 			<f a="this:b">
-				<c path="cpp.Pointer"><x path="Int"/></c>
+				<x path="haxe.atomic.AtomicInt"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
 			<meta>
-				<m n=":has_untyped"/>
+				<m n=":noExpr"/>
 				<m n=":keep"/>
 			</meta>
+			<haxe_doc>Atomically adds `b` to `a`.
+		Returns the original value of `a`.</haxe_doc>
 		</add>
-		<sub public="1" get="inline" set="null" line="36" static="1">
+		<sub public="1" set="method" static="1">
 			<f a="this:b">
-				<c path="cpp.Pointer"><x path="Int"/></c>
+				<x path="haxe.atomic.AtomicInt"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
 			<meta>
-				<m n=":has_untyped"/>
+				<m n=":noExpr"/>
 				<m n=":keep"/>
 			</meta>
+			<haxe_doc>Atomically subtracts `b` from `a`.
+		Returns the original value of `a`.</haxe_doc>
 		</sub>
-		<and public="1" get="inline" set="null" line="40" static="1">
+		<and public="1" set="method" static="1">
 			<f a="this:b">
-				<c path="cpp.Pointer"><x path="Int"/></c>
+				<x path="haxe.atomic.AtomicInt"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
 			<meta>
-				<m n=":has_untyped"/>
+				<m n=":noExpr"/>
 				<m n=":keep"/>
 			</meta>
+			<haxe_doc>Atomically computes the bitwise and of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
 		</and>
-		<or public="1" get="inline" set="null" line="44" static="1">
+		<or public="1" set="method" static="1">
 			<f a="this:b">
-				<c path="cpp.Pointer"><x path="Int"/></c>
+				<x path="haxe.atomic.AtomicInt"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
 			<meta>
-				<m n=":has_untyped"/>
+				<m n=":noExpr"/>
 				<m n=":keep"/>
 			</meta>
+			<haxe_doc>Atomically computes the bitwise or of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
 		</or>
-		<xor public="1" get="inline" set="null" line="48" static="1">
+		<xor public="1" set="method" static="1">
 			<f a="this:b">
-				<c path="cpp.Pointer"><x path="Int"/></c>
+				<x path="haxe.atomic.AtomicInt"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
 			<meta>
-				<m n=":has_untyped"/>
+				<m n=":noExpr"/>
 				<m n=":keep"/>
 			</meta>
+			<haxe_doc>Atomically computes the bitwise xor of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
 		</xor>
-		<compareExchange public="1" get="inline" set="null" line="52" static="1">
+		<compareExchange public="1" set="method" static="1">
 			<f a="this:expected:replacement">
-				<c path="cpp.Pointer"><x path="Int"/></c>
+				<x path="haxe.atomic.AtomicInt"/>
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
 			<meta>
-				<m n=":has_untyped"/>
+				<m n=":noExpr"/>
 				<m n=":keep"/>
 			</meta>
+			<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
+		Returns the original value of `a`.</haxe_doc>
 		</compareExchange>
-		<exchange public="1" get="inline" set="null" line="56" static="1">
+		<exchange public="1" set="method" static="1">
 			<f a="this:value">
-				<c path="cpp.Pointer"><x path="Int"/></c>
+				<x path="haxe.atomic.AtomicInt"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
 			<meta>
-				<m n=":has_untyped"/>
+				<m n=":noExpr"/>
 				<m n=":keep"/>
 			</meta>
+			<haxe_doc>Atomically exchanges `a` with `value`.
+		Returns the original value of `a`.</haxe_doc>
 		</exchange>
-		<load public="1" get="inline" set="null" line="60" static="1">
+		<load public="1" set="method" static="1">
 			<f a="this">
-				<c path="cpp.Pointer"><x path="Int"/></c>
+				<x path="haxe.atomic.AtomicInt"/>
 				<x path="Int"/>
 			</f>
 			<meta>
-				<m n=":has_untyped"/>
+				<m n=":noExpr"/>
 				<m n=":keep"/>
 			</meta>
+			<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
 		</load>
-		<store public="1" get="inline" set="null" line="64" static="1">
+		<store public="1" set="method" static="1">
 			<f a="this:value">
-				<c path="cpp.Pointer"><x path="Int"/></c>
+				<x path="haxe.atomic.AtomicInt"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
 			<meta>
-				<m n=":has_untyped"/>
+				<m n=":noExpr"/>
 				<m n=":keep"/>
 			</meta>
+			<haxe_doc>Atomically stores `value` into `a`.
+		Returns the value that has been stored.</haxe_doc>
 		</store>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="haxe.crypto.Adler32" params="" file="/home/runner/work/haxe/haxe/std/haxe/crypto/Adler32.hx">
 		<read public="1" set="method" line="60" static="1">
@@ -22805,6 +23181,14 @@
 			<m n=":enum"/>
 		</meta>
 	</AccCall>
+	<AccPrivateCall public="1" get="inline" set="null" expr="cast &quot;AccPrivateCall&quot;" line="1" static="1">
+		<x path="haxe.display.JsonVarAccessKind"><c path="haxe.display.JsonVarAccessKind.T"/></x>
+		<meta>
+			<m n=":value"><e>cast "AccPrivateCall"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</AccPrivateCall>
 	<AccInline public="1" get="inline" set="null" expr="cast &quot;AccInline&quot;" line="1" static="1">
 		<x path="haxe.display.JsonVarAccessKind"><c path="haxe.display.JsonVarAccessKind.T"/></x>
 		<meta>
@@ -22876,6 +23260,14 @@
 				<m n=":enum"/>
 			</meta>
 		</AccCall>
+		<AccPrivateCall public="1" get="inline" set="null" expr="cast &quot;AccPrivateCall&quot;" line="1" static="1">
+			<x path="haxe.display.JsonVarAccessKind"><c path="haxe.display.JsonVarAccessKind.T"/></x>
+			<meta>
+				<m n=":value"><e>cast "AccPrivateCall"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</AccPrivateCall>
 		<AccInline public="1" get="inline" set="null" expr="cast &quot;AccInline&quot;" line="1" static="1">
 			<x path="haxe.display.JsonVarAccessKind"><c path="haxe.display.JsonVarAccessKind.T"/></x>
 			<meta>
@@ -23343,7 +23735,7 @@
 		<this><c path="String"/></this>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="haxe.display._JsonModuleTypes.JsonModuleTypeKind_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" extern="1" final="1">
-	<Class public="1" get="inline" set="null" expr="cast &quot;class&quot;" line="357" static="1">
+	<Class public="1" get="inline" set="null" expr="cast &quot;class&quot;" line="358" static="1">
 		<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonClass"/></x>
 		<meta>
 			<m n=":value"><e>cast "class"</e></m>
@@ -23351,7 +23743,7 @@
 			<m n=":enum"/>
 		</meta>
 	</Class>
-	<Enum public="1" get="inline" set="null" expr="cast &quot;enum&quot;" line="358" static="1">
+	<Enum public="1" get="inline" set="null" expr="cast &quot;enum&quot;" line="359" static="1">
 		<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonEnum"/></x>
 		<meta>
 			<m n=":value"><e>cast "enum"</e></m>
@@ -23359,7 +23751,7 @@
 			<m n=":enum"/>
 		</meta>
 	</Enum>
-	<Typedef public="1" get="inline" set="null" expr="cast &quot;typedef&quot;" line="359" static="1">
+	<Typedef public="1" get="inline" set="null" expr="cast &quot;typedef&quot;" line="360" static="1">
 		<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonTypedef"/></x>
 		<meta>
 			<m n=":value"><e>cast "typedef"</e></m>
@@ -23367,7 +23759,7 @@
 			<m n=":enum"/>
 		</meta>
 	</Typedef>
-	<Abstract public="1" get="inline" set="null" expr="cast &quot;abstract&quot;" line="360" static="1">
+	<Abstract public="1" get="inline" set="null" expr="cast &quot;abstract&quot;" line="361" static="1">
 		<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonAbstract"/></x>
 		<meta>
 			<m n=":value"><e>cast "abstract"</e></m>
@@ -23379,7 +23771,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.display._JsonModuleTypes.JsonModuleTypeKind_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" extern="1" final="1">
-		<Class public="1" get="inline" set="null" expr="cast &quot;class&quot;" line="357" static="1">
+		<Class public="1" get="inline" set="null" expr="cast &quot;class&quot;" line="358" static="1">
 			<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonClass"/></x>
 			<meta>
 				<m n=":value"><e>cast "class"</e></m>
@@ -23387,7 +23779,7 @@
 				<m n=":enum"/>
 			</meta>
 		</Class>
-		<Enum public="1" get="inline" set="null" expr="cast &quot;enum&quot;" line="358" static="1">
+		<Enum public="1" get="inline" set="null" expr="cast &quot;enum&quot;" line="359" static="1">
 			<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonEnum"/></x>
 			<meta>
 				<m n=":value"><e>cast "enum"</e></m>
@@ -23395,7 +23787,7 @@
 				<m n=":enum"/>
 			</meta>
 		</Enum>
-		<Typedef public="1" get="inline" set="null" expr="cast &quot;typedef&quot;" line="359" static="1">
+		<Typedef public="1" get="inline" set="null" expr="cast &quot;typedef&quot;" line="360" static="1">
 			<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonTypedef"/></x>
 			<meta>
 				<m n=":value"><e>cast "typedef"</e></m>
@@ -23403,7 +23795,7 @@
 				<m n=":enum"/>
 			</meta>
 		</Typedef>
-		<Abstract public="1" get="inline" set="null" expr="cast &quot;abstract&quot;" line="360" static="1">
+		<Abstract public="1" get="inline" set="null" expr="cast &quot;abstract&quot;" line="361" static="1">
 			<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonAbstract"/></x>
 			<meta>
 				<m n=":value"><e>cast "abstract"</e></m>
@@ -24491,7 +24883,24 @@
 			<c path="haxe.ds.EnumValueMap.K"/>
 			<c path="haxe.ds.EnumValueMap.V"/>
 		</implements>
-		<compare set="method" line="32" override="1">
+		<sortIndices expr="new Map&lt;{ },Int&gt;()">
+			<x path="haxe.ds.Map">
+				<a/>
+				<x path="Int"/>
+			</x>
+			<meta>
+				<m n=":value"><e><![CDATA[new Map<{ },Int>()]]></e></m>
+				<m n=":keep"/>
+			</meta>
+		</sortIndices>
+		<sortIndicesCounter expr="0">
+			<x path="Int"/>
+			<meta>
+				<m n=":value"><e>0</e></m>
+				<m n=":keep"/>
+			</meta>
+		</sortIndicesCounter>
+		<compare set="method" line="35" override="1">
 			<f a="k1:k2">
 				<x path="EnumValue"/>
 				<x path="EnumValue"/>
@@ -24499,7 +24908,7 @@
 			</f>
 			<meta><m n=":keep"/></meta>
 		</compare>
-		<compareArgs set="method" line="57">
+		<compareArgs set="method" line="60">
 			<f a="a1:a2">
 				<c path="Array"><d/></c>
 				<c path="Array"><d/></c>
@@ -24507,7 +24916,14 @@
 			</f>
 			<meta><m n=":keep"/></meta>
 		</compareArgs>
-		<compareArg set="method" line="69">
+		<getSortIndex set="method" line="72">
+			<f a="v">
+				<a/>
+				<x path="Null"><x path="Int"/></x>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</getSortIndex>
+		<compareArg set="method" line="81">
 			<f a="v1:v2">
 				<d/>
 				<d/>
@@ -24515,7 +24931,7 @@
 			</f>
 			<meta><m n=":keep"/></meta>
 		</compareArg>
-		<copy public="1" set="method" line="79" override="1">
+		<copy public="1" set="method" line="109" override="1">
 			<f a=""><c path="haxe.ds.EnumValueMap">
 	<c path="haxe.ds.EnumValueMap.K"/>
 	<c path="haxe.ds.EnumValueMap.V"/>
@@ -27031,12 +27447,12 @@
 	<x path="Void"/>
 </f></quote>
 		<new set="method" line="56"><f a="replacer:space">
-	<f a="key:value">
-		<d/>
-		<d/>
-		<d/>
-	</f>
-	<c path="String"/>
+	<x path="Null"><f a="key:value">
+	<d/>
+	<d/>
+	<d/>
+</f></x>
+	<x path="Null"><c path="String"/></x>
 	<x path="Void"/>
 </f></new>
 		<haxe_doc>An implementation of JSON printer in Haxe.
@@ -27132,10 +27548,11 @@
 		This method provides a fluent interface.</haxe_doc>
 		</setPostBytes>
 		<request public="1" set="method" line="185">
-			<f a="?post">
+			<f a="?post" v="false">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
+			<meta><m n=":value"><e>{ post : false }</e></m></meta>
 			<haxe_doc>Sends `this` Http request to the Url specified by `this.url`.
 
 		If `post` is true, the request is sent as POST request, otherwise it is
@@ -35669,8 +36086,9 @@
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>See `Iterator.hasNext`</haxe_doc>
 		</hasNext>
-		<next public="1" get="inline" set="null" line="49">
+		<next public="1" get="inline" set="null" line="50">
 			<f a=""><c path="haxe.iterators.DynamicAccessIterator.T"/></f>
+			<meta><m n=":nullSafety"><e>Off</e></m></meta>
 			<haxe_doc>See `Iterator.next`</haxe_doc>
 		</next>
 		<new public="1" get="inline" set="null" line="33"><f a="access">
@@ -35687,11 +36105,12 @@
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>See `Iterator.hasNext`</haxe_doc>
 		</hasNext>
-		<next public="1" get="inline" set="null" line="49">
+		<next public="1" get="inline" set="null" line="50">
 			<f a=""><a>
 	<value><c path="haxe.iterators.DynamicAccessKeyValueIterator.T"/></value>
 	<key><c path="String"/></key>
 </a></f>
+			<meta><m n=":nullSafety"><e>Off</e></m></meta>
 			<haxe_doc>See `Iterator.next`</haxe_doc>
 		</next>
 		<new public="1" get="inline" set="null" line="33"><f a="access">
@@ -36390,6 +36809,14 @@
 			<t path="haxe.macro.Position"/>
 		</Warning>
 	</enum>
+	<typedef path="haxe.macro.MacroError" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Context.hx" module="haxe.macro.Context"><a>
+	<sub>
+		<x path="Null"><c path="Array"><t path="haxe.macro.MacroError"/></c></x>
+		<meta><m n=":optional"/></meta>
+	</sub>
+	<pos><t path="haxe.macro.Position"/></pos>
+	<msg><c path="String"/></msg>
+</a></typedef>
 	<class path="haxe.macro.Context" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Context.hx"><haxe_doc>Context provides an API for macro programming.
 
 	It contains common functions that interact with the macro interpreter to
@@ -38501,6 +38928,7 @@
 		<AccNever><haxe_doc>No access (`never`).</haxe_doc></AccNever>
 		<AccResolve><haxe_doc>Unused.</haxe_doc></AccResolve>
 		<AccCall><haxe_doc>Access through accessor function (`get`, `set`, `dynamic`).</haxe_doc></AccCall>
+		<AccPrivateCall><haxe_doc>Access through private accessor function (`private get`, `private set`).</haxe_doc></AccPrivateCall>
 		<AccInline><haxe_doc>Inline access (`inline`).</haxe_doc></AccInline>
 		<AccRequire a="r:?msg">
 			<c path="String"/>
@@ -38841,7 +39269,7 @@
 	<t path="haxe.macro.ClassField"/>
 	<t path="haxe.macro.Field"/>
 </f></toField>
-		<toComplexType public="1" set="method" line="99" static="1">
+		<toComplexType public="1" set="method" line="100" static="1">
 			<f a="type">
 				<x path="Null"><e path="haxe.macro.Type"/></x>
 				<x path="Null"><e path="haxe.macro.ComplexType"/></x>
@@ -38854,16 +39282,16 @@
 
 		If `t` is null, an internal exception is thrown.</haxe_doc>
 		</toComplexType>
-		<toTypeParam set="method" line="144" static="1"><f a="type">
+		<toTypeParam set="method" line="145" static="1"><f a="type">
 	<e path="haxe.macro.Type"/>
 	<e path="haxe.macro.TypeParam"/>
 </f></toTypeParam>
-		<toTypePath set="method" line="152" static="1"><f a="baseType:params">
+		<toTypePath set="method" line="153" static="1"><f a="baseType:params">
 	<t path="haxe.macro.BaseType"/>
 	<c path="Array"><e path="haxe.macro.Type"/></c>
 	<t path="haxe.macro.TypePath"/>
 </f></toTypePath>
-		<findField public="1" set="method" line="456" static="1">
+		<findField public="1" set="method" line="457" static="1">
 			<f a="c:name:?isStatic" v="::false">
 				<t path="haxe.macro.ClassType"/>
 				<c path="String"/>
@@ -40967,20 +41395,20 @@
 		</NeedBit>
 		<NeedBits a="n:table">
 			<x path="Int"/>
-			<c path="Array"><e path="haxe.zip.Huffman"/></c>
+			<x path="haxe.ds.Vector"><e path="haxe.zip.Huffman"/></x>
 		</NeedBits>
 	</enum>
 	<class path="haxe.zip.HuffTools" params="" file="/home/runner/work/haxe/haxe/std/haxe/zip/Huffman.hx" module="haxe.zip.Huffman">
-		<treeDepth set="method" line="34"><f a="t">
+		<treeDepth set="method" line="36"><f a="t">
 	<e path="haxe.zip.Huffman"/>
 	<x path="Int"/>
 </f></treeDepth>
-		<treeCompress set="method" line="45"><f a="t">
+		<treeCompress set="method" line="47"><f a="t">
 	<e path="haxe.zip.Huffman"/>
 	<e path="haxe.zip.Huffman"/>
 </f></treeCompress>
 		<treeWalk set="method" line="62"><f a="table:p:cd:d:t">
-	<c path="Array"><e path="haxe.zip.Huffman"/></c>
+	<x path="haxe.ds.Vector"><e path="haxe.zip.Huffman"/></x>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
@@ -40995,41 +41423,41 @@
 	<e path="haxe.zip.Huffman"/>
 </f></treeMake>
 		<make public="1" set="method" line="86"><f a="lengths:pos:nlengths:maxbits">
-	<c path="Array"><x path="Int"/></c>
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<e path="haxe.zip.Huffman"/>
 </f></make>
-		<new public="1" set="method" line="32"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="34"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="haxe.zip._InflateImpl.Window" params="" file="/home/runner/work/haxe/haxe/std/haxe/zip/InflateImpl.hx" private="1" module="haxe.zip.InflateImpl">
-		<SIZE public="1" get="inline" set="null" expr="1 &lt;&lt; 15" line="29" static="1">
+		<SIZE public="1" get="inline" set="null" expr="1 &lt;&lt; 15" line="30" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e><![CDATA[1 << 15]]></e></m></meta>
 		</SIZE>
-		<BUFSIZE public="1" get="inline" set="null" expr="1 &lt;&lt; 16" line="30" static="1">
+		<BUFSIZE public="1" get="inline" set="null" expr="1 &lt;&lt; 16" line="31" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e><![CDATA[1 << 16]]></e></m></meta>
 		</BUFSIZE>
 		<buffer public="1"><c path="haxe.io.Bytes"/></buffer>
 		<pos public="1"><x path="Int"/></pos>
 		<crc><c path="haxe.crypto.Adler32"/></crc>
-		<slide public="1" set="method" line="44"><f a=""><x path="Void"/></f></slide>
-		<addBytes public="1" set="method" line="53"><f a="b:p:len">
+		<slide public="1" set="method" line="45"><f a=""><x path="Void"/></f></slide>
+		<addBytes public="1" set="method" line="54"><f a="b:p:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addBytes>
-		<addByte public="1" set="method" line="60"><f a="c">
+		<addByte public="1" set="method" line="61"><f a="c">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addByte>
-		<getLastChar public="1" set="method" line="67"><f a=""><x path="Int"/></f></getLastChar>
-		<available public="1" set="method" line="71"><f a=""><x path="Int"/></f></available>
-		<checksum public="1" set="method" line="75"><f a=""><c path="haxe.crypto.Adler32"/></f></checksum>
-		<new public="1" set="method" line="37"><f a="hasCrc">
+		<getLastChar public="1" set="method" line="68"><f a=""><x path="Int"/></f></getLastChar>
+		<available public="1" set="method" line="72"><f a=""><x path="Int"/></f></available>
+		<checksum public="1" set="method" line="76"><f a=""><c path="haxe.crypto.Adler32"/></f></checksum>
+		<new public="1" set="method" line="38"><f a="hasCrc">
 	<x path="Bool"/>
 	<x path="Void"/>
 </f></new>
@@ -41046,31 +41474,31 @@
 		<meta><m n=":flatEnum"/></meta>
 	</enum>
 	<class path="haxe.zip.InflateImpl" params="" file="/home/runner/work/haxe/haxe/std/haxe/zip/InflateImpl.hx">
-		<LEN_EXTRA_BITS_TBL expr="[0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 0, -1, -1]" line="97" static="1">
+		<LEN_EXTRA_BITS_TBL expr="[0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 0, -1, -1]" line="98" static="1">
 			<c path="Array"><x path="Int"/></c>
 			<meta><m n=":value"><e>[0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 0, -1, -1]</e></m></meta>
 		</LEN_EXTRA_BITS_TBL>
-		<LEN_BASE_VAL_TBL expr="[3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258]" line="100" static="1">
+		<LEN_BASE_VAL_TBL expr="[3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258]" line="101" static="1">
 			<c path="Array"><x path="Int"/></c>
 			<meta><m n=":value"><e>[3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258]</e></m></meta>
 		</LEN_BASE_VAL_TBL>
-		<DIST_EXTRA_BITS_TBL expr="[0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, -1, -1]" line="103" static="1">
+		<DIST_EXTRA_BITS_TBL expr="[0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, -1, -1]" line="104" static="1">
 			<c path="Array"><x path="Int"/></c>
 			<meta><m n=":value"><e>[0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, -1, -1]</e></m></meta>
 		</DIST_EXTRA_BITS_TBL>
-		<DIST_BASE_VAL_TBL expr="[1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073, 4097, 6145, 8193, 12289, 16385, 24577]" line="106" static="1">
+		<DIST_BASE_VAL_TBL expr="[1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073, 4097, 6145, 8193, 12289, 16385, 24577]" line="107" static="1">
 			<c path="Array"><x path="Int"/></c>
 			<meta><m n=":value"><e>[1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073, 4097, 6145, 8193, 12289, 16385, 24577]</e></m></meta>
 		</DIST_BASE_VAL_TBL>
-		<CODE_LENGTHS_POS expr="[16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15]" line="109" static="1">
+		<CODE_LENGTHS_POS expr="[16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15]" line="110" static="1">
 			<c path="Array"><x path="Int"/></c>
 			<meta><m n=":value"><e>[16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15]</e></m></meta>
 		</CODE_LENGTHS_POS>
-		<FIXED_HUFFMAN expr="null" line="127" static="1">
+		<FIXED_HUFFMAN expr="null" line="128" static="1">
 			<x path="Null"><e path="haxe.zip.Huffman"/></x>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</FIXED_HUFFMAN>
-		<run public="1" set="method" line="388" static="1">
+		<run public="1" set="method" line="385" static="1">
 			<f a="i:?bufsize" v=":65536">
 				<c path="haxe.io.Input"/>
 				<x path="Int"/>
@@ -41091,55 +41519,55 @@
 		<output><c path="haxe.io.Bytes"/></output>
 		<outpos><x path="Int"/></outpos>
 		<input><c path="haxe.io.Input"/></input>
-		<lengths><c path="Array"><x path="Int"/></c></lengths>
+		<lengths><x path="haxe.ds.Vector"><x path="Int"/></x></lengths>
 		<window><c path="haxe.zip._InflateImpl.Window"/></window>
-		<buildFixedHuffman set="method" line="149"><f a=""><x path="Null"><e path="haxe.zip.Huffman"/></x></f></buildFixedHuffman>
-		<readBytes public="1" set="method" line="159"><f a="b:pos:len">
+		<buildFixedHuffman set="method" line="148"><f a=""><x path="Null"><e path="haxe.zip.Huffman"/></x></f></buildFixedHuffman>
+		<readBytes public="1" set="method" line="158"><f a="b:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></readBytes>
-		<getBits set="method" line="168"><f a="n">
+		<getBits set="method" line="167"><f a="n">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></getBits>
-		<getBit set="method" line="179"><f a=""><x path="Bool"/></f></getBit>
-		<getRevBits set="method" line="190"><f a="n">
+		<getBit set="method" line="178"><f a=""><x path="Bool"/></f></getBit>
+		<getRevBits set="method" line="189"><f a="n">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></getRevBits>
-		<resetBits set="method" line="199"><f a=""><x path="Void"/></f></resetBits>
-		<addBytes set="method" line="204"><f a="b:p:len">
+		<resetBits set="method" line="198"><f a=""><x path="Void"/></f></resetBits>
+		<addBytes set="method" line="203"><f a="b:p:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addBytes>
-		<addByte set="method" line="211"><f a="b">
+		<addByte set="method" line="210"><f a="b">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addByte>
-		<addDistOne set="method" line="218"><f a="n">
+		<addDistOne set="method" line="217"><f a="n">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addDistOne>
-		<addDist set="method" line="224"><f a="d:len">
+		<addDist set="method" line="223"><f a="d:len">
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addDist>
-		<applyHuffman set="method" line="228"><f a="h">
+		<applyHuffman set="method" line="227"><f a="h">
 	<e path="haxe.zip.Huffman"/>
 	<x path="Int"/>
 </f></applyHuffman>
-		<inflateLengths set="method" line="236"><f a="a:max">
-	<c path="Array"><x path="Int"/></c>
+		<inflateLengths set="method" line="235"><f a="a:max">
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></inflateLengths>
-		<inflateLoop set="method" line="268"><f a=""><x path="Bool"/></f></inflateLoop>
-		<new public="1" set="method" line="129">
+		<inflateLoop set="method" line="267"><f a=""><x path="Bool"/></f></inflateLoop>
+		<new public="1" set="method" line="130">
 			<f a="i:?header:?crc" v=":true:true">
 				<c path="haxe.io.Input"/>
 				<x path="Bool"/>
@@ -41151,11 +41579,11 @@
 		<haxe_doc>A pure Haxe implementation of the ZLIB Inflate algorithm which allows reading compressed data without any platform-specific support.</haxe_doc>
 	</class>
 	<class path="haxe.zip.Reader" params="" file="/home/runner/work/haxe/haxe/std/haxe/zip/Reader.hx">
-		<readZip public="1" set="method" line="194" static="1"><f a="i">
+		<readZip public="1" set="method" line="196" static="1"><f a="i">
 	<c path="haxe.io.Input"/>
 	<c path="haxe.ds.List"><t path="haxe.zip.Entry"/></c>
 </f></readZip>
-		<unzip public="1" set="method" line="199" static="1"><f a="f">
+		<unzip public="1" set="method" line="201" static="1"><f a="f">
 	<t path="haxe.zip.Entry"/>
 	<x path="Null"><c path="haxe.io.Bytes"/></x>
 </f></unzip>
@@ -41165,7 +41593,7 @@
 	<x path="Int"/>
 	<c path="haxe.ds.List"><e path="haxe.zip.ExtraField"/></c>
 </f></readExtraFields>
-		<readEntryHeader public="1" set="method" line="78"><f a=""><t path="haxe.zip.Entry"/></f></readEntryHeader>
+		<readEntryHeader public="1" set="method" line="78"><f a=""><x path="Null"><t path="haxe.zip.Entry"/></x></f></readEntryHeader>
 		<read public="1" set="method" line="121"><f a=""><c path="haxe.ds.List"><t path="haxe.zip.Entry"/></c></f></read>
 		<new public="1" set="method" line="32"><f a="i">
 	<c path="haxe.io.Input"/>
@@ -41528,7 +41956,7 @@
 			</a>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</PROXY>
-		<requestUrl public="1" set="method" line="528" static="1">
+		<requestUrl public="1" set="method" line="532" static="1">
 			<f a="url">
 				<c path="String"/>
 				<c path="String"/>
@@ -41559,10 +41987,13 @@
 	<io><c path="haxe.io.Input"/></io>
 	<filename><c path="String"/></filename>
 </a></file>
-		<request public="1" set="method" line="58" override="1"><f a="?post">
-	<x path="Bool"/>
-	<x path="Void"/>
-</f></request>
+		<request public="1" set="method" line="58" override="1">
+			<f a="?post" v="false">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ post : false }</e></m></meta>
+		</request>
 		<fileTransfert public="1" get="inline" set="null" line="78">
 			<f a="argname:filename:file:size:?mimeType" v="::::&quot;application/octet-stream&quot;">
 				<c path="String"/>
@@ -41596,7 +42027,7 @@
 	<c path="String"/>
 	<x path="Void"/>
 </f></customRequest>
-		<getResponseHeaderValues public="1" set="method" line="265">
+		<getResponseHeaderValues public="1" set="method" line="269">
 			<f a="key">
 				<c path="String"/>
 				<x path="Null"><c path="Array"><c path="String"/></c></x>
@@ -41607,7 +42038,7 @@
 		the same name (e.g. `Set-Cookie`), that are unreachable via the
 		`responseHeaders` variable.</haxe_doc>
 		</getResponseHeaderValues>
-		<writeBody set="method" line="275"><f a="body:fileInput:fileSize:boundary:sock">
+		<writeBody set="method" line="279"><f a="body:fileInput:fileSize:boundary:sock">
 	<x path="Null"><c path="haxe.io.BytesOutput"/></x>
 	<x path="Null"><c path="haxe.io.Input"/></x>
 	<x path="Int"/>
@@ -41615,12 +42046,12 @@
 	<c path="sys.net.Socket"/>
 	<x path="Void"/>
 </f></writeBody>
-		<readHttpResponse set="method" line="300"><f a="api:sock">
+		<readHttpResponse set="method" line="304"><f a="api:sock">
 	<c path="haxe.io.Output"/>
 	<c path="sys.net.Socket"/>
 	<x path="Void"/>
 </f></readHttpResponse>
-		<readChunk set="method" line="462"><f a="chunk_re:api:buf:len">
+		<readChunk set="method" line="466"><f a="chunk_re:api:buf:len">
 	<c path="EReg"/>
 	<c path="haxe.io.Output"/>
 	<c path="haxe.io.Bytes"/>
@@ -43074,8 +43505,8 @@
 			</meta>
 			<haxe_doc>Create a new Deque instance which is initially empty.</haxe_doc>
 		</new>
-		<haxe_doc>A Deque is a double-ended queue with a `pop` method that can block until
-	an element is available. It is commonly used to synchronize threads.</haxe_doc>
+		<haxe_doc>A Deque is an output-restricted double-ended queue with a `pop` method that can
+	block until an element is available. It is commonly used to synchronize threads.</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":coreApi"/>

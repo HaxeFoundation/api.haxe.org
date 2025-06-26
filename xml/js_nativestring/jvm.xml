@@ -2000,7 +2000,7 @@
 			<f a="value:c">
 				<c path="downcast.T"/>
 				<x path="Class"><c path="downcast.S"/></x>
-				<c path="downcast.S"/>
+				<x path="Null"><c path="downcast.S"/></x>
 			</f>
 			<haxe_doc>Checks if object `value` is an instance of class or interface `c`.
 
@@ -2021,7 +2021,7 @@
 			<f a="value:c">
 				<c path="instance.T"/>
 				<x path="Class"><c path="instance.S"/></x>
-				<c path="instance.S"/>
+				<x path="Null"><c path="instance.S"/></x>
 			</f>
 			<meta><m n=":deprecated"><e>"Std.instance() is deprecated. Use Std.downcast() instead."</e></m></meta>
 		</instance>
@@ -2564,7 +2564,11 @@
 		If `c` is negative or has another invalid value, the result is
 		unspecified.</haxe_doc>
 		</addChar>
-		<toString public="1" set="method" line="102">
+		<clear public="1" set="method" line="102">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Removes all characters from `this` StringBuf, making it possible to reuse it.</haxe_doc>
+		</clear>
+		<toString public="1" set="method" line="106">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns the content of `this` StringBuf as String.
 
@@ -2641,11 +2645,12 @@
 			<haxe_doc>Decode an URL using the standard format.</haxe_doc>
 		</urlDecode>
 		<htmlEscape public="1" set="method" line="154" static="1">
-			<f a="s:?quotes">
+			<f a="s:?quotes" v=":false">
 				<c path="String"/>
 				<x path="Bool"/>
 				<c path="String"/>
 			</f>
+			<meta><m n=":value"><e>{ quotes : false }</e></m></meta>
 			<haxe_doc><![CDATA[Escapes HTML special characters of the string `s`.
 
 		The following replacements are made:
@@ -2983,7 +2988,7 @@
 		<getEnv public="1" set="method" line="50" static="1">
 			<f a="s">
 				<c path="String"/>
-				<c path="String"/>
+				<x path="Null"><c path="String"/></x>
 			</f>
 			<haxe_doc>Returns the value of the given environment variable, or `null` if it
 		doesn't exist.</haxe_doc>
@@ -3172,7 +3177,7 @@
 		<getEnum public="1" set="method" line="52" static="1">
 			<f a="o">
 				<x path="EnumValue"/>
-				<x path="Enum"><d/></x>
+				<x path="Null"><x path="Enum"><d/></x></x>
 			</f>
 			<haxe_doc><![CDATA[Returns the enum of enum instance `o`.
 
@@ -3186,7 +3191,7 @@
 		<getSuperClass public="1" set="method" line="63" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
-				<x path="Class"><d/></x>
+				<x path="Null"><x path="Class"><d/></x></x>
 			</f>
 			<haxe_doc>Returns the super-class of class `c`.
 
@@ -3237,7 +3242,7 @@
 		<resolveClass public="1" set="method" line="95" static="1">
 			<f a="name">
 				<c path="String"/>
-				<x path="Class"><d/></x>
+				<x path="Null"><x path="Class"><d/></x></x>
 			</f>
 			<haxe_doc>Resolves a class by name.
 
@@ -3253,7 +3258,7 @@
 		<resolveEnum public="1" set="method" line="110" static="1">
 			<f a="name">
 				<c path="String"/>
-				<x path="Enum"><d/></x>
+				<x path="Null"><x path="Enum"><d/></x></x>
 			</f>
 			<haxe_doc>Resolves an enum by name.
 
@@ -4942,7 +4947,7 @@
 			<haxe_doc>Returns the node value. Only works if the Xml node is not an Element or a Document.</haxe_doc>
 		</nodeValue>
 		<parent public="1" set="null">
-			<c path="Xml"/>
+			<x path="Null"><c path="Xml"/></x>
 			<haxe_doc>Returns the parent object in the Xml hierarchy.
 		The parent can be `null`, an Element or a Document.</haxe_doc>
 		</parent>
@@ -4964,7 +4969,7 @@
 		<get public="1" set="method" line="244">
 			<f a="att">
 				<c path="String"/>
-				<c path="String"/>
+				<x path="Null"><c path="String"/></x>
 			</f>
 			<haxe_doc>Get the given attribute of an Element node. Returns `null` if not found.
 		Attributes are case-sensitive.</haxe_doc>
@@ -5021,7 +5026,7 @@
 			<haxe_doc>Returns the first child node.</haxe_doc>
 		</firstChild>
 		<firstElement public="1" set="method" line="337">
-			<f a=""><c path="Xml"/></f>
+			<f a=""><x path="Null"><c path="Xml"/></x></f>
 			<haxe_doc>Returns the first child node which is an Element.</haxe_doc>
 		</firstElement>
 		<addChild public="1" set="method" line="353">
@@ -5147,7 +5152,7 @@
 		</f>
 		<meta><m n=":arrayAccess"/></meta>
 	</get>
-	<asArray get="inline" set="null" line="115" static="1"><f a="this">
+	<asArray public="1" get="inline" set="null" line="115" static="1"><f a="this">
 	<c path="Array"><e path="haxe.StackItem"/></c>
 	<c path="Array"><e path="haxe.StackItem"/></c>
 </f></asArray>
@@ -5228,7 +5233,7 @@
 			</f>
 			<meta><m n=":arrayAccess"/></meta>
 		</get>
-		<asArray get="inline" set="null" line="115" static="1"><f a="this">
+		<asArray public="1" get="inline" set="null" line="115" static="1"><f a="this">
 	<c path="Array"><e path="haxe.StackItem"/></c>
 	<c path="Array"><e path="haxe.StackItem"/></c>
 </f></asArray>
@@ -8232,7 +8237,7 @@
 			<c path="String"/>
 			<haxe_doc>Exception message.</haxe_doc>
 		</message>
-		<stack public="1" get="accessor" set="null">
+		<stack public="1" get="accessor" set="accessor">
 			<x path="haxe.CallStack"/>
 			<haxe_doc>The call stack at the moment of the exception creation.</haxe_doc>
 		</stack>
@@ -8271,6 +8276,10 @@
 		<get_previous set="method" line="76"><f a=""><x path="Null"><c path="haxe.Exception"/></x></f></get_previous>
 		<get_native final="1" set="method" line="80"><f a=""><x path="Any"/></f></get_native>
 		<get_stack set="method" line="84"><f a=""><x path="haxe.CallStack"/></f></get_stack>
+		<set_stack set="method" line="92"><f a="stack">
+	<x path="haxe.CallStack"/>
+	<x path="haxe.CallStack"/>
+</f></set_stack>
 		<new public="1" set="method" line="49">
 			<f a="message:?previous:?native">
 				<c path="String"/>
@@ -11308,33 +11317,33 @@
 		<USE_CACHE public="1" expr="false" line="60" static="1">
 			<x path="Bool"/>
 			<meta><m n=":value"><e>false</e></m></meta>
-			<haxe_doc>Enables object caching during serialization to handle circular references and 
+			<haxe_doc>Enables object caching during serialization to handle circular references and
 		repeated objects.
-	
-		Set `USE_CACHE` to `true` if the values you are serializing may contain 
-		circular references or repeated objects. This prevents infinite loops and 
+
+		Set `USE_CACHE` to `true` if the values you are serializing may contain
+		circular references or repeated objects. This prevents infinite loops and
 		ensures that shared references are preserved in the serialized output.
-	
-		Enabling this option may also reduce the size of the resulting serialized 
+
+		Enabling this option may also reduce the size of the resulting serialized
 		string, but can have a minor performance impact.
-	
-		This is a global default. You can override it per instance using the 
+
+		This is a global default. You can override it per instance using the
 		`useCache` field on a `Serializer`.</haxe_doc>
 		</USE_CACHE>
 		<USE_ENUM_INDEX public="1" expr="false" line="76" static="1">
 			<x path="Bool"/>
 			<meta><m n=":value"><e>false</e></m></meta>
 			<haxe_doc>Serializes enum values using constructor indices instead of names.
-	
-		When `USE_ENUM_INDEX` is set to `true`, enum constructors are serialized by 
-		their numeric index. This can reduce the size of the serialized data, 
+
+		When `USE_ENUM_INDEX` is set to `true`, enum constructors are serialized by
+		their numeric index. This can reduce the size of the serialized data,
 		especially for enums with long or frequently used constructor names.
-	
-		However, using indices makes serialized data more fragile for long-term 
-		storage. If enum definitions change (e.g., by adding or removing constructors), 
+
+		However, using indices makes serialized data more fragile for long-term
+		storage. If enum definitions change (e.g., by adding or removing constructors),
 		the indices may no longer match the intended constructors.
-	
-		This is a global default. You can override it per instance using the 
+
+		This is a global default. You can override it per instance using the
 		`useEnumIndex` field on a `Serializer`.</haxe_doc>
 		</USE_ENUM_INDEX>
 		<BASE64 expr="&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:&quot;" line="78" static="1">
@@ -11345,7 +11354,7 @@
 			<x path="Null"><x path="haxe.ds.Vector"><x path="Null"><x path="Int"/></x></x></x>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</BASE64_CODES>
-		<run public="1" set="method" line="598" static="1">
+		<run public="1" set="method" line="599" static="1">
 			<f a="v">
 				<d/>
 				<c path="String"/>
@@ -11363,18 +11372,18 @@
 		<useCache public="1">
 			<x path="Bool"/>
 			<haxe_doc>Determines whether this `Serializer` instance uses object caching.
-	
-	 	When enabled, repeated references to the same object are serialized using references 
-	 	instead of duplicating data, reducing output size and preserving object identity.
-	
-	 	See `USE_CACHE` for a complete description.</haxe_doc>
+
+		When enabled, repeated references to the same object are serialized using references
+		instead of duplicating data, reducing output size and preserving object identity.
+
+		See `USE_CACHE` for a complete description.</haxe_doc>
 		</useCache>
 		<useEnumIndex public="1">
 			<x path="Bool"/>
 			<haxe_doc>Determines whether this `Serializer` instance serializes enum values using their index
 		instead of their constructor name.
 
-		Using indexes can reduce the size of the serialized data but may be less readable and 
+		Using indexes can reduce the size of the serialized data but may be less readable and
 		more fragile if enum definitions change.
 
 		See `USE_ENUM_INDEX` for a complete description.</haxe_doc>
@@ -11382,7 +11391,7 @@
 		<reset public="1" set="method" line="132">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Resets the internal state of the Serializer, allowing it to be reused.
-		
+
 		This does not affect the `useCache` or `useEnumIndex` properties;
 		their values will remain unchanged after calling this method.</haxe_doc>
 		</reset>
@@ -11405,7 +11414,7 @@
 	<a/>
 	<x path="Void"/>
 </f></serializeFields>
-		<serialize public="1" set="method" line="251">
+		<serialize public="1" set="method" line="252">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
@@ -11414,17 +11423,18 @@
 	
 		All haxe-defined values and objects with the exception of functions can
 		be serialized. Serialization of external/native objects is not
-		guaranteed to work.
+		guaranteed to work. This is also true for classes extending external/native
+		classes. On some targets, this might include exceptions, too.
 	
 		The values of `this.useCache` and `this.useEnumIndex` may affect
 		serialization output.</haxe_doc>
 		</serialize>
-		<__getField get="inline" set="null" line="573"><f a="o:f">
+		<__getField get="inline" set="null" line="574"><f a="o:f">
 	<d/>
 	<c path="String"/>
 	<d/>
 </f></__getField>
-		<serializeException public="1" set="method" line="575"><f a="e">
+		<serializeException public="1" set="method" line="576"><f a="e">
 	<d/>
 	<x path="Void"/>
 </f></serializeException>
@@ -11459,7 +11469,7 @@
 	<enum path="haxe._Template.TemplateExpr" params="" file="/home/runner/work/haxe/haxe/std/haxe/Template.hx" private="1" module="haxe.Template">
 		<OpVar a="v"><c path="String"/></OpVar>
 		<OpExpr a="expr"><f a=""><d/></f></OpExpr>
-		<OpIf a="expr:eif:eelse">
+		<OpIf a="expr:eif:?eelse">
 			<f a=""><d/></f>
 			<e path="haxe._Template.TemplateExpr"/>
 			<e path="haxe._Template.TemplateExpr"/>
@@ -11735,7 +11745,7 @@
 	<https://haxe.org/manual/std-template.html>]]></haxe_doc>
 	</class>
 	<class path="haxe.Timer" params="" file="/home/runner/work/haxe/haxe/std/haxe/Timer.hx">
-		<delay public="1" set="method" line="145" static="1">
+		<delay public="1" set="method" line="146" static="1">
 			<f a="f:time_ms">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -11749,7 +11759,7 @@
 
 		If `f` is `null`, the result is unspecified.</haxe_doc>
 		</delay>
-		<measure public="1" params="T" set="method" line="165" static="1">
+		<measure public="1" params="T" set="method" line="166" static="1">
 			<f a="f:?pos">
 				<f a=""><c path="measure.T"/></f>
 				<t path="haxe.PosInfos"/>
@@ -11765,16 +11775,22 @@
 
 		If `f` is `null`, the result is unspecified.</haxe_doc>
 		</measure>
-		<stamp public="1" get="inline" set="null" line="178" static="1">
+		<stamp public="1" get="inline" set="null" line="179" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Returns a timestamp, in seconds with fractions.
 
 		The value itself might differ depending on platforms, only differences
 		between two values make sense.</haxe_doc>
 		</stamp>
+		<milliseconds public="1" get="inline" set="null" line="205" static="1">
+			<f a=""><x path="haxe.Int64"/></f>
+			<haxe_doc>* Returns a monotonically increasing timestamp with millisecond resolution.
+	 *
+	 * The precision and epoch of the timer is platform defined.</haxe_doc>
+		</milliseconds>
 		<thread><x path="sys.thread.Thread"/></thread>
 		<eventHandler><x path="sys.thread.EventHandler"/></eventHandler>
-		<stop public="1" set="method" line="100">
+		<stop public="1" set="method" line="101">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Stops `this` Timer.
 
@@ -11783,7 +11799,7 @@
 
 		It is not possible to restart `this` Timer once stopped.</haxe_doc>
 		</stop>
-		<run public="1" set="dynamic" line="134">
+		<run public="1" set="dynamic" line="135">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>This method is invoked repeatedly on `this` Timer.
 
@@ -11798,7 +11814,7 @@
 		Once bound, it can still be rebound to different functions until `this`
 		Timer is stopped through a call to `this.stop`.</haxe_doc>
 		</run>
-		<new public="1" set="method" line="70">
+		<new public="1" set="method" line="71">
 			<f a="time_ms">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -11828,17 +11844,22 @@
 
 	Notice for threaded targets:
 	`Timer` instances require threads they were created in to run with Haxe's event loops.
-	Main thread of a Haxe program always contains an event loop. For other cases use 
+	Main thread of a Haxe program always contains an event loop. For other cases use
 	`sys.thread.Thread.createWithEventLoop` and `sys.thread.Thread.runWithEventLoop` methods.</haxe_doc>
 	</class>
+	<enum path="haxe.Unit" params="" file="/home/runner/work/haxe/haxe/std/haxe/Unit.hx">
+		<Unit/>
+		<haxe_doc>A unit type that only has one value.</haxe_doc>
+		<meta><m n=":flatEnum"/></meta>
+	</enum>
 	<class path="haxe._Unserializer.DefaultResolver" params="" file="/home/runner/work/haxe/haxe/std/haxe/Unserializer.hx" private="1" module="haxe.Unserializer">
 		<resolveClass public="1" get="inline" set="null" line="515"><f a="name">
 	<c path="String"/>
-	<x path="Class"><d/></x>
+	<x path="Null"><x path="Class"><d/></x></x>
 </f></resolveClass>
 		<resolveEnum public="1" get="inline" set="null" line="518"><f a="name">
 	<c path="String"/>
-	<x path="Enum"><d/></x>
+	<x path="Null"><x path="Enum"><d/></x></x>
 </f></resolveEnum>
 		<new public="1" set="method" line="512"><f a=""><x path="Void"/></f></new>
 	</class>
@@ -11853,9 +11874,9 @@
 
 		A type resolver must provide two methods:
 
-		1. `resolveClass(name:String):Class<Dynamic>` is called to determine a
+		1. `resolveClass(name:String):Null<Class<Dynamic>>` is called to determine a
 				`Class` from a class name
-		2. `resolveEnum(name:String):Enum<Dynamic>` is called to determine an
+		2. `resolveEnum(name:String):Null<Enum<Dynamic>>` is called to determine an
 				`Enum` from an enum name
 
 		This value is applied when a new `Unserializer` instance is created.
@@ -11993,11 +12014,11 @@
 		<get_instance get="inline" set="null" line="532" static="1"><f a=""><c path="haxe._Unserializer.NullResolver"/></f></get_instance>
 		<resolveClass public="1" get="inline" set="null" line="525"><f a="name">
 	<c path="String"/>
-	<x path="Class"><d/></x>
+	<x path="Null"><x path="Class"><d/></x></x>
 </f></resolveClass>
 		<resolveEnum public="1" get="inline" set="null" line="528"><f a="name">
 	<c path="String"/>
-	<x path="Enum"><d/></x>
+	<x path="Null"><x path="Enum"><d/></x></x>
 </f></resolveEnum>
 		<new set="method" line="522"><f a=""><x path="Void"/></f></new>
 	</class>
@@ -12125,257 +12146,418 @@
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<abstract path="haxe.atomic.AtomicBool" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/haxe/atomic/AtomicBool.hx">
-		<this><c path="java.util.concurrent.atomic.AtomicBoolean"/></this>
+		<this><x path="haxe.atomic.AtomicBool"/></this>
+		<meta>
+			<m n=":coreApi"/>
+			<m n=":coreType"/>
+		</meta>
 		<impl><class path="haxe.atomic._AtomicBool.AtomicBool_Impl_" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/haxe/atomic/AtomicBool.hx" private="1" module="haxe.atomic.AtomicBool" final="1">
-	<_hx_new public="1" get="inline" set="null" line="6" static="1">
+	<_hx_new public="1" set="method" static="1">
 		<f a="value">
 			<x path="Bool"/>
 			<x path="haxe.atomic.AtomicBool"/>
 		</f>
-		<meta><m n=":noCompletion"/></meta>
+		<meta>
+			<m n=":noExpr"/>
+			<m n=":noCompletion"/>
+		</meta>
 	</_hx_new>
-	<compareExchange public="1" get="inline" set="null" line="10" static="1"><f a="this:expected:replacement">
-	<c path="java.util.concurrent.atomic.AtomicBoolean"/>
-	<x path="Bool"/>
-	<x path="Bool"/>
-	<x path="Bool"/>
-</f></compareExchange>
-	<exchange public="1" get="inline" set="null" line="22" static="1"><f a="this:value">
-	<c path="java.util.concurrent.atomic.AtomicBoolean"/>
-	<x path="Bool"/>
-	<x path="Bool"/>
-</f></exchange>
-	<load public="1" get="inline" set="null" line="26" static="1"><f a="this">
-	<c path="java.util.concurrent.atomic.AtomicBoolean"/>
-	<x path="Bool"/>
-</f></load>
-	<store public="1" get="inline" set="null" line="30" static="1"><f a="this:value">
-	<c path="java.util.concurrent.atomic.AtomicBoolean"/>
-	<x path="Bool"/>
-	<x path="Bool"/>
-</f></store>
+	<compareExchange public="1" set="method" static="1">
+		<f a="this:expected:replacement">
+			<x path="haxe.atomic.AtomicBool"/>
+			<x path="Bool"/>
+			<x path="Bool"/>
+			<x path="Bool"/>
+		</f>
+		<meta><m n=":noExpr"/></meta>
+		<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
+		Returns the original value of `a`.</haxe_doc>
+	</compareExchange>
+	<exchange public="1" set="method" static="1">
+		<f a="this:value">
+			<x path="haxe.atomic.AtomicBool"/>
+			<x path="Bool"/>
+			<x path="Bool"/>
+		</f>
+		<meta><m n=":noExpr"/></meta>
+		<haxe_doc>Atomically exchanges `a` with `value`.
+		Returns the original value of `a`.</haxe_doc>
+	</exchange>
+	<load public="1" set="method" static="1">
+		<f a="this">
+			<x path="haxe.atomic.AtomicBool"/>
+			<x path="Bool"/>
+		</f>
+		<meta><m n=":noExpr"/></meta>
+		<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
+	</load>
+	<store public="1" set="method" static="1">
+		<f a="this:value">
+			<x path="haxe.atomic.AtomicBool"/>
+			<x path="Bool"/>
+			<x path="Bool"/>
+		</f>
+		<meta><m n=":noExpr"/></meta>
+		<haxe_doc>Atomically stores `value` into `a`.
+		Returns the value that has been stored.</haxe_doc>
+	</store>
+	<meta><m n=":coreApi"/></meta>
 </class></impl>
 	</abstract>
 	<class path="haxe.atomic._AtomicBool.AtomicBool_Impl_" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/haxe/atomic/AtomicBool.hx" private="1" module="haxe.atomic.AtomicBool" final="1">
-		<_hx_new public="1" get="inline" set="null" line="6" static="1">
+		<_hx_new public="1" set="method" static="1">
 			<f a="value">
 				<x path="Bool"/>
 				<x path="haxe.atomic.AtomicBool"/>
 			</f>
-			<meta><m n=":noCompletion"/></meta>
+			<meta>
+				<m n=":noExpr"/>
+				<m n=":noCompletion"/>
+			</meta>
 		</_hx_new>
-		<compareExchange public="1" get="inline" set="null" line="10" static="1"><f a="this:expected:replacement">
-	<c path="java.util.concurrent.atomic.AtomicBoolean"/>
-	<x path="Bool"/>
-	<x path="Bool"/>
-	<x path="Bool"/>
-</f></compareExchange>
-		<exchange public="1" get="inline" set="null" line="22" static="1"><f a="this:value">
-	<c path="java.util.concurrent.atomic.AtomicBoolean"/>
-	<x path="Bool"/>
-	<x path="Bool"/>
-</f></exchange>
-		<load public="1" get="inline" set="null" line="26" static="1"><f a="this">
-	<c path="java.util.concurrent.atomic.AtomicBoolean"/>
-	<x path="Bool"/>
-</f></load>
-		<store public="1" get="inline" set="null" line="30" static="1"><f a="this:value">
-	<c path="java.util.concurrent.atomic.AtomicBoolean"/>
-	<x path="Bool"/>
-	<x path="Bool"/>
-</f></store>
+		<compareExchange public="1" set="method" static="1">
+			<f a="this:expected:replacement">
+				<x path="haxe.atomic.AtomicBool"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":noExpr"/></meta>
+			<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
+		Returns the original value of `a`.</haxe_doc>
+		</compareExchange>
+		<exchange public="1" set="method" static="1">
+			<f a="this:value">
+				<x path="haxe.atomic.AtomicBool"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":noExpr"/></meta>
+			<haxe_doc>Atomically exchanges `a` with `value`.
+		Returns the original value of `a`.</haxe_doc>
+		</exchange>
+		<load public="1" set="method" static="1">
+			<f a="this">
+				<x path="haxe.atomic.AtomicBool"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":noExpr"/></meta>
+			<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
+		</load>
+		<store public="1" set="method" static="1">
+			<f a="this:value">
+				<x path="haxe.atomic.AtomicBool"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":noExpr"/></meta>
+			<haxe_doc>Atomically stores `value` into `a`.
+		Returns the value that has been stored.</haxe_doc>
+		</store>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<abstract path="haxe.atomic.AtomicInt" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/haxe/atomic/AtomicInt.hx">
-		<this><c path="java.util.concurrent.atomic.AtomicInteger"/></this>
+		<this><x path="haxe.atomic.AtomicInt"/></this>
+		<meta>
+			<m n=":coreApi"/>
+			<m n=":coreType"/>
+		</meta>
 		<impl><class path="haxe.atomic._AtomicInt.AtomicInt_Impl_" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt" final="1">
-	<_hx_new public="1" get="inline" set="null" line="6" static="1">
+	<_hx_new public="1" set="method" static="1">
 		<f a="value">
 			<x path="Int"/>
 			<x path="haxe.atomic.AtomicInt"/>
 		</f>
-		<meta><m n=":noCompletion"/></meta>
+		<meta>
+			<m n=":noExpr"/>
+			<m n=":noCompletion"/>
+		</meta>
 	</_hx_new>
-	<cas_loop get="inline" set="null" line="10" static="1"><f a="this:value:op">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<f a="a:b">
-		<x path="Int"/>
-		<x path="Int"/>
-		<x path="Int"/>
-	</f>
-	<x path="Int"/>
-</f></cas_loop>
-	<add public="1" get="inline" set="null" line="20" static="1"><f a="this:b">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></add>
-	<sub public="1" get="inline" set="null" line="24" static="1"><f a="this:b">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></sub>
-	<and public="1" get="inline" set="null" line="28" static="1"><f a="this:b">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></and>
-	<or public="1" get="inline" set="null" line="32" static="1"><f a="this:b">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></or>
-	<xor public="1" get="inline" set="null" line="36" static="1"><f a="this:b">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></xor>
-	<compareExchange public="1" get="inline" set="null" line="40" static="1"><f a="this:expected:replacement">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></compareExchange>
-	<exchange public="1" get="inline" set="null" line="52" static="1"><f a="this:value">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></exchange>
-	<load public="1" get="inline" set="null" line="56" static="1"><f a="this">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-</f></load>
-	<store public="1" get="inline" set="null" line="60" static="1"><f a="this:value">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></store>
+	<add public="1" set="method" static="1">
+		<f a="this:b">
+			<x path="haxe.atomic.AtomicInt"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":noExpr"/></meta>
+		<haxe_doc>Atomically adds `b` to `a`.
+		Returns the original value of `a`.</haxe_doc>
+	</add>
+	<sub public="1" set="method" static="1">
+		<f a="this:b">
+			<x path="haxe.atomic.AtomicInt"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":noExpr"/></meta>
+		<haxe_doc>Atomically subtracts `b` from `a`.
+		Returns the original value of `a`.</haxe_doc>
+	</sub>
+	<and public="1" set="method" static="1">
+		<f a="this:b">
+			<x path="haxe.atomic.AtomicInt"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":noExpr"/></meta>
+		<haxe_doc>Atomically computes the bitwise and of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
+	</and>
+	<or public="1" set="method" static="1">
+		<f a="this:b">
+			<x path="haxe.atomic.AtomicInt"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":noExpr"/></meta>
+		<haxe_doc>Atomically computes the bitwise or of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
+	</or>
+	<xor public="1" set="method" static="1">
+		<f a="this:b">
+			<x path="haxe.atomic.AtomicInt"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":noExpr"/></meta>
+		<haxe_doc>Atomically computes the bitwise xor of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
+	</xor>
+	<compareExchange public="1" set="method" static="1">
+		<f a="this:expected:replacement">
+			<x path="haxe.atomic.AtomicInt"/>
+			<x path="Int"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":noExpr"/></meta>
+		<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
+		Returns the original value of `a`.</haxe_doc>
+	</compareExchange>
+	<exchange public="1" set="method" static="1">
+		<f a="this:value">
+			<x path="haxe.atomic.AtomicInt"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":noExpr"/></meta>
+		<haxe_doc>Atomically exchanges `a` with `value`.
+		Returns the original value of `a`.</haxe_doc>
+	</exchange>
+	<load public="1" set="method" static="1">
+		<f a="this">
+			<x path="haxe.atomic.AtomicInt"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":noExpr"/></meta>
+		<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
+	</load>
+	<store public="1" set="method" static="1">
+		<f a="this:value">
+			<x path="haxe.atomic.AtomicInt"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":noExpr"/></meta>
+		<haxe_doc>Atomically stores `value` into `a`.
+		Returns the value that has been stored.</haxe_doc>
+	</store>
+	<meta><m n=":coreApi"/></meta>
 </class></impl>
 	</abstract>
 	<class path="haxe.atomic._AtomicInt.AtomicInt_Impl_" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt" final="1">
-		<_hx_new public="1" get="inline" set="null" line="6" static="1">
+		<_hx_new public="1" set="method" static="1">
 			<f a="value">
 				<x path="Int"/>
 				<x path="haxe.atomic.AtomicInt"/>
 			</f>
-			<meta><m n=":noCompletion"/></meta>
+			<meta>
+				<m n=":noExpr"/>
+				<m n=":noCompletion"/>
+			</meta>
 		</_hx_new>
-		<cas_loop get="inline" set="null" line="10" static="1"><f a="this:value:op">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<f a="a:b">
-		<x path="Int"/>
-		<x path="Int"/>
-		<x path="Int"/>
-	</f>
-	<x path="Int"/>
-</f></cas_loop>
-		<add public="1" get="inline" set="null" line="20" static="1"><f a="this:b">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></add>
-		<sub public="1" get="inline" set="null" line="24" static="1"><f a="this:b">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></sub>
-		<and public="1" get="inline" set="null" line="28" static="1"><f a="this:b">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></and>
-		<or public="1" get="inline" set="null" line="32" static="1"><f a="this:b">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></or>
-		<xor public="1" get="inline" set="null" line="36" static="1"><f a="this:b">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></xor>
-		<compareExchange public="1" get="inline" set="null" line="40" static="1"><f a="this:expected:replacement">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></compareExchange>
-		<exchange public="1" get="inline" set="null" line="52" static="1"><f a="this:value">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></exchange>
-		<load public="1" get="inline" set="null" line="56" static="1"><f a="this">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-</f></load>
-		<store public="1" get="inline" set="null" line="60" static="1"><f a="this:value">
-	<c path="java.util.concurrent.atomic.AtomicInteger"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></store>
+		<add public="1" set="method" static="1">
+			<f a="this:b">
+				<x path="haxe.atomic.AtomicInt"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":noExpr"/></meta>
+			<haxe_doc>Atomically adds `b` to `a`.
+		Returns the original value of `a`.</haxe_doc>
+		</add>
+		<sub public="1" set="method" static="1">
+			<f a="this:b">
+				<x path="haxe.atomic.AtomicInt"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":noExpr"/></meta>
+			<haxe_doc>Atomically subtracts `b` from `a`.
+		Returns the original value of `a`.</haxe_doc>
+		</sub>
+		<and public="1" set="method" static="1">
+			<f a="this:b">
+				<x path="haxe.atomic.AtomicInt"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":noExpr"/></meta>
+			<haxe_doc>Atomically computes the bitwise and of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
+		</and>
+		<or public="1" set="method" static="1">
+			<f a="this:b">
+				<x path="haxe.atomic.AtomicInt"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":noExpr"/></meta>
+			<haxe_doc>Atomically computes the bitwise or of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
+		</or>
+		<xor public="1" set="method" static="1">
+			<f a="this:b">
+				<x path="haxe.atomic.AtomicInt"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":noExpr"/></meta>
+			<haxe_doc>Atomically computes the bitwise xor of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
+		</xor>
+		<compareExchange public="1" set="method" static="1">
+			<f a="this:expected:replacement">
+				<x path="haxe.atomic.AtomicInt"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":noExpr"/></meta>
+			<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
+		Returns the original value of `a`.</haxe_doc>
+		</compareExchange>
+		<exchange public="1" set="method" static="1">
+			<f a="this:value">
+				<x path="haxe.atomic.AtomicInt"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":noExpr"/></meta>
+			<haxe_doc>Atomically exchanges `a` with `value`.
+		Returns the original value of `a`.</haxe_doc>
+		</exchange>
+		<load public="1" set="method" static="1">
+			<f a="this">
+				<x path="haxe.atomic.AtomicInt"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":noExpr"/></meta>
+			<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
+		</load>
+		<store public="1" set="method" static="1">
+			<f a="this:value">
+				<x path="haxe.atomic.AtomicInt"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":noExpr"/></meta>
+			<haxe_doc>Atomically stores `value` into `a`.
+		Returns the value that has been stored.</haxe_doc>
+		</store>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<abstract path="haxe.atomic.AtomicObject" params="T" file="/home/runner/work/haxe/haxe/std/jvm/_std/haxe/atomic/AtomicObject.hx">
-		<this><c path="java.util.concurrent.atomic.AtomicReference"><c path="haxe.atomic.AtomicObject.T"/></c></this>
+		<this><x path="haxe.atomic.AtomicObject"><c path="haxe.atomic.AtomicObject.T"/></x></this>
+		<meta><m n=":coreType"/></meta>
 		<impl><class path="haxe.atomic._AtomicObject.AtomicObject_Impl_" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/haxe/atomic/AtomicObject.hx" private="1" module="haxe.atomic.AtomicObject" final="1">
-	<_hx_new public="1" get="inline" set="null" line="6" static="1">
+	<_hx_new public="1" set="method" static="1">
 		<f a="value">
 			<c path="haxe.atomic.AtomicObject.T"/>
 			<x path="haxe.atomic.AtomicObject"><c path="haxe.atomic.AtomicObject.T"/></x>
 		</f>
-		<meta><m n=":noCompletion"/></meta>
+		<meta>
+			<m n=":noExpr"/>
+			<m n=":noCompletion"/>
+		</meta>
 	</_hx_new>
-	<compareExchange public="1" get="inline" set="null" line="10" static="1"><f a="this:expected:replacement">
-	<c path="java.util.concurrent.atomic.AtomicReference"><c path="haxe.atomic.AtomicObject.T"/></c>
-	<c path="haxe.atomic.AtomicObject.T"/>
-	<c path="haxe.atomic.AtomicObject.T"/>
-	<c path="haxe.atomic.AtomicObject.T"/>
-</f></compareExchange>
-	<exchange public="1" get="inline" set="null" line="22" static="1"><f a="this:value">
-	<c path="java.util.concurrent.atomic.AtomicReference"><c path="haxe.atomic.AtomicObject.T"/></c>
-	<c path="haxe.atomic.AtomicObject.T"/>
-	<c path="haxe.atomic.AtomicObject.T"/>
-</f></exchange>
-	<load public="1" get="inline" set="null" line="26" static="1"><f a="this">
-	<c path="java.util.concurrent.atomic.AtomicReference"><c path="haxe.atomic.AtomicObject.T"/></c>
-	<c path="haxe.atomic.AtomicObject.T"/>
-</f></load>
-	<store public="1" get="inline" set="null" line="30" static="1"><f a="this:value">
-	<c path="java.util.concurrent.atomic.AtomicReference"><c path="haxe.atomic.AtomicObject.T"/></c>
-	<c path="haxe.atomic.AtomicObject.T"/>
-	<c path="haxe.atomic.AtomicObject.T"/>
-</f></store>
+	<compareExchange public="1" set="method" static="1">
+		<f a="this:expected:replacement">
+			<x path="haxe.atomic.AtomicObject"><c path="haxe.atomic.AtomicObject.T"/></x>
+			<c path="haxe.atomic.AtomicObject.T"/>
+			<c path="haxe.atomic.AtomicObject.T"/>
+			<c path="haxe.atomic.AtomicObject.T"/>
+		</f>
+		<meta><m n=":noExpr"/></meta>
+	</compareExchange>
+	<exchange public="1" set="method" static="1">
+		<f a="this:value">
+			<x path="haxe.atomic.AtomicObject"><c path="haxe.atomic.AtomicObject.T"/></x>
+			<c path="haxe.atomic.AtomicObject.T"/>
+			<c path="haxe.atomic.AtomicObject.T"/>
+		</f>
+		<meta><m n=":noExpr"/></meta>
+	</exchange>
+	<load public="1" set="method" static="1">
+		<f a="this">
+			<x path="haxe.atomic.AtomicObject"><c path="haxe.atomic.AtomicObject.T"/></x>
+			<c path="haxe.atomic.AtomicObject.T"/>
+		</f>
+		<meta><m n=":noExpr"/></meta>
+	</load>
+	<store public="1" set="method" static="1">
+		<f a="this:value">
+			<x path="haxe.atomic.AtomicObject"><c path="haxe.atomic.AtomicObject.T"/></x>
+			<c path="haxe.atomic.AtomicObject.T"/>
+			<c path="haxe.atomic.AtomicObject.T"/>
+		</f>
+		<meta><m n=":noExpr"/></meta>
+	</store>
 </class></impl>
 	</abstract>
 	<class path="haxe.atomic._AtomicObject.AtomicObject_Impl_" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/haxe/atomic/AtomicObject.hx" private="1" module="haxe.atomic.AtomicObject" final="1">
-		<_hx_new public="1" get="inline" set="null" line="6" static="1">
+		<_hx_new public="1" set="method" static="1">
 			<f a="value">
 				<c path="haxe.atomic.AtomicObject.T"/>
 				<x path="haxe.atomic.AtomicObject"><c path="haxe.atomic.AtomicObject.T"/></x>
 			</f>
-			<meta><m n=":noCompletion"/></meta>
+			<meta>
+				<m n=":noExpr"/>
+				<m n=":noCompletion"/>
+			</meta>
 		</_hx_new>
-		<compareExchange public="1" get="inline" set="null" line="10" static="1"><f a="this:expected:replacement">
-	<c path="java.util.concurrent.atomic.AtomicReference"><c path="haxe.atomic.AtomicObject.T"/></c>
-	<c path="haxe.atomic.AtomicObject.T"/>
-	<c path="haxe.atomic.AtomicObject.T"/>
-	<c path="haxe.atomic.AtomicObject.T"/>
-</f></compareExchange>
-		<exchange public="1" get="inline" set="null" line="22" static="1"><f a="this:value">
-	<c path="java.util.concurrent.atomic.AtomicReference"><c path="haxe.atomic.AtomicObject.T"/></c>
-	<c path="haxe.atomic.AtomicObject.T"/>
-	<c path="haxe.atomic.AtomicObject.T"/>
-</f></exchange>
-		<load public="1" get="inline" set="null" line="26" static="1"><f a="this">
-	<c path="java.util.concurrent.atomic.AtomicReference"><c path="haxe.atomic.AtomicObject.T"/></c>
-	<c path="haxe.atomic.AtomicObject.T"/>
-</f></load>
-		<store public="1" get="inline" set="null" line="30" static="1"><f a="this:value">
-	<c path="java.util.concurrent.atomic.AtomicReference"><c path="haxe.atomic.AtomicObject.T"/></c>
-	<c path="haxe.atomic.AtomicObject.T"/>
-	<c path="haxe.atomic.AtomicObject.T"/>
-</f></store>
+		<compareExchange public="1" set="method" static="1">
+			<f a="this:expected:replacement">
+				<x path="haxe.atomic.AtomicObject"><c path="haxe.atomic.AtomicObject.T"/></x>
+				<c path="haxe.atomic.AtomicObject.T"/>
+				<c path="haxe.atomic.AtomicObject.T"/>
+				<c path="haxe.atomic.AtomicObject.T"/>
+			</f>
+			<meta><m n=":noExpr"/></meta>
+		</compareExchange>
+		<exchange public="1" set="method" static="1">
+			<f a="this:value">
+				<x path="haxe.atomic.AtomicObject"><c path="haxe.atomic.AtomicObject.T"/></x>
+				<c path="haxe.atomic.AtomicObject.T"/>
+				<c path="haxe.atomic.AtomicObject.T"/>
+			</f>
+			<meta><m n=":noExpr"/></meta>
+		</exchange>
+		<load public="1" set="method" static="1">
+			<f a="this">
+				<x path="haxe.atomic.AtomicObject"><c path="haxe.atomic.AtomicObject.T"/></x>
+				<c path="haxe.atomic.AtomicObject.T"/>
+			</f>
+			<meta><m n=":noExpr"/></meta>
+		</load>
+		<store public="1" set="method" static="1">
+			<f a="this:value">
+				<x path="haxe.atomic.AtomicObject"><c path="haxe.atomic.AtomicObject.T"/></x>
+				<c path="haxe.atomic.AtomicObject.T"/>
+				<c path="haxe.atomic.AtomicObject.T"/>
+			</f>
+			<meta><m n=":noExpr"/></meta>
+		</store>
 	</class>
 	<class path="haxe.crypto.Adler32" params="" file="/home/runner/work/haxe/haxe/std/haxe/crypto/Adler32.hx">
 		<read public="1" set="method" line="60" static="1"><f a="i">
@@ -17053,6 +17235,14 @@
 			<m n=":enum"/>
 		</meta>
 	</AccCall>
+	<AccPrivateCall public="1" get="inline" set="null" expr="cast &quot;AccPrivateCall&quot;" line="1" static="1">
+		<x path="haxe.display.JsonVarAccessKind"><c path="haxe.display.JsonVarAccessKind.T"/></x>
+		<meta>
+			<m n=":value"><e>cast "AccPrivateCall"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+	</AccPrivateCall>
 	<AccInline public="1" get="inline" set="null" expr="cast &quot;AccInline&quot;" line="1" static="1">
 		<x path="haxe.display.JsonVarAccessKind"><c path="haxe.display.JsonVarAccessKind.T"/></x>
 		<meta>
@@ -17124,6 +17314,14 @@
 				<m n=":enum"/>
 			</meta>
 		</AccCall>
+		<AccPrivateCall public="1" get="inline" set="null" expr="cast &quot;AccPrivateCall&quot;" line="1" static="1">
+			<x path="haxe.display.JsonVarAccessKind"><c path="haxe.display.JsonVarAccessKind.T"/></x>
+			<meta>
+				<m n=":value"><e>cast "AccPrivateCall"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+		</AccPrivateCall>
 		<AccInline public="1" get="inline" set="null" expr="cast &quot;AccInline&quot;" line="1" static="1">
 			<x path="haxe.display.JsonVarAccessKind"><c path="haxe.display.JsonVarAccessKind.T"/></x>
 			<meta>
@@ -17591,7 +17789,7 @@
 		<this><c path="String"/></this>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="haxe.display._JsonModuleTypes.JsonModuleTypeKind_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" extern="1" final="1">
-	<Class public="1" get="inline" set="null" expr="cast &quot;class&quot;" line="357" static="1">
+	<Class public="1" get="inline" set="null" expr="cast &quot;class&quot;" line="358" static="1">
 		<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonClass"/></x>
 		<meta>
 			<m n=":value"><e>cast "class"</e></m>
@@ -17599,7 +17797,7 @@
 			<m n=":enum"/>
 		</meta>
 	</Class>
-	<Enum public="1" get="inline" set="null" expr="cast &quot;enum&quot;" line="358" static="1">
+	<Enum public="1" get="inline" set="null" expr="cast &quot;enum&quot;" line="359" static="1">
 		<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonEnum"/></x>
 		<meta>
 			<m n=":value"><e>cast "enum"</e></m>
@@ -17607,7 +17805,7 @@
 			<m n=":enum"/>
 		</meta>
 	</Enum>
-	<Typedef public="1" get="inline" set="null" expr="cast &quot;typedef&quot;" line="359" static="1">
+	<Typedef public="1" get="inline" set="null" expr="cast &quot;typedef&quot;" line="360" static="1">
 		<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonTypedef"/></x>
 		<meta>
 			<m n=":value"><e>cast "typedef"</e></m>
@@ -17615,7 +17813,7 @@
 			<m n=":enum"/>
 		</meta>
 	</Typedef>
-	<Abstract public="1" get="inline" set="null" expr="cast &quot;abstract&quot;" line="360" static="1">
+	<Abstract public="1" get="inline" set="null" expr="cast &quot;abstract&quot;" line="361" static="1">
 		<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonAbstract"/></x>
 		<meta>
 			<m n=":value"><e>cast "abstract"</e></m>
@@ -17627,7 +17825,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.display._JsonModuleTypes.JsonModuleTypeKind_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/JsonModuleTypes.hx" private="1" module="haxe.display.JsonModuleTypes" extern="1" final="1">
-		<Class public="1" get="inline" set="null" expr="cast &quot;class&quot;" line="357" static="1">
+		<Class public="1" get="inline" set="null" expr="cast &quot;class&quot;" line="358" static="1">
 			<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonClass"/></x>
 			<meta>
 				<m n=":value"><e>cast "class"</e></m>
@@ -17635,7 +17833,7 @@
 				<m n=":enum"/>
 			</meta>
 		</Class>
-		<Enum public="1" get="inline" set="null" expr="cast &quot;enum&quot;" line="358" static="1">
+		<Enum public="1" get="inline" set="null" expr="cast &quot;enum&quot;" line="359" static="1">
 			<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonEnum"/></x>
 			<meta>
 				<m n=":value"><e>cast "enum"</e></m>
@@ -17643,7 +17841,7 @@
 				<m n=":enum"/>
 			</meta>
 		</Enum>
-		<Typedef public="1" get="inline" set="null" expr="cast &quot;typedef&quot;" line="359" static="1">
+		<Typedef public="1" get="inline" set="null" expr="cast &quot;typedef&quot;" line="360" static="1">
 			<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonTypedef"/></x>
 			<meta>
 				<m n=":value"><e>cast "typedef"</e></m>
@@ -17651,7 +17849,7 @@
 				<m n=":enum"/>
 			</meta>
 		</Typedef>
-		<Abstract public="1" get="inline" set="null" expr="cast &quot;abstract&quot;" line="360" static="1">
+		<Abstract public="1" get="inline" set="null" expr="cast &quot;abstract&quot;" line="361" static="1">
 			<x path="haxe.display.JsonModuleTypeKind"><t path="haxe.display.JsonAbstract"/></x>
 			<meta>
 				<m n=":value"><e>cast "abstract"</e></m>
@@ -18559,22 +18757,37 @@
 			<c path="haxe.ds.EnumValueMap.K"/>
 			<c path="haxe.ds.EnumValueMap.V"/>
 		</implements>
-		<compare set="method" line="32" override="1"><f a="k1:k2">
+		<sortIndices expr="new Map&lt;{ },Int&gt;()" line="32">
+			<x path="haxe.ds.Map">
+				<a/>
+				<x path="Int"/>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new Map<{ },Int>()]]></e></m></meta>
+		</sortIndices>
+		<sortIndicesCounter expr="0" line="33">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</sortIndicesCounter>
+		<compare set="method" line="35" override="1"><f a="k1:k2">
 	<x path="EnumValue"/>
 	<x path="EnumValue"/>
 	<x path="Int"/>
 </f></compare>
-		<compareArgs set="method" line="57"><f a="a1:a2">
+		<compareArgs set="method" line="60"><f a="a1:a2">
 	<c path="Array"><d/></c>
 	<c path="Array"><d/></c>
 	<x path="Int"/>
 </f></compareArgs>
-		<compareArg set="method" line="69"><f a="v1:v2">
+		<getSortIndex set="method" line="72"><f a="v">
+	<a/>
+	<x path="Null"><x path="Int"/></x>
+</f></getSortIndex>
+		<compareArg set="method" line="81"><f a="v1:v2">
 	<d/>
 	<d/>
 	<x path="Int"/>
 </f></compareArg>
-		<copy public="1" set="method" line="79" override="1"><f a=""><c path="haxe.ds.EnumValueMap">
+		<copy public="1" set="method" line="109" override="1"><f a=""><c path="haxe.ds.EnumValueMap">
 	<c path="haxe.ds.EnumValueMap.K"/>
 	<c path="haxe.ds.EnumValueMap.V"/>
 </c></f></copy>
@@ -21041,12 +21254,12 @@
 	<x path="Void"/>
 </f></quote>
 		<new set="method" line="56"><f a="replacer:space">
-	<f a="key:value">
-		<d/>
-		<d/>
-		<d/>
-	</f>
-	<c path="String"/>
+	<x path="Null"><f a="key:value">
+	<d/>
+	<d/>
+	<d/>
+</f></x>
+	<x path="Null"><c path="String"/></x>
 	<x path="Void"/>
 </f></new>
 		<haxe_doc>An implementation of JSON printer in Haxe.
@@ -21141,10 +21354,11 @@
 		This method provides a fluent interface.</haxe_doc>
 		</setPostBytes>
 		<request public="1" set="method" line="185">
-			<f a="?post">
+			<f a="?post" v="false">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
+			<meta><m n=":value"><e>{ post : false }</e></m></meta>
 			<haxe_doc>Sends `this` Http request to the Url specified by `this.url`.
 
 		If `post` is true, the request is sent as POST request, otherwise it is
@@ -29465,8 +29679,9 @@
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>See `Iterator.hasNext`</haxe_doc>
 		</hasNext>
-		<next public="1" get="inline" set="null" line="49">
+		<next public="1" get="inline" set="null" line="50">
 			<f a=""><c path="haxe.iterators.DynamicAccessIterator.T"/></f>
+			<meta><m n=":nullSafety"><e>Off</e></m></meta>
 			<haxe_doc>See `Iterator.next`</haxe_doc>
 		</next>
 		<new public="1" get="inline" set="null" line="33"><f a="access">
@@ -29483,11 +29698,12 @@
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>See `Iterator.hasNext`</haxe_doc>
 		</hasNext>
-		<next public="1" get="inline" set="null" line="49">
+		<next public="1" get="inline" set="null" line="50">
 			<f a=""><a>
 	<value><c path="haxe.iterators.DynamicAccessKeyValueIterator.T"/></value>
 	<key><c path="String"/></key>
 </a></f>
+			<meta><m n=":nullSafety"><e>Off</e></m></meta>
 			<haxe_doc>See `Iterator.next`</haxe_doc>
 		</next>
 		<new public="1" get="inline" set="null" line="33"><f a="access">
@@ -30171,6 +30387,14 @@
 			<t path="haxe.macro.Position"/>
 		</Warning>
 	</enum>
+	<typedef path="haxe.macro.MacroError" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Context.hx" module="haxe.macro.Context"><a>
+	<sub>
+		<x path="Null"><c path="Array"><t path="haxe.macro.MacroError"/></c></x>
+		<meta><m n=":optional"/></meta>
+	</sub>
+	<pos><t path="haxe.macro.Position"/></pos>
+	<msg><c path="String"/></msg>
+</a></typedef>
 	<class path="haxe.macro.Context" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Context.hx"><haxe_doc>Context provides an API for macro programming.
 
 	It contains common functions that interact with the macro interpreter to
@@ -32282,6 +32506,7 @@
 		<AccNever><haxe_doc>No access (`never`).</haxe_doc></AccNever>
 		<AccResolve><haxe_doc>Unused.</haxe_doc></AccResolve>
 		<AccCall><haxe_doc>Access through accessor function (`get`, `set`, `dynamic`).</haxe_doc></AccCall>
+		<AccPrivateCall><haxe_doc>Access through private accessor function (`private get`, `private set`).</haxe_doc></AccPrivateCall>
 		<AccInline><haxe_doc>Inline access (`inline`).</haxe_doc></AccInline>
 		<AccRequire a="r:?msg">
 			<c path="String"/>
@@ -32622,7 +32847,7 @@
 	<t path="haxe.macro.ClassField"/>
 	<t path="haxe.macro.Field"/>
 </f></toField>
-		<toComplexType public="1" set="method" line="99" static="1">
+		<toComplexType public="1" set="method" line="100" static="1">
 			<f a="type">
 				<x path="Null"><e path="haxe.macro.Type"/></x>
 				<x path="Null"><e path="haxe.macro.ComplexType"/></x>
@@ -32635,16 +32860,16 @@
 
 		If `t` is null, an internal exception is thrown.</haxe_doc>
 		</toComplexType>
-		<toTypeParam set="method" line="144" static="1"><f a="type">
+		<toTypeParam set="method" line="145" static="1"><f a="type">
 	<e path="haxe.macro.Type"/>
 	<e path="haxe.macro.TypeParam"/>
 </f></toTypeParam>
-		<toTypePath set="method" line="152" static="1"><f a="baseType:params">
+		<toTypePath set="method" line="153" static="1"><f a="baseType:params">
 	<t path="haxe.macro.BaseType"/>
 	<c path="Array"><e path="haxe.macro.Type"/></c>
 	<t path="haxe.macro.TypePath"/>
 </f></toTypePath>
-		<findField public="1" set="method" line="456" static="1">
+		<findField public="1" set="method" line="457" static="1">
 			<f a="c:name:?isStatic" v="::false">
 				<t path="haxe.macro.ClassType"/>
 				<c path="String"/>
@@ -34919,20 +35144,20 @@
 		</NeedBit>
 		<NeedBits a="n:table">
 			<x path="Int"/>
-			<c path="Array"><e path="haxe.zip.Huffman"/></c>
+			<x path="haxe.ds.Vector"><e path="haxe.zip.Huffman"/></x>
 		</NeedBits>
 	</enum>
 	<class path="haxe.zip.HuffTools" params="" file="/home/runner/work/haxe/haxe/std/haxe/zip/Huffman.hx" module="haxe.zip.Huffman">
-		<treeDepth set="method" line="34"><f a="t">
+		<treeDepth set="method" line="36"><f a="t">
 	<e path="haxe.zip.Huffman"/>
 	<x path="Int"/>
 </f></treeDepth>
-		<treeCompress set="method" line="45"><f a="t">
+		<treeCompress set="method" line="47"><f a="t">
 	<e path="haxe.zip.Huffman"/>
 	<e path="haxe.zip.Huffman"/>
 </f></treeCompress>
 		<treeWalk set="method" line="62"><f a="table:p:cd:d:t">
-	<c path="Array"><e path="haxe.zip.Huffman"/></c>
+	<x path="haxe.ds.Vector"><e path="haxe.zip.Huffman"/></x>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
@@ -34947,41 +35172,41 @@
 	<e path="haxe.zip.Huffman"/>
 </f></treeMake>
 		<make public="1" set="method" line="86"><f a="lengths:pos:nlengths:maxbits">
-	<c path="Array"><x path="Int"/></c>
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<e path="haxe.zip.Huffman"/>
 </f></make>
-		<new public="1" set="method" line="32"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="34"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="haxe.zip._InflateImpl.Window" params="" file="/home/runner/work/haxe/haxe/std/haxe/zip/InflateImpl.hx" private="1" module="haxe.zip.InflateImpl">
-		<SIZE public="1" get="inline" set="null" expr="1 &lt;&lt; 15" line="29" static="1">
+		<SIZE public="1" get="inline" set="null" expr="1 &lt;&lt; 15" line="30" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e><![CDATA[1 << 15]]></e></m></meta>
 		</SIZE>
-		<BUFSIZE public="1" get="inline" set="null" expr="1 &lt;&lt; 16" line="30" static="1">
+		<BUFSIZE public="1" get="inline" set="null" expr="1 &lt;&lt; 16" line="31" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e><![CDATA[1 << 16]]></e></m></meta>
 		</BUFSIZE>
 		<buffer public="1"><c path="haxe.io.Bytes"/></buffer>
 		<pos public="1"><x path="Int"/></pos>
 		<crc><c path="haxe.crypto.Adler32"/></crc>
-		<slide public="1" set="method" line="44"><f a=""><x path="Void"/></f></slide>
-		<addBytes public="1" set="method" line="53"><f a="b:p:len">
+		<slide public="1" set="method" line="45"><f a=""><x path="Void"/></f></slide>
+		<addBytes public="1" set="method" line="54"><f a="b:p:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addBytes>
-		<addByte public="1" set="method" line="60"><f a="c">
+		<addByte public="1" set="method" line="61"><f a="c">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addByte>
-		<getLastChar public="1" set="method" line="67"><f a=""><x path="Int"/></f></getLastChar>
-		<available public="1" set="method" line="71"><f a=""><x path="Int"/></f></available>
-		<checksum public="1" set="method" line="75"><f a=""><c path="haxe.crypto.Adler32"/></f></checksum>
-		<new public="1" set="method" line="37"><f a="hasCrc">
+		<getLastChar public="1" set="method" line="68"><f a=""><x path="Int"/></f></getLastChar>
+		<available public="1" set="method" line="72"><f a=""><x path="Int"/></f></available>
+		<checksum public="1" set="method" line="76"><f a=""><c path="haxe.crypto.Adler32"/></f></checksum>
+		<new public="1" set="method" line="38"><f a="hasCrc">
 	<x path="Bool"/>
 	<x path="Void"/>
 </f></new>
@@ -34998,31 +35223,31 @@
 		<meta><m n=":flatEnum"/></meta>
 	</enum>
 	<class path="haxe.zip.InflateImpl" params="" file="/home/runner/work/haxe/haxe/std/haxe/zip/InflateImpl.hx">
-		<LEN_EXTRA_BITS_TBL expr="[0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 0, -1, -1]" line="97" static="1">
+		<LEN_EXTRA_BITS_TBL expr="[0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 0, -1, -1]" line="98" static="1">
 			<c path="Array"><x path="Int"/></c>
 			<meta><m n=":value"><e>[0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 0, -1, -1]</e></m></meta>
 		</LEN_EXTRA_BITS_TBL>
-		<LEN_BASE_VAL_TBL expr="[3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258]" line="100" static="1">
+		<LEN_BASE_VAL_TBL expr="[3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258]" line="101" static="1">
 			<c path="Array"><x path="Int"/></c>
 			<meta><m n=":value"><e>[3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258]</e></m></meta>
 		</LEN_BASE_VAL_TBL>
-		<DIST_EXTRA_BITS_TBL expr="[0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, -1, -1]" line="103" static="1">
+		<DIST_EXTRA_BITS_TBL expr="[0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, -1, -1]" line="104" static="1">
 			<c path="Array"><x path="Int"/></c>
 			<meta><m n=":value"><e>[0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, -1, -1]</e></m></meta>
 		</DIST_EXTRA_BITS_TBL>
-		<DIST_BASE_VAL_TBL expr="[1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073, 4097, 6145, 8193, 12289, 16385, 24577]" line="106" static="1">
+		<DIST_BASE_VAL_TBL expr="[1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073, 4097, 6145, 8193, 12289, 16385, 24577]" line="107" static="1">
 			<c path="Array"><x path="Int"/></c>
 			<meta><m n=":value"><e>[1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073, 4097, 6145, 8193, 12289, 16385, 24577]</e></m></meta>
 		</DIST_BASE_VAL_TBL>
-		<CODE_LENGTHS_POS expr="[16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15]" line="109" static="1">
+		<CODE_LENGTHS_POS expr="[16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15]" line="110" static="1">
 			<c path="Array"><x path="Int"/></c>
 			<meta><m n=":value"><e>[16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15]</e></m></meta>
 		</CODE_LENGTHS_POS>
-		<FIXED_HUFFMAN expr="null" line="127" static="1">
+		<FIXED_HUFFMAN expr="null" line="128" static="1">
 			<x path="Null"><e path="haxe.zip.Huffman"/></x>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</FIXED_HUFFMAN>
-		<run public="1" set="method" line="388" static="1">
+		<run public="1" set="method" line="385" static="1">
 			<f a="i:?bufsize" v=":65536">
 				<c path="haxe.io.Input"/>
 				<x path="Int"/>
@@ -35043,55 +35268,55 @@
 		<output><c path="haxe.io.Bytes"/></output>
 		<outpos><x path="Int"/></outpos>
 		<input><c path="haxe.io.Input"/></input>
-		<lengths><c path="Array"><x path="Int"/></c></lengths>
+		<lengths><x path="haxe.ds.Vector"><x path="Int"/></x></lengths>
 		<window><c path="haxe.zip._InflateImpl.Window"/></window>
-		<buildFixedHuffman set="method" line="149"><f a=""><x path="Null"><e path="haxe.zip.Huffman"/></x></f></buildFixedHuffman>
-		<readBytes public="1" set="method" line="159"><f a="b:pos:len">
+		<buildFixedHuffman set="method" line="148"><f a=""><x path="Null"><e path="haxe.zip.Huffman"/></x></f></buildFixedHuffman>
+		<readBytes public="1" set="method" line="158"><f a="b:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></readBytes>
-		<getBits set="method" line="168"><f a="n">
+		<getBits set="method" line="167"><f a="n">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></getBits>
-		<getBit set="method" line="179"><f a=""><x path="Bool"/></f></getBit>
-		<getRevBits set="method" line="190"><f a="n">
+		<getBit set="method" line="178"><f a=""><x path="Bool"/></f></getBit>
+		<getRevBits set="method" line="189"><f a="n">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></getRevBits>
-		<resetBits set="method" line="199"><f a=""><x path="Void"/></f></resetBits>
-		<addBytes set="method" line="204"><f a="b:p:len">
+		<resetBits set="method" line="198"><f a=""><x path="Void"/></f></resetBits>
+		<addBytes set="method" line="203"><f a="b:p:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addBytes>
-		<addByte set="method" line="211"><f a="b">
+		<addByte set="method" line="210"><f a="b">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addByte>
-		<addDistOne set="method" line="218"><f a="n">
+		<addDistOne set="method" line="217"><f a="n">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addDistOne>
-		<addDist set="method" line="224"><f a="d:len">
+		<addDist set="method" line="223"><f a="d:len">
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addDist>
-		<applyHuffman set="method" line="228"><f a="h">
+		<applyHuffman set="method" line="227"><f a="h">
 	<e path="haxe.zip.Huffman"/>
 	<x path="Int"/>
 </f></applyHuffman>
-		<inflateLengths set="method" line="236"><f a="a:max">
-	<c path="Array"><x path="Int"/></c>
+		<inflateLengths set="method" line="235"><f a="a:max">
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></inflateLengths>
-		<inflateLoop set="method" line="268"><f a=""><x path="Bool"/></f></inflateLoop>
-		<new public="1" set="method" line="129">
+		<inflateLoop set="method" line="267"><f a=""><x path="Bool"/></f></inflateLoop>
+		<new public="1" set="method" line="130">
 			<f a="i:?header:?crc" v=":true:true">
 				<c path="haxe.io.Input"/>
 				<x path="Bool"/>
@@ -35103,11 +35328,11 @@
 		<haxe_doc>A pure Haxe implementation of the ZLIB Inflate algorithm which allows reading compressed data without any platform-specific support.</haxe_doc>
 	</class>
 	<class path="haxe.zip.Reader" params="" file="/home/runner/work/haxe/haxe/std/haxe/zip/Reader.hx">
-		<readZip public="1" set="method" line="194" static="1"><f a="i">
+		<readZip public="1" set="method" line="196" static="1"><f a="i">
 	<c path="haxe.io.Input"/>
 	<c path="haxe.ds.List"><t path="haxe.zip.Entry"/></c>
 </f></readZip>
-		<unzip public="1" set="method" line="199" static="1"><f a="f">
+		<unzip public="1" set="method" line="201" static="1"><f a="f">
 	<t path="haxe.zip.Entry"/>
 	<x path="Null"><c path="haxe.io.Bytes"/></x>
 </f></unzip>
@@ -35117,7 +35342,7 @@
 	<x path="Int"/>
 	<c path="haxe.ds.List"><e path="haxe.zip.ExtraField"/></c>
 </f></readExtraFields>
-		<readEntryHeader public="1" set="method" line="78"><f a=""><t path="haxe.zip.Entry"/></f></readEntryHeader>
+		<readEntryHeader public="1" set="method" line="78"><f a=""><x path="Null"><t path="haxe.zip.Entry"/></x></f></readEntryHeader>
 		<read public="1" set="method" line="121"><f a=""><c path="haxe.ds.List"><t path="haxe.zip.Entry"/></c></f></read>
 		<new public="1" set="method" line="32"><f a="i">
 	<c path="haxe.io.Input"/>
@@ -80426,7 +80651,7 @@
 			</a>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</PROXY>
-		<requestUrl public="1" set="method" line="528" static="1">
+		<requestUrl public="1" set="method" line="532" static="1">
 			<f a="url">
 				<c path="String"/>
 				<c path="String"/>
@@ -80457,10 +80682,13 @@
 	<io><c path="haxe.io.Input"/></io>
 	<filename><c path="String"/></filename>
 </a></file>
-		<request public="1" set="method" line="58" override="1"><f a="?post">
-	<x path="Bool"/>
-	<x path="Void"/>
-</f></request>
+		<request public="1" set="method" line="58" override="1">
+			<f a="?post" v="false">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ post : false }</e></m></meta>
+		</request>
 		<fileTransfert public="1" get="inline" set="null" line="78">
 			<f a="argname:filename:file:size:?mimeType" v="::::&quot;application/octet-stream&quot;">
 				<c path="String"/>
@@ -80494,7 +80722,7 @@
 	<c path="String"/>
 	<x path="Void"/>
 </f></customRequest>
-		<getResponseHeaderValues public="1" set="method" line="265">
+		<getResponseHeaderValues public="1" set="method" line="269">
 			<f a="key">
 				<c path="String"/>
 				<x path="Null"><c path="Array"><c path="String"/></c></x>
@@ -80505,7 +80733,7 @@
 		the same name (e.g. `Set-Cookie`), that are unreachable via the
 		`responseHeaders` variable.</haxe_doc>
 		</getResponseHeaderValues>
-		<writeBody set="method" line="275"><f a="body:fileInput:fileSize:boundary:sock">
+		<writeBody set="method" line="279"><f a="body:fileInput:fileSize:boundary:sock">
 	<x path="Null"><c path="haxe.io.BytesOutput"/></x>
 	<x path="Null"><c path="haxe.io.Input"/></x>
 	<x path="Int"/>
@@ -80513,12 +80741,12 @@
 	<c path="sys.net.Socket"/>
 	<x path="Void"/>
 </f></writeBody>
-		<readHttpResponse set="method" line="300"><f a="api:sock">
+		<readHttpResponse set="method" line="304"><f a="api:sock">
 	<c path="haxe.io.Output"/>
 	<c path="sys.net.Socket"/>
 	<x path="Void"/>
 </f></readHttpResponse>
-		<readChunk set="method" line="462"><f a="chunk_re:api:buf:len">
+		<readChunk set="method" line="466"><f a="chunk_re:api:buf:len">
 	<c path="EReg"/>
 	<c path="haxe.io.Output"/>
 	<c path="haxe.io.Bytes"/>
@@ -81217,8 +81445,8 @@
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Create a new Deque instance which is initially empty.</haxe_doc>
 		</new>
-		<haxe_doc>A Deque is a double-ended queue with a `pop` method that can block until
-	an element is available. It is commonly used to synchronize threads.</haxe_doc>
+		<haxe_doc>A Deque is an output-restricted double-ended queue with a `pop` method that can
+	block until an element is available. It is commonly used to synchronize threads.</haxe_doc>
 		<meta>
 			<m n=":coreApi"/>
 			<m n=":native"><e>"haxe.java.vm.Deque"</e></m>
