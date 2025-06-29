@@ -28443,6 +28443,14 @@
 		</CheckFileContentModification>
 		<meta><m n=":enum"/></meta>
 	</class>
+	<typedef path="haxe.macro.CompilationStats" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/CompilationServer.hx" module="haxe.macro.CompilationServer"><a>
+	<modulesTyped><x path="Int"/></modulesTyped>
+	<modulesRestoredFromHxb><x path="Int"/></modulesRestoredFromHxb>
+	<methodsTyped><x path="Int"/></methodsTyped>
+	<macrosCalled><x path="Int"/></macrosCalled>
+	<filesParsed><x path="Int"/></filesParsed>
+	<classesBuilt><x path="Int"/></classesBuilt>
+</a></typedef>
 	<class path="haxe.macro.CompilationServer" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/CompilationServer.hx"><haxe_doc>This class provides some methods which can be invoked from command line using
 	`--macro server.field(args)`.</haxe_doc></class>
 	<class path="haxe.macro.Compiler" params="" file="/home/runner/work/haxe/haxe/std/haxe/macro/Compiler.hx">
@@ -31406,6 +31414,2374 @@
 		<haxe_doc>This class provides some utility methods to work with typed expressions.
 	It is best used through 'using haxe.macro.TypedExprTools' syntax and then
 	provides additional methods on `haxe.macro.TypedExpr` instances.</haxe_doc>
+	</class>
+	<abstract path="haxe.math.bigint.BigInt" params="" file="/home/runner/work/haxe/haxe/std/haxe/math/bigint/BigInt.hx">
+		<from/>
+		<this><c path="haxe.math.bigint.BigInt_"/></this>
+		<to/>
+		<meta><m n=":allow"><e>haxe.math.bigint</e></m></meta>
+		<impl><class path="haxe.math.bigint._BigInt.BigInt_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/math/bigint/BigInt.hx" private="1" module="haxe.math.bigint.BigInt" final="1">
+	<ZERO public="1" set="null" expr="new BigInt(BigInt_.fromInt(0))" line="35" static="1">
+		<x path="haxe.math.bigint.BigInt"/>
+		<meta><m n=":value"><e>new BigInt(BigInt_.fromInt(0))</e></m></meta>
+		<haxe_doc>The BigInt value of 0</haxe_doc>
+	</ZERO>
+	<ONE public="1" set="null" expr="new BigInt(BigInt_.fromInt(1))" line="37" static="1">
+		<x path="haxe.math.bigint.BigInt"/>
+		<meta><m n=":value"><e>new BigInt(BigInt_.fromInt(1))</e></m></meta>
+		<haxe_doc>The BigInt value of 1</haxe_doc>
+	</ONE>
+	<TWO public="1" set="null" expr="new BigInt(BigInt_.fromInt(2))" line="39" static="1">
+		<x path="haxe.math.bigint.BigInt"/>
+		<meta><m n=":value"><e>new BigInt(BigInt_.fromInt(2))</e></m></meta>
+		<haxe_doc>The BigInt value of 2</haxe_doc>
+	</TWO>
+	<MINUS_ONE public="1" set="null" expr="new BigInt(BigInt_.fromInt(-1))" line="41" static="1">
+		<x path="haxe.math.bigint.BigInt"/>
+		<meta><m n=":value"><e>new BigInt(BigInt_.fromInt(-1))</e></m></meta>
+		<haxe_doc>The BigInt value of -1</haxe_doc>
+	</MINUS_ONE>
+	<SMALL_PRIMES_PRODUCT expr="BigInt.fromString(&quot;1451887755777639901511587432083070202422614380984889313550570919659315177065956574359078912654149167643992684236991305777574330831666511589145701059710742276692757882915756220901998212975756543223550490431013061082131040808010565293748926901442915057819663730454818359472391642885328171302299245556663073719855&quot;)" line="47" static="1">
+		<x path="haxe.math.bigint.BigInt"/>
+		<meta><m n=":value"><e>BigInt.fromString("1451887755777639901511587432083070202422614380984889313550570919659315177065956574359078912654149167643992684236991305777574330831666511589145701059710742276692757882915756220901998212975756543223550490431013061082131040808010565293748926901442915057819663730454818359472391642885328171302299245556663073719855")</e></m></meta>
+	</SMALL_PRIMES_PRODUCT>
+	<sign public="1" get="inline" set="null" line="57" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Returns the sign of this `BigInt`.
+		@return -1 if negative, 1 if positive, 0 if zero.</haxe_doc>
+	</sign>
+	<isZero public="1" get="inline" set="null" line="65" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="Bool"/>
+		</f>
+		<haxe_doc>Checks if this `BigInt` is equal to zero.
+		@return `true` if the value is 0, otherwise `false`.</haxe_doc>
+	</isZero>
+	<isNegative public="1" get="inline" set="null" line="73" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="Bool"/>
+		</f>
+		<haxe_doc>Checks if this `BigInt` is a negative number.
+		@return `true` if the value is less than 0, otherwise `false`.</haxe_doc>
+	</isNegative>
+	<isPositive public="1" get="inline" set="null" line="81" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="Bool"/>
+		</f>
+		<haxe_doc>Checks if this `BigInt` is a positive number.
+		@return `true` if the value is greater than 0, otherwise `false`.</haxe_doc>
+	</isPositive>
+	<isOdd public="1" get="inline" set="null" line="89" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="Bool"/>
+		</f>
+		<haxe_doc>Checks if this `BigInt` is an odd number.
+		@return `true` if the value is odd, otherwise `false`.</haxe_doc>
+	</isOdd>
+	<isEven public="1" get="inline" set="null" line="97" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="Bool"/>
+		</f>
+		<haxe_doc>Checks if this `BigInt` is an even number.
+		@return `true` if the value is even, otherwise `false`.</haxe_doc>
+	</isEven>
+	<min public="1" get="inline" set="null" line="106" static="1">
+		<f a="this:other">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="haxe.math.bigint.BigInt"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Returns the minimum of this `BigInt` and another.
+		@param other The `BigInt` to compare with.
+		@return The smaller of the two `BigInt` values.</haxe_doc>
+	</min>
+	<max public="1" get="inline" set="null" line="115" static="1">
+		<f a="this:other">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="haxe.math.bigint.BigInt"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Returns the maximum of this `BigInt` and another.
+		@param other The `BigInt` to compare with.
+		@return The larger of the two `BigInt` values.</haxe_doc>
+	</max>
+	<toString public="1" get="inline" set="null" line="124" static="1">
+		<f a="this:?radix" v=":10">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="Int"/>
+			<c path="String"/>
+		</f>
+		<meta><m n=":value"><e>{ radix : 10 }</e></m></meta>
+		<haxe_doc>Returns the string representation of this `BigInt` in the specified base.
+		@param radix The base for the conversion (e.g., 10 for decimal, 16 for hexadecimal).
+		@return The string representation of the number.</haxe_doc>
+	</toString>
+	<toHex public="1" get="inline" set="null" line="133" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<c path="String"/>
+		</f>
+		<haxe_doc>Returns the hexadecimal string representation of this `BigInt`.
+		This is a shorthand for `toString(16)`.
+		@return The hexadecimal string.</haxe_doc>
+	</toHex>
+	<toBytes public="1" get="inline" set="null" line="141" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<c path="haxe.io.Bytes"/>
+		</f>
+		<haxe_doc>Converts this `BigInt` to a `Bytes` sequence (big-endian).
+		@return A `Bytes` object representing the number's magnitude.</haxe_doc>
+	</toBytes>
+	<toInts public="1" get="inline" set="null" line="150" static="1">
+		<f a="this:output">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="haxe.ds.Vector"><x path="Int"/></x>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Converts this `BigInt` to a `Vector` of `Int`s.
+		@param output The vector to write the integer words into.
+		@return The number of words written to the vector.</haxe_doc>
+	</toInts>
+	<fromInt public="1" get="inline" set="null" line="158" static="1">
+		<f a="value">
+			<x path="Int"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Creates a new BigInt from an Int.
+		@param value The Int value.</haxe_doc>
+	</fromInt>
+	<fromString public="1" get="inline" set="null" line="168" static="1">
+		<f a="value:?radix" v=":10">
+			<c path="String"/>
+			<x path="Int"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<meta><m n=":value"><e>{ radix : 10 }</e></m></meta>
+		<haxe_doc>Creates a `BigInt` by parsing a string with a given radix.
+		@param value The string representation of the number.
+		@param radix The base of the number in the string (e.g., 10 or 16).
+		@return A new `BigInt` instance.</haxe_doc>
+	</fromString>
+	<fromHex public="1" get="inline" set="null" line="178" static="1">
+		<f a="value">
+			<c path="String"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Creates a `BigInt` from a hexadecimal string. Assumes signed representation.
+		This is a shorthand for `fromHexSigned(value)`.
+		@param value The hexadecimal string.
+		@return A new `BigInt` instance.</haxe_doc>
+	</fromHex>
+	<fromHexSigned public="1" get="inline" set="null" line="187" static="1">
+		<f a="value">
+			<c path="String"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Creates a `BigInt` from a signed hexadecimal string.
+		@param value The hexadecimal string.
+		@return A new `BigInt` instance.</haxe_doc>
+	</fromHexSigned>
+	<fromHexUnsigned public="1" get="inline" set="null" line="196" static="1">
+		<f a="value">
+			<c path="String"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Creates a `BigInt` from an unsigned hexadecimal string.
+		@param value The hexadecimal string.
+		@return A new `BigInt` instance.</haxe_doc>
+	</fromHexUnsigned>
+	<fromUnsignedInts public="1" get="inline" set="null" line="206" static="1">
+		<f a="value:?length" v=":0">
+			<x path="haxe.ds.Vector"><x path="Int"/></x>
+			<x path="Int"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<meta><m n=":value"><e>{ length : 0 }</e></m></meta>
+		<haxe_doc>Creates a `BigInt` from a `Vector` of unsigned `Int` words.
+		@param value A vector containing the integer words of the number.
+		@param length The number of words to use from the vector. If 0, uses the whole vector.
+		@return A new `BigInt` instance.</haxe_doc>
+	</fromUnsignedInts>
+	<fromBytes public="1" get="inline" set="null" line="217" static="1">
+		<f a="value:?offset:?length" v=":0:0">
+			<c path="haxe.io.Bytes"/>
+			<x path="Int"/>
+			<x path="Int"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<meta><m n=":value"><e>{ length : 0, offset : 0 }</e></m></meta>
+		<haxe_doc>Creates a `BigInt` from a `Bytes` sequence.
+		@param value The `Bytes` object to read from.
+		@param offset The starting position in the bytes.
+		@param length The number of bytes to read. If 0, reads to the end.
+		@return A new `BigInt` instance.</haxe_doc>
+	</fromBytes>
+	<random public="1" get="inline" set="null" line="226" static="1">
+		<f a="bits">
+			<x path="haxe.Int32"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Generates a pseudo-random `BigInt` with a specified number of bits.
+		@param bits The bit-length of the random number. The result is in the range `[0, 2^bits - 1]`.
+		@return A new `BigInt` with a random value.</haxe_doc>
+	</random>
+	<randomInRange public="1" set="method" line="236" static="1">
+		<f a="min:max">
+			<x path="haxe.math.bigint.BigInt"/>
+			<x path="haxe.math.bigint.BigInt"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc><![CDATA[Generates a pseudo-random `BigInt` within a given range.
+		@param min The inclusive minimum value.
+		@param max The inclusive maximum value.
+		@return A random `BigInt` such that `min <= result <= max`.]]></haxe_doc>
+	</randomInRange>
+	<randomPrime public="1" set="method" line="246" static="1">
+		<f a="bits:tolerance">
+			<x path="haxe.Int32"/>
+			<x path="UInt"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Generates a probable prime number with a specified bit-length.
+		@param bits The desired bit-length of the prime.
+		@param tolerance The certainty level for the primality test.
+		@return A probable prime `BigInt`.</haxe_doc>
+	</randomPrime>
+	<divMod public="1" set="method" line="256" static="1">
+		<f a="dividend:divisor">
+			<x path="haxe.math.bigint.BigInt"/>
+			<x path="haxe.math.bigint.BigInt"/>
+			<a>
+				<remainder><x path="haxe.math.bigint.BigInt"/></remainder>
+				<quotient><x path="haxe.math.bigint.BigInt"/></quotient>
+			</a>
+		</f>
+		<haxe_doc>Performs division and returns both the quotient and the remainder.
+		@param dividend The number to be divided.
+		@param divisor The number to divide by.
+		@return An object `{ quotient: BigInt, remainder: BigInt }`.</haxe_doc>
+	</divMod>
+	<getBit public="1" get="inline" set="null" line="266" static="1">
+		<f a="this:index">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Gets the value of a single bit at the specified index.
+		@param index The zero-based index of the bit to get.
+		@return 1 if the bit is set, otherwise 0.</haxe_doc>
+	</getBit>
+	<abs public="1" set="method" line="274" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Returns the absolute value of this `BigInt`.
+		@return A new `BigInt` representing the absolute value.</haxe_doc>
+	</abs>
+	<modInverse public="1" set="method" line="283" static="1">
+		<f a="this:modulus">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Calculates the modular multiplicative inverse of this `BigInt`.
+		@param modulus The modulus for the inverse operation.
+		@return A new `BigInt` `x` such that `(this * x) % modulus == 1`.</haxe_doc>
+	</modInverse>
+	<gcd public="1" set="method" line="292" static="1">
+		<f a="this:b">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="haxe.math.bigint.BigInt"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Finds the greatest common divisor (GCD) of this `BigInt` and another.
+		@param b The other `BigInt`.
+		@return The GCD of this and `b`.</haxe_doc>
+	</gcd>
+	<lcm public="1" set="method" line="301" static="1">
+		<f a="this:b">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="haxe.math.bigint.BigInt"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Finds the least common multiple (LCM) of this `BigInt` and another.
+		@param b The other `BigInt`.
+		@return The LCM of this and `b`.</haxe_doc>
+	</lcm>
+	<pow public="1" set="method" line="310" static="1">
+		<f a="this:exponent">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="UInt"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Raises this `BigInt` to the power of an integer exponent.
+		@param exponent The non-negative exponent.
+		@return A new `BigInt` representing `this` raised to the power of `exponent`.</haxe_doc>
+	</pow>
+	<modPow public="1" set="method" line="320" static="1">
+		<f a="this:exponent:modulus">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="haxe.math.bigint.BigInt"/>
+			<x path="haxe.math.bigint.BigInt"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Calculates `(this ^ exponent) mod modulus`.
+		@param exponent The exponent.
+		@param modulus The modulus.
+		@return The result of the modular exponentiation.</haxe_doc>
+	</modPow>
+	<square public="1" set="method" line="328" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Calculates the square of this `BigInt`.
+		@return A new `BigInt` representing `this * this`.</haxe_doc>
+	</square>
+	<isProbablePrime public="1" set="method" line="337" static="1">
+		<f a="this:tolerance">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="UInt"/>
+			<x path="Bool"/>
+		</f>
+		<haxe_doc>Performs a primality test on this `BigInt`.
+		@param tolerance The certainty level. A higher value means a more rigorous (but slower) test.
+		@return `true` if the number is probably prime, `false` if it is definitely composite.</haxe_doc>
+	</isProbablePrime>
+	<nextProbablePrime public="1" set="method" line="345" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Finds the first probable prime number greater than this `BigInt`.
+		@return The next probable prime.</haxe_doc>
+	</nextProbablePrime>
+	<getLowestSetBit public="1" set="method" line="353" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Gets the index of the lowest-set (rightmost) bit.
+		@return The index of the rightmost '1' bit, or -1 if the number is zero.</haxe_doc>
+	</getLowestSetBit>
+	<bitLength public="1" set="method" line="361" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Returns the number of bits of this `BigInt`.
+		@return The number of bits required to represent this number.</haxe_doc>
+	</bitLength>
+	<bitCount public="1" set="method" line="369" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Counts the number of bits that are set to 1.
+		@return The number of set bits.</haxe_doc>
+	</bitCount>
+	<testBit public="1" set="method" line="378" static="1">
+		<f a="this:n">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="Int"/>
+			<x path="Bool"/>
+		</f>
+		<haxe_doc>Tests if the bit at a given index is set.
+		@param n The index of the bit to test.
+		@return `true` if the bit is 1, otherwise `false`.</haxe_doc>
+	</testBit>
+	<setBit public="1" set="method" line="387" static="1">
+		<f a="this:n">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="Int"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Returns a new `BigInt` with the specified bit set (to 1).
+		@param n The index of the bit to set.
+		@return A new `BigInt` with the bit set.</haxe_doc>
+	</setBit>
+	<clearBit public="1" set="method" line="396" static="1">
+		<f a="this:n">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="Int"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Returns a new `BigInt` with the specified bit cleared (to 0).
+		@param n The index of the bit to clear.
+		@return A new `BigInt` with the bit cleared.</haxe_doc>
+	</clearBit>
+	<flipBit public="1" set="method" line="405" static="1">
+		<f a="this:n">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="Int"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Returns a new `BigInt` with the specified bit flipped.
+		@param n The index of the bit to flip.
+		@return A new `BigInt` with the bit flipped.</haxe_doc>
+	</flipBit>
+	<getPowerOfTwo public="1" set="method" line="414" static="1">
+		<f a="exponent">
+			<x path="Int"/>
+			<x path="haxe.math.bigint.BigInt"/>
+		</f>
+		<haxe_doc>Calculates 2 raised to the power of the given exponent.
+		@param exponent The exponent.
+		@return A `BigInt` equal to `2^exponent`.</haxe_doc>
+	</getPowerOfTwo>
+	<hashCode public="1" set="method" line="422" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.BigInt_"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Generates a hash code for this `BigInt`.
+		@return An integer hash code.</haxe_doc>
+	</hashCode>
+	<meta><m n=":allow"><e>haxe.math.bigint</e></m></meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.math.bigint._BigInt.BigInt_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/math/bigint/BigInt.hx" private="1" module="haxe.math.bigint.BigInt" final="1">
+		<ZERO public="1" set="null" expr="new BigInt(BigInt_.fromInt(0))" line="35" static="1">
+			<x path="haxe.math.bigint.BigInt"/>
+			<meta><m n=":value"><e>new BigInt(BigInt_.fromInt(0))</e></m></meta>
+			<haxe_doc>The BigInt value of 0</haxe_doc>
+		</ZERO>
+		<ONE public="1" set="null" expr="new BigInt(BigInt_.fromInt(1))" line="37" static="1">
+			<x path="haxe.math.bigint.BigInt"/>
+			<meta><m n=":value"><e>new BigInt(BigInt_.fromInt(1))</e></m></meta>
+			<haxe_doc>The BigInt value of 1</haxe_doc>
+		</ONE>
+		<TWO public="1" set="null" expr="new BigInt(BigInt_.fromInt(2))" line="39" static="1">
+			<x path="haxe.math.bigint.BigInt"/>
+			<meta><m n=":value"><e>new BigInt(BigInt_.fromInt(2))</e></m></meta>
+			<haxe_doc>The BigInt value of 2</haxe_doc>
+		</TWO>
+		<MINUS_ONE public="1" set="null" expr="new BigInt(BigInt_.fromInt(-1))" line="41" static="1">
+			<x path="haxe.math.bigint.BigInt"/>
+			<meta><m n=":value"><e>new BigInt(BigInt_.fromInt(-1))</e></m></meta>
+			<haxe_doc>The BigInt value of -1</haxe_doc>
+		</MINUS_ONE>
+		<SMALL_PRIMES_PRODUCT expr="BigInt.fromString(&quot;1451887755777639901511587432083070202422614380984889313550570919659315177065956574359078912654149167643992684236991305777574330831666511589145701059710742276692757882915756220901998212975756543223550490431013061082131040808010565293748926901442915057819663730454818359472391642885328171302299245556663073719855&quot;)" line="47" static="1">
+			<x path="haxe.math.bigint.BigInt"/>
+			<meta><m n=":value"><e>BigInt.fromString("1451887755777639901511587432083070202422614380984889313550570919659315177065956574359078912654149167643992684236991305777574330831666511589145701059710742276692757882915756220901998212975756543223550490431013061082131040808010565293748926901442915057819663730454818359472391642885328171302299245556663073719855")</e></m></meta>
+		</SMALL_PRIMES_PRODUCT>
+		<sign public="1" get="inline" set="null" line="57" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the sign of this `BigInt`.
+		@return -1 if negative, 1 if positive, 0 if zero.</haxe_doc>
+		</sign>
+		<isZero public="1" get="inline" set="null" line="65" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Checks if this `BigInt` is equal to zero.
+		@return `true` if the value is 0, otherwise `false`.</haxe_doc>
+		</isZero>
+		<isNegative public="1" get="inline" set="null" line="73" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Checks if this `BigInt` is a negative number.
+		@return `true` if the value is less than 0, otherwise `false`.</haxe_doc>
+		</isNegative>
+		<isPositive public="1" get="inline" set="null" line="81" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Checks if this `BigInt` is a positive number.
+		@return `true` if the value is greater than 0, otherwise `false`.</haxe_doc>
+		</isPositive>
+		<isOdd public="1" get="inline" set="null" line="89" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Checks if this `BigInt` is an odd number.
+		@return `true` if the value is odd, otherwise `false`.</haxe_doc>
+		</isOdd>
+		<isEven public="1" get="inline" set="null" line="97" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Checks if this `BigInt` is an even number.
+		@return `true` if the value is even, otherwise `false`.</haxe_doc>
+		</isEven>
+		<min public="1" get="inline" set="null" line="106" static="1">
+			<f a="this:other">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="haxe.math.bigint.BigInt"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Returns the minimum of this `BigInt` and another.
+		@param other The `BigInt` to compare with.
+		@return The smaller of the two `BigInt` values.</haxe_doc>
+		</min>
+		<max public="1" get="inline" set="null" line="115" static="1">
+			<f a="this:other">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="haxe.math.bigint.BigInt"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Returns the maximum of this `BigInt` and another.
+		@param other The `BigInt` to compare with.
+		@return The larger of the two `BigInt` values.</haxe_doc>
+		</max>
+		<toString public="1" get="inline" set="null" line="124" static="1">
+			<f a="this:?radix" v=":10">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":value"><e>{ radix : 10 }</e></m></meta>
+			<haxe_doc>Returns the string representation of this `BigInt` in the specified base.
+		@param radix The base for the conversion (e.g., 10 for decimal, 16 for hexadecimal).
+		@return The string representation of the number.</haxe_doc>
+		</toString>
+		<toHex public="1" get="inline" set="null" line="133" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns the hexadecimal string representation of this `BigInt`.
+		This is a shorthand for `toString(16)`.
+		@return The hexadecimal string.</haxe_doc>
+		</toHex>
+		<toBytes public="1" get="inline" set="null" line="141" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.io.Bytes"/>
+			</f>
+			<haxe_doc>Converts this `BigInt` to a `Bytes` sequence (big-endian).
+		@return A `Bytes` object representing the number's magnitude.</haxe_doc>
+		</toBytes>
+		<toInts public="1" get="inline" set="null" line="150" static="1">
+			<f a="this:output">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Converts this `BigInt` to a `Vector` of `Int`s.
+		@param output The vector to write the integer words into.
+		@return The number of words written to the vector.</haxe_doc>
+		</toInts>
+		<fromInt public="1" get="inline" set="null" line="158" static="1">
+			<f a="value">
+				<x path="Int"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Creates a new BigInt from an Int.
+		@param value The Int value.</haxe_doc>
+		</fromInt>
+		<fromString public="1" get="inline" set="null" line="168" static="1">
+			<f a="value:?radix" v=":10">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<meta><m n=":value"><e>{ radix : 10 }</e></m></meta>
+			<haxe_doc>Creates a `BigInt` by parsing a string with a given radix.
+		@param value The string representation of the number.
+		@param radix The base of the number in the string (e.g., 10 or 16).
+		@return A new `BigInt` instance.</haxe_doc>
+		</fromString>
+		<fromHex public="1" get="inline" set="null" line="178" static="1">
+			<f a="value">
+				<c path="String"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Creates a `BigInt` from a hexadecimal string. Assumes signed representation.
+		This is a shorthand for `fromHexSigned(value)`.
+		@param value The hexadecimal string.
+		@return A new `BigInt` instance.</haxe_doc>
+		</fromHex>
+		<fromHexSigned public="1" get="inline" set="null" line="187" static="1">
+			<f a="value">
+				<c path="String"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Creates a `BigInt` from a signed hexadecimal string.
+		@param value The hexadecimal string.
+		@return A new `BigInt` instance.</haxe_doc>
+		</fromHexSigned>
+		<fromHexUnsigned public="1" get="inline" set="null" line="196" static="1">
+			<f a="value">
+				<c path="String"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Creates a `BigInt` from an unsigned hexadecimal string.
+		@param value The hexadecimal string.
+		@return A new `BigInt` instance.</haxe_doc>
+		</fromHexUnsigned>
+		<fromUnsignedInts public="1" get="inline" set="null" line="206" static="1">
+			<f a="value:?length" v=":0">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<meta><m n=":value"><e>{ length : 0 }</e></m></meta>
+			<haxe_doc>Creates a `BigInt` from a `Vector` of unsigned `Int` words.
+		@param value A vector containing the integer words of the number.
+		@param length The number of words to use from the vector. If 0, uses the whole vector.
+		@return A new `BigInt` instance.</haxe_doc>
+		</fromUnsignedInts>
+		<fromBytes public="1" get="inline" set="null" line="217" static="1">
+			<f a="value:?offset:?length" v=":0:0">
+				<c path="haxe.io.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<meta><m n=":value"><e>{ length : 0, offset : 0 }</e></m></meta>
+			<haxe_doc>Creates a `BigInt` from a `Bytes` sequence.
+		@param value The `Bytes` object to read from.
+		@param offset The starting position in the bytes.
+		@param length The number of bytes to read. If 0, reads to the end.
+		@return A new `BigInt` instance.</haxe_doc>
+		</fromBytes>
+		<random public="1" get="inline" set="null" line="226" static="1">
+			<f a="bits">
+				<x path="haxe.Int32"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Generates a pseudo-random `BigInt` with a specified number of bits.
+		@param bits The bit-length of the random number. The result is in the range `[0, 2^bits - 1]`.
+		@return A new `BigInt` with a random value.</haxe_doc>
+		</random>
+		<randomInRange public="1" set="method" line="236" static="1">
+			<f a="min:max">
+				<x path="haxe.math.bigint.BigInt"/>
+				<x path="haxe.math.bigint.BigInt"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc><![CDATA[Generates a pseudo-random `BigInt` within a given range.
+		@param min The inclusive minimum value.
+		@param max The inclusive maximum value.
+		@return A random `BigInt` such that `min <= result <= max`.]]></haxe_doc>
+		</randomInRange>
+		<randomPrime public="1" set="method" line="246" static="1">
+			<f a="bits:tolerance">
+				<x path="haxe.Int32"/>
+				<x path="UInt"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Generates a probable prime number with a specified bit-length.
+		@param bits The desired bit-length of the prime.
+		@param tolerance The certainty level for the primality test.
+		@return A probable prime `BigInt`.</haxe_doc>
+		</randomPrime>
+		<divMod public="1" set="method" line="256" static="1">
+			<f a="dividend:divisor">
+				<x path="haxe.math.bigint.BigInt"/>
+				<x path="haxe.math.bigint.BigInt"/>
+				<a>
+					<remainder><x path="haxe.math.bigint.BigInt"/></remainder>
+					<quotient><x path="haxe.math.bigint.BigInt"/></quotient>
+				</a>
+			</f>
+			<haxe_doc>Performs division and returns both the quotient and the remainder.
+		@param dividend The number to be divided.
+		@param divisor The number to divide by.
+		@return An object `{ quotient: BigInt, remainder: BigInt }`.</haxe_doc>
+		</divMod>
+		<getBit public="1" get="inline" set="null" line="266" static="1">
+			<f a="this:index">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Gets the value of a single bit at the specified index.
+		@param index The zero-based index of the bit to get.
+		@return 1 if the bit is set, otherwise 0.</haxe_doc>
+		</getBit>
+		<abs public="1" set="method" line="274" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Returns the absolute value of this `BigInt`.
+		@return A new `BigInt` representing the absolute value.</haxe_doc>
+		</abs>
+		<modInverse public="1" set="method" line="283" static="1">
+			<f a="this:modulus">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Calculates the modular multiplicative inverse of this `BigInt`.
+		@param modulus The modulus for the inverse operation.
+		@return A new `BigInt` `x` such that `(this * x) % modulus == 1`.</haxe_doc>
+		</modInverse>
+		<gcd public="1" set="method" line="292" static="1">
+			<f a="this:b">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="haxe.math.bigint.BigInt"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Finds the greatest common divisor (GCD) of this `BigInt` and another.
+		@param b The other `BigInt`.
+		@return The GCD of this and `b`.</haxe_doc>
+		</gcd>
+		<lcm public="1" set="method" line="301" static="1">
+			<f a="this:b">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="haxe.math.bigint.BigInt"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Finds the least common multiple (LCM) of this `BigInt` and another.
+		@param b The other `BigInt`.
+		@return The LCM of this and `b`.</haxe_doc>
+		</lcm>
+		<pow public="1" set="method" line="310" static="1">
+			<f a="this:exponent">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="UInt"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Raises this `BigInt` to the power of an integer exponent.
+		@param exponent The non-negative exponent.
+		@return A new `BigInt` representing `this` raised to the power of `exponent`.</haxe_doc>
+		</pow>
+		<modPow public="1" set="method" line="320" static="1">
+			<f a="this:exponent:modulus">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="haxe.math.bigint.BigInt"/>
+				<x path="haxe.math.bigint.BigInt"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Calculates `(this ^ exponent) mod modulus`.
+		@param exponent The exponent.
+		@param modulus The modulus.
+		@return The result of the modular exponentiation.</haxe_doc>
+		</modPow>
+		<square public="1" set="method" line="328" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Calculates the square of this `BigInt`.
+		@return A new `BigInt` representing `this * this`.</haxe_doc>
+		</square>
+		<isProbablePrime public="1" set="method" line="337" static="1">
+			<f a="this:tolerance">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="UInt"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Performs a primality test on this `BigInt`.
+		@param tolerance The certainty level. A higher value means a more rigorous (but slower) test.
+		@return `true` if the number is probably prime, `false` if it is definitely composite.</haxe_doc>
+		</isProbablePrime>
+		<nextProbablePrime public="1" set="method" line="345" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Finds the first probable prime number greater than this `BigInt`.
+		@return The next probable prime.</haxe_doc>
+		</nextProbablePrime>
+		<getLowestSetBit public="1" set="method" line="353" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Gets the index of the lowest-set (rightmost) bit.
+		@return The index of the rightmost '1' bit, or -1 if the number is zero.</haxe_doc>
+		</getLowestSetBit>
+		<bitLength public="1" set="method" line="361" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the number of bits of this `BigInt`.
+		@return The number of bits required to represent this number.</haxe_doc>
+		</bitLength>
+		<bitCount public="1" set="method" line="369" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Counts the number of bits that are set to 1.
+		@return The number of set bits.</haxe_doc>
+		</bitCount>
+		<testBit public="1" set="method" line="378" static="1">
+			<f a="this:n">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Tests if the bit at a given index is set.
+		@param n The index of the bit to test.
+		@return `true` if the bit is 1, otherwise `false`.</haxe_doc>
+		</testBit>
+		<setBit public="1" set="method" line="387" static="1">
+			<f a="this:n">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Returns a new `BigInt` with the specified bit set (to 1).
+		@param n The index of the bit to set.
+		@return A new `BigInt` with the bit set.</haxe_doc>
+		</setBit>
+		<clearBit public="1" set="method" line="396" static="1">
+			<f a="this:n">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Returns a new `BigInt` with the specified bit cleared (to 0).
+		@param n The index of the bit to clear.
+		@return A new `BigInt` with the bit cleared.</haxe_doc>
+		</clearBit>
+		<flipBit public="1" set="method" line="405" static="1">
+			<f a="this:n">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Returns a new `BigInt` with the specified bit flipped.
+		@param n The index of the bit to flip.
+		@return A new `BigInt` with the bit flipped.</haxe_doc>
+		</flipBit>
+		<getPowerOfTwo public="1" set="method" line="414" static="1">
+			<f a="exponent">
+				<x path="Int"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Calculates 2 raised to the power of the given exponent.
+		@param exponent The exponent.
+		@return A `BigInt` equal to `2^exponent`.</haxe_doc>
+		</getPowerOfTwo>
+		<hashCode public="1" set="method" line="422" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Generates a hash code for this `BigInt`.
+		@return An integer hash code.</haxe_doc>
+		</hashCode>
+		<meta><m n=":allow"><e>haxe.math.bigint</e></m></meta>
+	</class>
+	<class path="haxe.math.bigint.BigIntArithmetic" params="" file="/home/runner/work/haxe/haxe/std/haxe/math/bigint/BigIntArithmetic.hx">
+		<compareInt public="1" set="method" line="43" static="1">
+			<f a="a:b">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc><![CDATA[Compare a big integer with an Int.
+
+		Returns -1 if `a < b`; otherwise
+		returns 1 if `a > b`; otherwise
+		returns 0 (`a == b`).]]></haxe_doc>
+		</compareInt>
+		<compare public="1" set="method" line="60" static="1">
+			<f a="a:b">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc><![CDATA[Compare two big integers.
+
+		Returns -1 if `a < b`; otherwise
+		returns 1 if `a > b`; otherwise
+		returns 0 (`a == b`).]]></haxe_doc>
+		</compare>
+		<negate public="1" set="method" line="94" static="1">
+			<f a="result:operand">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Perform the unary negation of big integer `operand` and put
+		the result into big integer `result`.
+
+		Ok for `result` and `operand` to be the same object.</haxe_doc>
+		</negate>
+		<add public="1" set="method" line="122" static="1">
+			<f a="result:operand1:operand2">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Add big integer `operand2` to big integer `operand1` and put
+		the result into big integer `result`.
+
+		Ok for `result`, `operand1`, and `operand2` to be the same object.</haxe_doc>
+		</add>
+		<addInt public="1" set="method" line="172" static="1">
+			<f a="result:operand1:operand2">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Add integer `operand2` to big integer `operand1` and put the
+		result into big integer `result`.
+
+		Ok for `result` and `operand1` to be the same object.</haxe_doc>
+		</addInt>
+		<subtract public="1" set="method" line="213" static="1">
+			<f a="result:operand1:operand2">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Subtract big integer `operand2` from big integer `operand1`
+		and put the result into big integer `result`.
+
+		Ok for `result`, `operand1`, and `operand2` to be the same object.</haxe_doc>
+		</subtract>
+		<subtractInt public="1" set="method" line="280" static="1">
+			<f a="result:operand1:operand2">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Subtract integer `operand2` from big integer `operand1` and
+		put the result into big integer `result`.
+
+		Ok for `result` and `operand1` to be the same object.</haxe_doc>
+		</subtractInt>
+		<multiplyInt public="1" set="method" line="323" static="1">
+			<f a="result:operand1:operand2">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Multiply big integer `operand1` by integer `operand2` and put
+		the result into `result`.
+
+		`result` may not refer the same object as either `operand1`
+		or `operand2`; however, `operand1` and `operand2` may be the
+		same object.</haxe_doc>
+		</multiplyInt>
+		<multiply public="1" set="method" line="336" static="1">
+			<f a="result:operand1:operand2">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Multiply big integer `operand1` by big integer `operand2` and
+		put the result into `result`.
+
+		`result` may not refer the same object as either `operand1`
+		or `operand2`; however, `operand1` and `operand2` may be the
+		same object.</haxe_doc>
+		</multiply>
+		<divideInt public="1" set="method" line="415" static="1">
+			<f a="dividend:divisor:quotientOut:?work" v=":::null">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":value"><e>{ work : null }</e></m></meta>
+			<haxe_doc>Divide the big integer `dividend` by the integer `divisor`.
+		The quotient of the division is put into `quotientOut`;
+		the remainder is the return value.
+
+		`quotientOut` may refer to `dividend`.
+
+		`work`, if supplied, must not refer to any of the inputs.</haxe_doc>
+		</divideInt>
+		<divide public="1" set="method" line="439" static="1">
+			<f a="dividend:divisor:quotientOut:remainderOut:?work" v="::::null">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ work : null }</e></m></meta>
+			<haxe_doc>Divide the big integer `dividend` by the big integer `divisor`.
+		The quotient of the division is put into `quotientOut`;
+		the remainder is put into `remainderOut`.
+
+		`remainderOut` may be `null` if the remainder value is not
+		needed.
+
+		`dividend` and `divisor` may refer to the same object.
+
+		`quotientOut` and `remainderOut` must not refer to the same
+		object; but either may refer to the inputs.
+
+		`work`, if supplied, must not refer to any of the inputs.</haxe_doc>
+		</divide>
+		<multiwordUnsignedDivide set="method" line="481" static="1">
+			<f a="dividend:divisor:quotientOut:remainderOut:?work" v="::::null">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ work : null }</e></m></meta>
+		</multiwordUnsignedDivide>
+		<arithmeticShiftLeft public="1" set="method" line="533" static="1">
+			<f a="result:operand1:operand2">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Shift big integer `operand1` to the left by `operand2` bits
+		and put the result into big integer `result`.
+
+		Ok for `result` and `operand1` to be the same object.</haxe_doc>
+		</arithmeticShiftLeft>
+		<arithmeticShiftRight public="1" set="method" line="568" static="1">
+			<f a="result:operand1:operand2">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Shift big integer `operand1` to the right by `operand2` bits
+		and put the result into big integer `result`.
+
+		Ok for `result` and `operand1` to be the same object.</haxe_doc>
+		</arithmeticShiftRight>
+		<getBit public="1" get="inline" set="null" line="600" static="1">
+			<f a="value:index">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the value, 0 or 1, of the bit at 2^`index` place.</haxe_doc>
+		</getBit>
+		<bitwiseAndInt public="1" get="inline" set="null" line="607" static="1">
+			<f a="operand1:operand2">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the bitwise AND of `operand1` with `operand2`.</haxe_doc>
+		</bitwiseAndInt>
+		<bitwiseAnd public="1" get="inline" set="null" line="615" static="1">
+			<f a="operand1:operand2">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+			</f>
+			<haxe_doc>Returns the bitwise AND of two big integers.
+		@return A new `BigInt_` holding the result.</haxe_doc>
+		</bitwiseAnd>
+		<bitwiseOr public="1" get="inline" set="null" line="639" static="1">
+			<f a="operand1:operand2">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+			</f>
+			<haxe_doc>Returns the bitwise OR of `operand1` with `operand2`.</haxe_doc>
+		</bitwiseOr>
+		<bitwiseXor public="1" get="inline" set="null" line="662" static="1">
+			<f a="operand1:operand2">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+			</f>
+			<haxe_doc>Returns the bitwise XOR of two big integers.
+		@return A new `BigInt_` holding the result.</haxe_doc>
+		</bitwiseXor>
+		<bitwiseNot public="1" get="inline" set="null" line="685" static="1">
+			<f a="operand">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+			</f>
+			<haxe_doc>Returns the bitwise NOT (inversion) of a big integer.
+		@return A new `BigInt_` holding the result.</haxe_doc>
+		</bitwiseNot>
+		<floorLog2 public="1" set="method" line="700" static="1">
+			<f a="input">
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns `floor(log2(input))`.
+		@param input The `BigInt_` operand.
+		@return The integer base-2 logarithm.</haxe_doc>
+		</floorLog2>
+		<multiplyKaratsuba public="1" set="method" line="710" static="1">
+			<f a="result:x:y">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Multiply two big integers using the Karatsuba algorithm for performance.
+		@param result The `MutableBigInt_` to store the product.
+		@param x The first operand.
+		@param y The second operand.</haxe_doc>
+		</multiplyKaratsuba>
+		<asl32 get="inline" set="null" line="750" static="1"><f a="output:outputOffset:input:inputSize:shift">
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="Int"/>
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="Int"/>
+	<x path="haxe.Int32"/>
+	<x path="Void"/>
+</f></asl32>
+		<lsl32 get="inline" set="null" line="766" static="1"><f a="output:outputOffset:input:inputSize:shift">
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="Int"/>
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="Int"/>
+	<x path="haxe.Int32"/>
+	<x path="Void"/>
+</f></lsl32>
+		<lsr32 get="inline" set="null" line="782" static="1"><f a="output:input:inputSize:inputOffset:shift">
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="haxe.Int32"/>
+	<x path="Void"/>
+</f></lsr32>
+		<copy get="inline" set="null" line="792" static="1"><f a="output:outputOffset:input:inputOffset:length">
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="Int"/>
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></copy>
+		<haxe_doc>A collection of static helper functions for performing arithmetic
+	on `BigInt_` objects.</haxe_doc>
+	</class>
+	<abstract path="haxe.math.bigint.BigIntError" params="" file="/home/runner/work/haxe/haxe/std/haxe/math/bigint/BigIntError.hx">
+		<this><c path="String"/></this>
+		<to><icast><c path="String"/></icast></to>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="haxe.math.bigint._BigIntError.BigIntError_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/math/bigint/BigIntError.hx" private="1" module="haxe.math.bigint.BigIntError" extern="1" final="1">
+	<INVALID_ARGUMENT public="1" get="inline" set="null" expr="cast &quot;Invalid argument&quot;" line="27" static="1">
+		<x path="haxe.math.bigint.BigIntError"/>
+		<meta>
+			<m n=":value"><e>cast "Invalid argument"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+		<haxe_doc>An argument provided to a function was not valid.</haxe_doc>
+	</INVALID_ARGUMENT>
+	<BUFFER_TOO_SMALL public="1" get="inline" set="null" expr="cast &quot;Buffer too small&quot;" line="29" static="1">
+		<x path="haxe.math.bigint.BigIntError"/>
+		<meta>
+			<m n=":value"><e>cast "Buffer too small"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+		<haxe_doc>An output buffer was too small to hold the result.</haxe_doc>
+	</BUFFER_TOO_SMALL>
+	<DIVISION_BY_ZERO public="1" get="inline" set="null" expr="cast &quot;Division by zero&quot;" line="31" static="1">
+		<x path="haxe.math.bigint.BigIntError"/>
+		<meta>
+			<m n=":value"><e>cast "Division by zero"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+		<haxe_doc>An attempt was made to divide by zero.</haxe_doc>
+	</DIVISION_BY_ZERO>
+	<NEGATIVE_EXPONENT public="1" get="inline" set="null" expr="cast &quot;Negative exponent&quot;" line="33" static="1">
+		<x path="haxe.math.bigint.BigIntError"/>
+		<meta>
+			<m n=":value"><e>cast "Negative exponent"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+		<haxe_doc>An exponent was negative where not supported.</haxe_doc>
+	</NEGATIVE_EXPONENT>
+	<INVALID_OPERATION public="1" get="inline" set="null" expr="cast &quot;Invalid operation&quot;" line="35" static="1">
+		<x path="haxe.math.bigint.BigIntError"/>
+		<meta>
+			<m n=":value"><e>cast "Invalid operation"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+		<haxe_doc>An operation was performed that is not valid.</haxe_doc>
+	</INVALID_OPERATION>
+	<NEGATIVE_MODULUS public="1" get="inline" set="null" expr="cast &quot;Modulus should be positive&quot;" line="37" static="1">
+		<x path="haxe.math.bigint.BigIntError"/>
+		<meta>
+			<m n=":value"><e>cast "Modulus should be positive"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+		<haxe_doc>A modulus was negative where it must be positive.</haxe_doc>
+	</NEGATIVE_MODULUS>
+	<EVEN_VALUES public="1" get="inline" set="null" expr="cast &quot;Both values are even&quot;" line="39" static="1">
+		<x path="haxe.math.bigint.BigIntError"/>
+		<meta>
+			<m n=":value"><e>cast "Both values are even"</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+		<haxe_doc>An operation required at least one odd number, but both were even.</haxe_doc>
+	</EVEN_VALUES>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.math.bigint._BigIntError.BigIntError_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/math/bigint/BigIntError.hx" private="1" module="haxe.math.bigint.BigIntError" extern="1" final="1">
+		<INVALID_ARGUMENT public="1" get="inline" set="null" expr="cast &quot;Invalid argument&quot;" line="27" static="1">
+			<x path="haxe.math.bigint.BigIntError"/>
+			<meta>
+				<m n=":value"><e>cast "Invalid argument"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+			<haxe_doc>An argument provided to a function was not valid.</haxe_doc>
+		</INVALID_ARGUMENT>
+		<BUFFER_TOO_SMALL public="1" get="inline" set="null" expr="cast &quot;Buffer too small&quot;" line="29" static="1">
+			<x path="haxe.math.bigint.BigIntError"/>
+			<meta>
+				<m n=":value"><e>cast "Buffer too small"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+			<haxe_doc>An output buffer was too small to hold the result.</haxe_doc>
+		</BUFFER_TOO_SMALL>
+		<DIVISION_BY_ZERO public="1" get="inline" set="null" expr="cast &quot;Division by zero&quot;" line="31" static="1">
+			<x path="haxe.math.bigint.BigIntError"/>
+			<meta>
+				<m n=":value"><e>cast "Division by zero"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+			<haxe_doc>An attempt was made to divide by zero.</haxe_doc>
+		</DIVISION_BY_ZERO>
+		<NEGATIVE_EXPONENT public="1" get="inline" set="null" expr="cast &quot;Negative exponent&quot;" line="33" static="1">
+			<x path="haxe.math.bigint.BigIntError"/>
+			<meta>
+				<m n=":value"><e>cast "Negative exponent"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+			<haxe_doc>An exponent was negative where not supported.</haxe_doc>
+		</NEGATIVE_EXPONENT>
+		<INVALID_OPERATION public="1" get="inline" set="null" expr="cast &quot;Invalid operation&quot;" line="35" static="1">
+			<x path="haxe.math.bigint.BigIntError"/>
+			<meta>
+				<m n=":value"><e>cast "Invalid operation"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+			<haxe_doc>An operation was performed that is not valid.</haxe_doc>
+		</INVALID_OPERATION>
+		<NEGATIVE_MODULUS public="1" get="inline" set="null" expr="cast &quot;Modulus should be positive&quot;" line="37" static="1">
+			<x path="haxe.math.bigint.BigIntError"/>
+			<meta>
+				<m n=":value"><e>cast "Modulus should be positive"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+			<haxe_doc>A modulus was negative where it must be positive.</haxe_doc>
+		</NEGATIVE_MODULUS>
+		<EVEN_VALUES public="1" get="inline" set="null" expr="cast &quot;Both values are even&quot;" line="39" static="1">
+			<x path="haxe.math.bigint.BigIntError"/>
+			<meta>
+				<m n=":value"><e>cast "Both values are even"</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+			<haxe_doc>An operation required at least one odd number, but both were even.</haxe_doc>
+		</EVEN_VALUES>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<class path="haxe.math.bigint.BigIntException" params="" file="/home/runner/work/haxe/haxe/std/haxe/math/bigint/BigIntException.hx">
+		<extends path="haxe.Exception"/>
+		<new public="1" set="method" line="35">
+			<f a="error:?previous">
+				<x path="haxe.math.bigint.BigIntError"/>
+				<c path="haxe.Exception"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new `BigIntException`.
+		@param error The specific `BigIntError` that occurred.
+		@param previous An optional previous exception in a chain.</haxe_doc>
+		</new>
+		<haxe_doc>An exception thrown for errors during `BigInt` operations.
+	It wraps a `BigIntError` value to provide specific details.</haxe_doc>
+	</class>
+	<class path="haxe.math.bigint.BigIntHelper" params="" file="/home/runner/work/haxe/haxe/std/haxe/math/bigint/BigIntHelper.hx">
+		<nlz public="1" set="method" line="36" static="1">
+			<f a="x">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>"Numbler of leading zeros" - return the number of leading
+		0-value bits in the binary representation of `x`.
+		@param x The integer to inspect.
+		@return The count of leading zeros.</haxe_doc>
+		</nlz>
+		<bitLen public="1" set="method" line="70" static="1">
+			<f a="x">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Calculates the bit length of a signed 32-bit integer.
+		@param x The integer value.
+		@return The number of bits required to represent `x`.</haxe_doc>
+		</bitLen>
+		<clp2 public="1" set="method" line="80" static="1">
+			<f a="x">
+				<x path="haxe.Int32"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>"Ceiling power of two" -- round up to the least power of two
+		greater than or equal to input `x`, which is interpreted as
+		unsigned.</haxe_doc>
+		</clp2>
+		<u32gtu32 public="1" get="inline" set="null" line="97" static="1">
+			<f a="a:b">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc><![CDATA[Unsigned greater than comparison.
+
+		Returns `true` if `a > b` when both `a` and `b` are
+		interpreted as unsigned integers; `false` otherwise.]]></haxe_doc>
+		</u32gtu32>
+		<u32divu16 public="1" set="method" line="106" static="1">
+			<f a="dividend:divisor">
+				<x path="haxe.Int32"/>
+				<x path="haxe.Int32"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc><![CDATA[Integer division of unsigned 32-bit integer by unsigned 16-bit integer.
+
+		Result is undefined when `divisor` <= 0 or `divisor` >= 2^16.]]></haxe_doc>
+		</u32divu16>
+		<u32geu32 public="1" get="inline" set="null" line="131" static="1">
+			<f a="a:b">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc><![CDATA[Unsigned greater than or equal comparison.
+		Returns `true` if `a >= b` when both `a` and `b` are
+		interpreted as unsigned integers; `false` otherwise.]]></haxe_doc>
+		</u32geu32>
+		<ntz public="1" set="method" line="139" static="1">
+			<f a="x">
+				<x path="haxe.Int32"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Number of trailing zeros - return the number of trailing
+		0-value bits</haxe_doc>
+		</ntz>
+		<haxe_doc>A collection of low-level, static Int manipulation helper functions.</haxe_doc>
+	</class>
+	<class path="haxe.math.bigint.BigIntTools" params="" file="/home/runner/work/haxe/haxe/std/haxe/math/bigint/BigIntTools.hx">
+		<isNull public="1" get="inline" set="null" line="38" static="1">
+			<f a="value">
+				<x path="haxe.math.bigint.BigInt"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Checks if a `BigInt` value is null.
+		@param value The `BigInt` to check.
+		@return `true` if the value is null.</haxe_doc>
+		</isNull>
+		<isBigInt public="1" get="inline" set="null" line="48" static="1">
+			<f a="value">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Checks if a dynamic value is a `BigInt`.
+		@param value The value to check.
+		@return `true` if the value is of type `BigInt`.</haxe_doc>
+		</isBigInt>
+		<castFrom public="1" get="inline" set="null" line="57" static="1">
+			<f a="value">
+				<d/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Casts a dynamic value to a `BigInt`.
+		@param value The value to cast.
+		@return The value as a `BigInt`.</haxe_doc>
+		</castFrom>
+		<parseValueUnsigned public="1" set="method" line="67" static="1">
+			<f a="value">
+				<d/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Parses a dynamic value into an unsigned `BigInt`.
+		Supports `String`, `Int`, and other `BigInt` types.
+		@param value The value to parse.
+		@return A new `BigInt` instance.</haxe_doc>
+		</parseValueUnsigned>
+		<parseStringUnsigned set="method" line="90" static="1">
+			<f a="value">
+				<c path="String"/>
+				<x path="haxe.math.bigint.BigInt"/>
+			</f>
+			<haxe_doc>Parses a string representing an unsigned integer into a `BigInt`.
+		This internal helper handles decimal strings, and hexadecimal strings
+		that are prefixed with "0x".
+		@param value The string to be parsed.
+		@return A new `BigInt` instance representing the unsigned value.</haxe_doc>
+		</parseStringUnsigned>
+		<haxe_doc>A collection of high-level static utility functions for `BigInt`.</haxe_doc>
+	</class>
+	<class path="haxe.math.bigint.MultiwordArithmetic" params="" file="/home/runner/work/haxe/haxe/std/haxe/math/bigint/MultiwordArithmetic.hx">
+		<isZero public="1" set="method" line="43" static="1">
+			<f a="value:length">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Checks if a multi-word integer is zero.
+		@param value The vector of integer words.
+		@param length The number of words in the value.
+		@return `true` if the value is zero.</haxe_doc>
+		</isZero>
+		<isNegative public="1" get="inline" set="null" line="61" static="1">
+			<f a="value:length">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Checks if a multi-word integer is negative.
+		@param value The vector of integer words.
+		@param length The number of words in the value.
+		@return `true` if the most significant bit is set.</haxe_doc>
+		</isNegative>
+		<getLengthUnsigned public="1" set="method" line="71" static="1">
+			<f a="value:length">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Gets the effective length of an unsigned multi-word integer, ignoring leading zeros.
+		@param value The vector of integer words.
+		@param length The number of words in the value.
+		@return The minimal number of words needed to represent the value.</haxe_doc>
+		</getLengthUnsigned>
+		<extendUnsigned public="1" set="method" line="91" static="1">
+			<f a="result:resultLength:input:inputLength">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Perform unsigned (zero) extension of `input` into `result`.
+		`input` and `result` may refer to the same object.
+		@param result The destination vector.
+		@param resultLength The desired length of the result.
+		@param input The source vector.
+		@param inputLength The length of the input.</haxe_doc>
+		</extendUnsigned>
+		<negate public="1" set="method" line="120" static="1">
+			<f a="result:operand:length">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Perform the unary negation of big integer `operand` and put
+		the result into big integer `result`.
+		@param result The vector to store the result.
+		@param operand The vector to negate.
+		@param length The number of words.
+		@return `true` if the operation overflowed; `false` otherwise.
+
+		Ok for `result` and `operand` to be the same object.</haxe_doc>
+		</negate>
+		<add public="1" set="method" line="142" static="1">
+			<f a="result:operand1:operand2:length">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Add big integer `operand2` to big integer `operand1` and put
+		the result into big integer `result`.
+
+		Ok for `result`, `operand1`, and `operand2` to be the same object.
+
+		Returns the "carry" value of either 0 or 1.</haxe_doc>
+		</add>
+		<subtract public="1" set="method" line="166" static="1">
+			<f a="result:operand1:operand2:length">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Subtract big integer `operand2` from big integer `operand1`
+		and put the result into big integer `result`.
+
+		Ok for `result`, `operand1`, and `operand2` to be the same object.
+
+		Returns the "borrow" value of either 0 or 1.</haxe_doc>
+		</subtract>
+		<multiplyIntUnsigned public="1" set="method" line="192" static="1">
+			<f a="result:operand1:operand1Length:operand2">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc><![CDATA[Multiply `operand1` by `operand2`, where both are unsigned,
+		and put the result into `result`.
+
+		`result` must have length >= `operand1Length` + 1.
+
+		`result` may not refer the same object as either `operand1`
+		or `operand2`; however, `operand1` and `operand2` may be the
+		same object.]]></haxe_doc>
+		</multiplyIntUnsigned>
+		<multiplyUnsigned public="1" set="method" line="210" static="1">
+			<f a="result:operand1:operand1Length:operand2:operand2Length">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc><![CDATA[Multiply `operand1` by `operand2`, where both are unsigned,
+		and put the result into `result`.
+
+		`result` must have length >= `operand1Length` +
+		`operand2Length`.
+
+		`result` may not refer the same object as either `operand1`
+		or `operand2`; however, `operand1` and `operand2` may be the
+		same object.]]></haxe_doc>
+		</multiplyUnsigned>
+		<getDivisionQuotientLengthUnsigned public="1" get="inline" set="null" line="258" static="1">
+			<f a="dividendLength:divisorLength">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Calculates the required length for the quotient of an unsigned division.
+		@param dividendLength The length of the dividend.
+		@param divisorLength The length of the divisor.
+		@return The length of the quotient.</haxe_doc>
+		</getDivisionQuotientLengthUnsigned>
+		<divideIntUnsigned public="1" set="method" line="279" static="1">
+			<f a="dividend:dividendLength:divisor:quotientOut:work">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+			</f>
+			<haxe_doc><![CDATA[Divide `dividend` by `divisor`, where both are unsigned.
+		The quotient of the division is put into `quotientOut`;
+		the remainder is the return value.
+
+		`quotientOut` must have length >= `dividendLength`.
+
+		`quotientOut` may refer to `dividend`.
+
+		`work` must not refer to any of the inputs, and must have
+		length >= `dividendLength` + 2.
+
+		`dividend` is not modified, unless it refers to `quotientOut`.
+
+		The results are unspecified if `divisor` is negative.]]></haxe_doc>
+		</divideIntUnsigned>
+		<divideUnsigned public="1" set="method" line="313" static="1">
+			<f a="dividend:dividendLength:divisor:divisorLength:quotientOut:remainderOut:work">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Void"/>
+			</f>
+			<haxe_doc><![CDATA[Divide `dividend` by `divisor`, where both are unsigned.
+		The quotient of the division is put into `quotientOut`;
+		the remainder is put into `remainderOut`.
+
+		`divisor` must not have any leading zeros.
+
+		`quotientOut` must have length >= `dividendLength` -
+		`divisorLength` + 1.
+
+		`remainderOut` may be `null` if the remainder value is not
+		needed. If supplied, it must be of length >= `divisorLength`.
+
+		`quotientOut` and `remainderOut` must not refer to the same
+		object; but either may refer to the inputs.
+
+		`dividend` and `divisor` may refer to the same object.
+
+		`work` must not refer to any of the inputs, and must have
+		length >= `dividendLength` + `divisorLength` + 1.
+
+		`dividend` and `divisor` are not modified, unless they
+		reference one of the outputs.]]></haxe_doc>
+		</divideUnsigned>
+		<arithmeticShiftRight public="1" set="method" line="497" static="1">
+			<f a="result:input:length:shift">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc><![CDATA[Shift multiword integer `input` right by `shift` binary
+		places and store the result in `result`, with the high bit
+		duplicated for bits inserted from the left.
+
+		`shift` must meet the critera 0 <= `shift` < 32.
+
+		`result` and `input` may be the same object.]]></haxe_doc>
+		</arithmeticShiftRight>
+		<logicalShiftRight public="1" set="method" line="523" static="1">
+			<f a="result:input:length:shift">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc><![CDATA[Shift multiword integer `input` right by `shift` binary
+		places and store the result in `result`, with zeros inserted
+		from the left.
+
+		`shift` must meet the critera 0 <= `shift` < 32.
+
+		`result` and `input` may be the same object.]]></haxe_doc>
+		</logicalShiftRight>
+		<shiftLeft public="1" set="method" line="549" static="1">
+			<f a="result:input:length:shift">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc><![CDATA[Shift multiword integer `input` left by `shift` binary
+		places and store the result in `result`, with zeros inserted
+		from the right.
+
+		`shift` must meet the critera 0 <= `shift` < 32.
+
+		`result` and `input` may be the same object.]]></haxe_doc>
+		</shiftLeft>
+		<compareSigned public="1" set="method" line="573" static="1">
+			<f a="a:b:length">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc><![CDATA[Compare two signed multiword integers.
+
+		Returns -1 if `a < b`; otherwise
+		returns 1 if `a > b`; otherwise
+		returns 0 (`a == b`).]]></haxe_doc>
+		</compareSigned>
+		<compareUnsigned public="1" set="method" line="593" static="1">
+			<f a="a:b:length">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc><![CDATA[Compare two unsigned multiword integers.
+
+		Returns -1 if `a < b`; otherwise
+		returns 1 if `a > b`; otherwise
+		returns 0 (`a == b`).]]></haxe_doc>
+		</compareUnsigned>
+		<setZero public="1" set="method" line="614" static="1">
+			<f a="dest:length">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Fills a vector with zeros.
+		@param dest The destination vector.
+		@param length The number of words to zero out.</haxe_doc>
+		</setZero>
+		<setFromIntUnsigned public="1" set="method" line="629" static="1">
+			<f a="dest:length:value">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets a multi-word integer from a single unsigned `Int`.
+		@param dest The destination vector.
+		@param length The total length of the destination.
+		@param value The integer value to set.</haxe_doc>
+		</setFromIntUnsigned>
+		<setFromHexUnsigned public="1" set="method" line="646" static="1">
+			<f a="dest:length:value">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Sets a multi-word integer from an unsigned hexadecimal string.
+		@param dest The destination vector.
+		@param length The length of the destination.
+		@param value The hexadecimal string.
+		@return `true` on success.</haxe_doc>
+		</setFromHexUnsigned>
+		<toHex public="1" set="method" line="714" static="1">
+			<f a="input:length">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Converts a multi-word integer to a hexadecimal string.
+		@param input The source vector.
+		@param length The number of words.
+		@return The hexadecimal string representation.</haxe_doc>
+		</toHex>
+		<toDecimalSigned public="1" set="method" line="731" static="1">
+			<f a="value:length">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Get the value in decimal form.</haxe_doc>
+		</toDecimalSigned>
+		<toBaseString public="1" set="method" line="751" static="1">
+			<f a="value:length:radix">
+				<x path="haxe.ds.Vector"><x path="haxe.Int32"/></x>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Converts a signed multi-word integer to a string in the specified base.
+		@param value The source vector.
+		@param length The number of words.
+		@param radix The base for the conversion.
+		@return The string representation.</haxe_doc>
+		</toBaseString>
+		<toDecimalUnsigned public="1" set="method" line="769" static="1">
+			<f a="value:length">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Get the value in decimal form.</haxe_doc>
+		</toDecimalUnsigned>
+		<copy public="1" set="method" line="782" static="1">
+			<f a="dest:source:length">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Copies words from one vector to another.
+		@param dest The destination vector.
+		@param source The source vector.
+		@param length The number of words to copy.</haxe_doc>
+		</copy>
+		<getBitSigned public="1" set="method" line="796" static="1">
+			<f a="value:length:index">
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Gets the value of a single bit from a signed multi-word integer.
+		@param value The source vector.
+		@param length The number of words.
+		@param index The index of the bit to get.
+		@return 1 if the bit is set, 0 otherwise.</haxe_doc>
+		</getBitSigned>
+		<_lsl32 set="method" line="809" static="1"><f a="output:outputOffset:input:inputSize:shift">
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="Int"/>
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></_lsl32>
+		<_lsl32x set="method" line="825" static="1"><f a="output:outputOffset:input:inputSize:shift">
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="Int"/>
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></_lsl32x>
+		<_asr32 set="method" line="841" static="1"><f a="result:input:length:shiftDigits:shiftBits">
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="haxe.Int32"/>
+	<x path="Void"/>
+</f></_asr32>
+		<_lsr32 set="method" line="853" static="1"><f a="output:input:inputSize:inputOffset:shift">
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="haxe.Int32"/>
+	<x path="Void"/>
+</f></_lsr32>
+		<_toDecimal set="method" line="864" static="1">
+			<f a="sb:value:length">
+				<c path="StringBuf"/>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</_toDecimal>
+		<_toBase set="method" line="870" static="1">
+			<f a="sb:value:length:radix">
+				<c path="StringBuf"/>
+				<x path="haxe.ds.Vector"><x path="haxe.Int32"/></x>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</_toBase>
+		<getShort get="inline" set="null" line="893" static="1"><f a="v:n">
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></getShort>
+		<setShort get="inline" set="null" line="897" static="1"><f a="a:n:v">
+	<x path="haxe.ds.Vector"><x path="Int"/></x>
+	<x path="Int"/>
+	<x path="haxe.Int32"/>
+	<x path="Void"/>
+</f></setShort>
+		<haxe_doc><![CDATA[A collection of static, low-level arithmetic functions that operate directly on
+	`Vector<Int>` representations of large numbers.]]></haxe_doc>
+		<meta><m n=":allow"><e>haxe.math.bigint</e></m></meta>
+	</class>
+	<abstract path="haxe.math.bigint.MutableBigInt" params="" file="/home/runner/work/haxe/haxe/std/haxe/math/bigint/MutableBigInt.hx">
+		<from/>
+		<this><c path="haxe.math.bigint.MutableBigInt_"/></this>
+		<to/>
+		<haxe_doc>A mutable arbitrary-precision integer.
+	
+	This abstract type provides in-place modification of a `BigInt`'s value,
+	which can be more efficient for operations that involve many intermediate steps,
+	as it avoids repeated memory allocation.</haxe_doc>
+		<meta><m n=":allow"><e>haxe.math.bigint</e></m></meta>
+		<impl><class path="haxe.math.bigint._MutableBigInt.MutableBigInt_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/math/bigint/MutableBigInt.hx" private="1" module="haxe.math.bigint.MutableBigInt" final="1">
+	<sign public="1" get="inline" set="null" line="45" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Returns the sign of this `MutableBigInt`.
+		@return -1 if negative, 1 if positive, 0 if zero.</haxe_doc>
+	</sign>
+	<isZero public="1" get="inline" set="null" line="53" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="Bool"/>
+		</f>
+		<haxe_doc>Checks if this `MutableBigInt` is equal to zero.
+		@return `true` if the value is 0, otherwise `false`.</haxe_doc>
+	</isZero>
+	<isNegative public="1" get="inline" set="null" line="61" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="Bool"/>
+		</f>
+		<haxe_doc>Checks if this `MutableBigInt` is a negative number.
+		@return `true` if the value is less than 0, otherwise `false`.</haxe_doc>
+	</isNegative>
+	<toString public="1" get="inline" set="null" line="70" static="1">
+		<f a="this:?radix" v=":10">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="Int"/>
+			<c path="String"/>
+		</f>
+		<meta><m n=":value"><e>{ radix : 10 }</e></m></meta>
+		<haxe_doc>Returns the string representation of this `MutableBigInt` in the specified base.
+		@param radix The base for the conversion (e.g., 10 for decimal).
+		@return The string representation of the number.</haxe_doc>
+	</toString>
+	<toHex public="1" get="inline" set="null" line="78" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<c path="String"/>
+		</f>
+		<haxe_doc>Returns the hexadecimal string representation of this `MutableBigInt`.
+		@return The hexadecimal string.</haxe_doc>
+	</toHex>
+	<toBytes public="1" get="inline" set="null" line="86" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<c path="haxe.io.Bytes"/>
+		</f>
+		<haxe_doc>Converts this `MutableBigInt` to a `Bytes` sequence.
+		@return A `Bytes` object representing the number.</haxe_doc>
+	</toBytes>
+	<toInts public="1" get="inline" set="null" line="95" static="1">
+		<f a="this:output">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="haxe.ds.Vector"><x path="Int"/></x>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Converts this `MutableBigInt` to a `Vector` of `Int`s.
+		@param output The vector to write the integer words into.
+		@return The number of words written.</haxe_doc>
+	</toInts>
+	<setFromInt public="1" get="inline" set="null" line="103" static="1">
+		<f a="this:value">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="Int"/>
+			<x path="Void"/>
+		</f>
+		<haxe_doc>Sets the value of this `MutableBigInt` from a standard `Int`.
+		@param value The new integer value.</haxe_doc>
+	</setFromInt>
+	<setFromUnsignedInts public="1" get="inline" set="null" line="113" static="1">
+		<f a="this:value:?length" v="::0">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="haxe.ds.Vector"><x path="Int"/></x>
+			<x path="Int"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":value"><e>{ length : 0 }</e></m></meta>
+		<haxe_doc>Sets the value from a `Vector` of unsigned `Int` words.
+		@param value The vector of integer words.
+		@param length The number of words to use. If 0, uses the whole vector.</haxe_doc>
+	</setFromUnsignedInts>
+	<setFromVector public="1" get="inline" set="null" line="125" static="1">
+		<f a="this:source:sourcePosition:length">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="haxe.ds.Vector"><x path="haxe.Int32"/></x>
+			<x path="Int"/>
+			<x path="Int"/>
+			<x path="Void"/>
+		</f>
+		<haxe_doc>Sets the value from a portion of another `Vector` of `Int`s.
+		@param source The source vector.
+		@param sourcePosition The starting position in the source vector.
+		@param length The number of words to copy.</haxe_doc>
+	</setFromVector>
+	<setFromBigEndianBytesUnsigned public="1" get="inline" set="null" line="136" static="1">
+		<f a="this:value:?offset:?length" v="::0:0">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<c path="haxe.io.Bytes"/>
+			<x path="Int"/>
+			<x path="Int"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":value"><e>{ length : 0, offset : 0 }</e></m></meta>
+		<haxe_doc>Sets the value from a `Bytes` sequence, interpreted as unsigned big-endian.
+		@param value The source `Bytes`.
+		@param offset The starting offset.
+		@param length The number of bytes to read.</haxe_doc>
+	</setFromBigEndianBytesUnsigned>
+	<setFromLittleEndianBytesUnsigned public="1" get="inline" set="null" line="147" static="1">
+		<f a="this:value:?offset:?length" v="::0:0">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<c path="haxe.io.Bytes"/>
+			<x path="Int"/>
+			<x path="Int"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":value"><e>{ length : 0, offset : 0 }</e></m></meta>
+		<haxe_doc>Sets the value from a `Bytes` sequence, interpreted as unsigned little-endian.
+		@param value The source `Bytes`.
+		@param offset The starting offset.
+		@param length The number of bytes to read.</haxe_doc>
+	</setFromLittleEndianBytesUnsigned>
+	<clear public="1" get="inline" set="null" line="155" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="Void"/>
+		</f>
+		<haxe_doc>Resets the value of this `MutableBigInt` to zero.</haxe_doc>
+	</clear>
+	<copyFrom public="1" get="inline" set="null" line="164" static="1">
+		<f a="this:other">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="haxe.math.bigint.BigInt"/>
+			<x path="Void"/>
+		</f>
+		<haxe_doc>Copies the value from another `BigInt` into this one.
+		@param other The `BigInt` to copy from.</haxe_doc>
+	</copyFrom>
+	<getBit public="1" get="inline" set="null" line="174" static="1">
+		<f a="this:index">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Gets the value of a single bit at the specified index.
+		@param index The index of the bit to get.
+		@return 1 if the bit is set, 0 otherwise.</haxe_doc>
+	</getBit>
+	<fromBigEndianBytesUnsigned public="1" set="method" line="183" static="1">
+		<f a="value">
+			<c path="haxe.io.Bytes"/>
+			<x path="haxe.math.bigint.MutableBigInt"/>
+		</f>
+		<haxe_doc>Creates a `MutableBigInt` from unsigned, big-endian bytes.
+		@param value The `Bytes` to convert.
+		@return A new `MutableBigInt` instance.</haxe_doc>
+	</fromBigEndianBytesUnsigned>
+	<fromLittleEndianBytesUnsigned public="1" set="method" line="194" static="1">
+		<f a="value">
+			<c path="haxe.io.Bytes"/>
+			<x path="haxe.math.bigint.MutableBigInt"/>
+		</f>
+		<haxe_doc>Creates a `MutableBigInt` from unsigned, little-endian bytes.
+		@param value The `Bytes` to convert.
+		@return A new `MutableBigInt` instance.</haxe_doc>
+	</fromLittleEndianBytesUnsigned>
+	<abs public="1" set="method" line="204" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="haxe.math.bigint.MutableBigInt"/>
+		</f>
+		<haxe_doc>Converts this number to its absolute value, in place.
+		@return This `MutableBigInt` instance.</haxe_doc>
+	</abs>
+	<gcd public="1" set="method" line="213" static="1">
+		<f a="this:b">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="haxe.math.bigint.BigInt"/>
+			<x path="haxe.math.bigint.MutableBigInt"/>
+		</f>
+		<haxe_doc>Calculates the GCD of this and another `BigInt`.
+		@param b The other `BigInt`.
+		@return A new `MutableBigInt` holding the result.</haxe_doc>
+	</gcd>
+	<pow public="1" set="method" line="222" static="1">
+		<f a="this:exponent">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="UInt"/>
+			<x path="haxe.math.bigint.MutableBigInt"/>
+		</f>
+		<haxe_doc>Raises this number to the power of `exponent`.
+		@param exponent The non-negative exponent.
+		@return A new `MutableBigInt` holding the result.</haxe_doc>
+	</pow>
+	<modPow public="1" set="method" line="232" static="1">
+		<f a="this:exponent:modulus">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="haxe.math.bigint.BigInt"/>
+			<x path="haxe.math.bigint.BigInt"/>
+			<x path="haxe.math.bigint.MutableBigInt"/>
+		</f>
+		<haxe_doc>Calculates `(this ^ exponent) mod modulus`.
+		@param exponent The exponent.
+		@param modulus The modulus.
+		@return A new `MutableBigInt` holding the result.</haxe_doc>
+	</modPow>
+	<isProbablePrime public="1" set="method" line="241" static="1">
+		<f a="this:tolerance">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="UInt"/>
+			<x path="Bool"/>
+		</f>
+		<haxe_doc>Tests if this number is probably prime.
+		@param tolerance Certainty level for the Miller-Rabin test.
+		@return `true` if probably prime.</haxe_doc>
+	</isProbablePrime>
+	<getLowestSetBit public="1" set="method" line="249" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Gets the index of the lowest-set (rightmost) '1' bit.
+		@return The bit index, or -1 if zero.</haxe_doc>
+	</getLowestSetBit>
+	<bitLength public="1" set="method" line="257" static="1">
+		<f a="this">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Returns the number of bits
+		@return The bit length.</haxe_doc>
+	</bitLength>
+	<_hx_new get="inline" set="null" line="548" static="1">
+		<f a="a">
+			<c path="haxe.math.bigint.MutableBigInt_"/>
+			<x path="haxe.math.bigint.MutableBigInt"/>
+		</f>
+		<meta><m n=":noCompletion"/></meta>
+	</_hx_new>
+	<meta><m n=":allow"><e>haxe.math.bigint</e></m></meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.math.bigint._MutableBigInt.MutableBigInt_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/math/bigint/MutableBigInt.hx" private="1" module="haxe.math.bigint.MutableBigInt" final="1">
+		<sign public="1" get="inline" set="null" line="45" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the sign of this `MutableBigInt`.
+		@return -1 if negative, 1 if positive, 0 if zero.</haxe_doc>
+		</sign>
+		<isZero public="1" get="inline" set="null" line="53" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Checks if this `MutableBigInt` is equal to zero.
+		@return `true` if the value is 0, otherwise `false`.</haxe_doc>
+		</isZero>
+		<isNegative public="1" get="inline" set="null" line="61" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Checks if this `MutableBigInt` is a negative number.
+		@return `true` if the value is less than 0, otherwise `false`.</haxe_doc>
+		</isNegative>
+		<toString public="1" get="inline" set="null" line="70" static="1">
+			<f a="this:?radix" v=":10">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":value"><e>{ radix : 10 }</e></m></meta>
+			<haxe_doc>Returns the string representation of this `MutableBigInt` in the specified base.
+		@param radix The base for the conversion (e.g., 10 for decimal).
+		@return The string representation of the number.</haxe_doc>
+		</toString>
+		<toHex public="1" get="inline" set="null" line="78" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns the hexadecimal string representation of this `MutableBigInt`.
+		@return The hexadecimal string.</haxe_doc>
+		</toHex>
+		<toBytes public="1" get="inline" set="null" line="86" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.io.Bytes"/>
+			</f>
+			<haxe_doc>Converts this `MutableBigInt` to a `Bytes` sequence.
+		@return A `Bytes` object representing the number.</haxe_doc>
+		</toBytes>
+		<toInts public="1" get="inline" set="null" line="95" static="1">
+			<f a="this:output">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Converts this `MutableBigInt` to a `Vector` of `Int`s.
+		@param output The vector to write the integer words into.
+		@return The number of words written.</haxe_doc>
+		</toInts>
+		<setFromInt public="1" get="inline" set="null" line="103" static="1">
+			<f a="this:value">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the value of this `MutableBigInt` from a standard `Int`.
+		@param value The new integer value.</haxe_doc>
+		</setFromInt>
+		<setFromUnsignedInts public="1" get="inline" set="null" line="113" static="1">
+			<f a="this:value:?length" v="::0">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="haxe.ds.Vector"><x path="Int"/></x>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ length : 0 }</e></m></meta>
+			<haxe_doc>Sets the value from a `Vector` of unsigned `Int` words.
+		@param value The vector of integer words.
+		@param length The number of words to use. If 0, uses the whole vector.</haxe_doc>
+		</setFromUnsignedInts>
+		<setFromVector public="1" get="inline" set="null" line="125" static="1">
+			<f a="this:source:sourcePosition:length">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="haxe.ds.Vector"><x path="haxe.Int32"/></x>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the value from a portion of another `Vector` of `Int`s.
+		@param source The source vector.
+		@param sourcePosition The starting position in the source vector.
+		@param length The number of words to copy.</haxe_doc>
+		</setFromVector>
+		<setFromBigEndianBytesUnsigned public="1" get="inline" set="null" line="136" static="1">
+			<f a="this:value:?offset:?length" v="::0:0">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.io.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ length : 0, offset : 0 }</e></m></meta>
+			<haxe_doc>Sets the value from a `Bytes` sequence, interpreted as unsigned big-endian.
+		@param value The source `Bytes`.
+		@param offset The starting offset.
+		@param length The number of bytes to read.</haxe_doc>
+		</setFromBigEndianBytesUnsigned>
+		<setFromLittleEndianBytesUnsigned public="1" get="inline" set="null" line="147" static="1">
+			<f a="this:value:?offset:?length" v="::0:0">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.io.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ length : 0, offset : 0 }</e></m></meta>
+			<haxe_doc>Sets the value from a `Bytes` sequence, interpreted as unsigned little-endian.
+		@param value The source `Bytes`.
+		@param offset The starting offset.
+		@param length The number of bytes to read.</haxe_doc>
+		</setFromLittleEndianBytesUnsigned>
+		<clear public="1" get="inline" set="null" line="155" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Resets the value of this `MutableBigInt` to zero.</haxe_doc>
+		</clear>
+		<copyFrom public="1" get="inline" set="null" line="164" static="1">
+			<f a="this:other">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="haxe.math.bigint.BigInt"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Copies the value from another `BigInt` into this one.
+		@param other The `BigInt` to copy from.</haxe_doc>
+		</copyFrom>
+		<getBit public="1" get="inline" set="null" line="174" static="1">
+			<f a="this:index">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Gets the value of a single bit at the specified index.
+		@param index The index of the bit to get.
+		@return 1 if the bit is set, 0 otherwise.</haxe_doc>
+		</getBit>
+		<fromBigEndianBytesUnsigned public="1" set="method" line="183" static="1">
+			<f a="value">
+				<c path="haxe.io.Bytes"/>
+				<x path="haxe.math.bigint.MutableBigInt"/>
+			</f>
+			<haxe_doc>Creates a `MutableBigInt` from unsigned, big-endian bytes.
+		@param value The `Bytes` to convert.
+		@return A new `MutableBigInt` instance.</haxe_doc>
+		</fromBigEndianBytesUnsigned>
+		<fromLittleEndianBytesUnsigned public="1" set="method" line="194" static="1">
+			<f a="value">
+				<c path="haxe.io.Bytes"/>
+				<x path="haxe.math.bigint.MutableBigInt"/>
+			</f>
+			<haxe_doc>Creates a `MutableBigInt` from unsigned, little-endian bytes.
+		@param value The `Bytes` to convert.
+		@return A new `MutableBigInt` instance.</haxe_doc>
+		</fromLittleEndianBytesUnsigned>
+		<abs public="1" set="method" line="204" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="haxe.math.bigint.MutableBigInt"/>
+			</f>
+			<haxe_doc>Converts this number to its absolute value, in place.
+		@return This `MutableBigInt` instance.</haxe_doc>
+		</abs>
+		<gcd public="1" set="method" line="213" static="1">
+			<f a="this:b">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="haxe.math.bigint.BigInt"/>
+				<x path="haxe.math.bigint.MutableBigInt"/>
+			</f>
+			<haxe_doc>Calculates the GCD of this and another `BigInt`.
+		@param b The other `BigInt`.
+		@return A new `MutableBigInt` holding the result.</haxe_doc>
+		</gcd>
+		<pow public="1" set="method" line="222" static="1">
+			<f a="this:exponent">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="UInt"/>
+				<x path="haxe.math.bigint.MutableBigInt"/>
+			</f>
+			<haxe_doc>Raises this number to the power of `exponent`.
+		@param exponent The non-negative exponent.
+		@return A new `MutableBigInt` holding the result.</haxe_doc>
+		</pow>
+		<modPow public="1" set="method" line="232" static="1">
+			<f a="this:exponent:modulus">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="haxe.math.bigint.BigInt"/>
+				<x path="haxe.math.bigint.BigInt"/>
+				<x path="haxe.math.bigint.MutableBigInt"/>
+			</f>
+			<haxe_doc>Calculates `(this ^ exponent) mod modulus`.
+		@param exponent The exponent.
+		@param modulus The modulus.
+		@return A new `MutableBigInt` holding the result.</haxe_doc>
+		</modPow>
+		<isProbablePrime public="1" set="method" line="241" static="1">
+			<f a="this:tolerance">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="UInt"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Tests if this number is probably prime.
+		@param tolerance Certainty level for the Miller-Rabin test.
+		@return `true` if probably prime.</haxe_doc>
+		</isProbablePrime>
+		<getLowestSetBit public="1" set="method" line="249" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Gets the index of the lowest-set (rightmost) '1' bit.
+		@return The bit index, or -1 if zero.</haxe_doc>
+		</getLowestSetBit>
+		<bitLength public="1" set="method" line="257" static="1">
+			<f a="this">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the number of bits
+		@return The bit length.</haxe_doc>
+		</bitLength>
+		<_hx_new get="inline" set="null" line="548" static="1">
+			<f a="a">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<x path="haxe.math.bigint.MutableBigInt"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</_hx_new>
+		<meta><m n=":allow"><e>haxe.math.bigint</e></m></meta>
 	</class>
 	<typedef path="haxe.rtti.Path" params="" file="/home/runner/work/haxe/haxe/std/haxe/rtti/CType.hx" module="haxe.rtti.CType">
 		<c path="String"/>
