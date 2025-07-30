@@ -31475,8 +31475,8 @@
 			<c path="String"/>
 			<x path="haxe.math.bigint.BigInt"/>
 		</f>
-		<haxe_doc>Creates a `BigInt` from a hexadecimal string. Assumes signed representation.
-		This is a shorthand for `fromHexSigned(value)`.
+		<haxe_doc>Creates a `BigInt` from a hexadecimal string. Assumes unsigned representation.
+		This is a shorthand for `fromHexUnsigned(value)`.
 		@param value The hexadecimal string.
 		@return A new `BigInt` instance.</haxe_doc>
 	</fromHex>
@@ -31905,8 +31905,8 @@
 				<c path="String"/>
 				<x path="haxe.math.bigint.BigInt"/>
 			</f>
-			<haxe_doc>Creates a `BigInt` from a hexadecimal string. Assumes signed representation.
-		This is a shorthand for `fromHexSigned(value)`.
+			<haxe_doc>Creates a `BigInt` from a hexadecimal string. Assumes unsigned representation.
+		This is a shorthand for `fromHexUnsigned(value)`.
 		@param value The hexadecimal string.
 		@return A new `BigInt` instance.</haxe_doc>
 		</fromHex>
@@ -32276,7 +32276,7 @@
 		or `operand2`; however, `operand1` and `operand2` may be the
 		same object.</haxe_doc>
 		</multiplyInt>
-		<multiply public="1" set="method" line="336" static="1">
+		<multiplyTraditional set="method" line="336" static="1">
 			<f a="result:operand1:operand2">
 				<c path="haxe.math.bigint.MutableBigInt_"/>
 				<c path="haxe.math.bigint.BigInt_"/>
@@ -32289,8 +32289,8 @@
 		`result` may not refer the same object as either `operand1`
 		or `operand2`; however, `operand1` and `operand2` may be the
 		same object.</haxe_doc>
-		</multiply>
-		<divideInt public="1" set="method" line="415" static="1">
+		</multiplyTraditional>
+		<divideInt public="1" set="method" line="410" static="1">
 			<f a="dividend:divisor:quotientOut:?work" v=":::null">
 				<c path="haxe.math.bigint.BigInt_"/>
 				<x path="Int"/>
@@ -32307,7 +32307,7 @@
 
 		`work`, if supplied, must not refer to any of the inputs.</haxe_doc>
 		</divideInt>
-		<divide public="1" set="method" line="439" static="1">
+		<divide public="1" set="method" line="434" static="1">
 			<f a="dividend:divisor:quotientOut:remainderOut:?work" v="::::null">
 				<c path="haxe.math.bigint.BigInt_"/>
 				<c path="haxe.math.bigint.BigInt_"/>
@@ -32331,7 +32331,7 @@
 
 		`work`, if supplied, must not refer to any of the inputs.</haxe_doc>
 		</divide>
-		<multiwordUnsignedDivide set="method" line="481" static="1">
+		<multiwordUnsignedDivide set="method" line="486" static="1">
 			<f a="dividend:divisor:quotientOut:remainderOut:?work" v="::::null">
 				<c path="haxe.math.bigint.BigInt_"/>
 				<c path="haxe.math.bigint.BigInt_"/>
@@ -32342,7 +32342,7 @@
 			</f>
 			<meta><m n=":value"><e>{ work : null }</e></m></meta>
 		</multiwordUnsignedDivide>
-		<arithmeticShiftLeft public="1" set="method" line="533" static="1">
+		<arithmeticShiftLeft public="1" set="method" line="538" static="1">
 			<f a="result:operand1:operand2">
 				<c path="haxe.math.bigint.MutableBigInt_"/>
 				<c path="haxe.math.bigint.BigInt_"/>
@@ -32354,7 +32354,7 @@
 
 		Ok for `result` and `operand1` to be the same object.</haxe_doc>
 		</arithmeticShiftLeft>
-		<arithmeticShiftRight public="1" set="method" line="568" static="1">
+		<arithmeticShiftRight public="1" set="method" line="573" static="1">
 			<f a="result:operand1:operand2">
 				<c path="haxe.math.bigint.MutableBigInt_"/>
 				<c path="haxe.math.bigint.BigInt_"/>
@@ -32366,7 +32366,7 @@
 
 		Ok for `result` and `operand1` to be the same object.</haxe_doc>
 		</arithmeticShiftRight>
-		<getBit public="1" get="inline" set="null" line="600" static="1">
+		<getBit public="1" get="inline" set="null" line="605" static="1">
 			<f a="value:index">
 				<c path="haxe.math.bigint.BigInt_"/>
 				<x path="Int"/>
@@ -32374,7 +32374,7 @@
 			</f>
 			<haxe_doc>Returns the value, 0 or 1, of the bit at 2^`index` place.</haxe_doc>
 		</getBit>
-		<bitwiseAndInt public="1" get="inline" set="null" line="607" static="1">
+		<bitwiseAndInt public="1" get="inline" set="null" line="612" static="1">
 			<f a="operand1:operand2">
 				<c path="haxe.math.bigint.BigInt_"/>
 				<x path="Int"/>
@@ -32382,7 +32382,7 @@
 			</f>
 			<haxe_doc>Returns the bitwise AND of `operand1` with `operand2`.</haxe_doc>
 		</bitwiseAndInt>
-		<bitwiseAnd public="1" get="inline" set="null" line="615" static="1">
+		<bitwiseAnd public="1" get="inline" set="null" line="620" static="1">
 			<f a="operand1:operand2">
 				<c path="haxe.math.bigint.BigInt_"/>
 				<c path="haxe.math.bigint.BigInt_"/>
@@ -32391,7 +32391,7 @@
 			<haxe_doc>Returns the bitwise AND of two big integers.
 		@return A new `BigInt_` holding the result.</haxe_doc>
 		</bitwiseAnd>
-		<bitwiseOr public="1" get="inline" set="null" line="639" static="1">
+		<bitwiseOr public="1" get="inline" set="null" line="644" static="1">
 			<f a="operand1:operand2">
 				<c path="haxe.math.bigint.BigInt_"/>
 				<c path="haxe.math.bigint.BigInt_"/>
@@ -32399,7 +32399,7 @@
 			</f>
 			<haxe_doc>Returns the bitwise OR of `operand1` with `operand2`.</haxe_doc>
 		</bitwiseOr>
-		<bitwiseXor public="1" get="inline" set="null" line="662" static="1">
+		<bitwiseXor public="1" get="inline" set="null" line="667" static="1">
 			<f a="operand1:operand2">
 				<c path="haxe.math.bigint.BigInt_"/>
 				<c path="haxe.math.bigint.BigInt_"/>
@@ -32408,7 +32408,7 @@
 			<haxe_doc>Returns the bitwise XOR of two big integers.
 		@return A new `BigInt_` holding the result.</haxe_doc>
 		</bitwiseXor>
-		<bitwiseNot public="1" get="inline" set="null" line="685" static="1">
+		<bitwiseNot public="1" get="inline" set="null" line="690" static="1">
 			<f a="operand">
 				<c path="haxe.math.bigint.BigInt_"/>
 				<c path="haxe.math.bigint.BigInt_"/>
@@ -32416,7 +32416,7 @@
 			<haxe_doc>Returns the bitwise NOT (inversion) of a big integer.
 		@return A new `BigInt_` holding the result.</haxe_doc>
 		</bitwiseNot>
-		<floorLog2 public="1" set="method" line="700" static="1">
+		<floorLog2 public="1" set="method" line="705" static="1">
 			<f a="input">
 				<c path="haxe.math.bigint.BigInt_"/>
 				<x path="Int"/>
@@ -32425,19 +32425,7 @@
 		@param input The `BigInt_` operand.
 		@return The integer base-2 logarithm.</haxe_doc>
 		</floorLog2>
-		<multiplyKaratsuba public="1" set="method" line="710" static="1">
-			<f a="result:x:y">
-				<c path="haxe.math.bigint.MutableBigInt_"/>
-				<c path="haxe.math.bigint.BigInt_"/>
-				<c path="haxe.math.bigint.BigInt_"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Multiply two big integers using the Karatsuba algorithm for performance.
-		@param result The `MutableBigInt_` to store the product.
-		@param x The first operand.
-		@param y The second operand.</haxe_doc>
-		</multiplyKaratsuba>
-		<asl32 get="inline" set="null" line="750" static="1"><f a="output:outputOffset:input:inputSize:shift">
+		<asl32 get="inline" set="null" line="714" static="1"><f a="output:outputOffset:input:inputSize:shift">
 	<x path="haxe.ds.Vector"><x path="Int"/></x>
 	<x path="Int"/>
 	<x path="haxe.ds.Vector"><x path="Int"/></x>
@@ -32445,7 +32433,7 @@
 	<x path="haxe.Int32"/>
 	<x path="Void"/>
 </f></asl32>
-		<lsl32 get="inline" set="null" line="766" static="1"><f a="output:outputOffset:input:inputSize:shift">
+		<lsl32 get="inline" set="null" line="730" static="1"><f a="output:outputOffset:input:inputSize:shift">
 	<x path="haxe.ds.Vector"><x path="Int"/></x>
 	<x path="Int"/>
 	<x path="haxe.ds.Vector"><x path="Int"/></x>
@@ -32453,7 +32441,7 @@
 	<x path="haxe.Int32"/>
 	<x path="Void"/>
 </f></lsl32>
-		<lsr32 get="inline" set="null" line="782" static="1"><f a="output:input:inputSize:inputOffset:shift">
+		<lsr32 get="inline" set="null" line="746" static="1"><f a="output:input:inputSize:inputOffset:shift">
 	<x path="haxe.ds.Vector"><x path="Int"/></x>
 	<x path="haxe.ds.Vector"><x path="Int"/></x>
 	<x path="Int"/>
@@ -32461,7 +32449,7 @@
 	<x path="haxe.Int32"/>
 	<x path="Void"/>
 </f></lsr32>
-		<copy get="inline" set="null" line="792" static="1"><f a="output:outputOffset:input:inputOffset:length">
+		<copy get="inline" set="null" line="756" static="1"><f a="output:outputOffset:input:inputOffset:length">
 	<x path="haxe.ds.Vector"><x path="Int"/></x>
 	<x path="Int"/>
 	<x path="haxe.ds.Vector"><x path="Int"/></x>
@@ -32469,6 +32457,40 @@
 	<x path="Int"/>
 	<x path="Void"/>
 </f></copy>
+		<nextPowerOfTwo set="method" line="762" static="1"><f a="value">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></nextPowerOfTwo>
+		<splitAtPowerOfTwo set="method" line="774" static="1"><f a="value:splitBits:high:low">
+	<c path="haxe.math.bigint.BigInt_"/>
+	<x path="Int"/>
+	<c path="haxe.math.bigint.MutableBigInt_"/>
+	<c path="haxe.math.bigint.MutableBigInt_"/>
+	<x path="Void"/>
+</f></splitAtPowerOfTwo>
+		<multiply public="1" set="method" line="818" static="1"><f a="result:operand1:operand2">
+	<c path="haxe.math.bigint.MutableBigInt_"/>
+	<c path="haxe.math.bigint.BigInt_"/>
+	<c path="haxe.math.bigint.BigInt_"/>
+	<x path="Void"/>
+</f></multiply>
+		<multiplyKaratsuba set="method" line="845" static="1"><f a="result:x:y:splitBits">
+	<c path="haxe.math.bigint.MutableBigInt_"/>
+	<c path="haxe.math.bigint.BigInt_"/>
+	<c path="haxe.math.bigint.BigInt_"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></multiplyKaratsuba>
+		<square public="1" set="method" line="898" static="1">
+			<f a="result:operand">
+				<c path="haxe.math.bigint.MutableBigInt_"/>
+				<c path="haxe.math.bigint.BigInt_"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Squaring operation using power-of-two splitting.
+		@param result The output BigInt for the square
+		@param operand The operand to square</haxe_doc>
+		</square>
 		<haxe_doc>A collection of static helper functions for performing arithmetic
 	on `BigInt_` objects.</haxe_doc>
 	</class>
