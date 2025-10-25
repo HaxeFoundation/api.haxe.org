@@ -5227,60 +5227,13 @@
 		The order of values is undefined.</haxe_doc>
 		</keyValueIterator>
 	</class>
-	<class path="haxe._EntryPoint.Lock" params="" file="/home/runner/work/haxe/haxe/std/haxe/EntryPoint.hx" private="1" module="haxe.EntryPoint">
-		<release public="1" get="inline" set="null" line="11"><f a=""><x path="Void"/></f></release>
-		<wait public="1" get="inline" set="null" line="13"><f a="?t">
-	<x path="Float"/>
-	<x path="Void"/>
-</f></wait>
-		<new public="1" set="method" line="9"><f a=""><x path="Void"/></f></new>
-	</class>
-	<class path="haxe._EntryPoint.Mutex" params="" file="/home/runner/work/haxe/haxe/std/haxe/EntryPoint.hx" private="1" module="haxe.EntryPoint">
-		<acquire public="1" get="inline" set="null" line="19"><f a=""><x path="Void"/></f></acquire>
-		<release public="1" get="inline" set="null" line="21"><f a=""><x path="Void"/></f></release>
-		<new public="1" set="method" line="17"><f a=""><x path="Void"/></f></new>
-	</class>
-	<class path="haxe._EntryPoint.Thread" params="" file="/home/runner/work/haxe/haxe/std/haxe/EntryPoint.hx" private="1" module="haxe.EntryPoint"><create public="1" set="method" line="25" static="1"><f a="f">
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></create></class>
 	<class path="haxe.EntryPoint" params="" file="/home/runner/work/haxe/haxe/std/haxe/EntryPoint.hx">
-		<mutex expr="new Mutex()" line="37" static="1">
-			<c path="haxe._EntryPoint.Mutex"/>
-			<meta><m n=":value"><e>new Mutex()</e></m></meta>
-		</mutex>
-		<sleepLock expr="new Lock()" line="41" static="1">
-			<c path="haxe._EntryPoint.Lock"/>
-			<meta><m n=":value"><e>new Lock()</e></m></meta>
-		</sleepLock>
-		<pending expr="new Array&lt;Void&gt;()" line="44" static="1">
-			<c path="Array"><f a=""><x path="Void"/></f></c>
-			<meta><m n=":value"><e><![CDATA[new Array<Void>()]]></e></m></meta>
-		</pending>
-		<threadCount public="1" set="null" expr="0" line="45" static="1">
-			<x path="Int"/>
-			<meta><m n=":value"><e>0</e></m></meta>
-		</threadCount>
-		<wakeup public="1" set="method" line="50" static="1">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Wakeup a sleeping `run()`</haxe_doc>
-		</wakeup>
-		<runInMainThread public="1" set="method" line="56" static="1"><f a="f">
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></runInMainThread>
-		<addThread public="1" set="method" line="71" static="1"><f a="f">
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></addThread>
-		<processEvents set="method" line="99" static="1"><f a=""><x path="Float"/></f></processEvents>
-		<run public="1" set="method" line="126" static="1">
+		<run public="1" set="method" line="9" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":has_untyped"/>
 				<m n=":keep"/>
 			</meta>
-			<haxe_doc>Start the main loop. Depending on the platform, this can return immediately or will only return when the application exits.</haxe_doc>
 		</run>
 		<haxe_doc>If `haxe.MainLoop` is kept from DCE, then we will insert an `haxe.EntryPoint.run()` call just at then end of `main()`.
 	This class can be redefined by custom frameworks so they can handle their own main loop logic.</haxe_doc>
@@ -5693,6 +5646,162 @@
 
 	If the first argument to any of the methods is `null`, the result is
 	unspecified.</haxe_doc>
+	</class>
+	<class path="haxe.Event" params="" file="/home/runner/work/haxe/haxe/std/haxe/EventLoop.hx" module="haxe.EventLoop">
+		<prev><c path="haxe.Event"/></prev>
+		<next><c path="haxe.Event"/></next>
+		<events><c path="haxe.EventLoop"/></events>
+		<callb><f a=""><x path="Void"/></f></callb>
+		<priority public="1">
+			<x path="Int"/>
+			<haxe_doc>The event priority. Events will be executed in order of priority (highest first).</haxe_doc>
+		</priority>
+		<isBlocking public="1" expr="true">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>true</e></m></meta>
+			<haxe_doc>Tells if an event is blocking. It means the event loop won't return from `loop()` until this event has been stopped.</haxe_doc>
+		</isBlocking>
+		<toRemove><x path="Bool"/></toRemove>
+		<nextRun expr="Math.NEGATIVE_INFINITY">
+			<x path="Float"/>
+			<meta><m n=":value"><e>Math.NEGATIVE_INFINITY</e></m></meta>
+		</nextRun>
+		<delay public="1" set="method" line="32">
+			<f a="t:?fromLastRun" v=":false">
+				<x path="Null"><x path="Float"/></x>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ fromLastRun : false }</e></m></meta>
+			<haxe_doc>Delay the execution of the event for the given time, in seconds.
+		If t is null, the event will be run at next event loop.</haxe_doc>
+		</delay>
+		<stop public="1" set="method" line="39">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Stop this event from repeating.</haxe_doc>
+		</stop>
+		<new set="method" line="22"><f a="events:callb:p">
+	<c path="haxe.EventLoop"/>
+	<f a=""><x path="Void"/></f>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></new>
+	</class>
+	<class path="haxe.EventLoop" params="" file="/home/runner/work/haxe/haxe/std/haxe/EventLoop.hx">
+		<main public="1" get="accessor" set="null" static="1">
+			<c path="haxe.EventLoop"/>
+			<haxe_doc>This is the main thread event loop.</haxe_doc>
+		</main>
+		<current public="1" get="accessor" set="null" static="1">
+			<c path="haxe.EventLoop"/>
+			<haxe_doc>This is the current thread event loop. For platforms that doesn't support threads
+		it is the same as `main`.</haxe_doc>
+		</current>
+		<hasRunningThreads public="1" set="method" line="314" static="1">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>Tells if we currently have blocking unfinished threads.</haxe_doc>
+		</hasRunningThreads>
+		<addTask public="1" set="method" line="346" static="1">
+			<f a="f:?blocking" v=":true">
+				<f a=""><x path="Void"/></f>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ blocking : true }</e></m></meta>
+			<haxe_doc>Add a task to be run either on another thread or as part of the main event loop if the
+		platform does not support threads.</haxe_doc>
+		</addTask>
+		<get_current set="method" line="354" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_current>
+		<get_main set="method" line="364" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_main>
+		<events><c path="haxe.Event"/></events>
+		<inLoop><x path="Bool"/></inLoop>
+		<hasPendingRemove><x path="Bool"/></hasPendingRemove>
+		<loop public="1" set="method" line="82">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Runs until all the blocking events have been stopped.
+		If this is called on the main thread, also wait for all blocking threads to finish.</haxe_doc>
+		</loop>
+		<wakeup get="inline" set="null" line="93"><f a=""><x path="Void"/></f></wakeup>
+		<wait get="inline" set="null" line="99"><f a="time">
+	<x path="Float"/>
+	<x path="Void"/>
+</f></wait>
+		<lock get="inline" set="null" line="107"><f a=""><x path="Void"/></f></lock>
+		<unlock get="inline" set="null" line="113"><f a=""><x path="Void"/></f></unlock>
+		<loopOnce public="1" set="method" line="122">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Perform an update of pending events.</haxe_doc>
+		</loopOnce>
+		<add public="1" set="method" line="155">
+			<f a="callb:?priority" v=":0">
+				<f a=""><x path="Void"/></f>
+				<x path="Int"/>
+				<c path="haxe.Event"/>
+			</f>
+			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
+			<haxe_doc>Add a callback to be run at each loop of the event loop.</haxe_doc>
+		</add>
+		<addTimer public="1" set="method" line="170">
+			<f a="callb:delay:?priority" v="::0">
+				<f a=""><x path="Void"/></f>
+				<x path="Float"/>
+				<x path="Int"/>
+				<c path="haxe.Event"/>
+			</f>
+			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
+			<haxe_doc>Add a callback to be run every `delay` seconds until stopped</haxe_doc>
+		</addTimer>
+		<repeat public="1" set="method" line="184">
+			<f a="callb:delay">
+				<f a=""><x path="Void"/></f>
+				<x path="Int"/>
+				<c path="haxe.Event"/>
+			</f>
+			<meta>
+				<m n=":deprecated"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</repeat>
+		<cancel public="1" set="method" line="188">
+			<f a="e">
+				<c path="haxe.Event"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":deprecated"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</cancel>
+		<run public="1" set="method" line="195">
+			<f a="callb:?priority" v=":0">
+				<f a=""><x path="Void"/></f>
+				<x path="Int"/>
+				<c path="haxe.Event"/>
+			</f>
+			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
+			<haxe_doc>Add a function to be run once at next loop of the event loop.</haxe_doc>
+		</run>
+		<remove set="method" line="201"><f a="e">
+	<c path="haxe.Event"/>
+	<x path="Void"/>
+</f></remove>
+		<getNextTick set="method" line="223"><f a=""><x path="Float"/></f></getNextTick>
+		<sortEvents set="method" line="245"><f a=""><x path="Void"/></f></sortEvents>
+		<hasEvents public="1" set="method" line="326">
+			<f a="?blocking" v="true">
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ blocking : true }</e></m></meta>
+			<haxe_doc>Tells if the event loop has remaining events.
+		If blocking is set to true, only check if it has remaining blocking events.</haxe_doc>
+		</hasEvents>
+		<new public="1" set="method" line="71"><f a=""><x path="Void"/></f></new>
+		<haxe_doc>Handles async events for all threads</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":access"><e>haxe.Event</e></m>
+		</meta>
 	</class>
 	<class path="haxe.Exception" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/haxe/Exception.hx">
 		<caught set="method" line="17" static="1"><f a="value">
@@ -8419,70 +8528,17 @@
 		<haxe_doc>Log primarily provides the `trace()` method, which is invoked upon a call to
 	`trace()` in Haxe code.</haxe_doc>
 	</class>
-	<class path="haxe.MainEvent" params="" file="/home/runner/work/haxe/haxe/std/haxe/MainLoop.hx" module="haxe.MainLoop">
-		<f><f a=""><x path="Void"/></f></f>
-		<prev><c path="haxe.MainEvent"/></prev>
-		<next><c path="haxe.MainEvent"/></next>
-		<isBlocking public="1" expr="true">
-			<x path="Bool"/>
-			<meta><m n=":value"><e>true</e></m></meta>
-			<haxe_doc>Tells if the event can lock the process from exiting (default:true)</haxe_doc>
-		</isBlocking>
-		<nextRun public="1" set="null"><x path="Float"/></nextRun>
-		<priority public="1" set="null"><x path="Int"/></priority>
-		<delay public="1" set="method" line="32">
-			<f a="t">
-				<x path="Null"><x path="Float"/></x>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Delay the execution of the event for the given time, in seconds.
-		If t is null, the event will be run at tick() time.</haxe_doc>
-		</delay>
-		<call public="1" get="inline" set="null" line="39">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Call the event. Will do nothing if the event has been stopped.</haxe_doc>
-		</call>
-		<stop public="1" set="method" line="47">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Stop the event from firing anymore.</haxe_doc>
-		</stop>
-		<new set="method" line="22"><f a="f:p">
-	<f a=""><x path="Void"/></f>
-	<x path="Int"/>
-	<x path="Void"/>
-</f></new>
-	</class>
+	<typedef path="haxe.MainEvent" params="" file="/home/runner/work/haxe/haxe/std/haxe/MainLoop.hx" module="haxe.MainLoop"><c path="haxe.Event"/></typedef>
 	<class path="haxe.MainLoop" params="" file="/home/runner/work/haxe/haxe/std/haxe/MainLoop.hx">
-		<pending static="1"><c path="haxe.MainEvent"/></pending>
-		<threadCount public="1" get="accessor" set="null" static="1"><x path="Int"/></threadCount>
-		<get_threadCount get="inline" set="null" line="69" static="1"><f a=""><x path="Int"/></f></get_threadCount>
-		<hasEvents public="1" set="method" line="71" static="1"><f a=""><x path="Bool"/></f></hasEvents>
-		<addThread public="1" set="method" line="81" static="1"><f a="f">
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></addThread>
-		<runInMainThread public="1" set="method" line="85" static="1"><f a="f">
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></runInMainThread>
-		<add public="1" set="method" line="92" static="1">
+		<add public="1" set="method" line="10" static="1">
 			<f a="f:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
-				<c path="haxe.MainEvent"/>
+				<t path="haxe.MainEvent"/>
 			</f>
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
-			<haxe_doc>Add a pending event to be run into the main loop.</haxe_doc>
 		</add>
-		<sortEvents set="method" line="104" static="1"><f a=""><x path="Void"/></f></sortEvents>
-		<tick set="method" line="169" static="1">
-			<f a=""><x path="Float"/></f>
-			<haxe_doc>Run the pending events. Return the time for next event.</haxe_doc>
-		</tick>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":access"><e>haxe.MainEvent</e></m>
-		</meta>
+		<haxe_doc>This class exists for backward compatibility. You should use haxe.EventLoop instead.</haxe_doc>
 	</class>
 	<class path="haxe.NativeStackTrace" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/haxe/NativeStackTrace.hx">
 		<saveStack public="1" get="inline" set="null" line="12" static="1">
@@ -9069,7 +9125,7 @@
 	<https://haxe.org/manual/std-template.html>]]></haxe_doc>
 	</class>
 	<class path="haxe.Timer" params="" file="/home/runner/work/haxe/haxe/std/haxe/Timer.hx">
-		<delay public="1" set="method" line="146" static="1">
+		<delay public="1" set="method" line="129" static="1">
 			<f a="f:time_ms">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -9083,7 +9139,7 @@
 
 		If `f` is `null`, the result is unspecified.</haxe_doc>
 		</delay>
-		<measure public="1" params="T" set="method" line="166" static="1">
+		<measure public="1" params="T" set="method" line="149" static="1">
 			<f a="f:?pos">
 				<f a=""><c path="measure.T"/></f>
 				<t path="haxe.PosInfos"/>
@@ -9099,21 +9155,21 @@
 
 		If `f` is `null`, the result is unspecified.</haxe_doc>
 		</measure>
-		<stamp public="1" get="inline" set="null" line="179" static="1">
+		<stamp public="1" get="inline" set="null" line="162" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Returns a timestamp, in seconds with fractions.
 
 		The value itself might differ depending on platforms, only differences
 		between two values make sense.</haxe_doc>
 		</stamp>
-		<milliseconds public="1" get="inline" set="null" line="205" static="1">
+		<milliseconds public="1" get="inline" set="null" line="188" static="1">
 			<f a=""><x path="haxe.Int64"/></f>
 			<haxe_doc>* Returns a monotonically increasing timestamp with millisecond resolution.
 	 *
 	 * The precision and epoch of the timer is platform defined.</haxe_doc>
 		</milliseconds>
-		<event><c path="haxe.MainEvent"/></event>
-		<stop public="1" set="method" line="101">
+		<event><c path="haxe.Event"/></event>
+		<stop public="1" set="method" line="86">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Stops `this` Timer.
 
@@ -9122,7 +9178,7 @@
 
 		It is not possible to restart `this` Timer once stopped.</haxe_doc>
 		</stop>
-		<run public="1" set="dynamic" line="135">
+		<run public="1" set="dynamic" line="118">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>This method is invoked repeatedly on `this` Timer.
 
@@ -9137,7 +9193,7 @@
 		Once bound, it can still be rebound to different functions until `this`
 		Timer is stopped through a call to `this.stop`.</haxe_doc>
 		</run>
-		<new public="1" set="method" line="71">
+		<new public="1" set="method" line="64">
 			<f a="time_ms">
 				<x path="Int"/>
 				<x path="Void"/>
