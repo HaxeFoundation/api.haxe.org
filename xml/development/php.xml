@@ -11740,6 +11740,7 @@
 	<x path="Int"/>
 	<x path="Int"/>
 </f></clamp>
+	<meta><m n=":directlyUsed"/></meta>
 </class></impl>
 	</abstract>
 	<class path="haxe._Int32.Int32_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int32.hx" private="1" module="haxe.Int32" final="1">
@@ -12458,6 +12459,7 @@
 	<x path="Int"/>
 	<x path="Int"/>
 </f></clamp>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<abstract path="haxe.Int64" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int64.hx">
 		<from>
@@ -12580,7 +12582,7 @@
 		</f>
 		<haxe_doc>Returns a signed decimal `String` representation of `x`.</haxe_doc>
 	</toStr>
-	<toString set="method" line="133" static="1"><f a="this">
+	<toString public="1" set="method" line="133" static="1"><f a="this">
 	<t path="haxe._Int64.__Int64"/>
 	<c path="String"/>
 </f></toString>
@@ -12983,6 +12985,7 @@
 	<x path="Int"/>
 	<x path="Int"/>
 </f></clamp>
+	<meta><m n=":directlyUsed"/></meta>
 </class></impl>
 	</abstract>
 	<class path="haxe._Int64.Int64_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int64.hx" private="1" module="haxe.Int64" final="1">
@@ -13096,7 +13099,7 @@
 			</f>
 			<haxe_doc>Returns a signed decimal `String` representation of `x`.</haxe_doc>
 		</toStr>
-		<toString set="method" line="133" static="1"><f a="this">
+		<toString public="1" set="method" line="133" static="1"><f a="this">
 	<t path="haxe._Int64.__Int64"/>
 	<c path="String"/>
 </f></toString>
@@ -13499,6 +13502,7 @@
 	<x path="Int"/>
 	<x path="Int"/>
 </f></clamp>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<typedef path="haxe._Int64.__Int64" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int64.hx" private="1" module="haxe.Int64">
 		<c path="haxe._Int64.___Int64"/>
@@ -13509,8 +13513,9 @@
 	<class path="haxe._Int64.___Int64" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int64.hx" private="1" module="haxe.Int64">
 		<high public="1"><x path="haxe.Int32"/></high>
 		<low public="1"><x path="haxe.Int32"/></low>
-		<toString public="1" set="method" line="507">
+		<toString public="1" set="method" line="508">
 			<f a=""><c path="String"/></f>
+			<meta><m n=":ifFeature"><e>"dynamic_read.toString"</e></m></meta>
 			<haxe_doc>We also define toString here to ensure we always get a pretty string
 		when tracing or calling `Std.string`. This tends not to happen when
 		`toString` is only in the abstract.</haxe_doc>
@@ -13520,6 +13525,7 @@
 	<x path="haxe.Int32"/>
 	<x path="Void"/>
 </f></new>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="haxe.Int64Helper" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int64Helper.hx">
 		<parseString public="1" set="method" line="36" static="1">
@@ -21088,6 +21094,88 @@
 		<values public="1"><c path="haxe.ds.IntMap"><c path="haxe.ds._HashMap.HashMapData.V"/></c></values>
 		<new public="1" get="inline" set="null" line="123"><f a=""><x path="Void"/></f></new>
 	</class>
+	<class path="haxe.ds.Int64Map" params="T" file="/home/runner/work/haxe/haxe/std/haxe/ds/Int64Map.hx">
+		<implements path="haxe.IMap">
+			<x path="haxe.Int64"/>
+			<c path="haxe.ds.Int64Map.T"/>
+		</implements>
+		<m><x path="haxe.ds.Map">
+	<c path="String"/>
+	<c path="haxe.ds.Int64Map.T"/>
+</x></m>
+		<set public="1" set="method" line="46">
+			<f a="key:value">
+				<x path="haxe.Int64"/>
+				<c path="haxe.ds.Int64Map.T"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>See `Map.set`</haxe_doc>
+		</set>
+		<get public="1" set="method" line="53">
+			<f a="key">
+				<x path="haxe.Int64"/>
+				<x path="Null"><c path="haxe.ds.Int64Map.T"/></x>
+			</f>
+			<haxe_doc>See `Map.get`</haxe_doc>
+		</get>
+		<exists public="1" set="method" line="60">
+			<f a="key">
+				<x path="haxe.Int64"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>See `Map.exists`</haxe_doc>
+		</exists>
+		<remove public="1" set="method" line="67">
+			<f a="key">
+				<x path="haxe.Int64"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>See `Map.remove`</haxe_doc>
+		</remove>
+		<keys public="1" set="method" line="77">
+			<f a=""><t path="Iterator"><x path="haxe.Int64"/></t></f>
+			<haxe_doc>See `Map.keys`
+
+		(java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
+		</keys>
+		<iterator public="1" set="method" line="93">
+			<f a=""><t path="Iterator"><c path="haxe.ds.Int64Map.T"/></t></f>
+			<haxe_doc>See `Map.iterator`
+
+		(java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
+		</iterator>
+		<keyValueIterator public="1" set="method" line="100">
+			<f a=""><t path="KeyValueIterator">
+	<x path="haxe.Int64"/>
+	<c path="haxe.ds.Int64Map.T"/>
+</t></f>
+			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
+		</keyValueIterator>
+		<copy public="1" set="method" line="114">
+			<f a=""><c path="haxe.ds.Int64Map"><c path="haxe.ds.Int64Map.T"/></c></f>
+			<haxe_doc>See `Map.copy`</haxe_doc>
+		</copy>
+		<toString public="1" set="method" line="123">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>See `Map.toString`</haxe_doc>
+		</toString>
+		<clear public="1" set="method" line="130">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>See `Map.clear`</haxe_doc>
+		</clear>
+		<size public="1" set="method" line="134"><f a=""><x path="Int"/></f></size>
+		<new public="1" set="method" line="39">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a new IntMap.</haxe_doc>
+		</new>
+		<haxe_doc>Int64Map allows mapping of Int64 keys to arbitrary values.
+
+	See `Map` for documentation details.
+
+	@see https://haxe.org/manual/std-Map.html</haxe_doc>
+	</class>
 	<class path="haxe.ds.IntMap" params="T" file="/home/runner/work/haxe/haxe/std/php/_std/haxe/ds/IntMap.hx">
 		<implements path="haxe.IMap">
 			<x path="Int"/>
@@ -21375,6 +21463,7 @@
 		<from>
 			<icast field="fromStringMap"><c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c></icast>
 			<icast field="fromIntMap"><c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c></icast>
+			<icast field="fromInt64Map"><c path="haxe.ds.Int64Map"><c path="fromInt64Map.V"/></c></icast>
 			<icast field="fromObjectMap"><c path="haxe.ds.ObjectMap">
 	<c path="fromObjectMap.K"/>
 	<c path="fromObjectMap.V"/>
@@ -21387,6 +21476,7 @@
 		<to>
 			<icast field="toStringMap"><c path="haxe.ds.StringMap"><c path="toStringMap.V"/></c></icast>
 			<icast field="toIntMap"><c path="haxe.ds.IntMap"><c path="toIntMap.V"/></c></icast>
+			<icast field="toInt64Map"><c path="haxe.ds.Int64Map"><c path="toInt64Map.V"/></c></icast>
 			<icast field="toEnumValueMapMap"><c path="haxe.ds.EnumValueMap">
 	<c path="toEnumValueMapMap.K"/>
 	<c path="toEnumValueMapMap.V"/>
@@ -21427,14 +21517,14 @@
 		the output. The rules for that are as follows:
 
 		1. if `K` is a `String`, `haxe.ds.StringMap` is used
-		2. if `K` is an `Int`, `haxe.ds.IntMap` is used
+		2. if `K` is an `Int`, `haxe.ds.IntMap` is used (or `Int64` / `haxe.ds.Int64Map` respectively)
 		3. if `K` is an `EnumValue`, `haxe.ds.EnumValueMap` is used
 		4. if `K` is any other class or structure, `haxe.ds.ObjectMap` is used
 		5. if `K` is any other type, it causes a compile-time error
 
 		(Cpp) Map does not use weak keys on `ObjectMap` by default.</haxe_doc>
 	</_hx_new>
-	<set public="1" get="inline" set="null" line="74" static="1">
+	<set public="1" get="inline" set="null" line="75" static="1">
 		<f a="this:key:value">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -21450,7 +21540,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 	</set>
-	<get public="1" get="inline" set="null" line="92" static="1">
+	<get public="1" get="inline" set="null" line="93" static="1">
 		<f a="this:key">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -21474,7 +21564,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 	</get>
-	<exists public="1" get="inline" set="null" line="100" static="1">
+	<exists public="1" get="inline" set="null" line="101" static="1">
 		<f a="this:key">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -21487,7 +21577,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 	</exists>
-	<remove public="1" get="inline" set="null" line="109" static="1">
+	<remove public="1" get="inline" set="null" line="110" static="1">
 		<f a="this:key">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -21501,7 +21591,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 	</remove>
-	<keys public="1" get="inline" set="null" line="116" static="1">
+	<keys public="1" get="inline" set="null" line="117" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -21513,7 +21603,7 @@
 
 		The order of keys is undefined.</haxe_doc>
 	</keys>
-	<iterator public="1" get="inline" set="null" line="125" static="1">
+	<iterator public="1" get="inline" set="null" line="126" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -21525,7 +21615,7 @@
 
 		The order of values is undefined.</haxe_doc>
 	</iterator>
-	<keyValueIterator public="1" get="inline" set="null" line="134" static="1">
+	<keyValueIterator public="1" get="inline" set="null" line="135" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -21540,7 +21630,7 @@
 
 		The order of values is undefined.</haxe_doc>
 	</keyValueIterator>
-	<copy public="1" get="inline" set="null" line="143" static="1">
+	<copy public="1" get="inline" set="null" line="144" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -21555,7 +21645,7 @@
 
 		The order of values is undefined.</haxe_doc>
 	</copy>
-	<toString public="1" get="inline" set="null" line="152" static="1">
+	<toString public="1" get="inline" set="null" line="153" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -21567,7 +21657,7 @@
 
 		The exact representation depends on the platform and key-type.</haxe_doc>
 	</toString>
-	<clear public="1" get="inline" set="null" line="159" static="1">
+	<clear public="1" get="inline" set="null" line="160" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -21577,7 +21667,7 @@
 		</f>
 		<haxe_doc>Removes all keys from `this` Map.</haxe_doc>
 	</clear>
-	<size public="1" get="inline" set="null" line="166" static="1">
+	<size public="1" get="inline" set="null" line="167" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -21587,7 +21677,7 @@
 		</f>
 		<haxe_doc>Returns size of `this` Map.</haxe_doc>
 	</size>
-	<arrayWrite public="1" get="inline" set="null" line="170" static="1">
+	<arrayWrite public="1" get="inline" set="null" line="171" static="1">
 		<f a="this:k:v">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -21602,7 +21692,7 @@
 			<m n=":noCompletion"/>
 		</meta>
 	</arrayWrite>
-	<toStringMap params="K:V" get="inline" set="null" line="175" static="1">
+	<toStringMap params="K:V" get="inline" set="null" line="176" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toStringMap.K"/>
@@ -21615,7 +21705,7 @@
 			<m n=":to"/>
 		</meta>
 	</toStringMap>
-	<toIntMap params="K:V" get="inline" set="null" line="179" static="1">
+	<toIntMap params="K:V" get="inline" set="null" line="180" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toIntMap.K"/>
@@ -21628,7 +21718,20 @@
 			<m n=":to"/>
 		</meta>
 	</toIntMap>
-	<toEnumValueMapMap params="K:V" get="inline" set="null" line="183" static="1">
+	<toInt64Map params="K:V" get="inline" set="null" line="184" static="1">
+		<f a="t">
+			<c path="haxe.IMap">
+				<c path="toInt64Map.K"/>
+				<c path="toInt64Map.V"/>
+			</c>
+			<c path="haxe.ds.Int64Map"><c path="toInt64Map.V"/></c>
+		</f>
+		<meta>
+			<m n=":multiType"/>
+			<m n=":to"/>
+		</meta>
+	</toInt64Map>
+	<toEnumValueMapMap params="K:V" get="inline" set="null" line="188" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toEnumValueMapMap.K"/>
@@ -21644,7 +21747,7 @@
 			<m n=":to"/>
 		</meta>
 	</toEnumValueMapMap>
-	<toObjectMap params="K:V" get="inline" set="null" line="187" static="1">
+	<toObjectMap params="K:V" get="inline" set="null" line="192" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toObjectMap.K"/>
@@ -21660,7 +21763,7 @@
 			<m n=":to"/>
 		</meta>
 	</toObjectMap>
-	<fromStringMap params="V" get="inline" set="null" line="191" static="1">
+	<fromStringMap params="V" get="inline" set="null" line="196" static="1">
 		<f a="map">
 			<c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c>
 			<x path="haxe.ds.Map">
@@ -21670,7 +21773,7 @@
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromStringMap>
-	<fromIntMap params="V" get="inline" set="null" line="195" static="1">
+	<fromIntMap params="V" get="inline" set="null" line="200" static="1">
 		<f a="map">
 			<c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c>
 			<x path="haxe.ds.Map">
@@ -21680,7 +21783,17 @@
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromIntMap>
-	<fromObjectMap params="K:V" get="inline" set="null" line="199" static="1">
+	<fromInt64Map params="V" get="inline" set="null" line="204" static="1">
+		<f a="map">
+			<c path="haxe.ds.Int64Map"><c path="fromInt64Map.V"/></c>
+			<x path="haxe.ds.Map">
+				<x path="Int"/>
+				<c path="fromInt64Map.V"/>
+			</x>
+		</f>
+		<meta><m n=":from"/></meta>
+	</fromInt64Map>
+	<fromObjectMap params="K:V" get="inline" set="null" line="208" static="1">
 		<f a="map">
 			<c path="haxe.ds.ObjectMap">
 				<c path="fromObjectMap.K"/>
@@ -21708,14 +21821,14 @@
 		the output. The rules for that are as follows:
 
 		1. if `K` is a `String`, `haxe.ds.StringMap` is used
-		2. if `K` is an `Int`, `haxe.ds.IntMap` is used
+		2. if `K` is an `Int`, `haxe.ds.IntMap` is used (or `Int64` / `haxe.ds.Int64Map` respectively)
 		3. if `K` is an `EnumValue`, `haxe.ds.EnumValueMap` is used
 		4. if `K` is any other class or structure, `haxe.ds.ObjectMap` is used
 		5. if `K` is any other type, it causes a compile-time error
 
 		(Cpp) Map does not use weak keys on `ObjectMap` by default.</haxe_doc>
 		</_hx_new>
-		<set public="1" get="inline" set="null" line="74" static="1">
+		<set public="1" get="inline" set="null" line="75" static="1">
 			<f a="this:key:value">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -21731,7 +21844,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 		</set>
-		<get public="1" get="inline" set="null" line="92" static="1">
+		<get public="1" get="inline" set="null" line="93" static="1">
 			<f a="this:key">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -21755,7 +21868,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 		</get>
-		<exists public="1" get="inline" set="null" line="100" static="1">
+		<exists public="1" get="inline" set="null" line="101" static="1">
 			<f a="this:key">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -21768,7 +21881,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 		</exists>
-		<remove public="1" get="inline" set="null" line="109" static="1">
+		<remove public="1" get="inline" set="null" line="110" static="1">
 			<f a="this:key">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -21782,7 +21895,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 		</remove>
-		<keys public="1" get="inline" set="null" line="116" static="1">
+		<keys public="1" get="inline" set="null" line="117" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -21794,7 +21907,7 @@
 
 		The order of keys is undefined.</haxe_doc>
 		</keys>
-		<iterator public="1" get="inline" set="null" line="125" static="1">
+		<iterator public="1" get="inline" set="null" line="126" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -21806,7 +21919,7 @@
 
 		The order of values is undefined.</haxe_doc>
 		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="134" static="1">
+		<keyValueIterator public="1" get="inline" set="null" line="135" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -21821,7 +21934,7 @@
 
 		The order of values is undefined.</haxe_doc>
 		</keyValueIterator>
-		<copy public="1" get="inline" set="null" line="143" static="1">
+		<copy public="1" get="inline" set="null" line="144" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -21836,7 +21949,7 @@
 
 		The order of values is undefined.</haxe_doc>
 		</copy>
-		<toString public="1" get="inline" set="null" line="152" static="1">
+		<toString public="1" get="inline" set="null" line="153" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -21848,7 +21961,7 @@
 
 		The exact representation depends on the platform and key-type.</haxe_doc>
 		</toString>
-		<clear public="1" get="inline" set="null" line="159" static="1">
+		<clear public="1" get="inline" set="null" line="160" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -21858,7 +21971,7 @@
 			</f>
 			<haxe_doc>Removes all keys from `this` Map.</haxe_doc>
 		</clear>
-		<size public="1" get="inline" set="null" line="166" static="1">
+		<size public="1" get="inline" set="null" line="167" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -21868,7 +21981,7 @@
 			</f>
 			<haxe_doc>Returns size of `this` Map.</haxe_doc>
 		</size>
-		<arrayWrite public="1" get="inline" set="null" line="170" static="1">
+		<arrayWrite public="1" get="inline" set="null" line="171" static="1">
 			<f a="this:k:v">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -21883,7 +21996,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</arrayWrite>
-		<toStringMap params="K:V" get="inline" set="null" line="175" static="1">
+		<toStringMap params="K:V" get="inline" set="null" line="176" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toStringMap.K"/>
@@ -21896,7 +22009,7 @@
 				<m n=":to"/>
 			</meta>
 		</toStringMap>
-		<toIntMap params="K:V" get="inline" set="null" line="179" static="1">
+		<toIntMap params="K:V" get="inline" set="null" line="180" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toIntMap.K"/>
@@ -21909,7 +22022,20 @@
 				<m n=":to"/>
 			</meta>
 		</toIntMap>
-		<toEnumValueMapMap params="K:V" get="inline" set="null" line="183" static="1">
+		<toInt64Map params="K:V" get="inline" set="null" line="184" static="1">
+			<f a="t">
+				<c path="haxe.IMap">
+					<c path="toInt64Map.K"/>
+					<c path="toInt64Map.V"/>
+				</c>
+				<c path="haxe.ds.Int64Map"><c path="toInt64Map.V"/></c>
+			</f>
+			<meta>
+				<m n=":multiType"/>
+				<m n=":to"/>
+			</meta>
+		</toInt64Map>
+		<toEnumValueMapMap params="K:V" get="inline" set="null" line="188" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toEnumValueMapMap.K"/>
@@ -21925,7 +22051,7 @@
 				<m n=":to"/>
 			</meta>
 		</toEnumValueMapMap>
-		<toObjectMap params="K:V" get="inline" set="null" line="187" static="1">
+		<toObjectMap params="K:V" get="inline" set="null" line="192" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toObjectMap.K"/>
@@ -21941,7 +22067,7 @@
 				<m n=":to"/>
 			</meta>
 		</toObjectMap>
-		<fromStringMap params="V" get="inline" set="null" line="191" static="1">
+		<fromStringMap params="V" get="inline" set="null" line="196" static="1">
 			<f a="map">
 				<c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c>
 				<x path="haxe.ds.Map">
@@ -21951,7 +22077,7 @@
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromStringMap>
-		<fromIntMap params="V" get="inline" set="null" line="195" static="1">
+		<fromIntMap params="V" get="inline" set="null" line="200" static="1">
 			<f a="map">
 				<c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c>
 				<x path="haxe.ds.Map">
@@ -21961,7 +22087,17 @@
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromIntMap>
-		<fromObjectMap params="K:V" get="inline" set="null" line="199" static="1">
+		<fromInt64Map params="V" get="inline" set="null" line="204" static="1">
+			<f a="map">
+				<c path="haxe.ds.Int64Map"><c path="fromInt64Map.V"/></c>
+				<x path="haxe.ds.Map">
+					<x path="Int"/>
+					<c path="fromInt64Map.V"/>
+				</x>
+			</f>
+			<meta><m n=":from"/></meta>
+		</fromInt64Map>
+		<fromObjectMap params="K:V" get="inline" set="null" line="208" static="1">
 			<f a="map">
 				<c path="haxe.ds.ObjectMap">
 					<c path="fromObjectMap.K"/>
