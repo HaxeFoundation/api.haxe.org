@@ -10673,8 +10673,11 @@
 	<class path="haxe.Event" params="" file="/home/runner/work/haxe/haxe/std/haxe/EventLoop.hx" module="haxe.EventLoop">
 		<prev><c path="haxe.Event"/></prev>
 		<next><c path="haxe.Event"/></next>
-		<events><c path="haxe.EventLoop"/></events>
 		<callb><f a=""><x path="Void"/></f></callb>
+		<loop public="1" set="null">
+			<c path="haxe.EventLoop"/>
+			<haxe_doc>The EventLoop our event is part of.</haxe_doc>
+		</loop>
 		<priority public="1">
 			<x path="Int"/>
 			<haxe_doc>The event priority. Events will be executed in order of priority (highest first).</haxe_doc>
@@ -10689,7 +10692,7 @@
 			<x path="Float"/>
 			<meta><m n=":value"><e>Math.NEGATIVE_INFINITY</e></m></meta>
 		</nextRun>
-		<delay public="1" set="method" line="31">
+		<delay public="1" set="method" line="38">
 			<f a="t:?fromLastRun" v=":false">
 				<x path="Null"><x path="Float"/></x>
 				<x path="Bool"/>
@@ -10699,22 +10702,22 @@
 			<haxe_doc>Delay the execution of the event for the given time, in seconds.
 		If t is null, the event will be run at next event loop.</haxe_doc>
 		</delay>
-		<stop public="1" set="method" line="38">
+		<stop public="1" set="method" line="45">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Stop this event from repeating.</haxe_doc>
 		</stop>
-		<start public="1" set="method" line="45">
+		<start public="1" set="method" line="52">
 			<f a="callb">
 				<f a=""><x path="Void"/></f>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Start the event with the given callback function.</haxe_doc>
 		</start>
-		<isStopped public="1" set="method" line="53">
+		<isStopped public="1" set="method" line="60">
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>Tells if the event has been stopped.</haxe_doc>
 		</isStopped>
-		<new set="method" line="22"><f a="events:p">
+		<new set="method" line="29"><f a="loop:p">
 	<c path="haxe.EventLoop"/>
 	<x path="Int"/>
 	<x path="Void"/>
@@ -10730,11 +10733,11 @@
 			<haxe_doc>This is the current thread event loop. For platforms that doesn't support threads
 		it is the same as `main`.</haxe_doc>
 		</current>
-		<hasRunningThreads public="1" set="method" line="344" static="1">
+		<hasRunningThreads public="1" set="method" line="414" static="1">
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>Tells if we currently have blocking unfinished threads.</haxe_doc>
 		</hasRunningThreads>
-		<addTask public="1" set="method" line="376" static="1">
+		<addTask public="1" set="method" line="450" static="1">
 			<f a="f:?blocking" v=":true">
 				<f a=""><x path="Void"/></f>
 				<x path="Bool"/>
@@ -10744,28 +10747,40 @@
 			<haxe_doc>Add a task to be run either on another thread or as part of the main event loop if the
 		platform does not support threads.</haxe_doc>
 		</addTask>
-		<get_current set="method" line="384" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_current>
-		<get_main set="method" line="394" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_main>
+		<get_current set="method" line="458" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_current>
+		<get_main set="method" line="468" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_main>
 		<events><c path="haxe.Event"/></events>
 		<inLoop><x path="Bool"/></inLoop>
 		<hasPendingRemove><x path="Bool"/></hasPendingRemove>
-		<loop public="1" set="method" line="96">
+		<dispose public="1" set="method" line="128">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>This should be called after you are finished with a custom event loop.
+		It is already automatically called for threads loops.</haxe_doc>
+		</dispose>
+		<loop public="1" set="method" line="138">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Runs until all the blocking events have been stopped.
 		If this is called on the main thread, also wait for all blocking threads to finish.</haxe_doc>
 		</loop>
-		<wakeup get="inline" set="null" line="107"><f a=""><x path="Void"/></f></wakeup>
-		<wait get="inline" set="null" line="113"><f a="time">
+		<wakeup get="inline" set="null" line="155"><f a=""><x path="Void"/></f></wakeup>
+		<wait get="inline" set="null" line="161"><f a="time">
 	<x path="Float"/>
 	<x path="Void"/>
 </f></wait>
-		<lock get="inline" set="null" line="121"><f a=""><x path="Void"/></f></lock>
-		<unlock get="inline" set="null" line="127"><f a=""><x path="Void"/></f></unlock>
-		<loopOnce public="1" set="method" line="136">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Perform an update of pending events.</haxe_doc>
+		<lock get="inline" set="null" line="169"><f a=""><x path="Void"/></f></lock>
+		<unlock get="inline" set="null" line="175"><f a=""><x path="Void"/></f></unlock>
+		<checkThread set="method" line="181"><f a=""><x path="Void"/></f></checkThread>
+		<loopOnce public="1" set="method" line="192">
+			<f a="?threadCheck" v="true">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ threadCheck : true }</e></m></meta>
+			<haxe_doc>Perform an update of pending events.
+		By default, an event loop from a thread can only be triggered from this thread.
+		You can set `threadCheck` to false in the rare cases you might want otherwise.</haxe_doc>
 		</loopOnce>
-		<add public="1" set="method" line="169">
+		<add public="1" set="method" line="239">
 			<f a="callb:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -10774,7 +10789,7 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a callback to be run at each loop of the event loop.</haxe_doc>
 		</add>
-		<addAsync public="1" set="method" line="180">
+		<addAsync public="1" set="method" line="250">
 			<f a="?priority" v="0">
 				<x path="Int"/>
 				<c path="haxe.Event"/>
@@ -10784,7 +10799,7 @@
 		This is useful if you wish to hold a reference of another thread Event loop
 		before it runs.</haxe_doc>
 		</addAsync>
-		<addTimer public="1" set="method" line="187">
+		<addTimer public="1" set="method" line="257">
 			<f a="callb:delay:?priority" v="::0">
 				<f a=""><x path="Void"/></f>
 				<x path="Float"/>
@@ -10794,7 +10809,7 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a callback to be run every `delay` seconds until stopped</haxe_doc>
 		</addTimer>
-		<repeat public="1" set="method" line="194">
+		<repeat public="1" set="method" line="264">
 			<f a="callb:delay">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -10805,7 +10820,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</repeat>
-		<cancel public="1" set="method" line="198">
+		<cancel public="1" set="method" line="268">
 			<f a="e">
 				<c path="haxe.Event"/>
 				<x path="Void"/>
@@ -10815,7 +10830,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</cancel>
-		<run public="1" set="method" line="205">
+		<run public="1" set="method" line="275">
 			<f a="callb:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -10824,17 +10839,17 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a function to be run once at next loop of the event loop.</haxe_doc>
 		</run>
-		<start set="method" line="211"><f a="e">
+		<start set="method" line="281"><f a="e">
 	<c path="haxe.Event"/>
 	<x path="Void"/>
 </f></start>
-		<stop set="method" line="226"><f a="e">
+		<stop set="method" line="296"><f a="e">
 	<c path="haxe.Event"/>
 	<x path="Void"/>
 </f></stop>
-		<getNextTick set="method" line="253"><f a=""><x path="Float"/></f></getNextTick>
-		<sortEvents set="method" line="275"><f a=""><x path="Void"/></f></sortEvents>
-		<hasEvents public="1" set="method" line="356">
+		<getNextTick set="method" line="323"><f a=""><x path="Float"/></f></getNextTick>
+		<sortEvents set="method" line="345"><f a=""><x path="Void"/></f></sortEvents>
+		<hasEvents public="1" set="method" line="426">
 			<f a="?blocking" v="true">
 				<x path="Bool"/>
 				<x path="Bool"/>
@@ -10843,7 +10858,7 @@
 			<haxe_doc>Tells if the event loop has remaining events.
 		If blocking is set to true, only check if it has remaining blocking events.</haxe_doc>
 		</hasEvents>
-		<new public="1" set="method" line="85"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="100"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>Handles async events for all threads</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
@@ -45943,6 +45958,130 @@
 		<new public="1" set="method" line="33"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>An address is used to represent a port on a given host ip.
 	It is used by `sys.net.UdpSocket`.</haxe_doc>
+	</class>
+	<class path="sys.net.AsyncSocket" params="" file="/home/runner/work/haxe/haxe/std/sys/net/AsyncSocket.hx">
+		<startServer public="1" set="method" line="130" static="1">
+			<f a="host:port:?ssl:onClient">
+				<c path="String"/>
+				<x path="Int"/>
+				<a>
+					<key><c path="sys.ssl.Key"/></key>
+					<hostname><c path="String"/></hostname>
+					<cert><c path="sys.ssl.Certificate"/></cert>
+				</a>
+				<f a="">
+					<x path="Null"><c path="sys.net.AsyncSocket"/></x>
+					<x path="Any"/>
+				</f>
+				<c path="sys.net.AsyncSocket"/>
+			</f>
+			<haxe_doc>Start a server on given host/port and callback `onClient` everytime a client connects.
+		Will also call `onClient(null)` in the rare case where the server connection is lost.</haxe_doc>
+		</startServer>
+		<close public="1" set="method" line="40">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Closes the socket : make sure to properly close all your sockets or you will crash when you run out of file descriptors.</haxe_doc>
+		</close>
+		<write public="1" set="method" line="46">
+			<f a="bytes:?pos:?len" v=":0:-1">
+				<c path="haxe.io.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ len : -1, pos : 0 }</e></m></meta>
+			<haxe_doc>Write the whole data to the socket output, asynchronously. The buffer can be reused after this call. Will dispatch `onWrite` when data is written.</haxe_doc>
+		</write>
+		<connect public="1" set="method" line="53">
+			<f a="host:port:?ssl" v="::false">
+				<c path="sys.net.Host"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ ssl : false }</e></m></meta>
+			<haxe_doc>Connect to the given server host/port. Will onConnect if connection successful and onDisconnect if connection fails or if a later disconnection occurs.
+		If `ssl` is set, the socket will use SSL authentification and encryption. Certificate errors can generate an onSSLError callback.</haxe_doc>
+		</connect>
+		<listen public="1" set="method" line="60">
+			<f a="connections">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Allows the socket to listen for incoming questions. The parameter tells how many pending connections we can have until they get refused.
+		Each new connection will trigger a `onConnected` call. Use `accept()` to retrieve the incoming connection socket.</haxe_doc>
+		</listen>
+		<bind public="1" set="method" line="66">
+			<f a="host:port:?ssl">
+				<c path="sys.net.Host"/>
+				<x path="Int"/>
+				<a>
+					<key><c path="sys.ssl.Key"/></key>
+					<hostname><c path="String"/></hostname>
+					<cert><c path="sys.ssl.Certificate"/></cert>
+				</a>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Bind the socket to the given host/port so it can afterwards listen for connections there.</haxe_doc>
+		</bind>
+		<accept public="1" set="method" line="72">
+			<f a=""><x path="Null"><c path="sys.net.AsyncSocket"/></x></f>
+			<haxe_doc>Accept a new connected client. This will return a connected socket on which you can read/write some data. See `listen`</haxe_doc>
+		</accept>
+		<setFastSend public="1" set="method" line="79">
+			<f a="b">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Allows the socket to immediately send the data when written to its output : this will cause less ping but might increase the number of packets / data size, especially when doing a lot of small writes.</haxe_doc>
+		</setFastSend>
+		<onConnect public="1" set="dynamic" line="85">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>See `connect`</haxe_doc>
+		</onConnect>
+		<onDisconnect public="1" set="dynamic" line="91">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>See `connect`</haxe_doc>
+		</onDisconnect>
+		<onData public="1" set="dynamic" line="97">
+			<f a="bytes:pos:len">
+				<c path="haxe.io.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>This callback is called when some data is received on the socket. The bytes must be fully processed in the callback as the data might be overwritten upon return.</haxe_doc>
+		</onData>
+		<onWrite public="1" set="dynamic" line="103">
+			<f a="error">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Dispatched when some data is written. Error is true if the data could not be written succesfully. The default behavior is to silently close the socket when such error occurs.</haxe_doc>
+		</onWrite>
+		<onSSLError public="1" set="dynamic" line="114">
+			<f a="msg">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Dispatched when a SSL error occurs. This can be when connecting to a host which fails to authentificate or when starting a server with invalid cert/key.
+		Authentification can be adjusted with `sys.ssl.Socket.DEFAULT_VERIFY_CERT`</haxe_doc>
+		</onSSLError>
+		<writeString public="1" set="method" line="120">
+			<f a="str">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Similar to `write` but sends a whole string data.</haxe_doc>
+		</writeString>
+		<new public="1" set="method" line="33">
+			<f a="?loop">
+				<c path="haxe.EventLoop"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new unconnected socket. Use the current event loop by default.</haxe_doc>
+		</new>
+		<haxe_doc>A TCP socket class : allow you to both connect to a given server and exchange messages or start your own server and wait for connections.</haxe_doc>
 	</class>
 	<class path="sys.net.Host" params="" file="/home/runner/work/haxe/haxe/std/php/_std/sys/net/Host.hx">
 		<localhost public="1" set="method" line="59" static="1">
