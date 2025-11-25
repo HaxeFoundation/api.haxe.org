@@ -3154,6 +3154,7 @@
 	<enum path="ValueType" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/Type.hx" module="Type">
 		<TNull/>
 		<TInt/>
+		<TInt64/>
 		<TFloat/>
 		<TBool/>
 		<TObject/>
@@ -3167,15 +3168,15 @@
 	<m n=":native"><e>"haxe.jvm.EmptyConstructor"</e></m>
 </meta></class>
 	<class path="Type" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/Type.hx">
-		<isEnumClass params="T" set="method" line="23" static="1"><f a="c">
+		<isEnumClass params="T" set="method" line="24" static="1"><f a="c">
 	<c path="java.lang.Class"><c path="isEnumClass.T"/></c>
 	<x path="Bool"/>
 </f></isEnumClass>
-		<isEnumValueClass params="T" set="method" line="29" static="1"><f a="c">
+		<isEnumValueClass params="T" set="method" line="30" static="1"><f a="c">
 	<c path="java.lang.Class"><c path="isEnumValueClass.T"/></c>
 	<x path="Bool"/>
 </f></isEnumValueClass>
-		<getClass public="1" params="T" set="method" line="35" static="1">
+		<getClass public="1" params="T" set="method" line="36" static="1">
 			<f a="o">
 				<c path="getClass.T"/>
 				<x path="Null"><x path="Class"><c path="getClass.T"/></x></x>
@@ -3186,7 +3187,7 @@
 
 		In general, type parameter information cannot be obtained at runtime.</haxe_doc>
 		</getClass>
-		<getEnum public="1" set="method" line="52" static="1">
+		<getEnum public="1" set="method" line="53" static="1">
 			<f a="o">
 				<x path="EnumValue"/>
 				<x path="Null"><x path="Enum"><d/></x></x>
@@ -3200,7 +3201,7 @@
 
 		In general, type parameter information cannot be obtained at runtime.]]></haxe_doc>
 		</getEnum>
-		<getSuperClass public="1" set="method" line="63" static="1">
+		<getSuperClass public="1" set="method" line="64" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
 				<x path="Null"><x path="Class"><d/></x></x>
@@ -3213,7 +3214,7 @@
 
 		In general, type parameter information cannot be obtained at runtime.</haxe_doc>
 		</getSuperClass>
-		<getClassName public="1" set="method" line="79" static="1">
+		<getClassName public="1" set="method" line="80" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
 				<c path="String"/>
@@ -3232,7 +3233,7 @@
 
 		The class name does not include any type parameters.</haxe_doc>
 		</getClassName>
-		<getEnumName public="1" set="method" line="88" static="1">
+		<getEnumName public="1" set="method" line="89" static="1">
 			<f a="e">
 				<x path="Enum"><d/></x>
 				<c path="String"/>
@@ -3251,7 +3252,7 @@
 
 		The enum name does not include any type parameters.</haxe_doc>
 		</getEnumName>
-		<resolveClass public="1" set="method" line="95" static="1">
+		<resolveClass public="1" set="method" line="96" static="1">
 			<f a="name">
 				<c path="String"/>
 				<x path="Null"><x path="Class"><d/></x></x>
@@ -3267,7 +3268,7 @@
 
 		The class name must not include any type parameters.</haxe_doc>
 		</resolveClass>
-		<resolveEnum public="1" set="method" line="110" static="1">
+		<resolveEnum public="1" set="method" line="111" static="1">
 			<f a="name">
 				<c path="String"/>
 				<x path="Null"><x path="Enum"><d/></x></x>
@@ -3284,15 +3285,15 @@
 
 		The enum name must not include any type parameters.</haxe_doc>
 		</resolveEnum>
-		<emptyArg final="1" set="null" expr="((null : jvm.EmptyConstructor))" line="126" static="1">
+		<emptyArg final="1" set="null" expr="((null : jvm.EmptyConstructor))" line="127" static="1">
 			<c path="jvm.EmptyConstructor"/>
 			<meta><m n=":value"><e>((null : jvm.EmptyConstructor))</e></m></meta>
 		</emptyArg>
-		<emptyClass final="1" set="null" expr="jvm.EmptyConstructor.native()" line="128" static="1">
+		<emptyClass final="1" set="null" expr="jvm.EmptyConstructor.native()" line="129" static="1">
 			<c path="java.lang.Class"><c path="jvm.EmptyConstructor"/></c>
 			<meta><m n=":value"><e>jvm.EmptyConstructor.native()</e></m></meta>
 		</emptyClass>
-		<createInstance public="1" params="T" set="method" line="130" static="1">
+		<createInstance public="1" params="T" set="method" line="131" static="1">
 			<f a="cl:args">
 				<x path="Class"><c path="createInstance.T"/></x>
 				<c path="Array"><d/></c>
@@ -3314,7 +3315,7 @@
 		In particular, default values of constructor arguments are not
 		guaranteed to be taken into account.</haxe_doc>
 		</createInstance>
-		<createEmptyInstance public="1" params="T" set="method" line="170" static="1">
+		<createEmptyInstance public="1" params="T" set="method" line="171" static="1">
 			<f a="cl">
 				<x path="Class"><c path="createEmptyInstance.T"/></x>
 				<c path="createEmptyInstance.T"/>
@@ -3415,7 +3416,7 @@
 		per platform. Assumptions regarding this should be minimized to avoid
 		surprises.</haxe_doc>
 		</typeof>
-		<enumEq public="1" params="T" set="method" line="280" static="1">
+		<enumEq public="1" params="T" set="method" line="283" static="1">
 			<f a="a:b">
 				<c path="enumEq.T"/>
 				<c path="enumEq.T"/>
@@ -3428,7 +3429,7 @@
 
 		If `a` or `b` are null, the result is unspecified.</haxe_doc>
 		</enumEq>
-		<enumConstructor public="1" set="method" line="289" static="1">
+		<enumConstructor public="1" set="method" line="292" static="1">
 			<f a="e">
 				<x path="EnumValue"/>
 				<c path="String"/>
@@ -3439,7 +3440,7 @@
 
 		If `e` is null, the result is unspecified.</haxe_doc>
 		</enumConstructor>
-		<enumParameters public="1" set="method" line="293" static="1">
+		<enumParameters public="1" set="method" line="296" static="1">
 			<f a="e">
 				<x path="EnumValue"/>
 				<c path="Array"><d/></c>
@@ -3453,7 +3454,7 @@
 
 		If `e` is null, the result is unspecified.</haxe_doc>
 		</enumParameters>
-		<enumIndex public="1" set="method" line="298" static="1">
+		<enumIndex public="1" set="method" line="301" static="1">
 			<f a="e">
 				<x path="EnumValue"/>
 				<x path="Int"/>
@@ -3465,7 +3466,7 @@
 
 		If `e` is null, the result is unspecified.</haxe_doc>
 		</enumIndex>
-		<allEnums public="1" params="T" set="method" line="302" static="1">
+		<allEnums public="1" params="T" set="method" line="305" static="1">
 			<f a="e">
 				<x path="Enum"><c path="allEnums.T"/></x>
 				<c path="Array"><c path="allEnums.T"/></c>
@@ -9381,7 +9382,7 @@
 			<x path="Null"><x path="haxe.ds.Vector"><x path="Null"><x path="Int"/></x></x></x>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</BASE64_CODES>
-		<run public="1" set="method" line="599" static="1">
+		<run public="1" set="method" line="604" static="1">
 			<f a="v">
 				<d/>
 				<c path="String"/>
@@ -9429,19 +9430,19 @@
 		The exact format specification can be found here:
 		https://haxe.org/manual/serialization/format</haxe_doc>
 		</toString>
-		<serializeString set="method" line="181"><f a="s">
+		<serializeString set="method" line="182"><f a="s">
 	<c path="String"/>
 	<x path="Void"/>
 </f></serializeString>
-		<serializeRef set="method" line="196"><f a="v">
+		<serializeRef set="method" line="197"><f a="v">
 	<d/>
 	<x path="Bool"/>
 </f></serializeRef>
-		<serializeFields set="method" line="233"><f a="v">
+		<serializeFields set="method" line="234"><f a="v">
 	<a/>
 	<x path="Void"/>
 </f></serializeFields>
-		<serialize public="1" set="method" line="252">
+		<serialize public="1" set="method" line="253">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
@@ -9456,12 +9457,12 @@
 		The values of `this.useCache` and `this.useEnumIndex` may affect
 		serialization output.</haxe_doc>
 		</serialize>
-		<__getField get="inline" set="null" line="574"><f a="o:f">
+		<__getField get="inline" set="null" line="579"><f a="o:f">
 	<d/>
 	<c path="String"/>
 	<d/>
 </f></__getField>
-		<serializeException public="1" set="method" line="576"><f a="e">
+		<serializeException public="1" set="method" line="581"><f a="e">
 	<d/>
 	<x path="Void"/>
 </f></serializeException>
@@ -9883,15 +9884,15 @@
 		<meta><m n=":flatEnum"/></meta>
 	</enum>
 	<class path="haxe._Unserializer.DefaultResolver" params="" file="/home/runner/work/haxe/haxe/std/haxe/Unserializer.hx" private="1" module="haxe.Unserializer">
-		<resolveClass public="1" get="inline" set="null" line="515"><f a="name">
+		<resolveClass public="1" get="inline" set="null" line="542"><f a="name">
 	<c path="String"/>
 	<x path="Null"><x path="Class"><d/></x></x>
 </f></resolveClass>
-		<resolveEnum public="1" get="inline" set="null" line="518"><f a="name">
+		<resolveEnum public="1" get="inline" set="null" line="545"><f a="name">
 	<c path="String"/>
 	<x path="Null"><x path="Enum"><d/></x></x>
 </f></resolveEnum>
-		<new public="1" set="method" line="512"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="539"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="haxe.Unserializer" params="" file="/home/runner/work/haxe/haxe/std/haxe/Unserializer.hx">
 		<DEFAULT_RESOLVER public="1" expr="new DefaultResolver()" line="67" static="1">
@@ -9921,7 +9922,7 @@
 			<meta><m n=":value"><e>null</e></m></meta>
 		</CODES>
 		<initCodes set="method" line="74" static="1"><f a=""><c path="Array"><x path="Int"/></c></f></initCodes>
-		<run public="1" set="method" line="470" static="1">
+		<run public="1" set="method" line="497" static="1">
 			<f a="v">
 				<c path="String"/>
 				<d/>
@@ -9932,21 +9933,21 @@
 		Unserializer with `v` as buffer and calling its `unserialize()` method
 		once.</haxe_doc>
 		</run>
-		<fastLength get="inline" set="null" line="478" static="1"><f a="s">
+		<fastLength get="inline" set="null" line="505" static="1"><f a="s">
 	<c path="String"/>
 	<x path="Int"/>
 </f></fastLength>
-		<fastCharCodeAt get="inline" set="null" line="486" static="1"><f a="s:pos">
+		<fastCharCodeAt get="inline" set="null" line="513" static="1"><f a="s:pos">
 	<c path="String"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></fastCharCodeAt>
-		<fastCharAt get="inline" set="null" line="494" static="1"><f a="s:pos">
+		<fastCharAt get="inline" set="null" line="521" static="1"><f a="s:pos">
 	<c path="String"/>
 	<x path="Int"/>
 	<c path="String"/>
 </f></fastCharAt>
-		<fastSubstr get="inline" set="null" line="502" static="1"><f a="s:pos:length">
+		<fastSubstr get="inline" set="null" line="529" static="1"><f a="s:pos:length">
 	<c path="String"/>
 	<x path="Int"/>
 	<x path="Int"/>
@@ -9981,17 +9982,18 @@
 	<x path="Int"/>
 </f></get>
 		<readDigits set="method" line="150"><f a=""><x path="Int"/></f></readDigits>
-		<readFloat set="method" line="175"><f a=""><x path="Float"/></f></readFloat>
-		<unserializeObject set="method" line="190"><f a="o">
+		<readDigits64 set="method" line="175"><f a=""><x path="haxe.Int64"/></f></readDigits64>
+		<readFloat set="method" line="200"><f a=""><x path="Float"/></f></readFloat>
+		<unserializeObject set="method" line="215"><f a="o">
 	<a/>
 	<x path="Void"/>
 </f></unserializeObject>
-		<unserializeEnum params="T" set="method" line="205"><f a="edecl:tag">
+		<unserializeEnum params="T" set="method" line="230"><f a="edecl:tag">
 	<x path="Enum"><c path="unserializeEnum.T"/></x>
 	<c path="String"/>
 	<c path="unserializeEnum.T"/>
 </f></unserializeEnum>
-		<unserialize public="1" set="method" line="237">
+		<unserialize public="1" set="method" line="262">
 			<f a=""><d/></f>
 			<haxe_doc>Unserializes the next part of `this` Unserializer instance and returns
 		the according value.
@@ -10041,16 +10043,16 @@
 	</class>
 	<class path="haxe._Unserializer.NullResolver" params="" file="/home/runner/work/haxe/haxe/std/haxe/Unserializer.hx" private="1" module="haxe.Unserializer">
 		<instance public="1" get="accessor" set="null" static="1"><c path="haxe._Unserializer.NullResolver"/></instance>
-		<get_instance get="inline" set="null" line="532" static="1"><f a=""><c path="haxe._Unserializer.NullResolver"/></f></get_instance>
-		<resolveClass public="1" get="inline" set="null" line="525"><f a="name">
+		<get_instance get="inline" set="null" line="559" static="1"><f a=""><c path="haxe._Unserializer.NullResolver"/></f></get_instance>
+		<resolveClass public="1" get="inline" set="null" line="552"><f a="name">
 	<c path="String"/>
 	<x path="Null"><x path="Class"><d/></x></x>
 </f></resolveClass>
-		<resolveEnum public="1" get="inline" set="null" line="528"><f a="name">
+		<resolveEnum public="1" get="inline" set="null" line="555"><f a="name">
 	<c path="String"/>
 	<x path="Null"><x path="Enum"><d/></x></x>
 </f></resolveEnum>
-		<new set="method" line="522"><f a=""><x path="Void"/></f></new>
+		<new set="method" line="549"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="haxe.Utf8" params="" file="/home/runner/work/haxe/haxe/std/haxe/Utf8.hx">
 		<iter public="1" set="method" line="57" static="1">
