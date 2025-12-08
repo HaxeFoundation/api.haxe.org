@@ -436,6 +436,7 @@
 
 	@see https://haxe.org/manual/types-class-instance.html</haxe_doc>
 		<meta>
+			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":runtimeValue"/>
 		</meta>
@@ -1947,11 +1948,11 @@
 		If `a` and `b` are null, the result is 0. If only one of them is null,
 		the result is unspecified.</haxe_doc>
 		</compare>
-		<isClosure get="inline" set="null" line="93" static="1"><f a="v">
+		<isClosure get="inline" set="null" line="95" static="1"><f a="v">
 	<d/>
 	<x path="Bool"/>
 </f></isClosure>
-		<compareMethods public="1" set="method" line="97" static="1">
+		<compareMethods public="1" set="method" line="99" static="1">
 			<f a="f1:f2">
 				<d/>
 				<d/>
@@ -1968,7 +1969,7 @@
 		If `f1` or `f2` are member method closures, the result is true if they
 		are closures of the same method on the same object value, false otherwise.</haxe_doc>
 		</compareMethods>
-		<isObject public="1" set="method" line="111" static="1">
+		<isObject public="1" set="method" line="113" static="1">
 			<f a="v">
 				<d/>
 				<x path="Bool"/>
@@ -1984,7 +1985,7 @@
 
 		Otherwise, including if `v` is null, the result is false.]]></haxe_doc>
 		</isObject>
-		<isEnumValue public="1" set="method" line="118" static="1">
+		<isEnumValue public="1" set="method" line="120" static="1">
 			<f a="v">
 				<d/>
 				<x path="Bool"/>
@@ -1996,7 +1997,7 @@
 
 		Otherwise, including if `v` is null, the result is false.</haxe_doc>
 		</isEnumValue>
-		<deleteField public="1" set="method" line="122" static="1">
+		<deleteField public="1" set="method" line="124" static="1">
 			<f a="o:field">
 				<d/>
 				<c path="String"/>
@@ -2008,7 +2009,7 @@
 
 		If `o` or `field` are null, the result is unspecified.</haxe_doc>
 		</deleteField>
-		<copy public="1" params="T" set="method" line="130" static="1">
+		<copy public="1" params="T" set="method" line="132" static="1">
 			<f a="o">
 				<x path="Null"><c path="copy.T"/></x>
 				<x path="Null"><c path="copy.T"/></x>
@@ -2019,7 +2020,7 @@
 
 		If `o` is null, the result is `null`.</haxe_doc>
 		</copy>
-		<makeVarArgs public="1" params="T" set="method" line="139" static="1">
+		<makeVarArgs public="1" params="T" set="method" line="141" static="1">
 			<f a="f">
 				<f a="">
 					<c path="Array"><d/></c>
@@ -2239,6 +2240,7 @@
 	@see https://haxe.org/manual/types-basic-types.html
 	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
 		<meta>
+			<m n=":valueUsed"/>
 			<m n=":defaultValue"><e>0.0</e></m>
 			<m n=":coreType"/>
 			<m n=":notNull"/>
@@ -2260,6 +2262,7 @@
 	@see https://haxe.org/manual/std-math-integer-math.html
 	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
 		<meta>
+			<m n=":valueUsed"/>
 			<m n=":defaultValue"><e>0</e></m>
 			<m n=":coreType"/>
 			<m n=":notNull"/>
@@ -2294,6 +2297,7 @@
 	@see https://haxe.org/manual/types-bool.html
 	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
 		<meta>
+			<m n=":valueUsed"/>
 			<m n=":defaultValue"><e>false</e></m>
 			<m n=":coreType"/>
 			<m n=":notNull"/>
@@ -2310,6 +2314,7 @@
 
 	@see https://haxe.org/manual/types-dynamic.html</haxe_doc>
 		<meta>
+			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":runtimeValue"/>
 		</meta>
@@ -3241,7 +3246,10 @@
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</isInterface>
-		<meta><m n=":pythonImport"><e>"inspect"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":pythonImport"><e>"inspect"</e></m>
+		</meta>
 	</class>
 	<class path="Sys" params="" file="/home/runner/work/haxe/haxe/std/python/_std/Sys.hx">
 		<time public="1" get="inline" set="null" line="31" static="1">
@@ -3425,6 +3433,7 @@
 	<enum path="ValueType" params="" file="/home/runner/work/haxe/haxe/std/python/_std/Type.hx" module="Type">
 		<TNull/>
 		<TInt/>
+		<TInt64/>
 		<TFloat/>
 		<TBool/>
 		<TObject/>
@@ -3434,7 +3443,7 @@
 		<TUnknown/>
 	</enum>
 	<class path="Type" params="" file="/home/runner/work/haxe/haxe/std/python/_std/Type.hx">
-		<getClass public="1" params="T" set="method" line="43" static="1">
+		<getClass public="1" params="T" set="method" line="44" static="1">
 			<f a="o">
 				<c path="getClass.T"/>
 				<x path="Null"><x path="Class"><c path="getClass.T"/></x></x>
@@ -3446,7 +3455,7 @@
 
 		In general, type parameter information cannot be obtained at runtime.</haxe_doc>
 		</getClass>
-		<getEnum public="1" set="method" line="63" static="1">
+		<getEnum public="1" set="method" line="64" static="1">
 			<f a="o">
 				<x path="EnumValue"/>
 				<x path="Null"><x path="Enum"><d/></x></x>
@@ -3460,7 +3469,7 @@
 
 		In general, type parameter information cannot be obtained at runtime.]]></haxe_doc>
 		</getEnum>
-		<getSuperClass public="1" set="method" line="69" static="1">
+		<getSuperClass public="1" set="method" line="70" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
 				<x path="Null"><x path="Class"><d/></x></x>
@@ -3473,7 +3482,7 @@
 
 		In general, type parameter information cannot be obtained at runtime.</haxe_doc>
 		</getSuperClass>
-		<getClassName public="1" set="method" line="73" static="1">
+		<getClassName public="1" set="method" line="74" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
 				<c path="String"/>
@@ -3493,7 +3502,7 @@
 
 		The class name does not include any type parameters.</haxe_doc>
 		</getClassName>
-		<getEnumName public="1" set="method" line="93" static="1">
+		<getEnumName public="1" set="method" line="94" static="1">
 			<f a="e">
 				<x path="Enum"><d/></x>
 				<c path="String"/>
@@ -3513,7 +3522,7 @@
 
 		The enum name does not include any type parameters.</haxe_doc>
 		</getEnumName>
-		<resolveClass public="1" set="method" line="97" static="1">
+		<resolveClass public="1" set="method" line="98" static="1">
 			<f a="name">
 				<c path="String"/>
 				<x path="Null"><x path="Class"><d/></x></x>
@@ -3530,7 +3539,7 @@
 
 		The class name must not include any type parameters.</haxe_doc>
 		</resolveClass>
-		<resolveEnum public="1" set="method" line="112" static="1">
+		<resolveEnum public="1" set="method" line="113" static="1">
 			<f a="name">
 				<c path="String"/>
 				<x path="Null"><x path="Enum"><d/></x></x>
@@ -3548,7 +3557,7 @@
 
 		The enum name must not include any type parameters.</haxe_doc>
 		</resolveEnum>
-		<createInstance public="1" params="T" get="inline" set="null" line="119" static="1">
+		<createInstance public="1" params="T" get="inline" set="null" line="120" static="1">
 			<f a="cl:args">
 				<x path="Class"><c path="createInstance.T"/></x>
 				<c path="Array"><d/></c>
@@ -3570,7 +3579,7 @@
 		In particular, default values of constructor arguments are not
 		guaranteed to be taken into account.</haxe_doc>
 		</createInstance>
-		<createEmptyInstance public="1" params="T" set="method" line="123" static="1">
+		<createEmptyInstance public="1" params="T" set="method" line="124" static="1">
 			<f a="cl">
 				<x path="Class"><c path="createEmptyInstance.T"/></x>
 				<c path="createEmptyInstance.T"/>
@@ -3582,7 +3591,7 @@
 
 		If `cl` is null, the result is unspecified.</haxe_doc>
 		</createEmptyInstance>
-		<createEnum public="1" params="T" set="method" line="140" static="1">
+		<createEnum public="1" params="T" set="method" line="141" static="1">
 			<f a="e:constr:?params">
 				<x path="Enum"><c path="createEnum.T"/></x>
 				<c path="String"/>
@@ -3597,7 +3606,7 @@
 		expected number of constructor arguments, or if any argument has an
 		invalid type, the result is unspecified.</haxe_doc>
 		</createEnum>
-		<createEnumIndex public="1" params="T" set="method" line="155" static="1">
+		<createEnumIndex public="1" params="T" set="method" line="156" static="1">
 			<f a="e:index:?params">
 				<x path="Enum"><c path="createEnumIndex.T"/></x>
 				<x path="Int"/>
@@ -3616,7 +3625,7 @@
 		expected number of constructor arguments, or if any argument has an
 		invalid type, the result is unspecified.</haxe_doc>
 		</createEnumIndex>
-		<getInstanceFields public="1" get="inline" set="null" line="162" static="1">
+		<getInstanceFields public="1" get="inline" set="null" line="163" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
 				<c path="Array"><c path="String"/></c>
@@ -3632,7 +3641,7 @@
 
 		If `c` is null, the result is unspecified.</haxe_doc>
 		</getInstanceFields>
-		<getClassFields public="1" get="inline" set="null" line="166" static="1">
+		<getClassFields public="1" get="inline" set="null" line="167" static="1">
 			<f a="c">
 				<x path="Class"><d/></x>
 				<c path="Array"><c path="String"/></c>
@@ -3645,7 +3654,7 @@
 
 		If `c` is null, the result is unspecified.</haxe_doc>
 		</getClassFields>
-		<getEnumConstructs public="1" set="method" line="170" static="1">
+		<getEnumConstructs public="1" set="method" line="171" static="1">
 			<f a="e">
 				<x path="Enum"><d/></x>
 				<c path="Array"><c path="String"/></c>
@@ -3658,7 +3667,7 @@
 
 		If `e` is null, the result is unspecified.</haxe_doc>
 		</getEnumConstructs>
-		<typeof public="1" set="method" line="179" static="1">
+		<typeof public="1" set="method" line="180" static="1">
 			<f a="v">
 				<d/>
 				<e path="ValueType"/>
@@ -3670,11 +3679,11 @@
 		per platform. Assumptions regarding this should be minimized to avoid
 		surprises.</haxe_doc>
 		</typeof>
-		<asEnumImpl get="inline" set="null" line="205" static="1"><f a="x">
+		<asEnumImpl get="inline" set="null" line="207" static="1"><f a="x">
 	<d/>
 	<c path="python.internal.EnumImpl"/>
 </f></asEnumImpl>
-		<enumEq public="1" params="T" set="method" line="209" static="1">
+		<enumEq public="1" params="T" set="method" line="211" static="1">
 			<f a="a:b">
 				<c path="enumEq.T"/>
 				<c path="enumEq.T"/>
@@ -3688,7 +3697,7 @@
 
 		If `a` or `b` are null, the result is unspecified.</haxe_doc>
 		</enumEq>
-		<enumConstructor public="1" get="inline" set="null" line="234" static="1">
+		<enumConstructor public="1" get="inline" set="null" line="236" static="1">
 			<f a="e">
 				<x path="EnumValue"/>
 				<c path="String"/>
@@ -3699,7 +3708,7 @@
 
 		If `e` is null, the result is unspecified.</haxe_doc>
 		</enumConstructor>
-		<enumParameters public="1" get="inline" set="null" line="238" static="1">
+		<enumParameters public="1" get="inline" set="null" line="240" static="1">
 			<f a="e">
 				<x path="EnumValue"/>
 				<c path="Array"><d/></c>
@@ -3713,7 +3722,7 @@
 
 		If `e` is null, the result is unspecified.</haxe_doc>
 		</enumParameters>
-		<enumIndex public="1" get="inline" set="null" line="242" static="1">
+		<enumIndex public="1" get="inline" set="null" line="244" static="1">
 			<f a="e">
 				<x path="EnumValue"/>
 				<x path="Int"/>
@@ -3725,7 +3734,7 @@
 
 		If `e` is null, the result is unspecified.</haxe_doc>
 		</enumIndex>
-		<allEnums public="1" params="T" set="method" line="246" static="1">
+		<allEnums public="1" params="T" set="method" line="248" static="1">
 			<f a="e">
 				<x path="Enum"><c path="allEnums.T"/></x>
 				<c path="Array"><c path="allEnums.T"/></c>
@@ -5607,604 +5616,10 @@
 		The order of values is undefined.</haxe_doc>
 		</keyValueIterator>
 	</class>
-	<class path="haxe.ds.ObjectMap" params="K:V" file="/home/runner/work/haxe/haxe/std/python/_std/haxe/ds/ObjectMap.hx">
-		<implements path="haxe.IMap">
-			<c path="haxe.ds.ObjectMap.K"/>
-			<c path="haxe.ds.ObjectMap.V"/>
-		</implements>
-		<h><c path="python.Dict">
-	<c path="haxe.ds.ObjectMap.K"/>
-	<c path="haxe.ds.ObjectMap.V"/>
-</c></h>
-		<set public="1" set="method" line="34"><f a="key:value">
-	<c path="haxe.ds.ObjectMap.K"/>
-	<c path="haxe.ds.ObjectMap.V"/>
-	<x path="Void"/>
-</f></set>
-		<get public="1" get="inline" set="null" line="38"><f a="key">
-	<c path="haxe.ds.ObjectMap.K"/>
-	<x path="Null"><c path="haxe.ds.ObjectMap.V"/></x>
-</f></get>
-		<exists public="1" get="inline" set="null" line="42"><f a="key">
-	<c path="haxe.ds.ObjectMap.K"/>
-	<x path="Bool"/>
-</f></exists>
-		<remove public="1" set="method" line="46"><f a="key">
-	<c path="haxe.ds.ObjectMap.K"/>
-	<x path="Bool"/>
-</f></remove>
-		<keys public="1" set="method" line="53"><f a=""><t path="Iterator"><c path="haxe.ds.ObjectMap.K"/></t></f></keys>
-		<iterator public="1" set="method" line="57"><f a=""><t path="Iterator"><c path="haxe.ds.ObjectMap.V"/></t></f></iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="61">
-			<f a=""><t path="KeyValueIterator">
-	<c path="haxe.ds.ObjectMap.K"/>
-	<c path="haxe.ds.ObjectMap.V"/>
-</t></f>
-			<meta><m n=":runtime"/></meta>
-		</keyValueIterator>
-		<copy public="1" set="method" line="65"><f a=""><c path="haxe.ds.ObjectMap">
-	<c path="haxe.ds.ObjectMap.K"/>
-	<c path="haxe.ds.ObjectMap.V"/>
-</c></f></copy>
-		<toString public="1" set="method" line="72"><f a=""><c path="String"/></f></toString>
-		<clear public="1" get="inline" set="null" line="87"><f a=""><x path="Void"/></f></clear>
-		<size public="1" get="inline" set="null" line="91"><f a=""><x path="Int"/></f></size>
-		<new public="1" set="method" line="30"><f a=""><x path="Void"/></f></new>
-		<meta><m n=":directlyUsed"/></meta>
-	</class>
-	<class path="python.Dict" params="K:V" file="/home/runner/work/haxe/haxe/std/python/Dict.hx" extern="1">
-		<length public="1" get="accessor" set="null"><x path="Int"/></length>
-		<get_length get="inline" set="null" line="35"><f a=""><x path="Int"/></f></get_length>
-		<get public="1" set="method"><f a="key:?def">
-	<c path="python.Dict.K"/>
-	<c path="python.Dict.V"/>
-	<c path="python.Dict.V"/>
-</f></get>
-		<getSafe public="1" get="inline" set="null" line="41"><f a="key">
-	<c path="python.Dict.K"/>
-	<c path="python.Dict.V"/>
-</f></getSafe>
-		<set public="1" get="inline" set="null" line="45"><f a="key:val">
-	<c path="python.Dict.K"/>
-	<c path="python.Dict.V"/>
-	<x path="Void"/>
-</f></set>
-		<remove public="1" get="inline" set="null" line="49"><f a="key">
-	<c path="python.Dict.K"/>
-	<x path="Void"/>
-</f></remove>
-		<hasKey public="1" get="inline" set="null" line="53"><f a="k">
-	<c path="python.Dict.K"/>
-	<x path="Bool"/>
-</f></hasKey>
-		<clear public="1" set="method"><f a=""><x path="Void"/></f></clear>
-		<copy public="1" set="method"><f a=""><c path="python.Dict">
-	<c path="python.Dict.K"/>
-	<c path="python.Dict.V"/>
-</c></f></copy>
-		<items public="1" set="method"><f a=""><c path="python.DictView"><c path="python.Tuple2">
-	<c path="python.Dict.K"/>
-	<c path="python.Dict.V"/>
-</c></c></f></items>
-		<keys public="1" set="method"><f a=""><c path="python.DictView"><c path="python.Dict.K"/></c></f></keys>
-		<pop public="1" set="method"><f a="key:?def">
-	<c path="python.Dict.K"/>
-	<c path="python.Dict.V"/>
-	<c path="python.Dict.V"/>
-</f></pop>
-		<popitem public="1" set="method"><f a=""><c path="python.Tuple2">
-	<c path="python.Dict.K"/>
-	<c path="python.Dict.V"/>
-</c></f></popitem>
-		<setdefault public="1" set="method"><f a="key:?def">
-	<c path="python.Dict.K"/>
-	<c path="python.Dict.V"/>
-	<c path="python.Dict.V"/>
-</f></setdefault>
-		<update public="1" set="method"><f a="d">
-	<c path="python.Dict">
-		<c path="python.Dict.K"/>
-		<c path="python.Dict.V"/>
-	</c>
-	<x path="Void"/>
-</f></update>
-		<values public="1" set="method"><f a=""><c path="python.DictView"><c path="python.Dict.V"/></c></f></values>
-		<iter public="1" get="inline" set="null" line="67"><f a=""><x path="python.NativeIterator"><c path="python.Dict.K"/></x></f></iter>
-		<iterator public="1" get="inline" set="null" line="71"><f a=""><t path="Iterator"><c path="python.Dict.V"/></t></f></iterator>
-		<__iter__ set="method"><f a=""><x path="python.NativeIterator"><c path="python.Dict.K"/></x></f></__iter__>
-		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":native"><e>"dict"</e></m>
-		</meta>
-	</class>
-	<class path="sys.thread.Mutex" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Mutex.hx">
-		<lock final="1"><c path="python.lib.threading.RLock"/></lock>
-		<acquire public="1" get="inline" set="null" line="35">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>The current thread acquire the mutex or wait if not available.
-		The same thread can acquire several times the same mutex but
-		must release it as many times it has been acquired.</haxe_doc>
-		</acquire>
-		<tryAcquire public="1" get="inline" set="null" line="39">
-			<f a=""><x path="Bool"/></f>
-			<haxe_doc>Try to acquire the mutex, returns true if acquire or false
-		if it's already locked by another thread.</haxe_doc>
-		</tryAcquire>
-		<release public="1" get="inline" set="null" line="43">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Release a mutex that has been acquired by the current thread.
-		The behavior is undefined if the current thread does not own
-		the mutex.</haxe_doc>
-		</release>
-		<new public="1" get="inline" set="null" line="31">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Creates a mutex.</haxe_doc>
-		</new>
-		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
-	to access some resource. The main difference with a lock is
-	that a mutex must always be released by the owner thread.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-		</meta>
-	</class>
-	<class path="python.lib.threading.RLock" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/RLock.hx" extern="1">
-		<acquire public="1" set="method"><f a="?blocking:?timeout">
-	<x path="Bool"/>
-	<x path="Float"/>
-	<x path="Bool"/>
-</f></acquire>
-		<release public="1" set="method"><f a=""><x path="Void"/></f></release>
-		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":pythonImport">
-				<e>"threading"</e>
-				<e>"RLock"</e>
-			</m>
-		</meta>
-	</class>
-	<class path="python.lib.Threading" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Threading.hx" extern="1">
-		<active_count public="1" set="method" static="1"><f a=""><x path="Int"/></f></active_count>
-		<current_thread public="1" set="method" static="1"><f a=""><c path="python.lib.threading.Thread"/></f></current_thread>
-		<get_ident public="1" set="method" static="1"><f a=""><x path="Int"/></f></get_ident>
-		<enumerate public="1" set="method" static="1"><f a=""><c path="Array"><c path="python.lib.threading.Thread"/></c></f></enumerate>
-		<main_thread public="1" set="method" static="1"><f a=""><c path="python.lib.threading.Thread"/></f></main_thread>
-		<settrace public="1" set="method" static="1"><f a="func">
-	<d/>
-	<x path="Void"/>
-</f></settrace>
-		<setprofile public="1" set="method" static="1"><f a="func">
-	<d/>
-	<x path="Void"/>
-</f></setprofile>
-		<stack_size public="1" set="method" static="1"><f a="?size">
-	<x path="Int"/>
-	<x path="Int"/>
-</f></stack_size>
-		<local public="1" set="method" static="1"><f a=""><d/></f></local>
-		<TIMEOUT_MAX public="1" static="1"><x path="Float"/></TIMEOUT_MAX>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":pythonImport"><e>"threading"</e></m>
-		</meta>
-	</class>
-	<class path="sys.thread.EventLoop" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/EventLoop.hx">
-		<CREATED static="1"><x path="Bool"/></CREATED>
-		<mutex final="1" expr="new Mutex()">
-			<c path="sys.thread.Mutex"/>
-			<meta><m n=":value"><e>new Mutex()</e></m></meta>
-		</mutex>
-		<oneTimeEvents final="1" expr="new Array&lt;Null&lt;Void -&gt; Void&gt;&gt;()">
-			<c path="Array"><x path="Null"><f a=""><x path="Void"/></f></x></c>
-			<meta><m n=":value"><e><![CDATA[new Array<Null<Void -> Void>>()]]></e></m></meta>
-		</oneTimeEvents>
-		<oneTimeEventsIdx expr="0">
-			<x path="Int"/>
-			<meta><m n=":value"><e>0</e></m></meta>
-		</oneTimeEventsIdx>
-		<waitLock final="1" expr="new Lock()">
-			<c path="sys.thread.Lock"/>
-			<meta><m n=":value"><e>new Lock()</e></m></meta>
-		</waitLock>
-		<promisedEventsCount expr="0">
-			<x path="Int"/>
-			<meta><m n=":value"><e>0</e></m></meta>
-		</promisedEventsCount>
-		<regularEvents><x path="Null"><c path="sys.thread._EventLoop.RegularEvent"/></x></regularEvents>
-		<isMainThread><x path="Bool"/></isMainThread>
-		<repeat public="1" set="method" line="42">
-			<f a="event:intervalMs">
-				<f a=""><x path="Void"/></f>
-				<x path="Int"/>
-				<x path="sys.thread.EventHandler"/>
-			</f>
-			<haxe_doc>Schedule event for execution every `intervalMs` milliseconds in current loop.</haxe_doc>
-		</repeat>
-		<insertEventByTime set="method" line="52"><f a="event">
-	<c path="sys.thread._EventLoop.RegularEvent"/>
-	<x path="Void"/>
-</f></insertEventByTime>
-		<cancel public="1" set="method" line="86">
-			<f a="eventHandler">
-				<x path="sys.thread.EventHandler"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Prevent execution of a previously scheduled event in current loop.</haxe_doc>
-		</cancel>
-		<promise public="1" set="method" line="110">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Notify this loop about an upcoming event.
-		This makes the thread stay alive and wait for as many events as the number of
-		times `.promise()` was called. These events should be added via `.runPromised()`.</haxe_doc>
-		</promise>
-		<run public="1" set="method" line="119">
-			<f a="event">
-				<f a=""><x path="Void"/></f>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Execute `event` as soon as possible.</haxe_doc>
-		</run>
-		<runPromised public="1" set="method" line="129">
-			<f a="event">
-				<f a=""><x path="Void"/></f>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Add previously promised `event` for execution.</haxe_doc>
-		</runPromised>
-		<progress public="1" set="method" line="145">
-			<f a=""><e path="sys.thread.NextEventTime"/></f>
-			<haxe_doc>Executes all pending events.
-
-		The returned time stamps can be used with `Sys.time()` for calculations.
-
-		Depending on a target platform this method may be non-reentrant. It must
-		not be called from event callbacks.</haxe_doc>
-		</progress>
-		<wait public="1" set="method" line="167">
-			<f a="?timeout">
-				<x path="Float"/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Blocks until a new event is added or `timeout` (in seconds) to expires.
-
-		Depending on a target platform this method may also automatically execute arriving
-		events while waiting. However if any event is executed it will stop waiting.
-
-		Returns `true` if more events are expected.
-		Returns `false` if no more events expected.
-
-		Depending on a target platform this method may be non-reentrant. It must
-		not be called from event callbacks.</haxe_doc>
-		</wait>
-		<loop public="1" set="method" line="179">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Execute all pending events.
-		Wait and execute as many events as the number of times `promise()` was called.
-		Runs until all repeating events are cancelled and no more events are expected.
-
-		Depending on a target platform this method may be non-reentrant. It must
-		not be called from event callbacks.</haxe_doc>
-		</loop>
-		<__progress get="inline" set="null" line="205">
-			<f a="now:recycleRegular:recycleOneTimers">
-				<x path="Float"/>
-				<c path="Array"><c path="sys.thread._EventLoop.RegularEvent"/></c>
-				<c path="Array"><f a=""><x path="Void"/></f></c>
-				<a>
-					<nextEventAt><x path="Float"/></nextEventAt>
-					<anyTime><x path="Bool"/></anyTime>
-				</a>
-			</f>
-			<haxe_doc>`.progress` implementation with a reusable array for internal usage.
-		The `nextEventAt` field of the return value denotes when the next event
-		is expected to run:
-		* -1 - never
-		* -2 - now
-		* other values - at specified time</haxe_doc>
-		</__progress>
-		<new public="1" set="method" line="34"><f a=""><x path="Void"/></f></new>
-		<haxe_doc>An event loop implementation used for `sys.thread.Thread`</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-		</meta>
-	</class>
-	<class path="sys.thread._Thread.HxThread" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread">
-		<threads static="1"><c path="haxe.ds.ObjectMap">
-	<c path="python.lib.threading.Thread"/>
-	<c path="sys.thread._Thread.HxThread"/>
-</c></threads>
-		<threadsMutex static="1"><c path="sys.thread.Mutex"/></threadsMutex>
-		<mainThread static="1"><c path="sys.thread._Thread.HxThread"/></mainThread>
-		<current public="1" set="method" line="96" static="1"><f a=""><c path="sys.thread._Thread.HxThread"/></f></current>
-		<create public="1" set="method" line="112" static="1"><f a="callb:withEventLoop">
-	<f a=""><x path="Void"/></f>
-	<x path="Bool"/>
-	<c path="sys.thread._Thread.HxThread"/>
-</f></create>
-		<runWithEventLoop public="1" set="method" line="138" static="1"><f a="job">
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></runWithEventLoop>
-		<dropThread get="inline" set="null" line="155" static="1"><f a="nt">
-	<c path="python.lib.threading.Thread"/>
-	<x path="Void"/>
-</f></dropThread>
-		<readMessage public="1" set="method" line="161" static="1"><f a="block">
-	<x path="Bool"/>
-	<d/>
-</f></readMessage>
-		<events public="1" set="null"><x path="Null"><c path="sys.thread.EventLoop"/></x></events>
-		<nativeThread final="1"><c path="python.lib.threading.Thread"/></nativeThread>
-		<messages final="1" expr="new Deque&lt;Dynamic&gt;()">
-			<c path="sys.thread.Deque"><d/></c>
-			<meta><m n=":value"><e><![CDATA[new Deque<Dynamic>()]]></e></m></meta>
-		</messages>
-		<sendMessage public="1" set="method" line="92"><f a="msg">
-	<d/>
-	<x path="Void"/>
-</f></sendMessage>
-		<new set="method" line="88"><f a="t">
-	<c path="python.lib.threading.Thread"/>
-	<x path="Void"/>
-</f></new>
-		<meta><m n=":directlyUsed"/></meta>
-	</class>
-	<class path="python.Syntax" params="" file="/home/runner/work/haxe/haxe/std/python/Syntax.hx" extern="1">
-		<importModule public="1" set="method" static="1">
-			<f a="module">
-				<d/>
-				<d/>
-			</f>
-			<meta><m n=":noUsing"/></meta>
-		</importModule>
-		<importAs public="1" set="method" static="1">
-			<f a="module:className">
-				<d/>
-				<d/>
-				<d/>
-			</f>
-			<meta><m n=":noUsing"/></meta>
-		</importAs>
-		<construct public="1" params="T" set="method" static="1">
-			<f a="cls:args">
-				<x path="Class"><c path="construct.T"/></x>
-				<t path="haxe.extern.Rest"><d/></t>
-				<c path="construct.T"/>
-			</f>
-			<overloads><construct public="1" set="method"><f a="className:args">
-	<c path="String"/>
-	<t path="haxe.extern.Rest"><d/></t>
-	<d/>
-</f></construct></overloads>
-		</construct>
-		<newInstance public="1" set="method" static="1">
-			<f a="c:params">
-				<d/>
-				<d/>
-				<d/>
-			</f>
-			<meta>
-				<m n=":noUsing"/>
-				<m n=":deprecated"><e>"python.Syntax.newInstance() is deprecated. Use python.Syntax.construct() instead."</e></m>
-			</meta>
-		</newInstance>
-		<_newInstance public="1" set="method" static="1"><f a="c:args">
-	<d/>
-	<c path="Array"><d/></c>
-	<d/>
-</f></_newInstance>
-		<isIn public="1" set="method" static="1">
-			<f a="a:b">
-				<d/>
-				<d/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":noUsing"/></meta>
-		</isIn>
-		<delete public="1" set="method" static="1">
-			<f a="a">
-				<d/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":noUsing"/></meta>
-		</delete>
-		<binop public="1" set="method" static="1">
-			<f a="a:op:b">
-				<d/>
-				<c path="String"/>
-				<d/>
-				<d/>
-			</f>
-			<meta><m n=":noUsing"/></meta>
-		</binop>
-		<assign public="1" set="method" static="1">
-			<f a="a:b">
-				<d/>
-				<d/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":noUsing"/></meta>
-		</assign>
-		<code public="1" set="method" static="1"><f a="code:args">
-	<c path="String"/>
-	<t path="haxe.extern.Rest"><d/></t>
-	<d/>
-</f></code>
-		<pythonCode public="1" set="method" static="1">
-			<f a="b:rest">
-				<c path="String"/>
-				<d/>
-				<d/>
-			</f>
-			<meta>
-				<m n=":noUsing"/>
-				<m n=":deprecated"><e>"python.Syntax.pythonCode() is deprecated. Use python.Syntax.code() instead."</e></m>
-			</meta>
-		</pythonCode>
-		<_pythonCode public="1" params="T" set="method" static="1">
-			<f a="b:args">
-				<c path="String"/>
-				<c path="Array"><d/></c>
-				<c path="_pythonCode.T"/>
-			</f>
-			<meta><m n=":noUsing"/></meta>
-		</_pythonCode>
-		<arrayAccess public="1" set="method" static="1">
-			<f a="x:rest">
-				<d/>
-				<d/>
-				<d/>
-			</f>
-			<meta><m n=":noUsing"/></meta>
-		</arrayAccess>
-		<arrayAccessWithTrailingColon public="1" set="method" static="1">
-			<f a="x:rest">
-				<d/>
-				<d/>
-				<d/>
-			</f>
-			<meta><m n=":noUsing"/></meta>
-		</arrayAccessWithTrailingColon>
-		<_arrayAccess public="1" set="method" static="1">
-			<f a="a:args:?trailingColon" v="::false">
-				<d/>
-				<c path="Array"><d/></c>
-				<x path="Bool"/>
-				<d/>
-			</f>
-			<meta><m n=":value"><e>{ trailingColon : false }</e></m></meta>
-		</_arrayAccess>
-		<arraySet public="1" set="method" static="1">
-			<f a="a:i:v">
-				<d/>
-				<d/>
-				<d/>
-				<d/>
-			</f>
-			<meta><m n=":noUsing"/></meta>
-		</arraySet>
-		<_foreach public="1" set="method" static="1"><f a="id:it:block">
-	<d/>
-	<d/>
-	<d/>
-	<d/>
-</f></_foreach>
-		<foreach public="1" params="T" set="method" static="1">
-			<f a="v:it:b">
-				<d/>
-				<d/>
-				<d/>
-				<d/>
-			</f>
-			<meta><m n=":noUsing"/></meta>
-		</foreach>
-		<importFromAs public="1" set="method" static="1">
-			<f a="from:module:className">
-				<d/>
-				<d/>
-				<d/>
-				<d/>
-			</f>
-			<meta><m n=":noUsing"/></meta>
-		</importFromAs>
-		<callField public="1" set="method" static="1">
-			<f a="o:field:params">
-				<d/>
-				<c path="String"/>
-				<d/>
-				<d/>
-			</f>
-			<meta><m n=":noUsing"/></meta>
-		</callField>
-		<call public="1" set="method" static="1"><f a="e:args">
-	<d/>
-	<c path="Array"><d/></c>
-	<d/>
-</f></call>
-		<field public="1" set="method" static="1">
-			<f a="o:field">
-				<d/>
-				<c path="String"/>
-				<d/>
-			</f>
-			<meta><m n=":noUsing"/></meta>
-		</field>
-		<tuple public="1" set="method" static="1">
-			<f a="args">
-				<d/>
-				<d/>
-			</f>
-			<meta><m n=":noUsing"/></meta>
-		</tuple>
-		<_tuple public="1" set="method" static="1"><f a="args">
-	<c path="Array"><d/></c>
-	<d/>
-</f></_tuple>
-		<varArgs public="1" set="method" static="1">
-			<f a="args">
-				<c path="Array"><d/></c>
-				<d/>
-			</f>
-			<meta><m n=":noUsing"/></meta>
-		</varArgs>
-		<callNamedUntyped public="1" set="method" static="1"><f a="e:args">
-	<d/>
-	<d/>
-	<d/>
-</f></callNamedUntyped>
-		<_callNamedUntyped public="1" set="method" static="1"><f a="e:args">
-	<d/>
-	<d/>
-	<d/>
-</f></_callNamedUntyped>
-		<opPow public="1" set="method" static="1"><f a="a:b">
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></opPow>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":noPackageRestrict"/>
-			<m n=":noClosure"/>
-		</meta>
-	</class>
 	<class path="haxe.EntryPoint" params="" file="/home/runner/work/haxe/haxe/std/haxe/EntryPoint.hx">
-		<mutex expr="new Mutex()" line="37" static="1">
-			<c path="sys.thread.Mutex"/>
-			<meta><m n=":value"><e>new Mutex()</e></m></meta>
-		</mutex>
-		<mainThread expr="Thread.current()" line="39" static="1">
-			<x path="sys.thread.Thread"/>
-			<meta><m n=":value"><e>Thread.current()</e></m></meta>
-		</mainThread>
-		<pending expr="new Array&lt;Void&gt;()" line="44" static="1">
-			<c path="Array"><f a=""><x path="Void"/></f></c>
-			<meta><m n=":value"><e><![CDATA[new Array<Void>()]]></e></m></meta>
-		</pending>
-		<threadCount public="1" set="null" expr="0" line="45" static="1">
-			<x path="Int"/>
-			<meta><m n=":value"><e>0</e></m></meta>
-		</threadCount>
-		<wakeup public="1" set="method" line="50" static="1">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Wakeup a sleeping `run()`</haxe_doc>
-		</wakeup>
-		<runInMainThread public="1" set="method" line="56" static="1"><f a="f">
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></runInMainThread>
-		<addThread public="1" set="method" line="71" static="1"><f a="f">
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></addThread>
-		<processEvents set="method" line="99" static="1"><f a=""><x path="Float"/></f></processEvents>
-		<run public="1" set="method" line="126" static="1">
+		<run public="1" set="method" line="9" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
-			<haxe_doc>Start the main loop. Depending on the platform, this can return immediately or will only return when the application exits.</haxe_doc>
 		</run>
 		<haxe_doc>If `haxe.MainLoop` is kept from DCE, then we will insert an `haxe.EntryPoint.run()` call just at then end of `main()`.
 	This class can be redefined by custom frameworks so they can handle their own main loop logic.</haxe_doc>
@@ -6618,6 +6033,219 @@
 	If the first argument to any of the methods is `null`, the result is
 	unspecified.</haxe_doc>
 	</class>
+	<class path="haxe.Event" params="" file="/home/runner/work/haxe/haxe/std/haxe/EventLoop.hx" module="haxe.EventLoop">
+		<prev><c path="haxe.Event"/></prev>
+		<next><c path="haxe.Event"/></next>
+		<callb><f a=""><x path="Void"/></f></callb>
+		<loop public="1" set="null">
+			<c path="haxe.EventLoop"/>
+			<haxe_doc>The EventLoop our event is part of.</haxe_doc>
+		</loop>
+		<priority public="1">
+			<x path="Int"/>
+			<haxe_doc>The event priority. Events will be executed in order of priority (highest first).</haxe_doc>
+		</priority>
+		<isBlocking public="1" expr="true">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>true</e></m></meta>
+			<haxe_doc>Tells if an event is blocking. It means the event loop won't return from `loop()` until this event has been stopped.</haxe_doc>
+		</isBlocking>
+		<toRemove><x path="Bool"/></toRemove>
+		<nextRun expr="Math.NEGATIVE_INFINITY">
+			<x path="Float"/>
+			<meta><m n=":value"><e>Math.NEGATIVE_INFINITY</e></m></meta>
+		</nextRun>
+		<delay public="1" set="method" line="38">
+			<f a="t:?fromLastRun" v=":false">
+				<x path="Null"><x path="Float"/></x>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ fromLastRun : false }</e></m></meta>
+			<haxe_doc>Delay the execution of the event for the given time, in seconds.
+		If t is null, the event will be run at next event loop.</haxe_doc>
+		</delay>
+		<stop public="1" set="method" line="45">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Stop this event from repeating.</haxe_doc>
+		</stop>
+		<start public="1" set="method" line="52">
+			<f a="callb">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Start the event with the given callback function.</haxe_doc>
+		</start>
+		<isStopped public="1" set="method" line="60">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>Tells if the event has been stopped.</haxe_doc>
+		</isStopped>
+		<new set="method" line="29"><f a="loop:p">
+	<c path="haxe.EventLoop"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></new>
+	</class>
+	<class path="haxe.EventLoop" params="" file="/home/runner/work/haxe/haxe/std/haxe/EventLoop.hx">
+		<main public="1" get="accessor" set="null" static="1">
+			<c path="haxe.EventLoop"/>
+			<haxe_doc>This is the main thread event loop.</haxe_doc>
+		</main>
+		<current public="1" get="accessor" set="null" static="1">
+			<c path="haxe.EventLoop"/>
+			<haxe_doc>This is the current thread event loop. For platforms that doesn't support threads
+		it is the same as `main`.</haxe_doc>
+		</current>
+		<hasRunningThreads public="1" set="method" line="439" static="1">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>Tells if we currently have blocking unfinished threads.</haxe_doc>
+		</hasRunningThreads>
+		<addTask public="1" set="method" line="475" static="1">
+			<f a="f:?blocking" v=":true">
+				<f a=""><x path="Void"/></f>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ blocking : true }</e></m></meta>
+			<haxe_doc>Add a task to be run either on another thread or as part of the main event loop if the
+		platform does not support threads.</haxe_doc>
+		</addTask>
+		<get_current set="method" line="483" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_current>
+		<get_main set="method" line="493" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_main>
+		<events><c path="haxe.Event"/></events>
+		<inLoop><x path="Bool"/></inLoop>
+		<hasPendingRemove><x path="Bool"/></hasPendingRemove>
+		<promiseCount expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</promiseCount>
+		<mutex><c path="sys.thread.Mutex"/></mutex>
+		<lockTime><c path="sys.thread.Lock"/></lockTime>
+		<thread public="1">
+			<c path="sys.thread.Thread"/>
+			<haxe_doc>The reference thread for this loop. If set, the loop can only be run within this thread.</haxe_doc>
+		</thread>
+		<dispose public="1" set="method" line="129">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>This should be called after you are finished with a custom event loop.
+		It is already automatically called for threads loops.</haxe_doc>
+		</dispose>
+		<loop public="1" set="method" line="139">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Runs until all the blocking events have been stopped.
+		If this is called on the main thread, also wait for all blocking threads to finish.</haxe_doc>
+		</loop>
+		<promise public="1" set="method" line="159">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Promise a possible future event addition. This will prevent the `loop()` from terminating until the matching number of `deliver()` calls have been made.</haxe_doc>
+		</promise>
+		<deliver public="1" set="method" line="168">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Deliver after a `promise()`. This will throw an exception if more `deliver()` calls has been made than corresponding `promise()` calls.</haxe_doc>
+		</deliver>
+		<wakeup get="inline" set="null" line="180"><f a=""><x path="Void"/></f></wakeup>
+		<wait get="inline" set="null" line="186"><f a="time">
+	<x path="Float"/>
+	<x path="Void"/>
+</f></wait>
+		<lock get="inline" set="null" line="194"><f a=""><x path="Void"/></f></lock>
+		<unlock get="inline" set="null" line="200"><f a=""><x path="Void"/></f></unlock>
+		<checkThread set="method" line="206"><f a=""><x path="Void"/></f></checkThread>
+		<loopOnce public="1" set="method" line="217">
+			<f a="?threadCheck" v="true">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ threadCheck : true }</e></m></meta>
+			<haxe_doc>Perform an update of pending events.
+		By default, an event loop from a thread can only be triggered from this thread.
+		You can set `threadCheck` to false in the rare cases you might want otherwise.</haxe_doc>
+		</loopOnce>
+		<add public="1" set="method" line="264">
+			<f a="callb:?priority" v=":0">
+				<f a=""><x path="Void"/></f>
+				<x path="Int"/>
+				<c path="haxe.Event"/>
+			</f>
+			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
+			<haxe_doc>Add a callback to be run at each loop of the event loop.</haxe_doc>
+		</add>
+		<addAsync public="1" set="method" line="275">
+			<f a="?priority" v="0">
+				<x path="Int"/>
+				<c path="haxe.Event"/>
+			</f>
+			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
+			<haxe_doc>Similar to `add` but will return the Event before it's started.
+		This is useful if you wish to hold a reference of another thread Event loop
+		before it runs.</haxe_doc>
+		</addAsync>
+		<addTimer public="1" set="method" line="282">
+			<f a="callb:delay:?priority" v="::0">
+				<f a=""><x path="Void"/></f>
+				<x path="Float"/>
+				<x path="Int"/>
+				<c path="haxe.Event"/>
+			</f>
+			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
+			<haxe_doc>Add a callback to be run every `delay` seconds until stopped</haxe_doc>
+		</addTimer>
+		<repeat public="1" set="method" line="289">
+			<f a="callb:delay">
+				<f a=""><x path="Void"/></f>
+				<x path="Int"/>
+				<c path="haxe.Event"/>
+			</f>
+			<meta>
+				<m n=":deprecated"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</repeat>
+		<cancel public="1" set="method" line="293">
+			<f a="e">
+				<c path="haxe.Event"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":deprecated"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</cancel>
+		<run public="1" set="method" line="300">
+			<f a="callb:?priority" v=":0">
+				<f a=""><x path="Void"/></f>
+				<x path="Int"/>
+				<c path="haxe.Event"/>
+			</f>
+			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
+			<haxe_doc>Add a function to be run once at next loop of the event loop.</haxe_doc>
+		</run>
+		<start set="method" line="306"><f a="e">
+	<c path="haxe.Event"/>
+	<x path="Void"/>
+</f></start>
+		<stop set="method" line="321"><f a="e">
+	<c path="haxe.Event"/>
+	<x path="Void"/>
+</f></stop>
+		<getNextTick set="method" line="348"><f a=""><x path="Float"/></f></getNextTick>
+		<sortEvents set="method" line="370"><f a=""><x path="Void"/></f></sortEvents>
+		<hasEvents public="1" set="method" line="451">
+			<f a="?blocking" v="true">
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ blocking : true }</e></m></meta>
+			<haxe_doc>Tells if the event loop has remaining events.
+		If blocking is set to true, only check if it has remaining blocking events.</haxe_doc>
+		</hasEvents>
+		<new public="1" set="method" line="101"><f a=""><x path="Void"/></f></new>
+		<haxe_doc>Handles async events for all threads</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":access"><e>haxe.Event</e></m>
+		</meta>
+	</class>
 	<typedef path="haxe._Exception.PyStackItem" params="" file="/home/runner/work/haxe/haxe/std/python/_std/haxe/Exception.hx" private="1" module="haxe.Exception"><c path="python.Tuple4">
 	<c path="String"/>
 	<x path="Int"/>
@@ -6771,7 +6399,10 @@
 		throw e; // rethrows native exception instead of haxe.Exception
 	}
 	```]]></haxe_doc>
-		<meta><m n=":coreApi"/></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
 	<typedef path="haxe.Http" params="" file="/home/runner/work/haxe/haxe/std/haxe/Http.hx"><c path="sys.Http"/></typedef>
 	<abstract path="haxe.Int32" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int32.hx">
@@ -8332,7 +7963,7 @@
 		</f>
 		<haxe_doc>Returns a signed decimal `String` representation of `x`.</haxe_doc>
 	</toStr>
-	<toString set="method" line="133" static="1"><f a="this">
+	<toString public="1" set="method" line="133" static="1"><f a="this">
 	<t path="haxe._Int64.__Int64"/>
 	<c path="String"/>
 </f></toString>
@@ -8731,8 +8362,28 @@
 	<x path="Int"/>
 	<x path="Int"/>
 </f></clamp>
+	<IMPL expr="___Int64" line="484" static="1">
+		<t path="Class&lt;haxe._Int64.___Int64&gt;"/>
+		<meta><m n=":value"><e>___Int64</e></m></meta>
+	</IMPL>
 </class></impl>
 	</abstract>
+	<class path="haxe._Int64.___Int64" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int64.hx" private="1" module="haxe.Int64">
+		<high public="1"><x path="haxe.Int32"/></high>
+		<low public="1"><x path="haxe.Int32"/></low>
+		<toString public="1" set="method" line="510">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":ifFeature"><e>"dynamic_read.toString"</e></m></meta>
+			<haxe_doc>We also define toString here to ensure we always get a pretty string
+		when tracing or calling `Std.string`. This tends not to happen when
+		`toString` is only in the abstract.</haxe_doc>
+		</toString>
+		<new public="1" get="inline" set="null" line="498"><f a="high:low">
+	<x path="haxe.Int32"/>
+	<x path="haxe.Int32"/>
+	<x path="Void"/>
+</f></new>
+	</class>
 	<class path="haxe._Int64.Int64_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int64.hx" private="1" module="haxe.Int64" final="1">
 		<_hx_new get="inline" set="null" line="36" static="1">
 			<f a="x">
@@ -8844,7 +8495,7 @@
 			</f>
 			<haxe_doc>Returns a signed decimal `String` representation of `x`.</haxe_doc>
 		</toStr>
-		<toString set="method" line="133" static="1"><f a="this">
+		<toString public="1" set="method" line="133" static="1"><f a="this">
 	<t path="haxe._Int64.__Int64"/>
 	<c path="String"/>
 </f></toString>
@@ -9243,6 +8894,10 @@
 	<x path="Int"/>
 	<x path="Int"/>
 </f></clamp>
+		<IMPL expr="___Int64" line="484" static="1">
+			<t path="Class&lt;haxe._Int64.___Int64&gt;"/>
+			<meta><m n=":value"><e>___Int64</e></m></meta>
+		</IMPL>
 	</class>
 	<typedef path="haxe._Int64.__Int64" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int64.hx" private="1" module="haxe.Int64">
 		<c path="haxe._Int64.___Int64"/>
@@ -9250,21 +8905,6 @@
 	the same underlying type, even though it might be different on
 	specific platforms.</haxe_doc>
 	</typedef>
-	<class path="haxe._Int64.___Int64" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int64.hx" private="1" module="haxe.Int64">
-		<high public="1"><x path="haxe.Int32"/></high>
-		<low public="1"><x path="haxe.Int32"/></low>
-		<toString public="1" set="method" line="507">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>We also define toString here to ensure we always get a pretty string
-		when tracing or calling `Std.string`. This tends not to happen when
-		`toString` is only in the abstract.</haxe_doc>
-		</toString>
-		<new public="1" get="inline" set="null" line="496"><f a="high:low">
-	<x path="haxe.Int32"/>
-	<x path="haxe.Int32"/>
-	<x path="Void"/>
-</f></new>
-	</class>
 	<class path="haxe.Int64Helper" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int64Helper.hx">
 		<parseString public="1" set="method" line="36" static="1">
 			<f a="sParam">
@@ -9333,70 +8973,17 @@
 		<haxe_doc>Log primarily provides the `trace()` method, which is invoked upon a call to
 	`trace()` in Haxe code.</haxe_doc>
 	</class>
-	<class path="haxe.MainEvent" params="" file="/home/runner/work/haxe/haxe/std/haxe/MainLoop.hx" module="haxe.MainLoop">
-		<f><f a=""><x path="Void"/></f></f>
-		<prev><c path="haxe.MainEvent"/></prev>
-		<next><c path="haxe.MainEvent"/></next>
-		<isBlocking public="1" expr="true">
-			<x path="Bool"/>
-			<meta><m n=":value"><e>true</e></m></meta>
-			<haxe_doc>Tells if the event can lock the process from exiting (default:true)</haxe_doc>
-		</isBlocking>
-		<nextRun public="1" set="null"><x path="Float"/></nextRun>
-		<priority public="1" set="null"><x path="Int"/></priority>
-		<delay public="1" set="method" line="32">
-			<f a="t">
-				<x path="Null"><x path="Float"/></x>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Delay the execution of the event for the given time, in seconds.
-		If t is null, the event will be run at tick() time.</haxe_doc>
-		</delay>
-		<call public="1" get="inline" set="null" line="39">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Call the event. Will do nothing if the event has been stopped.</haxe_doc>
-		</call>
-		<stop public="1" set="method" line="47">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Stop the event from firing anymore.</haxe_doc>
-		</stop>
-		<new set="method" line="22"><f a="f:p">
-	<f a=""><x path="Void"/></f>
-	<x path="Int"/>
-	<x path="Void"/>
-</f></new>
-	</class>
+	<typedef path="haxe.MainEvent" params="" file="/home/runner/work/haxe/haxe/std/haxe/MainLoop.hx" module="haxe.MainLoop"><c path="haxe.Event"/></typedef>
 	<class path="haxe.MainLoop" params="" file="/home/runner/work/haxe/haxe/std/haxe/MainLoop.hx">
-		<pending static="1"><c path="haxe.MainEvent"/></pending>
-		<threadCount public="1" get="accessor" set="null" static="1"><x path="Int"/></threadCount>
-		<get_threadCount get="inline" set="null" line="69" static="1"><f a=""><x path="Int"/></f></get_threadCount>
-		<hasEvents public="1" set="method" line="71" static="1"><f a=""><x path="Bool"/></f></hasEvents>
-		<addThread public="1" set="method" line="81" static="1"><f a="f">
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></addThread>
-		<runInMainThread public="1" set="method" line="85" static="1"><f a="f">
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></runInMainThread>
-		<add public="1" set="method" line="92" static="1">
+		<add public="1" set="method" line="10" static="1">
 			<f a="f:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
-				<c path="haxe.MainEvent"/>
+				<t path="haxe.MainEvent"/>
 			</f>
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
-			<haxe_doc>Add a pending event to be run into the main loop.</haxe_doc>
 		</add>
-		<sortEvents set="method" line="104" static="1"><f a=""><x path="Void"/></f></sortEvents>
-		<tick set="method" line="169" static="1">
-			<f a=""><x path="Float"/></f>
-			<haxe_doc>Run the pending events. Return the time for next event.</haxe_doc>
-		</tick>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":access"><e>haxe.MainEvent</e></m>
-		</meta>
+		<haxe_doc>This class exists for backward compatibility. You should use haxe.EventLoop instead.</haxe_doc>
 	</class>
 	<typedef path="haxe._NativeStackTrace.NativeTrace" params="" file="/home/runner/work/haxe/haxe/std/python/_std/haxe/NativeStackTrace.hx" private="1" module="haxe.NativeStackTrace"><c path="Array"><c path="python.Tuple4">
 	<c path="String"/>
@@ -9424,6 +9011,7 @@
 		</toHaxe>
 		<haxe_doc>Do not use manually.</haxe_doc>
 		<meta>
+			<m n=":directlyUsed"/>
 			<m n=":dox"><e>hide</e></m>
 			<m n=":noCompletion"/>
 		</meta>
@@ -9712,7 +9300,7 @@
 			<x path="Null"><x path="haxe.ds.Vector"><x path="Null"><x path="Int"/></x></x></x>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</BASE64_CODES>
-		<run public="1" set="method" line="599" static="1">
+		<run public="1" set="method" line="604" static="1">
 			<f a="v">
 				<d/>
 				<c path="String"/>
@@ -9760,19 +9348,19 @@
 		The exact format specification can be found here:
 		https://haxe.org/manual/serialization/format</haxe_doc>
 		</toString>
-		<serializeString set="method" line="181"><f a="s">
+		<serializeString set="method" line="182"><f a="s">
 	<c path="String"/>
 	<x path="Void"/>
 </f></serializeString>
-		<serializeRef set="method" line="196"><f a="v">
+		<serializeRef set="method" line="197"><f a="v">
 	<d/>
 	<x path="Bool"/>
 </f></serializeRef>
-		<serializeFields set="method" line="233"><f a="v">
+		<serializeFields set="method" line="234"><f a="v">
 	<a/>
 	<x path="Void"/>
 </f></serializeFields>
-		<serialize public="1" set="method" line="252">
+		<serialize public="1" set="method" line="253">
 			<f a="v">
 				<d/>
 				<x path="Void"/>
@@ -9787,12 +9375,12 @@
 		The values of `this.useCache` and `this.useEnumIndex` may affect
 		serialization output.</haxe_doc>
 		</serialize>
-		<__getField get="inline" set="null" line="574"><f a="o:f">
+		<__getField get="inline" set="null" line="579"><f a="o:f">
 	<d/>
 	<c path="String"/>
 	<d/>
 </f></__getField>
-		<serializeException public="1" set="method" line="576"><f a="e">
+		<serializeException public="1" set="method" line="581"><f a="e">
 	<d/>
 	<x path="Void"/>
 </f></serializeException>
@@ -9852,6 +9440,225 @@
 	<s><x path="Bool"/></s>
 	<p><c path="String"/></p>
 </a></typedef>
+	<class path="python.Syntax" params="" file="/home/runner/work/haxe/haxe/std/python/Syntax.hx" extern="1">
+		<importModule public="1" set="method" static="1">
+			<f a="module">
+				<d/>
+				<d/>
+			</f>
+			<meta><m n=":noUsing"/></meta>
+		</importModule>
+		<importAs public="1" set="method" static="1">
+			<f a="module:className">
+				<d/>
+				<d/>
+				<d/>
+			</f>
+			<meta><m n=":noUsing"/></meta>
+		</importAs>
+		<construct public="1" params="T" set="method" static="1">
+			<f a="cls:args">
+				<x path="Class"><c path="construct.T"/></x>
+				<t path="haxe.extern.Rest"><d/></t>
+				<c path="construct.T"/>
+			</f>
+			<overloads><construct public="1" set="method"><f a="className:args">
+	<c path="String"/>
+	<t path="haxe.extern.Rest"><d/></t>
+	<d/>
+</f></construct></overloads>
+		</construct>
+		<newInstance public="1" set="method" static="1">
+			<f a="c:params">
+				<d/>
+				<d/>
+				<d/>
+			</f>
+			<meta>
+				<m n=":noUsing"/>
+				<m n=":deprecated"><e>"python.Syntax.newInstance() is deprecated. Use python.Syntax.construct() instead."</e></m>
+			</meta>
+		</newInstance>
+		<_newInstance public="1" set="method" static="1"><f a="c:args">
+	<d/>
+	<c path="Array"><d/></c>
+	<d/>
+</f></_newInstance>
+		<isIn public="1" set="method" static="1">
+			<f a="a:b">
+				<d/>
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":noUsing"/></meta>
+		</isIn>
+		<delete public="1" set="method" static="1">
+			<f a="a">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":noUsing"/></meta>
+		</delete>
+		<binop public="1" set="method" static="1">
+			<f a="a:op:b">
+				<d/>
+				<c path="String"/>
+				<d/>
+				<d/>
+			</f>
+			<meta><m n=":noUsing"/></meta>
+		</binop>
+		<assign public="1" set="method" static="1">
+			<f a="a:b">
+				<d/>
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":noUsing"/></meta>
+		</assign>
+		<code public="1" set="method" static="1"><f a="code:args">
+	<c path="String"/>
+	<t path="haxe.extern.Rest"><d/></t>
+	<d/>
+</f></code>
+		<pythonCode public="1" set="method" static="1">
+			<f a="b:rest">
+				<c path="String"/>
+				<d/>
+				<d/>
+			</f>
+			<meta>
+				<m n=":noUsing"/>
+				<m n=":deprecated"><e>"python.Syntax.pythonCode() is deprecated. Use python.Syntax.code() instead."</e></m>
+			</meta>
+		</pythonCode>
+		<_pythonCode public="1" params="T" set="method" static="1">
+			<f a="b:args">
+				<c path="String"/>
+				<c path="Array"><d/></c>
+				<c path="_pythonCode.T"/>
+			</f>
+			<meta><m n=":noUsing"/></meta>
+		</_pythonCode>
+		<arrayAccess public="1" set="method" static="1">
+			<f a="x:rest">
+				<d/>
+				<d/>
+				<d/>
+			</f>
+			<meta><m n=":noUsing"/></meta>
+		</arrayAccess>
+		<arrayAccessWithTrailingColon public="1" set="method" static="1">
+			<f a="x:rest">
+				<d/>
+				<d/>
+				<d/>
+			</f>
+			<meta><m n=":noUsing"/></meta>
+		</arrayAccessWithTrailingColon>
+		<_arrayAccess public="1" set="method" static="1">
+			<f a="a:args:?trailingColon" v="::false">
+				<d/>
+				<c path="Array"><d/></c>
+				<x path="Bool"/>
+				<d/>
+			</f>
+			<meta><m n=":value"><e>{ trailingColon : false }</e></m></meta>
+		</_arrayAccess>
+		<arraySet public="1" set="method" static="1">
+			<f a="a:i:v">
+				<d/>
+				<d/>
+				<d/>
+				<d/>
+			</f>
+			<meta><m n=":noUsing"/></meta>
+		</arraySet>
+		<_foreach public="1" set="method" static="1"><f a="id:it:block">
+	<d/>
+	<d/>
+	<d/>
+	<d/>
+</f></_foreach>
+		<foreach public="1" params="T" set="method" static="1">
+			<f a="v:it:b">
+				<d/>
+				<d/>
+				<d/>
+				<d/>
+			</f>
+			<meta><m n=":noUsing"/></meta>
+		</foreach>
+		<importFromAs public="1" set="method" static="1">
+			<f a="from:module:className">
+				<d/>
+				<d/>
+				<d/>
+				<d/>
+			</f>
+			<meta><m n=":noUsing"/></meta>
+		</importFromAs>
+		<callField public="1" set="method" static="1">
+			<f a="o:field:params">
+				<d/>
+				<c path="String"/>
+				<d/>
+				<d/>
+			</f>
+			<meta><m n=":noUsing"/></meta>
+		</callField>
+		<call public="1" set="method" static="1"><f a="e:args">
+	<d/>
+	<c path="Array"><d/></c>
+	<d/>
+</f></call>
+		<field public="1" set="method" static="1">
+			<f a="o:field">
+				<d/>
+				<c path="String"/>
+				<d/>
+			</f>
+			<meta><m n=":noUsing"/></meta>
+		</field>
+		<tuple public="1" set="method" static="1">
+			<f a="args">
+				<d/>
+				<d/>
+			</f>
+			<meta><m n=":noUsing"/></meta>
+		</tuple>
+		<_tuple public="1" set="method" static="1"><f a="args">
+	<c path="Array"><d/></c>
+	<d/>
+</f></_tuple>
+		<varArgs public="1" set="method" static="1">
+			<f a="args">
+				<c path="Array"><d/></c>
+				<d/>
+			</f>
+			<meta><m n=":noUsing"/></meta>
+		</varArgs>
+		<callNamedUntyped public="1" set="method" static="1"><f a="e:args">
+	<d/>
+	<d/>
+	<d/>
+</f></callNamedUntyped>
+		<_callNamedUntyped public="1" set="method" static="1"><f a="e:args">
+	<d/>
+	<d/>
+	<d/>
+</f></_callNamedUntyped>
+		<opPow public="1" set="method" static="1"><f a="a:b">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></opPow>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":noPackageRestrict"/>
+			<m n=":noClosure"/>
+		</meta>
+	</class>
 	<class path="python.lib.Re" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Re.hx" extern="1">
 		<A public="1" static="1"><x path="Int"/></A>
 		<ASCII public="1" static="1"><x path="Int"/></ASCII>
@@ -10145,7 +9952,7 @@
 	<https://haxe.org/manual/std-template.html>]]></haxe_doc>
 	</class>
 	<class path="haxe.Timer" params="" file="/home/runner/work/haxe/haxe/std/haxe/Timer.hx">
-		<delay public="1" set="method" line="146" static="1">
+		<delay public="1" set="method" line="129" static="1">
 			<f a="f:time_ms">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -10159,7 +9966,7 @@
 
 		If `f` is `null`, the result is unspecified.</haxe_doc>
 		</delay>
-		<measure public="1" params="T" set="method" line="166" static="1">
+		<measure public="1" params="T" set="method" line="149" static="1">
 			<f a="f:?pos">
 				<f a=""><c path="measure.T"/></f>
 				<t path="haxe.PosInfos"/>
@@ -10175,22 +9982,21 @@
 
 		If `f` is `null`, the result is unspecified.</haxe_doc>
 		</measure>
-		<stamp public="1" get="inline" set="null" line="179" static="1">
+		<stamp public="1" get="inline" set="null" line="162" static="1">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Returns a timestamp, in seconds with fractions.
 
 		The value itself might differ depending on platforms, only differences
 		between two values make sense.</haxe_doc>
 		</stamp>
-		<milliseconds public="1" get="inline" set="null" line="205" static="1">
+		<milliseconds public="1" get="inline" set="null" line="188" static="1">
 			<f a=""><x path="haxe.Int64"/></f>
 			<haxe_doc>* Returns a monotonically increasing timestamp with millisecond resolution.
 	 *
 	 * The precision and epoch of the timer is platform defined.</haxe_doc>
 		</milliseconds>
-		<thread><x path="sys.thread.Thread"/></thread>
-		<eventHandler><x path="sys.thread.EventHandler"/></eventHandler>
-		<stop public="1" set="method" line="101">
+		<event><c path="haxe.Event"/></event>
+		<stop public="1" set="method" line="86">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Stops `this` Timer.
 
@@ -10199,7 +10005,7 @@
 
 		It is not possible to restart `this` Timer once stopped.</haxe_doc>
 		</stop>
-		<run public="1" set="dynamic" line="135">
+		<run public="1" set="dynamic" line="118">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>This method is invoked repeatedly on `this` Timer.
 
@@ -10214,7 +10020,7 @@
 		Once bound, it can still be rebound to different functions until `this`
 		Timer is stopped through a call to `this.stop`.</haxe_doc>
 		</run>
-		<new public="1" set="method" line="71">
+		<new public="1" set="method" line="64">
 			<f a="time_ms">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -10253,15 +10059,15 @@
 		<meta><m n=":flatEnum"/></meta>
 	</enum>
 	<class path="haxe._Unserializer.DefaultResolver" params="" file="/home/runner/work/haxe/haxe/std/haxe/Unserializer.hx" private="1" module="haxe.Unserializer">
-		<resolveClass public="1" get="inline" set="null" line="515"><f a="name">
+		<resolveClass public="1" get="inline" set="null" line="542"><f a="name">
 	<c path="String"/>
 	<x path="Null"><x path="Class"><d/></x></x>
 </f></resolveClass>
-		<resolveEnum public="1" get="inline" set="null" line="518"><f a="name">
+		<resolveEnum public="1" get="inline" set="null" line="545"><f a="name">
 	<c path="String"/>
 	<x path="Null"><x path="Enum"><d/></x></x>
 </f></resolveEnum>
-		<new public="1" set="method" line="512"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="539"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="haxe.Unserializer" params="" file="/home/runner/work/haxe/haxe/std/haxe/Unserializer.hx">
 		<DEFAULT_RESOLVER public="1" expr="new DefaultResolver()" line="67" static="1">
@@ -10291,7 +10097,7 @@
 			<meta><m n=":value"><e>null</e></m></meta>
 		</CODES>
 		<initCodes set="method" line="74" static="1"><f a=""><c path="Array"><x path="Int"/></c></f></initCodes>
-		<run public="1" set="method" line="470" static="1">
+		<run public="1" set="method" line="497" static="1">
 			<f a="v">
 				<c path="String"/>
 				<d/>
@@ -10302,21 +10108,21 @@
 		Unserializer with `v` as buffer and calling its `unserialize()` method
 		once.</haxe_doc>
 		</run>
-		<fastLength get="inline" set="null" line="478" static="1"><f a="s">
+		<fastLength get="inline" set="null" line="505" static="1"><f a="s">
 	<c path="String"/>
 	<x path="Int"/>
 </f></fastLength>
-		<fastCharCodeAt get="inline" set="null" line="486" static="1"><f a="s:pos">
+		<fastCharCodeAt get="inline" set="null" line="513" static="1"><f a="s:pos">
 	<c path="String"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></fastCharCodeAt>
-		<fastCharAt get="inline" set="null" line="494" static="1"><f a="s:pos">
+		<fastCharAt get="inline" set="null" line="521" static="1"><f a="s:pos">
 	<c path="String"/>
 	<x path="Int"/>
 	<c path="String"/>
 </f></fastCharAt>
-		<fastSubstr get="inline" set="null" line="502" static="1"><f a="s:pos:length">
+		<fastSubstr get="inline" set="null" line="529" static="1"><f a="s:pos:length">
 	<c path="String"/>
 	<x path="Int"/>
 	<x path="Int"/>
@@ -10351,17 +10157,18 @@
 	<x path="Int"/>
 </f></get>
 		<readDigits set="method" line="150"><f a=""><x path="Int"/></f></readDigits>
-		<readFloat set="method" line="175"><f a=""><x path="Float"/></f></readFloat>
-		<unserializeObject set="method" line="190"><f a="o">
+		<readDigits64 set="method" line="175"><f a=""><x path="haxe.Int64"/></f></readDigits64>
+		<readFloat set="method" line="200"><f a=""><x path="Float"/></f></readFloat>
+		<unserializeObject set="method" line="215"><f a="o">
 	<a/>
 	<x path="Void"/>
 </f></unserializeObject>
-		<unserializeEnum params="T" set="method" line="205"><f a="edecl:tag">
+		<unserializeEnum params="T" set="method" line="230"><f a="edecl:tag">
 	<x path="Enum"><c path="unserializeEnum.T"/></x>
 	<c path="String"/>
 	<c path="unserializeEnum.T"/>
 </f></unserializeEnum>
-		<unserialize public="1" set="method" line="237">
+		<unserialize public="1" set="method" line="262">
 			<f a=""><d/></f>
 			<haxe_doc>Unserializes the next part of `this` Unserializer instance and returns
 		the according value.
@@ -10411,16 +10218,16 @@
 	</class>
 	<class path="haxe._Unserializer.NullResolver" params="" file="/home/runner/work/haxe/haxe/std/haxe/Unserializer.hx" private="1" module="haxe.Unserializer">
 		<instance public="1" get="accessor" set="null" static="1"><c path="haxe._Unserializer.NullResolver"/></instance>
-		<get_instance get="inline" set="null" line="532" static="1"><f a=""><c path="haxe._Unserializer.NullResolver"/></f></get_instance>
-		<resolveClass public="1" get="inline" set="null" line="525"><f a="name">
+		<get_instance get="inline" set="null" line="559" static="1"><f a=""><c path="haxe._Unserializer.NullResolver"/></f></get_instance>
+		<resolveClass public="1" get="inline" set="null" line="552"><f a="name">
 	<c path="String"/>
 	<x path="Null"><x path="Class"><d/></x></x>
 </f></resolveClass>
-		<resolveEnum public="1" get="inline" set="null" line="528"><f a="name">
+		<resolveEnum public="1" get="inline" set="null" line="555"><f a="name">
 	<c path="String"/>
 	<x path="Null"><x path="Enum"><d/></x></x>
 </f></resolveEnum>
-		<new set="method" line="522"><f a=""><x path="Void"/></f></new>
+		<new set="method" line="549"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="haxe.Utf8" params="" file="/home/runner/work/haxe/haxe/std/haxe/Utf8.hx">
 		<iter public="1" set="method" line="57" static="1">
@@ -10543,8 +10350,56 @@
 	```haxe
 	throw new ValueException("Terrible error");
 	```</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="haxe.coro.context.IElement" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/IElement.hx" interface="1"><getKey public="1" set="method"><f a=""><x path="haxe.coro.context.Key"><c path="haxe.coro.context.IElement.T"/></x></f></getKey></class>
+	<class path="sys.thread.Mutex" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Mutex.hx">
+		<lock final="1"><c path="python.lib.threading.RLock"/></lock>
+		<acquire public="1" get="inline" set="null" line="35">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>The current thread acquire the mutex or wait if not available.
+		The same thread can acquire several times the same mutex but
+		must release it as many times it has been acquired.</haxe_doc>
+		</acquire>
+		<tryAcquire public="1" get="inline" set="null" line="39">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>Try to acquire the mutex, returns true if acquire or false
+		if it's already locked by another thread.</haxe_doc>
+		</tryAcquire>
+		<release public="1" get="inline" set="null" line="43">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Release a mutex that has been acquired by the current thread.
+		The behavior is undefined if the current thread does not own
+		the mutex.</haxe_doc>
+		</release>
+		<new public="1" get="inline" set="null" line="31">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a mutex.</haxe_doc>
+		</new>
+		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
+	to access some resource. The main difference with a lock is
+	that a mutex must always be released by the owner thread.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<class path="python.lib.threading.RLock" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/RLock.hx" extern="1">
+		<acquire public="1" set="method"><f a="?blocking:?timeout">
+	<x path="Bool"/>
+	<x path="Float"/>
+	<x path="Bool"/>
+</f></acquire>
+		<release public="1" set="method"><f a=""><x path="Void"/></f></release>
+		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":pythonImport">
+				<e>"threading"</e>
+				<e>"RLock"</e>
+			</m>
+		</meta>
+	</class>
 	<class path="haxe.coro.context.KeyImpl" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx" module="haxe.coro.context.Key">
 		<counter expr="0" line="4" static="1">
 			<x path="Int"/>
@@ -11154,32 +11009,6 @@
 	<x path="Void"/>
 </f></close>
 		<new public="1" set="method" line="100"><f a=""><x path="Void"/></f></new>
-	</class>
-	<class path="haxe.coro.schedulers._ThreadPoolScheduler.NoOpHandle" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/schedulers/ThreadPoolScheduler.hx" private="1" module="haxe.coro.schedulers.ThreadPoolScheduler">
-		<implements path="haxe.coro.schedulers.ISchedulerHandle"/>
-		<close public="1" set="method" line="11"><f a=""><x path="Void"/></f></close>
-		<new public="1" set="method" line="10"><f a=""><x path="Void"/></f></new>
-	</class>
-	<class path="haxe.coro.schedulers.ThreadPoolScheduler" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/schedulers/ThreadPoolScheduler.hx" final="1">
-		<extends path="haxe.coro.schedulers.Scheduler"/>
-		<pool final="1"><c path="sys.thread.IThreadPool"/></pool>
-		<thread final="1"><x path="sys.thread.Thread"/></thread>
-		<eventLoop final="1"><c path="haxe.coro.schedulers.EventLoopScheduler"/></eventLoop>
-		<schedule public="1" set="method" line="29" override="1"><f a="ms:func">
-	<x path="haxe.Int64"/>
-	<f a=""><x path="Void"/></f>
-	<c path="haxe.coro.schedulers.ISchedulerHandle"/>
-</f></schedule>
-		<scheduleObject public="1" set="method" line="43" override="1"><f a="obj">
-	<c path="haxe.coro.schedulers.IScheduleObject"/>
-	<x path="Void"/>
-</f></scheduleObject>
-		<now public="1" set="method" line="47" override="1"><f a=""><x path="haxe.Int64"/></f></now>
-		<keepAlive set="method" line="51"><f a=""><x path="Void"/></f></keepAlive>
-		<new public="1" set="method" line="21"><f a="pool">
-	<c path="sys.thread.IThreadPool"/>
-	<x path="Void"/>
-</f></new>
 	</class>
 	<class path="haxe.coro.schedulers.VirtualTimeScheduler" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/schedulers/VirtualTimeScheduler.hx">
 		<extends path="haxe.coro.schedulers.EventLoopScheduler"/>
@@ -17043,49 +16872,56 @@
 			</x>
 			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<NoData,Response<HaxeMemoryResult>>("server/memory")]]></e></m></meta>
 		</Memory>
-		<ContextMemory public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ContextParams,Response&lt;HaxeContextMemoryResult&gt;&gt;(&quot;server/memory/context&quot;)" line="40" static="1">
+		<GcCompact public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;NoData,Response&lt;GcCompactResult&gt;&gt;(&quot;server/gcCompact&quot;)" line="40" static="1">
+			<x path="haxe.display.HaxeRequestMethod">
+				<e path="haxe.display.NoData"/>
+				<t path="haxe.display.Response"><t path="haxe.display.GcCompactResult"/></t>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<NoData,Response<GcCompactResult>>("server/gcCompact")]]></e></m></meta>
+		</GcCompact>
+		<ContextMemory public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ContextParams,Response&lt;HaxeContextMemoryResult&gt;&gt;(&quot;server/memory/context&quot;)" line="41" static="1">
 			<x path="haxe.display.HaxeRequestMethod">
 				<t path="haxe.display.ContextParams"/>
 				<t path="haxe.display.Response"><t path="haxe.display.HaxeContextMemoryResult"/></t>
 			</x>
 			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<ContextParams,Response<HaxeContextMemoryResult>>("server/memory/context")]]></e></m></meta>
 		</ContextMemory>
-		<ModuleMemory public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ModuleParams,Response&lt;HaxeModuleMemoryResult&gt;&gt;(&quot;server/memory/module&quot;)" line="41" static="1">
+		<ModuleMemory public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ModuleParams,Response&lt;HaxeModuleMemoryResult&gt;&gt;(&quot;server/memory/module&quot;)" line="42" static="1">
 			<x path="haxe.display.HaxeRequestMethod">
 				<t path="haxe.display.ModuleParams"/>
 				<t path="haxe.display.Response"><t path="haxe.display.HaxeModuleMemoryResult"/></t>
 			</x>
 			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<ModuleParams,Response<HaxeModuleMemoryResult>>("server/memory/module")]]></e></m></meta>
 		</ModuleMemory>
-		<Modules public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ContextParams,Response&lt;Array&lt;String&gt;&gt;&gt;(&quot;server/modules&quot;)" line="42" static="1">
+		<Modules public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ContextParams,Response&lt;Array&lt;String&gt;&gt;&gt;(&quot;server/modules&quot;)" line="43" static="1">
 			<x path="haxe.display.HaxeRequestMethod">
 				<t path="haxe.display.ContextParams"/>
 				<t path="haxe.display.Response"><c path="Array"><c path="String"/></c></t>
 			</x>
 			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<ContextParams,Response<Array<String>>>("server/modules")]]></e></m></meta>
 		</Modules>
-		<Module public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ModuleParams,Response&lt;JsonModule&gt;&gt;(&quot;server/module&quot;)" line="43" static="1">
+		<Module public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ModuleParams,Response&lt;JsonModule&gt;&gt;(&quot;server/module&quot;)" line="44" static="1">
 			<x path="haxe.display.HaxeRequestMethod">
 				<t path="haxe.display.ModuleParams"/>
 				<t path="haxe.display.Response"><t path="haxe.display.JsonModule"/></t>
 			</x>
 			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<ModuleParams,Response<JsonModule>>("server/module")]]></e></m></meta>
 		</Module>
-		<Type public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;TypeParams,Response&lt;JsonModuleType&lt;Any&gt;&gt;&gt;(&quot;server/type&quot;)" line="44" static="1">
+		<Type public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;TypeParams,Response&lt;JsonModuleType&lt;Any&gt;&gt;&gt;(&quot;server/type&quot;)" line="45" static="1">
 			<x path="haxe.display.HaxeRequestMethod">
 				<t path="haxe.display.TypeParams"/>
 				<t path="haxe.display.Response"><t path="haxe.display.JsonModuleType"><x path="Any"/></t></t>
 			</x>
 			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<TypeParams,Response<JsonModuleType<Any>>>("server/type")]]></e></m></meta>
 		</Type>
-		<Files public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ContextParams,Response&lt;Array&lt;JsonServerFile&gt;&gt;&gt;(&quot;server/files&quot;)" line="45" static="1">
+		<Files public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ContextParams,Response&lt;Array&lt;JsonServerFile&gt;&gt;&gt;(&quot;server/files&quot;)" line="46" static="1">
 			<x path="haxe.display.HaxeRequestMethod">
 				<t path="haxe.display.ContextParams"/>
 				<t path="haxe.display.Response"><c path="Array"><t path="haxe.display.JsonServerFile"/></c></t>
 			</x>
 			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<ContextParams,Response<Array<JsonServerFile>>>("server/files")]]></e></m></meta>
 		</Files>
-		<ModuleCreated public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;FileParams,Response&lt;NoData&gt;&gt;(&quot;server/moduleCreated&quot;)" line="46" static="1">
+		<ModuleCreated public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;FileParams,Response&lt;NoData&gt;&gt;(&quot;server/moduleCreated&quot;)" line="47" static="1">
 			<x path="haxe.display.HaxeRequestMethod">
 				<t path="haxe.display.FileParams"/>
 				<t path="haxe.display.Response"><e path="haxe.display.NoData"/></t>
@@ -17246,6 +17082,11 @@
 	<size final="1" set="null"><x path="Int"/></size>
 	<context final="1" set="null"><t path="haxe.display.HaxeServerContext"/></context>
 </a></c></contexts>
+</a></typedef>
+	<typedef path="haxe.display.GcCompactResult" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/Server.hx" module="haxe.display.Server"><a>
+	<time final="1" set="null"><x path="Float"/></time>
+	<before final="1" set="null"><x path="Int"/></before>
+	<after final="1" set="null"><x path="Int"/></after>
 </a></typedef>
 	<typedef path="haxe.display.HaxeContextMemoryResult" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/Server.hx" module="haxe.display.Server"><a>
 	<syntaxCache final="1" set="null"><a><size final="1" set="null"><x path="Int"/></size></a></syntaxCache>
@@ -18029,6 +17870,88 @@
 		<values public="1"><c path="haxe.ds.IntMap"><c path="haxe.ds._HashMap.HashMapData.V"/></c></values>
 		<new public="1" get="inline" set="null" line="123"><f a=""><x path="Void"/></f></new>
 	</class>
+	<class path="haxe.ds.Int64Map" params="T" file="/home/runner/work/haxe/haxe/std/haxe/ds/Int64Map.hx">
+		<implements path="haxe.IMap">
+			<x path="haxe.Int64"/>
+			<c path="haxe.ds.Int64Map.T"/>
+		</implements>
+		<m><x path="haxe.ds.Map">
+	<c path="String"/>
+	<c path="haxe.ds.Int64Map.T"/>
+</x></m>
+		<set public="1" set="method" line="46">
+			<f a="key:value">
+				<x path="haxe.Int64"/>
+				<c path="haxe.ds.Int64Map.T"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>See `Map.set`</haxe_doc>
+		</set>
+		<get public="1" set="method" line="53">
+			<f a="key">
+				<x path="haxe.Int64"/>
+				<x path="Null"><c path="haxe.ds.Int64Map.T"/></x>
+			</f>
+			<haxe_doc>See `Map.get`</haxe_doc>
+		</get>
+		<exists public="1" set="method" line="60">
+			<f a="key">
+				<x path="haxe.Int64"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>See `Map.exists`</haxe_doc>
+		</exists>
+		<remove public="1" set="method" line="67">
+			<f a="key">
+				<x path="haxe.Int64"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>See `Map.remove`</haxe_doc>
+		</remove>
+		<keys public="1" set="method" line="77">
+			<f a=""><t path="Iterator"><x path="haxe.Int64"/></t></f>
+			<haxe_doc>See `Map.keys`
+
+		(java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
+		</keys>
+		<iterator public="1" set="method" line="93">
+			<f a=""><t path="Iterator"><c path="haxe.ds.Int64Map.T"/></t></f>
+			<haxe_doc>See `Map.iterator`
+
+		(java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
+		</iterator>
+		<keyValueIterator public="1" set="method" line="100">
+			<f a=""><t path="KeyValueIterator">
+	<x path="haxe.Int64"/>
+	<c path="haxe.ds.Int64Map.T"/>
+</t></f>
+			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
+		</keyValueIterator>
+		<copy public="1" set="method" line="114">
+			<f a=""><c path="haxe.ds.Int64Map"><c path="haxe.ds.Int64Map.T"/></c></f>
+			<haxe_doc>See `Map.copy`</haxe_doc>
+		</copy>
+		<toString public="1" set="method" line="123">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>See `Map.toString`</haxe_doc>
+		</toString>
+		<clear public="1" set="method" line="130">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>See `Map.clear`</haxe_doc>
+		</clear>
+		<size public="1" set="method" line="134"><f a=""><x path="Int"/></f></size>
+		<new public="1" set="method" line="39">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a new Int64Map.</haxe_doc>
+		</new>
+		<haxe_doc>Int64Map allows mapping of Int64 keys to arbitrary values.
+
+	See `Map` for documentation details.
+
+	@see https://haxe.org/manual/std-Map.html</haxe_doc>
+	</class>
 	<class path="haxe.ds.IntMap" params="T" file="/home/runner/work/haxe/haxe/std/python/_std/haxe/ds/IntMap.hx">
 		<implements path="haxe.IMap">
 			<x path="Int"/>
@@ -18267,6 +18190,7 @@
 		<from>
 			<icast field="fromStringMap"><c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c></icast>
 			<icast field="fromIntMap"><c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c></icast>
+			<icast field="fromInt64Map"><c path="haxe.ds.Int64Map"><c path="fromInt64Map.V"/></c></icast>
 			<icast field="fromObjectMap"><c path="haxe.ds.ObjectMap">
 	<c path="fromObjectMap.K"/>
 	<c path="fromObjectMap.V"/>
@@ -18279,6 +18203,7 @@
 		<to>
 			<icast field="toStringMap"><c path="haxe.ds.StringMap"><c path="toStringMap.V"/></c></icast>
 			<icast field="toIntMap"><c path="haxe.ds.IntMap"><c path="toIntMap.V"/></c></icast>
+			<icast field="toInt64Map"><c path="haxe.ds.Int64Map"><c path="toInt64Map.V"/></c></icast>
 			<icast field="toEnumValueMapMap"><c path="haxe.ds.EnumValueMap">
 	<c path="toEnumValueMapMap.K"/>
 	<c path="toEnumValueMapMap.V"/>
@@ -18319,14 +18244,14 @@
 		the output. The rules for that are as follows:
 
 		1. if `K` is a `String`, `haxe.ds.StringMap` is used
-		2. if `K` is an `Int`, `haxe.ds.IntMap` is used
+		2. if `K` is an `Int`, `haxe.ds.IntMap` is used (or `Int64` / `haxe.ds.Int64Map` respectively)
 		3. if `K` is an `EnumValue`, `haxe.ds.EnumValueMap` is used
 		4. if `K` is any other class or structure, `haxe.ds.ObjectMap` is used
 		5. if `K` is any other type, it causes a compile-time error
 
 		(Cpp) Map does not use weak keys on `ObjectMap` by default.</haxe_doc>
 	</_hx_new>
-	<set public="1" get="inline" set="null" line="74" static="1">
+	<set public="1" get="inline" set="null" line="75" static="1">
 		<f a="this:key:value">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -18342,7 +18267,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 	</set>
-	<get public="1" get="inline" set="null" line="92" static="1">
+	<get public="1" get="inline" set="null" line="93" static="1">
 		<f a="this:key">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -18366,7 +18291,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 	</get>
-	<exists public="1" get="inline" set="null" line="100" static="1">
+	<exists public="1" get="inline" set="null" line="101" static="1">
 		<f a="this:key">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -18379,7 +18304,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 	</exists>
-	<remove public="1" get="inline" set="null" line="109" static="1">
+	<remove public="1" get="inline" set="null" line="110" static="1">
 		<f a="this:key">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -18393,7 +18318,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 	</remove>
-	<keys public="1" get="inline" set="null" line="116" static="1">
+	<keys public="1" get="inline" set="null" line="117" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -18405,7 +18330,7 @@
 
 		The order of keys is undefined.</haxe_doc>
 	</keys>
-	<iterator public="1" get="inline" set="null" line="125" static="1">
+	<iterator public="1" get="inline" set="null" line="126" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -18417,7 +18342,7 @@
 
 		The order of values is undefined.</haxe_doc>
 	</iterator>
-	<keyValueIterator public="1" get="inline" set="null" line="134" static="1">
+	<keyValueIterator public="1" get="inline" set="null" line="135" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -18432,7 +18357,7 @@
 
 		The order of values is undefined.</haxe_doc>
 	</keyValueIterator>
-	<copy public="1" get="inline" set="null" line="143" static="1">
+	<copy public="1" get="inline" set="null" line="144" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -18447,7 +18372,7 @@
 
 		The order of values is undefined.</haxe_doc>
 	</copy>
-	<toString public="1" get="inline" set="null" line="152" static="1">
+	<toString public="1" get="inline" set="null" line="153" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -18459,7 +18384,7 @@
 
 		The exact representation depends on the platform and key-type.</haxe_doc>
 	</toString>
-	<clear public="1" get="inline" set="null" line="159" static="1">
+	<clear public="1" get="inline" set="null" line="160" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -18469,7 +18394,7 @@
 		</f>
 		<haxe_doc>Removes all keys from `this` Map.</haxe_doc>
 	</clear>
-	<size public="1" get="inline" set="null" line="166" static="1">
+	<size public="1" get="inline" set="null" line="167" static="1">
 		<f a="this">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -18479,7 +18404,7 @@
 		</f>
 		<haxe_doc>Returns size of `this` Map.</haxe_doc>
 	</size>
-	<arrayWrite public="1" get="inline" set="null" line="170" static="1">
+	<arrayWrite public="1" get="inline" set="null" line="171" static="1">
 		<f a="this:k:v">
 			<c path="haxe.IMap">
 				<c path="haxe.ds.Map.K"/>
@@ -18494,7 +18419,7 @@
 			<m n=":noCompletion"/>
 		</meta>
 	</arrayWrite>
-	<toStringMap params="K:V" get="inline" set="null" line="175" static="1">
+	<toStringMap params="K:V" get="inline" set="null" line="176" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toStringMap.K"/>
@@ -18507,7 +18432,7 @@
 			<m n=":to"/>
 		</meta>
 	</toStringMap>
-	<toIntMap params="K:V" get="inline" set="null" line="179" static="1">
+	<toIntMap params="K:V" get="inline" set="null" line="180" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toIntMap.K"/>
@@ -18520,7 +18445,20 @@
 			<m n=":to"/>
 		</meta>
 	</toIntMap>
-	<toEnumValueMapMap params="K:V" get="inline" set="null" line="183" static="1">
+	<toInt64Map params="K:V" get="inline" set="null" line="184" static="1">
+		<f a="t">
+			<c path="haxe.IMap">
+				<c path="toInt64Map.K"/>
+				<c path="toInt64Map.V"/>
+			</c>
+			<c path="haxe.ds.Int64Map"><c path="toInt64Map.V"/></c>
+		</f>
+		<meta>
+			<m n=":multiType"/>
+			<m n=":to"/>
+		</meta>
+	</toInt64Map>
+	<toEnumValueMapMap params="K:V" get="inline" set="null" line="188" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toEnumValueMapMap.K"/>
@@ -18536,7 +18474,7 @@
 			<m n=":to"/>
 		</meta>
 	</toEnumValueMapMap>
-	<toObjectMap params="K:V" get="inline" set="null" line="187" static="1">
+	<toObjectMap params="K:V" get="inline" set="null" line="192" static="1">
 		<f a="t">
 			<c path="haxe.IMap">
 				<c path="toObjectMap.K"/>
@@ -18552,7 +18490,7 @@
 			<m n=":to"/>
 		</meta>
 	</toObjectMap>
-	<fromStringMap params="V" get="inline" set="null" line="191" static="1">
+	<fromStringMap params="V" get="inline" set="null" line="196" static="1">
 		<f a="map">
 			<c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c>
 			<x path="haxe.ds.Map">
@@ -18562,7 +18500,7 @@
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromStringMap>
-	<fromIntMap params="V" get="inline" set="null" line="195" static="1">
+	<fromIntMap params="V" get="inline" set="null" line="200" static="1">
 		<f a="map">
 			<c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c>
 			<x path="haxe.ds.Map">
@@ -18572,7 +18510,17 @@
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromIntMap>
-	<fromObjectMap params="K:V" get="inline" set="null" line="199" static="1">
+	<fromInt64Map params="V" get="inline" set="null" line="204" static="1">
+		<f a="map">
+			<c path="haxe.ds.Int64Map"><c path="fromInt64Map.V"/></c>
+			<x path="haxe.ds.Map">
+				<x path="Int"/>
+				<c path="fromInt64Map.V"/>
+			</x>
+		</f>
+		<meta><m n=":from"/></meta>
+	</fromInt64Map>
+	<fromObjectMap params="K:V" get="inline" set="null" line="208" static="1">
 		<f a="map">
 			<c path="haxe.ds.ObjectMap">
 				<c path="fromObjectMap.K"/>
@@ -18600,14 +18548,14 @@
 		the output. The rules for that are as follows:
 
 		1. if `K` is a `String`, `haxe.ds.StringMap` is used
-		2. if `K` is an `Int`, `haxe.ds.IntMap` is used
+		2. if `K` is an `Int`, `haxe.ds.IntMap` is used (or `Int64` / `haxe.ds.Int64Map` respectively)
 		3. if `K` is an `EnumValue`, `haxe.ds.EnumValueMap` is used
 		4. if `K` is any other class or structure, `haxe.ds.ObjectMap` is used
 		5. if `K` is any other type, it causes a compile-time error
 
 		(Cpp) Map does not use weak keys on `ObjectMap` by default.</haxe_doc>
 		</_hx_new>
-		<set public="1" get="inline" set="null" line="74" static="1">
+		<set public="1" get="inline" set="null" line="75" static="1">
 			<f a="this:key:value">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -18623,7 +18571,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 		</set>
-		<get public="1" get="inline" set="null" line="92" static="1">
+		<get public="1" get="inline" set="null" line="93" static="1">
 			<f a="this:key">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -18647,7 +18595,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 		</get>
-		<exists public="1" get="inline" set="null" line="100" static="1">
+		<exists public="1" get="inline" set="null" line="101" static="1">
 			<f a="this:key">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -18660,7 +18608,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 		</exists>
-		<remove public="1" get="inline" set="null" line="109" static="1">
+		<remove public="1" get="inline" set="null" line="110" static="1">
 			<f a="this:key">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -18674,7 +18622,7 @@
 
 		If `key` is `null`, the result is unspecified.</haxe_doc>
 		</remove>
-		<keys public="1" get="inline" set="null" line="116" static="1">
+		<keys public="1" get="inline" set="null" line="117" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -18686,7 +18634,7 @@
 
 		The order of keys is undefined.</haxe_doc>
 		</keys>
-		<iterator public="1" get="inline" set="null" line="125" static="1">
+		<iterator public="1" get="inline" set="null" line="126" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -18698,7 +18646,7 @@
 
 		The order of values is undefined.</haxe_doc>
 		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="134" static="1">
+		<keyValueIterator public="1" get="inline" set="null" line="135" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -18713,7 +18661,7 @@
 
 		The order of values is undefined.</haxe_doc>
 		</keyValueIterator>
-		<copy public="1" get="inline" set="null" line="143" static="1">
+		<copy public="1" get="inline" set="null" line="144" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -18728,7 +18676,7 @@
 
 		The order of values is undefined.</haxe_doc>
 		</copy>
-		<toString public="1" get="inline" set="null" line="152" static="1">
+		<toString public="1" get="inline" set="null" line="153" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -18740,7 +18688,7 @@
 
 		The exact representation depends on the platform and key-type.</haxe_doc>
 		</toString>
-		<clear public="1" get="inline" set="null" line="159" static="1">
+		<clear public="1" get="inline" set="null" line="160" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -18750,7 +18698,7 @@
 			</f>
 			<haxe_doc>Removes all keys from `this` Map.</haxe_doc>
 		</clear>
-		<size public="1" get="inline" set="null" line="166" static="1">
+		<size public="1" get="inline" set="null" line="167" static="1">
 			<f a="this">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -18760,7 +18708,7 @@
 			</f>
 			<haxe_doc>Returns size of `this` Map.</haxe_doc>
 		</size>
-		<arrayWrite public="1" get="inline" set="null" line="170" static="1">
+		<arrayWrite public="1" get="inline" set="null" line="171" static="1">
 			<f a="this:k:v">
 				<c path="haxe.IMap">
 					<c path="haxe.ds.Map.K"/>
@@ -18775,7 +18723,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</arrayWrite>
-		<toStringMap params="K:V" get="inline" set="null" line="175" static="1">
+		<toStringMap params="K:V" get="inline" set="null" line="176" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toStringMap.K"/>
@@ -18788,7 +18736,7 @@
 				<m n=":to"/>
 			</meta>
 		</toStringMap>
-		<toIntMap params="K:V" get="inline" set="null" line="179" static="1">
+		<toIntMap params="K:V" get="inline" set="null" line="180" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toIntMap.K"/>
@@ -18801,7 +18749,20 @@
 				<m n=":to"/>
 			</meta>
 		</toIntMap>
-		<toEnumValueMapMap params="K:V" get="inline" set="null" line="183" static="1">
+		<toInt64Map params="K:V" get="inline" set="null" line="184" static="1">
+			<f a="t">
+				<c path="haxe.IMap">
+					<c path="toInt64Map.K"/>
+					<c path="toInt64Map.V"/>
+				</c>
+				<c path="haxe.ds.Int64Map"><c path="toInt64Map.V"/></c>
+			</f>
+			<meta>
+				<m n=":multiType"/>
+				<m n=":to"/>
+			</meta>
+		</toInt64Map>
+		<toEnumValueMapMap params="K:V" get="inline" set="null" line="188" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toEnumValueMapMap.K"/>
@@ -18817,7 +18778,7 @@
 				<m n=":to"/>
 			</meta>
 		</toEnumValueMapMap>
-		<toObjectMap params="K:V" get="inline" set="null" line="187" static="1">
+		<toObjectMap params="K:V" get="inline" set="null" line="192" static="1">
 			<f a="t">
 				<c path="haxe.IMap">
 					<c path="toObjectMap.K"/>
@@ -18833,7 +18794,7 @@
 				<m n=":to"/>
 			</meta>
 		</toObjectMap>
-		<fromStringMap params="V" get="inline" set="null" line="191" static="1">
+		<fromStringMap params="V" get="inline" set="null" line="196" static="1">
 			<f a="map">
 				<c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c>
 				<x path="haxe.ds.Map">
@@ -18843,7 +18804,7 @@
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromStringMap>
-		<fromIntMap params="V" get="inline" set="null" line="195" static="1">
+		<fromIntMap params="V" get="inline" set="null" line="200" static="1">
 			<f a="map">
 				<c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c>
 				<x path="haxe.ds.Map">
@@ -18853,7 +18814,17 @@
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromIntMap>
-		<fromObjectMap params="K:V" get="inline" set="null" line="199" static="1">
+		<fromInt64Map params="V" get="inline" set="null" line="204" static="1">
+			<f a="map">
+				<c path="haxe.ds.Int64Map"><c path="fromInt64Map.V"/></c>
+				<x path="haxe.ds.Map">
+					<x path="Int"/>
+					<c path="fromInt64Map.V"/>
+				</x>
+			</f>
+			<meta><m n=":from"/></meta>
+		</fromInt64Map>
+		<fromObjectMap params="K:V" get="inline" set="null" line="208" static="1">
 			<f a="map">
 				<c path="haxe.ds.ObjectMap">
 					<c path="fromObjectMap.K"/>
@@ -18866,6 +18837,50 @@
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromObjectMap>
+	</class>
+	<class path="haxe.ds.ObjectMap" params="K:V" file="/home/runner/work/haxe/haxe/std/python/_std/haxe/ds/ObjectMap.hx">
+		<implements path="haxe.IMap">
+			<c path="haxe.ds.ObjectMap.K"/>
+			<c path="haxe.ds.ObjectMap.V"/>
+		</implements>
+		<h><c path="python.Dict">
+	<c path="haxe.ds.ObjectMap.K"/>
+	<c path="haxe.ds.ObjectMap.V"/>
+</c></h>
+		<set public="1" set="method" line="34"><f a="key:value">
+	<c path="haxe.ds.ObjectMap.K"/>
+	<c path="haxe.ds.ObjectMap.V"/>
+	<x path="Void"/>
+</f></set>
+		<get public="1" get="inline" set="null" line="38"><f a="key">
+	<c path="haxe.ds.ObjectMap.K"/>
+	<x path="Null"><c path="haxe.ds.ObjectMap.V"/></x>
+</f></get>
+		<exists public="1" get="inline" set="null" line="42"><f a="key">
+	<c path="haxe.ds.ObjectMap.K"/>
+	<x path="Bool"/>
+</f></exists>
+		<remove public="1" set="method" line="46"><f a="key">
+	<c path="haxe.ds.ObjectMap.K"/>
+	<x path="Bool"/>
+</f></remove>
+		<keys public="1" set="method" line="53"><f a=""><t path="Iterator"><c path="haxe.ds.ObjectMap.K"/></t></f></keys>
+		<iterator public="1" set="method" line="57"><f a=""><t path="Iterator"><c path="haxe.ds.ObjectMap.V"/></t></f></iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="61">
+			<f a=""><t path="KeyValueIterator">
+	<c path="haxe.ds.ObjectMap.K"/>
+	<c path="haxe.ds.ObjectMap.V"/>
+</t></f>
+			<meta><m n=":runtime"/></meta>
+		</keyValueIterator>
+		<copy public="1" set="method" line="65"><f a=""><c path="haxe.ds.ObjectMap">
+	<c path="haxe.ds.ObjectMap.K"/>
+	<c path="haxe.ds.ObjectMap.V"/>
+</c></f></copy>
+		<toString public="1" set="method" line="72"><f a=""><c path="String"/></f></toString>
+		<clear public="1" get="inline" set="null" line="87"><f a=""><x path="Void"/></f></clear>
+		<size public="1" get="inline" set="null" line="91"><f a=""><x path="Int"/></f></size>
+		<new public="1" set="method" line="30"><f a=""><x path="Void"/></f></new>
 	</class>
 	<enum path="haxe.ds.Option" params="T" file="/home/runner/work/haxe/haxe/std/haxe/ds/Option.hx">
 		<Some a="v"><c path="haxe.ds.Option.T"/></Some>
@@ -19666,39 +19681,58 @@
 		<indent><c path="String"/></indent>
 		<pretty><x path="Bool"/></pretty>
 		<nind><x path="Int"/></nind>
-		<ipad get="inline" set="null" line="71"><f a=""><x path="Void"/></f></ipad>
-		<newl get="inline" set="null" line="76"><f a=""><x path="Void"/></f></newl>
-		<write set="method" line="81"><f a="k:v">
+		<stack expr="[]">
+			<t path="Map">
+				<a/>
+				<x path="Bool"/>
+			</t>
+			<meta><m n=":value"><e>[]</e></m></meta>
+		</stack>
+		<depth expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</depth>
+		<ipad get="inline" set="null" line="73"><f a=""><x path="Void"/></f></ipad>
+		<newl get="inline" set="null" line="78"><f a=""><x path="Void"/></f></newl>
+		<write set="method" line="83"><f a="k:v">
 	<d/>
 	<d/>
 	<x path="Void"/>
 </f></write>
-		<addChar get="inline" set="null" line="140"><f a="c">
+		<addChar get="inline" set="null" line="144"><f a="c">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></addChar>
-		<add get="inline" set="null" line="148"><f a="v">
+		<add get="inline" set="null" line="152"><f a="v">
 	<c path="String"/>
 	<x path="Void"/>
 </f></add>
-		<classString set="method" line="157"><f a="v">
+		<classString set="method" line="161"><f a="v">
 	<d/>
 	<x path="Void"/>
 </f></classString>
-		<objString get="inline" set="null" line="161"><f a="v">
+		<objString get="inline" set="null" line="165"><f a="v">
 	<d/>
 	<x path="Void"/>
 </f></objString>
-		<fieldsString set="method" line="165"><f a="v:fields">
+		<beginStack get="inline" set="null" line="169"><f a="v">
+	<d/>
+	<x path="Void"/>
+</f></beginStack>
+		<endStack get="inline" set="null" line="177"><f a="v">
+	<d/>
+	<x path="Void"/>
+</f></endStack>
+		<fieldsString set="method" line="182"><f a="v:fields">
 	<d/>
 	<c path="Array"><c path="String"/></c>
 	<x path="Void"/>
 </f></fieldsString>
-		<quote set="method" line="195"><f a="s">
+		<quote set="method" line="214"><f a="s">
 	<c path="String"/>
 	<x path="Void"/>
 </f></quote>
-		<new set="method" line="56"><f a="replacer:space">
+		<new set="method" line="58"><f a="replacer:space">
 	<x path="Null"><f a="key:value">
 	<d/>
 	<d/>
@@ -35538,6 +35572,72 @@
 	<x path="Void"/>
 </f></new>
 	</class>
+	<class path="python.Dict" params="K:V" file="/home/runner/work/haxe/haxe/std/python/Dict.hx" extern="1">
+		<length public="1" get="accessor" set="null"><x path="Int"/></length>
+		<get_length get="inline" set="null" line="35"><f a=""><x path="Int"/></f></get_length>
+		<get public="1" set="method"><f a="key:?def">
+	<c path="python.Dict.K"/>
+	<c path="python.Dict.V"/>
+	<c path="python.Dict.V"/>
+</f></get>
+		<getSafe public="1" get="inline" set="null" line="41"><f a="key">
+	<c path="python.Dict.K"/>
+	<c path="python.Dict.V"/>
+</f></getSafe>
+		<set public="1" get="inline" set="null" line="45"><f a="key:val">
+	<c path="python.Dict.K"/>
+	<c path="python.Dict.V"/>
+	<x path="Void"/>
+</f></set>
+		<remove public="1" get="inline" set="null" line="49"><f a="key">
+	<c path="python.Dict.K"/>
+	<x path="Void"/>
+</f></remove>
+		<hasKey public="1" get="inline" set="null" line="53"><f a="k">
+	<c path="python.Dict.K"/>
+	<x path="Bool"/>
+</f></hasKey>
+		<clear public="1" set="method"><f a=""><x path="Void"/></f></clear>
+		<copy public="1" set="method"><f a=""><c path="python.Dict">
+	<c path="python.Dict.K"/>
+	<c path="python.Dict.V"/>
+</c></f></copy>
+		<items public="1" set="method"><f a=""><c path="python.DictView"><c path="python.Tuple2">
+	<c path="python.Dict.K"/>
+	<c path="python.Dict.V"/>
+</c></c></f></items>
+		<keys public="1" set="method"><f a=""><c path="python.DictView"><c path="python.Dict.K"/></c></f></keys>
+		<pop public="1" set="method"><f a="key:?def">
+	<c path="python.Dict.K"/>
+	<c path="python.Dict.V"/>
+	<c path="python.Dict.V"/>
+</f></pop>
+		<popitem public="1" set="method"><f a=""><c path="python.Tuple2">
+	<c path="python.Dict.K"/>
+	<c path="python.Dict.V"/>
+</c></f></popitem>
+		<setdefault public="1" set="method"><f a="key:?def">
+	<c path="python.Dict.K"/>
+	<c path="python.Dict.V"/>
+	<c path="python.Dict.V"/>
+</f></setdefault>
+		<update public="1" set="method"><f a="d">
+	<c path="python.Dict">
+		<c path="python.Dict.K"/>
+		<c path="python.Dict.V"/>
+	</c>
+	<x path="Void"/>
+</f></update>
+		<values public="1" set="method"><f a=""><c path="python.DictView"><c path="python.Dict.V"/></c></f></values>
+		<iter public="1" get="inline" set="null" line="67"><f a=""><x path="python.NativeIterator"><c path="python.Dict.K"/></x></f></iter>
+		<iterator public="1" get="inline" set="null" line="71"><f a=""><t path="Iterator"><c path="python.Dict.V"/></t></f></iterator>
+		<__iter__ set="method"><f a=""><x path="python.NativeIterator"><c path="python.Dict.K"/></x></f></__iter__>
+		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"dict"</e></m>
+		</meta>
+	</class>
 	<class path="haxe.xml.Parser" params="" file="/home/runner/work/haxe/haxe/std/haxe/xml/Parser.hx">
 		<escapes expr="{
 	var h = new haxe.ds.StringMap();
@@ -36698,7 +36798,10 @@
 	<c path="String"/>
 	<x path="Int"/>
 </c></version_info>
-		<meta><m n=":pythonImport"><e>"sys"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":pythonImport"><e>"sys"</e></m>
+		</meta>
 	</class>
 	<class path="python.Lib" params="" file="/home/runner/work/haxe/haxe/std/python/Lib.hx">
 		<lineEnd expr="Sys.systemName() == &quot;Windows&quot; ? &quot;\r\n&quot; : &quot;\n&quot;" line="37" static="1">
@@ -39677,6 +39780,31 @@
 </f></start_new_thread>
 		<meta><m n=":pythonImport"><e>"_thread"</e></m></meta>
 	</class>
+	<class path="python.lib.Threading" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Threading.hx" extern="1">
+		<active_count public="1" set="method" static="1"><f a=""><x path="Int"/></f></active_count>
+		<current_thread public="1" set="method" static="1"><f a=""><c path="python.lib.threading.Thread"/></f></current_thread>
+		<get_ident public="1" set="method" static="1"><f a=""><x path="Int"/></f></get_ident>
+		<enumerate public="1" set="method" static="1"><f a=""><c path="Array"><c path="python.lib.threading.Thread"/></c></f></enumerate>
+		<main_thread public="1" set="method" static="1"><f a=""><c path="python.lib.threading.Thread"/></f></main_thread>
+		<settrace public="1" set="method" static="1"><f a="func">
+	<d/>
+	<x path="Void"/>
+</f></settrace>
+		<setprofile public="1" set="method" static="1"><f a="func">
+	<d/>
+	<x path="Void"/>
+</f></setprofile>
+		<stack_size public="1" set="method" static="1"><f a="?size">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></stack_size>
+		<local public="1" set="method" static="1"><f a=""><d/></f></local>
+		<TIMEOUT_MAX public="1" static="1"><x path="Float"/></TIMEOUT_MAX>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":pythonImport"><e>"threading"</e></m>
+		</meta>
+	</class>
 	<class path="python.lib.Time" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Time.hx" extern="1">
 		<time public="1" set="method" static="1"><f a=""><x path="Float"/></f></time>
 		<clock public="1" set="method" static="1"><f a=""><x path="Float"/></f></clock>
@@ -39689,10 +39817,7 @@
 	<x path="Float"/>
 </f></mktime>
 		<perf_counter_ns public="1" set="method" static="1"><f a=""><x path="Int"/></f></perf_counter_ns>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":pythonImport"><e>"time"</e></m>
-		</meta>
+		<meta><m n=":pythonImport"><e>"time"</e></m></meta>
 	</class>
 	<class path="python.lib.Timeit" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Timeit.hx" extern="1">
 		<default_timer public="1" set="method" static="1"><f a=""><x path="Float"/></f></default_timer>
@@ -39712,7 +39837,10 @@
 	<x path="Int"/>
 	<c path="Array"><t path="python.lib._Traceback.StackItem"/></c>
 </f></extract_tb>
-		<meta><m n=":pythonImport"><e>"traceback"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":pythonImport"><e>"traceback"</e></m>
+		</meta>
 	</class>
 	<typedef path="python.lib._Traceback.StackItem" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Traceback.hx" private="1" module="python.lib.Traceback"><c path="python.Tuple4">
 	<c path="String"/>
@@ -41808,6 +41936,130 @@
 		<haxe_doc>An address is used to represent a port on a given host ip.
 	It is used by `sys.net.UdpSocket`.</haxe_doc>
 	</class>
+	<class path="sys.net.AsyncSocket" params="" file="/home/runner/work/haxe/haxe/std/sys/net/AsyncSocket.hx">
+		<startServer public="1" set="method" line="130" static="1">
+			<f a="host:port:?ssl:onClient">
+				<c path="String"/>
+				<x path="Int"/>
+				<a>
+					<key><c path="sys.ssl.Key"/></key>
+					<hostname><c path="String"/></hostname>
+					<cert><c path="sys.ssl.Certificate"/></cert>
+				</a>
+				<f a="">
+					<x path="Null"><c path="sys.net.AsyncSocket"/></x>
+					<x path="Any"/>
+				</f>
+				<c path="sys.net.AsyncSocket"/>
+			</f>
+			<haxe_doc>Start a server on given host/port and callback `onClient` everytime a client connects.
+		Will also call `onClient(null)` in the rare case where the server connection is lost.</haxe_doc>
+		</startServer>
+		<close public="1" set="method" line="40">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Closes the socket : make sure to properly close all your sockets or you will crash when you run out of file descriptors.</haxe_doc>
+		</close>
+		<write public="1" set="method" line="46">
+			<f a="bytes:?pos:?len" v=":0:-1">
+				<c path="haxe.io.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ len : -1, pos : 0 }</e></m></meta>
+			<haxe_doc>Write the whole data to the socket output, asynchronously. The buffer can be reused after this call. Will dispatch `onWrite` when data is written.</haxe_doc>
+		</write>
+		<connect public="1" set="method" line="53">
+			<f a="host:port:?ssl" v="::false">
+				<c path="sys.net.Host"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ ssl : false }</e></m></meta>
+			<haxe_doc>Connect to the given server host/port. Will onConnect if connection successful and onDisconnect if connection fails or if a later disconnection occurs.
+		If `ssl` is set, the socket will use SSL authentification and encryption. Certificate errors can generate an onSSLError callback.</haxe_doc>
+		</connect>
+		<listen public="1" set="method" line="60">
+			<f a="connections">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Allows the socket to listen for incoming questions. The parameter tells how many pending connections we can have until they get refused.
+		Each new connection will trigger a `onConnected` call. Use `accept()` to retrieve the incoming connection socket.</haxe_doc>
+		</listen>
+		<bind public="1" set="method" line="66">
+			<f a="host:port:?ssl">
+				<c path="sys.net.Host"/>
+				<x path="Int"/>
+				<a>
+					<key><c path="sys.ssl.Key"/></key>
+					<hostname><c path="String"/></hostname>
+					<cert><c path="sys.ssl.Certificate"/></cert>
+				</a>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Bind the socket to the given host/port so it can afterwards listen for connections there.</haxe_doc>
+		</bind>
+		<accept public="1" set="method" line="72">
+			<f a=""><x path="Null"><c path="sys.net.AsyncSocket"/></x></f>
+			<haxe_doc>Accept a new connected client. This will return a connected socket on which you can read/write some data. See `listen`</haxe_doc>
+		</accept>
+		<setFastSend public="1" set="method" line="79">
+			<f a="b">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Allows the socket to immediately send the data when written to its output : this will cause less ping but might increase the number of packets / data size, especially when doing a lot of small writes.</haxe_doc>
+		</setFastSend>
+		<onConnect public="1" set="dynamic" line="85">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>See `connect`</haxe_doc>
+		</onConnect>
+		<onDisconnect public="1" set="dynamic" line="91">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>See `connect`</haxe_doc>
+		</onDisconnect>
+		<onData public="1" set="dynamic" line="97">
+			<f a="bytes:pos:len">
+				<c path="haxe.io.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>This callback is called when some data is received on the socket. The bytes must be fully processed in the callback as the data might be overwritten upon return.</haxe_doc>
+		</onData>
+		<onWrite public="1" set="dynamic" line="103">
+			<f a="error">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Dispatched when some data is written. Error is true if the data could not be written succesfully. The default behavior is to silently close the socket when such error occurs.</haxe_doc>
+		</onWrite>
+		<onSSLError public="1" set="dynamic" line="114">
+			<f a="msg">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Dispatched when a SSL error occurs. This can be when connecting to a host which fails to authentificate or when starting a server with invalid cert/key.
+		Authentification can be adjusted with `sys.ssl.Socket.DEFAULT_VERIFY_CERT`</haxe_doc>
+		</onSSLError>
+		<writeString public="1" set="method" line="120">
+			<f a="str">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Similar to `write` but sends a whole string data.</haxe_doc>
+		</writeString>
+		<new public="1" set="method" line="33">
+			<f a="?loop">
+				<c path="haxe.EventLoop"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new unconnected socket. Use the current event loop by default.</haxe_doc>
+		</new>
+		<haxe_doc>A TCP socket class : allow you to both connect to a given server and exchange messages or start your own server and wait for connections.</haxe_doc>
+	</class>
 	<class path="sys.net.Host" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/net/Host.hx">
 		<localhost public="1" set="method" line="44" static="1"><f a=""><c path="String"/></f></localhost>
 		<host public="1" set="null"><c path="String"/></host>
@@ -42228,251 +42480,6 @@
 			<m n=":native"><e>"deque"</e></m>
 		</meta>
 	</class>
-	<class path="sys.thread.IThreadPool" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/IThreadPool.hx" interface="1">
-		<get_threadsCount public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<meta>
-				<m n=":compilerGenerated"/>
-				<m n=":noCompletion"/>
-			</meta>
-		</get_threadsCount>
-		<get_isShutdown public="1" set="method">
-			<f a=""><x path="Bool"/></f>
-			<meta>
-				<m n=":compilerGenerated"/>
-				<m n=":noCompletion"/>
-			</meta>
-		</get_isShutdown>
-		<threadsCount public="1" get="accessor" set="null">
-			<x path="Int"/>
-			<haxe_doc>Amount of alive threads in this pool.</haxe_doc>
-		</threadsCount>
-		<isShutdown public="1" get="accessor" set="null">
-			<x path="Bool"/>
-			<haxe_doc>Indicates if `shutdown` method of this pool has been called.</haxe_doc>
-		</isShutdown>
-		<run public="1" set="method">
-			<f a="task">
-				<f a=""><x path="Void"/></f>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Submit a task to run in a thread.
-
-		Throws an exception if the pool is shut down.</haxe_doc>
-		</run>
-		<shutdown public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Initiates a shutdown.
-		All previously submitted tasks will be executed, but no new tasks will
-		be accepted.
-
-		Multiple calls to this method have no effect.</haxe_doc>
-		</shutdown>
-		<haxe_doc>A thread pool interface.</haxe_doc>
-	</class>
-	<class path="sys.thread.ElasticThreadPool" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/ElasticThreadPool.hx">
-		<implements path="sys.thread.IThreadPool"/>
-		<threadsCount public="1" get="accessor" set="null"><x path="Int"/></threadsCount>
-		<maxThreadsCount public="1"><x path="Int"/></maxThreadsCount>
-		<isShutdown public="1" get="accessor" set="null">
-			<x path="Bool"/>
-			<haxe_doc>Indicates if `shutdown` method of this pool has been called.</haxe_doc>
-		</isShutdown>
-		<_isShutdown expr="false">
-			<x path="Bool"/>
-			<meta><m n=":value"><e>false</e></m></meta>
-		</_isShutdown>
-		<get_isShutdown set="method" line="46"><f a=""><x path="Bool"/></f></get_isShutdown>
-		<pool final="1" expr="[]">
-			<c path="Array"><c path="sys.thread._ElasticThreadPool.Worker"/></c>
-			<meta><m n=":value"><e>[]</e></m></meta>
-		</pool>
-		<queue final="1" expr="new Deque&lt;Void -&gt; Void&gt;()">
-			<c path="sys.thread.Deque"><f a=""><x path="Void"/></f></c>
-			<meta><m n=":value"><e><![CDATA[new Deque<Void -> Void>()]]></e></m></meta>
-		</queue>
-		<mutex final="1" expr="new Mutex()">
-			<c path="sys.thread.Mutex"/>
-			<meta><m n=":value"><e>new Mutex()</e></m></meta>
-		</mutex>
-		<threadTimeout final="1"><x path="Float"/></threadTimeout>
-		<run public="1" set="method" line="71">
-			<f a="task">
-				<f a=""><x path="Void"/></f>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Submit a task to run in a thread.
-
-		Throws an exception if the pool is shut down.</haxe_doc>
-		</run>
-		<shutdown public="1" set="method" line="111">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Initiates a shutdown.
-		All previously submitted tasks will be executed, but no new tasks will
-		be accepted.
-
-		Multiple calls to this method have no effect.</haxe_doc>
-		</shutdown>
-		<get_threadsCount set="method" line="121"><f a=""><x path="Int"/></f></get_threadsCount>
-		<new public="1" set="method" line="59">
-			<f a="maxThreadsCount:?threadTimeout" v=":60">
-				<x path="Int"/>
-				<x path="Float"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":value"><e>{ threadTimeout : 60 }</e></m></meta>
-			<haxe_doc>Create a new thread pool with `threadsCount` threads.
-
-		If a worker thread does not receive a task for `threadTimeout` seconds it
-		is terminated.</haxe_doc>
-		</new>
-		<haxe_doc>Thread pool with a varying amount of threads.
-
-	A new thread is spawned every time a task is submitted while all existing
-	threads are busy.</haxe_doc>
-		<meta><m n=":coreApi"/></meta>
-	</class>
-	<class path="sys.thread._ElasticThreadPool.Worker" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/ElasticThreadPool.hx" private="1" module="sys.thread.ElasticThreadPool">
-		<task public="1" set="null"><x path="Null"><f a=""><x path="Void"/></f></x></task>
-		<dead public="1" set="null" expr="false">
-			<x path="Bool"/>
-			<meta><m n=":value"><e>false</e></m></meta>
-		</dead>
-		<deathMutex final="1" expr="new Mutex()">
-			<c path="sys.thread.Mutex"/>
-			<meta><m n=":value"><e>new Mutex()</e></m></meta>
-		</deathMutex>
-		<waiter final="1" expr="new Lock()">
-			<c path="sys.thread.Lock"/>
-			<meta><m n=":value"><e>new Lock()</e></m></meta>
-		</waiter>
-		<queue final="1"><c path="sys.thread.Deque"><f a=""><x path="Void"/></f></c></queue>
-		<timeout final="1"><x path="Float"/></timeout>
-		<thread><x path="sys.thread.Thread"/></thread>
-		<isShutdown expr="false">
-			<x path="Bool"/>
-			<meta><m n=":value"><e>false</e></m></meta>
-		</isShutdown>
-		<wakeup public="1" set="method" line="147"><f a="task">
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></wakeup>
-		<shutdown public="1" set="method" line="156"><f a=""><x path="Void"/></f></shutdown>
-		<start set="method" line="161"><f a=""><x path="Void"/></f></start>
-		<loop set="method" line="166"><f a=""><x path="Void"/></f></loop>
-		<new public="1" set="method" line="141"><f a="queue:timeout">
-	<c path="sys.thread.Deque"><f a=""><x path="Void"/></f></c>
-	<x path="Float"/>
-	<x path="Void"/>
-</f></new>
-	</class>
-	<enum path="sys.thread.NextEventTime" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/EventLoop.hx" module="sys.thread.EventLoop">
-		<Now><haxe_doc>There's already an event waiting to be executed</haxe_doc></Now>
-		<Never><haxe_doc>No new events are expected.</haxe_doc></Never>
-		<AnyTime a="time">
-			<x path="Null"><x path="Float"/></x>
-			<haxe_doc>An event is expected to arrive at any time.
-		If `time` is specified, then the event will be ready at that time for sure.</haxe_doc>
-		</AnyTime>
-		<At a="time">
-			<x path="Float"/>
-			<haxe_doc>An event is expected to be ready for execution at `time`.</haxe_doc>
-		</At>
-		<haxe_doc>When an event loop has an available event to execute.</haxe_doc>
-	</enum>
-	<abstract path="sys.thread.EventHandler" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/EventLoop.hx" module="sys.thread.EventLoop">
-		<from><icast><c path="sys.thread._EventLoop.RegularEvent"/></icast></from>
-		<this><c path="sys.thread._EventLoop.RegularEvent"/></this>
-		<to><icast><c path="sys.thread._EventLoop.RegularEvent"/></icast></to>
-		<impl><class path="sys.thread._EventLoop.EventHandler_Impl_" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/EventLoop.hx" private="1" module="sys.thread.EventLoop" extern="1" final="1"/></impl>
-	</abstract>
-	<class path="sys.thread._EventLoop.EventHandler_Impl_" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/EventLoop.hx" private="1" module="sys.thread.EventLoop" extern="1" final="1"/>
-	<class path="sys.thread._EventLoop.RegularEvent" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/EventLoop.hx" private="1" module="sys.thread.EventLoop">
-		<nextRunTime public="1"><x path="Float"/></nextRunTime>
-		<interval final="1" public="1"><x path="Float"/></interval>
-		<run final="1" public="1"><f a=""><x path="Void"/></f></run>
-		<next public="1"><x path="Null"><c path="sys.thread._EventLoop.RegularEvent"/></x></next>
-		<previous public="1"><x path="Null"><c path="sys.thread._EventLoop.RegularEvent"/></x></previous>
-		<cancelled public="1" expr="false">
-			<x path="Bool"/>
-			<meta><m n=":value"><e>false</e></m></meta>
-		</cancelled>
-		<new public="1" set="method" line="286"><f a="run:nextRunTime:interval">
-	<f a=""><x path="Void"/></f>
-	<x path="Float"/>
-	<x path="Float"/>
-	<x path="Void"/>
-</f></new>
-	</class>
-	<class path="sys.thread.FixedThreadPool" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/FixedThreadPool.hx">
-		<implements path="sys.thread.IThreadPool"/>
-		<shutdownTask set="method" line="88" static="1"><f a=""><x path="Void"/></f></shutdownTask>
-		<threadsCount public="1" get="accessor" set="null"><x path="Int"/></threadsCount>
-		<get_threadsCount set="method" line="39"><f a=""><x path="Int"/></f></get_threadsCount>
-		<isShutdown public="1" get="accessor" set="null">
-			<x path="Bool"/>
-			<haxe_doc>Indicates if `shutdown` method of this pool has been called.</haxe_doc>
-		</isShutdown>
-		<_isShutdown expr="false">
-			<x path="Bool"/>
-			<meta><m n=":value"><e>false</e></m></meta>
-		</_isShutdown>
-		<get_isShutdown set="method" line="44"><f a=""><x path="Bool"/></f></get_isShutdown>
-		<pool final="1"><c path="Array"><c path="sys.thread._FixedThreadPool.Worker"/></c></pool>
-		<poolMutex final="1" expr="new Mutex()">
-			<c path="sys.thread.Mutex"/>
-			<meta><m n=":value"><e>new Mutex()</e></m></meta>
-		</poolMutex>
-		<queue final="1" expr="new Deque&lt;Void -&gt; Void&gt;()">
-			<c path="sys.thread.Deque"><f a=""><x path="Void"/></f></c>
-			<meta><m n=":value"><e><![CDATA[new Deque<Void -> Void>()]]></e></m></meta>
-		</queue>
-		<run public="1" set="method" line="65">
-			<f a="task">
-				<f a=""><x path="Void"/></f>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Submit a task to run in a thread.
-
-		Throws an exception if the pool is shut down.</haxe_doc>
-		</run>
-		<shutdown public="1" set="method" line="80">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Initiates a shutdown.
-		All previously submitted tasks will be executed, but no new tasks will
-		be accepted.
-
-		Multiple calls to this method have no effect.</haxe_doc>
-		</shutdown>
-		<new public="1" set="method" line="53">
-			<f a="threadsCount">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Create a new thread pool with `threadsCount` threads.</haxe_doc>
-		</new>
-		<haxe_doc>Thread pool with a constant amount of threads.
-	Threads in the pool will exist until the pool is explicitly shut down.</haxe_doc>
-		<meta><m n=":coreApi"/></meta>
-	</class>
-	<class path="sys.thread._FixedThreadPool.ShutdownException" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/FixedThreadPool.hx" private="1" module="sys.thread.FixedThreadPool">
-		<extends path="haxe.Exception"/>
-		<new public="1" set="method" line="93"><f a="message:?previous:?native">
-	<c path="String"/>
-	<c path="haxe.Exception"/>
-	<x path="Any"/>
-	<x path="Void"/>
-</f></new>
-	</class>
-	<class path="sys.thread._FixedThreadPool.Worker" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/FixedThreadPool.hx" private="1" module="sys.thread.FixedThreadPool">
-		<thread><x path="sys.thread.Thread"/></thread>
-		<queue final="1"><c path="sys.thread.Deque"><x path="Null"><f a=""><x path="Void"/></f></x></c></queue>
-		<loop set="method" line="104"><f a=""><x path="Void"/></f></loop>
-		<new public="1" set="method" line="99"><f a="queue">
-	<c path="sys.thread.Deque"><x path="Null"><f a=""><x path="Void"/></f></x></c>
-	<x path="Void"/>
-</f></new>
-	</class>
 	<class path="sys.thread.Lock" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Lock.hx">
 		<semaphore final="1"><c path="python.lib.threading.Semaphore"/></semaphore>
 		<wait public="1" get="inline" set="null" line="35">
@@ -42529,17 +42536,6 @@
 			<m n=":coreApi"/>
 		</meta>
 	</class>
-	<class path="sys.thread.NoEventLoopException" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/NoEventLoopException.hx">
-		<extends path="haxe.Exception"/>
-		<new public="1" set="method" line="6">
-			<f a="?msg:?previous" v="&quot;Event loop is not available. Refer to sys.thread.Thread.runWithEventLoop.&quot;:">
-				<c path="String"/>
-				<c path="haxe.Exception"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":value"><e>{ msg : "Event loop is not available. Refer to sys.thread.Thread.runWithEventLoop." }</e></m></meta>
-		</new>
-	</class>
 	<class path="sys.thread.Semaphore" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Semaphore.hx">
 		<semaphore final="1"><c path="python.lib.threading.Semaphore"/></semaphore>
 		<acquire public="1" set="method" line="13">
@@ -42573,90 +42569,28 @@
 		</new>
 		<meta><m n=":coreApi"/></meta>
 	</class>
-	<typedef path="sys.thread._Thread.ThreadImpl" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread"><c path="sys.thread._Thread.HxThread"/></typedef>
-	<abstract path="sys.thread.Thread" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx">
-		<from><icast><t path="sys.thread._Thread.ThreadImpl"/></icast></from>
-		<this><t path="sys.thread._Thread.ThreadImpl"/></this>
-		<impl><class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" final="1">
-	<events public="1" get="accessor" set="null" static="1"><c path="sys.thread.EventLoop"/></events>
-	<current public="1" get="inline" set="null" line="35" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
-	<create public="1" get="inline" set="null" line="39" static="1"><f a="job">
+	<class path="sys.thread._ThreadImpl.ThreadImpl_Impl_" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/ThreadImpl.hx" private="1" module="sys.thread.ThreadImpl" final="1">
+		<current public="1" set="method" line="29" static="1"><f a=""><x path="sys.thread.ThreadImpl"/></f></current>
+		<create public="1" set="method" line="33" static="1"><f a="callb">
 	<f a=""><x path="Void"/></f>
-	<x path="sys.thread.Thread"/>
+	<x path="sys.thread.ThreadImpl"/>
 </f></create>
-	<runWithEventLoop public="1" get="inline" set="null" line="43" static="1"><f a="job">
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></runWithEventLoop>
-	<createWithEventLoop public="1" get="inline" set="null" line="47" static="1"><f a="job">
-	<f a=""><x path="Void"/></f>
-	<x path="sys.thread.Thread"/>
-</f></createWithEventLoop>
-	<readMessage public="1" get="inline" set="null" line="51" static="1"><f a="block">
-	<x path="Bool"/>
-	<d/>
-</f></readMessage>
-	<sendMessage public="1" get="inline" set="null" line="55" static="1"><f a="this:msg">
-	<t path="sys.thread._Thread.ThreadImpl"/>
-	<d/>
-	<x path="Void"/>
-</f></sendMessage>
-	<get_events set="method" line="59" static="1"><f a="this">
-	<t path="sys.thread._Thread.ThreadImpl"/>
-	<c path="sys.thread.EventLoop"/>
-</f></get_events>
-	<processEvents public="1" set="method" line="66" static="1">
-		<f a=""><x path="Void"/></f>
-		<meta><m n=":keep"/></meta>
-	</processEvents>
-</class></impl>
-	</abstract>
-	<class path="sys.thread._Thread.Thread_Impl_" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Thread.hx" private="1" module="sys.thread.Thread" final="1">
-		<events public="1" get="accessor" set="null" static="1"><c path="sys.thread.EventLoop"/></events>
-		<current public="1" get="inline" set="null" line="35" static="1"><f a=""><x path="sys.thread.Thread"/></f></current>
-		<create public="1" get="inline" set="null" line="39" static="1"><f a="job">
-	<f a=""><x path="Void"/></f>
-	<x path="sys.thread.Thread"/>
-</f></create>
-		<runWithEventLoop public="1" get="inline" set="null" line="43" static="1"><f a="job">
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></runWithEventLoop>
-		<createWithEventLoop public="1" get="inline" set="null" line="47" static="1"><f a="job">
-	<f a=""><x path="Void"/></f>
-	<x path="sys.thread.Thread"/>
-</f></createWithEventLoop>
-		<readMessage public="1" get="inline" set="null" line="51" static="1"><f a="block">
-	<x path="Bool"/>
-	<d/>
-</f></readMessage>
-		<sendMessage public="1" get="inline" set="null" line="55" static="1"><f a="this:msg">
-	<t path="sys.thread._Thread.ThreadImpl"/>
-	<d/>
-	<x path="Void"/>
-</f></sendMessage>
-		<get_events set="method" line="59" static="1"><f a="this">
-	<t path="sys.thread._Thread.ThreadImpl"/>
-	<c path="sys.thread.EventLoop"/>
-</f></get_events>
-		<processEvents public="1" set="method" line="66" static="1">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":keep"/></meta>
-		</processEvents>
-	</class>
-	<class path="sys.thread.ThreadPoolException" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/ThreadPoolException.hx">
-		<extends path="haxe.Exception"/>
-		<new public="1" set="method" line="5"><f a="message:?previous:?native">
+		<getName public="1" set="method" line="39" static="1"><f a="t">
+	<x path="sys.thread.ThreadImpl"/>
+	<x path="Null"><c path="String"/></x>
+</f></getName>
+		<setName public="1" set="method" line="43" static="1"><f a="t:name">
+	<x path="sys.thread.ThreadImpl"/>
 	<c path="String"/>
-	<c path="haxe.Exception"/>
-	<x path="Any"/>
 	<x path="Void"/>
-</f></new>
+</f></setName>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="sys.thread.Tls" params="T" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Tls.hx" extern="1">
 		<value public="1"><c path="sys.thread.Tls.T"/></value>
 		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
 		<meta>
+			<m n=":directlyUsed"/>
 			<m n=":pythonImport">
 				<e>"threading"</e>
 				<e>"local"</e>
@@ -42664,4 +42598,109 @@
 			<m n=":native"><e>"local"</e></m>
 		</meta>
 	</class>
+	<class path="sys.thread.Thread" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/Thread.hx">
+		<threads static="1"><c path="Array"><c path="sys.thread.Thread"/></c></threads>
+		<mutex static="1"><c path="sys.thread.Mutex"/></mutex>
+		<mainThread static="1"><c path="sys.thread.Thread"/></mainThread>
+		<readMessage public="1" set="method" line="98" static="1"><f a="blocking">
+	<x path="Bool"/>
+	<x path="Null"><d/></x>
+</f></readMessage>
+		<currentTLS static="1"><c path="sys.thread.Tls"><c path="sys.thread.Thread"/></c></currentTLS>
+		<current public="1" set="method" line="115" static="1">
+			<f a=""><c path="sys.thread.Thread"/></f>
+			<haxe_doc>Returns the current thread.
+		If you are calling this function from a native thread that is not the main thread and was not created by `Thread.create`, this will return you
+		a native thread with a `null` EvenLoop and `isNative` set to true. You need to call `disposeNative()` on such value on thread termination.</haxe_doc>
+		</current>
+		<main public="1" get="inline" set="null" line="132" static="1">
+			<f a=""><c path="sys.thread.Thread"/></f>
+			<haxe_doc>Returns the main thread</haxe_doc>
+		</main>
+		<create public="1" set="method" line="140" static="1">
+			<f a="?name:job:?onAbort">
+				<c path="String"/>
+				<f a=""><x path="Void"/></f>
+				<f a="e">
+					<c path="haxe.Exception"/>
+					<x path="Void"/>
+				</f>
+				<c path="sys.thread.Thread"/>
+			</f>
+			<haxe_doc>Creates a new thread that will execute the `job` function, then exit after all events are processed.
+		You can specify a custom exception handler `onAbort` or else `Thread.onAbort` will be called.</haxe_doc>
+		</create>
+		<getAll public="1" set="method" line="177" static="1">
+			<f a=""><c path="Array"><c path="sys.thread.Thread"/></c></f>
+			<haxe_doc>Returns a list of all currently running threads.
+		This excludes native threads which were created without Thread.create and have not been
+		registered with a call to Thread.current().</haxe_doc>
+		</getAll>
+		<hasBlocking set="method" line="194" static="1"><f a=""><x path="Bool"/></f></hasBlocking>
+		<impl><x path="sys.thread.ThreadImpl"/></impl>
+		<messages><c path="sys.thread.Deque"><d/></c></messages>
+		<events public="1" set="null">
+			<x path="Null"><c path="haxe.EventLoop"/></x>
+			<haxe_doc>The events loop of this thread.
+		If this is a native thread, the events will be null.</haxe_doc>
+		</events>
+		<isBlocking public="1" expr="true">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>true</e></m></meta>
+			<haxe_doc>Tells if we needs to wait for the thread to terminate before we stop the main loop (default:true).</haxe_doc>
+		</isBlocking>
+		<name public="1" set="accessor">
+			<x path="Null"><c path="String"/></x>
+			<haxe_doc>Allows to query or change the name of the thread. On some platforms this might allow debugger to identify threads.</haxe_doc>
+		</name>
+		<isNative public="1" set="null">
+			<x path="Bool"/>
+			<haxe_doc>Tells if a thread is a native thread that is not managed by Haxe.
+		See `Thread.current` for details.</haxe_doc>
+		</isNative>
+		<set_name set="method" line="65"><f a="n">
+	<x path="Null"><c path="String"/></x>
+	<x path="Null"><c path="String"/></x>
+</f></set_name>
+		<toString public="1" set="method" line="71"><f a=""><c path="String"/></f></toString>
+		<sendMessage public="1" set="method" line="75"><f a="msg">
+	<d/>
+	<x path="Void"/>
+</f></sendMessage>
+		<disposeNative public="1" set="method" line="84"><f a=""><x path="Void"/></f></disposeNative>
+		<dispose set="method" line="90"><f a=""><x path="Void"/></f></dispose>
+		<onAbort public="1" set="dynamic" line="188">
+			<f a="e">
+				<c path="haxe.Exception"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>This function is called when an uncaught exception aborted a thread.
+		The error will be printed to stdout but this function can be redefined.</haxe_doc>
+		</onAbort>
+		<new set="method" line="60"><f a="impl">
+	<x path="sys.thread.ThreadImpl"/>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<abstract path="sys.thread.ThreadImpl" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/ThreadImpl.hx">
+		<this><c path="python.lib.threading.Thread"/></this>
+		<impl><class path="sys.thread._ThreadImpl.ThreadImpl_Impl_" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/ThreadImpl.hx" private="1" module="sys.thread.ThreadImpl" final="1">
+	<current public="1" set="method" line="29" static="1"><f a=""><x path="sys.thread.ThreadImpl"/></f></current>
+	<create public="1" set="method" line="33" static="1"><f a="callb">
+	<f a=""><x path="Void"/></f>
+	<x path="sys.thread.ThreadImpl"/>
+</f></create>
+	<getName public="1" set="method" line="39" static="1"><f a="t">
+	<x path="sys.thread.ThreadImpl"/>
+	<x path="Null"><c path="String"/></x>
+</f></getName>
+	<setName public="1" set="method" line="43" static="1"><f a="t:name">
+	<x path="sys.thread.ThreadImpl"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></setName>
+	<meta><m n=":directlyUsed"/></meta>
+</class></impl>
+	</abstract>
 </haxe>
