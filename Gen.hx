@@ -42,7 +42,7 @@ class Gen {
     }
 
     static function getVersionInfo():Promise<Array<GhVersion>> {
-        return requestUrl("https://api.github.com/repos/HaxeFoundation/haxe/releases")
+        return requestUrl("https://api.github.com/repos/HaxeFoundation/haxe/releases?per_page=200")
             .then(Json.parse);
     }
 
