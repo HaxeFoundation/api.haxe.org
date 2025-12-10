@@ -26689,15 +26689,15 @@
 	</class>
 	<enum path="haxe.display.NoData" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/Protocol.hx" module="haxe.display.Protocol"><meta><m n=":flatEnum"/></meta></enum>
 	<class path="haxe.display.ServerMethods" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/Server.hx" module="haxe.display.Server">
-		<ReadClassPaths public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;NoData,Response&lt;{ var ?files : Int}&gt;&gt;(&quot;server/readClassPaths&quot;)" line="34" static="1">
+		<ReadClassPaths public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ReadClassPathsParams,Response&lt;{ var ?files : Int}&gt;&gt;(&quot;server/readClassPaths&quot;)" line="34" static="1">
 			<x path="haxe.display.HaxeRequestMethod">
-				<e path="haxe.display.NoData"/>
+				<t path="haxe.display.ReadClassPathsParams"/>
 				<t path="haxe.display.Response"><a><files>
 	<x path="Null"><x path="Int"/></x>
 	<meta><m n=":optional"/></meta>
 </files></a></t>
 			</x>
-			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<NoData,Response<{ var ?files : Int}>>("server/readClassPaths")]]></e></m></meta>
+			<meta><m n=":value"><e><![CDATA[new HaxeRequestMethod<ReadClassPathsParams,Response<{ var ?files : Int}>>("server/readClassPaths")]]></e></m></meta>
 			<haxe_doc>This request is sent from the client to Haxe to explore the class paths. This effectively creates a cache for toplevel completion.</haxe_doc>
 		</ReadClassPaths>
 		<Configure public="1" get="inline" set="null" expr="new HaxeRequestMethod&lt;ConfigureParams,Response&lt;NoData&gt;&gt;(&quot;server/configure&quot;)" line="36" static="1">
@@ -26786,6 +26786,11 @@
 		</ModuleCreated>
 		<meta><m n=":publicFields"/></meta>
 	</class>
+	<typedef path="haxe.display.ReadClassPathsParams" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/Server.hx" module="haxe.display.Server"><a><wait>
+	<x path="Null"><x path="Bool"/></x>
+	<meta><m n=":optional"/></meta>
+	<haxe_doc>Explore classpaths during the request instead of delaying it to a server task</haxe_doc>
+</wait></a></typedef>
 	<typedef path="haxe.display.ConfigurePrintParams" params="" file="/home/runner/work/haxe/haxe/std/haxe/display/Server.hx" module="haxe.display.Server"><a>
 	<unchangedContent>
 		<x path="Null"><x path="Bool"/></x>
