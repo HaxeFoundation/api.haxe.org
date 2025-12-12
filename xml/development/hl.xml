@@ -36834,7 +36834,7 @@
 		</_registerGUIDName>
 		<registerGUIDName public="1" get="inline" set="null" line="57" static="1"><f a="guid:name">
 	<x path="hl.GUID"/>
-	<c path="String"/>
+	<x path="Null"><c path="String"/></x>
 	<x path="Void"/>
 </f></registerGUIDName>
 		<timestampMs public="1" set="method" static="1">
@@ -37705,7 +37705,129 @@
 			<m n=":notNull"/>
 			<m n=":runtimeValue"/>
 		</meta>
+		<impl><class path="hl._GUID.GUID_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/GUID.hx" private="1" module="hl.GUID" final="1">
+	<toString public="1" set="method" line="27" static="1"><f a="this">
+	<x path="hl.GUID"/>
+	<c path="String"/>
+</f></toString>
+	<eq set="method" static="1">
+		<f a="this:v">
+			<x path="hl.GUID"/>
+			<x path="hl.GUID"/>
+			<x path="Bool"/>
+		</f>
+		<meta>
+			<m n=":noExpr"/>
+			<m n=":op"><e>a == b</e></m>
+		</meta>
+	</eq>
+	<gte set="method" static="1">
+		<f a="this:v">
+			<x path="hl.GUID"/>
+			<x path="hl.GUID"/>
+			<x path="Bool"/>
+		</f>
+		<meta>
+			<m n=":noExpr"/>
+			<m n=":op"><e><![CDATA[a >= b]]></e></m>
+		</meta>
+	</gte>
+	<lte set="method" static="1">
+		<f a="this:v">
+			<x path="hl.GUID"/>
+			<x path="hl.GUID"/>
+			<x path="Bool"/>
+		</f>
+		<meta>
+			<m n=":noExpr"/>
+			<m n=":op"><e><![CDATA[a <= b]]></e></m>
+		</meta>
+	</lte>
+	<gt set="method" static="1">
+		<f a="this:v">
+			<x path="hl.GUID"/>
+			<x path="hl.GUID"/>
+			<x path="Bool"/>
+		</f>
+		<meta>
+			<m n=":noExpr"/>
+			<m n=":op"><e><![CDATA[a > b]]></e></m>
+		</meta>
+	</gt>
+	<lt set="method" static="1">
+		<f a="this:v">
+			<x path="hl.GUID"/>
+			<x path="hl.GUID"/>
+			<x path="Bool"/>
+		</f>
+		<meta>
+			<m n=":noExpr"/>
+			<m n=":op"><e><![CDATA[a < b]]></e></m>
+		</meta>
+	</lt>
+</class></impl>
 	</abstract>
+	<class path="hl._GUID.GUID_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/GUID.hx" private="1" module="hl.GUID" final="1">
+		<toString public="1" set="method" line="27" static="1"><f a="this">
+	<x path="hl.GUID"/>
+	<c path="String"/>
+</f></toString>
+		<eq set="method" static="1">
+			<f a="this:v">
+				<x path="hl.GUID"/>
+				<x path="hl.GUID"/>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":noExpr"/>
+				<m n=":op"><e>a == b</e></m>
+			</meta>
+		</eq>
+		<gte set="method" static="1">
+			<f a="this:v">
+				<x path="hl.GUID"/>
+				<x path="hl.GUID"/>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":noExpr"/>
+				<m n=":op"><e><![CDATA[a >= b]]></e></m>
+			</meta>
+		</gte>
+		<lte set="method" static="1">
+			<f a="this:v">
+				<x path="hl.GUID"/>
+				<x path="hl.GUID"/>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":noExpr"/>
+				<m n=":op"><e><![CDATA[a <= b]]></e></m>
+			</meta>
+		</lte>
+		<gt set="method" static="1">
+			<f a="this:v">
+				<x path="hl.GUID"/>
+				<x path="hl.GUID"/>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":noExpr"/>
+				<m n=":op"><e><![CDATA[a > b]]></e></m>
+			</meta>
+		</gt>
+		<lt set="method" static="1">
+			<f a="this:v">
+				<x path="hl.GUID"/>
+				<x path="hl.GUID"/>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":noExpr"/>
+				<m n=":op"><e><![CDATA[a < b]]></e></m>
+			</meta>
+		</lt>
+	</class>
 	<enum path="hl.GcFlag" params="" file="/home/runner/work/haxe/haxe/std/hl/Gc.hx" module="hl.Gc">
 		<Profile><haxe_doc>Activate profiling: regularly print on stdout gc allocation stats</haxe_doc></Profile>
 		<DumpMem><haxe_doc>Allows one to dump a hlmemory.dump file when HL runs out of memory to be examined with hl memory inspector tool.</haxe_doc></DumpMem>
@@ -40121,11 +40243,14 @@
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</allocI64>
-		<allocHGUID public="1" set="method" line="169" static="1"><f a="bytes:length">
-	<x path="hl.BytesAccess"><x path="hl.I64"/></x>
-	<x path="Int"/>
-	<t path="hl.types.ArrayI64"/>
-</f></allocHGUID>
+		<allocGUID public="1" set="method" line="169" static="1">
+			<f a="bytes:length">
+				<x path="hl.BytesAccess"><x path="hl.GUID"/></x>
+				<x path="Int"/>
+				<t path="hl.types.ArrayGUID"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</allocGUID>
 		<length public="1" set="null"><x path="Int"/></length>
 		<pushDyn public="1" set="method" line="45"><f a="v">
 	<d/>
@@ -40352,7 +40477,7 @@
 	<typedef path="hl.types.ArrayF32" params="" file="/home/runner/work/haxe/haxe/std/hl/types/ArrayBytes.hx" module="hl.types.ArrayBytes"><c path="hl.types.ArrayBytes_hl_F32"/></typedef>
 	<typedef path="hl.types.ArrayF64" params="" file="/home/runner/work/haxe/haxe/std/hl/types/ArrayBytes.hx" module="hl.types.ArrayBytes"><c path="hl.types.ArrayBytes_Float"/></typedef>
 	<typedef path="hl.types.ArrayI64" params="" file="/home/runner/work/haxe/haxe/std/hl/types/ArrayBytes.hx" module="hl.types.ArrayBytes"><c path="hl.types.ArrayBytes_hl_I64"/></typedef>
-	<typedef path="hl.types.ArrayGUID" params="" file="/home/runner/work/haxe/haxe/std/hl/types/ArrayBytes.hx" module="hl.types.ArrayBytes"><c path="hl.types.ArrayBytes_hl_I64"/></typedef>
+	<typedef path="hl.types.ArrayGUID" params="" file="/home/runner/work/haxe/haxe/std/hl/types/ArrayBytes.hx" module="hl.types.ArrayBytes"><c path="hl.types.ArrayBytes_hl_GUID"/></typedef>
 	<class path="hl.types.ArrayDynIterator" params="" file="/home/runner/work/haxe/haxe/std/hl/types/ArrayDyn.hx" module="hl.types.ArrayDyn">
 		<extends path="haxe.iterators.ArrayIterator"><d/></extends>
 		<a><c path="hl.types.ArrayBase"/></a>
@@ -40366,7 +40491,7 @@
 	</class>
 	<class path="hl.types.ArrayDyn" params="" file="/home/runner/work/haxe/haxe/std/hl/types/ArrayDyn.hx">
 		<extends path="hl.types.ArrayAccess"/>
-		<alloc public="1" set="method" line="250" static="1">
+		<alloc public="1" set="method" line="260" static="1">
 			<f a="a:?allowReinterpret" v=":false">
 				<c path="hl.types.ArrayBase"/>
 				<x path="Bool"/>
@@ -40490,7 +40615,7 @@
 	<x path="hl.Type"/>
 	<d/>
 </f></__cast>
-		<__compare set="method" line="246">
+		<__compare set="method" line="256">
 			<f a="a">
 				<d/>
 				<x path="Int"/>
