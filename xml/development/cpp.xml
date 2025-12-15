@@ -11741,9 +11741,131 @@
 		<meta><m n=":include"><e>"hx/TelemetryTracy.h"</e></m></meta>
 	</class>
 	<typedef path="cpp.vm.tracy.TracyProfiler" params="" file="/home/runner/work/haxe/haxe/std/cpp/vm/tracy/TracyProfiler.hx"><c path="cpp.vm.tracy.Native_TracyProfiler"/></typedef>
-	<typedef path="cpp.zip.Compress" params="" file="/home/runner/work/haxe/haxe/std/cpp/zip/Compress.hx"><c path="haxe.zip.Compress"/></typedef>
-	<typedef path="cpp.zip.Flush" params="" file="/home/runner/work/haxe/haxe/std/cpp/zip/Flush.hx"><e path="haxe.zip.FlushMode"/></typedef>
-	<typedef path="cpp.zip.Uncompress" params="" file="/home/runner/work/haxe/haxe/std/cpp/zip/Uncompress.hx"><c path="haxe.zip.Uncompress"/></typedef>
+	<class path="cpp.zip.Compress" params="" file="/home/runner/work/haxe/haxe/std/cpp/zip/Compress.hx" extern="1" final="1">
+		<create public="1" set="method" static="1"><f a="level">
+	<x path="Int"/>
+	<c path="cpp.zip.Compress"/>
+</f></create>
+		<run public="1" set="method" static="1"><f a="src:level">
+	<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
+	<x path="Int"/>
+	<t path="haxe.io.BytesData"/>
+</f></run>
+		<execute public="1" set="method"><f a="src:dst">
+	<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
+	<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
+	<c path="cpp.zip.Result"/>
+</f></execute>
+		<setFlushMode public="1" set="method"><f a="mode">
+	<x path="cpp.zip.Flush"/>
+	<x path="Void"/>
+</f></setFlushMode>
+		<close public="1" set="method"><f a=""><x path="Void"/></f></close>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":buildXml"><e><![CDATA["<include name=\"${HXCPP}/src/hx/zip/Build.xml\" />"]]></e></m>
+			<m n=":include"><e>"hx/zip/Compress.hpp"</e></m>
+			<m n=":cpp.ManagedType"><e>{ namespace : ["hx", "zip"], flags : [StandardNaming] }</e></m>
+		</meta>
+	</class>
+	<abstract path="cpp.zip.Flush" params="" file="/home/runner/work/haxe/haxe/std/cpp/zip/Flush.hx">
+		<this><x path="Int"/></this>
+		<meta>
+			<m n=":enum"/>
+			<m n=":semantics"><e>value</e></m>
+			<m n=":include"><e>"hx/zip/Zip.hpp"</e></m>
+			<m n=":cpp.ValueType"><e>{ namespace : ["hx", "zip"] }</e></m>
+		</meta>
+		<impl><class path="cpp.zip._Flush.Flush_Impl_" params="" file="/home/runner/work/haxe/haxe/std/cpp/zip/Flush.hx" private="1" module="cpp.zip.Flush" extern="1" final="1">
+	<None public="1" set="null" static="1">
+		<x path="cpp.zip.Flush"/>
+		<meta><m n=":enum"/></meta>
+	</None>
+	<Sync public="1" set="null" static="1">
+		<x path="cpp.zip.Flush"/>
+		<meta><m n=":enum"/></meta>
+	</Sync>
+	<Full public="1" set="null" static="1">
+		<x path="cpp.zip.Flush"/>
+		<meta><m n=":enum"/></meta>
+	</Full>
+	<Finish public="1" set="null" static="1">
+		<x path="cpp.zip.Flush"/>
+		<meta><m n=":enum"/></meta>
+	</Finish>
+	<Block public="1" set="null" static="1">
+		<x path="cpp.zip.Flush"/>
+		<meta><m n=":enum"/></meta>
+	</Block>
+	<meta>
+		<m n=":directlyUsed"/>
+		<m n=":enum"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="cpp.zip._Flush.Flush_Impl_" params="" file="/home/runner/work/haxe/haxe/std/cpp/zip/Flush.hx" private="1" module="cpp.zip.Flush" extern="1" final="1">
+		<None public="1" set="null" static="1">
+			<x path="cpp.zip.Flush"/>
+			<meta><m n=":enum"/></meta>
+		</None>
+		<Sync public="1" set="null" static="1">
+			<x path="cpp.zip.Flush"/>
+			<meta><m n=":enum"/></meta>
+		</Sync>
+		<Full public="1" set="null" static="1">
+			<x path="cpp.zip.Flush"/>
+			<meta><m n=":enum"/></meta>
+		</Full>
+		<Finish public="1" set="null" static="1">
+			<x path="cpp.zip.Flush"/>
+			<meta><m n=":enum"/></meta>
+		</Finish>
+		<Block public="1" set="null" static="1">
+			<x path="cpp.zip.Flush"/>
+			<meta><m n=":enum"/></meta>
+		</Block>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":enum"/>
+		</meta>
+	</class>
+	<class path="cpp.zip.Result" params="" file="/home/runner/work/haxe/haxe/std/cpp/zip/Result.hx" extern="1" final="1">
+		<done final="1" public="1"><x path="Bool"/></done>
+		<read final="1" public="1"><x path="Int"/></read>
+		<write final="1" public="1"><x path="Int"/></write>
+		<meta>
+			<m n=":semantics"><e>value</e></m>
+			<m n=":cpp.ValueType"><e>{ namespace : ["hx", "zip"] }</e></m>
+			<m n=":include"><e>"hx/zip/Zip.hpp"</e></m>
+		</meta>
+	</class>
+	<class path="cpp.zip.Uncompress" params="" file="/home/runner/work/haxe/haxe/std/cpp/zip/Uncompress.hx" extern="1" final="1">
+		<create public="1" set="method" static="1"><f a="windowSize">
+	<x path="Int"/>
+	<c path="cpp.zip.Uncompress"/>
+</f></create>
+		<run public="1" set="method" static="1"><f a="src:bufferSize">
+	<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
+	<x path="Int"/>
+	<t path="haxe.io.BytesData"/>
+</f></run>
+		<execute public="1" set="method"><f a="src:dst">
+	<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
+	<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
+	<c path="cpp.zip.Result"/>
+</f></execute>
+		<setFlushMode public="1" set="method"><f a="mode">
+	<x path="cpp.zip.Flush"/>
+	<x path="Void"/>
+</f></setFlushMode>
+		<close public="1" set="method"><f a=""><x path="Void"/></f></close>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":buildXml"><e><![CDATA["<include name=\"${HXCPP}/src/hx/zip/Build.xml\" />"]]></e></m>
+			<m n=":include"><e>"hx/zip/Uncompress.hpp"</e></m>
+			<m n=":cpp.ManagedType"><e>{ namespace : ["hx", "zip"], flags : [StandardNaming] }</e></m>
+		</meta>
+	</class>
 	<enum path="haxe.StackItem" params="" file="/home/runner/work/haxe/haxe/std/haxe/CallStack.hx" module="haxe.CallStack">
 		<CFunction/>
 		<Module a="m"><c path="String"/></Module>
@@ -44335,7 +44457,7 @@
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="haxe.zip.Compress" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/zip/Compress.hx">
-		<run public="1" set="method" line="45" static="1">
+		<run public="1" set="method" line="56" static="1">
 			<f a="s:level">
 				<c path="haxe.io.Bytes"/>
 				<x path="Int"/>
@@ -44343,71 +44465,11 @@
 			</f>
 			<meta><m n=":keep"/></meta>
 		</run>
-		<_deflate_init set="method" static="1">
-			<f a="level">
-				<x path="Int"/>
-				<d/>
-			</f>
-			<meta>
-				<m n=":keep"/>
-				<m n=":native"><e>"_hx_deflate_init"</e></m>
-			</meta>
-		</_deflate_init>
-		<_deflate_bound set="method" static="1">
-			<f a="handle:length">
-				<d/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta>
-				<m n=":keep"/>
-				<m n=":native"><e>"_hx_deflate_bound"</e></m>
-			</meta>
-		</_deflate_bound>
-		<_deflate_buffer set="method" static="1">
-			<f a="handle:src:srcPos:dest:destPos">
-				<d/>
-				<t path="haxe.io.BytesData"/>
-				<x path="Int"/>
-				<t path="haxe.io.BytesData"/>
-				<x path="Int"/>
-				<a>
-					<write><x path="Int"/></write>
-					<read><x path="Int"/></read>
-					<done><x path="Bool"/></done>
-				</a>
-			</f>
-			<meta>
-				<m n=":keep"/>
-				<m n=":native"><e>"_hx_deflate_buffer"</e></m>
-			</meta>
-		</_deflate_buffer>
-		<_deflate_end set="method" static="1">
-			<f a="handle">
-				<d/>
-				<x path="Void"/>
-			</f>
-			<meta>
-				<m n=":keep"/>
-				<m n=":native"><e>"_hx_deflate_end"</e></m>
-			</meta>
-		</_deflate_end>
-		<_set_flush_mode set="method" static="1">
-			<f a="handle:flushMode">
-				<d/>
-				<c path="String"/>
-				<x path="Void"/>
-			</f>
-			<meta>
-				<m n=":keep"/>
-				<m n=":native"><e>"_hx_zip_set_flush_mode"</e></m>
-			</meta>
-		</_set_flush_mode>
-		<s>
-			<d/>
+		<impl final="1">
+			<c path="cpp.zip.Compress"/>
 			<meta><m n=":keep"/></meta>
-		</s>
-		<execute public="1" set="method" line="33">
+		</impl>
+		<execute public="1" set="method" line="34">
 			<f a="src:srcPos:dst:dstPos">
 				<c path="haxe.io.Bytes"/>
 				<x path="Int"/>
@@ -44421,28 +44483,25 @@
 			</f>
 			<meta><m n=":keep"/></meta>
 		</execute>
-		<setFlushMode public="1" set="method" line="37">
+		<setFlushMode public="1" set="method" line="42">
 			<f a="f">
 				<e path="haxe.zip.FlushMode"/>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</setFlushMode>
-		<close public="1" set="method" line="41">
+		<close public="1" set="method" line="52">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 		</close>
-		<new public="1" set="method" line="29">
+		<new public="1" set="method" line="30">
 			<f a="level">
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</new>
-		<meta>
-			<m n=":coreApi"/>
-			<m n=":buildXml"><e><![CDATA["<include name=\"${HXCPP}/src/hx/libs/zlib/Build.xml\" />"]]></e></m>
-		</meta>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<enum path="haxe.zip.ExtraField" params="" file="/home/runner/work/haxe/haxe/std/haxe/zip/Entry.hx" module="haxe.zip.Entry">
 		<FUnknown a="tag:bytes">
@@ -44474,10 +44533,7 @@
 		<FULL/>
 		<FINISH/>
 		<BLOCK/>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":flatEnum"/>
-		</meta>
+		<meta><m n=":flatEnum"/></meta>
 	</enum>
 	<enum path="haxe.zip.Huffman" params="" file="/home/runner/work/haxe/haxe/std/haxe/zip/Huffman.hx">
 		<Found a="i"><x path="Int"/></Found>
@@ -44704,7 +44760,7 @@
 </f></uncompress>
 	</class>
 	<class path="haxe.zip.Uncompress" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/zip/Uncompress.hx">
-		<run public="1" set="method" line="45" static="1">
+		<run public="1" set="method" line="56" static="1">
 			<f a="src:?bufsize">
 				<c path="haxe.io.Bytes"/>
 				<x path="Int"/>
@@ -44712,60 +44768,11 @@
 			</f>
 			<meta><m n=":keep"/></meta>
 		</run>
-		<_inflate_init set="method" static="1">
-			<f a="windowBits">
-				<d/>
-				<d/>
-			</f>
-			<meta>
-				<m n=":keep"/>
-				<m n=":native"><e>"_hx_inflate_init"</e></m>
-			</meta>
-		</_inflate_init>
-		<_inflate_buffer set="method" static="1">
-			<f a="handle:src:srcPos:dest:destPos">
-				<d/>
-				<t path="haxe.io.BytesData"/>
-				<x path="Int"/>
-				<t path="haxe.io.BytesData"/>
-				<x path="Int"/>
-				<a>
-					<write><x path="Int"/></write>
-					<read><x path="Int"/></read>
-					<done><x path="Bool"/></done>
-				</a>
-			</f>
-			<meta>
-				<m n=":keep"/>
-				<m n=":native"><e>"_hx_inflate_buffer"</e></m>
-			</meta>
-		</_inflate_buffer>
-		<_inflate_end set="method" static="1">
-			<f a="handle">
-				<d/>
-				<x path="Void"/>
-			</f>
-			<meta>
-				<m n=":keep"/>
-				<m n=":native"><e>"_hx_inflate_end"</e></m>
-			</meta>
-		</_inflate_end>
-		<_set_flush_mode set="method" static="1">
-			<f a="handle:flushMode">
-				<d/>
-				<c path="String"/>
-				<x path="Void"/>
-			</f>
-			<meta>
-				<m n=":keep"/>
-				<m n=":native"><e>"_hx_zip_set_flush_mode"</e></m>
-			</meta>
-		</_set_flush_mode>
-		<s>
-			<d/>
+		<impl final="1">
+			<c path="cpp.zip.Uncompress"/>
 			<meta><m n=":keep"/></meta>
-		</s>
-		<execute public="1" set="method" line="33">
+		</impl>
+		<execute public="1" set="method" line="34">
 			<f a="src:srcPos:dst:dstPos">
 				<c path="haxe.io.Bytes"/>
 				<x path="Int"/>
@@ -44779,31 +44786,25 @@
 			</f>
 			<meta><m n=":keep"/></meta>
 		</execute>
-		<setFlushMode public="1" set="method" line="37">
+		<setFlushMode public="1" set="method" line="42">
 			<f a="f">
 				<e path="haxe.zip.FlushMode"/>
 				<x path="Void"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 		</setFlushMode>
-		<close public="1" set="method" line="41">
+		<close public="1" set="method" line="52">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 		</close>
-		<new public="1" set="method" line="29">
+		<new public="1" set="method" line="30">
 			<f a="?windowBits">
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</new>
-		<meta>
-			<m n=":coreApi"/>
-			<m n=":buildXml"><e><![CDATA["<include name=\"${HXCPP}/src/hx/libs/zlib/Build.xml\"/>"]]></e></m>
-		</meta>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="haxe.zip.Writer" params="" file="/home/runner/work/haxe/haxe/std/haxe/zip/Writer.hx">
 		<CENTRAL_DIRECTORY_RECORD_FIELDS_SIZE get="inline" set="null" expr="46" line="35" static="1">
