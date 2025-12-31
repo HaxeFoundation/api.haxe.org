@@ -10734,6 +10734,746 @@
 	```</haxe_doc>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
+	<class path="haxe.coro.context.IElement" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/IElement.hx" interface="1">
+		<getKey public="1" set="method">
+			<f a=""><x path="haxe.coro.context.Key"><c path="haxe.coro.context.IElement.T"/></x></f>
+			<haxe_doc>Returns the `Key` of `this` context element.</haxe_doc>
+		</getKey>
+		<haxe_doc>Represents an element of `Context`. See `haxe.coro.schedulers.Scheduler` for a usage example.</haxe_doc>
+	</class>
+	<class path="sys.thread.Mutex" params="" file="/home/runner/work/haxe/haxe/std/neko/_std/sys/thread/Mutex.hx">
+		<mutex_create expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_create&quot;, 0)" line="45" static="1">
+			<f a=""><x path="Any"/></f>
+			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_create", 0)</e></m></meta>
+		</mutex_create>
+		<mutex_release expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_release&quot;, 1)" line="46" static="1">
+			<f a="">
+				<d/>
+				<x path="Any"/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_release", 1)</e></m></meta>
+		</mutex_release>
+		<mutex_acquire expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_acquire&quot;, 1)" line="47" static="1">
+			<f a="">
+				<d/>
+				<x path="Any"/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_acquire", 1)</e></m></meta>
+		</mutex_acquire>
+		<mutex_try expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_try&quot;, 1)" line="48" static="1">
+			<f a="">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_try", 1)</e></m></meta>
+		</mutex_try>
+		<m><d/></m>
+		<acquire public="1" set="method" line="33">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>The current thread acquire the mutex or wait if not available.
+		The same thread can acquire several times the same mutex but
+		must release it as many times it has been acquired.</haxe_doc>
+		</acquire>
+		<tryAcquire public="1" set="method" line="37">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>Try to acquire the mutex, returns true if acquire or false
+		if it's already locked by another thread.</haxe_doc>
+		</tryAcquire>
+		<release public="1" set="method" line="41">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Release a mutex that has been acquired by the current thread.
+		The behavior is undefined if the current thread does not own
+		the mutex.</haxe_doc>
+		</release>
+		<new public="1" set="method" line="29">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a mutex.</haxe_doc>
+		</new>
+		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
+	to access some resource. The main difference with a lock is
+	that a mutex must always be released by the owner thread.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<class path="haxe.coro.context.KeyImpl" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx" module="haxe.coro.context.Key">
+		<counter expr="0" line="4" static="1">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</counter>
+		<counterMutex expr="new Mutex()" line="5" static="1">
+			<c path="sys.thread.Mutex"/>
+			<meta><m n=":value"><e>new Mutex()</e></m></meta>
+		</counterMutex>
+		<createNew public="1" params="T" set="method" line="15" static="1"><f a="name">
+	<c path="String"/>
+	<c path="haxe.coro.context.KeyImpl"><c path="createNew.T"/></c>
+</f></createNew>
+		<name final="1" public="1"><c path="String"/></name>
+		<id final="1" public="1"><x path="Int"/></id>
+		<new set="method" line="10"><f a="id:name">
+	<x path="Int"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
+	</class>
+	<class path="haxe.coro.StackTraceManager" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/BaseContinuation.hx" module="haxe.coro.BaseContinuation">
+		<implements path="haxe.coro.context.IElement"><c path="haxe.coro.StackTraceManager"/></implements>
+		<key final="1" public="1" set="null" expr="new Key&lt;StackTraceManager&gt;(&quot;StackTraceManager&quot;)" line="12" static="1">
+			<x path="haxe.coro.context.Key"><c path="haxe.coro.StackTraceManager"/></x>
+			<meta><m n=":value"><e><![CDATA[new Key<StackTraceManager>("StackTraceManager")]]></e></m></meta>
+		</key>
+		<insertIndex public="1"><x path="Null"><x path="Int"/></x></insertIndex>
+		<getKey public="1" set="method" line="20"><f a=""><x path="haxe.coro.context.Key"><c path="haxe.coro.StackTraceManager"/></x></f></getKey>
+		<new public="1" set="method" line="16"><f a=""><x path="Void"/></f></new>
+	</class>
+	<class path="haxe.coro.SuspensionResult" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/SuspensionResult.hx" abstract="1">
+		<state public="1">
+			<x path="haxe.coro.SuspensionState"/>
+			<haxe_doc>The current state of the suspension.</haxe_doc>
+		</state>
+		<result public="1">
+			<c path="haxe.coro.SuspensionResult.T"/>
+			<haxe_doc>The result value of the coroutine, if any.</haxe_doc>
+		</result>
+		<error public="1">
+			<c path="haxe.Exception"/>
+			<haxe_doc>The error value of the coroutine, is any.</haxe_doc>
+		</error>
+		<toString public="1" set="method" line="24"><f a=""><c path="String"/></f></toString>
+		<haxe_doc>`SuspensionResult` is the return type of coroutine calls.</haxe_doc>
+	</class>
+	<class path="haxe.coro.schedulers.IScheduleObject" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/schedulers/IScheduleObject.hx" interface="1">
+		<onSchedule public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>This function is invoked when a scheduled object is run.</haxe_doc>
+		</onSchedule>
+		<haxe_doc>Classes that implement this interface can be passed to instances of
+	`haxe.coro.schedulers.Scheduler`.</haxe_doc>
+	</class>
+	<class path="haxe.coro.IStackFrame" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/IStackFrame.hx" interface="1">
+		<getStackItem public="1" set="method">
+			<f a=""><x path="Null"><e path="haxe.StackItem"/></x></f>
+			<haxe_doc>Returns the current `StackItem`, which is generally the location this frame was
+		called from. Can be `null` if no such information exists.</haxe_doc>
+		</getStackItem>
+		<callerFrame public="1" set="method">
+			<f a=""><x path="Null"><c path="haxe.coro.IStackFrame"/></x></f>
+			<haxe_doc>Returns the frame of the caller, or `null` if there isn't any.</haxe_doc>
+		</callerFrame>
+		<haxe_doc>This interface is internally used to manage coroutine call stacks. Only meaningful in `-debug` mode.</haxe_doc>
+	</class>
+	<class path="haxe.coro.IContinuation" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/IContinuation.hx" interface="1">
+		<get_context public="1" set="method">
+			<f a=""><x path="haxe.coro.context.Context"/></f>
+			<meta>
+				<m n=":compilerGenerated"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</get_context>
+		<context public="1" get="accessor" set="null">
+			<x path="haxe.coro.context.Context"/>
+			<haxe_doc>The immutable context of this object.</haxe_doc>
+		</context>
+		<resume public="1" set="method">
+			<f a="result:error">
+				<c path="haxe.coro.IContinuation.T"/>
+				<c path="haxe.Exception"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Resumes execution with result value `result` or exception `error`.
+
+		Generally, if `error != null`, the result value is ignoried and execution
+		continues as if `error` had been thrown as an exception.</haxe_doc>
+		</resume>
+		<haxe_doc>This interface represents an object which can be resumed via its `resume` function.</haxe_doc>
+	</class>
+	<class path="haxe.coro.BaseContinuation" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/BaseContinuation.hx" abstract="1">
+		<extends path="haxe.coro.SuspensionResult"><c path="haxe.coro.BaseContinuation.T"/></extends>
+		<implements path="haxe.coro.schedulers.IScheduleObject"/>
+		<implements path="haxe.coro.IStackFrame"/>
+		<implements path="haxe.coro.IContinuation"><c path="haxe.coro.BaseContinuation.T"/></implements>
+		<completion final="1" public="1">
+			<c path="haxe.coro.IContinuation"><x path="Any"/></c>
+			<haxe_doc>The continuation to resume once `this` continuation completes.</haxe_doc>
+		</completion>
+		<context public="1" get="accessor" set="null">
+			<x path="haxe.coro.context.Context"/>
+			<haxe_doc>The immutable context of `this` continuation.</haxe_doc>
+		</context>
+		<gotoLabel public="1">
+			<x path="Int"/>
+			<haxe_doc>The current label of the internal state machine.</haxe_doc>
+		</gotoLabel>
+		<recursing public="1">
+			<x path="Bool"/>
+			<haxe_doc>A flag used by the compiler to detect when `this` continuation recurses on itself.</haxe_doc>
+		</recursing>
+		<resumeResult><x path="Null"><c path="haxe.coro.SuspensionResult"><x path="Any"/></c></x></resumeResult>
+		<get_context get="inline" set="null" line="73"><f a=""><x path="haxe.coro.context.Context"/></f></get_context>
+		<resume final="1" public="1" set="method" line="80">
+			<f a="result:error">
+				<x path="Any"/>
+				<c path="haxe.Exception"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>@see `IContinuation.resume`</haxe_doc>
+		</resume>
+		<callerFrame public="1" set="method" line="91">
+			<f a=""><x path="Null"><c path="haxe.coro.IStackFrame"/></x></f>
+			<haxe_doc>@see `IStackFrame.callerFrame`</haxe_doc>
+		</callerFrame>
+		<getStackItem public="1" set="method" line="102">
+			<f a=""><x path="Null"><e path="haxe.StackItem"/></x></f>
+			<haxe_doc>@see `IStackFrame.callerFrame`</haxe_doc>
+		</getStackItem>
+		<setClassFuncStackItem set="method" line="110"><f a="cls:func:file:line:pos:pmin:pmax">
+	<c path="String"/>
+	<c path="String"/>
+	<c path="String"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></setClassFuncStackItem>
+		<setLocalFuncStackItem set="method" line="119"><f a="id:file:line:pos:pmin:pmax">
+	<x path="Int"/>
+	<c path="String"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></setLocalFuncStackItem>
+		<startException set="method" line="128"><f a="exception">
+	<c path="haxe.Exception"/>
+	<x path="Void"/>
+</f></startException>
+		<buildCallStack set="method" line="179"><f a=""><x path="Void"/></f></buildCallStack>
+		<invokeResume abstract="1" set="method"><f a=""><c path="haxe.coro.SuspensionResult"><c path="haxe.coro.BaseContinuation.T"/></c></f></invokeResume>
+		<toString public="1" set="method" line="202" override="1"><f a=""><c path="String"/></f></toString>
+		<onSchedule public="1" set="method" line="206"><f a=""><x path="Void"/></f></onSchedule>
+		<new set="method" line="60">
+			<f a="completion:initialLabel">
+				<c path="haxe.coro.IContinuation"><x path="Any"/></c>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new continuation which starts in `initialLabel` state and resumes `completion` on completion.</haxe_doc>
+		</new>
+		<haxe_doc>This class serves as the base class for all continuation classes generated by the compiler. It provides the
+	basic functionality for managing the internal coroutine state, most of which should be uninteresting to the
+	casual coroutine user.</haxe_doc>
+	</class>
+	<abstract path="haxe.coro.Coroutine" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/Coroutine.hx">
+		<this><x path="haxe.coro.Coroutine"><c path="haxe.coro.Coroutine.T"/></x></this>
+		<haxe_doc><![CDATA[Coroutine is the type of functions that are coroutines, which the compiler
+	treats in a special way. The type parameter `T` represents the signature of
+	the function itself.
+
+	The compiler automatically uses this type for any `@:coroutine function`:
+
+	```haxe
+	class C {
+		@:coroutine static function staticCoro() {}
+		@:coroutine function memberCoro(s:String) {}
+
+		public function new() {
+			$type(staticCoro); // haxe.coro.Coroutine<() -> Void>
+			$type(memberCoro); // haxe.coro.Coroutine<(s : String) -> Void>
+			$type(@:coroutine function localCoro() return "foo"); // haxe.coro.Coroutine<() -> String>
+		}
+	}
+	```
+
+	The `@:coroutine` metadata can be omitted when the expected type is `Coroutine`:
+
+	```haxe
+	function expectCoro(c:haxe.coro.Coroutine<Int->String>) {}
+	expectCoro(function(i:Int) return Std.string(i));
+	```]]></haxe_doc>
+		<meta>
+			<m n=":callable"/>
+			<m n=":coreType"/>
+		</meta>
+	</abstract>
+	<class path="haxe.coro.ICancellableContinuation" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/ICancellableContinuation.hx" interface="1">
+		<extends path="haxe.coro.IContinuation"><c path="haxe.coro.ICancellableContinuation.T"/></extends>
+		<set_onCancellationRequested public="1" set="method">
+			<f a="value">
+				<f a="">
+					<c path="haxe.exceptions.CancellationException"/>
+					<x path="Void"/>
+				</f>
+				<f a="">
+					<c path="haxe.exceptions.CancellationException"/>
+					<x path="Void"/>
+				</f>
+			</f>
+			<meta>
+				<m n=":compilerGenerated"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</set_onCancellationRequested>
+		<onCancellationRequested public="1" get="null" set="accessor">
+			<f a="">
+				<c path="haxe.exceptions.CancellationException"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* Register a function to be invoked upon cancellation of the continuation.
+	 * If the continuation is already cancelled the function will be invoked immediately.
+	 * Attempting to set this property multiple times will result in an exception being raised.</haxe_doc>
+		</onCancellationRequested>
+		<haxe_doc>* Cancellable continuations are continuations which supports asynchronous cancellation.
+ * Like standard continuations they can be explicitly resumed by the user, but unlike standard
+ * continuations they will be automatically resumed with a `haxe.exceptions.CancellationException` when cancelled.
+ *
+ * This interface provides a callback property which if set will be invoked when cancellation is requested
+ * allowing you to cleanup resources. The callback will only be invoked on cancellation, not resuming with a result or exception.</haxe_doc>
+	</class>
+	<class path="haxe.coro.ImmediateSuspensionResult" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/ImmediateSuspensionResult.hx">
+		<extends path="haxe.coro.SuspensionResult"><c path="haxe.coro.ImmediateSuspensionResult.T"/></extends>
+		<withResult public="1" params="T" set="method" line="18" static="1">
+			<f a="result">
+				<c path="withResult.T"/>
+				<c path="haxe.coro.ImmediateSuspensionResult"><c path="withResult.T"/></c>
+			</f>
+			<haxe_doc>Creates a new `ImmediateSuspensionResult` instance with result `result`.</haxe_doc>
+		</withResult>
+		<withError public="1" params="T" set="method" line="25" static="1">
+			<f a="error">
+				<c path="withError.T"/>
+				<c path="haxe.coro.ImmediateSuspensionResult"><c path="withError.T"/></c>
+			</f>
+			<haxe_doc>Creates a new `ImmediateSuspensionResult` instance with error `error`.</haxe_doc>
+		</withError>
+		<toString public="1" set="method" line="29" override="1"><f a=""><c path="String"/></f></toString>
+		<new set="method" line="9"><f a="result:error">
+	<c path="haxe.coro.ImmediateSuspensionResult.T"/>
+	<c path="haxe.Exception"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>Represents a suspension result which immediately has either a result or an error value.</haxe_doc>
+	</class>
+	<typedef path="haxe.coro.Mutex" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/Mutex.hx"><c path="sys.thread.Mutex"/></typedef>
+	<abstract path="haxe.coro.SuspensionState" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/SuspensionState.hx">
+		<this><x path="Int"/></this>
+		<haxe_doc>The state of a coroutine.</haxe_doc>
+		<meta>
+			<m n=":enum"/>
+			<m n=":using"><e>SuspensionState.SuspensionStateTools</e></m>
+		</meta>
+		<impl><class path="haxe.coro._SuspensionState.SuspensionState_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/SuspensionState.hx" private="1" module="haxe.coro.SuspensionState" extern="1" final="1">
+	<Pending public="1" get="inline" set="null" expr="cast 0" line="1" static="1">
+		<x path="haxe.coro.SuspensionState"/>
+		<meta>
+			<m n=":value"><e>cast 0</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+		<haxe_doc>The coroutine is still running.</haxe_doc>
+	</Pending>
+	<Returned public="1" get="inline" set="null" expr="cast 1" line="1" static="1">
+		<x path="haxe.coro.SuspensionState"/>
+		<meta>
+			<m n=":value"><e>cast 1</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+		<haxe_doc>The coroutine has returned a value.</haxe_doc>
+	</Returned>
+	<Thrown public="1" get="inline" set="null" expr="cast 2" line="1" static="1">
+		<x path="haxe.coro.SuspensionState"/>
+		<meta>
+			<m n=":value"><e>cast 2</e></m>
+			<m n=":impl"/>
+			<m n=":enum"/>
+		</meta>
+		<haxe_doc>The coroutine has thrown an exception.</haxe_doc>
+	</Thrown>
+	<meta>
+		<m n=":using"><e>SuspensionState.SuspensionStateTools</e></m>
+		<m n=":enum"/>
+	</meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.coro._SuspensionState.SuspensionState_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/SuspensionState.hx" private="1" module="haxe.coro.SuspensionState" extern="1" final="1">
+		<Pending public="1" get="inline" set="null" expr="cast 0" line="1" static="1">
+			<x path="haxe.coro.SuspensionState"/>
+			<meta>
+				<m n=":value"><e>cast 0</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+			<haxe_doc>The coroutine is still running.</haxe_doc>
+		</Pending>
+		<Returned public="1" get="inline" set="null" expr="cast 1" line="1" static="1">
+			<x path="haxe.coro.SuspensionState"/>
+			<meta>
+				<m n=":value"><e>cast 1</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+			<haxe_doc>The coroutine has returned a value.</haxe_doc>
+		</Returned>
+		<Thrown public="1" get="inline" set="null" expr="cast 2" line="1" static="1">
+			<x path="haxe.coro.SuspensionState"/>
+			<meta>
+				<m n=":value"><e>cast 2</e></m>
+				<m n=":impl"/>
+				<m n=":enum"/>
+			</meta>
+			<haxe_doc>The coroutine has thrown an exception.</haxe_doc>
+		</Thrown>
+		<meta>
+			<m n=":using"><e>SuspensionState.SuspensionStateTools</e></m>
+			<m n=":enum"/>
+		</meta>
+	</class>
+	<class path="haxe.coro.SuspensionStateTools" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/SuspensionState.hx" module="haxe.coro.SuspensionState"><toString public="1" set="method" line="25" static="1"><f a="c">
+	<x path="haxe.coro.SuspensionState"/>
+	<c path="String"/>
+</f></toString></class>
+	<class path="haxe.coro.cancellation.ICancellationHandle" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/cancellation/ICancellationHandle.hx" interface="1">
+		<close public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>* Stops the callback from being executed when the token is cancelled.
+	 * If the token is already cancelled this function does nothing.
+	 * This function is safe to call multiple times and is thread safe.</haxe_doc>
+		</close>
+		<haxe_doc>* Handle to a callback which has been registered with a cancellation token.</haxe_doc>
+	</class>
+	<class path="haxe.coro.cancellation._CancellationToken.NoOpCancellationHandle" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/cancellation/CancellationToken.hx" private="1" module="haxe.coro.cancellation.CancellationToken">
+		<implements path="haxe.coro.cancellation.ICancellationHandle"/>
+		<close public="1" set="method" line="8"><f a=""><x path="Void"/></f></close>
+		<new public="1" set="method" line="7"><f a=""><x path="Void"/></f></new>
+	</class>
+	<class path="haxe.coro.cancellation.ICancellationToken" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/cancellation/ICancellationToken.hx" interface="1">
+		<get_cancellationException public="1" set="method">
+			<f a=""><x path="Null"><c path="haxe.exceptions.CancellationException"/></x></f>
+			<meta>
+				<m n=":compilerGenerated"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</get_cancellationException>
+		<cancellationException public="1" get="accessor" set="null"><x path="Null"><c path="haxe.exceptions.CancellationException"/></x></cancellationException>
+		<onCancellationRequested public="1" set="method">
+			<f a="handle">
+				<c path="haxe.coro.cancellation.ICancellationCallback"/>
+				<c path="haxe.coro.cancellation.ICancellationHandle"/>
+			</f>
+			<haxe_doc>* Register a callback which will be executed when this token is cancelled.
+	 *
+	 * If this token has already been cancelled the function will be executed immediately and synchronously, any exception raised will not be caught.
+	 * The thread the callback is executed on is implementation defined if cancellation has not been yet been requested.
+	 * @param func Callback to be executed when the token is cancelled.
+	 * @return Cancellation handle which can be used to cancel the callback from executing.</haxe_doc>
+		</onCancellationRequested>
+		<haxe_doc>* A cancellation token enables cooperative cancellation between units of work (threads, coroutines, etc).
+ * The token cannot be used to initiate cancellation, only to poll for a cancellation request or register a callback for when cancellation is requested.
+ * Cancellation is cooperative which means it is up to the caller to respond to a cancellation request in a manner it deems best.
+ * Access to this interface is thread safe.</haxe_doc>
+	</class>
+	<class path="haxe.coro.cancellation._CancellationToken.NoOpCancellationToken" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/cancellation/CancellationToken.hx" private="1" module="haxe.coro.cancellation.CancellationToken">
+		<implements path="haxe.coro.cancellation.ICancellationToken"/>
+		<handle final="1" set="null" expr="new NoOpCancellationHandle()" line="12" static="1">
+			<c path="haxe.coro.cancellation._CancellationToken.NoOpCancellationHandle"/>
+			<meta><m n=":value"><e>new NoOpCancellationHandle()</e></m></meta>
+		</handle>
+		<cancellationException public="1" get="accessor" set="null"><x path="Null"><c path="haxe.exceptions.CancellationException"/></x></cancellationException>
+		<onCancellationRequested public="1" set="method" line="18"><f a="_">
+	<c path="haxe.coro.cancellation.ICancellationCallback"/>
+	<c path="haxe.coro.cancellation.ICancellationHandle"/>
+</f></onCancellationRequested>
+		<get_cancellationException public="1" set="method" line="21"><f a=""><x path="Null"><c path="haxe.exceptions.CancellationException"/></x></f></get_cancellationException>
+		<new public="1" set="method" line="16"><f a=""><x path="Void"/></f></new>
+	</class>
+	<class path="haxe.coro.cancellation.CancellationToken" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/cancellation/CancellationToken.hx">
+		<key final="1" public="1" set="null" expr="new Key&lt;ICancellationToken&gt;(&quot;CancellationToken&quot;)" line="27" static="1">
+			<x path="haxe.coro.context.Key"><c path="haxe.coro.cancellation.ICancellationToken"/></x>
+			<meta><m n=":value"><e><![CDATA[new Key<ICancellationToken>("CancellationToken")]]></e></m></meta>
+		</key>
+		<none final="1" public="1" set="null" expr="new NoOpCancellationToken()" line="32" static="1">
+			<c path="haxe.coro.cancellation.ICancellationToken"/>
+			<meta><m n=":value"><e>new NoOpCancellationToken()</e></m></meta>
+			<haxe_doc>* Returns a cancellation token which will never be cancelled.</haxe_doc>
+		</none>
+	</class>
+	<class path="haxe.coro.cancellation.ICancellationCallback" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/cancellation/ICancellationCallback.hx" interface="1"><onCancellation public="1" set="method"><f a="cause">
+	<c path="haxe.exceptions.CancellationException"/>
+	<x path="Void"/>
+</f></onCancellation></class>
+	<typedef path="haxe.coro.context.ElementTree" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Context.hx" module="haxe.coro.context.Context"><c path="Array"><x path="Any"/></c></typedef>
+	<abstract path="haxe.coro.context.Context" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Context.hx">
+		<this><t path="haxe.coro.context.ElementTree"/></this>
+		<haxe_doc>An immutable context, which can be used like a map.</haxe_doc>
+		<impl><class path="haxe.coro.context._Context.Context_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Context.hx" private="1" module="haxe.coro.context.Context" final="1">
+	<_hx_new public="1" get="inline" set="null" line="12" static="1">
+		<f a="tree">
+			<t path="haxe.coro.context.ElementTree"/>
+			<x path="haxe.coro.context.Context"/>
+		</f>
+		<meta><m n=":noCompletion"/></meta>
+		<haxe_doc>Creates a new immutable context containing the values in `tree`.</haxe_doc>
+	</_hx_new>
+	<clone public="1" get="inline" set="null" line="19" static="1">
+		<f a="this">
+			<t path="haxe.coro.context.ElementTree"/>
+			<x path="haxe.coro.context.AdjustableContext"/>
+		</f>
+		<haxe_doc>Clones `this` context as an `AdjustableContext`.</haxe_doc>
+	</clone>
+	<get public="1" params="T" get="inline" set="null" line="26" static="1">
+		<f a="this:key">
+			<t path="haxe.coro.context.ElementTree"/>
+			<x path="haxe.coro.context.Key"><c path="get.T"/></x>
+			<x path="Null"><c path="get.T"/></x>
+		</f>
+		<haxe_doc>Returns the value associated with `key`, or `null` if no such value exists.</haxe_doc>
+	</get>
+	<toString public="1" get="inline" set="null" line="33" static="1">
+		<f a="this">
+			<t path="haxe.coro.context.ElementTree"/>
+			<c path="String"/>
+		</f>
+		<haxe_doc>Returns a string representation of `this` context.</haxe_doc>
+	</toString>
+	<create public="1" get="inline" set="null" line="40" static="1">
+		<f a="elements">
+			<x path="haxe.Rest"><c path="haxe.coro.context.IElement"><x path="Any"/></c></x>
+			<x path="haxe.coro.context.AdjustableContext"/>
+		</f>
+		<haxe_doc>Creates a new `AdjustableContext` containing the `elements` associations.</haxe_doc>
+	</create>
+</class></impl>
+	</abstract>
+	<class path="haxe.coro.context._Context.Context_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Context.hx" private="1" module="haxe.coro.context.Context" final="1">
+		<_hx_new public="1" get="inline" set="null" line="12" static="1">
+			<f a="tree">
+				<t path="haxe.coro.context.ElementTree"/>
+				<x path="haxe.coro.context.Context"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+			<haxe_doc>Creates a new immutable context containing the values in `tree`.</haxe_doc>
+		</_hx_new>
+		<clone public="1" get="inline" set="null" line="19" static="1">
+			<f a="this">
+				<t path="haxe.coro.context.ElementTree"/>
+				<x path="haxe.coro.context.AdjustableContext"/>
+			</f>
+			<haxe_doc>Clones `this` context as an `AdjustableContext`.</haxe_doc>
+		</clone>
+		<get public="1" params="T" get="inline" set="null" line="26" static="1">
+			<f a="this:key">
+				<t path="haxe.coro.context.ElementTree"/>
+				<x path="haxe.coro.context.Key"><c path="get.T"/></x>
+				<x path="Null"><c path="get.T"/></x>
+			</f>
+			<haxe_doc>Returns the value associated with `key`, or `null` if no such value exists.</haxe_doc>
+		</get>
+		<toString public="1" get="inline" set="null" line="33" static="1">
+			<f a="this">
+				<t path="haxe.coro.context.ElementTree"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a string representation of `this` context.</haxe_doc>
+		</toString>
+		<create public="1" get="inline" set="null" line="40" static="1">
+			<f a="elements">
+				<x path="haxe.Rest"><c path="haxe.coro.context.IElement"><x path="Any"/></c></x>
+				<x path="haxe.coro.context.AdjustableContext"/>
+			</f>
+			<haxe_doc>Creates a new `AdjustableContext` containing the `elements` associations.</haxe_doc>
+		</create>
+	</class>
+	<abstract path="haxe.coro.context.AdjustableContext" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Context.hx" module="haxe.coro.context.Context">
+		<this><t path="haxe.coro.context.ElementTree"/></this>
+		<to><icast field="toContext"><x path="haxe.coro.context.Context"/></icast></to>
+		<haxe_doc>Similar to `Context`, but mutable. This type should rarely be used explicitly and
+	mostly appears as an intermediate type via the `Context` API.</haxe_doc>
+		<impl><class path="haxe.coro.context._Context.AdjustableContext_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Context.hx" private="1" module="haxe.coro.context.Context" final="1">
+	<_hx_new public="1" get="inline" set="null" line="53" static="1">
+		<f a="tree">
+			<t path="haxe.coro.context.ElementTree"/>
+			<x path="haxe.coro.context.AdjustableContext"/>
+		</f>
+		<meta><m n=":noCompletion"/></meta>
+		<haxe_doc>Creates a new context containing the values in `tree`.</haxe_doc>
+	</_hx_new>
+	<add public="1" params="T" get="inline" set="null" line="60" static="1">
+		<f a="this:key:element">
+			<t path="haxe.coro.context.ElementTree"/>
+			<x path="haxe.coro.context.Key"><c path="add.T"/></x>
+			<c path="add.T"/>
+			<x path="haxe.coro.context.AdjustableContext"/>
+		</f>
+		<haxe_doc>Adds or replaces `element` associated with `key`.</haxe_doc>
+	</add>
+	<get public="1" params="T" get="inline" set="null" line="68" static="1">
+		<f a="this:key">
+			<t path="haxe.coro.context.ElementTree"/>
+			<x path="haxe.coro.context.Key"><c path="get.T"/></x>
+			<x path="Null"><c path="get.T"/></x>
+		</f>
+		<haxe_doc>@see `Context.get`</haxe_doc>
+	</get>
+	<with public="1" set="method" line="75" static="1">
+		<f a="this:elements">
+			<t path="haxe.coro.context.ElementTree"/>
+			<x path="haxe.Rest"><c path="haxe.coro.context.IElement"><x path="Any"/></c></x>
+			<x path="haxe.coro.context.AdjustableContext"/>
+		</f>
+		<haxe_doc>Adds or replaces the `elements` associations in `this` context.</haxe_doc>
+	</with>
+	<toContext get="inline" set="null" line="82" static="1">
+		<f a="this">
+			<t path="haxe.coro.context.ElementTree"/>
+			<x path="haxe.coro.context.Context"/>
+		</f>
+		<meta><m n=":to"/></meta>
+	</toContext>
+</class></impl>
+	</abstract>
+	<class path="haxe.coro.context._Context.AdjustableContext_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Context.hx" private="1" module="haxe.coro.context.Context" final="1">
+		<_hx_new public="1" get="inline" set="null" line="53" static="1">
+			<f a="tree">
+				<t path="haxe.coro.context.ElementTree"/>
+				<x path="haxe.coro.context.AdjustableContext"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+			<haxe_doc>Creates a new context containing the values in `tree`.</haxe_doc>
+		</_hx_new>
+		<add public="1" params="T" get="inline" set="null" line="60" static="1">
+			<f a="this:key:element">
+				<t path="haxe.coro.context.ElementTree"/>
+				<x path="haxe.coro.context.Key"><c path="add.T"/></x>
+				<c path="add.T"/>
+				<x path="haxe.coro.context.AdjustableContext"/>
+			</f>
+			<haxe_doc>Adds or replaces `element` associated with `key`.</haxe_doc>
+		</add>
+		<get public="1" params="T" get="inline" set="null" line="68" static="1">
+			<f a="this:key">
+				<t path="haxe.coro.context.ElementTree"/>
+				<x path="haxe.coro.context.Key"><c path="get.T"/></x>
+				<x path="Null"><c path="get.T"/></x>
+			</f>
+			<haxe_doc>@see `Context.get`</haxe_doc>
+		</get>
+		<with public="1" set="method" line="75" static="1">
+			<f a="this:elements">
+				<t path="haxe.coro.context.ElementTree"/>
+				<x path="haxe.Rest"><c path="haxe.coro.context.IElement"><x path="Any"/></c></x>
+				<x path="haxe.coro.context.AdjustableContext"/>
+			</f>
+			<haxe_doc>Adds or replaces the `elements` associations in `this` context.</haxe_doc>
+		</with>
+		<toContext get="inline" set="null" line="82" static="1">
+			<f a="this">
+				<t path="haxe.coro.context.ElementTree"/>
+				<x path="haxe.coro.context.Context"/>
+			</f>
+			<meta><m n=":to"/></meta>
+		</toContext>
+	</class>
+	<typedef path="haxe.coro.context._Key.WithKey" params="K" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx" private="1" module="haxe.coro.context.Key"><a><key final="1" set="null"><x path="haxe.coro.context.Key"><c path="haxe.coro.context._Key.WithKey.K"/></x></key></a></typedef>
+	<abstract path="haxe.coro.context.Key" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx">
+		<from><icast field="fromClass"><c path="fromClass.C"/></icast></from>
+		<this><c path="haxe.coro.context.KeyImpl"><c path="haxe.coro.context.Key.T"/></c></this>
+		<haxe_doc>Represents the key of a `Context` element. See `haxe.coro.schedulers.Scheduler` for a usage example.</haxe_doc>
+		<meta>
+			<m n=":forward"/>
+			<m n=":forward.statics"/>
+		</meta>
+		<impl><class path="haxe.coro.context._Key.Key_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx" private="1" module="haxe.coro.context.Key" extern="1" final="1">
+	<_hx_new public="1" get="inline" set="null" line="36" static="1">
+		<f a="name">
+			<c path="String"/>
+			<x path="haxe.coro.context.Key"><c path="haxe.coro.context.Key.T"/></x>
+		</f>
+		<meta><m n=":noCompletion"/></meta>
+		<haxe_doc>Creates a new key with a given `name`. The name is purely descriptive.</haxe_doc>
+	</_hx_new>
+	<fromClass public="1" params="K:C" get="inline" set="null" line="41" static="1">
+		<f a="c">
+			<c path="fromClass.C"/>
+			<x path="haxe.coro.context.Key"><c path="fromClass.K"/></x>
+		</f>
+		<meta>
+			<m n=":noCompletion"/>
+			<m n=":from"/>
+		</meta>
+	</fromClass>
+</class></impl>
+	</abstract>
+	<class path="haxe.coro.context._Key.Key_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx" private="1" module="haxe.coro.context.Key" extern="1" final="1">
+		<_hx_new public="1" get="inline" set="null" line="36" static="1">
+			<f a="name">
+				<c path="String"/>
+				<x path="haxe.coro.context.Key"><c path="haxe.coro.context.Key.T"/></x>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+			<haxe_doc>Creates a new key with a given `name`. The name is purely descriptive.</haxe_doc>
+		</_hx_new>
+		<fromClass public="1" params="K:C" get="inline" set="null" line="41" static="1">
+			<f a="c">
+				<c path="fromClass.C"/>
+				<x path="haxe.coro.context.Key"><c path="fromClass.K"/></x>
+			</f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":from"/>
+			</meta>
+		</fromClass>
+	</class>
+	<class path="haxe.coro.schedulers.ISchedulerHandle" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/schedulers/ISchedulerHandle.hx" interface="1">
+		<close public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>* Close the handle thereby cancelleting future execution of the scheduled function.
+	 * If the function is currently executing or has already executed nothing happens.
+	 * This function is thread safe and allowed to be called multiple times.</haxe_doc>
+		</close>
+		<haxe_doc>* Handle representing a scheduled function.</haxe_doc>
+	</class>
+	<class path="haxe.coro.schedulers.Scheduler" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/schedulers/Scheduler.hx" abstract="1">
+		<implements path="haxe.coro.context.IElement"><c path="haxe.coro.schedulers.Scheduler"/></implements>
+		<key final="1" public="1" set="null" expr="new Key&lt;Scheduler&gt;(&quot;Scheduler&quot;)" line="15" static="1">
+			<x path="haxe.coro.context.Key"><c path="haxe.coro.schedulers.Scheduler"/></x>
+			<meta><m n=":value"><e><![CDATA[new Key<Scheduler>("Scheduler")]]></e></m></meta>
+			<haxe_doc>The key which is internally used to look up schedulers.</haxe_doc>
+		</key>
+		<schedule abstract="1" public="1" set="method">
+			<f a="ms:func">
+				<x path="haxe.Int64"/>
+				<f a=""><x path="Void"/></f>
+				<c path="haxe.coro.schedulers.ISchedulerHandle"/>
+			</f>
+			<haxe_doc>Schedules `func` to be run `ms` milliseconds from now. Returns an `ISchedulerHandle` which
+		allows cancellation.</haxe_doc>
+		</schedule>
+		<scheduleObject abstract="1" public="1" set="method">
+			<f a="obj">
+				<c path="haxe.coro.schedulers.IScheduleObject"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Schedules `obj` to run. Schedulers ensure that the order of execution follows
+		first-in-first-out.</haxe_doc>
+		</scheduleObject>
+		<now abstract="1" public="1" set="method">
+			<f a=""><x path="haxe.Int64"/></f>
+			<haxe_doc>Returns the current time in millseconds.</haxe_doc>
+		</now>
+		<getKey public="1" set="method" line="39">
+			<f a=""><x path="haxe.coro.context.Key"><c path="haxe.coro.schedulers.Scheduler"/></x></f>
+			<haxe_doc>@see `IElement.getKey`</haxe_doc>
+		</getKey>
+		<new set="method" line="17"><f a=""><x path="Void"/></f></new>
+		<haxe_doc>This is the abstract base class of all schedulers, which are used to manage the asynchronous
+	behavior of coroutines. Refer to the `hxcoro.schedulers` package in the `hxcoro` haxelib for
+	concrete implementations.</haxe_doc>
+	</class>
 	<class path="haxe.crypto.Adler32" params="" file="/home/runner/work/haxe/haxe/std/haxe/crypto/Adler32.hx">
 		<read public="1" set="method" line="60" static="1"><f a="i">
 	<c path="haxe.io.Input"/>
@@ -19406,6 +20146,19 @@
 	<x path="Void"/>
 </f></new>
 		<haxe_doc>An exception that is thrown when an invalid value provided for an argument of a function.</haxe_doc>
+	</class>
+	<class path="haxe.exceptions.CoroutineException" params="" file="/home/runner/work/haxe/haxe/std/haxe/exceptions/CoroutineException.hx">
+		<extends path="haxe.Exception"/>
+		<new public="1" set="method" line="5"><f a="message:?previous:?native">
+	<c path="String"/>
+	<c path="haxe.Exception"/>
+	<x path="Any"/>
+	<x path="Void"/>
+</f></new>
+	</class>
+	<class path="haxe.exceptions.CancellationException" params="" file="/home/runner/work/haxe/haxe/std/haxe/exceptions/CancellationException.hx">
+		<extends path="haxe.exceptions.CoroutineException"/>
+		<new public="1" set="method" line="4"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="haxe.exceptions.NotImplementedException" params="" file="/home/runner/work/haxe/haxe/std/haxe/exceptions/NotImplementedException.hx">
 		<extends path="haxe.exceptions.PosException"/>
@@ -38860,62 +39613,6 @@
 	}
 	trace("All threads finished");
 	```</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-		</meta>
-	</class>
-	<class path="sys.thread.Mutex" params="" file="/home/runner/work/haxe/haxe/std/neko/_std/sys/thread/Mutex.hx">
-		<mutex_create expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_create&quot;, 0)" line="45" static="1">
-			<f a=""><x path="Any"/></f>
-			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_create", 0)</e></m></meta>
-		</mutex_create>
-		<mutex_release expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_release&quot;, 1)" line="46" static="1">
-			<f a="">
-				<d/>
-				<x path="Any"/>
-			</f>
-			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_release", 1)</e></m></meta>
-		</mutex_release>
-		<mutex_acquire expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_acquire&quot;, 1)" line="47" static="1">
-			<f a="">
-				<d/>
-				<x path="Any"/>
-			</f>
-			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_acquire", 1)</e></m></meta>
-		</mutex_acquire>
-		<mutex_try expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_try&quot;, 1)" line="48" static="1">
-			<f a="">
-				<d/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_try", 1)</e></m></meta>
-		</mutex_try>
-		<m><d/></m>
-		<acquire public="1" set="method" line="33">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>The current thread acquire the mutex or wait if not available.
-		The same thread can acquire several times the same mutex but
-		must release it as many times it has been acquired.</haxe_doc>
-		</acquire>
-		<tryAcquire public="1" set="method" line="37">
-			<f a=""><x path="Bool"/></f>
-			<haxe_doc>Try to acquire the mutex, returns true if acquire or false
-		if it's already locked by another thread.</haxe_doc>
-		</tryAcquire>
-		<release public="1" set="method" line="41">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Release a mutex that has been acquired by the current thread.
-		The behavior is undefined if the current thread does not own
-		the mutex.</haxe_doc>
-		</release>
-		<new public="1" set="method" line="29">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Creates a mutex.</haxe_doc>
-		</new>
-		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
-	to access some resource. The main difference with a lock is
-	that a mutex must always be released by the owner thread.</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":coreApi"/>
