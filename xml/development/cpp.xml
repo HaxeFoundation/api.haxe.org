@@ -5869,6 +5869,16 @@
 			<m n=":runtimeValue"/>
 		</meta>
 	</abstract>
+	<abstract path="cpp.Char32" params="" file="/home/runner/work/haxe/haxe/std/cpp/Char32.hx">
+		<from><icast><x path="Int"/></icast></from>
+		<this><x path="cpp.Char32"/></this>
+		<to><icast><x path="Int"/></icast></to>
+		<meta>
+			<m n=":coreType"/>
+			<m n=":notNull"/>
+			<m n=":runtimeValue"/>
+		</meta>
+	</abstract>
 	<abstract path="cpp.ConstCharStar" params="" file="/home/runner/work/haxe/haxe/std/cpp/ConstCharStar.hx">
 		<from><icast field="fromString"><c path="String"/></icast></from>
 		<this><c path="cpp.RawConstPointer"><x path="cpp.Char"/></c></this>
@@ -9565,80 +9575,237 @@
 			<m n=":build"><e>cpp.cppia.HostClasses.include()</e></m>
 		</meta>
 	</class>
+	<class path="cpp.encoding.Ascii" params="" file="/home/runner/work/haxe/haxe/std/cpp/encoding/Ascii.hx" extern="1">
+		<isEncoded public="1" set="method" static="1">
+			<f a="string">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>* Returns if the provided string is ascii encoded.</haxe_doc>
+		</isEncoded>
+		<encode public="1" set="method" static="1">
+			<f a="string:buffer">
+				<c path="String"/>
+				<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
+				<x path="cpp.Int64"/>
+			</f>
+			<haxe_doc>* Encodes all characters in the string to ascii bytes.
+     *
+     * If the string cannot be encoded to ASCII an exception is thrown.
+     * If the provided buffer is too small to fit the encoded data an exception is thrown and no data is written.
+     *
+     * @param string String to encode.
+     * @param buffer Buffer bytes will be written into.
+     * @return Number of bytes written into the buffer.</haxe_doc>
+		</encode>
+		<decode public="1" set="method" static="1">
+			<f a="buffer">
+				<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
+				<c path="String"/>
+			</f>
+			<haxe_doc>* Decodes all the bytes in the buffer into a string. An empty string is returned if the buffer is empty.</haxe_doc>
+		</decode>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":semantics"><e>value</e></m>
+			<m n=":cpp.PointerType"><e>{ namespace : ["cpp", "encoding"] }</e></m>
+		</meta>
+	</class>
+	<class path="cpp.encoding.Utf16" params="" file="/home/runner/work/haxe/haxe/std/cpp/encoding/Utf16.hx" extern="1">
+		<isEncoded public="1" set="method" static="1">
+			<f a="string">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>* Returns if the provided string is UTF-16 encoded.</haxe_doc>
+		</isEncoded>
+		<getByteCount public="1" set="method" static="1">
+			<f a="codepoint">
+				<x path="cpp.Char32"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>* Calculates the number of bytes needed to encode the given codepoint.</haxe_doc>
+			<overloads><getByteCount public="1" set="method">
+	<f a="string">
+		<c path="String"/>
+		<x path="haxe.Int64"/>
+	</f>
+	<haxe_doc>* Calculates the number of bytes needed to encode the given string.</haxe_doc>
+</getByteCount></overloads>
+		</getByteCount>
+		<getCharCount public="1" set="method" static="1">
+			<f a="codepoint">
+				<x path="cpp.Char32"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>* Calculates the number of characters needed to encode the given codepoint.</haxe_doc>
+			<overloads><getCharCount public="1" set="method">
+	<f a="string">
+		<c path="String"/>
+		<x path="haxe.Int64"/>
+	</f>
+	<haxe_doc>* Calculates the number of characters needed to encode the given string.</haxe_doc>
+</getCharCount></overloads>
+		</getCharCount>
+		<encode public="1" set="method" static="1">
+			<f a="string:buffer">
+				<c path="String"/>
+				<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
+				<x path="haxe.Int64"/>
+			</f>
+			<haxe_doc>* Encodes all characters in the string to UTF-16 bytes. Endianness of the characters are machine specific.
+     *
+     * If the provided buffer is too small to fit the encoded data an exception is thrown and no data is written.
+     *
+     * @param string String to encode.
+     * @param buffer Buffer bytes will be witten into.
+     * @return Number of bytes written into the buffer.</haxe_doc>
+			<overloads><encode public="1" set="method">
+	<f a="codepoint:buffer">
+		<x path="cpp.Char32"/>
+		<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
+		<x path="Int"/>
+	</f>
+	<haxe_doc>* Encodes the given codepoint to UTF-16 bytes. Endianness of the characters are machine specific.
+     *
+     * If the provided buffer is too small to fit the encoded data an exception is thrown and no data is written.
+     *
+     * @param codepoint Unicode codepoint to encode.
+     * @param buffer Buffer bytes will be written into.
+     * @return Number of bytes written into the buffer.</haxe_doc>
+</encode></overloads>
+		</encode>
+		<decode public="1" set="method" static="1">
+			<f a="buffer">
+				<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
+				<c path="String"/>
+			</f>
+			<haxe_doc>* Decodes all bytes in the buffer into a string. An empty string is returned if the buffer is empty.</haxe_doc>
+		</decode>
+		<codepoint public="1" set="method" static="1">
+			<f a="buffer">
+				<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
+				<x path="cpp.Char32"/>
+			</f>
+			<haxe_doc>* Decodes a UTF-16 encoded codepoint from the buffer. Characters are read in machine specific endianness.
+     *
+     * If the provided buffer is too small for the codepoint an exception is raised.
+     *
+     * @param codepoint The decoded codepoint is written to this variable.
+     * @return Number of bytes read to decode the codepoint.</haxe_doc>
+		</codepoint>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":semantics"><e>value</e></m>
+			<m n=":cpp.PointerType"><e>{ namespace : ["cpp", "encoding"] }</e></m>
+		</meta>
+	</class>
+	<class path="cpp.encoding.Utf8" params="" file="/home/runner/work/haxe/haxe/std/cpp/encoding/Utf8.hx" extern="1">
+		<getByteCount public="1" set="method" static="1">
+			<f a="codepoint">
+				<x path="cpp.Char32"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>* Calculates the number of bytes needed to encode the given codepoint.</haxe_doc>
+			<overloads><getByteCount public="1" set="method">
+	<f a="string">
+		<c path="String"/>
+		<x path="haxe.Int64"/>
+	</f>
+	<haxe_doc>* Calculates the number of bytes needed to encode the given string.</haxe_doc>
+</getByteCount></overloads>
+		</getByteCount>
+		<getCharCount public="1" set="method" static="1">
+			<f a="codepoint">
+				<x path="cpp.Char32"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>* Calculates the number of characters needed to encode the given codepoint.</haxe_doc>
+			<overloads><getCharCount public="1" set="method">
+	<f a="string">
+		<c path="String"/>
+		<x path="haxe.Int64"/>
+	</f>
+	<haxe_doc>* Calculates the number of characters needed to encode the given string.</haxe_doc>
+</getCharCount></overloads>
+		</getCharCount>
+		<encode public="1" set="method" static="1">
+			<f a="string:buffer">
+				<c path="String"/>
+				<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
+				<x path="haxe.Int64"/>
+			</f>
+			<haxe_doc>* Encodes all characters in the string to UTF-8 bytes.
+     *
+     * If the provided buffer is too small to fit the encoded data an exception is thrown and no data is written.
+     *
+     * @param string String to encode.
+     * @param buffer Buffer bytes will be witten into.
+     * @return Number of bytes written into the buffer.</haxe_doc>
+			<overloads><encode public="1" set="method">
+	<f a="codepoint:buffer">
+		<x path="cpp.Char32"/>
+		<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
+		<x path="Int"/>
+	</f>
+	<haxe_doc>* Encodes the given codepoint to UTF-8 bytes.
+     *
+     * If the provided buffer is too small to fit the encoded data an exception is thrown and no data is written.
+     *
+     * @param codepoint Unicode codepoint to encode.
+     * @param buffer Buffer bytes will be written into.
+     * @return Number of bytes written into the buffer.</haxe_doc>
+</encode></overloads>
+		</encode>
+		<decode public="1" set="method" static="1">
+			<f a="buffer">
+				<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
+				<c path="String"/>
+			</f>
+			<haxe_doc>* Decodes all bytes in the buffer into a string. An empty string is returned if the buffer is empty.</haxe_doc>
+		</decode>
+		<codepoint public="1" set="method" static="1">
+			<f a="buffer">
+				<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
+				<x path="cpp.Char32"/>
+			</f>
+			<haxe_doc>* Decodes a UTF-8 encoded codepoint from the buffer.
+     *
+     * If the provided buffer is too small for the codepoint an exception is raised.
+     *
+     * @param codepoint The decoded codepoint is written to this variable.
+     * @return Number of bytes read to decode the codepoint.</haxe_doc>
+		</codepoint>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":semantics"><e>value</e></m>
+			<m n=":cpp.PointerType"><e>{ namespace : ["cpp", "encoding"] }</e></m>
+		</meta>
+	</class>
 	<class path="cpp.link.StaticMysql" params="" file="/home/runner/work/haxe/haxe/std/cpp/link/StaticMysql.hx"/>
 	<class path="cpp.link.StaticRegexp" params="" file="/home/runner/work/haxe/haxe/std/cpp/link/StaticRegexp.hx"/>
 	<class path="cpp.link.StaticSqlite" params="" file="/home/runner/work/haxe/haxe/std/cpp/link/StaticSqlite.hx"/>
 	<class path="cpp.link.StaticStd" params="" file="/home/runner/work/haxe/haxe/std/cpp/link/StaticStd.hx"/>
 	<class path="cpp.link.StaticZlib" params="" file="/home/runner/work/haxe/haxe/std/cpp/link/StaticZlib.hx"/>
 	<class path="cpp.marshal.Marshal" params="" file="/home/runner/work/haxe/haxe/std/cpp/marshal/Marshal.hx" extern="1" final="1">
-		<toCharView public="1" set="method" static="1">
+		<asCharView public="1" set="method" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="cpp.marshal.View"><x path="cpp.Char"/></c>
 			</f>
-			<haxe_doc>* Returns a view to UTF8 encoded characters of the given string. The characters in the view will be null terminated.
-	 * 
-	 * Depending on the internal incoding of `s` this function may allocate GC bytes.
+			<haxe_doc>* Returns a view to ASCII encoded characters of the given string. If the internal encoding of the string is not ASCII an exception is raised.
 	 * 
 	 * @param s String to return the view of.</haxe_doc>
-			<overloads><toCharView public="1" set="method">
-	<f a="s:buffer">
-		<c path="String"/>
-		<c path="cpp.marshal.View"><x path="cpp.Char"/></c>
-		<x path="Int"/>
-	</f>
-	<haxe_doc>* Fills `buffer` with `s` encoded as UTF8 characters. The characters in the view will be null terminated.
-	 * 
-	 * @param s The string to encode into the buffer.
-	 * @param buffer The view to write into.
-	 * @returns The number of characters written into `buffer`.
-	 *
-	 * @throws InvalidViewLength If `buffer` does not have enough space.</haxe_doc>
-</toCharView></overloads>
-		</toCharView>
-		<toWideCharView public="1" set="method" static="1">
+		</asCharView>
+		<asWideCharView public="1" set="method" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="cpp.marshal.View"><x path="cpp.Char16"/></c>
 			</f>
-			<haxe_doc>* Returns a view to UTF16 encoded characters of the given string. The characters in the view will be null terminated.
-	 * 
-	 * Depending on the internal incoding of `s` this function may allocate GC bytes.
+			<haxe_doc>* Returns a view to UTF16 encoded characters of the given string. If the internal encoding of the string is not UTF16 an exception is raised.
 	 * 
 	 * @param s String to return the view of.</haxe_doc>
-			<overloads><toWideCharView public="1" set="method">
-	<f a="s:buffer">
-		<c path="String"/>
-		<c path="cpp.marshal.View"><x path="cpp.Char16"/></c>
-		<x path="Int"/>
-	</f>
-	<haxe_doc>* Fills `buffer` with `s` encoded as UTF16 characters. The characters in the view will be null terminated.
-	 * 
-	 * @param s The string to encode into the buffer.
-	 * @param buffer The view to write into.
-	 * @returns The number of characters written into `buffer`.
-	 *
-	 * @throws InvalidViewLength If `buffer` does not have enough space.</haxe_doc>
-</toWideCharView></overloads>
-		</toWideCharView>
-		<toString public="1" set="method" static="1">
-			<f a="buffer">
-				<c path="cpp.marshal.View"><x path="cpp.Char"/></c>
-				<c path="String"/>
-			</f>
-			<haxe_doc>* Allocates a string from the provided utf8 characters.
-	 *
-	 * @param buffer Buffer to characters, does not need to be null terminated.</haxe_doc>
-			<overloads><toString public="1" set="method">
-	<f a="buffer">
-		<c path="cpp.marshal.View"><x path="cpp.Char16"/></c>
-		<c path="String"/>
-	</f>
-	<haxe_doc>* Allocates a string from the provided utf16 characters.
-	 *
-	 * @param buffer Buffer to characters, does not need to be null terminated.</haxe_doc>
-</toString></overloads>
-		</toString>
+		</asWideCharView>
 		<read public="1" params="T" set="method" static="1"><f a="view">
 	<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
 	<c path="read.T"/>
@@ -9916,7 +10083,7 @@
 		</meta>
 	</class>
 	<class path="cpp.marshal.View" params="T" file="/home/runner/work/haxe/haxe/std/cpp/marshal/View.hx" extern="1" final="1">
-		<length final="1" public="1"><x path="cpp.SizeT"/></length>
+		<length final="1" public="1"><x path="haxe.Int64"/></length>
 		<ptr final="1" public="1"><c path="cpp.Pointer"><c path="cpp.marshal.View.T"/></c></ptr>
 		<tryCopyTo public="1" set="method">
 			<f a="destination">
@@ -9927,14 +10094,14 @@
 	 * If the destination is smaller than the current view this function returns false and no data is written to the destination.
 	 * @param destination Target of the copy operation.</haxe_doc>
 		</tryCopyTo>
-		<copyTo public="1" get="inline" set="null" line="28">
+		<copyTo public="1" set="method">
 			<f a="destination">
 				<c path="cpp.marshal.View"><c path="cpp.marshal.View.T"/></c>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>* Copies the the from the current view to the destination view.
-	 * @param destination Target of the copy operation
-	 * @throws ArgumentException If the destination is smaller than the current view.</haxe_doc>
+	 * If the destination is smaller than the current view this function raises an exception and no data is written to the destination.
+	 * @param destination Target of the copy operation</haxe_doc>
 		</copyTo>
 		<clear public="1" set="method">
 			<f a=""><x path="Void"/></f>
@@ -9974,13 +10141,20 @@
 			<f a=""><c path="cpp.marshal.View"><c path="reinterpret.K"/></c></f>
 			<haxe_doc>* Return a view interpreting this views content as a different type.</haxe_doc>
 		</reinterpret>
-		<compare public="1" set="method"><f a="rhs">
-	<c path="cpp.marshal.View"><c path="cpp.marshal.View.T"/></c>
-	<x path="Int"/>
-</f></compare>
+		<compare public="1" set="method">
+			<f a="other">
+				<c path="cpp.marshal.View"><c path="cpp.marshal.View.T"/></c>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>* Returns 0 if the contents of the two views are identical.
+	 * 
+	 * Returns a negative value if the length of this view is less than the length of other, or a positive value if the length of this view is greater than the length of other.
+	 *
+	 * In case of equal lengths, returns a negative value if the first different value in other is greater than the corresponding value in this view. Otherwise, returns a positive value.</haxe_doc>
+		</compare>
 		<new public="1" set="method"><f a="ptr:length">
 	<c path="cpp.Pointer"><c path="cpp.marshal.View.T"/></c>
-	<x path="cpp.SizeT"/>
+	<x path="haxe.Int64"/>
 	<x path="Void"/>
 </f></new>
 		<meta>
@@ -9990,75 +10164,65 @@
 		</meta>
 	</class>
 	<class path="cpp.marshal.ViewExtensions" params="" file="/home/runner/work/haxe/haxe/std/cpp/marshal/ViewExtensions.hx" final="1">
-		<asView public="1" params="T" get="inline" set="null" line="22" static="1">
+		<asView public="1" params="T" get="inline" set="null" line="23" static="1">
 			<f a="source:length">
 				<c path="cpp.Pointer"><c path="asView.T"/></c>
-				<x path="Int"/>
+				<x path="cpp.Int64"/>
 				<c path="cpp.marshal.View"><c path="asView.T"/></c>
 			</f>
 			<overloads>
-				<asView public="1" get="inline" set="null" line="70"><f a="source">
+				<asView public="1" get="inline" set="null" line="63"><f a="source">
 	<x path="haxe.io.UInt8Array"/>
 	<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
 </f></asView>
-				<asView public="1" get="inline" set="null" line="66"><f a="source">
+				<asView public="1" get="inline" set="null" line="59"><f a="source">
 	<x path="haxe.io.UInt16Array"/>
 	<c path="cpp.marshal.View"><x path="cpp.UInt16"/></c>
 </f></asView>
-				<asView public="1" get="inline" set="null" line="62"><f a="source">
+				<asView public="1" get="inline" set="null" line="55"><f a="source">
 	<x path="haxe.io.UInt32Array"/>
 	<c path="cpp.marshal.View"><x path="cpp.UInt32"/></c>
 </f></asView>
-				<asView public="1" get="inline" set="null" line="58"><f a="source">
+				<asView public="1" get="inline" set="null" line="51"><f a="source">
 	<x path="haxe.io.Int32Array"/>
 	<c path="cpp.marshal.View"><x path="cpp.Int32"/></c>
 </f></asView>
-				<asView public="1" get="inline" set="null" line="54"><f a="source">
+				<asView public="1" get="inline" set="null" line="47"><f a="source">
 	<x path="haxe.io.Float64Array"/>
 	<c path="cpp.marshal.View"><x path="cpp.Float64"/></c>
 </f></asView>
-				<asView public="1" get="inline" set="null" line="50"><f a="source">
+				<asView public="1" get="inline" set="null" line="43"><f a="source">
 	<x path="haxe.io.Float32Array"/>
 	<c path="cpp.marshal.View"><x path="cpp.Float32"/></c>
 </f></asView>
-				<asView public="1" get="inline" set="null" line="46"><f a="source">
+				<asView public="1" get="inline" set="null" line="39"><f a="source">
 	<x path="haxe.io.ArrayBufferView"/>
 	<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
 </f></asView>
-				<asView public="1" get="inline" set="null" line="42"><f a="source">
+				<asView public="1" get="inline" set="null" line="35"><f a="source">
 	<c path="haxe.io.Bytes"/>
 	<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
 </f></asView>
-				<asView public="1" params="T" get="inline" set="null" line="38"><f a="source">
+				<asView public="1" params="T" get="inline" set="null" line="31"><f a="source">
 	<x path="haxe.ds.Vector"><c path="asView.T"/></x>
 	<c path="cpp.marshal.View"><c path="asView.T"/></c>
 </f></asView>
-				<asView public="1" params="T" get="inline" set="null" line="34"><f a="source">
+				<asView public="1" params="T" get="inline" set="null" line="27"><f a="source">
 	<c path="Array"><c path="asView.T"/></c>
-	<c path="cpp.marshal.View"><c path="asView.T"/></c>
-</f></asView>
-				<asView public="1" params="T" get="inline" set="null" line="30"><f a="source:length">
-	<c path="cpp.RawPointer"><c path="asView.T"/></c>
-	<x path="Int"/>
-	<c path="cpp.marshal.View"><c path="asView.T"/></c>
-</f></asView>
-				<asView public="1" params="T" get="inline" set="null" line="26"><f a="source:length">
-	<t path="cpp.Star"><c path="asView.T"/></t>
-	<x path="Int"/>
 	<c path="cpp.marshal.View"><c path="asView.T"/></c>
 </f></asView>
 			</overloads>
 		</asView>
-		<refAsView public="1" params="T" get="inline" set="null" line="74" static="1"><f a="source">
+		<refAsView public="1" params="T" get="inline" set="null" line="67" static="1"><f a="source">
 	<x path="haxe.extern.AsVar"><c path="refAsView.T"/></x>
 	<c path="cpp.marshal.View"><c path="refAsView.T"/></c>
 </f></refAsView>
-		<empty public="1" params="T" get="inline" set="null" line="78" static="1"><f a=""><c path="cpp.marshal.View"><c path="empty.T"/></c></f></empty>
-		<asBytesView public="1" params="T" get="inline" set="null" line="82" static="1"><f a="source">
+		<empty public="1" params="T" get="inline" set="null" line="71" static="1"><f a=""><c path="cpp.marshal.View"><c path="empty.T"/></c></f></empty>
+		<asBytesView public="1" params="T" get="inline" set="null" line="75" static="1"><f a="source">
 	<c path="cpp.marshal.View"><c path="asBytesView.T"/></c>
 	<c path="cpp.marshal.View"><x path="cpp.UInt8"/></c>
 </f></asBytesView>
-		<toArray public="1" params="T" set="method" line="86" static="1">
+		<toArray public="1" params="T" set="method" line="84" static="1">
 			<f a="source">
 				<c path="cpp.marshal.View"><c path="toArray.T"/></c>
 				<c path="Array"><c path="toArray.T"/></c>
@@ -10067,8 +10231,11 @@
 				<m n=":unreflective"/>
 				<m n=":generic"/>
 			</meta>
+			<haxe_doc>* Allocates a new `Array` instance and copies `source` into it.
+	 *
+	 * @throws ArgumentException If `source` represents a region of bytes greater than the max Int32 value.</haxe_doc>
 		</toArray>
-		<toVector public="1" params="T" set="method" line="99" static="1">
+		<toVector public="1" params="T" set="method" line="102" static="1">
 			<f a="source">
 				<c path="cpp.marshal.View"><c path="toVector.T"/></c>
 				<x path="haxe.ds.Vector"><c path="toVector.T"/></x>
@@ -10077,8 +10244,11 @@
 				<m n=":unreflective"/>
 				<m n=":generic"/>
 			</meta>
+			<haxe_doc>* Allocates a new `haxe.ds.Vector` instance and copies `source` into it.
+	 *
+	 * @throws ArgumentException If `source` represents a region of bytes greater than the max Int32 value.</haxe_doc>
 		</toVector>
-		<toBytes public="1" params="T" set="method" line="112" static="1">
+		<toBytes public="1" params="T" set="method" line="120" static="1">
 			<f a="source">
 				<c path="cpp.marshal.View"><c path="toBytes.T"/></c>
 				<c path="haxe.io.Bytes"/>
@@ -10087,7 +10257,24 @@
 				<m n=":unreflective"/>
 				<m n=":generic"/>
 			</meta>
+			<haxe_doc>* Allocates a new `haxe.io.Bytes` instance and copies `source` into it.
+	 *
+	 * @throws ArgumentException If `source` represents a region of bytes greater than the max Int32 value.</haxe_doc>
 		</toBytes>
+		<szToString public="1" get="inline" set="null" line="138" static="1">
+			<f a="source">
+				<c path="cpp.marshal.View"><x path="cpp.Char"/></c>
+				<c path="String"/>
+			</f>
+			<haxe_doc>* Reads UTF-8 characters from the view up to the first null character and decodes them into a string.</haxe_doc>
+			<overloads><szToString public="1" get="inline" set="null" line="158">
+	<f a="source">
+		<c path="cpp.marshal.View"><x path="cpp.Char16"/></c>
+		<c path="String"/>
+	</f>
+	<haxe_doc>* Reads UTF-16 characters from the view up to the first null character and decodes them into a string.</haxe_doc>
+</szToString></overloads>
+		</szToString>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="cpp.net.Poll" params="" file="/home/runner/work/haxe/haxe/std/cpp/net/Poll.hx">
@@ -19092,7 +19279,7 @@
 			<haxe_doc>Returns the `Bytes` representation of the given `String`, using the
 		specified encoding (UTF-8 by default).</haxe_doc>
 		</ofString>
-		<ofData public="1" set="method" line="260" static="1">
+		<ofData public="1" set="method" line="269" static="1">
 			<f a="b">
 				<t path="haxe.io.BytesData"/>
 				<c path="haxe.io.Bytes"/>
@@ -19100,7 +19287,7 @@
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the `Bytes` representation of the given `BytesData`.</haxe_doc>
 		</ofData>
-		<ofHex public="1" set="method" line="269" static="1">
+		<ofHex public="1" set="method" line="278" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="haxe.io.Bytes"/>
@@ -19110,7 +19297,7 @@
 		even length consisting only of hexadecimal digits. For example:
 		`"0FDA14058916052309"`.</haxe_doc>
 		</ofHex>
-		<fastGet public="1" set="method" line="292" static="1">
+		<fastGet public="1" set="method" line="301" static="1">
 			<f a="b:pos">
 				<t path="haxe.io.BytesData"/>
 				<x path="Int"/>
@@ -19129,7 +19316,7 @@
 			<t path="haxe.io.BytesData"/>
 			<meta><m n=":keep"/></meta>
 		</b>
-		<get public="1" set="method" line="45">
+		<get public="1" set="method" line="47">
 			<f a="pos">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -19137,7 +19324,7 @@
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the byte at index `pos`.</haxe_doc>
 		</get>
-		<set public="1" set="method" line="52">
+		<set public="1" set="method" line="54">
 			<f a="pos:v">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -19146,7 +19333,7 @@
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Stores the given byte `v` at the given position `pos`.</haxe_doc>
 		</set>
-		<blit public="1" set="method" line="64">
+		<blit public="1" set="method" line="66">
 			<f a="pos:src:srcpos:len">
 				<x path="Int"/>
 				<c path="haxe.io.Bytes"/>
@@ -19162,7 +19349,7 @@
 		@param srcpos Zero-based location at `src` from which bytes will be copied.
 		@param len Number of bytes to be copied.</haxe_doc>
 		</blit>
-		<fill public="1" set="method" line="75">
+		<fill public="1" set="method" line="77">
 			<f a="pos:len:value">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -19173,7 +19360,7 @@
 			<haxe_doc>Sets `len` consecutive bytes starting from index `pos` of `this` instance
 		to `value`.</haxe_doc>
 		</fill>
-		<sub public="1" set="method" line="83">
+		<sub public="1" set="method" line="85">
 			<f a="pos:len">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -19183,7 +19370,7 @@
 			<haxe_doc>Returns a new `Bytes` instance that contains a copy of `len` bytes of
 		`this` instance, starting at index `pos`.</haxe_doc>
 		</sub>
-		<compare public="1" set="method" line="99">
+		<compare public="1" set="method" line="101">
 			<f a="other">
 				<c path="haxe.io.Bytes"/>
 				<x path="Int"/>
@@ -19200,7 +19387,7 @@
 		value in `other` is greater than the corresponding value in `this`
 		instance; otherwise returns a positive value.</haxe_doc>
 		</compare>
-		<getDouble public="1" set="method" line="111">
+		<getDouble public="1" set="method" line="113">
 			<f a="pos">
 				<x path="Int"/>
 				<x path="Float"/>
@@ -19210,7 +19397,7 @@
 		little-endian encoding). Result is unspecified if `pos` is outside the
 		bounds.</haxe_doc>
 		</getDouble>
-		<getFloat public="1" set="method" line="120">
+		<getFloat public="1" set="method" line="122">
 			<f a="pos">
 				<x path="Int"/>
 				<x path="Float"/>
@@ -19220,7 +19407,7 @@
 		little-endian encoding). Result is unspecified if `pos` is outside the
 		bounds.</haxe_doc>
 		</getFloat>
-		<setDouble public="1" set="method" line="129">
+		<setDouble public="1" set="method" line="131">
 			<f a="pos:v">
 				<x path="Int"/>
 				<x path="Float"/>
@@ -19231,7 +19418,7 @@
 		`pos` in little-endian encoding. Result is unspecified if writing outside
 		of bounds.</haxe_doc>
 		</setDouble>
-		<setFloat public="1" set="method" line="138">
+		<setFloat public="1" set="method" line="140">
 			<f a="pos:v">
 				<x path="Int"/>
 				<x path="Float"/>
@@ -19242,7 +19429,7 @@
 		`pos` in little-endian encoding. Result is unspecified if writing outside
 		of bounds.</haxe_doc>
 		</setFloat>
-		<getUInt16 public="1" set="method" line="146">
+		<getUInt16 public="1" set="method" line="148">
 			<f a="pos">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -19251,7 +19438,7 @@
 			<haxe_doc>Returns the 16-bit unsigned integer at the given position `pos` (in
 		little-endian encoding).</haxe_doc>
 		</getUInt16>
-		<setUInt16 public="1" set="method" line="154">
+		<setUInt16 public="1" set="method" line="156">
 			<f a="pos:v">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -19261,7 +19448,7 @@
 			<haxe_doc>Stores the given 16-bit unsigned integer `v` at the given position `pos`
 		(in little-endian encoding).</haxe_doc>
 		</setUInt16>
-		<getInt32 public="1" set="method" line="162">
+		<getInt32 public="1" set="method" line="164">
 			<f a="pos">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -19270,7 +19457,7 @@
 			<haxe_doc>Returns the 32-bit integer at the given position `pos` (in little-endian
 		encoding).</haxe_doc>
 		</getInt32>
-		<getInt64 public="1" set="method" line="170">
+		<getInt64 public="1" set="method" line="172">
 			<f a="pos">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
@@ -19279,7 +19466,7 @@
 			<haxe_doc>Returns the 64-bit integer at the given position `pos` (in little-endian
 		encoding).</haxe_doc>
 		</getInt64>
-		<setInt32 public="1" set="method" line="178">
+		<setInt32 public="1" set="method" line="180">
 			<f a="pos:v">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -19289,7 +19476,7 @@
 			<haxe_doc>Stores the given 32-bit integer `v` at the given position `pos` (in
 		little-endian encoding).</haxe_doc>
 		</setInt32>
-		<setInt64 public="1" set="method" line="186">
+		<setInt64 public="1" set="method" line="188">
 			<f a="pos:v">
 				<x path="Int"/>
 				<x path="haxe.Int64"/>
@@ -19299,7 +19486,7 @@
 			<haxe_doc>Stores the given 64-bit integer `v` at the given position `pos` (in
 		little-endian encoding).</haxe_doc>
 		</setInt64>
-		<getString public="1" set="method" line="194">
+		<getString public="1" set="method" line="196">
 			<f a="pos:len:?encoding">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -19338,7 +19525,7 @@
 			<meta><m n=":keep"/></meta>
 			<haxe_doc>Returns the bytes of `this` instance as `BytesData`.</haxe_doc>
 		</getData>
-		<new set="method" line="37">
+		<new set="method" line="39">
 			<f a="length:b">
 				<x path="Int"/>
 				<t path="haxe.io.BytesData"/>
