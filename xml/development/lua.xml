@@ -21515,54 +21515,83 @@
 		</Custom>
 		<haxe_doc>The possible IO errors that can occur</haxe_doc>
 	</enum>
-	<class path="haxe.io.FPHelper" params="" file="/home/runner/work/haxe/haxe/std/haxe/io/FPHelper.hx">
-		<i64tmp expr="Int64.ofInt(0)" line="35" static="1">
+	<class path="haxe.io.FPHelper" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/haxe/io/FPHelper.hx">
+		<i64tmp expr="Int64.ofInt(0)" line="30" static="1">
 			<x path="haxe.Int64"/>
 			<meta><m n=":value"><e>Int64.ofInt(0)</e></m></meta>
 		</i64tmp>
-		<LN2 get="inline" set="null" expr="0.6931471805599453" line="37" static="1">
-			<x path="Float"/>
-			<meta><m n=":value"><e>0.6931471805599453</e></m></meta>
-		</LN2>
-		<_i32ToFloat get="inline" set="null" line="39" static="1"><f a="i">
-	<x path="Int"/>
-	<x path="Float"/>
-</f></_i32ToFloat>
-		<_i64ToDouble get="inline" set="null" line="48" static="1"><f a="lo:hi">
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Float"/>
-</f></_i64ToDouble>
-		<_floatToI32 get="inline" set="null" line="58" static="1"><f a="f">
-	<x path="Float"/>
-	<x path="Int"/>
-</f></_floatToI32>
-		<_doubleToI64 get="inline" set="null" line="76" static="1"><f a="v">
-	<x path="Float"/>
-	<x path="haxe.Int64"/>
-</f></_doubleToI64>
-		<i32ToFloat public="1" set="method" line="133" static="1"><f a="i">
-	<x path="Int"/>
-	<x path="Float"/>
-</f></i32ToFloat>
-		<floatToI32 public="1" set="method" line="168" static="1"><f a="f">
-	<x path="Float"/>
-	<x path="Int"/>
-</f></floatToI32>
-		<i64ToDouble public="1" set="method" line="197" static="1"><f a="low:high">
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Float"/>
-</f></i64ToDouble>
-		<doubleToI64 public="1" set="method" line="240" static="1">
+		<hasStringPack expr="untyped __lua__(&quot;string.pack ~= nil&quot;)" line="33" static="1">
+			<x path="Bool"/>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":value"><e>untyped __lua__("string.pack ~= nil")</e></m>
+			</meta>
+		</hasStringPack>
+		<i32ToFloat public="1" set="method" line="36" static="1">
+			<f a="i">
+				<x path="Int"/>
+				<x path="Float"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</i32ToFloat>
+		<floatToI32 public="1" set="method" line="44" static="1">
+			<f a="f">
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</floatToI32>
+		<i64ToDouble public="1" set="method" line="52" static="1">
+			<f a="low:high">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Float"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</i64ToDouble>
+		<doubleToI64 public="1" set="method" line="65" static="1">
 			<f a="v">
 				<x path="Float"/>
 				<x path="haxe.Int64"/>
 			</f>
 			<haxe_doc>Returns an Int64 representing the bytes representation of the double precision IEEE float value.
 		WARNING : for performance reason, the same Int64 value might be reused every time. Copy its low/high values before calling again.
-		We still ensure that this is safe to use in a multithread environment</haxe_doc>
+		We still ensure that this is safe to use in a multithread environment.</haxe_doc>
 		</doubleToI64>
+		<_doubleToI64_native set="method" line="73" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="haxe.Int64"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</_doubleToI64_native>
+		<LN2 get="inline" set="null" expr="0.6931471805599453" line="82" static="1">
+			<x path="Float"/>
+			<meta><m n=":value"><e>0.6931471805599453</e></m></meta>
+		</LN2>
+		<_doubleToI64_fallback set="method" line="84" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="haxe.Int64"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</_doubleToI64_fallback>
+		<_i32ToFloat set="method" line="128" static="1"><f a="i">
+	<x path="Int"/>
+	<x path="Float"/>
+</f></_i32ToFloat>
+		<_floatToI32 set="method" line="139" static="1">
+			<f a="f">
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</_floatToI32>
+		<_i64ToDouble set="method" line="165" static="1"><f a="lo:hi">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Float"/>
+</f></_i64ToDouble>
 		<haxe_doc>Helper that converts between floating point and binary representation.
 	Always works in low-endian encoding.</haxe_doc>
 	</class>
@@ -35875,7 +35904,7 @@
 			</f>
 			<meta><m n=":ifFeature"><e>"typed_cast"</e></m></meta>
 		</__cast>
-		<defArray public="1" params="T" get="inline" set="null" line="159" static="1">
+		<defArray public="1" params="T" get="inline" set="null" line="160" static="1">
 			<f a="tab:?length">
 				<c path="lua.Table">
 					<x path="Int"/>
@@ -35885,9 +35914,10 @@
 				<c path="Array"><c path="defArray.T"/></c>
 			</f>
 			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Define an array from the given table</haxe_doc>
+			<haxe_doc>Define an array from the given table.
+		Converts from 1-indexed Lua table to 0-indexed Haxe array.</haxe_doc>
 		</defArray>
-		<tableToObject public="1" params="T" get="inline" set="null" line="178" static="1">
+		<tableToObject public="1" params="T" get="inline" set="null" line="180" static="1">
 			<f a="t">
 				<c path="lua.Table">
 					<c path="String"/>
@@ -35898,14 +35928,14 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Create a Haxe object from the given table structure</haxe_doc>
 		</tableToObject>
-		<dateStr public="1" set="method" line="185" static="1">
+		<dateStr public="1" set="method" line="187" static="1">
 			<f a="date">
 				<c path="Date"/>
 				<c path="String"/>
 			</f>
 			<haxe_doc>Get Date object as string representation</haxe_doc>
 		</dateStr>
-		<clampInt32 public="1" get="inline" set="null" line="198" static="1">
+		<clampInt32 public="1" get="inline" set="null" line="200" static="1">
 			<f a="x">
 				<x path="Float"/>
 				<x path="Int"/>
@@ -35913,14 +35943,14 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>A 32 bit clamp function for numbers</haxe_doc>
 		</clampInt32>
-		<strDate public="1" set="method" line="205" static="1">
+		<strDate public="1" set="method" line="207" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="Date"/>
 			</f>
 			<haxe_doc>Create a standard date object from a lua string representation</haxe_doc>
 		</strDate>
-		<extendsOrImplements public="1" set="method" line="226" static="1">
+		<extendsOrImplements public="1" set="method" line="228" static="1">
 			<f a="cl1:cl2">
 				<x path="Class"><d/></x>
 				<x path="Class"><d/></x>
@@ -35929,7 +35959,7 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Helper method to determine if class cl1 extends, implements, or otherwise equals cl2</haxe_doc>
 		</extendsOrImplements>
-		<shellEscapeCmd public="1" set="method" line="246" static="1">
+		<shellEscapeCmd public="1" set="method" line="248" static="1">
 			<f a="cmd:?args">
 				<c path="String"/>
 				<c path="Array"><c path="String"/></c>
@@ -35937,7 +35967,7 @@
 			</f>
 			<haxe_doc>Returns a shell escaped version of "cmd" along with any args</haxe_doc>
 		</shellEscapeCmd>
-		<tempFile public="1" set="method" line="264" static="1">
+		<tempFile public="1" set="method" line="266" static="1">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Returns a temp file path that can be used for reading and writing</haxe_doc>
 		</tempFile>
@@ -35945,11 +35975,11 @@
 	<c path="String"/>
 	<c path="Array"><c path="String"/></c>
 </t></os_patterns>
-		<get_os_patterns set="method" line="274" static="1"><f a=""><t path="Map">
+		<get_os_patterns set="method" line="276" static="1"><f a=""><t path="Map">
 	<c path="String"/>
 	<c path="Array"><c path="String"/></c>
 </t></f></get_os_patterns>
-		<systemName public="1" set="method" line="287" static="1">
+		<systemName public="1" set="method" line="289" static="1">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":has_untyped"/></meta>
 		</systemName>

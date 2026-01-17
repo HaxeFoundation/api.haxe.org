@@ -21915,53 +21915,32 @@
 		</Custom>
 		<haxe_doc>The possible IO errors that can occur</haxe_doc>
 	</enum>
-	<class path="haxe.io.FPHelper" params="" file="/home/runner/work/haxe/haxe/std/haxe/io/FPHelper.hx">
-		<i64tmp expr="Int64.ofInt(0)" line="35" static="1">
+	<class path="haxe.io.FPHelper" params="" file="/home/runner/work/haxe/haxe/std/python/_std/haxe/io/FPHelper.hx">
+		<i64tmp expr="Int64.ofInt(0)" line="32" static="1">
 			<x path="haxe.Int64"/>
 			<meta><m n=":value"><e>Int64.ofInt(0)</e></m></meta>
 		</i64tmp>
-		<LN2 get="inline" set="null" expr="0.6931471805599453" line="37" static="1">
-			<x path="Float"/>
-			<meta><m n=":value"><e>0.6931471805599453</e></m></meta>
-		</LN2>
-		<_i32ToFloat get="inline" set="null" line="39" static="1"><f a="i">
-	<x path="Int"/>
-	<x path="Float"/>
-</f></_i32ToFloat>
-		<_i64ToDouble get="inline" set="null" line="48" static="1"><f a="lo:hi">
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Float"/>
-</f></_i64ToDouble>
-		<_floatToI32 get="inline" set="null" line="58" static="1"><f a="f">
-	<x path="Float"/>
-	<x path="Int"/>
-</f></_floatToI32>
-		<_doubleToI64 get="inline" set="null" line="76" static="1"><f a="v">
-	<x path="Float"/>
-	<x path="haxe.Int64"/>
-</f></_doubleToI64>
-		<i32ToFloat public="1" set="method" line="133" static="1"><f a="i">
+		<i32ToFloat public="1" get="inline" set="null" line="34" static="1"><f a="i">
 	<x path="Int"/>
 	<x path="Float"/>
 </f></i32ToFloat>
-		<floatToI32 public="1" set="method" line="168" static="1"><f a="f">
+		<floatToI32 public="1" get="inline" set="null" line="39" static="1"><f a="f">
 	<x path="Float"/>
 	<x path="Int"/>
 </f></floatToI32>
-		<i64ToDouble public="1" set="method" line="197" static="1"><f a="low:high">
+		<i64ToDouble public="1" get="inline" set="null" line="44" static="1"><f a="low:high">
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Float"/>
 </f></i64ToDouble>
-		<doubleToI64 public="1" set="method" line="240" static="1">
+		<doubleToI64 public="1" set="method" line="54" static="1">
 			<f a="v">
 				<x path="Float"/>
 				<x path="haxe.Int64"/>
 			</f>
 			<haxe_doc>Returns an Int64 representing the bytes representation of the double precision IEEE float value.
 		WARNING : for performance reason, the same Int64 value might be reused every time. Copy its low/high values before calling again.
-		We still ensure that this is safe to use in a multithread environment</haxe_doc>
+		We still ensure that this is safe to use in a multithread environment.</haxe_doc>
 		</doubleToI64>
 		<haxe_doc>Helper that converts between floating point and binary representation.
 	Always works in low-endian encoding.</haxe_doc>
@@ -39815,6 +39794,27 @@
 		</PROTOCOL_TLS>
 		<CERT_REQUIRED public="1" static="1"><x path="Int"/></CERT_REQUIRED>
 		<meta><m n=":pythonImport"><e>"ssl"</e></m></meta>
+	</class>
+	<class path="python.lib.Struct" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Struct.hx" extern="1">
+		<pack public="1" set="method" static="1">
+			<f a="format:values">
+				<c path="String"/>
+				<t path="haxe.extern.Rest"><d/></t>
+				<c path="python.Bytes"/>
+			</f>
+			<haxe_doc>Return a bytes object containing the values packed according to the format string.</haxe_doc>
+		</pack>
+		<unpack public="1" set="method" static="1">
+			<f a="format:buffer">
+				<c path="String"/>
+				<c path="python.Bytes"/>
+				<c path="python.Tuple"><d/></c>
+			</f>
+			<haxe_doc>Unpack from the buffer according to the format string.
+		Returns a tuple of unpacked values.</haxe_doc>
+		</unpack>
+		<haxe_doc>Extern for Python's struct module for packing/unpacking binary data.</haxe_doc>
+		<meta><m n=":pythonImport"><e>"struct"</e></m></meta>
 	</class>
 	<class path="python.lib.StartupInfo" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Subprocess.hx" module="python.lib.Subprocess" extern="1">
 		<dwFlags public="1"><x path="Int"/></dwFlags>
