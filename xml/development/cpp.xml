@@ -10126,6 +10126,42 @@
 			<m n=":cpp.ValueType"><e>{ namespace : ["cpp", "marshal"] }</e></m>
 		</meta>
 	</class>
+	<class path="cpp.marshal.RootHandle" params="" file="/home/runner/work/haxe/haxe/std/cpp/marshal/RootHandle.hx" extern="1">
+		<create public="1" set="method" static="1">
+			<f a="obj">
+				<d/>
+				<c path="cpp.marshal.RootHandle"/>
+			</f>
+			<haxe_doc>* Root the provided object and return a handle representing it.</haxe_doc>
+		</create>
+		<fromVoidPointer public="1" set="method" static="1">
+			<f a="ptr">
+				<c path="cpp.Pointer"><c path="cpp.Void"/></c>
+				<c path="cpp.marshal.RootHandle"/>
+			</f>
+			<haxe_doc>* Reinterpret the provided `void*` as a rooted object.
+	 * If `ptr` is not a rooted object the behaviour is undefined.</haxe_doc>
+		</fromVoidPointer>
+		<close public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>* Unroot the object represented by this handle.
+	 * If there are no other references to the object it will be eligible for collection by the GC.</haxe_doc>
+		</close>
+		<getObject public="1" set="method">
+			<f a=""><d/></f>
+			<haxe_doc>* Return the object represented by this handle.</haxe_doc>
+		</getObject>
+		<toVoidPointer public="1" set="method">
+			<f a=""><c path="cpp.Pointer"><c path="cpp.Void"/></c></f>
+			<haxe_doc>* Returns the rooted object reinterpreted as a `void*`.</haxe_doc>
+		</toVoidPointer>
+		<haxe_doc>* An object which has been rooted will not be collected by the GC even if it has no other references.
+ * Rooted objects can also be used to safely pass managed objects into unmanaged code.</haxe_doc>
+		<meta>
+			<m n=":semantics"><e>value</e></m>
+			<m n=":cpp.ValueType"><e>{ namespace : ["cpp", "marshal"] }</e></m>
+		</meta>
+	</class>
 	<class path="cpp.marshal.View" params="T" file="/home/runner/work/haxe/haxe/std/cpp/marshal/View.hx" extern="1" final="1">
 		<length final="1" public="1"><x path="haxe.Int64"/></length>
 		<ptr final="1" public="1"><c path="cpp.Pointer"><c path="cpp.marshal.View.T"/></c></ptr>
@@ -39987,11 +40023,11 @@
 			</f>
 			<meta><m n=":value"><e>{ printPackage : true }</e></m></meta>
 		</printTypeDefinition>
-		<printFieldWithDelimiter set="method" line="437"><f a="f">
+		<printFieldWithDelimiter set="method" line="440"><f a="f">
 	<t path="haxe.macro.Field"/>
 	<c path="String"/>
 </f></printFieldWithDelimiter>
-		<opt params="T" set="method" line="448">
+		<opt params="T" set="method" line="451">
 			<f a="v:f:?prefix" v="::&quot;&quot;">
 				<c path="opt.T"/>
 				<f a="">
@@ -40003,7 +40039,7 @@
 			</f>
 			<meta><m n=":value"><e>{ prefix : "" }</e></m></meta>
 		</opt>
-		<printExprWithPositions public="1" set="method" line="450"><f a="e">
+		<printExprWithPositions public="1" set="method" line="453"><f a="e">
 	<t path="haxe.macro.Expr"/>
 	<c path="String"/>
 </f></printExprWithPositions>
