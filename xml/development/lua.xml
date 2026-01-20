@@ -826,12 +826,17 @@
 	</class>
 	<class path="lua.lib.luautf8.Utf8" params="" file="/home/runner/work/haxe/haxe/std/lua/lib/luautf8/Utf8.hx" extern="1">
 		<len public="1" set="method" static="1">
-			<f a="str">
+			<f a="str:?start:?end:?lax">
 				<c path="String"/>
 				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+				<x path="Int"/>
 			</f>
-			<haxe_doc>Receives a string and returns its length. The empty string `""` has
-		length `0`. Embedded zeros are counted, so `"a\000bc\000"` has length `5`.</haxe_doc>
+			<haxe_doc>Returns the number of UTF-8 characters in string s that start between
+		positions i and j (both inclusive). The default for i is 1 and for j is -1.
+		If it finds any invalid byte sequence, returns fail plus the position of
+		the first invalid byte.</haxe_doc>
 		</len>
 		<char public="1" set="method" static="1">
 			<f a="codes">
