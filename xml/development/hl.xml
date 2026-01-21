@@ -11466,7 +11466,7 @@
 			<f a=""><x path="haxe.coro.context.Key"><c path="haxe.coro.context.IElement.T"/></x></f>
 			<haxe_doc>Returns the `Key` of `this` context element.</haxe_doc>
 		</getKey>
-		<haxe_doc>Represents an element of `Context`. See `haxe.coro.schedulers.Scheduler` for a usage example.</haxe_doc>
+		<haxe_doc>Represents an element of `Context`. See `haxe.coro.dispatchers.Dispatcher` for a usage example.</haxe_doc>
 	</class>
 	<class path="sys.thread.Mutex" params="" file="/home/runner/work/haxe/haxe/std/hl/_std/sys/thread/Mutex.hx" extern="1">
 		<acquire public="1" set="method">
@@ -11556,13 +11556,13 @@
 		</new>
 		<haxe_doc>`SuspensionResult` is the return type of coroutine calls.</haxe_doc>
 	</class>
-	<class path="haxe.coro.schedulers.IScheduleObject" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/schedulers/IScheduleObject.hx" interface="1">
-		<onSchedule public="1" set="method">
+	<class path="haxe.coro.dispatchers.IDispatchObject" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/dispatchers/IDispatchObject.hx" interface="1">
+		<onDispatch public="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>This function is invoked when a scheduled object is run.</haxe_doc>
-		</onSchedule>
+		</onDispatch>
 		<haxe_doc>Classes that implement this interface can be passed to instances of
-	`haxe.coro.schedulers.Scheduler`.</haxe_doc>
+	`haxe.coro.dispatchers.Dispatcher`.</haxe_doc>
 	</class>
 	<class path="haxe.coro.IStackFrame" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/IStackFrame.hx" interface="1">
 		<getStackItem public="1" set="method">
@@ -11603,7 +11603,7 @@
 	</class>
 	<class path="haxe.coro.BaseContinuation" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/BaseContinuation.hx" abstract="1">
 		<extends path="haxe.coro.SuspensionResult"><c path="haxe.coro.BaseContinuation.T"/></extends>
-		<implements path="haxe.coro.schedulers.IScheduleObject"/>
+		<implements path="haxe.coro.dispatchers.IDispatchObject"/>
 		<implements path="haxe.coro.IStackFrame"/>
 		<implements path="haxe.coro.IContinuation"><c path="haxe.coro.BaseContinuation.T"/></implements>
 		<completion final="1" public="1">
@@ -11666,7 +11666,7 @@
 		<buildCallStack set="method" line="192"><f a=""><x path="Void"/></f></buildCallStack>
 		<invokeResume abstract="1" set="method"><f a=""><c path="haxe.coro.SuspensionResult"><c path="haxe.coro.BaseContinuation.T"/></c></f></invokeResume>
 		<toString public="1" set="method" line="224" override="1"><f a=""><c path="String"/></f></toString>
-		<onSchedule public="1" set="method" line="228"><f a=""><x path="Void"/></f></onSchedule>
+		<onDispatch public="1" set="method" line="228"><f a=""><x path="Void"/></f></onDispatch>
 		<new set="method" line="60">
 			<f a="completion:initialLabel">
 				<c path="haxe.coro.IContinuation"><x path="Any"/></c>
@@ -12128,7 +12128,7 @@
 	<abstract path="haxe.coro.context.Key" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx">
 		<from><icast field="fromClass"><c path="fromClass.C"/></icast></from>
 		<this><c path="haxe.coro.context.KeyImpl"><c path="haxe.coro.context.Key.T"/></c></this>
-		<haxe_doc>Represents the key of a `Context` element. See `haxe.coro.schedulers.Scheduler` for a usage example.</haxe_doc>
+		<haxe_doc>Represents the key of a `Context` element. See `haxe.coro.dispatchers.Dispatcher` for a usage example.</haxe_doc>
 		<meta>
 			<m n=":forward"/>
 			<m n=":forward.statics"/>
@@ -12174,6 +12174,62 @@
 			</meta>
 		</fromClass>
 	</class>
+	<class path="haxe.coro.dispatchers.Dispatcher" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/dispatchers/Dispatcher.hx" abstract="1">
+		<implements path="haxe.coro.context.IElement"><c path="haxe.coro.dispatchers.Dispatcher"/></implements>
+		<key final="1" public="1" set="null" expr="new Key&lt;Dispatcher&gt;(&quot;Dispatcher&quot;)" line="13" static="1">
+			<x path="haxe.coro.context.Key"><c path="haxe.coro.dispatchers.Dispatcher"/></x>
+			<meta><m n=":value"><e><![CDATA[new Key<Dispatcher>("Dispatcher")]]></e></m></meta>
+		</key>
+		<scheduler public="1" get="accessor" set="null">
+			<c path="haxe.coro.schedulers.IScheduler"/>
+			<haxe_doc>The scheduler associated with `this` dispatcher. In the general case, scheduling
+		functions are unaware of dispatchers and it is the responsibility of the user to
+		ensure correct code distribution. See `haxe.coro.schedulers.IScheduler.schedule`
+		for details.</haxe_doc>
+		</scheduler>
+		<dispatch abstract="1" public="1" set="method">
+			<f a="obj">
+				<c path="haxe.coro.dispatchers.IDispatchObject"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Dispatches `obj` to be executed. While the code execution is guaranteed (as long
+		as the program doesn't deadlock), no assumptions should be made about how and when
+		exactly that occurs.</haxe_doc>
+		</dispatch>
+		<get_scheduler abstract="1" set="method"><f a=""><c path="haxe.coro.schedulers.IScheduler"/></f></get_scheduler>
+		<getKey public="1" set="method" line="35">
+			<f a=""><x path="haxe.coro.context.Key"><c path="haxe.coro.dispatchers.Dispatcher"/></x></f>
+			<haxe_doc>@see `IElement.getKey`</haxe_doc>
+		</getKey>
+		<haxe_doc>A dispatcher manages the distribution of executable code to executors,
+	allowing the asynchronous behavior of coroutines. Refer to the
+	`hxcoro.dispatchers` package in the `hxcoro` haxelib for conrete implementation.</haxe_doc>
+	</class>
+	<class path="haxe.coro.schedulers.IScheduler" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/schedulers/IScheduler.hx" interface="1">
+		<schedule public="1" set="method">
+			<f a="ms:func">
+				<x path="haxe.Int64"/>
+				<f a=""><x path="Void"/></f>
+				<c path="haxe.coro.schedulers.ISchedulerHandle"/>
+			</f>
+			<haxe_doc>Schedules `func` to be run `ms` milliseconds from now. Returns an `ISchedulerHandle` which
+		allows cancellation.
+
+		The exact way `func` is called is implemented-dependent. It is strongly recommended to
+		return from the callback as soon as possible, e.g. by dispatching further operations
+		to a dispatcher instead of executing them directly. In particular, continuations should
+		not be resumed synchronously from the callback code.</haxe_doc>
+		</schedule>
+		<now public="1" set="method">
+			<f a=""><x path="haxe.Int64"/></f>
+			<haxe_doc>Returns the current time in millseconds. The nature of this value is implementation-depdendent
+		and might not necessarily relate to real time. Assumptions about its absolute value should
+		not be made, only the difference between two time values has a meaning.</haxe_doc>
+		</now>
+		<haxe_doc>This is the interface of all schedulers, which are used to manage time-related behavior of
+	coroutines. Refer to the `hxcoro.schedulers` package in the `hxcoro` haxelib for
+	concrete implementations.</haxe_doc>
+	</class>
 	<class path="haxe.coro.schedulers.ISchedulerHandle" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/schedulers/ISchedulerHandle.hx" interface="1">
 		<close public="1" set="method">
 			<f a=""><x path="Void"/></f>
@@ -12182,43 +12238,6 @@
 	 * This function is thread safe and allowed to be called multiple times.</haxe_doc>
 		</close>
 		<haxe_doc>* Handle representing a scheduled function.</haxe_doc>
-	</class>
-	<class path="haxe.coro.schedulers.Scheduler" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/schedulers/Scheduler.hx" abstract="1">
-		<implements path="haxe.coro.context.IElement"><c path="haxe.coro.schedulers.Scheduler"/></implements>
-		<key final="1" public="1" set="null" expr="new Key&lt;Scheduler&gt;(&quot;Scheduler&quot;)" line="15" static="1">
-			<x path="haxe.coro.context.Key"><c path="haxe.coro.schedulers.Scheduler"/></x>
-			<meta><m n=":value"><e><![CDATA[new Key<Scheduler>("Scheduler")]]></e></m></meta>
-			<haxe_doc>The key which is internally used to look up schedulers.</haxe_doc>
-		</key>
-		<schedule abstract="1" public="1" set="method">
-			<f a="ms:func">
-				<x path="haxe.Int64"/>
-				<f a=""><x path="Void"/></f>
-				<c path="haxe.coro.schedulers.ISchedulerHandle"/>
-			</f>
-			<haxe_doc>Schedules `func` to be run `ms` milliseconds from now. Returns an `ISchedulerHandle` which
-		allows cancellation.</haxe_doc>
-		</schedule>
-		<scheduleObject abstract="1" public="1" set="method">
-			<f a="obj">
-				<c path="haxe.coro.schedulers.IScheduleObject"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Schedules `obj` to run. Schedulers ensure that the order of execution follows
-		first-in-first-out.</haxe_doc>
-		</scheduleObject>
-		<now abstract="1" public="1" set="method">
-			<f a=""><x path="haxe.Int64"/></f>
-			<haxe_doc>Returns the current time in millseconds.</haxe_doc>
-		</now>
-		<getKey public="1" set="method" line="39">
-			<f a=""><x path="haxe.coro.context.Key"><c path="haxe.coro.schedulers.Scheduler"/></x></f>
-			<haxe_doc>@see `IElement.getKey`</haxe_doc>
-		</getKey>
-		<new set="method" line="17"><f a=""><x path="Void"/></f></new>
-		<haxe_doc>This is the abstract base class of all schedulers, which are used to manage the asynchronous
-	behavior of coroutines. Refer to the `hxcoro.schedulers` package in the `hxcoro` haxelib for
-	concrete implementations.</haxe_doc>
 	</class>
 	<class path="haxe.crypto.Adler32" params="" file="/home/runner/work/haxe/haxe/std/haxe/crypto/Adler32.hx">
 		<read public="1" set="method" line="60" static="1"><f a="i">
