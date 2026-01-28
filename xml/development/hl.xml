@@ -3357,23 +3357,6 @@
 	<e>"bsort_f64"</e>
 </m></meta>
 		</sortF64>
-		<sortI64 public="1" set="method" line="116" static="1">
-			<f a="this:pos:length:f">
-				<x path="hl.Bytes"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<f a=":">
-					<x path="hl.I64"/>
-					<x path="hl.I64"/>
-					<x path="Int"/>
-				</f>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"std"</e>
-	<e>"bsort_i64"</e>
-</m></meta>
-		</sortI64>
 		<offset public="1" set="method" line="123" static="1">
 			<f a="this:delta">
 				<x path="hl.Bytes"/>
@@ -7047,6 +7030,12 @@
 	<x path="Void"/>
 </f></new>
 	</class>
+	<typedef path="haxe._EventLoop.NativeEventLoop" params="" file="/home/runner/work/haxe/haxe/std/haxe/EventLoop.hx" private="1" module="haxe.EventLoop"><a>
+	<run set="method"><f a=""><x path="Void"/></f></run>
+	<isAlive set="method"><f a=""><x path="Bool"/></f></isAlive>
+	<close set="method"><f a=""><x path="Void"/></f></close>
+	<allowsReentrancy final="1" set="null"><x path="Bool"/></allowsReentrancy>
+</a></typedef>
 	<class path="haxe.EventLoop" params="" file="/home/runner/work/haxe/haxe/std/haxe/EventLoop.hx">
 		<main public="1" get="accessor" set="null" static="1">
 			<c path="haxe.EventLoop"/>
@@ -7057,11 +7046,11 @@
 			<haxe_doc>This is the current thread event loop. For platforms that doesn't support threads
 		it is the same as `main`.</haxe_doc>
 		</current>
-		<hasRunningThreads public="1" set="method" line="445" static="1">
+		<hasRunningThreads public="1" set="method" line="425" static="1">
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>Tells if we currently have blocking unfinished threads.</haxe_doc>
 		</hasRunningThreads>
-		<addTask public="1" set="method" line="481" static="1">
+		<addTask public="1" set="method" line="459" static="1">
 			<f a="f:?blocking" v=":true">
 				<f a=""><x path="Void"/></f>
 				<x path="Bool"/>
@@ -7071,8 +7060,8 @@
 			<haxe_doc>Add a task to be run either on another thread or as part of the main event loop if the
 		platform does not support threads.</haxe_doc>
 		</addTask>
-		<get_current set="method" line="489" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_current>
-		<get_main set="method" line="499" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_main>
+		<get_current set="method" line="467" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_current>
+		<get_main set="method" line="477" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_main>
 		<events><c path="haxe.Event"/></events>
 		<queue><c path="haxe.Event"/></queue>
 		<inLoop><x path="Bool"/></inLoop>
@@ -7087,36 +7076,38 @@
 			<c path="sys.thread.Thread"/>
 			<haxe_doc>The reference thread for this loop. If set, the loop can only be run within this thread.</haxe_doc>
 		</thread>
-		<uvLoop><x path="hl.uv.Loop"/></uvLoop>
-		<inUV><x path="Bool"/></inUV>
-		<getUVLoop set="method" line="110"><f a=""><x path="hl.uv.Loop"/></f></getUVLoop>
-		<dispose public="1" set="method" line="130">
+		<nativeLoop><x path="Null"><t path="haxe._EventLoop.NativeEventLoop"/></x></nativeLoop>
+		<inNative expr="false">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>false</e></m></meta>
+		</inNative>
+		<dispose public="1" set="method" line="118">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>This should be called after you are finished with a custom event loop.
 		It is already automatically called for threads loops.</haxe_doc>
 		</dispose>
-		<loop public="1" set="method" line="140">
+		<loop public="1" set="method" line="126">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Runs until all the blocking events have been stopped.
 		If this is called on the main thread, also wait for all blocking threads to finish.</haxe_doc>
 		</loop>
-		<promise public="1" set="method" line="160">
+		<promise public="1" set="method" line="144">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Promise a possible future event addition. This will prevent the `loop()` from terminating until the matching number of `deliver()` calls have been made.</haxe_doc>
 		</promise>
-		<deliver public="1" set="method" line="169">
+		<deliver public="1" set="method" line="153">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Deliver after a `promise()`. This will throw an exception if more `deliver()` calls has been made than corresponding `promise()` calls.</haxe_doc>
 		</deliver>
-		<wakeup get="inline" set="null" line="181"><f a=""><x path="Void"/></f></wakeup>
-		<wait get="inline" set="null" line="187"><f a="time">
+		<wakeup get="inline" set="null" line="165"><f a=""><x path="Void"/></f></wakeup>
+		<wait get="inline" set="null" line="171"><f a="time">
 	<x path="Float"/>
 	<x path="Void"/>
 </f></wait>
-		<lock get="inline" set="null" line="195"><f a=""><x path="Void"/></f></lock>
-		<unlock get="inline" set="null" line="201"><f a=""><x path="Void"/></f></unlock>
-		<checkThread set="method" line="207"><f a=""><x path="Void"/></f></checkThread>
-		<loopOnce public="1" set="method" line="218">
+		<lock get="inline" set="null" line="179"><f a=""><x path="Void"/></f></lock>
+		<unlock get="inline" set="null" line="185"><f a=""><x path="Void"/></f></unlock>
+		<checkThread set="method" line="191"><f a=""><x path="Void"/></f></checkThread>
+		<loopOnce public="1" set="method" line="202">
 			<f a="?threadCheck" v="true">
 				<x path="Bool"/>
 				<x path="Void"/>
@@ -7126,7 +7117,7 @@
 		By default, an event loop from a thread can only be triggered from this thread.
 		You can set `threadCheck` to false in the rare cases you might want otherwise.</haxe_doc>
 		</loopOnce>
-		<add public="1" set="method" line="265">
+		<add public="1" set="method" line="245">
 			<f a="callb:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -7135,7 +7126,7 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a callback to be run at each loop of the event loop.</haxe_doc>
 		</add>
-		<addAsync public="1" set="method" line="276">
+		<addAsync public="1" set="method" line="256">
 			<f a="?priority" v="0">
 				<x path="Int"/>
 				<c path="haxe.Event"/>
@@ -7145,7 +7136,7 @@
 		This is useful if you wish to hold a reference of another thread Event loop
 		before it runs.</haxe_doc>
 		</addAsync>
-		<addTimer public="1" set="method" line="283">
+		<addTimer public="1" set="method" line="263">
 			<f a="callb:delay:?priority" v="::0">
 				<f a=""><x path="Void"/></f>
 				<x path="Float"/>
@@ -7155,7 +7146,7 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a callback to be run every `delay` seconds until stopped</haxe_doc>
 		</addTimer>
-		<repeat public="1" set="method" line="290">
+		<repeat public="1" set="method" line="270">
 			<f a="callb:delay">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -7166,7 +7157,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</repeat>
-		<cancel public="1" set="method" line="294">
+		<cancel public="1" set="method" line="274">
 			<f a="e">
 				<c path="haxe.Event"/>
 				<x path="Void"/>
@@ -7176,7 +7167,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</cancel>
-		<run public="1" set="method" line="301">
+		<run public="1" set="method" line="281">
 			<f a="callb:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -7185,17 +7176,17 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a function to be run once at next loop of the event loop.</haxe_doc>
 		</run>
-		<start set="method" line="307"><f a="e">
+		<start set="method" line="287"><f a="e">
 	<c path="haxe.Event"/>
 	<x path="Void"/>
 </f></start>
-		<stop set="method" line="324"><f a="e">
+		<stop set="method" line="304"><f a="e">
 	<c path="haxe.Event"/>
 	<x path="Void"/>
 </f></stop>
-		<getNextTick set="method" line="353"><f a=""><x path="Float"/></f></getNextTick>
-		<sortEvents set="method" line="375"><f a=""><x path="Void"/></f></sortEvents>
-		<hasEvents public="1" set="method" line="457">
+		<getNextTick set="method" line="333"><f a=""><x path="Float"/></f></getNextTick>
+		<sortEvents set="method" line="355"><f a=""><x path="Void"/></f></sortEvents>
+		<hasEvents public="1" set="method" line="437">
 			<f a="?blocking" v="true">
 				<x path="Bool"/>
 				<x path="Bool"/>
@@ -7204,7 +7195,7 @@
 			<haxe_doc>Tells if the event loop has remaining events.
 		If blocking is set to true, only check if it has remaining blocking events.</haxe_doc>
 		</hasEvents>
-		<new public="1" set="method" line="102"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="107"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>Handles async events for all threads</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
@@ -37613,54 +37604,6 @@
 	<e>"sys_has_debugger"</e>
 </m></meta>
 		</hasDebugger>
-		<_registerGUIDName set="method" static="1">
-			<f a="guid:bytes">
-				<x path="hl.I64"/>
-				<x path="hl.Bytes"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"?std"</e>
-	<e>"register_guid_name"</e>
-</m></meta>
-		</_registerGUIDName>
-		<registerGUIDName public="1" get="inline" set="null" line="58" static="1"><f a="guid:name">
-	<x path="hl.GUID"/>
-	<x path="Null"><c path="String"/></x>
-	<x path="Void"/>
-</f></registerGUIDName>
-		<timestampMs public="1" set="method" static="1">
-			<f a=""><x path="haxe.Int64"/></f>
-			<meta><m n=":hlNative">
-	<e>"?std"</e>
-	<e>"sys_timestamp_ms"</e>
-</m></meta>
-		</timestampMs>
-		<resolveTypeDyn public="1" set="method" static="1">
-			<f a="t:gt">
-				<x path="hl.Type"/>
-				<x path="hl.Type"/>
-				<d/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"?std"</e>
-	<e>"sys_resolve_type"</e>
-</m></meta>
-		</resolveTypeDyn>
-		<_loadPlugin set="method" static="1">
-			<f a="file">
-				<x path="hl.Bytes"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"?std"</e>
-	<e>"sys_load_plugin"</e>
-</m></meta>
-		</_loadPlugin>
-		<loadPlugin public="1" get="inline" set="null" line="65" static="1"><f a="file">
-	<c path="String"/>
-	<x path="Bool"/>
-</f></loadPlugin>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="hl.Atomics" params="" file="/home/runner/work/haxe/haxe/std/hl/Atomics.hx" extern="1">
@@ -38006,23 +37949,6 @@
 	<e>"bsort_f64"</e>
 </m></meta>
 	</sortF64>
-	<sortI64 public="1" set="method" line="116" static="1">
-		<f a="this:pos:length:f">
-			<x path="hl.Bytes"/>
-			<x path="Int"/>
-			<x path="Int"/>
-			<f a=":">
-				<x path="hl.I64"/>
-				<x path="hl.I64"/>
-				<x path="Int"/>
-			</f>
-			<x path="Void"/>
-		</f>
-		<meta><m n=":hlNative">
-	<e>"std"</e>
-	<e>"bsort_i64"</e>
-</m></meta>
-	</sortI64>
 	<offset public="1" set="method" line="123" static="1">
 		<f a="this:delta">
 			<x path="hl.Bytes"/>
@@ -38363,36 +38289,6 @@
 	<c path="haxe.io.Bytes"/>
 	<x path="hl.CArray"><c path="fromBytes.T"/></x>
 </f></fromBytes>
-	<toBytes public="1" set="method" line="29" static="1"><f a="this:cl:count">
-	<c path="hl.Abstract"><c path="Shl_carray"/></c>
-	<x path="Class"><c path="hl.CArray.T"/></x>
-	<x path="Int"/>
-	<c path="haxe.io.Bytes"/>
-</f></toBytes>
-	<blit public="1" get="inline" set="null" line="36" static="1"><f a="this:cl:pos:src:srcPos:srcLen">
-	<c path="hl.Abstract"><c path="Shl_carray"/></c>
-	<x path="Class"><c path="hl.CArray.T"/></x>
-	<x path="Int"/>
-	<x path="hl.CArray"><c path="hl.CArray.T"/></x>
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Void"/>
-</f></blit>
-	<carray_blit set="method" line="41" static="1">
-		<f a="dst:t:pos:src:srcPos:srcLen">
-			<x path="hl.CArray"><d/></x>
-			<x path="hl.Type"/>
-			<x path="Int"/>
-			<x path="hl.CArray"><d/></x>
-			<x path="Int"/>
-			<x path="Int"/>
-			<x path="Void"/>
-		</f>
-		<meta><m n=":hlNative">
-	<e>"?std"</e>
-	<e>"carray_blit"</e>
-</m></meta>
-	</carray_blit>
 </class></impl>
 	</abstract>
 	<class path="hl._CArray.CArray_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/CArray.hx" private="1" module="hl.CArray" final="1">
@@ -38436,36 +38332,6 @@
 	<c path="haxe.io.Bytes"/>
 	<x path="hl.CArray"><c path="fromBytes.T"/></x>
 </f></fromBytes>
-		<toBytes public="1" set="method" line="29" static="1"><f a="this:cl:count">
-	<c path="hl.Abstract"><c path="Shl_carray"/></c>
-	<x path="Class"><c path="hl.CArray.T"/></x>
-	<x path="Int"/>
-	<c path="haxe.io.Bytes"/>
-</f></toBytes>
-		<blit public="1" get="inline" set="null" line="36" static="1"><f a="this:cl:pos:src:srcPos:srcLen">
-	<c path="hl.Abstract"><c path="Shl_carray"/></c>
-	<x path="Class"><c path="hl.CArray.T"/></x>
-	<x path="Int"/>
-	<x path="hl.CArray"><c path="hl.CArray.T"/></x>
-	<x path="Int"/>
-	<x path="Int"/>
-	<x path="Void"/>
-</f></blit>
-		<carray_blit set="method" line="41" static="1">
-			<f a="dst:t:pos:src:srcPos:srcLen">
-				<x path="hl.CArray"><d/></x>
-				<x path="hl.Type"/>
-				<x path="Int"/>
-				<x path="hl.CArray"><d/></x>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"?std"</e>
-	<e>"carray_blit"</e>
-</m></meta>
-		</carray_blit>
 	</class>
 	<typedef path="hl.F32" params="" file="/home/runner/work/haxe/haxe/std/hl/F32.hx"><x path="Single"/></typedef>
 	<typedef path="hl.F64" params="" file="/home/runner/work/haxe/haxe/std/hl/F64.hx"><x path="Float"/></typedef>
@@ -38487,138 +38353,6 @@
 		Set 256 flag to tell the src are String bytes.</haxe_doc>
 		</digest>
 		<haxe_doc>These are some bindings for the HL `fmt.hdll` library, which contains various low level formats handling.</haxe_doc>
-	</class>
-	<abstract path="hl.GUID" params="" file="/home/runner/work/haxe/haxe/std/hl/GUID.hx">
-		<from><icast><x path="hl.I64"/></icast></from>
-		<this><x path="hl.GUID"/></this>
-		<to><icast><x path="hl.I64"/></icast></to>
-		<meta>
-			<m n=":coreType"/>
-			<m n=":notNull"/>
-			<m n=":runtimeValue"/>
-		</meta>
-		<impl><class path="hl._GUID.GUID_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/GUID.hx" private="1" module="hl.GUID" final="1">
-	<toString public="1" set="method" line="28" static="1"><f a="this">
-	<x path="hl.GUID"/>
-	<c path="String"/>
-</f></toString>
-	<eq set="method" static="1">
-		<f a="this:v">
-			<x path="hl.GUID"/>
-			<x path="hl.GUID"/>
-			<x path="Bool"/>
-		</f>
-		<meta>
-			<m n=":noExpr"/>
-			<m n=":op"><e>a == b</e></m>
-		</meta>
-	</eq>
-	<gte set="method" static="1">
-		<f a="this:v">
-			<x path="hl.GUID"/>
-			<x path="hl.GUID"/>
-			<x path="Bool"/>
-		</f>
-		<meta>
-			<m n=":noExpr"/>
-			<m n=":op"><e><![CDATA[a >= b]]></e></m>
-		</meta>
-	</gte>
-	<lte set="method" static="1">
-		<f a="this:v">
-			<x path="hl.GUID"/>
-			<x path="hl.GUID"/>
-			<x path="Bool"/>
-		</f>
-		<meta>
-			<m n=":noExpr"/>
-			<m n=":op"><e><![CDATA[a <= b]]></e></m>
-		</meta>
-	</lte>
-	<gt set="method" static="1">
-		<f a="this:v">
-			<x path="hl.GUID"/>
-			<x path="hl.GUID"/>
-			<x path="Bool"/>
-		</f>
-		<meta>
-			<m n=":noExpr"/>
-			<m n=":op"><e><![CDATA[a > b]]></e></m>
-		</meta>
-	</gt>
-	<lt set="method" static="1">
-		<f a="this:v">
-			<x path="hl.GUID"/>
-			<x path="hl.GUID"/>
-			<x path="Bool"/>
-		</f>
-		<meta>
-			<m n=":noExpr"/>
-			<m n=":op"><e><![CDATA[a < b]]></e></m>
-		</meta>
-	</lt>
-</class></impl>
-	</abstract>
-	<class path="hl._GUID.GUID_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/GUID.hx" private="1" module="hl.GUID" final="1">
-		<toString public="1" set="method" line="28" static="1"><f a="this">
-	<x path="hl.GUID"/>
-	<c path="String"/>
-</f></toString>
-		<eq set="method" static="1">
-			<f a="this:v">
-				<x path="hl.GUID"/>
-				<x path="hl.GUID"/>
-				<x path="Bool"/>
-			</f>
-			<meta>
-				<m n=":noExpr"/>
-				<m n=":op"><e>a == b</e></m>
-			</meta>
-		</eq>
-		<gte set="method" static="1">
-			<f a="this:v">
-				<x path="hl.GUID"/>
-				<x path="hl.GUID"/>
-				<x path="Bool"/>
-			</f>
-			<meta>
-				<m n=":noExpr"/>
-				<m n=":op"><e><![CDATA[a >= b]]></e></m>
-			</meta>
-		</gte>
-		<lte set="method" static="1">
-			<f a="this:v">
-				<x path="hl.GUID"/>
-				<x path="hl.GUID"/>
-				<x path="Bool"/>
-			</f>
-			<meta>
-				<m n=":noExpr"/>
-				<m n=":op"><e><![CDATA[a <= b]]></e></m>
-			</meta>
-		</lte>
-		<gt set="method" static="1">
-			<f a="this:v">
-				<x path="hl.GUID"/>
-				<x path="hl.GUID"/>
-				<x path="Bool"/>
-			</f>
-			<meta>
-				<m n=":noExpr"/>
-				<m n=":op"><e><![CDATA[a > b]]></e></m>
-			</meta>
-		</gt>
-		<lt set="method" static="1">
-			<f a="this:v">
-				<x path="hl.GUID"/>
-				<x path="hl.GUID"/>
-				<x path="Bool"/>
-			</f>
-			<meta>
-				<m n=":noExpr"/>
-				<m n=":op"><e><![CDATA[a < b]]></e></m>
-			</meta>
-		</lt>
 	</class>
 	<enum path="hl.GcFlag" params="" file="/home/runner/work/haxe/haxe/std/hl/Gc.hx" module="hl.Gc">
 		<Profile><haxe_doc>Activate profiling: regularly print on stdout gc allocation stats</haxe_doc></Profile>
@@ -40342,16 +40076,6 @@
 	<e>"alloc_enum_dyn"</e>
 </m></meta>
 	</allocEnum>
-	<getDataSize public="1" set="method" line="119" static="1">
-		<f a="this">
-			<x path="hl.Type"/>
-			<x path="Int"/>
-		</f>
-		<meta><m n=":hlNative">
-	<e>"std"</e>
-	<e>"type_data_size"</e>
-</m></meta>
-	</getDataSize>
 	<meta><m n=":directlyUsed"/></meta>
 </class></impl>
 	</abstract>
@@ -40501,16 +40225,6 @@
 	<e>"alloc_enum_dyn"</e>
 </m></meta>
 		</allocEnum>
-		<getDataSize public="1" set="method" line="119" static="1">
-			<f a="this">
-				<x path="hl.Type"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":hlNative">
-	<e>"std"</e>
-	<e>"type_data_size"</e>
-</m></meta>
-		</getDataSize>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<typedef path="hl.SentinelHandle" params="" file="/home/runner/work/haxe/haxe/std/hl/UI.hx" module="hl.UI"><c path="hl.Abstract"><c path="Sui_sentinel"/></c></typedef>
@@ -41031,14 +40745,6 @@
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</allocI64>
-		<allocGUID public="1" set="method" line="171" static="1">
-			<f a="bytes:length">
-				<x path="hl.BytesAccess"><x path="hl.GUID"/></x>
-				<x path="Int"/>
-				<t path="hl.types.ArrayGUID"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</allocGUID>
 		<length public="1" set="null"><x path="Int"/></length>
 		<pushDyn public="1" set="method" line="45"><f a="v">
 	<d/>
@@ -41265,7 +40971,6 @@
 	<typedef path="hl.types.ArrayF32" params="" file="/home/runner/work/haxe/haxe/std/hl/types/ArrayBytes.hx" module="hl.types.ArrayBytes"><c path="hl.types.ArrayBytes_hl_F32"/></typedef>
 	<typedef path="hl.types.ArrayF64" params="" file="/home/runner/work/haxe/haxe/std/hl/types/ArrayBytes.hx" module="hl.types.ArrayBytes"><c path="hl.types.ArrayBytes_Float"/></typedef>
 	<typedef path="hl.types.ArrayI64" params="" file="/home/runner/work/haxe/haxe/std/hl/types/ArrayBytes.hx" module="hl.types.ArrayBytes"><c path="hl.types.ArrayBytes_hl_I64"/></typedef>
-	<typedef path="hl.types.ArrayGUID" params="" file="/home/runner/work/haxe/haxe/std/hl/types/ArrayBytes.hx" module="hl.types.ArrayBytes"><c path="hl.types.ArrayBytes_hl_GUID"/></typedef>
 	<class path="hl.types.ArrayDynIterator" params="" file="/home/runner/work/haxe/haxe/std/hl/types/ArrayDyn.hx" module="hl.types.ArrayDyn">
 		<extends path="haxe.iterators.ArrayIterator"><d/></extends>
 		<a><c path="hl.types.ArrayBase"/></a>
@@ -42466,7 +42171,7 @@
 		</f>
 		<meta><m n=":hlNative">
 	<e>"uv"</e>
-	<e>"loop_close_wrap"</e>
+	<e>"loop_close"</e>
 </m></meta>
 	</close>
 	<run public="1" set="method" line="38" static="1">
@@ -42477,7 +42182,7 @@
 		</f>
 		<meta><m n=":hlNative">
 	<e>"uv"</e>
-	<e>"run_wrap"</e>
+	<e>"run"</e>
 </m></meta>
 	</run>
 	<alive public="1" set="method" line="43" static="1">
@@ -42487,7 +42192,7 @@
 		</f>
 		<meta><m n=":hlNative">
 	<e>"uv"</e>
-	<e>"loop_alive_wrap"</e>
+	<e>"loop_alive"</e>
 </m></meta>
 	</alive>
 	<stop public="1" set="method" line="48" static="1">
@@ -42497,26 +42202,22 @@
 		</f>
 		<meta><m n=":hlNative">
 	<e>"uv"</e>
-	<e>"stop_wrap"</e>
+	<e>"stop"</e>
 </m></meta>
 	</stop>
-	<getCurrent public="1" set="method" line="50" static="1"><f a=""><x path="hl.uv.Loop"/></f></getCurrent>
-	<getDefault public="1" set="method" line="54" static="1"><f a=""><x path="hl.uv.Loop"/></f></getDefault>
-	<default_loop set="method" line="59" static="1">
+	<getFromEventLoop public="1" set="method" line="50" static="1"><f a="loop">
+	<c path="haxe.EventLoop"/>
+	<x path="hl.uv.Loop"/>
+</f></getFromEventLoop>
+	<getCurrent public="1" set="method" line="66" static="1"><f a=""><x path="hl.uv.Loop"/></f></getCurrent>
+	<getDefault public="1" set="method" line="70" static="1"><f a=""><x path="hl.uv.Loop"/></f></getDefault>
+	<default_loop set="method" line="75" static="1">
 		<f a=""><x path="hl.uv.Loop"/></f>
 		<meta><m n=":hlNative">
 	<e>"uv"</e>
-	<e>"default_loop_wrap"</e>
+	<e>"default_loop"</e>
 </m></meta>
 	</default_loop>
-	<create public="1" set="method" line="64" static="1">
-		<f a=""><x path="hl.uv.Loop"/></f>
-		<meta><m n=":hlNative">
-	<e>"uv"</e>
-	<e>"create_loop"</e>
-</m></meta>
-	</create>
-	<meta><m n=":directlyUsed"/></meta>
 </class></impl>
 	</abstract>
 	<class path="hl.uv._Loop.Loop_Impl_" params="" file="/home/runner/work/haxe/haxe/std/hl/uv/Loop.hx" private="1" module="hl.uv.Loop" final="1">
@@ -42527,7 +42228,7 @@
 			</f>
 			<meta><m n=":hlNative">
 	<e>"uv"</e>
-	<e>"loop_close_wrap"</e>
+	<e>"loop_close"</e>
 </m></meta>
 		</close>
 		<run public="1" set="method" line="38" static="1">
@@ -42538,7 +42239,7 @@
 			</f>
 			<meta><m n=":hlNative">
 	<e>"uv"</e>
-	<e>"run_wrap"</e>
+	<e>"run"</e>
 </m></meta>
 		</run>
 		<alive public="1" set="method" line="43" static="1">
@@ -42548,7 +42249,7 @@
 			</f>
 			<meta><m n=":hlNative">
 	<e>"uv"</e>
-	<e>"loop_alive_wrap"</e>
+	<e>"loop_alive"</e>
 </m></meta>
 		</alive>
 		<stop public="1" set="method" line="48" static="1">
@@ -42558,26 +42259,36 @@
 			</f>
 			<meta><m n=":hlNative">
 	<e>"uv"</e>
-	<e>"stop_wrap"</e>
+	<e>"stop"</e>
 </m></meta>
 		</stop>
-		<getCurrent public="1" set="method" line="50" static="1"><f a=""><x path="hl.uv.Loop"/></f></getCurrent>
-		<getDefault public="1" set="method" line="54" static="1"><f a=""><x path="hl.uv.Loop"/></f></getDefault>
-		<default_loop set="method" line="59" static="1">
+		<getFromEventLoop public="1" set="method" line="50" static="1"><f a="loop">
+	<c path="haxe.EventLoop"/>
+	<x path="hl.uv.Loop"/>
+</f></getFromEventLoop>
+		<getCurrent public="1" set="method" line="66" static="1"><f a=""><x path="hl.uv.Loop"/></f></getCurrent>
+		<getDefault public="1" set="method" line="70" static="1"><f a=""><x path="hl.uv.Loop"/></f></getDefault>
+		<default_loop set="method" line="75" static="1">
 			<f a=""><x path="hl.uv.Loop"/></f>
 			<meta><m n=":hlNative">
 	<e>"uv"</e>
-	<e>"default_loop_wrap"</e>
+	<e>"default_loop"</e>
 </m></meta>
 		</default_loop>
-		<create public="1" set="method" line="64" static="1">
-			<f a=""><x path="hl.uv.Loop"/></f>
-			<meta><m n=":hlNative">
-	<e>"uv"</e>
-	<e>"create_loop"</e>
-</m></meta>
-		</create>
-		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="hl.uv._Loop.LoopWrapper" params="" file="/home/runner/work/haxe/haxe/std/hl/uv/Loop.hx" private="1" module="hl.uv.Loop">
+		<allowsReentrancy final="1" public="1" expr="false">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>false</e></m></meta>
+		</allowsReentrancy>
+		<uvLoop final="1"><x path="hl.uv.Loop"/></uvLoop>
+		<run public="1" set="method" line="95"><f a=""><x path="Void"/></f></run>
+		<close public="1" set="method" line="99"><f a=""><x path="Void"/></f></close>
+		<isAlive public="1" set="method" line="105"><f a=""><x path="Bool"/></f></isAlive>
+		<new public="1" set="method" line="91"><f a="loop">
+	<x path="hl.uv.Loop"/>
+	<x path="Void"/>
+</f></new>
 	</class>
 	<class path="hl.uv.Stream" params="" file="/home/runner/work/haxe/haxe/std/hl/uv/Stream.hx">
 		<extends path="hl.uv.Handle"/>

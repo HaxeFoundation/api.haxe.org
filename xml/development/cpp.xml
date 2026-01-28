@@ -13019,6 +13019,12 @@
 	<x path="Void"/>
 </f></new>
 	</class>
+	<typedef path="haxe._EventLoop.NativeEventLoop" params="" file="/home/runner/work/haxe/haxe/std/haxe/EventLoop.hx" private="1" module="haxe.EventLoop"><a>
+	<run set="method"><f a=""><x path="Void"/></f></run>
+	<isAlive set="method"><f a=""><x path="Bool"/></f></isAlive>
+	<close set="method"><f a=""><x path="Void"/></f></close>
+	<allowsReentrancy final="1" set="null"><x path="Bool"/></allowsReentrancy>
+</a></typedef>
 	<class path="haxe.EventLoop" params="" file="/home/runner/work/haxe/haxe/std/haxe/EventLoop.hx">
 		<main public="1" get="accessor" set="null" static="1">
 			<c path="haxe.EventLoop"/>
@@ -13029,11 +13035,11 @@
 			<haxe_doc>This is the current thread event loop. For platforms that doesn't support threads
 		it is the same as `main`.</haxe_doc>
 		</current>
-		<hasRunningThreads public="1" set="method" line="445" static="1">
+		<hasRunningThreads public="1" set="method" line="425" static="1">
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>Tells if we currently have blocking unfinished threads.</haxe_doc>
 		</hasRunningThreads>
-		<addTask public="1" set="method" line="481" static="1">
+		<addTask public="1" set="method" line="459" static="1">
 			<f a="f:?blocking" v=":true">
 				<f a=""><x path="Void"/></f>
 				<x path="Bool"/>
@@ -13043,8 +13049,8 @@
 			<haxe_doc>Add a task to be run either on another thread or as part of the main event loop if the
 		platform does not support threads.</haxe_doc>
 		</addTask>
-		<get_current set="method" line="489" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_current>
-		<get_main set="method" line="499" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_main>
+		<get_current set="method" line="467" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_current>
+		<get_main set="method" line="477" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_main>
 		<events><c path="haxe.Event"/></events>
 		<queue><c path="haxe.Event"/></queue>
 		<inLoop><x path="Bool"/></inLoop>
@@ -13059,33 +13065,38 @@
 			<c path="sys.thread.Thread"/>
 			<haxe_doc>The reference thread for this loop. If set, the loop can only be run within this thread.</haxe_doc>
 		</thread>
-		<dispose public="1" set="method" line="130">
+		<nativeLoop><x path="Null"><t path="haxe._EventLoop.NativeEventLoop"/></x></nativeLoop>
+		<inNative expr="false">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>false</e></m></meta>
+		</inNative>
+		<dispose public="1" set="method" line="118">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>This should be called after you are finished with a custom event loop.
 		It is already automatically called for threads loops.</haxe_doc>
 		</dispose>
-		<loop public="1" set="method" line="140">
+		<loop public="1" set="method" line="126">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Runs until all the blocking events have been stopped.
 		If this is called on the main thread, also wait for all blocking threads to finish.</haxe_doc>
 		</loop>
-		<promise public="1" set="method" line="160">
+		<promise public="1" set="method" line="144">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Promise a possible future event addition. This will prevent the `loop()` from terminating until the matching number of `deliver()` calls have been made.</haxe_doc>
 		</promise>
-		<deliver public="1" set="method" line="169">
+		<deliver public="1" set="method" line="153">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Deliver after a `promise()`. This will throw an exception if more `deliver()` calls has been made than corresponding `promise()` calls.</haxe_doc>
 		</deliver>
-		<wakeup get="inline" set="null" line="181"><f a=""><x path="Void"/></f></wakeup>
-		<wait get="inline" set="null" line="187"><f a="time">
+		<wakeup get="inline" set="null" line="165"><f a=""><x path="Void"/></f></wakeup>
+		<wait get="inline" set="null" line="171"><f a="time">
 	<x path="Float"/>
 	<x path="Void"/>
 </f></wait>
-		<lock get="inline" set="null" line="195"><f a=""><x path="Void"/></f></lock>
-		<unlock get="inline" set="null" line="201"><f a=""><x path="Void"/></f></unlock>
-		<checkThread set="method" line="207"><f a=""><x path="Void"/></f></checkThread>
-		<loopOnce public="1" set="method" line="218">
+		<lock get="inline" set="null" line="179"><f a=""><x path="Void"/></f></lock>
+		<unlock get="inline" set="null" line="185"><f a=""><x path="Void"/></f></unlock>
+		<checkThread set="method" line="191"><f a=""><x path="Void"/></f></checkThread>
+		<loopOnce public="1" set="method" line="202">
 			<f a="?threadCheck" v="true">
 				<x path="Bool"/>
 				<x path="Void"/>
@@ -13095,7 +13106,7 @@
 		By default, an event loop from a thread can only be triggered from this thread.
 		You can set `threadCheck` to false in the rare cases you might want otherwise.</haxe_doc>
 		</loopOnce>
-		<add public="1" set="method" line="265">
+		<add public="1" set="method" line="245">
 			<f a="callb:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -13104,7 +13115,7 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a callback to be run at each loop of the event loop.</haxe_doc>
 		</add>
-		<addAsync public="1" set="method" line="276">
+		<addAsync public="1" set="method" line="256">
 			<f a="?priority" v="0">
 				<x path="Int"/>
 				<c path="haxe.Event"/>
@@ -13114,7 +13125,7 @@
 		This is useful if you wish to hold a reference of another thread Event loop
 		before it runs.</haxe_doc>
 		</addAsync>
-		<addTimer public="1" set="method" line="283">
+		<addTimer public="1" set="method" line="263">
 			<f a="callb:delay:?priority" v="::0">
 				<f a=""><x path="Void"/></f>
 				<x path="Float"/>
@@ -13124,7 +13135,7 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a callback to be run every `delay` seconds until stopped</haxe_doc>
 		</addTimer>
-		<repeat public="1" set="method" line="290">
+		<repeat public="1" set="method" line="270">
 			<f a="callb:delay">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -13135,7 +13146,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</repeat>
-		<cancel public="1" set="method" line="294">
+		<cancel public="1" set="method" line="274">
 			<f a="e">
 				<c path="haxe.Event"/>
 				<x path="Void"/>
@@ -13145,7 +13156,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</cancel>
-		<run public="1" set="method" line="301">
+		<run public="1" set="method" line="281">
 			<f a="callb:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -13154,17 +13165,17 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a function to be run once at next loop of the event loop.</haxe_doc>
 		</run>
-		<start set="method" line="307"><f a="e">
+		<start set="method" line="287"><f a="e">
 	<c path="haxe.Event"/>
 	<x path="Void"/>
 </f></start>
-		<stop set="method" line="324"><f a="e">
+		<stop set="method" line="304"><f a="e">
 	<c path="haxe.Event"/>
 	<x path="Void"/>
 </f></stop>
-		<getNextTick set="method" line="353"><f a=""><x path="Float"/></f></getNextTick>
-		<sortEvents set="method" line="375"><f a=""><x path="Void"/></f></sortEvents>
-		<hasEvents public="1" set="method" line="457">
+		<getNextTick set="method" line="333"><f a=""><x path="Float"/></f></getNextTick>
+		<sortEvents set="method" line="355"><f a=""><x path="Void"/></f></sortEvents>
+		<hasEvents public="1" set="method" line="437">
 			<f a="?blocking" v="true">
 				<x path="Bool"/>
 				<x path="Bool"/>
@@ -13173,7 +13184,7 @@
 			<haxe_doc>Tells if the event loop has remaining events.
 		If blocking is set to true, only check if it has remaining blocking events.</haxe_doc>
 		</hasEvents>
-		<new public="1" set="method" line="102"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="107"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>Handles async events for all threads</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
