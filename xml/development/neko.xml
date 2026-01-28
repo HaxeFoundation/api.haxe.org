@@ -39693,14 +39693,44 @@
 			<m n=":coreApi"/>
 		</meta>
 	</class>
-	<class path="sys.thread.Semaphore" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/Semaphore.hx" extern="1">
-		<acquire public="1" set="method">
+	<class path="sys.thread.Semaphore" params="" file="/home/runner/work/haxe/haxe/std/neko/_std/sys/thread/Semaphore.hx">
+		<semaphore_create expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;semaphore_create&quot;, 1)" line="22" static="1">
+			<f a="">
+				<x path="Int"/>
+				<x path="Any"/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "semaphore_create", 1)</e></m></meta>
+		</semaphore_create>
+		<semaphore_try_acquire expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;semaphore_try_acquire&quot;, 2)" line="23" static="1">
+			<f a=":">
+				<d/>
+				<x path="Null"><x path="Float"/></x>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "semaphore_try_acquire", 2)</e></m></meta>
+		</semaphore_try_acquire>
+		<semaphore_acquire expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;semaphore_acquire&quot;, 1)" line="24" static="1">
+			<f a="">
+				<d/>
+				<x path="Any"/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "semaphore_acquire", 1)</e></m></meta>
+		</semaphore_acquire>
+		<semaphore_release expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;semaphore_release&quot;, 1)" line="25" static="1">
+			<f a="">
+				<d/>
+				<x path="Any"/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "semaphore_release", 1)</e></m></meta>
+		</semaphore_release>
+		<s><d/></s>
+		<acquire public="1" set="method" line="10">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Locks the semaphore.
 		If the value of the semaphore is zero, then the thread will block until it is able to lock the semaphore.
 		If the value is non-zero, it is decreased by one.</haxe_doc>
 		</acquire>
-		<tryAcquire public="1" set="method">
+		<tryAcquire public="1" set="method" line="14">
 			<f a="?timeout">
 				<x path="Float"/>
 				<x path="Bool"/>
@@ -39711,12 +39741,12 @@
 		If `timeout` is specified, this function will block until the thread is able to acquire the semaphore, or the timeout expires.
 		`timeout` is in seconds.</haxe_doc>
 		</tryAcquire>
-		<release public="1" set="method">
+		<release public="1" set="method" line="18">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Release the semaphore.
 		The value of the semaphore is increased by one.</haxe_doc>
 		</release>
-		<new public="1" set="method">
+		<new public="1" set="method" line="6">
 			<f a="value">
 				<x path="Int"/>
 				<x path="Void"/>
