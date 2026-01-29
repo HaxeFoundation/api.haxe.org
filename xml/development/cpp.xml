@@ -18792,45 +18792,33 @@
 		<haxe_doc>Represents an element of `Context`. See `haxe.coro.dispatchers.Dispatcher` for a usage example.</haxe_doc>
 	</class>
 	<class path="sys.thread.Mutex" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/sys/thread/Mutex.hx">
-		<m>
-			<d/>
+		<m final="1">
+			<c path="sys.thread._Mutex.RecursiveMutex"/>
 			<meta><m n=":keep"/></meta>
 		</m>
-		<acquire public="1" set="method" line="33">
+		<acquire public="1" set="method" line="43">
 			<f a=""><x path="Void"/></f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>The current thread acquire the mutex or wait if not available.
 		The same thread can acquire several times the same mutex but
 		must release it as many times it has been acquired.</haxe_doc>
 		</acquire>
-		<tryAcquire public="1" set="method" line="37">
+		<tryAcquire public="1" set="method" line="47">
 			<f a=""><x path="Bool"/></f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Try to acquire the mutex, returns true if acquire or false
 		if it's already locked by another thread.</haxe_doc>
 		</tryAcquire>
-		<release public="1" set="method" line="41">
+		<release public="1" set="method" line="51">
 			<f a=""><x path="Void"/></f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Release a mutex that has been acquired by the current thread.
 		The behavior is undefined if the current thread does not own
 		the mutex.</haxe_doc>
 		</release>
-		<new public="1" set="method" line="29">
+		<new public="1" set="method" line="39">
 			<f a=""><x path="Void"/></f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Creates a mutex.</haxe_doc>
 		</new>
 		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
@@ -18839,6 +18827,29 @@
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<class path="sys.thread._Mutex.RecursiveMutex" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/sys/thread/Mutex.hx" private="1" module="sys.thread.Mutex" extern="1">
+		<acquire public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</acquire>
+		<tryAcquire public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":keep"/></meta>
+		</tryAcquire>
+		<release public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</release>
+		<new public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":include"><e>"hx/thread/RecursiveMutex.hpp"</e></m>
+			<m n=":cpp.ManagedType"><e>{ namespace : ["hx", "thread"], flags : [StandardNaming] }</e></m>
 		</meta>
 	</class>
 	<class path="haxe.coro.context.KeyImpl" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx" module="haxe.coro.context.Key">
@@ -47644,43 +47655,66 @@
 		<haxe_doc>A TLS socket class : allow you to both connect to a given server and exchange messages or start your own server and wait for connections.</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
+	<class path="sys.thread._Condition.ConditionVariable" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/sys/thread/Condition.hx" private="1" module="sys.thread.Condition" extern="1">
+		<acquire public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</acquire>
+		<tryAcquire public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":keep"/></meta>
+		</tryAcquire>
+		<release public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</release>
+		<wait public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</wait>
+		<signal public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</signal>
+		<broadcast public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</broadcast>
+		<new public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":include"><e>"hx/thread/ConditionVariable.hpp"</e></m>
+			<m n=":cpp.ManagedType"><e>{ namespace : ["hx", "thread"], flags : [StandardNaming] }</e></m>
+		</meta>
+	</class>
 	<class path="sys.thread.Condition" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/sys/thread/Condition.hx">
-		<c>
-			<d/>
+		<c final="1">
+			<c path="sys.thread._Condition.ConditionVariable"/>
 			<meta><m n=":keep"/></meta>
 		</c>
-		<acquire public="1" set="method" line="10">
+		<acquire public="1" set="method" line="24">
 			<f a=""><x path="Void"/></f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Acquires the internal mutex.</haxe_doc>
 		</acquire>
-		<tryAcquire public="1" set="method" line="14">
+		<tryAcquire public="1" set="method" line="28">
 			<f a=""><x path="Bool"/></f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Tries to acquire the internal mutex.
 		@see `Mutex.tryAcquire`</haxe_doc>
 		</tryAcquire>
-		<release public="1" set="method" line="18">
+		<release public="1" set="method" line="32">
 			<f a=""><x path="Void"/></f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>*
 		Releases the internal mutex.</haxe_doc>
 		</release>
-		<wait public="1" set="method" line="22">
+		<wait public="1" set="method" line="36">
 			<f a=""><x path="Void"/></f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Blocks the current thread until this condition variable receives a notification or a spurious wakeup occurs.
 
 		The internal mutex is atomically released and the current thread blocked until the condition variable is signaled by a call to
@@ -47693,24 +47727,18 @@
 
 		The internal mutex must be locked before this function is called.</haxe_doc>
 		</wait>
-		<signal public="1" set="method" line="26">
+		<signal public="1" set="method" line="40">
 			<f a=""><x path="Void"/></f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Unblocks one of the threads that are blocked on the
 		condition variable at the time of the call. If no threads are blocked
 		on the condition variable at the time of the call, the function does nothing.
 
 		The internal mutex must be locked before this function is called.</haxe_doc>
 		</signal>
-		<broadcast public="1" set="method" line="30">
+		<broadcast public="1" set="method" line="44">
 			<f a=""><x path="Void"/></f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Unblocks all of the threads that are blocked on the
 		condition variable at the time of the call. If no threads are blocked
 		on the condition variable at the time of the call, the function does
@@ -47718,12 +47746,9 @@
 
 		The internal mutex must be locked before this function is called.</haxe_doc>
 		</broadcast>
-		<new public="1" set="method" line="6">
+		<new public="1" set="method" line="20">
 			<f a=""><x path="Void"/></f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Create a new condition variable.
 		A thread that waits on a newly created condition variable will block.</haxe_doc>
 		</new>
