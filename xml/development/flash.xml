@@ -34835,12 +34835,30 @@
 		</f>
 		<haxe_doc>Returns a string representation of `this` context.</haxe_doc>
 	</toString>
-	<create public="1" get="inline" set="null" line="40" static="1">
+	<with public="1" set="method" line="41" static="1">
+		<f a="this:elements">
+			<t path="haxe.coro.context.ElementTree"/>
+			<x path="haxe.Rest"><c path="haxe.coro.context.IElement"><x path="Any"/></c></x>
+			<x path="haxe.coro.context.Context"/>
+		</f>
+		<haxe_doc>Returns a copy of `this` context with `elements` added to it, potentially
+		overwriting existing associations.</haxe_doc>
+	</with>
+	<without public="1" set="method" line="49" static="1">
+		<f a="this:keys">
+			<t path="haxe.coro.context.ElementTree"/>
+			<x path="haxe.Rest"><x path="haxe.coro.context.Key"><x path="Any"/></x></x>
+			<x path="haxe.coro.context.Context"/>
+		</f>
+		<haxe_doc>Returns a copy of `this` context where all elements associated with `keys`
+		are unset.</haxe_doc>
+	</without>
+	<create public="1" get="inline" set="null" line="56" static="1">
 		<f a="elements">
 			<x path="haxe.Rest"><c path="haxe.coro.context.IElement"><x path="Any"/></c></x>
-			<x path="haxe.coro.context.AdjustableContext"/>
+			<x path="haxe.coro.context.Context"/>
 		</f>
-		<haxe_doc>Creates a new `AdjustableContext` containing the `elements` associations.</haxe_doc>
+		<haxe_doc>Creates a new `Context` containing the `elements` associations.</haxe_doc>
 	</create>
 </class></impl>
 	</abstract>
@@ -34875,12 +34893,30 @@
 			</f>
 			<haxe_doc>Returns a string representation of `this` context.</haxe_doc>
 		</toString>
-		<create public="1" get="inline" set="null" line="40" static="1">
+		<with public="1" set="method" line="41" static="1">
+			<f a="this:elements">
+				<t path="haxe.coro.context.ElementTree"/>
+				<x path="haxe.Rest"><c path="haxe.coro.context.IElement"><x path="Any"/></c></x>
+				<x path="haxe.coro.context.Context"/>
+			</f>
+			<haxe_doc>Returns a copy of `this` context with `elements` added to it, potentially
+		overwriting existing associations.</haxe_doc>
+		</with>
+		<without public="1" set="method" line="49" static="1">
+			<f a="this:keys">
+				<t path="haxe.coro.context.ElementTree"/>
+				<x path="haxe.Rest"><x path="haxe.coro.context.Key"><x path="Any"/></x></x>
+				<x path="haxe.coro.context.Context"/>
+			</f>
+			<haxe_doc>Returns a copy of `this` context where all elements associated with `keys`
+		are unset.</haxe_doc>
+		</without>
+		<create public="1" get="inline" set="null" line="56" static="1">
 			<f a="elements">
 				<x path="haxe.Rest"><c path="haxe.coro.context.IElement"><x path="Any"/></c></x>
-				<x path="haxe.coro.context.AdjustableContext"/>
+				<x path="haxe.coro.context.Context"/>
 			</f>
-			<haxe_doc>Creates a new `AdjustableContext` containing the `elements` associations.</haxe_doc>
+			<haxe_doc>Creates a new `Context` containing the `elements` associations.</haxe_doc>
 		</create>
 	</class>
 	<abstract path="haxe.coro.context.AdjustableContext" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Context.hx" module="haxe.coro.context.Context">
@@ -34889,7 +34925,7 @@
 		<haxe_doc>Similar to `Context`, but mutable. This type should rarely be used explicitly and
 	mostly appears as an intermediate type via the `Context` API.</haxe_doc>
 		<impl><class path="haxe.coro.context._Context.AdjustableContext_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Context.hx" private="1" module="haxe.coro.context.Context" final="1">
-	<_hx_new public="1" get="inline" set="null" line="53" static="1">
+	<_hx_new public="1" get="inline" set="null" line="69" static="1">
 		<f a="tree">
 			<t path="haxe.coro.context.ElementTree"/>
 			<x path="haxe.coro.context.AdjustableContext"/>
@@ -34897,7 +34933,7 @@
 		<meta><m n=":noCompletion"/></meta>
 		<haxe_doc>Creates a new context containing the values in `tree`.</haxe_doc>
 	</_hx_new>
-	<get public="1" params="T" get="inline" set="null" line="60" static="1">
+	<get public="1" params="T" get="inline" set="null" line="76" static="1">
 		<f a="this:key">
 			<t path="haxe.coro.context.ElementTree"/>
 			<x path="haxe.coro.context.Key"><c path="get.T"/></x>
@@ -34905,7 +34941,7 @@
 		</f>
 		<haxe_doc>@see `Context.get`</haxe_doc>
 	</get>
-	<set public="1" params="T" get="inline" set="null" line="67" static="1">
+	<set public="1" params="T" get="inline" set="null" line="83" static="1">
 		<f a="this:key:element">
 			<t path="haxe.coro.context.ElementTree"/>
 			<x path="haxe.coro.context.Key"><c path="set.T"/></x>
@@ -34914,7 +34950,7 @@
 		</f>
 		<haxe_doc>Adds or replaces `element` associated with `key`.</haxe_doc>
 	</set>
-	<add public="1" params="T" get="inline" set="null" line="73" static="1">
+	<add public="1" params="T" get="inline" set="null" line="89" static="1">
 		<f a="this:key:element">
 			<t path="haxe.coro.context.ElementTree"/>
 			<x path="haxe.coro.context.Key"><c path="add.T"/></x>
@@ -34923,7 +34959,7 @@
 		</f>
 		<meta><m n=":deprecated"><e>"Use `set` instead"</e></m></meta>
 	</add>
-	<with public="1" set="method" line="80" static="1">
+	<with public="1" set="method" line="96" static="1">
 		<f a="this:elements">
 			<t path="haxe.coro.context.ElementTree"/>
 			<x path="haxe.Rest"><c path="haxe.coro.context.IElement"><x path="Any"/></c></x>
@@ -34931,7 +34967,7 @@
 		</f>
 		<haxe_doc>Adds or replaces the `elements` associations in `this` context.</haxe_doc>
 	</with>
-	<without public="1" set="method" line="90" static="1">
+	<without public="1" set="method" line="106" static="1">
 		<f a="this:keys">
 			<t path="haxe.coro.context.ElementTree"/>
 			<x path="haxe.Rest"><x path="haxe.coro.context.Key"><x path="Any"/></x></x>
@@ -34939,7 +34975,7 @@
 		</f>
 		<haxe_doc>Unsets all `keys` in `this` context.</haxe_doc>
 	</without>
-	<toContext get="inline" set="null" line="97" static="1">
+	<toContext get="inline" set="null" line="113" static="1">
 		<f a="this">
 			<t path="haxe.coro.context.ElementTree"/>
 			<x path="haxe.coro.context.Context"/>
@@ -34949,7 +34985,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.coro.context._Context.AdjustableContext_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Context.hx" private="1" module="haxe.coro.context.Context" final="1">
-		<_hx_new public="1" get="inline" set="null" line="53" static="1">
+		<_hx_new public="1" get="inline" set="null" line="69" static="1">
 			<f a="tree">
 				<t path="haxe.coro.context.ElementTree"/>
 				<x path="haxe.coro.context.AdjustableContext"/>
@@ -34957,7 +34993,7 @@
 			<meta><m n=":noCompletion"/></meta>
 			<haxe_doc>Creates a new context containing the values in `tree`.</haxe_doc>
 		</_hx_new>
-		<get public="1" params="T" get="inline" set="null" line="60" static="1">
+		<get public="1" params="T" get="inline" set="null" line="76" static="1">
 			<f a="this:key">
 				<t path="haxe.coro.context.ElementTree"/>
 				<x path="haxe.coro.context.Key"><c path="get.T"/></x>
@@ -34965,7 +35001,7 @@
 			</f>
 			<haxe_doc>@see `Context.get`</haxe_doc>
 		</get>
-		<set public="1" params="T" get="inline" set="null" line="67" static="1">
+		<set public="1" params="T" get="inline" set="null" line="83" static="1">
 			<f a="this:key:element">
 				<t path="haxe.coro.context.ElementTree"/>
 				<x path="haxe.coro.context.Key"><c path="set.T"/></x>
@@ -34974,7 +35010,7 @@
 			</f>
 			<haxe_doc>Adds or replaces `element` associated with `key`.</haxe_doc>
 		</set>
-		<add public="1" params="T" get="inline" set="null" line="73" static="1">
+		<add public="1" params="T" get="inline" set="null" line="89" static="1">
 			<f a="this:key:element">
 				<t path="haxe.coro.context.ElementTree"/>
 				<x path="haxe.coro.context.Key"><c path="add.T"/></x>
@@ -34983,7 +35019,7 @@
 			</f>
 			<meta><m n=":deprecated"><e>"Use `set` instead"</e></m></meta>
 		</add>
-		<with public="1" set="method" line="80" static="1">
+		<with public="1" set="method" line="96" static="1">
 			<f a="this:elements">
 				<t path="haxe.coro.context.ElementTree"/>
 				<x path="haxe.Rest"><c path="haxe.coro.context.IElement"><x path="Any"/></c></x>
@@ -34991,7 +35027,7 @@
 			</f>
 			<haxe_doc>Adds or replaces the `elements` associations in `this` context.</haxe_doc>
 		</with>
-		<without public="1" set="method" line="90" static="1">
+		<without public="1" set="method" line="106" static="1">
 			<f a="this:keys">
 				<t path="haxe.coro.context.ElementTree"/>
 				<x path="haxe.Rest"><x path="haxe.coro.context.Key"><x path="Any"/></x></x>
@@ -34999,7 +35035,7 @@
 			</f>
 			<haxe_doc>Unsets all `keys` in `this` context.</haxe_doc>
 		</without>
-		<toContext get="inline" set="null" line="97" static="1">
+		<toContext get="inline" set="null" line="113" static="1">
 			<f a="this">
 				<t path="haxe.coro.context.ElementTree"/>
 				<x path="haxe.coro.context.Context"/>
