@@ -1652,10 +1652,7 @@
 		<POSITIVE_INFINITY public="1" get="accessor" set="null" static="1"><x path="Float"/></POSITIVE_INFINITY>
 		<get_POSITIVE_INFINITY get="inline" set="null" line="39" static="1"><f a=""><x path="Float"/></f></get_POSITIVE_INFINITY>
 		<NaN public="1" get="accessor" set="null" static="1"><x path="Float"/></NaN>
-		<get_NaN get="inline" set="null" line="46" static="1">
-			<f a=""><x path="Float"/></f>
-			<meta><m n=":has_untyped"/></meta>
-		</get_NaN>
+		<get_NaN get="inline" set="null" line="46" static="1"><f a=""><x path="Float"/></f></get_NaN>
 		<isNaN public="1" set="method" line="49" static="1"><f a="f">
 	<x path="Float"/>
 	<x path="Bool"/>
@@ -1977,7 +1974,6 @@
 				</f>
 				<d/>
 			</f>
-			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>Transform a function taking an array of arguments into a function that can
 		be called with any number of arguments.</haxe_doc>
 		</makeVarArgs>
@@ -17715,10 +17711,7 @@
 		<copy public="1" set="method" line="90"><f a=""><c path="haxe.ds.IntMap"><c path="haxe.ds.IntMap.T"/></c></f></copy>
 		<toString public="1" set="method" line="97"><f a=""><c path="String"/></f></toString>
 		<clear public="1" get="inline" set="null" line="112"><f a=""><x path="Void"/></f></clear>
-		<size public="1" set="method" line="116">
-			<f a=""><x path="Int"/></f>
-			<meta><m n=":has_untyped"/></meta>
-		</size>
+		<size public="1" set="method" line="116"><f a=""><x path="Int"/></f></size>
 		<new public="1" get="inline" set="null" line="32"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="haxe.ds.List" params="T" file="/home/runner/work/haxe/haxe/std/haxe/ds/List.hx">
@@ -18641,10 +18634,7 @@
 </c></f></copy>
 		<toString public="1" set="method" line="101"><f a=""><c path="String"/></f></toString>
 		<clear public="1" get="inline" set="null" line="116"><f a=""><x path="Void"/></f></clear>
-		<size public="1" set="method" line="121">
-			<f a=""><x path="Int"/></f>
-			<meta><m n=":has_untyped"/></meta>
-		</size>
+		<size public="1" set="method" line="121"><f a=""><x path="Int"/></f></size>
 		<new public="1" get="inline" set="null" line="39"><f a=""><x path="Void"/></f></new>
 	</class>
 	<enum path="haxe.ds.Option" params="T" file="/home/runner/work/haxe/haxe/std/haxe/ds/Option.hx">
@@ -18808,10 +18798,7 @@
 		<copy public="1" set="method" line="94"><f a=""><c path="haxe.ds.StringMap"><c path="haxe.ds.StringMap.T"/></c></f></copy>
 		<toString public="1" set="method" line="101"><f a=""><c path="String"/></f></toString>
 		<clear public="1" get="inline" set="null" line="116"><f a=""><x path="Void"/></f></clear>
-		<size public="1" set="method" line="120">
-			<f a=""><x path="Int"/></f>
-			<meta><m n=":has_untyped"/></meta>
-		</size>
+		<size public="1" set="method" line="120"><f a=""><x path="Int"/></f></size>
 		<new public="1" get="inline" set="null" line="32"><f a=""><x path="Void"/></f></new>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
@@ -35891,6 +35878,43 @@
 		<haxe_doc>Externs for the "bit" class that is required for Haxe lua</haxe_doc>
 		<meta><m n=":native"><e>"_hx_bit"</e></m></meta>
 	</class>
+	<class path="lua.Syntax" params="" file="/home/runner/work/haxe/haxe/std/lua/Syntax.hx" extern="1">
+		<code public="1" set="method" static="1">
+			<f a="code:args">
+				<c path="String"/>
+				<t path="haxe.extern.Rest"><d/></t>
+				<d/>
+			</f>
+			<haxe_doc>Inject `code` directly into generated source.
+
+		`code` must be a string constant.
+
+		Additional `args` are supported to provide code interpolation, for example:
+		```haxe
+		Syntax.code("print({0}, {1})", "hi", 42);
+		```
+		will generate
+		```lua
+		print("hi", 42)
+		```
+
+		Emits a compilation error if the count of `args` does not match the count of placeholders in `code`.</haxe_doc>
+		</code>
+		<plainCode public="1" set="method" static="1">
+			<f a="code">
+				<c path="String"/>
+				<d/>
+			</f>
+			<haxe_doc>Inject `code` directly into generated source.
+		The same as `lua.Syntax.code` except this one does not provide code interpolation.</haxe_doc>
+		</plainCode>
+		<haxe_doc>Generate Lua syntax not directly supported by Haxe.
+	Use only at low-level when specific target-specific code-generation is required.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":noClosure"/>
+		</meta>
+	</class>
 	<class path="lua.Boot" params="" file="/home/runner/work/haxe/haxe/std/lua/Boot.hx">
 		<_ static="1"><d/></_>
 		<_fid expr="0" line="31" static="1">
@@ -35913,15 +35937,12 @@
 			<x path="Bool"/>
 			<meta><m n=":value"><e><![CDATA[NativeStringTools.byte(NativeStringTools.dump(function() { }), 7) > 0]]></e></m></meta>
 		</platformBigEndian>
-		<hiddenFields expr="untyped __lua__(&quot;{__id__=true, hx__closures=true, super=true, prototype=true, __fields__=true, __ifields__=true, __class__=true, __properties__=true}&quot;)" line="42" static="1">
+		<hiddenFields expr="Syntax.code(&quot;{__id__=true, hx__closures=true, super=true, prototype=true, __fields__=true, __ifields__=true, __class__=true, __properties__=true}&quot;)" line="42" static="1">
 			<c path="lua.Table">
 				<c path="String"/>
 				<x path="Bool"/>
 			</c>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":value"><e>untyped __lua__("{__id__=true, hx__closures=true, super=true, prototype=true, __fields__=true, __ifields__=true, __class__=true, __properties__=true}")</e></m>
-			</meta>
+			<meta><m n=":value"><e>Syntax.code("{__id__=true, hx__closures=true, super=true, prototype=true, __fields__=true, __ifields__=true, __class__=true, __properties__=true}")</e></m></meta>
 		</hiddenFields>
 		<__unhtml set="method" line="45" static="1"><f a="s">
 	<c path="String"/>
@@ -37770,108 +37791,90 @@
 		<meta><m n=":native"><e>"_G.package"</e></m></meta>
 	</class>
 	<class path="lua.PairTools" params="" file="/home/runner/work/haxe/haxe/std/lua/PairTools.hx">
-		<ipairsEach public="1" params="T" set="method" line="29" static="1">
-			<f a="table:func">
-				<c path="lua.Table">
-					<d/>
-					<c path="ipairsEach.T"/>
-				</c>
-				<f a=":">
-					<x path="Int"/>
-					<c path="ipairsEach.T"/>
-					<x path="Void"/>
-				</f>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</ipairsEach>
-		<pairsEach public="1" params="A:B" set="method" line="33" static="1">
-			<f a="table:func">
-				<c path="lua.Table">
-					<c path="pairsEach.A"/>
-					<c path="pairsEach.B"/>
-				</c>
-				<f a=":">
-					<c path="pairsEach.A"/>
-					<c path="pairsEach.B"/>
-					<x path="Void"/>
-				</f>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</pairsEach>
-		<ipairsMap public="1" params="A:B" set="method" line="37" static="1">
-			<f a="table:func">
-				<c path="lua.Table">
-					<d/>
-					<c path="ipairsMap.A"/>
-				</c>
-				<f a=":">
-					<x path="Int"/>
-					<c path="ipairsMap.A"/>
-					<c path="ipairsMap.B"/>
-				</f>
-				<c path="lua.Table">
-					<x path="Int"/>
-					<c path="ipairsMap.B"/>
-				</c>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</ipairsMap>
-		<pairsMap public="1" params="A:B:C" set="method" line="43" static="1">
-			<f a="table:func">
-				<c path="lua.Table">
-					<c path="pairsMap.A"/>
-					<c path="pairsMap.B"/>
-				</c>
-				<f a="::">
-					<c path="pairsMap.A"/>
-					<c path="pairsMap.B"/>
-					<c path="pairsMap.C"/>
-					<c path="pairsMap.C"/>
-				</f>
-				<c path="lua.Table">
-					<c path="pairsMap.A"/>
-					<c path="pairsMap.C"/>
-				</c>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</pairsMap>
-		<ipairsFold public="1" params="A:B" set="method" line="49" static="1">
-			<f a="table:func:seed">
-				<c path="lua.Table">
-					<x path="Int"/>
-					<c path="ipairsFold.A"/>
-				</c>
-				<f a="::">
-					<x path="Int"/>
-					<c path="ipairsFold.A"/>
-					<c path="ipairsFold.B"/>
-					<c path="ipairsFold.B"/>
-				</f>
-				<c path="ipairsFold.B"/>
-				<c path="ipairsFold.B"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</ipairsFold>
-		<pairsFold public="1" params="A:B:C" set="method" line="54" static="1">
-			<f a="table:func:seed">
-				<c path="lua.Table">
-					<c path="pairsFold.A"/>
-					<c path="pairsFold.B"/>
-				</c>
-				<f a="::">
-					<c path="pairsFold.A"/>
-					<c path="pairsFold.B"/>
-					<c path="pairsFold.C"/>
-					<c path="pairsFold.C"/>
-				</f>
-				<c path="pairsFold.C"/>
-				<c path="pairsFold.C"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</pairsFold>
-		<ipairsConcat public="1" params="T" set="method" line="59" static="1"><f a="table1:table2">
+		<ipairsEach public="1" params="T" set="method" line="29" static="1"><f a="table:func">
+	<c path="lua.Table">
+		<d/>
+		<c path="ipairsEach.T"/>
+	</c>
+	<f a=":">
+		<x path="Int"/>
+		<c path="ipairsEach.T"/>
+		<x path="Void"/>
+	</f>
+	<x path="Void"/>
+</f></ipairsEach>
+		<pairsEach public="1" params="A:B" set="method" line="33" static="1"><f a="table:func">
+	<c path="lua.Table">
+		<c path="pairsEach.A"/>
+		<c path="pairsEach.B"/>
+	</c>
+	<f a=":">
+		<c path="pairsEach.A"/>
+		<c path="pairsEach.B"/>
+		<x path="Void"/>
+	</f>
+	<x path="Void"/>
+</f></pairsEach>
+		<ipairsMap public="1" params="A:B" set="method" line="37" static="1"><f a="table:func">
+	<c path="lua.Table">
+		<d/>
+		<c path="ipairsMap.A"/>
+	</c>
+	<f a=":">
+		<x path="Int"/>
+		<c path="ipairsMap.A"/>
+		<c path="ipairsMap.B"/>
+	</f>
+	<c path="lua.Table">
+		<x path="Int"/>
+		<c path="ipairsMap.B"/>
+	</c>
+</f></ipairsMap>
+		<pairsMap public="1" params="A:B:C" set="method" line="43" static="1"><f a="table:func">
+	<c path="lua.Table">
+		<c path="pairsMap.A"/>
+		<c path="pairsMap.B"/>
+	</c>
+	<f a="::">
+		<c path="pairsMap.A"/>
+		<c path="pairsMap.B"/>
+		<c path="pairsMap.C"/>
+		<c path="pairsMap.C"/>
+	</f>
+	<c path="lua.Table">
+		<c path="pairsMap.A"/>
+		<c path="pairsMap.C"/>
+	</c>
+</f></pairsMap>
+		<ipairsFold public="1" params="A:B" set="method" line="49" static="1"><f a="table:func:seed">
+	<c path="lua.Table">
+		<x path="Int"/>
+		<c path="ipairsFold.A"/>
+	</c>
+	<f a="::">
+		<x path="Int"/>
+		<c path="ipairsFold.A"/>
+		<c path="ipairsFold.B"/>
+		<c path="ipairsFold.B"/>
+	</f>
+	<c path="ipairsFold.B"/>
+	<c path="ipairsFold.B"/>
+</f></ipairsFold>
+		<pairsFold public="1" params="A:B:C" set="method" line="53" static="1"><f a="table:func:seed">
+	<c path="lua.Table">
+		<c path="pairsFold.A"/>
+		<c path="pairsFold.B"/>
+	</c>
+	<f a="::">
+		<c path="pairsFold.A"/>
+		<c path="pairsFold.B"/>
+		<c path="pairsFold.C"/>
+		<c path="pairsFold.C"/>
+	</f>
+	<c path="pairsFold.C"/>
+	<c path="pairsFold.C"/>
+</f></pairsFold>
+		<ipairsConcat public="1" params="T" set="method" line="57" static="1"><f a="table1:table2">
 	<c path="lua.Table">
 		<x path="Int"/>
 		<c path="ipairsConcat.T"/>
@@ -37885,7 +37888,7 @@
 		<c path="ipairsConcat.T"/>
 	</c>
 </f></ipairsConcat>
-		<pairsMerge public="1" params="A:B" set="method" line="73" static="1"><f a="table1:table2">
+		<pairsMerge public="1" params="A:B" set="method" line="71" static="1"><f a="table1:table2">
 	<c path="lua.Table">
 		<c path="pairsMerge.A"/>
 		<c path="pairsMerge.B"/>
@@ -37899,50 +37902,41 @@
 		<c path="pairsMerge.B"/>
 	</c>
 </f></pairsMerge>
-		<ipairsExist public="1" params="T" set="method" line="79" static="1">
-			<f a="table:func">
-				<c path="lua.Table">
-					<x path="Int"/>
-					<c path="ipairsExist.T"/>
-				</c>
-				<f a=":">
-					<x path="Int"/>
-					<c path="ipairsExist.T"/>
-					<x path="Bool"/>
-				</f>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</ipairsExist>
-		<pairsExist public="1" params="A:B" set="method" line="83" static="1">
-			<f a="table:func">
-				<c path="lua.Table">
-					<c path="pairsExist.A"/>
-					<c path="pairsExist.B"/>
-				</c>
-				<f a=":">
-					<c path="pairsExist.A"/>
-					<c path="pairsExist.B"/>
-					<x path="Bool"/>
-				</f>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</pairsExist>
-		<copy public="1" params="A:B" set="method" line="87" static="1">
-			<f a="table1">
-				<c path="lua.Table">
-					<c path="copy.A"/>
-					<c path="copy.B"/>
-				</c>
-				<c path="lua.Table">
-					<c path="copy.A"/>
-					<c path="copy.B"/>
-				</c>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</copy>
-		<pairsIterator public="1" params="A:B" set="method" line="93" static="1"><f a="table">
+		<ipairsExist public="1" params="T" set="method" line="77" static="1"><f a="table:func">
+	<c path="lua.Table">
+		<x path="Int"/>
+		<c path="ipairsExist.T"/>
+	</c>
+	<f a=":">
+		<x path="Int"/>
+		<c path="ipairsExist.T"/>
+		<x path="Bool"/>
+	</f>
+	<x path="Void"/>
+</f></ipairsExist>
+		<pairsExist public="1" params="A:B" set="method" line="81" static="1"><f a="table:func">
+	<c path="lua.Table">
+		<c path="pairsExist.A"/>
+		<c path="pairsExist.B"/>
+	</c>
+	<f a=":">
+		<c path="pairsExist.A"/>
+		<c path="pairsExist.B"/>
+		<x path="Bool"/>
+	</f>
+	<x path="Void"/>
+</f></pairsExist>
+		<copy public="1" params="A:B" set="method" line="85" static="1"><f a="table1">
+	<c path="lua.Table">
+		<c path="copy.A"/>
+		<c path="copy.B"/>
+	</c>
+	<c path="lua.Table">
+		<c path="copy.A"/>
+		<c path="copy.B"/>
+	</c>
+</f></copy>
+		<pairsIterator public="1" params="A:B" set="method" line="91" static="1"><f a="table">
 	<c path="lua.Table">
 		<c path="pairsIterator.A"/>
 		<c path="pairsIterator.B"/>
@@ -37952,7 +37946,7 @@
 	<index><c path="pairsIterator.A"/></index>
 </a></t>
 </f></pairsIterator>
-		<ipairsIterator public="1" params="A:B" set="method" line="109" static="1"><f a="table">
+		<ipairsIterator public="1" params="A:B" set="method" line="107" static="1"><f a="table">
 	<c path="lua.Table">
 		<c path="ipairsIterator.A"/>
 		<c path="ipairsIterator.B"/>
