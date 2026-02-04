@@ -395,7 +395,6 @@
 
 	@see https://haxe.org/manual/types-class-instance.html</haxe_doc>
 		<meta>
-			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":runtimeValue"/>
 		</meta>
@@ -1239,7 +1238,6 @@
 
 	@see https://haxe.org/manual/types-enum-instance.html</haxe_doc>
 		<meta>
-			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":runtimeValue"/>
 		</meta>
@@ -2152,7 +2150,6 @@
 	@see https://haxe.org/manual/types-basic-types.html
 	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
 		<meta>
-			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":notNull"/>
 			<m n=":runtimeValue"/>
@@ -2173,7 +2170,6 @@
 	@see https://haxe.org/manual/std-math-integer-math.html
 	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
 		<meta>
-			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":notNull"/>
 			<m n=":runtimeValue"/>
@@ -2207,7 +2203,6 @@
 	@see https://haxe.org/manual/types-bool.html
 	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
 		<meta>
-			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":notNull"/>
 			<m n=":runtimeValue"/>
@@ -2223,7 +2218,6 @@
 
 	@see https://haxe.org/manual/types-dynamic.html</haxe_doc>
 		<meta>
-			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":runtimeValue"/>
 		</meta>
@@ -2499,10 +2493,7 @@
 	String, it is passed through `Std.string()` first.
 
 	@see https://haxe.org/manual/std-String.html</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-		</meta>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="StringBuf" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/StringBuf.hx">
 		<b><c path="lua.Table">
@@ -3063,10 +3054,7 @@
 		</time>
 		<haxe_doc>This class provides access to various base functions of system platforms.
 	Look in the `sys` package for more system APIs.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-		</meta>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<enum path="ValueType" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/Type.hx" module="Type">
 		<TNull/>
@@ -5253,11 +5241,11 @@
 		</keyValueIterator>
 	</class>
 	<class path="haxe.EntryPoint" params="" file="/home/runner/work/haxe/haxe/std/haxe/EntryPoint.hx">
-		<run public="1" set="method" line="9" static="1">
+		<run public="1" set="method" line="10" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta>
 				<m n=":has_untyped"/>
-				<m n=":keep"/>
+				<m n=":ifFeature"><e>"haxe.EventLoop.*"</e></m>
 			</meta>
 		</run>
 		<haxe_doc>If `haxe.MainLoop` is kept from DCE, then we will insert an `haxe.EntryPoint.run()` call just at then end of `main()`.
@@ -5886,10 +5874,7 @@
 		</hasEvents>
 		<new public="1" set="method" line="114"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>Handles async events for all threads</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":access"><e>haxe.Event</e></m>
-		</meta>
+		<meta><m n=":access"><e>haxe.Event</e></m></meta>
 	</class>
 	<class path="haxe.Exception" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/haxe/Exception.hx">
 		<caught set="method" line="17" static="1"><f a="value">
@@ -6025,10 +6010,7 @@
 		throw e; // rethrows native exception instead of haxe.Exception
 	}
 	```]]></haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-		</meta>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<typedef path="haxe.Http" params="" file="/home/runner/work/haxe/haxe/std/haxe/Http.hx"><c path="sys.Http"/></typedef>
 	<abstract path="haxe.Int32" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int32.hx">
@@ -9623,7 +9605,6 @@
 	```haxe
 	throw new ValueException("Terrible error");
 	```</haxe_doc>
-		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="haxe.coro.context.IElement" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/IElement.hx" interface="1">
 		<getKey public="1" set="method">
@@ -10400,10 +10381,7 @@
 </f></maxn>
 		<haxe_doc>This library is an extern for a polyfill library of common lua table
     methods.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":native"><e>"_hx_table"</e></m>
-		</meta>
+		<meta><m n=":native"><e>"_hx_table"</e></m></meta>
 	</class>
 	<class path="haxe.coro.context._Context.Context_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Context.hx" private="1" module="haxe.coro.context.Context" final="1">
 		<empty final="1" public="1" set="null" expr="Context.create()" line="13" static="1">
@@ -36154,16 +36132,10 @@
 			<f a=""><c path="String"/></f>
 			<meta><m n=":has_untyped"/></meta>
 		</systemName>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":dox"><e>hide</e></m>
-		</meta>
+		<meta><m n=":dox"><e>hide</e></m></meta>
 	</class>
-	<class path="lua.Thread" params="" file="/home/runner/work/haxe/haxe/std/lua/Thread.hx">
-		<haxe_doc>The sole purpose of this extern is to provide a concrete type for
-	basic reflection purposes.</haxe_doc>
-		<meta><m n=":directlyUsed"/></meta>
-	</class>
+	<class path="lua.Thread" params="" file="/home/runner/work/haxe/haxe/std/lua/Thread.hx"><haxe_doc>The sole purpose of this extern is to provide a concrete type for
+	basic reflection purposes.</haxe_doc></class>
 	<class path="lua.Coroutine" params="T" file="/home/runner/work/haxe/haxe/std/lua/Coroutine.hx" extern="1">
 		<extends path="lua.Thread"/>
 		<create public="1" params="T" set="method" static="1">
@@ -36493,7 +36465,7 @@
 		</a>
 		<haxe_doc>A enumerator that describes the output of `Debug.getinfo()`.</haxe_doc>
 	</typedef>
-	<class path="lua.UserData" params="" file="/home/runner/work/haxe/haxe/std/lua/UserData.hx"><meta><m n=":directlyUsed"/></meta></class>
+	<class path="lua.UserData" params="" file="/home/runner/work/haxe/haxe/std/lua/UserData.hx"/>
 	<class path="lua.FileHandle" params="" file="/home/runner/work/haxe/haxe/std/lua/FileHandle.hx" extern="1">
 		<extends path="lua.UserData"/>
 		<flush public="1" set="method"><f a=""><x path="Void"/></f></flush>
@@ -38624,10 +38596,7 @@
 	<x path="Int"/>
 	<c path="String"/>
 </c></f></print_active_handles>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":luaRequire"><e>"luv"</e></m>
-		</meta>
+		<meta><m n=":luaRequire"><e>"luv"</e></m></meta>
 	</class>
 	<typedef path="lua.lib.luv.CpuInfo" params="" file="/home/runner/work/haxe/haxe/std/lua/lib/luv/Misc.hx" module="lua.lib.luv.Misc"><a>
 	<times><t path="lua.lib.luv.CpuTimes"/></times>

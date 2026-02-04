@@ -1660,7 +1660,6 @@
 
 	@see https://haxe.org/manual/std-math.html</haxe_doc>
 		<meta>
-			<m n=":directlyUsed"/>
 			<m n=":coreApi"/>
 			<m n=":native"><e>"java.lang.Math"</e></m>
 		</meta>
@@ -3160,10 +3159,7 @@
 		</stderr>
 		<haxe_doc>This class provides access to various base functions of system platforms.
 	Look in the `sys` package for more system APIs.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-		</meta>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<enum path="ValueType" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/Type.hx" module="Type">
 		<TNull/>
@@ -5553,9 +5549,9 @@
 		</keyValueIterator>
 	</class>
 	<class path="haxe.EntryPoint" params="" file="/home/runner/work/haxe/haxe/std/haxe/EntryPoint.hx">
-		<run public="1" set="method" line="9" static="1">
+		<run public="1" set="method" line="10" static="1">
 			<f a=""><x path="Void"/></f>
-			<meta><m n=":keep"/></meta>
+			<meta><m n=":ifFeature"><e>"haxe.EventLoop.*"</e></m></meta>
 		</run>
 		<haxe_doc>If `haxe.MainLoop` is kept from DCE, then we will insert an `haxe.EntryPoint.run()` call just at then end of `main()`.
 	This class can be redefined by custom frameworks so they can handle their own main loop logic.</haxe_doc>
@@ -6045,10 +6041,7 @@
 	<c path="sys.thread.Tls.T"/>
 </f></set_value>
 		<new public="1" set="method" line="31"><f a=""><x path="Void"/></f></new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":native"><e>"haxe.java.vm.Tls"</e></m>
-		</meta>
+		<meta><m n=":native"><e>"haxe.java.vm.Tls"</e></m></meta>
 	</class>
 	<class path="java.lang.ThreadLocal" params="T" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/ThreadLocal.class" extern="1">
 		<withInitial public="1" params="S" set="method" static="1"><f a="param1">
@@ -6081,7 +6074,6 @@
 </f></childValue>
 		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
 		<meta>
-			<m n=":directlyUsed"/>
 			<m n=":native"><e>"java.lang.ThreadLocal"</e></m>
 			<m n=":libType"/>
 		</meta>
@@ -6179,10 +6171,7 @@
 	See `Map` for documentation details.
 
 	@see https://haxe.org/manual/std-Map.html</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-		</meta>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="java.util.Map" params="K:V" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Map.class" extern="1" interface="1">
 		<size public="1" set="method"><f a=""><x path="Int"/></f></size>
@@ -6751,7 +6740,6 @@
 	to access some resource. The main difference with a lock is
 	that a mutex must always be released by the owner thread.</haxe_doc>
 		<meta>
-			<m n=":directlyUsed"/>
 			<m n=":coreApi"/>
 			<m n=":native"><e>"haxe.java.vm.Mutex"</e></m>
 		</meta>
@@ -6822,7 +6810,6 @@
 </f></new></overloads>
 		</new>
 		<meta>
-			<m n=":directlyUsed"/>
 			<m n=":native"><e>"java.util.concurrent.locks.ReentrantLock"</e></m>
 			<m n=":libType"/>
 		</meta>
@@ -6881,10 +6868,7 @@
 	}
 	trace("All threads finished");
 	```</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-		</meta>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="sys.thread._ThreadImpl.ThreadImpl_Impl_" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/sys/thread/ThreadImpl.hx" private="1" module="sys.thread.ThreadImpl" final="1">
 		<toNative set="method" line="36" static="1"><f a="this">
@@ -6905,7 +6889,6 @@
 	<x path="sys.thread.ThreadImpl"/>
 	<c path="String"/>
 </f></getName>
-		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="java.lang.Runnable" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Runnable.class" extern="1" interface="1">
 		<run public="1" set="method"><f a=""><x path="Void"/></f></run>
@@ -7222,7 +7205,6 @@
 	<x path="sys.thread.ThreadImpl"/>
 	<x path="Void"/>
 </f></new>
-		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="haxe.EventLoop" params="" file="/home/runner/work/haxe/haxe/std/haxe/EventLoop.hx">
 		<main public="1" get="accessor" set="null" static="1">
@@ -7396,10 +7378,7 @@
 		</hasEvents>
 		<new public="1" set="method" line="114"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>Handles async events for all threads</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":access"><e>haxe.Event</e></m>
-		</meta>
+		<meta><m n=":access"><e>haxe.Event</e></m></meta>
 	</class>
 	<class path="haxe._Exception.NativeException" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/haxe/Exception.hx" private="1" module="haxe.Exception" extern="1">
 		<addSuppressed set="method">
@@ -76960,7 +76939,6 @@
 			</overloads>
 		</new>
 		<meta>
-			<m n=":directlyUsed"/>
 			<m n=":native"><e>"java.util.concurrent.LinkedBlockingDeque"</e></m>
 			<m n=":libType"/>
 		</meta>
@@ -77347,7 +77325,6 @@
 		<HOURS/>
 		<DAYS/>
 		<meta>
-			<m n=":directlyUsed"/>
 			<m n=":flatEnum"/>
 			<m n=":native"><e>"java.util.concurrent.TimeUnit"</e></m>
 		</meta>
@@ -85368,7 +85345,6 @@
 	<x path="sys.thread.ThreadImpl"/>
 	<c path="String"/>
 </f></getName>
-	<meta><m n=":directlyUsed"/></meta>
 </class></impl>
 	</abstract>
 	<class path="sys.thread._ThreadImpl.NativeHaxeThread" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/sys/thread/ThreadImpl.hx" private="1" module="sys.thread.ThreadImpl">

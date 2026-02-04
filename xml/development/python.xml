@@ -436,7 +436,6 @@
 
 	@see https://haxe.org/manual/types-class-instance.html</haxe_doc>
 		<meta>
-			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":runtimeValue"/>
 		</meta>
@@ -2240,7 +2239,6 @@
 	@see https://haxe.org/manual/types-basic-types.html
 	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
 		<meta>
-			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":notNull"/>
 			<m n=":runtimeValue"/>
@@ -2261,7 +2259,6 @@
 	@see https://haxe.org/manual/std-math-integer-math.html
 	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
 		<meta>
-			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":notNull"/>
 			<m n=":runtimeValue"/>
@@ -2295,7 +2292,6 @@
 	@see https://haxe.org/manual/types-bool.html
 	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
 		<meta>
-			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":notNull"/>
 			<m n=":runtimeValue"/>
@@ -2311,7 +2307,6 @@
 
 	@see https://haxe.org/manual/types-dynamic.html</haxe_doc>
 		<meta>
-			<m n=":valueUsed"/>
 			<m n=":coreType"/>
 			<m n=":runtimeValue"/>
 		</meta>
@@ -3260,10 +3255,7 @@
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</isInterface>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":pythonImport"><e>"inspect"</e></m>
-		</meta>
+		<meta><m n=":pythonImport"><e>"inspect"</e></m></meta>
 	</class>
 	<class path="Sys" params="" file="/home/runner/work/haxe/haxe/std/python/_std/Sys.hx">
 		<time public="1" get="inline" set="null" line="31" static="1">
@@ -5631,9 +5623,9 @@
 		</keyValueIterator>
 	</class>
 	<class path="haxe.EntryPoint" params="" file="/home/runner/work/haxe/haxe/std/haxe/EntryPoint.hx">
-		<run public="1" set="method" line="9" static="1">
+		<run public="1" set="method" line="10" static="1">
 			<f a=""><x path="Void"/></f>
-			<meta><m n=":keep"/></meta>
+			<meta><m n=":ifFeature"><e>"haxe.EventLoop.*"</e></m></meta>
 		</run>
 		<haxe_doc>If `haxe.MainLoop` is kept from DCE, then we will insert an `haxe.EntryPoint.run()` call just at then end of `main()`.
 	This class can be redefined by custom frameworks so they can handle their own main loop logic.</haxe_doc>
@@ -6110,7 +6102,6 @@
 		<value public="1"><c path="sys.thread.Tls.T"/></value>
 		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
 		<meta>
-			<m n=":directlyUsed"/>
 			<m n=":pythonImport">
 				<e>"threading"</e>
 				<e>"local"</e>
@@ -6158,7 +6149,6 @@
 		<clear public="1" get="inline" set="null" line="88"><f a=""><x path="Void"/></f></clear>
 		<size public="1" get="inline" set="null" line="92"><f a=""><x path="Int"/></f></size>
 		<new public="1" set="method" line="31"><f a=""><x path="Void"/></f></new>
-		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="python.Dict" params="K:V" file="/home/runner/work/haxe/haxe/std/python/Dict.hx" extern="1">
 		<length public="1" get="accessor" set="null"><x path="Int"/></length>
@@ -6252,10 +6242,7 @@
 		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
 	to access some resource. The main difference with a lock is
 	that a mutex must always be released by the owner thread.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-		</meta>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="python.lib.threading.RLock" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/RLock.hx" extern="1">
 		<acquire public="1" set="method"><f a="?blocking:?timeout">
@@ -6265,13 +6252,10 @@
 </f></acquire>
 		<release public="1" set="method"><f a=""><x path="Void"/></f></release>
 		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":pythonImport">
-				<e>"threading"</e>
-				<e>"RLock"</e>
-			</m>
-		</meta>
+		<meta><m n=":pythonImport">
+	<e>"threading"</e>
+	<e>"RLock"</e>
+</m></meta>
 	</class>
 	<class path="sys.thread.Lock" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Lock.hx">
 		<semaphore final="1"><c path="python.lib.threading.Semaphore"/></semaphore>
@@ -6324,10 +6308,7 @@
 	}
 	trace("All threads finished");
 	```</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-		</meta>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="sys.thread._ThreadImpl.ThreadImpl_Impl_" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/ThreadImpl.hx" private="1" module="sys.thread.ThreadImpl" final="1">
 		<current public="1" set="method" line="29" static="1"><f a=""><x path="sys.thread.ThreadImpl"/></f></current>
@@ -6344,7 +6325,6 @@
 	<c path="String"/>
 	<x path="Void"/>
 </f></setName>
-		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="python.lib.Threading" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Threading.hx" extern="1">
 		<active_count public="1" set="method" static="1"><f a=""><x path="Int"/></f></active_count>
@@ -6366,10 +6346,7 @@
 </f></stack_size>
 		<local public="1" set="method" static="1"><f a=""><d/></f></local>
 		<TIMEOUT_MAX public="1" static="1"><x path="Float"/></TIMEOUT_MAX>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":pythonImport"><e>"threading"</e></m>
-		</meta>
+		<meta><m n=":pythonImport"><e>"threading"</e></m></meta>
 	</class>
 	<class path="sys.thread.Thread" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/Thread.hx">
 		<threads static="1"><c path="Array"><c path="sys.thread.Thread"/></c></threads>
@@ -6492,7 +6469,6 @@
 	<x path="sys.thread.ThreadImpl"/>
 	<x path="Void"/>
 </f></new>
-		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="python.Syntax" params="" file="/home/runner/work/haxe/haxe/std/python/Syntax.hx" extern="1">
 		<importModule public="1" set="method" static="1">
@@ -6885,10 +6861,7 @@
 		</hasEvents>
 		<new public="1" set="method" line="114"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>Handles async events for all threads</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":access"><e>haxe.Event</e></m>
-		</meta>
+		<meta><m n=":access"><e>haxe.Event</e></m></meta>
 	</class>
 	<typedef path="haxe._Exception.PyStackItem" params="" file="/home/runner/work/haxe/haxe/std/python/_std/haxe/Exception.hx" private="1" module="haxe.Exception"><c path="python.Tuple4">
 	<c path="String"/>
@@ -7043,10 +7016,7 @@
 		throw e; // rethrows native exception instead of haxe.Exception
 	}
 	```]]></haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-		</meta>
+		<meta><m n=":coreApi"/></meta>
 	</class>
 	<typedef path="haxe.Http" params="" file="/home/runner/work/haxe/haxe/std/haxe/Http.hx"><c path="sys.Http"/></typedef>
 	<abstract path="haxe.Int32" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int32.hx">
@@ -9655,7 +9625,6 @@
 		</toHaxe>
 		<haxe_doc>Do not use manually.</haxe_doc>
 		<meta>
-			<m n=":directlyUsed"/>
 			<m n=":dox"><e>hide</e></m>
 			<m n=":noCompletion"/>
 		</meta>
@@ -10775,7 +10744,6 @@
 	```haxe
 	throw new ValueException("Terrible error");
 	```</haxe_doc>
-		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="haxe.coro.context.IElement" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/IElement.hx" interface="1">
 		<getKey public="1" set="method">
@@ -37249,10 +37217,7 @@
 	<c path="String"/>
 	<x path="Int"/>
 </c></version_info>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":pythonImport"><e>"sys"</e></m>
-		</meta>
+		<meta><m n=":pythonImport"><e>"sys"</e></m></meta>
 	</class>
 	<class path="python.Lib" params="" file="/home/runner/work/haxe/haxe/std/python/Lib.hx">
 		<lineEnd expr="Sys.systemName() == &quot;Windows&quot; ? &quot;\r\n&quot; : &quot;\n&quot;" line="37" static="1">
@@ -40268,10 +40233,7 @@
 	</class>
 	<class path="python.lib.Timeit" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Timeit.hx" extern="1">
 		<default_timer public="1" set="method" static="1"><f a=""><x path="Float"/></f></default_timer>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":pythonImport"><e>"timeit"</e></m>
-		</meta>
+		<meta><m n=":pythonImport"><e>"timeit"</e></m></meta>
 	</class>
 	<class path="python.lib.Traceback" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Traceback.hx" extern="1">
 		<extract_stack public="1" set="method" static="1"><f a="?f:?limit">
@@ -40284,10 +40246,7 @@
 	<x path="Int"/>
 	<c path="Array"><t path="python.lib._Traceback.StackItem"/></c>
 </f></extract_tb>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":pythonImport"><e>"traceback"</e></m>
-		</meta>
+		<meta><m n=":pythonImport"><e>"traceback"</e></m></meta>
 	</class>
 	<typedef path="python.lib._Traceback.StackItem" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Traceback.hx" private="1" module="python.lib.Traceback"><c path="python.Tuple4">
 	<c path="String"/>
@@ -43011,7 +42970,6 @@
 	<c path="String"/>
 	<x path="Void"/>
 </f></setName>
-	<meta><m n=":directlyUsed"/></meta>
 </class></impl>
 	</abstract>
 </haxe>
