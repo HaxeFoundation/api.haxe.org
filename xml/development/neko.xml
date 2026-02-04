@@ -6613,7 +6613,7 @@
 			<x path="Float"/>
 			<meta><m n=":value"><e>Math.NEGATIVE_INFINITY</e></m></meta>
 		</nextRun>
-		<delay public="1" set="method" line="38">
+		<delay public="1" set="method" line="39">
 			<f a="t:?fromLastRun" v=":false">
 				<x path="Null"><x path="Float"/></x>
 				<x path="Bool"/>
@@ -6623,22 +6623,22 @@
 			<haxe_doc>Delay the execution of the event for the given time, in seconds.
 		If t is null, the event will be run at next event loop.</haxe_doc>
 		</delay>
-		<stop public="1" set="method" line="45">
+		<stop public="1" set="method" line="46">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Stop this event from repeating.</haxe_doc>
 		</stop>
-		<start public="1" set="method" line="52">
+		<start public="1" set="method" line="53">
 			<f a="callb">
 				<f a=""><x path="Void"/></f>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Start the event with the given callback function.</haxe_doc>
 		</start>
-		<isStopped public="1" set="method" line="60">
+		<isStopped public="1" set="method" line="61">
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>Tells if the event has been stopped.</haxe_doc>
 		</isStopped>
-		<new set="method" line="29"><f a="loop:p">
+		<new set="method" line="30"><f a="loop:p">
 	<c path="haxe.EventLoop"/>
 	<x path="Int"/>
 	<x path="Void"/>
@@ -6650,6 +6650,422 @@
 	<close set="method"><f a=""><x path="Void"/></f></close>
 	<allowsReentrancy final="1" set="null"><x path="Bool"/></allowsReentrancy>
 </a></typedef>
+	<class path="sys.thread.Tls" params="T" file="/home/runner/work/haxe/haxe/std/neko/_std/sys/thread/Tls.hx">
+		<tls_create expr="neko.Lib.load(&quot;std&quot;, &quot;tls_create&quot;, 0)" line="44" static="1">
+			<f a=""><x path="Any"/></f>
+			<meta><m n=":value"><e>neko.Lib.load("std", "tls_create", 0)</e></m></meta>
+		</tls_create>
+		<tls_get expr="neko.Lib.load(&quot;std&quot;, &quot;tls_get&quot;, 1)" line="45" static="1">
+			<f a="">
+				<d/>
+				<c path="sys.thread.Tls.T"/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.load("std", "tls_get", 1)</e></m></meta>
+		</tls_get>
+		<tls_set expr="neko.Lib.load(&quot;std&quot;, &quot;tls_set&quot;, 2)" line="46" static="1">
+			<f a=":">
+				<d/>
+				<c path="sys.thread.Tls.T"/>
+				<x path="Any"/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.load("std", "tls_set", 2)</e></m></meta>
+		</tls_set>
+		<t><d/></t>
+		<value public="1" get="accessor" set="accessor"><c path="sys.thread.Tls.T"/></value>
+		<get_value set="method" line="35"><f a=""><c path="sys.thread.Tls.T"/></f></get_value>
+		<set_value set="method" line="39"><f a="v">
+	<c path="sys.thread.Tls.T"/>
+	<c path="sys.thread.Tls.T"/>
+</f></set_value>
+		<new public="1" set="method" line="31">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates thread local storage. This is placeholder that can store
+		a value that will be different depending on the local thread.
+
+		It is good practice to set the value to `null` when the thread exits.
+		Otherwise, it might not be garbage-collected on some targets.</haxe_doc>
+		</new>
+		<haxe_doc>A thread-local storage to store per-thread values.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<class path="haxe.ds.IntMap" params="T" file="/home/runner/work/haxe/haxe/std/neko/_std/haxe/ds/IntMap.hx">
+		<implements path="haxe.IMap">
+			<x path="Int"/>
+			<c path="haxe.ds.IntMap.T"/>
+		</implements>
+		<h><d/></h>
+		<set public="1" get="inline" set="null" line="32">
+			<f a="key:value">
+				<x path="Int"/>
+				<c path="haxe.ds.IntMap.T"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>See `Map.set`</haxe_doc>
+		</set>
+		<get public="1" set="method" line="36">
+			<f a="key">
+				<x path="Int"/>
+				<x path="Null"><c path="haxe.ds.IntMap.T"/></x>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>See `Map.get`</haxe_doc>
+		</get>
+		<exists public="1" get="inline" set="null" line="40">
+			<f a="key">
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>See `Map.exists`</haxe_doc>
+		</exists>
+		<remove public="1" get="inline" set="null" line="44">
+			<f a="key">
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>See `Map.remove`</haxe_doc>
+		</remove>
+		<keys public="1" set="method" line="48">
+			<f a=""><t path="Iterator"><x path="Int"/></t></f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>See `Map.keys`
+
+		(java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
+		</keys>
+		<iterator public="1" set="method" line="56">
+			<f a=""><t path="Iterator"><c path="haxe.ds.IntMap.T"/></t></f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>See `Map.iterator`
+
+		(java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
+		</iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="64">
+			<f a=""><t path="KeyValueIterator">
+	<x path="Int"/>
+	<c path="haxe.ds.IntMap.T"/>
+</t></f>
+			<meta><m n=":runtime"/></meta>
+			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
+		</keyValueIterator>
+		<copy public="1" set="method" line="68">
+			<f a=""><c path="haxe.ds.IntMap"><c path="haxe.ds.IntMap.T"/></c></f>
+			<haxe_doc>See `Map.copy`</haxe_doc>
+		</copy>
+		<toString public="1" set="method" line="75">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>See `Map.toString`</haxe_doc>
+		</toString>
+		<clear public="1" get="inline" set="null" line="90">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>See `Map.clear`</haxe_doc>
+		</clear>
+		<size public="1" get="inline" set="null" line="94">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":has_untyped"/></meta>
+		</size>
+		<new public="1" set="method" line="28">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Creates a new IntMap.</haxe_doc>
+		</new>
+		<haxe_doc>IntMap allows mapping of Int keys to arbitrary values.
+
+	See `Map` for documentation details.
+
+	@see https://haxe.org/manual/std-Map.html</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<class path="sys.thread.Mutex" params="" file="/home/runner/work/haxe/haxe/std/neko/_std/sys/thread/Mutex.hx">
+		<mutex_create expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_create&quot;, 0)" line="45" static="1">
+			<f a=""><x path="Any"/></f>
+			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_create", 0)</e></m></meta>
+		</mutex_create>
+		<mutex_release expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_release&quot;, 1)" line="46" static="1">
+			<f a="">
+				<d/>
+				<x path="Any"/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_release", 1)</e></m></meta>
+		</mutex_release>
+		<mutex_acquire expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_acquire&quot;, 1)" line="47" static="1">
+			<f a="">
+				<d/>
+				<x path="Any"/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_acquire", 1)</e></m></meta>
+		</mutex_acquire>
+		<mutex_try expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_try&quot;, 1)" line="48" static="1">
+			<f a="">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_try", 1)</e></m></meta>
+		</mutex_try>
+		<m><d/></m>
+		<acquire public="1" set="method" line="33">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>The current thread acquire the mutex or wait if not available.
+		The same thread can acquire several times the same mutex but
+		must release it as many times it has been acquired.</haxe_doc>
+		</acquire>
+		<tryAcquire public="1" set="method" line="37">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>Try to acquire the mutex, returns true if acquire or false
+		if it's already locked by another thread.</haxe_doc>
+		</tryAcquire>
+		<release public="1" set="method" line="41">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Release a mutex that has been acquired by the current thread.
+		The behavior is undefined if the current thread does not own
+		the mutex.</haxe_doc>
+		</release>
+		<new public="1" set="method" line="29">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a mutex.</haxe_doc>
+		</new>
+		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
+	to access some resource. The main difference with a lock is
+	that a mutex must always be released by the owner thread.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<class path="sys.thread.Lock" params="" file="/home/runner/work/haxe/haxe/std/neko/_std/sys/thread/Lock.hx">
+		<lock_create expr="neko.Lib.load(&quot;std&quot;, &quot;lock_create&quot;, 0)" line="41" static="1">
+			<f a=""><x path="Any"/></f>
+			<meta><m n=":value"><e>neko.Lib.load("std", "lock_create", 0)</e></m></meta>
+		</lock_create>
+		<lock_release expr="neko.Lib.load(&quot;std&quot;, &quot;lock_release&quot;, 1)" line="42" static="1">
+			<f a="">
+				<d/>
+				<x path="Any"/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.load("std", "lock_release", 1)</e></m></meta>
+		</lock_release>
+		<lock_wait expr="neko.Lib.load(&quot;std&quot;, &quot;lock_wait&quot;, 2)" line="43" static="1">
+			<f a=":">
+				<d/>
+				<x path="Null"><x path="Float"/></x>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>neko.Lib.load("std", "lock_wait", 2)</e></m></meta>
+		</lock_wait>
+		<l><d/></l>
+		<wait public="1" set="method" line="33">
+			<f a="?timeout">
+				<x path="Float"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Waits for the lock to be released, or `timeout` (in seconds)
+		to expire. Returns `true` if the lock is released and `false`
+		if a time-out occurs.</haxe_doc>
+		</wait>
+		<release public="1" set="method" line="37">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Releases the lock once.
+
+		The thread does not need to own the lock in order to release
+		it. Each call to `release` allows exactly one call to `wait`
+		to execute.</haxe_doc>
+		</release>
+		<new public="1" set="method" line="29">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a new Lock which is initially locked.</haxe_doc>
+		</new>
+		<haxe_doc>A Lock allows blocking execution until it has been unlocked. It keeps track
+	of how often `release` has been called, and blocks exactly as many `wait`
+	calls.
+
+	The order of the `release` and `wait` calls is irrelevant. That is, a Lock
+	can be released before anyone waits for it. In that case, the `wait` call
+	will execute immediately.
+
+	Usage example:
+
+	```haxe
+	var lock = new Lock();
+	var elements = [1, 2, 3];
+	for (element in elements) {
+		// Create one thread per element
+		new Thread(function() {
+			trace(element);
+			Sys.sleep(1);
+			// Release once per thread = 3 times
+			lock.release();
+		});
+	}
+	for (_ in elements) {
+		// Wait 3 times
+		lock.wait();
+	}
+	trace("All threads finished");
+	```</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<class path="sys.thread._ThreadImpl.ThreadImpl_Impl_" params="" file="/home/runner/work/haxe/haxe/std/neko/_std/sys/thread/ThreadImpl.hx" private="1" module="sys.thread.ThreadImpl" final="1">
+		<thread_create static="1"><f a="callb:_">
+	<f a="_">
+		<d/>
+		<x path="Void"/>
+	</f>
+	<d/>
+	<x path="sys.thread.ThreadImpl"/>
+</f></thread_create>
+		<thread_current static="1"><f a=""><x path="sys.thread.ThreadImpl"/></f></thread_current>
+		<current public="1" set="method" line="35" static="1"><f a=""><x path="sys.thread.ThreadImpl"/></f></current>
+		<create public="1" set="method" line="39" static="1"><f a="callb">
+	<f a=""><x path="Void"/></f>
+	<x path="sys.thread.ThreadImpl"/>
+</f></create>
+		<getName public="1" set="method" line="43" static="1"><f a="t">
+	<x path="sys.thread.ThreadImpl"/>
+	<x path="Null"><c path="String"/></x>
+</f></getName>
+		<setName public="1" set="method" line="47" static="1"><f a="t:name">
+	<x path="sys.thread.ThreadImpl"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></setName>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="sys.thread.Thread" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/Thread.hx">
+		<threads static="1"><c path="Array"><c path="sys.thread.Thread"/></c></threads>
+		<mutex static="1"><c path="sys.thread.Mutex"/></mutex>
+		<mainThread static="1"><c path="sys.thread.Thread"/></mainThread>
+		<idCounter static="1"><x path="Int"/></idCounter>
+		<onJobStartCallback static="1"><x path="Null"><f a=""><x path="Void"/></f></x></onJobStartCallback>
+		<readMessage public="1" set="method" line="104" static="1"><f a="blocking">
+	<x path="Bool"/>
+	<x path="Null"><d/></x>
+</f></readMessage>
+		<currentTLS static="1"><c path="sys.thread.Tls"><c path="sys.thread.Thread"/></c></currentTLS>
+		<current public="1" set="method" line="121" static="1">
+			<f a=""><c path="sys.thread.Thread"/></f>
+			<haxe_doc>Returns the current thread.
+		If you are calling this function from a native thread that is not the main thread and was not created by `Thread.create`, this will return you
+		a native thread with a `null` EvenLoop and `isNative` set to true. You need to call `disposeNative()` on such value on thread termination.</haxe_doc>
+		</current>
+		<main public="1" get="inline" set="null" line="138" static="1">
+			<f a=""><c path="sys.thread.Thread"/></f>
+			<haxe_doc>Returns the main thread</haxe_doc>
+		</main>
+		<create public="1" set="method" line="146" static="1">
+			<f a="?name:job:?onExit:?onAbort">
+				<c path="String"/>
+				<f a=""><x path="Void"/></f>
+				<f a=""><x path="Void"/></f>
+				<f a="">
+					<c path="haxe.Exception"/>
+					<x path="Void"/>
+				</f>
+				<c path="sys.thread.Thread"/>
+			</f>
+			<haxe_doc>Creates a new thread that will execute the `job` function, then exit after all events are processed.
+		You can specify a custom exception handler `onAbort` or else `Thread.onAbort` will be called.</haxe_doc>
+		</create>
+		<getAll public="1" set="method" line="190" static="1">
+			<f a=""><c path="Array"><c path="sys.thread.Thread"/></c></f>
+			<haxe_doc>Returns a list of all currently running threads.
+		This excludes native threads which were created without Thread.create and have not been
+		registered with a call to Thread.current().</haxe_doc>
+		</getAll>
+		<onJobStart public="1" set="method" line="200" static="1">
+			<f a="f">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Registers `f` to be called when a thread is about to start executing its job.</haxe_doc>
+		</onJobStart>
+		<hasBlocking set="method" line="256" static="1"><f a=""><x path="Bool"/></f></hasBlocking>
+		<events public="1" get="accessor" set="null">
+			<x path="Null"><c path="haxe.EventLoop"/></x>
+			<meta><m n=":deprecated"><e>"Use haxe.EventLoop.getThreadLoop(thread) instead"</e></m></meta>
+		</events>
+		<get_events get="inline" set="null" line="40">
+			<f a=""><x path="Null"><c path="haxe.EventLoop"/></x></f>
+			<meta><m n=":deprecated"><e>"Use haxe.EventLoop.getThreadLoop(thread) instead"</e></m></meta>
+		</get_events>
+		<id final="1" public="1"><x path="Int"/></id>
+		<impl><x path="sys.thread.ThreadImpl"/></impl>
+		<messages><c path="sys.thread.Deque"><d/></c></messages>
+		<onExitCallback><x path="Null"><f a=""><x path="Void"/></f></x></onExitCallback>
+		<onJobDoneCallback><x path="Null"><f a=""><x path="Void"/></f></x></onJobDoneCallback>
+		<isBlocking public="1" expr="true">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>true</e></m></meta>
+			<haxe_doc>Tells if we needs to wait for the thread to terminate before we stop the main loop (default:true).</haxe_doc>
+		</isBlocking>
+		<name public="1" set="accessor">
+			<x path="Null"><c path="String"/></x>
+			<haxe_doc>Allows to query or change the name of the thread. On some platforms this might allow debugger to identify threads.</haxe_doc>
+		</name>
+		<isNative public="1" set="null">
+			<x path="Bool"/>
+			<haxe_doc>Tells if a thread is a native thread that is not managed by Haxe.
+		See `Thread.current` for details.</haxe_doc>
+		</isNative>
+		<set_name set="method" line="72"><f a="n">
+	<x path="Null"><c path="String"/></x>
+	<x path="Null"><c path="String"/></x>
+</f></set_name>
+		<toString public="1" set="method" line="78"><f a=""><c path="String"/></f></toString>
+		<sendMessage public="1" set="method" line="82"><f a="msg">
+	<d/>
+	<x path="Void"/>
+</f></sendMessage>
+		<disposeNative public="1" set="method" line="91"><f a=""><x path="Void"/></f></disposeNative>
+		<dispose set="method" line="97"><f a=""><x path="Void"/></f></dispose>
+		<onJobDone public="1" set="method" line="215">
+			<f a="f">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Registers `f` to be called once the thread has completed executing its job
+		successfully. It is not called if the thread has thrown an exception.</haxe_doc>
+		</onJobDone>
+		<onAbort public="1" set="dynamic" line="233">
+			<f a="e">
+				<c path="haxe.Exception"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>This function is called when an uncaught exception aborted a thread.
+		The error will be printed to stdout but this function can be redefined.
+
+		It is generally good practice to call any previously existing callback
+		from functions assigned to this.</haxe_doc>
+		</onAbort>
+		<onExit public="1" set="method" line="246">
+			<f a="f">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Registers `f` to be called when the thread is exiting. In the case of an exception,
+		it is called after `onAbort`.
+
+		It is not guaranteed to be called if the thread is killed in a way that does not lead to
+		normal termination. Any callback assigned to this should not throw an exception.</haxe_doc>
+		</onExit>
+		<new set="method" line="66"><f a="impl">
+	<x path="sys.thread.ThreadImpl"/>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
 	<class path="haxe.EventLoop" params="" file="/home/runner/work/haxe/haxe/std/haxe/EventLoop.hx">
 		<main public="1" get="accessor" set="null" static="1">
 			<c path="haxe.EventLoop"/>
@@ -6660,11 +7076,14 @@
 			<haxe_doc>This is the current thread event loop. For platforms that doesn't support threads
 		it is the same as `main`.</haxe_doc>
 		</current>
-		<hasRunningThreads public="1" set="method" line="425" static="1">
+		<eventsTls static="1"><c path="sys.thread.Tls"><c path="haxe.EventLoop"/></c></eventsTls>
+		<threadsToEventLoops static="1"><c path="haxe.ds.IntMap"><c path="haxe.EventLoop"/></c></threadsToEventLoops>
+		<threadsToEventLoopsMutex static="1"><c path="sys.thread.Mutex"/></threadsToEventLoopsMutex>
+		<hasRunningThreads public="1" set="method" line="432" static="1">
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>Tells if we currently have blocking unfinished threads.</haxe_doc>
 		</hasRunningThreads>
-		<addTask public="1" set="method" line="459" static="1">
+		<addTask public="1" set="method" line="466" static="1">
 			<f a="f:?blocking" v=":true">
 				<f a=""><x path="Void"/></f>
 				<x path="Bool"/>
@@ -6674,8 +7093,16 @@
 			<haxe_doc>Add a task to be run either on another thread or as part of the main event loop if the
 		platform does not support threads.</haxe_doc>
 		</addTask>
-		<get_current set="method" line="467" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_current>
-		<get_main set="method" line="477" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_main>
+		<getThreadLoop public="1" set="method" line="480" static="1">
+			<f a="thread">
+				<c path="sys.thread.Thread"/>
+				<x path="Null"><c path="haxe.EventLoop"/></x>
+			</f>
+			<haxe_doc>Returns the instance of `EventLoop` associated with `thread`, or `null` if no such
+		instance exists for the given thread.</haxe_doc>
+		</getThreadLoop>
+		<get_current set="method" line="489" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_current>
+		<get_main set="method" line="499" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_main>
 		<events><c path="haxe.Event"/></events>
 		<queue><c path="haxe.Event"/></queue>
 		<inLoop><x path="Bool"/></inLoop>
@@ -6695,33 +7122,33 @@
 			<x path="Bool"/>
 			<meta><m n=":value"><e>false</e></m></meta>
 		</inNative>
-		<dispose public="1" set="method" line="118">
+		<dispose public="1" set="method" line="125">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>This should be called after you are finished with a custom event loop.
 		It is already automatically called for threads loops.</haxe_doc>
 		</dispose>
-		<loop public="1" set="method" line="126">
+		<loop public="1" set="method" line="133">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Runs until all the blocking events have been stopped.
 		If this is called on the main thread, also wait for all blocking threads to finish.</haxe_doc>
 		</loop>
-		<promise public="1" set="method" line="144">
+		<promise public="1" set="method" line="151">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Promise a possible future event addition. This will prevent the `loop()` from terminating until the matching number of `deliver()` calls have been made.</haxe_doc>
 		</promise>
-		<deliver public="1" set="method" line="153">
+		<deliver public="1" set="method" line="160">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Deliver after a `promise()`. This will throw an exception if more `deliver()` calls has been made than corresponding `promise()` calls.</haxe_doc>
 		</deliver>
-		<wakeup get="inline" set="null" line="165"><f a=""><x path="Void"/></f></wakeup>
-		<wait get="inline" set="null" line="171"><f a="time">
+		<wakeup get="inline" set="null" line="172"><f a=""><x path="Void"/></f></wakeup>
+		<wait get="inline" set="null" line="178"><f a="time">
 	<x path="Float"/>
 	<x path="Void"/>
 </f></wait>
-		<lock get="inline" set="null" line="179"><f a=""><x path="Void"/></f></lock>
-		<unlock get="inline" set="null" line="185"><f a=""><x path="Void"/></f></unlock>
-		<checkThread set="method" line="191"><f a=""><x path="Void"/></f></checkThread>
-		<loopOnce public="1" set="method" line="202">
+		<lock get="inline" set="null" line="186"><f a=""><x path="Void"/></f></lock>
+		<unlock get="inline" set="null" line="192"><f a=""><x path="Void"/></f></unlock>
+		<checkThread set="method" line="198"><f a=""><x path="Void"/></f></checkThread>
+		<loopOnce public="1" set="method" line="209">
 			<f a="?threadCheck" v="true">
 				<x path="Bool"/>
 				<x path="Void"/>
@@ -6731,7 +7158,7 @@
 		By default, an event loop from a thread can only be triggered from this thread.
 		You can set `threadCheck` to false in the rare cases you might want otherwise.</haxe_doc>
 		</loopOnce>
-		<add public="1" set="method" line="245">
+		<add public="1" set="method" line="252">
 			<f a="callb:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -6740,7 +7167,7 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a callback to be run at each loop of the event loop.</haxe_doc>
 		</add>
-		<addAsync public="1" set="method" line="256">
+		<addAsync public="1" set="method" line="263">
 			<f a="?priority" v="0">
 				<x path="Int"/>
 				<c path="haxe.Event"/>
@@ -6750,7 +7177,7 @@
 		This is useful if you wish to hold a reference of another thread Event loop
 		before it runs.</haxe_doc>
 		</addAsync>
-		<addTimer public="1" set="method" line="263">
+		<addTimer public="1" set="method" line="270">
 			<f a="callb:delay:?priority" v="::0">
 				<f a=""><x path="Void"/></f>
 				<x path="Float"/>
@@ -6760,7 +7187,7 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a callback to be run every `delay` seconds until stopped</haxe_doc>
 		</addTimer>
-		<repeat public="1" set="method" line="270">
+		<repeat public="1" set="method" line="277">
 			<f a="callb:delay">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -6771,7 +7198,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</repeat>
-		<cancel public="1" set="method" line="274">
+		<cancel public="1" set="method" line="281">
 			<f a="e">
 				<c path="haxe.Event"/>
 				<x path="Void"/>
@@ -6781,7 +7208,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</cancel>
-		<run public="1" set="method" line="281">
+		<run public="1" set="method" line="288">
 			<f a="callb:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -6790,17 +7217,17 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a function to be run once at next loop of the event loop.</haxe_doc>
 		</run>
-		<start set="method" line="287"><f a="e">
+		<start set="method" line="294"><f a="e">
 	<c path="haxe.Event"/>
 	<x path="Void"/>
 </f></start>
-		<stop set="method" line="304"><f a="e">
+		<stop set="method" line="311"><f a="e">
 	<c path="haxe.Event"/>
 	<x path="Void"/>
 </f></stop>
-		<getNextTick set="method" line="333"><f a=""><x path="Float"/></f></getNextTick>
-		<sortEvents set="method" line="355"><f a=""><x path="Void"/></f></sortEvents>
-		<hasEvents public="1" set="method" line="437">
+		<getNextTick set="method" line="340"><f a=""><x path="Float"/></f></getNextTick>
+		<sortEvents set="method" line="362"><f a=""><x path="Void"/></f></sortEvents>
+		<hasEvents public="1" set="method" line="444">
 			<f a="?blocking" v="true">
 				<x path="Bool"/>
 				<x path="Bool"/>
@@ -6809,7 +7236,7 @@
 			<haxe_doc>Tells if the event loop has remaining events.
 		If blocking is set to true, only check if it has remaining blocking events.</haxe_doc>
 		</hasEvents>
-		<new public="1" set="method" line="107"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="114"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>Handles async events for all threads</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
@@ -10752,62 +11179,6 @@
 			<haxe_doc>Returns the `Key` of `this` context element.</haxe_doc>
 		</getKey>
 		<haxe_doc>Represents an element of `Context`. See `haxe.coro.dispatchers.Dispatcher` for a usage example.</haxe_doc>
-	</class>
-	<class path="sys.thread.Mutex" params="" file="/home/runner/work/haxe/haxe/std/neko/_std/sys/thread/Mutex.hx">
-		<mutex_create expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_create&quot;, 0)" line="45" static="1">
-			<f a=""><x path="Any"/></f>
-			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_create", 0)</e></m></meta>
-		</mutex_create>
-		<mutex_release expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_release&quot;, 1)" line="46" static="1">
-			<f a="">
-				<d/>
-				<x path="Any"/>
-			</f>
-			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_release", 1)</e></m></meta>
-		</mutex_release>
-		<mutex_acquire expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_acquire&quot;, 1)" line="47" static="1">
-			<f a="">
-				<d/>
-				<x path="Any"/>
-			</f>
-			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_acquire", 1)</e></m></meta>
-		</mutex_acquire>
-		<mutex_try expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;mutex_try&quot;, 1)" line="48" static="1">
-			<f a="">
-				<d/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":value"><e>neko.Lib.loadLazy("std", "mutex_try", 1)</e></m></meta>
-		</mutex_try>
-		<m><d/></m>
-		<acquire public="1" set="method" line="33">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>The current thread acquire the mutex or wait if not available.
-		The same thread can acquire several times the same mutex but
-		must release it as many times it has been acquired.</haxe_doc>
-		</acquire>
-		<tryAcquire public="1" set="method" line="37">
-			<f a=""><x path="Bool"/></f>
-			<haxe_doc>Try to acquire the mutex, returns true if acquire or false
-		if it's already locked by another thread.</haxe_doc>
-		</tryAcquire>
-		<release public="1" set="method" line="41">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Release a mutex that has been acquired by the current thread.
-		The behavior is undefined if the current thread does not own
-		the mutex.</haxe_doc>
-		</release>
-		<new public="1" set="method" line="29">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Creates a mutex.</haxe_doc>
-		</new>
-		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
-	to access some resource. The main difference with a lock is
-	that a mutex must always be released by the owner thread.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-		</meta>
 	</class>
 	<class path="haxe.coro.context.KeyImpl" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx" module="haxe.coro.context.Key">
 		<counter expr="0" line="4" static="1">
@@ -18411,98 +18782,6 @@
 
 	@see https://haxe.org/manual/std-Map.html</haxe_doc>
 	</class>
-	<class path="haxe.ds.IntMap" params="T" file="/home/runner/work/haxe/haxe/std/neko/_std/haxe/ds/IntMap.hx">
-		<implements path="haxe.IMap">
-			<x path="Int"/>
-			<c path="haxe.ds.IntMap.T"/>
-		</implements>
-		<h><d/></h>
-		<set public="1" get="inline" set="null" line="32">
-			<f a="key:value">
-				<x path="Int"/>
-				<c path="haxe.ds.IntMap.T"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>See `Map.set`</haxe_doc>
-		</set>
-		<get public="1" set="method" line="36">
-			<f a="key">
-				<x path="Int"/>
-				<x path="Null"><c path="haxe.ds.IntMap.T"/></x>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>See `Map.get`</haxe_doc>
-		</get>
-		<exists public="1" get="inline" set="null" line="40">
-			<f a="key">
-				<x path="Int"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>See `Map.exists`</haxe_doc>
-		</exists>
-		<remove public="1" get="inline" set="null" line="44">
-			<f a="key">
-				<x path="Int"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>See `Map.remove`</haxe_doc>
-		</remove>
-		<keys public="1" set="method" line="48">
-			<f a=""><t path="Iterator"><x path="Int"/></t></f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>See `Map.keys`
-
-		(java) Implementation detail: Do not `set()` any new value while
-		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
-		</keys>
-		<iterator public="1" set="method" line="56">
-			<f a=""><t path="Iterator"><c path="haxe.ds.IntMap.T"/></t></f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>See `Map.iterator`
-
-		(java) Implementation detail: Do not `set()` any new value while
-		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
-		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="64">
-			<f a=""><t path="KeyValueIterator">
-	<x path="Int"/>
-	<c path="haxe.ds.IntMap.T"/>
-</t></f>
-			<meta><m n=":runtime"/></meta>
-			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
-		</keyValueIterator>
-		<copy public="1" set="method" line="68">
-			<f a=""><c path="haxe.ds.IntMap"><c path="haxe.ds.IntMap.T"/></c></f>
-			<haxe_doc>See `Map.copy`</haxe_doc>
-		</copy>
-		<toString public="1" set="method" line="75">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>See `Map.toString`</haxe_doc>
-		</toString>
-		<clear public="1" get="inline" set="null" line="90">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>See `Map.clear`</haxe_doc>
-		</clear>
-		<size public="1" get="inline" set="null" line="94">
-			<f a=""><x path="Int"/></f>
-			<meta><m n=":has_untyped"/></meta>
-		</size>
-		<new public="1" set="method" line="28">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Creates a new IntMap.</haxe_doc>
-		</new>
-		<haxe_doc>IntMap allows mapping of Int keys to arbitrary values.
-
-	See `Map` for documentation details.
-
-	@see https://haxe.org/manual/std-Map.html</haxe_doc>
-		<meta><m n=":coreApi"/></meta>
-	</class>
 	<class path="haxe.ds.List" params="T" file="/home/runner/work/haxe/haxe/std/haxe/ds/List.hx">
 		<h><c path="haxe.ds._List.ListNode"><c path="haxe.ds.List.T"/></c></h>
 		<q><c path="haxe.ds._List.ListNode"><c path="haxe.ds.List.T"/></c></q>
@@ -22551,47 +22830,6 @@
 		</Custom>
 		<haxe_doc>The possible IO errors that can occur</haxe_doc>
 	</enum>
-	<class path="sys.thread.Tls" params="T" file="/home/runner/work/haxe/haxe/std/neko/_std/sys/thread/Tls.hx">
-		<tls_create expr="neko.Lib.load(&quot;std&quot;, &quot;tls_create&quot;, 0)" line="44" static="1">
-			<f a=""><x path="Any"/></f>
-			<meta><m n=":value"><e>neko.Lib.load("std", "tls_create", 0)</e></m></meta>
-		</tls_create>
-		<tls_get expr="neko.Lib.load(&quot;std&quot;, &quot;tls_get&quot;, 1)" line="45" static="1">
-			<f a="">
-				<d/>
-				<c path="sys.thread.Tls.T"/>
-			</f>
-			<meta><m n=":value"><e>neko.Lib.load("std", "tls_get", 1)</e></m></meta>
-		</tls_get>
-		<tls_set expr="neko.Lib.load(&quot;std&quot;, &quot;tls_set&quot;, 2)" line="46" static="1">
-			<f a=":">
-				<d/>
-				<c path="sys.thread.Tls.T"/>
-				<x path="Any"/>
-			</f>
-			<meta><m n=":value"><e>neko.Lib.load("std", "tls_set", 2)</e></m></meta>
-		</tls_set>
-		<t><d/></t>
-		<value public="1" get="accessor" set="accessor"><c path="sys.thread.Tls.T"/></value>
-		<get_value set="method" line="35"><f a=""><c path="sys.thread.Tls.T"/></f></get_value>
-		<set_value set="method" line="39"><f a="v">
-	<c path="sys.thread.Tls.T"/>
-	<c path="sys.thread.Tls.T"/>
-</f></set_value>
-		<new public="1" set="method" line="31">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Creates thread local storage. This is placeholder that can store
-		a value that will be different depending on the local thread.
-
-		It is good practice to set the value to `null` when the thread exits.
-		Otherwise, it might not be garbage-collected on some targets.</haxe_doc>
-		</new>
-		<haxe_doc>A thread-local storage to store per-thread values.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-		</meta>
-	</class>
 	<class path="haxe.io.FPHelper" params="" file="/home/runner/work/haxe/haxe/std/haxe/io/FPHelper.hx">
 		<i64tmp expr="new sys.thread.Tls&lt;Int64&gt;()" line="33" static="1">
 			<c path="sys.thread.Tls"><x path="haxe.Int64"/></c>
@@ -39663,81 +39901,6 @@
 	block until an element is available. It is commonly used to synchronize threads.</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
-	<class path="sys.thread.Lock" params="" file="/home/runner/work/haxe/haxe/std/neko/_std/sys/thread/Lock.hx">
-		<lock_create expr="neko.Lib.load(&quot;std&quot;, &quot;lock_create&quot;, 0)" line="41" static="1">
-			<f a=""><x path="Any"/></f>
-			<meta><m n=":value"><e>neko.Lib.load("std", "lock_create", 0)</e></m></meta>
-		</lock_create>
-		<lock_release expr="neko.Lib.load(&quot;std&quot;, &quot;lock_release&quot;, 1)" line="42" static="1">
-			<f a="">
-				<d/>
-				<x path="Any"/>
-			</f>
-			<meta><m n=":value"><e>neko.Lib.load("std", "lock_release", 1)</e></m></meta>
-		</lock_release>
-		<lock_wait expr="neko.Lib.load(&quot;std&quot;, &quot;lock_wait&quot;, 2)" line="43" static="1">
-			<f a=":">
-				<d/>
-				<x path="Null"><x path="Float"/></x>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":value"><e>neko.Lib.load("std", "lock_wait", 2)</e></m></meta>
-		</lock_wait>
-		<l><d/></l>
-		<wait public="1" set="method" line="33">
-			<f a="?timeout">
-				<x path="Float"/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Waits for the lock to be released, or `timeout` (in seconds)
-		to expire. Returns `true` if the lock is released and `false`
-		if a time-out occurs.</haxe_doc>
-		</wait>
-		<release public="1" set="method" line="37">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Releases the lock once.
-
-		The thread does not need to own the lock in order to release
-		it. Each call to `release` allows exactly one call to `wait`
-		to execute.</haxe_doc>
-		</release>
-		<new public="1" set="method" line="29">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Creates a new Lock which is initially locked.</haxe_doc>
-		</new>
-		<haxe_doc>A Lock allows blocking execution until it has been unlocked. It keeps track
-	of how often `release` has been called, and blocks exactly as many `wait`
-	calls.
-
-	The order of the `release` and `wait` calls is irrelevant. That is, a Lock
-	can be released before anyone waits for it. In that case, the `wait` call
-	will execute immediately.
-
-	Usage example:
-
-	```haxe
-	var lock = new Lock();
-	var elements = [1, 2, 3];
-	for (element in elements) {
-		// Create one thread per element
-		new Thread(function() {
-			trace(element);
-			Sys.sleep(1);
-			// Release once per thread = 3 times
-			lock.release();
-		});
-	}
-	for (_ in elements) {
-		// Wait 3 times
-		lock.wait();
-	}
-	trace("All threads finished");
-	```</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-		</meta>
-	</class>
 	<class path="sys.thread.Semaphore" params="" file="/home/runner/work/haxe/haxe/std/neko/_std/sys/thread/Semaphore.hx">
 		<semaphore_create expr="neko.Lib.loadLazy(&quot;std&quot;, &quot;semaphore_create&quot;, 1)" line="22" static="1">
 			<f a="">
@@ -39799,126 +39962,6 @@
 			<haxe_doc>Creates a new semaphore with an initial value.</haxe_doc>
 		</new>
 		<meta><m n=":coreApi"/></meta>
-	</class>
-	<class path="sys.thread._ThreadImpl.ThreadImpl_Impl_" params="" file="/home/runner/work/haxe/haxe/std/neko/_std/sys/thread/ThreadImpl.hx" private="1" module="sys.thread.ThreadImpl" final="1">
-		<thread_create static="1"><f a="callb:_">
-	<f a="_">
-		<d/>
-		<x path="Void"/>
-	</f>
-	<d/>
-	<x path="sys.thread.ThreadImpl"/>
-</f></thread_create>
-		<thread_current static="1"><f a=""><x path="sys.thread.ThreadImpl"/></f></thread_current>
-		<current public="1" set="method" line="35" static="1"><f a=""><x path="sys.thread.ThreadImpl"/></f></current>
-		<create public="1" set="method" line="39" static="1"><f a="callb">
-	<f a=""><x path="Void"/></f>
-	<x path="sys.thread.ThreadImpl"/>
-</f></create>
-		<getName public="1" set="method" line="43" static="1"><f a="t">
-	<x path="sys.thread.ThreadImpl"/>
-	<x path="Null"><c path="String"/></x>
-</f></getName>
-		<setName public="1" set="method" line="47" static="1"><f a="t:name">
-	<x path="sys.thread.ThreadImpl"/>
-	<c path="String"/>
-	<x path="Void"/>
-</f></setName>
-		<meta><m n=":directlyUsed"/></meta>
-	</class>
-	<class path="sys.thread.Thread" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/Thread.hx">
-		<threads static="1"><c path="Array"><c path="sys.thread.Thread"/></c></threads>
-		<mutex static="1"><c path="sys.thread.Mutex"/></mutex>
-		<mainThread static="1"><c path="sys.thread.Thread"/></mainThread>
-		<readMessage public="1" set="method" line="98" static="1"><f a="blocking">
-	<x path="Bool"/>
-	<x path="Null"><d/></x>
-</f></readMessage>
-		<currentTLS static="1"><c path="sys.thread.Tls"><c path="sys.thread.Thread"/></c></currentTLS>
-		<current public="1" set="method" line="115" static="1">
-			<f a=""><c path="sys.thread.Thread"/></f>
-			<haxe_doc>Returns the current thread.
-		If you are calling this function from a native thread that is not the main thread and was not created by `Thread.create`, this will return you
-		a native thread with a `null` EvenLoop and `isNative` set to true. You need to call `disposeNative()` on such value on thread termination.</haxe_doc>
-		</current>
-		<main public="1" get="inline" set="null" line="132" static="1">
-			<f a=""><c path="sys.thread.Thread"/></f>
-			<haxe_doc>Returns the main thread</haxe_doc>
-		</main>
-		<create public="1" set="method" line="140" static="1">
-			<f a="?name:job:?onExit:?onAbort">
-				<c path="String"/>
-				<f a=""><x path="Void"/></f>
-				<f a=""><x path="Void"/></f>
-				<f a="">
-					<c path="haxe.Exception"/>
-					<x path="Void"/>
-				</f>
-				<c path="sys.thread.Thread"/>
-			</f>
-			<haxe_doc>Creates a new thread that will execute the `job` function, then exit after all events are processed.
-		You can specify a custom exception handler `onAbort` or else `Thread.onAbort` will be called.</haxe_doc>
-		</create>
-		<getAll public="1" set="method" line="180" static="1">
-			<f a=""><c path="Array"><c path="sys.thread.Thread"/></c></f>
-			<haxe_doc>Returns a list of all currently running threads.
-		This excludes native threads which were created without Thread.create and have not been
-		registered with a call to Thread.current().</haxe_doc>
-		</getAll>
-		<hasBlocking set="method" line="206" static="1"><f a=""><x path="Bool"/></f></hasBlocking>
-		<impl><x path="sys.thread.ThreadImpl"/></impl>
-		<messages><c path="sys.thread.Deque"><d/></c></messages>
-		<events public="1" set="null">
-			<x path="Null"><c path="haxe.EventLoop"/></x>
-			<haxe_doc>The events loop of this thread.
-		If this is a native thread, the events will be null.</haxe_doc>
-		</events>
-		<isBlocking public="1" expr="true">
-			<x path="Bool"/>
-			<meta><m n=":value"><e>true</e></m></meta>
-			<haxe_doc>Tells if we needs to wait for the thread to terminate before we stop the main loop (default:true).</haxe_doc>
-		</isBlocking>
-		<name public="1" set="accessor">
-			<x path="Null"><c path="String"/></x>
-			<haxe_doc>Allows to query or change the name of the thread. On some platforms this might allow debugger to identify threads.</haxe_doc>
-		</name>
-		<isNative public="1" set="null">
-			<x path="Bool"/>
-			<haxe_doc>Tells if a thread is a native thread that is not managed by Haxe.
-		See `Thread.current` for details.</haxe_doc>
-		</isNative>
-		<set_name set="method" line="65"><f a="n">
-	<x path="Null"><c path="String"/></x>
-	<x path="Null"><c path="String"/></x>
-</f></set_name>
-		<toString public="1" set="method" line="71"><f a=""><c path="String"/></f></toString>
-		<sendMessage public="1" set="method" line="75"><f a="msg">
-	<d/>
-	<x path="Void"/>
-</f></sendMessage>
-		<disposeNative public="1" set="method" line="84"><f a=""><x path="Void"/></f></disposeNative>
-		<dispose set="method" line="90"><f a=""><x path="Void"/></f></dispose>
-		<onAbort public="1" set="dynamic" line="191">
-			<f a="e">
-				<c path="haxe.Exception"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>This function is called when an uncaught exception aborted a thread.
-		The error will be printed to stdout but this function can be redefined.</haxe_doc>
-		</onAbort>
-		<onExit public="1" set="dynamic" line="204">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>This function is called when the thread is exiting. In the case of an exception, it is called
-		after `onAbort`.
-
-		It is not guaranteed to be called if the thread is killed in a way that does not lead to
-		normal termination.</haxe_doc>
-		</onExit>
-		<new set="method" line="60"><f a="impl">
-	<x path="sys.thread.ThreadImpl"/>
-	<x path="Void"/>
-</f></new>
-		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<abstract path="sys.thread.ThreadImpl" params="" file="/home/runner/work/haxe/haxe/std/neko/_std/sys/thread/ThreadImpl.hx">
 		<this><d/></this>

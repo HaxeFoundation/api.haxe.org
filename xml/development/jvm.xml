@@ -5989,17 +5989,17 @@
 			<x path="Int"/>
 			<haxe_doc>The event priority. Events will be executed in order of priority (highest first).</haxe_doc>
 		</priority>
-		<isBlocking public="1" expr="true" line="24">
+		<isBlocking public="1" expr="true" line="25">
 			<x path="Bool"/>
 			<meta><m n=":value"><e>true</e></m></meta>
 			<haxe_doc>Tells if an event is blocking. It means the event loop won't return from `loop()` until this event has been stopped.</haxe_doc>
 		</isBlocking>
 		<toRemove><x path="Bool"/></toRemove>
-		<nextRun expr="Math.NEGATIVE_INFINITY" line="27">
+		<nextRun expr="Math.NEGATIVE_INFINITY" line="28">
 			<x path="Float"/>
 			<meta><m n=":value"><e>Math.NEGATIVE_INFINITY</e></m></meta>
 		</nextRun>
-		<delay public="1" set="method" line="38">
+		<delay public="1" set="method" line="39">
 			<f a="t:?fromLastRun" v=":false">
 				<x path="Null"><x path="Float"/></x>
 				<x path="Bool"/>
@@ -6009,22 +6009,22 @@
 			<haxe_doc>Delay the execution of the event for the given time, in seconds.
 		If t is null, the event will be run at next event loop.</haxe_doc>
 		</delay>
-		<stop public="1" set="method" line="45">
+		<stop public="1" set="method" line="46">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Stop this event from repeating.</haxe_doc>
 		</stop>
-		<start public="1" set="method" line="52">
+		<start public="1" set="method" line="53">
 			<f a="callb">
 				<f a=""><x path="Void"/></f>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Start the event with the given callback function.</haxe_doc>
 		</start>
-		<isStopped public="1" set="method" line="60">
+		<isStopped public="1" set="method" line="61">
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>Tells if the event has been stopped.</haxe_doc>
 		</isStopped>
-		<new set="method" line="29"><f a="loop:p">
+		<new set="method" line="30"><f a="loop:p">
 	<c path="haxe.EventLoop"/>
 	<x path="Int"/>
 	<x path="Void"/>
@@ -6036,6 +6036,1194 @@
 	<close set="method"><f a=""><x path="Void"/></f></close>
 	<allowsReentrancy final="1" set="null"><x path="Bool"/></allowsReentrancy>
 </a></typedef>
+	<class path="sys.thread.Tls" params="T" file="/home/runner/work/haxe/haxe/std/jvm/_std/sys/thread/Tls.hx">
+		<t><c path="java.lang.ThreadLocal"><c path="sys.thread.Tls.T"/></c></t>
+		<value public="1" get="accessor" set="accessor"><c path="sys.thread.Tls.T"/></value>
+		<get_value get="inline" set="null" line="35"><f a=""><c path="sys.thread.Tls.T"/></f></get_value>
+		<set_value get="inline" set="null" line="39"><f a="v">
+	<c path="sys.thread.Tls.T"/>
+	<c path="sys.thread.Tls.T"/>
+</f></set_value>
+		<new public="1" set="method" line="31"><f a=""><x path="Void"/></f></new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"haxe.java.vm.Tls"</e></m>
+		</meta>
+	</class>
+	<class path="java.lang.ThreadLocal" params="T" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/ThreadLocal.class" extern="1">
+		<withInitial public="1" params="S" set="method" static="1"><f a="param1">
+	<c path="java.util.function.Supplier"><c path="withInitial.S"/></c>
+	<c path="java.lang.ThreadLocal"><c path="withInitial.S"/></c>
+</f></withInitial>
+		<createInheritedMap public="1" set="method" static="1"><f a="param1">
+	<c path="java.lang.ThreadLocal_ThreadLocalMap"/>
+	<c path="java.lang.ThreadLocal_ThreadLocalMap"/>
+</f></createInheritedMap>
+		<initialValue public="1" set="method"><f a=""><c path="java.lang.ThreadLocal.T"/></f></initialValue>
+		<get public="1" set="method"><f a=""><c path="java.lang.ThreadLocal.T"/></f></get>
+		<set public="1" set="method"><f a="param1">
+	<c path="java.lang.ThreadLocal.T"/>
+	<x path="Void"/>
+</f></set>
+		<remove public="1" set="method"><f a=""><x path="Void"/></f></remove>
+		<getMap public="1" set="method"><f a="param1">
+	<c path="java.lang.Thread"/>
+	<c path="java.lang.ThreadLocal_ThreadLocalMap"/>
+</f></getMap>
+		<createMap public="1" set="method"><f a="param1:param2">
+	<c path="java.lang.Thread"/>
+	<c path="java.lang.ThreadLocal.T"/>
+	<x path="Void"/>
+</f></createMap>
+		<childValue public="1" set="method"><f a="param1">
+	<c path="java.lang.ThreadLocal.T"/>
+	<c path="java.lang.ThreadLocal.T"/>
+</f></childValue>
+		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"java.lang.ThreadLocal"</e></m>
+			<m n=":libType"/>
+		</meta>
+	</class>
+	<class path="haxe.ds.IntMap" params="T" file="/home/runner/work/haxe/haxe/std/jvm/_std/haxe/ds/IntMap.hx">
+		<implements path="haxe.IMap">
+			<x path="Int"/>
+			<c path="haxe.ds.IntMap.T"/>
+		</implements>
+		<hashMap><c path="java.util.HashMap">
+	<x path="Int"/>
+	<c path="haxe.ds.IntMap.T"/>
+</c></hashMap>
+		<set public="1" set="method" line="39">
+			<f a="key:value">
+				<x path="Int"/>
+				<c path="haxe.ds.IntMap.T"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>See `Map.set`</haxe_doc>
+		</set>
+		<get public="1" set="method" line="43">
+			<f a="key">
+				<x path="Int"/>
+				<x path="Null"><c path="haxe.ds.IntMap.T"/></x>
+			</f>
+			<haxe_doc>See `Map.get`</haxe_doc>
+		</get>
+		<exists public="1" set="method" line="47">
+			<f a="key">
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>See `Map.exists`</haxe_doc>
+		</exists>
+		<remove public="1" set="method" line="51">
+			<f a="key">
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>See `Map.remove`</haxe_doc>
+		</remove>
+		<keys public="1" get="inline" set="null" line="57">
+			<f a=""><t path="Iterator"><x path="Int"/></t></f>
+			<haxe_doc>See `Map.keys`
+
+		(java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
+		</keys>
+		<keyValueIterator public="1" get="inline" set="null" line="61">
+			<f a=""><t path="KeyValueIterator">
+	<x path="Int"/>
+	<c path="haxe.ds.IntMap.T"/>
+</t></f>
+			<meta><m n=":runtime"/></meta>
+			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
+		</keyValueIterator>
+		<iterator public="1" get="inline" set="null" line="65">
+			<f a=""><t path="Iterator"><c path="haxe.ds.IntMap.T"/></t></f>
+			<haxe_doc>See `Map.iterator`
+
+		(java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
+		</iterator>
+		<copy public="1" set="method" line="69">
+			<f a=""><c path="haxe.ds.IntMap"><c path="haxe.ds.IntMap.T"/></c></f>
+			<haxe_doc>See `Map.copy`</haxe_doc>
+		</copy>
+		<toString public="1" set="method" line="73">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>See `Map.toString`</haxe_doc>
+		</toString>
+		<clear public="1" set="method" line="88">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>See `Map.clear`</haxe_doc>
+		</clear>
+		<size public="1" set="method" line="92"><f a=""><x path="Int"/></f></size>
+		<new public="1" set="method" line="30">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":overload"/></meta>
+			<haxe_doc>Creates a new IntMap.</haxe_doc>
+			<overloads><new set="method" line="35">
+	<f a="hashMap">
+		<c path="java.util.HashMap">
+			<x path="Int"/>
+			<c path="haxe.ds.IntMap.T"/>
+		</c>
+		<x path="Void"/>
+	</f>
+	<meta><m n=":overload"/></meta>
+</new></overloads>
+		</new>
+		<haxe_doc>IntMap allows mapping of Int keys to arbitrary values.
+
+	See `Map` for documentation details.
+
+	@see https://haxe.org/manual/std-Map.html</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<class path="java.util.Map" params="K:V" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Map.class" extern="1" interface="1">
+		<size public="1" set="method"><f a=""><x path="Int"/></f></size>
+		<isEmpty public="1" set="method"><f a=""><x path="Bool"/></f></isEmpty>
+		<containsKey public="1" set="method"><f a="param1">
+	<d/>
+	<x path="Bool"/>
+</f></containsKey>
+		<containsValue public="1" set="method"><f a="param1">
+	<d/>
+	<x path="Bool"/>
+</f></containsValue>
+		<get public="1" set="method"><f a="param1">
+	<d/>
+	<c path="java.util.Map.V"/>
+</f></get>
+		<put public="1" set="method"><f a="param1:param2">
+	<c path="java.util.Map.K"/>
+	<c path="java.util.Map.V"/>
+	<c path="java.util.Map.V"/>
+</f></put>
+		<remove public="1" set="method">
+			<f a="param1">
+				<d/>
+				<c path="java.util.Map.V"/>
+			</f>
+			<overloads><remove public="1" set="method">
+	<f a="param1:param2">
+		<d/>
+		<d/>
+		<x path="Bool"/>
+	</f>
+	<meta><m n=":java.default"/></meta>
+</remove></overloads>
+		</remove>
+		<putAll public="1" set="method"><f a="param1">
+	<c path="java.util.Map">
+		<c path="java.util.Map.K"/>
+		<c path="java.util.Map.V"/>
+	</c>
+	<x path="Void"/>
+</f></putAll>
+		<clear public="1" set="method"><f a=""><x path="Void"/></f></clear>
+		<keySet public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.util.Map.K"/></c></f></keySet>
+		<values public="1" set="method"><f a=""><c path="java.util.Collection"><c path="java.util.Map.V"/></c></f></values>
+		<entrySet public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.util.Map_Entry">
+	<c path="java.util.Map.K"/>
+	<c path="java.util.Map.V"/>
+</c></c></f></entrySet>
+		<equals public="1" set="method"><f a="param1">
+	<d/>
+	<x path="Bool"/>
+</f></equals>
+		<hashCode public="1" set="method"><f a=""><x path="Int"/></f></hashCode>
+		<getOrDefault public="1" set="method">
+			<f a="param1:param2">
+				<d/>
+				<c path="java.util.Map.V"/>
+				<c path="java.util.Map.V"/>
+			</f>
+			<meta><m n=":java.default"/></meta>
+		</getOrDefault>
+		<forEach public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.BiConsumer">
+					<d/>
+					<d/>
+				</c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":java.default"/></meta>
+		</forEach>
+		<replaceAll public="1" set="method">
+			<f a="param1">
+				<c path="java.util.function.BiFunction">
+					<d/>
+					<d/>
+					<c path="java.util.Map.V"/>
+				</c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":java.default"/></meta>
+		</replaceAll>
+		<putIfAbsent public="1" set="method">
+			<f a="param1:param2">
+				<c path="java.util.Map.K"/>
+				<c path="java.util.Map.V"/>
+				<c path="java.util.Map.V"/>
+			</f>
+			<meta><m n=":java.default"/></meta>
+		</putIfAbsent>
+		<replace public="1" set="method">
+			<f a="param1:param2:param3">
+				<c path="java.util.Map.K"/>
+				<c path="java.util.Map.V"/>
+				<c path="java.util.Map.V"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":java.default"/></meta>
+			<overloads><replace public="1" set="method">
+	<f a="param1:param2">
+		<c path="java.util.Map.K"/>
+		<c path="java.util.Map.V"/>
+		<c path="java.util.Map.V"/>
+	</f>
+	<meta><m n=":java.default"/></meta>
+</replace></overloads>
+		</replace>
+		<computeIfAbsent public="1" set="method">
+			<f a="param1:param2">
+				<c path="java.util.Map.K"/>
+				<c path="java.util.function.Function">
+					<d/>
+					<c path="java.util.Map.V"/>
+				</c>
+				<c path="java.util.Map.V"/>
+			</f>
+			<meta><m n=":java.default"/></meta>
+		</computeIfAbsent>
+		<computeIfPresent public="1" set="method">
+			<f a="param1:param2">
+				<c path="java.util.Map.K"/>
+				<c path="java.util.function.BiFunction">
+					<d/>
+					<d/>
+					<c path="java.util.Map.V"/>
+				</c>
+				<c path="java.util.Map.V"/>
+			</f>
+			<meta><m n=":java.default"/></meta>
+		</computeIfPresent>
+		<compute public="1" set="method">
+			<f a="param1:param2">
+				<c path="java.util.Map.K"/>
+				<c path="java.util.function.BiFunction">
+					<d/>
+					<d/>
+					<c path="java.util.Map.V"/>
+				</c>
+				<c path="java.util.Map.V"/>
+			</f>
+			<meta><m n=":java.default"/></meta>
+		</compute>
+		<merge public="1" set="method">
+			<f a="param1:param2:param3">
+				<c path="java.util.Map.K"/>
+				<c path="java.util.Map.V"/>
+				<c path="java.util.function.BiFunction">
+					<d/>
+					<d/>
+					<c path="java.util.Map.V"/>
+				</c>
+				<c path="java.util.Map.V"/>
+			</f>
+			<meta><m n=":java.default"/></meta>
+		</merge>
+		<meta>
+			<m n=":native"><e>"java.util.Map"</e></m>
+			<m n=":libType"/>
+		</meta>
+	</class>
+	<class path="java.util.AbstractMap" params="K:V" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/AbstractMap.class" extern="1" abstract="1">
+		<implements path="java.util.Map">
+			<c path="java.util.AbstractMap.K"/>
+			<c path="java.util.AbstractMap.V"/>
+		</implements>
+		<size public="1" set="method"><f a=""><x path="Int"/></f></size>
+		<isEmpty public="1" set="method"><f a=""><x path="Bool"/></f></isEmpty>
+		<containsValue public="1" set="method"><f a="param1">
+	<d/>
+	<x path="Bool"/>
+</f></containsValue>
+		<containsKey public="1" set="method"><f a="param1">
+	<d/>
+	<x path="Bool"/>
+</f></containsKey>
+		<get public="1" set="method"><f a="param1">
+	<d/>
+	<c path="java.util.AbstractMap.V"/>
+</f></get>
+		<put public="1" set="method"><f a="param1:param2">
+	<c path="java.util.AbstractMap.K"/>
+	<c path="java.util.AbstractMap.V"/>
+	<c path="java.util.AbstractMap.V"/>
+</f></put>
+		<remove public="1" set="method"><f a="param1">
+	<d/>
+	<c path="java.util.AbstractMap.V"/>
+</f></remove>
+		<putAll public="1" set="method"><f a="param1">
+	<c path="java.util.Map">
+		<c path="java.util.AbstractMap.K"/>
+		<c path="java.util.AbstractMap.V"/>
+	</c>
+	<x path="Void"/>
+</f></putAll>
+		<clear public="1" set="method"><f a=""><x path="Void"/></f></clear>
+		<keySet public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.util.AbstractMap.K"/></c></f></keySet>
+		<values public="1" set="method"><f a=""><c path="java.util.Collection"><c path="java.util.AbstractMap.V"/></c></f></values>
+		<entrySet abstract="1" public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.util.Map_Entry">
+	<c path="java.util.AbstractMap.K"/>
+	<c path="java.util.AbstractMap.V"/>
+</c></c></f></entrySet>
+		<equals public="1" set="method"><f a="param1">
+	<d/>
+	<x path="Bool"/>
+</f></equals>
+		<hashCode public="1" set="method"><f a=""><x path="Int"/></f></hashCode>
+		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
+		<clone public="1" set="method"><f a=""><d/></f></clone>
+		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
+		<meta>
+			<m n=":native"><e>"java.util.AbstractMap"</e></m>
+			<m n=":libType"/>
+		</meta>
+	</class>
+	<class path="java.io.Serializable" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/Serializable.class" extern="1" interface="1"><meta>
+	<m n=":native"><e>"java.io.Serializable"</e></m>
+	<m n=":libType"/>
+</meta></class>
+	<class path="java.lang.Cloneable" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Cloneable.class" extern="1" interface="1"><meta>
+	<m n=":directlyUsed"/>
+	<m n=":native"><e>"java.lang.Cloneable"</e></m>
+	<m n=":libType"/>
+</meta></class>
+	<class path="java.util.HashMap" params="K:V" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/HashMap.class" extern="1">
+		<extends path="java.util.AbstractMap">
+			<c path="java.util.HashMap.K"/>
+			<c path="java.util.HashMap.V"/>
+		</extends>
+		<implements path="java.io.Serializable"/>
+		<implements path="java.lang.Cloneable"/>
+		<implements path="java.util.Map">
+			<c path="java.util.HashMap.K"/>
+			<c path="java.util.HashMap.V"/>
+		</implements>
+		<hash final="1" public="1" set="method" static="1"><f a="param1">
+	<d/>
+	<x path="Int"/>
+</f></hash>
+		<comparableClassFor public="1" set="method" static="1"><f a="param1">
+	<d/>
+	<c path="java.lang.Class"><d/></c>
+</f></comparableClassFor>
+		<compareComparables public="1" set="method" static="1"><f a="param1:param2:param3">
+	<c path="java.lang.Class"><d/></c>
+	<d/>
+	<d/>
+	<x path="Int"/>
+</f></compareComparables>
+		<tableSizeFor final="1" public="1" set="method" static="1"><f a="param1">
+	<x path="Int"/>
+	<x path="Int"/>
+</f></tableSizeFor>
+		<DEFAULT_INITIAL_CAPACITY final="1" public="1" set="null" static="1"><x path="Int"/></DEFAULT_INITIAL_CAPACITY>
+		<MAXIMUM_CAPACITY final="1" public="1" set="null" static="1"><x path="Int"/></MAXIMUM_CAPACITY>
+		<DEFAULT_LOAD_FACTOR final="1" public="1" set="null" static="1"><x path="Single"/></DEFAULT_LOAD_FACTOR>
+		<TREEIFY_THRESHOLD final="1" public="1" set="null" static="1"><x path="Int"/></TREEIFY_THRESHOLD>
+		<UNTREEIFY_THRESHOLD final="1" public="1" set="null" static="1"><x path="Int"/></UNTREEIFY_THRESHOLD>
+		<MIN_TREEIFY_CAPACITY final="1" public="1" set="null" static="1"><x path="Int"/></MIN_TREEIFY_CAPACITY>
+		<putMapEntries final="1" public="1" set="method"><f a="param1:param2">
+	<c path="java.util.Map">
+		<c path="java.util.HashMap.K"/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+	<x path="Bool"/>
+	<x path="Void"/>
+</f></putMapEntries>
+		<size public="1" set="method" override="1"><f a=""><x path="Int"/></f></size>
+		<isEmpty public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isEmpty>
+		<get public="1" set="method" override="1"><f a="param1">
+	<d/>
+	<c path="java.util.HashMap.V"/>
+</f></get>
+		<getNode final="1" public="1" set="method"><f a="param1:param2">
+	<x path="Int"/>
+	<d/>
+	<c path="java.util.HashMap_Node">
+		<c path="java.util.HashMap.K"/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+</f></getNode>
+		<containsKey public="1" set="method" override="1"><f a="param1">
+	<d/>
+	<x path="Bool"/>
+</f></containsKey>
+		<put public="1" set="method" override="1"><f a="param1:param2">
+	<c path="java.util.HashMap.K"/>
+	<c path="java.util.HashMap.V"/>
+	<c path="java.util.HashMap.V"/>
+</f></put>
+		<putVal final="1" public="1" set="method"><f a="param1:param2:param3:param4:param5">
+	<x path="Int"/>
+	<c path="java.util.HashMap.K"/>
+	<c path="java.util.HashMap.V"/>
+	<x path="Bool"/>
+	<x path="Bool"/>
+	<c path="java.util.HashMap.V"/>
+</f></putVal>
+		<resize final="1" public="1" set="method"><f a=""><c path="jvm.NativeArray"><c path="java.util.HashMap_Node">
+	<c path="java.util.HashMap.K"/>
+	<c path="java.util.HashMap.V"/>
+</c></c></f></resize>
+		<treeifyBin final="1" public="1" set="method"><f a="param1:param2">
+	<c path="jvm.NativeArray"><c path="java.util.HashMap_Node">
+	<c path="java.util.HashMap.K"/>
+	<c path="java.util.HashMap.V"/>
+</c></c>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></treeifyBin>
+		<putAll public="1" set="method" override="1"><f a="param1">
+	<c path="java.util.Map">
+		<c path="java.util.HashMap.K"/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+	<x path="Void"/>
+</f></putAll>
+		<remove public="1" set="method" override="1">
+			<f a="param1">
+				<d/>
+				<c path="java.util.HashMap.V"/>
+			</f>
+			<overloads><remove public="1" set="method"><f a="param1:param2">
+	<d/>
+	<d/>
+	<x path="Bool"/>
+</f></remove></overloads>
+		</remove>
+		<removeNode final="1" public="1" set="method"><f a="param1:param2:param3:param4:param5">
+	<x path="Int"/>
+	<d/>
+	<d/>
+	<x path="Bool"/>
+	<x path="Bool"/>
+	<c path="java.util.HashMap_Node">
+		<c path="java.util.HashMap.K"/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+</f></removeNode>
+		<clear public="1" set="method" override="1"><f a=""><x path="Void"/></f></clear>
+		<containsValue public="1" set="method" override="1"><f a="param1">
+	<d/>
+	<x path="Bool"/>
+</f></containsValue>
+		<keySet public="1" set="method" override="1"><f a=""><c path="java.util.Set"><c path="java.util.HashMap.K"/></c></f></keySet>
+		<values public="1" set="method" override="1"><f a=""><c path="java.util.Collection"><c path="java.util.HashMap.V"/></c></f></values>
+		<entrySet public="1" set="method" override="1"><f a=""><c path="java.util.Set"><c path="java.util.Map_Entry">
+	<c path="java.util.HashMap.K"/>
+	<c path="java.util.HashMap.V"/>
+</c></c></f></entrySet>
+		<getOrDefault public="1" set="method"><f a="param1:param2">
+	<d/>
+	<c path="java.util.HashMap.V"/>
+	<c path="java.util.HashMap.V"/>
+</f></getOrDefault>
+		<putIfAbsent public="1" set="method"><f a="param1:param2">
+	<c path="java.util.HashMap.K"/>
+	<c path="java.util.HashMap.V"/>
+	<c path="java.util.HashMap.V"/>
+</f></putIfAbsent>
+		<replace public="1" set="method">
+			<f a="param1:param2:param3">
+				<c path="java.util.HashMap.K"/>
+				<c path="java.util.HashMap.V"/>
+				<c path="java.util.HashMap.V"/>
+				<x path="Bool"/>
+			</f>
+			<overloads><replace public="1" set="method"><f a="param1:param2">
+	<c path="java.util.HashMap.K"/>
+	<c path="java.util.HashMap.V"/>
+	<c path="java.util.HashMap.V"/>
+</f></replace></overloads>
+		</replace>
+		<computeIfAbsent public="1" set="method"><f a="param1:param2">
+	<c path="java.util.HashMap.K"/>
+	<c path="java.util.function.Function">
+		<d/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+	<c path="java.util.HashMap.V"/>
+</f></computeIfAbsent>
+		<computeIfPresent public="1" set="method"><f a="param1:param2">
+	<c path="java.util.HashMap.K"/>
+	<c path="java.util.function.BiFunction">
+		<d/>
+		<d/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+	<c path="java.util.HashMap.V"/>
+</f></computeIfPresent>
+		<compute public="1" set="method"><f a="param1:param2">
+	<c path="java.util.HashMap.K"/>
+	<c path="java.util.function.BiFunction">
+		<d/>
+		<d/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+	<c path="java.util.HashMap.V"/>
+</f></compute>
+		<merge public="1" set="method"><f a="param1:param2:param3">
+	<c path="java.util.HashMap.K"/>
+	<c path="java.util.HashMap.V"/>
+	<c path="java.util.function.BiFunction">
+		<d/>
+		<d/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+	<c path="java.util.HashMap.V"/>
+</f></merge>
+		<forEach public="1" set="method"><f a="param1">
+	<c path="java.util.function.BiConsumer">
+		<d/>
+		<d/>
+	</c>
+	<x path="Void"/>
+</f></forEach>
+		<replaceAll public="1" set="method"><f a="param1">
+	<c path="java.util.function.BiFunction">
+		<d/>
+		<d/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+	<x path="Void"/>
+</f></replaceAll>
+		<clone public="1" set="method" override="1"><f a=""><d/></f></clone>
+		<loadFactor final="1" public="1" set="method"><f a=""><x path="Single"/></f></loadFactor>
+		<capacity final="1" public="1" set="method"><f a=""><x path="Int"/></f></capacity>
+		<newNode public="1" set="method"><f a="param1:param2:param3:param4">
+	<x path="Int"/>
+	<c path="java.util.HashMap.K"/>
+	<c path="java.util.HashMap.V"/>
+	<c path="java.util.HashMap_Node">
+		<c path="java.util.HashMap.K"/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+	<c path="java.util.HashMap_Node">
+		<c path="java.util.HashMap.K"/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+</f></newNode>
+		<replacementNode public="1" set="method"><f a="param1:param2">
+	<c path="java.util.HashMap_Node">
+		<c path="java.util.HashMap.K"/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+	<c path="java.util.HashMap_Node">
+		<c path="java.util.HashMap.K"/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+	<c path="java.util.HashMap_Node">
+		<c path="java.util.HashMap.K"/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+</f></replacementNode>
+		<newTreeNode public="1" set="method"><f a="param1:param2:param3:param4">
+	<x path="Int"/>
+	<c path="java.util.HashMap.K"/>
+	<c path="java.util.HashMap.V"/>
+	<c path="java.util.HashMap_Node">
+		<c path="java.util.HashMap.K"/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+	<c path="java.util.HashMap_TreeNode">
+		<c path="java.util.HashMap.K"/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+</f></newTreeNode>
+		<replacementTreeNode public="1" set="method"><f a="param1:param2">
+	<c path="java.util.HashMap_Node">
+		<c path="java.util.HashMap.K"/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+	<c path="java.util.HashMap_Node">
+		<c path="java.util.HashMap.K"/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+	<c path="java.util.HashMap_TreeNode">
+		<c path="java.util.HashMap.K"/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+</f></replacementTreeNode>
+		<reinitialize public="1" set="method"><f a=""><x path="Void"/></f></reinitialize>
+		<afterNodeAccess public="1" set="method"><f a="param1">
+	<c path="java.util.HashMap_Node">
+		<c path="java.util.HashMap.K"/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+	<x path="Void"/>
+</f></afterNodeAccess>
+		<afterNodeInsertion public="1" set="method"><f a="param1">
+	<x path="Bool"/>
+	<x path="Void"/>
+</f></afterNodeInsertion>
+		<afterNodeRemoval public="1" set="method"><f a="param1">
+	<c path="java.util.HashMap_Node">
+		<c path="java.util.HashMap.K"/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+	<x path="Void"/>
+</f></afterNodeRemoval>
+		<internalWriteEntries public="1" set="method"><f a="param1">
+	<c path="java.io.ObjectOutputStream"/>
+	<x path="Void"/>
+</f></internalWriteEntries>
+		<table public="1"><c path="jvm.NativeArray"><c path="java.util.HashMap_Node">
+	<c path="java.util.HashMap.K"/>
+	<c path="java.util.HashMap.V"/>
+</c></c></table>
+		<modCount public="1"><x path="Int"/></modCount>
+		<threshold public="1"><x path="Int"/></threshold>
+		<new public="1" set="method">
+			<f a="param1:param2">
+				<x path="Int"/>
+				<x path="Single"/>
+				<x path="Void"/>
+			</f>
+			<overloads>
+				<new public="1" set="method"><f a="param1">
+	<c path="java.util.Map">
+		<c path="java.util.HashMap.K"/>
+		<c path="java.util.HashMap.V"/>
+	</c>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a=""><x path="Void"/></f></new>
+				<new public="1" set="method"><f a="param1">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></new>
+			</overloads>
+		</new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"java.util.HashMap"</e></m>
+			<m n=":libType"/>
+		</meta>
+	</class>
+	<class path="sys.thread.Mutex" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/sys/thread/Mutex.hx">
+		<lock>
+			<c path="java.util.concurrent.locks.ReentrantLock"/>
+			<meta><m n=":private"/></meta>
+		</lock>
+		<tryAcquire public="1" set="method" line="35">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>Try to acquire the mutex, returns true if acquire or false
+		if it's already locked by another thread.</haxe_doc>
+		</tryAcquire>
+		<acquire public="1" set="method" line="39">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>The current thread acquire the mutex or wait if not available.
+		The same thread can acquire several times the same mutex but
+		must release it as many times it has been acquired.</haxe_doc>
+		</acquire>
+		<release public="1" set="method" line="43">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Release a mutex that has been acquired by the current thread.
+		The behavior is undefined if the current thread does not own
+		the mutex.</haxe_doc>
+		</release>
+		<new public="1" set="method" line="31">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a mutex.</haxe_doc>
+		</new>
+		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
+	to access some resource. The main difference with a lock is
+	that a mutex must always be released by the owner thread.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+			<m n=":native"><e>"haxe.java.vm.Mutex"</e></m>
+		</meta>
+	</class>
+	<class path="java.util.concurrent.locks.Lock" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/locks/Lock.class" extern="1" interface="1">
+		<lock public="1" set="method"><f a=""><x path="Void"/></f></lock>
+		<lockInterruptibly public="1" set="method"><f a=""><x path="Void"/></f></lockInterruptibly>
+		<tryLock public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<overloads><tryLock public="1" set="method"><f a="param1:param2">
+	<x path="haxe.Int64"/>
+	<e path="java.util.concurrent.TimeUnit"/>
+	<x path="Bool"/>
+</f></tryLock></overloads>
+		</tryLock>
+		<unlock public="1" set="method"><f a=""><x path="Void"/></f></unlock>
+		<newCondition public="1" set="method"><f a=""><c path="java.util.concurrent.locks.Condition"/></f></newCondition>
+		<meta>
+			<m n=":native"><e>"java.util.concurrent.locks.Lock"</e></m>
+			<m n=":libType"/>
+		</meta>
+	</class>
+	<class path="java.util.concurrent.locks.ReentrantLock" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/locks/ReentrantLock.class" extern="1">
+		<implements path="java.util.concurrent.locks.Lock"/>
+		<implements path="java.io.Serializable"/>
+		<lock public="1" set="method"><f a=""><x path="Void"/></f></lock>
+		<lockInterruptibly public="1" set="method"><f a=""><x path="Void"/></f></lockInterruptibly>
+		<tryLock public="1" set="method">
+			<f a=""><x path="Bool"/></f>
+			<overloads><tryLock public="1" set="method"><f a="param1:param2">
+	<x path="haxe.Int64"/>
+	<e path="java.util.concurrent.TimeUnit"/>
+	<x path="Bool"/>
+</f></tryLock></overloads>
+		</tryLock>
+		<unlock public="1" set="method"><f a=""><x path="Void"/></f></unlock>
+		<newCondition public="1" set="method"><f a=""><c path="java.util.concurrent.locks.Condition"/></f></newCondition>
+		<getHoldCount public="1" set="method"><f a=""><x path="Int"/></f></getHoldCount>
+		<isHeldByCurrentThread public="1" set="method"><f a=""><x path="Bool"/></f></isHeldByCurrentThread>
+		<isLocked public="1" set="method"><f a=""><x path="Bool"/></f></isLocked>
+		<isFair final="1" public="1" set="method"><f a=""><x path="Bool"/></f></isFair>
+		<getOwner public="1" set="method"><f a=""><c path="java.lang.Thread"/></f></getOwner>
+		<hasQueuedThreads final="1" public="1" set="method"><f a=""><x path="Bool"/></f></hasQueuedThreads>
+		<hasQueuedThread final="1" public="1" set="method"><f a="param1">
+	<c path="java.lang.Thread"/>
+	<x path="Bool"/>
+</f></hasQueuedThread>
+		<getQueueLength final="1" public="1" set="method"><f a=""><x path="Int"/></f></getQueueLength>
+		<getQueuedThreads public="1" set="method"><f a=""><c path="java.util.Collection"><c path="java.lang.Thread"/></c></f></getQueuedThreads>
+		<hasWaiters public="1" set="method"><f a="param1">
+	<c path="java.util.concurrent.locks.Condition"/>
+	<x path="Bool"/>
+</f></hasWaiters>
+		<getWaitQueueLength public="1" set="method"><f a="param1">
+	<c path="java.util.concurrent.locks.Condition"/>
+	<x path="Int"/>
+</f></getWaitQueueLength>
+		<getWaitingThreads public="1" set="method"><f a="param1">
+	<c path="java.util.concurrent.locks.Condition"/>
+	<c path="java.util.Collection"><c path="java.lang.Thread"/></c>
+</f></getWaitingThreads>
+		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
+		<new public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<overloads><new public="1" set="method"><f a="param1">
+	<x path="Bool"/>
+	<x path="Void"/>
+</f></new></overloads>
+		</new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"java.util.concurrent.locks.ReentrantLock"</e></m>
+			<m n=":libType"/>
+		</meta>
+	</class>
+	<class path="sys.thread.Lock" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/sys/thread/Lock.hx">
+		<deque final="1" expr="new LinkedBlockingDeque&lt;String&gt;()" line="29">
+			<c path="java.util.concurrent.LinkedBlockingDeque"><c path="String"/></c>
+			<meta><m n=":value"><e><![CDATA[new LinkedBlockingDeque<String>()]]></e></m></meta>
+		</deque>
+		<wait public="1" set="method" line="33">
+			<f a="?timeout">
+				<x path="Float"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Waits for the lock to be released, or `timeout` (in seconds)
+		to expire. Returns `true` if the lock is released and `false`
+		if a time-out occurs.</haxe_doc>
+		</wait>
+		<release public="1" set="method" line="40">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Releases the lock once.
+
+		The thread does not need to own the lock in order to release
+		it. Each call to `release` allows exactly one call to `wait`
+		to execute.</haxe_doc>
+		</release>
+		<new public="1" set="method" line="31">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a new Lock which is initially locked.</haxe_doc>
+		</new>
+		<haxe_doc>A Lock allows blocking execution until it has been unlocked. It keeps track
+	of how often `release` has been called, and blocks exactly as many `wait`
+	calls.
+
+	The order of the `release` and `wait` calls is irrelevant. That is, a Lock
+	can be released before anyone waits for it. In that case, the `wait` call
+	will execute immediately.
+
+	Usage example:
+
+	```haxe
+	var lock = new Lock();
+	var elements = [1, 2, 3];
+	for (element in elements) {
+		// Create one thread per element
+		new Thread(function() {
+			trace(element);
+			Sys.sleep(1);
+			// Release once per thread = 3 times
+			lock.release();
+		});
+	}
+	for (_ in elements) {
+		// Wait 3 times
+		lock.wait();
+	}
+	trace("All threads finished");
+	```</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<class path="sys.thread._ThreadImpl.ThreadImpl_Impl_" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/sys/thread/ThreadImpl.hx" private="1" module="sys.thread.ThreadImpl" final="1">
+		<toNative set="method" line="36" static="1"><f a="this">
+	<c path="java.lang.Thread"/>
+	<c path="java.lang.Thread"/>
+</f></toNative>
+		<current public="1" set="method" line="40" static="1"><f a=""><x path="sys.thread.ThreadImpl"/></f></current>
+		<create public="1" set="method" line="44" static="1"><f a="job">
+	<f a=""><x path="Void"/></f>
+	<x path="sys.thread.ThreadImpl"/>
+</f></create>
+		<setName public="1" set="method" line="48" static="1"><f a="t:name">
+	<x path="sys.thread.ThreadImpl"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></setName>
+		<getName public="1" set="method" line="52" static="1"><f a="t">
+	<x path="sys.thread.ThreadImpl"/>
+	<c path="String"/>
+</f></getName>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="java.lang.Runnable" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Runnable.class" extern="1" interface="1">
+		<run public="1" set="method"><f a=""><x path="Void"/></f></run>
+		<meta>
+			<m n=":functionalInterface"/>
+			<m n=":native"><e>"java.lang.Runnable"</e></m>
+			<m n=":libType"/>
+		</meta>
+	</class>
+	<class path="java.lang.Thread" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Thread.class" extern="1">
+		<implements path="java.lang.Runnable"/>
+		<currentThread public="1" set="method" static="1"><f a=""><c path="java.lang.Thread"/></f></currentThread>
+		<yield public="1" set="method" static="1"><f a=""><x path="Void"/></f></yield>
+		<sleep public="1" set="method" static="1">
+			<f a="param1">
+				<x path="haxe.Int64"/>
+				<x path="Void"/>
+			</f>
+			<overloads><sleep public="1" set="method"><f a="param1:param2">
+	<x path="haxe.Int64"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></sleep></overloads>
+		</sleep>
+		<interrupted public="1" set="method" static="1"><f a=""><x path="Bool"/></f></interrupted>
+		<activeCount public="1" set="method" static="1"><f a=""><x path="Int"/></f></activeCount>
+		<enumerate public="1" set="method" static="1"><f a="param1">
+	<c path="jvm.NativeArray"><c path="java.lang.Thread"/></c>
+	<x path="Int"/>
+</f></enumerate>
+		<dumpStack public="1" set="method" static="1"><f a=""><x path="Void"/></f></dumpStack>
+		<holdsLock public="1" set="method" static="1"><f a="param1">
+	<d/>
+	<x path="Bool"/>
+</f></holdsLock>
+		<getAllStackTraces public="1" set="method" static="1"><f a=""><c path="java.util.Map">
+	<c path="java.lang.Thread"/>
+	<c path="jvm.NativeArray"><c path="java.lang.StackTraceElement"/></c>
+</c></f></getAllStackTraces>
+		<setDefaultUncaughtExceptionHandler public="1" set="method" static="1"><f a="param1">
+	<c path="java.lang.Thread_UncaughtExceptionHandler"/>
+	<x path="Void"/>
+</f></setDefaultUncaughtExceptionHandler>
+		<getDefaultUncaughtExceptionHandler public="1" set="method" static="1"><f a=""><c path="java.lang.Thread_UncaughtExceptionHandler"/></f></getDefaultUncaughtExceptionHandler>
+		<processQueue public="1" set="method" static="1"><f a="param1:param2">
+	<c path="java.lang.ref.ReferenceQueue"><c path="java.lang.Class"><d/></c></c>
+	<c path="java.util.concurrent.ConcurrentMap">
+		<c path="java.lang.ref.WeakReference"><c path="java.lang.Class"><d/></c></c>
+		<d/>
+	</c>
+	<x path="Void"/>
+</f></processQueue>
+		<MIN_PRIORITY final="1" public="1" set="null" static="1"><x path="Int"/></MIN_PRIORITY>
+		<NORM_PRIORITY final="1" public="1" set="null" static="1"><x path="Int"/></NORM_PRIORITY>
+		<MAX_PRIORITY final="1" public="1" set="null" static="1"><x path="Int"/></MAX_PRIORITY>
+		<blockedOn public="1" set="method"><f a="param1">
+	<c path="java.sun.nio.ch.Interruptible"/>
+	<x path="Void"/>
+</f></blockedOn>
+		<clone public="1" set="method"><f a=""><d/></f></clone>
+		<start public="1" set="method"><f a=""><x path="Void"/></f></start>
+		<run public="1" set="method"><f a=""><x path="Void"/></f></run>
+		<stop final="1" public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":deprecated"/></meta>
+			<overloads><stop final="1" public="1" set="method">
+	<f a="param1">
+		<c path="java.lang.Throwable"/>
+		<x path="Void"/>
+	</f>
+	<meta><m n=":deprecated"/></meta>
+</stop></overloads>
+		</stop>
+		<interrupt public="1" set="method"><f a=""><x path="Void"/></f></interrupt>
+		<isInterrupted public="1" set="method"><f a=""><x path="Bool"/></f></isInterrupted>
+		<destroy public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":deprecated"/></meta>
+		</destroy>
+		<isAlive final="1" public="1" set="method"><f a=""><x path="Bool"/></f></isAlive>
+		<suspend final="1" public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":deprecated"/></meta>
+		</suspend>
+		<resume final="1" public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":deprecated"/></meta>
+		</resume>
+		<setPriority final="1" public="1" set="method"><f a="param1">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></setPriority>
+		<getPriority final="1" public="1" set="method"><f a=""><x path="Int"/></f></getPriority>
+		<setName final="1" public="1" set="method"><f a="param1">
+	<c path="String"/>
+	<x path="Void"/>
+</f></setName>
+		<getName final="1" public="1" set="method"><f a=""><c path="String"/></f></getName>
+		<getThreadGroup final="1" public="1" set="method"><f a=""><c path="java.lang.ThreadGroup"/></f></getThreadGroup>
+		<countStackFrames public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":deprecated"/></meta>
+		</countStackFrames>
+		<join final="1" public="1" set="method">
+			<f a="param1">
+				<x path="haxe.Int64"/>
+				<x path="Void"/>
+			</f>
+			<overloads>
+				<join final="1" public="1" set="method"><f a=""><x path="Void"/></f></join>
+				<join final="1" public="1" set="method"><f a="param1:param2">
+	<x path="haxe.Int64"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></join>
+			</overloads>
+		</join>
+		<setDaemon final="1" public="1" set="method"><f a="param1">
+	<x path="Bool"/>
+	<x path="Void"/>
+</f></setDaemon>
+		<isDaemon final="1" public="1" set="method"><f a=""><x path="Bool"/></f></isDaemon>
+		<checkAccess final="1" public="1" set="method"><f a=""><x path="Void"/></f></checkAccess>
+		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
+		<getContextClassLoader public="1" set="method"><f a=""><c path="java.lang.ClassLoader"/></f></getContextClassLoader>
+		<setContextClassLoader public="1" set="method"><f a="param1">
+	<c path="java.lang.ClassLoader"/>
+	<x path="Void"/>
+</f></setContextClassLoader>
+		<getStackTrace public="1" set="method"><f a=""><c path="jvm.NativeArray"><c path="java.lang.StackTraceElement"/></c></f></getStackTrace>
+		<getId public="1" set="method"><f a=""><x path="haxe.Int64"/></f></getId>
+		<getState public="1" set="method"><f a=""><e path="java.lang.Thread_State"/></f></getState>
+		<getUncaughtExceptionHandler public="1" set="method"><f a=""><c path="java.lang.Thread_UncaughtExceptionHandler"/></f></getUncaughtExceptionHandler>
+		<setUncaughtExceptionHandler public="1" set="method"><f a="param1">
+	<c path="java.lang.Thread_UncaughtExceptionHandler"/>
+	<x path="Void"/>
+</f></setUncaughtExceptionHandler>
+		<threadLocals public="1"><c path="java.lang.ThreadLocal_ThreadLocalMap"/></threadLocals>
+		<inheritableThreadLocals public="1"><c path="java.lang.ThreadLocal_ThreadLocalMap"/></inheritableThreadLocals>
+		<parkBlocker public="1"><d/></parkBlocker>
+		<threadLocalRandomSeed public="1"><x path="haxe.Int64"/></threadLocalRandomSeed>
+		<threadLocalRandomProbe public="1"><x path="Int"/></threadLocalRandomProbe>
+		<threadLocalRandomSecondarySeed public="1"><x path="Int"/></threadLocalRandomSecondarySeed>
+		<new public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<overloads>
+				<new public="1" set="method"><f a="param1:param2:param3:param4">
+	<c path="java.lang.ThreadGroup"/>
+	<c path="java.lang.Runnable"/>
+	<c path="String"/>
+	<x path="haxe.Int64"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="param1:param2:param3">
+	<c path="java.lang.ThreadGroup"/>
+	<c path="java.lang.Runnable"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="param1:param2">
+	<c path="java.lang.Runnable"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="param1:param2">
+	<c path="java.lang.ThreadGroup"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="param1">
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="param1:param2">
+	<c path="java.lang.ThreadGroup"/>
+	<c path="java.lang.Runnable"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="param1:param2">
+	<c path="java.lang.Runnable"/>
+	<c path="java.security.AccessControlContext"/>
+	<x path="Void"/>
+</f></new>
+				<new public="1" set="method"><f a="param1">
+	<c path="java.lang.Runnable"/>
+	<x path="Void"/>
+</f></new>
+			</overloads>
+		</new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"java.lang.Thread"</e></m>
+			<m n=":libType"/>
+		</meta>
+	</class>
+	<class path="sys.thread.Thread" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/Thread.hx">
+		<threads static="1"><c path="Array"><c path="sys.thread.Thread"/></c></threads>
+		<mutex static="1"><c path="sys.thread.Mutex"/></mutex>
+		<mainThread static="1"><c path="sys.thread.Thread"/></mainThread>
+		<idCounter static="1"><x path="Int"/></idCounter>
+		<onJobStartCallback static="1"><x path="Null"><f a=""><x path="Void"/></f></x></onJobStartCallback>
+		<readMessage public="1" set="method" line="104" static="1"><f a="blocking">
+	<x path="Bool"/>
+	<x path="Null"><d/></x>
+</f></readMessage>
+		<currentTLS static="1"><c path="sys.thread.Tls"><c path="sys.thread.Thread"/></c></currentTLS>
+		<current public="1" set="method" line="121" static="1">
+			<f a=""><c path="sys.thread.Thread"/></f>
+			<haxe_doc>Returns the current thread.
+		If you are calling this function from a native thread that is not the main thread and was not created by `Thread.create`, this will return you
+		a native thread with a `null` EvenLoop and `isNative` set to true. You need to call `disposeNative()` on such value on thread termination.</haxe_doc>
+		</current>
+		<main public="1" get="inline" set="null" line="138" static="1">
+			<f a=""><c path="sys.thread.Thread"/></f>
+			<haxe_doc>Returns the main thread</haxe_doc>
+		</main>
+		<create public="1" set="method" line="146" static="1">
+			<f a="?name:job:?onExit:?onAbort">
+				<c path="String"/>
+				<f a=""><x path="Void"/></f>
+				<f a=""><x path="Void"/></f>
+				<f a="">
+					<c path="haxe.Exception"/>
+					<x path="Void"/>
+				</f>
+				<c path="sys.thread.Thread"/>
+			</f>
+			<haxe_doc>Creates a new thread that will execute the `job` function, then exit after all events are processed.
+		You can specify a custom exception handler `onAbort` or else `Thread.onAbort` will be called.</haxe_doc>
+		</create>
+		<getAll public="1" set="method" line="190" static="1">
+			<f a=""><c path="Array"><c path="sys.thread.Thread"/></c></f>
+			<haxe_doc>Returns a list of all currently running threads.
+		This excludes native threads which were created without Thread.create and have not been
+		registered with a call to Thread.current().</haxe_doc>
+		</getAll>
+		<onJobStart public="1" set="method" line="200" static="1">
+			<f a="f">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Registers `f` to be called when a thread is about to start executing its job.</haxe_doc>
+		</onJobStart>
+		<hasBlocking set="method" line="256" static="1"><f a=""><x path="Bool"/></f></hasBlocking>
+		<events public="1" get="accessor" set="null">
+			<x path="Null"><c path="haxe.EventLoop"/></x>
+			<meta><m n=":deprecated"><e>"Use haxe.EventLoop.getThreadLoop(thread) instead"</e></m></meta>
+		</events>
+		<get_events get="inline" set="null" line="40">
+			<f a=""><x path="Null"><c path="haxe.EventLoop"/></x></f>
+			<meta><m n=":deprecated"><e>"Use haxe.EventLoop.getThreadLoop(thread) instead"</e></m></meta>
+		</get_events>
+		<id final="1" public="1"><x path="Int"/></id>
+		<impl><x path="sys.thread.ThreadImpl"/></impl>
+		<messages><c path="sys.thread.Deque"><d/></c></messages>
+		<onExitCallback><x path="Null"><f a=""><x path="Void"/></f></x></onExitCallback>
+		<onJobDoneCallback><x path="Null"><f a=""><x path="Void"/></f></x></onJobDoneCallback>
+		<isBlocking public="1" expr="true" line="53">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>true</e></m></meta>
+			<haxe_doc>Tells if we needs to wait for the thread to terminate before we stop the main loop (default:true).</haxe_doc>
+		</isBlocking>
+		<name public="1" set="accessor">
+			<x path="Null"><c path="String"/></x>
+			<haxe_doc>Allows to query or change the name of the thread. On some platforms this might allow debugger to identify threads.</haxe_doc>
+		</name>
+		<isNative public="1" set="null">
+			<x path="Bool"/>
+			<haxe_doc>Tells if a thread is a native thread that is not managed by Haxe.
+		See `Thread.current` for details.</haxe_doc>
+		</isNative>
+		<set_name set="method" line="72"><f a="n">
+	<x path="Null"><c path="String"/></x>
+	<x path="Null"><c path="String"/></x>
+</f></set_name>
+		<toString public="1" set="method" line="78"><f a=""><c path="String"/></f></toString>
+		<sendMessage public="1" set="method" line="82"><f a="msg">
+	<d/>
+	<x path="Void"/>
+</f></sendMessage>
+		<disposeNative public="1" set="method" line="91"><f a=""><x path="Void"/></f></disposeNative>
+		<dispose set="method" line="97"><f a=""><x path="Void"/></f></dispose>
+		<onJobDone public="1" set="method" line="215">
+			<f a="f">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Registers `f` to be called once the thread has completed executing its job
+		successfully. It is not called if the thread has thrown an exception.</haxe_doc>
+		</onJobDone>
+		<onAbort public="1" set="dynamic" line="233">
+			<f a="e">
+				<c path="haxe.Exception"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>This function is called when an uncaught exception aborted a thread.
+		The error will be printed to stdout but this function can be redefined.
+
+		It is generally good practice to call any previously existing callback
+		from functions assigned to this.</haxe_doc>
+		</onAbort>
+		<onExit public="1" set="method" line="246">
+			<f a="f">
+				<f a=""><x path="Void"/></f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Registers `f` to be called when the thread is exiting. In the case of an exception,
+		it is called after `onAbort`.
+
+		It is not guaranteed to be called if the thread is killed in a way that does not lead to
+		normal termination. Any callback assigned to this should not throw an exception.</haxe_doc>
+		</onExit>
+		<new set="method" line="66"><f a="impl">
+	<x path="sys.thread.ThreadImpl"/>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
 	<class path="haxe.EventLoop" params="" file="/home/runner/work/haxe/haxe/std/haxe/EventLoop.hx">
 		<main public="1" get="accessor" set="null" static="1">
 			<c path="haxe.EventLoop"/>
@@ -6046,11 +7234,14 @@
 			<haxe_doc>This is the current thread event loop. For platforms that doesn't support threads
 		it is the same as `main`.</haxe_doc>
 		</current>
-		<hasRunningThreads public="1" set="method" line="425" static="1">
+		<eventsTls static="1"><c path="sys.thread.Tls"><c path="haxe.EventLoop"/></c></eventsTls>
+		<threadsToEventLoops static="1"><c path="haxe.ds.IntMap"><c path="haxe.EventLoop"/></c></threadsToEventLoops>
+		<threadsToEventLoopsMutex static="1"><c path="sys.thread.Mutex"/></threadsToEventLoopsMutex>
+		<hasRunningThreads public="1" set="method" line="432" static="1">
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>Tells if we currently have blocking unfinished threads.</haxe_doc>
 		</hasRunningThreads>
-		<addTask public="1" set="method" line="459" static="1">
+		<addTask public="1" set="method" line="466" static="1">
 			<f a="f:?blocking" v=":true">
 				<f a=""><x path="Void"/></f>
 				<x path="Bool"/>
@@ -6060,13 +7251,21 @@
 			<haxe_doc>Add a task to be run either on another thread or as part of the main event loop if the
 		platform does not support threads.</haxe_doc>
 		</addTask>
-		<get_current set="method" line="467" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_current>
-		<get_main set="method" line="477" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_main>
+		<getThreadLoop public="1" set="method" line="480" static="1">
+			<f a="thread">
+				<c path="sys.thread.Thread"/>
+				<x path="Null"><c path="haxe.EventLoop"/></x>
+			</f>
+			<haxe_doc>Returns the instance of `EventLoop` associated with `thread`, or `null` if no such
+		instance exists for the given thread.</haxe_doc>
+		</getThreadLoop>
+		<get_current set="method" line="489" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_current>
+		<get_main set="method" line="499" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_main>
 		<events><c path="haxe.Event"/></events>
 		<queue><c path="haxe.Event"/></queue>
 		<inLoop><x path="Bool"/></inLoop>
 		<hasPendingRemove><x path="Bool"/></hasPendingRemove>
-		<promiseCount expr="0" line="95">
+		<promiseCount expr="0" line="102">
 			<x path="Int"/>
 			<meta><m n=":value"><e>0</e></m></meta>
 		</promiseCount>
@@ -6077,37 +7276,37 @@
 			<haxe_doc>The reference thread for this loop. If set, the loop can only be run within this thread.</haxe_doc>
 		</thread>
 		<nativeLoop><x path="Null"><t path="haxe._EventLoop.NativeEventLoop"/></x></nativeLoop>
-		<inNative expr="false" line="105">
+		<inNative expr="false" line="112">
 			<x path="Bool"/>
 			<meta><m n=":value"><e>false</e></m></meta>
 		</inNative>
-		<dispose public="1" set="method" line="118">
+		<dispose public="1" set="method" line="125">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>This should be called after you are finished with a custom event loop.
 		It is already automatically called for threads loops.</haxe_doc>
 		</dispose>
-		<loop public="1" set="method" line="126">
+		<loop public="1" set="method" line="133">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Runs until all the blocking events have been stopped.
 		If this is called on the main thread, also wait for all blocking threads to finish.</haxe_doc>
 		</loop>
-		<promise public="1" set="method" line="144">
+		<promise public="1" set="method" line="151">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Promise a possible future event addition. This will prevent the `loop()` from terminating until the matching number of `deliver()` calls have been made.</haxe_doc>
 		</promise>
-		<deliver public="1" set="method" line="153">
+		<deliver public="1" set="method" line="160">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Deliver after a `promise()`. This will throw an exception if more `deliver()` calls has been made than corresponding `promise()` calls.</haxe_doc>
 		</deliver>
-		<wakeup get="inline" set="null" line="165"><f a=""><x path="Void"/></f></wakeup>
-		<wait get="inline" set="null" line="171"><f a="time">
+		<wakeup get="inline" set="null" line="172"><f a=""><x path="Void"/></f></wakeup>
+		<wait get="inline" set="null" line="178"><f a="time">
 	<x path="Float"/>
 	<x path="Void"/>
 </f></wait>
-		<lock get="inline" set="null" line="179"><f a=""><x path="Void"/></f></lock>
-		<unlock get="inline" set="null" line="185"><f a=""><x path="Void"/></f></unlock>
-		<checkThread set="method" line="191"><f a=""><x path="Void"/></f></checkThread>
-		<loopOnce public="1" set="method" line="202">
+		<lock get="inline" set="null" line="186"><f a=""><x path="Void"/></f></lock>
+		<unlock get="inline" set="null" line="192"><f a=""><x path="Void"/></f></unlock>
+		<checkThread set="method" line="198"><f a=""><x path="Void"/></f></checkThread>
+		<loopOnce public="1" set="method" line="209">
 			<f a="?threadCheck" v="true">
 				<x path="Bool"/>
 				<x path="Void"/>
@@ -6117,7 +7316,7 @@
 		By default, an event loop from a thread can only be triggered from this thread.
 		You can set `threadCheck` to false in the rare cases you might want otherwise.</haxe_doc>
 		</loopOnce>
-		<add public="1" set="method" line="245">
+		<add public="1" set="method" line="252">
 			<f a="callb:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -6126,7 +7325,7 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a callback to be run at each loop of the event loop.</haxe_doc>
 		</add>
-		<addAsync public="1" set="method" line="256">
+		<addAsync public="1" set="method" line="263">
 			<f a="?priority" v="0">
 				<x path="Int"/>
 				<c path="haxe.Event"/>
@@ -6136,7 +7335,7 @@
 		This is useful if you wish to hold a reference of another thread Event loop
 		before it runs.</haxe_doc>
 		</addAsync>
-		<addTimer public="1" set="method" line="263">
+		<addTimer public="1" set="method" line="270">
 			<f a="callb:delay:?priority" v="::0">
 				<f a=""><x path="Void"/></f>
 				<x path="Float"/>
@@ -6146,7 +7345,7 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a callback to be run every `delay` seconds until stopped</haxe_doc>
 		</addTimer>
-		<repeat public="1" set="method" line="270">
+		<repeat public="1" set="method" line="277">
 			<f a="callb:delay">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -6157,7 +7356,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</repeat>
-		<cancel public="1" set="method" line="274">
+		<cancel public="1" set="method" line="281">
 			<f a="e">
 				<c path="haxe.Event"/>
 				<x path="Void"/>
@@ -6167,7 +7366,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</cancel>
-		<run public="1" set="method" line="281">
+		<run public="1" set="method" line="288">
 			<f a="callb:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -6176,17 +7375,17 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a function to be run once at next loop of the event loop.</haxe_doc>
 		</run>
-		<start set="method" line="287"><f a="e">
+		<start set="method" line="294"><f a="e">
 	<c path="haxe.Event"/>
 	<x path="Void"/>
 </f></start>
-		<stop set="method" line="304"><f a="e">
+		<stop set="method" line="311"><f a="e">
 	<c path="haxe.Event"/>
 	<x path="Void"/>
 </f></stop>
-		<getNextTick set="method" line="333"><f a=""><x path="Float"/></f></getNextTick>
-		<sortEvents set="method" line="355"><f a=""><x path="Void"/></f></sortEvents>
-		<hasEvents public="1" set="method" line="437">
+		<getNextTick set="method" line="340"><f a=""><x path="Float"/></f></getNextTick>
+		<sortEvents set="method" line="362"><f a=""><x path="Void"/></f></sortEvents>
+		<hasEvents public="1" set="method" line="444">
 			<f a="?blocking" v="true">
 				<x path="Bool"/>
 				<x path="Bool"/>
@@ -6195,7 +7394,7 @@
 			<haxe_doc>Tells if the event loop has remaining events.
 		If blocking is set to true, only check if it has remaining blocking events.</haxe_doc>
 		</hasEvents>
-		<new public="1" set="method" line="107"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="114"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>Handles async events for all threads</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
@@ -9085,42 +10284,6 @@
 		</add>
 		<haxe_doc>This class exists for backward compatibility. You should use haxe.EventLoop instead.</haxe_doc>
 	</class>
-	<class path="java.lang.ThreadLocal" params="T" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/ThreadLocal.class" extern="1">
-		<withInitial public="1" params="S" set="method" static="1"><f a="param1">
-	<c path="java.util.function.Supplier"><c path="withInitial.S"/></c>
-	<c path="java.lang.ThreadLocal"><c path="withInitial.S"/></c>
-</f></withInitial>
-		<createInheritedMap public="1" set="method" static="1"><f a="param1">
-	<c path="java.lang.ThreadLocal_ThreadLocalMap"/>
-	<c path="java.lang.ThreadLocal_ThreadLocalMap"/>
-</f></createInheritedMap>
-		<initialValue public="1" set="method"><f a=""><c path="java.lang.ThreadLocal.T"/></f></initialValue>
-		<get public="1" set="method"><f a=""><c path="java.lang.ThreadLocal.T"/></f></get>
-		<set public="1" set="method"><f a="param1">
-	<c path="java.lang.ThreadLocal.T"/>
-	<x path="Void"/>
-</f></set>
-		<remove public="1" set="method"><f a=""><x path="Void"/></f></remove>
-		<getMap public="1" set="method"><f a="param1">
-	<c path="java.lang.Thread"/>
-	<c path="java.lang.ThreadLocal_ThreadLocalMap"/>
-</f></getMap>
-		<createMap public="1" set="method"><f a="param1:param2">
-	<c path="java.lang.Thread"/>
-	<c path="java.lang.ThreadLocal.T"/>
-	<x path="Void"/>
-</f></createMap>
-		<childValue public="1" set="method"><f a="param1">
-	<c path="java.lang.ThreadLocal.T"/>
-	<c path="java.lang.ThreadLocal.T"/>
-</f></childValue>
-		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":native"><e>"java.lang.ThreadLocal"</e></m>
-			<m n=":libType"/>
-		</meta>
-	</class>
 	<class path="haxe.NativeStackTrace" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/haxe/NativeStackTrace.hx">
 		<exception expr="new ThreadLocal&lt;Throwable&gt;()" line="16" static="1">
 			<c path="java.lang.ThreadLocal"><c path="java.lang.Throwable"/></c>
@@ -9548,10 +10711,6 @@
 	<s><x path="Bool"/></s>
 	<p><c path="String"/></p>
 </a></typedef>
-	<class path="java.io.Serializable" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/io/Serializable.class" extern="1" interface="1"><meta>
-	<m n=":native"><e>"java.io.Serializable"</e></m>
-	<m n=":libType"/>
-</meta></class>
 	<class path="java.util.regex.Pattern" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/regex/Pattern.class" extern="1">
 		<implements path="java.io.Serializable"/>
 		<compile public="1" set="method" static="1">
@@ -10623,112 +11782,6 @@
 			<haxe_doc>Returns the `Key` of `this` context element.</haxe_doc>
 		</getKey>
 		<haxe_doc>Represents an element of `Context`. See `haxe.coro.dispatchers.Dispatcher` for a usage example.</haxe_doc>
-	</class>
-	<class path="sys.thread.Mutex" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/sys/thread/Mutex.hx">
-		<lock>
-			<c path="java.util.concurrent.locks.ReentrantLock"/>
-			<meta><m n=":private"/></meta>
-		</lock>
-		<tryAcquire public="1" set="method" line="35">
-			<f a=""><x path="Bool"/></f>
-			<haxe_doc>Try to acquire the mutex, returns true if acquire or false
-		if it's already locked by another thread.</haxe_doc>
-		</tryAcquire>
-		<acquire public="1" set="method" line="39">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>The current thread acquire the mutex or wait if not available.
-		The same thread can acquire several times the same mutex but
-		must release it as many times it has been acquired.</haxe_doc>
-		</acquire>
-		<release public="1" set="method" line="43">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Release a mutex that has been acquired by the current thread.
-		The behavior is undefined if the current thread does not own
-		the mutex.</haxe_doc>
-		</release>
-		<new public="1" set="method" line="31">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Creates a mutex.</haxe_doc>
-		</new>
-		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
-	to access some resource. The main difference with a lock is
-	that a mutex must always be released by the owner thread.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-			<m n=":native"><e>"haxe.java.vm.Mutex"</e></m>
-		</meta>
-	</class>
-	<class path="java.util.concurrent.locks.Lock" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/locks/Lock.class" extern="1" interface="1">
-		<lock public="1" set="method"><f a=""><x path="Void"/></f></lock>
-		<lockInterruptibly public="1" set="method"><f a=""><x path="Void"/></f></lockInterruptibly>
-		<tryLock public="1" set="method">
-			<f a=""><x path="Bool"/></f>
-			<overloads><tryLock public="1" set="method"><f a="param1:param2">
-	<x path="haxe.Int64"/>
-	<e path="java.util.concurrent.TimeUnit"/>
-	<x path="Bool"/>
-</f></tryLock></overloads>
-		</tryLock>
-		<unlock public="1" set="method"><f a=""><x path="Void"/></f></unlock>
-		<newCondition public="1" set="method"><f a=""><c path="java.util.concurrent.locks.Condition"/></f></newCondition>
-		<meta>
-			<m n=":native"><e>"java.util.concurrent.locks.Lock"</e></m>
-			<m n=":libType"/>
-		</meta>
-	</class>
-	<class path="java.util.concurrent.locks.ReentrantLock" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/concurrent/locks/ReentrantLock.class" extern="1">
-		<implements path="java.util.concurrent.locks.Lock"/>
-		<implements path="java.io.Serializable"/>
-		<lock public="1" set="method"><f a=""><x path="Void"/></f></lock>
-		<lockInterruptibly public="1" set="method"><f a=""><x path="Void"/></f></lockInterruptibly>
-		<tryLock public="1" set="method">
-			<f a=""><x path="Bool"/></f>
-			<overloads><tryLock public="1" set="method"><f a="param1:param2">
-	<x path="haxe.Int64"/>
-	<e path="java.util.concurrent.TimeUnit"/>
-	<x path="Bool"/>
-</f></tryLock></overloads>
-		</tryLock>
-		<unlock public="1" set="method"><f a=""><x path="Void"/></f></unlock>
-		<newCondition public="1" set="method"><f a=""><c path="java.util.concurrent.locks.Condition"/></f></newCondition>
-		<getHoldCount public="1" set="method"><f a=""><x path="Int"/></f></getHoldCount>
-		<isHeldByCurrentThread public="1" set="method"><f a=""><x path="Bool"/></f></isHeldByCurrentThread>
-		<isLocked public="1" set="method"><f a=""><x path="Bool"/></f></isLocked>
-		<isFair final="1" public="1" set="method"><f a=""><x path="Bool"/></f></isFair>
-		<getOwner public="1" set="method"><f a=""><c path="java.lang.Thread"/></f></getOwner>
-		<hasQueuedThreads final="1" public="1" set="method"><f a=""><x path="Bool"/></f></hasQueuedThreads>
-		<hasQueuedThread final="1" public="1" set="method"><f a="param1">
-	<c path="java.lang.Thread"/>
-	<x path="Bool"/>
-</f></hasQueuedThread>
-		<getQueueLength final="1" public="1" set="method"><f a=""><x path="Int"/></f></getQueueLength>
-		<getQueuedThreads public="1" set="method"><f a=""><c path="java.util.Collection"><c path="java.lang.Thread"/></c></f></getQueuedThreads>
-		<hasWaiters public="1" set="method"><f a="param1">
-	<c path="java.util.concurrent.locks.Condition"/>
-	<x path="Bool"/>
-</f></hasWaiters>
-		<getWaitQueueLength public="1" set="method"><f a="param1">
-	<c path="java.util.concurrent.locks.Condition"/>
-	<x path="Int"/>
-</f></getWaitQueueLength>
-		<getWaitingThreads public="1" set="method"><f a="param1">
-	<c path="java.util.concurrent.locks.Condition"/>
-	<c path="java.util.Collection"><c path="java.lang.Thread"/></c>
-</f></getWaitingThreads>
-		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
-		<new public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<overloads><new public="1" set="method"><f a="param1">
-	<x path="Bool"/>
-	<x path="Void"/>
-</f></new></overloads>
-		</new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":native"><e>"java.util.concurrent.locks.ReentrantLock"</e></m>
-			<m n=":libType"/>
-		</meta>
 	</class>
 	<class path="haxe.coro.context.KeyImpl" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx" module="haxe.coro.context.Key">
 		<counter expr="0" line="4" static="1">
@@ -18199,101 +19252,6 @@
 </new></overloads>
 		</new>
 		<haxe_doc>Int64Map allows mapping of Int64 keys to arbitrary values.
-
-	See `Map` for documentation details.
-
-	@see https://haxe.org/manual/std-Map.html</haxe_doc>
-		<meta><m n=":coreApi"/></meta>
-	</class>
-	<class path="haxe.ds.IntMap" params="T" file="/home/runner/work/haxe/haxe/std/jvm/_std/haxe/ds/IntMap.hx">
-		<implements path="haxe.IMap">
-			<x path="Int"/>
-			<c path="haxe.ds.IntMap.T"/>
-		</implements>
-		<hashMap><c path="java.util.HashMap">
-	<x path="Int"/>
-	<c path="haxe.ds.IntMap.T"/>
-</c></hashMap>
-		<set public="1" set="method" line="39">
-			<f a="key:value">
-				<x path="Int"/>
-				<c path="haxe.ds.IntMap.T"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>See `Map.set`</haxe_doc>
-		</set>
-		<get public="1" set="method" line="43">
-			<f a="key">
-				<x path="Int"/>
-				<x path="Null"><c path="haxe.ds.IntMap.T"/></x>
-			</f>
-			<haxe_doc>See `Map.get`</haxe_doc>
-		</get>
-		<exists public="1" set="method" line="47">
-			<f a="key">
-				<x path="Int"/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>See `Map.exists`</haxe_doc>
-		</exists>
-		<remove public="1" set="method" line="51">
-			<f a="key">
-				<x path="Int"/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>See `Map.remove`</haxe_doc>
-		</remove>
-		<keys public="1" get="inline" set="null" line="57">
-			<f a=""><t path="Iterator"><x path="Int"/></t></f>
-			<haxe_doc>See `Map.keys`
-
-		(java) Implementation detail: Do not `set()` any new value while
-		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
-		</keys>
-		<keyValueIterator public="1" get="inline" set="null" line="61">
-			<f a=""><t path="KeyValueIterator">
-	<x path="Int"/>
-	<c path="haxe.ds.IntMap.T"/>
-</t></f>
-			<meta><m n=":runtime"/></meta>
-			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
-		</keyValueIterator>
-		<iterator public="1" get="inline" set="null" line="65">
-			<f a=""><t path="Iterator"><c path="haxe.ds.IntMap.T"/></t></f>
-			<haxe_doc>See `Map.iterator`
-
-		(java) Implementation detail: Do not `set()` any new value while
-		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
-		</iterator>
-		<copy public="1" set="method" line="69">
-			<f a=""><c path="haxe.ds.IntMap"><c path="haxe.ds.IntMap.T"/></c></f>
-			<haxe_doc>See `Map.copy`</haxe_doc>
-		</copy>
-		<toString public="1" set="method" line="73">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>See `Map.toString`</haxe_doc>
-		</toString>
-		<clear public="1" set="method" line="88">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>See `Map.clear`</haxe_doc>
-		</clear>
-		<size public="1" set="method" line="92"><f a=""><x path="Int"/></f></size>
-		<new public="1" set="method" line="30">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":overload"/></meta>
-			<haxe_doc>Creates a new IntMap.</haxe_doc>
-			<overloads><new set="method" line="35">
-	<f a="hashMap">
-		<c path="java.util.HashMap">
-			<x path="Int"/>
-			<c path="haxe.ds.IntMap.T"/>
-		</c>
-		<x path="Void"/>
-	</f>
-	<meta><m n=":overload"/></meta>
-</new></overloads>
-		</new>
-		<haxe_doc>IntMap allows mapping of Int keys to arbitrary values.
 
 	See `Map` for documentation details.
 
@@ -36302,539 +37260,6 @@
 	<x path="Void"/>
 </f></new>
 	</class>
-	<class path="java.util.Map" params="K:V" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/Map.class" extern="1" interface="1">
-		<size public="1" set="method"><f a=""><x path="Int"/></f></size>
-		<isEmpty public="1" set="method"><f a=""><x path="Bool"/></f></isEmpty>
-		<containsKey public="1" set="method"><f a="param1">
-	<d/>
-	<x path="Bool"/>
-</f></containsKey>
-		<containsValue public="1" set="method"><f a="param1">
-	<d/>
-	<x path="Bool"/>
-</f></containsValue>
-		<get public="1" set="method"><f a="param1">
-	<d/>
-	<c path="java.util.Map.V"/>
-</f></get>
-		<put public="1" set="method"><f a="param1:param2">
-	<c path="java.util.Map.K"/>
-	<c path="java.util.Map.V"/>
-	<c path="java.util.Map.V"/>
-</f></put>
-		<remove public="1" set="method">
-			<f a="param1">
-				<d/>
-				<c path="java.util.Map.V"/>
-			</f>
-			<overloads><remove public="1" set="method">
-	<f a="param1:param2">
-		<d/>
-		<d/>
-		<x path="Bool"/>
-	</f>
-	<meta><m n=":java.default"/></meta>
-</remove></overloads>
-		</remove>
-		<putAll public="1" set="method"><f a="param1">
-	<c path="java.util.Map">
-		<c path="java.util.Map.K"/>
-		<c path="java.util.Map.V"/>
-	</c>
-	<x path="Void"/>
-</f></putAll>
-		<clear public="1" set="method"><f a=""><x path="Void"/></f></clear>
-		<keySet public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.util.Map.K"/></c></f></keySet>
-		<values public="1" set="method"><f a=""><c path="java.util.Collection"><c path="java.util.Map.V"/></c></f></values>
-		<entrySet public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.util.Map_Entry">
-	<c path="java.util.Map.K"/>
-	<c path="java.util.Map.V"/>
-</c></c></f></entrySet>
-		<equals public="1" set="method"><f a="param1">
-	<d/>
-	<x path="Bool"/>
-</f></equals>
-		<hashCode public="1" set="method"><f a=""><x path="Int"/></f></hashCode>
-		<getOrDefault public="1" set="method">
-			<f a="param1:param2">
-				<d/>
-				<c path="java.util.Map.V"/>
-				<c path="java.util.Map.V"/>
-			</f>
-			<meta><m n=":java.default"/></meta>
-		</getOrDefault>
-		<forEach public="1" set="method">
-			<f a="param1">
-				<c path="java.util.function.BiConsumer">
-					<d/>
-					<d/>
-				</c>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":java.default"/></meta>
-		</forEach>
-		<replaceAll public="1" set="method">
-			<f a="param1">
-				<c path="java.util.function.BiFunction">
-					<d/>
-					<d/>
-					<c path="java.util.Map.V"/>
-				</c>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":java.default"/></meta>
-		</replaceAll>
-		<putIfAbsent public="1" set="method">
-			<f a="param1:param2">
-				<c path="java.util.Map.K"/>
-				<c path="java.util.Map.V"/>
-				<c path="java.util.Map.V"/>
-			</f>
-			<meta><m n=":java.default"/></meta>
-		</putIfAbsent>
-		<replace public="1" set="method">
-			<f a="param1:param2:param3">
-				<c path="java.util.Map.K"/>
-				<c path="java.util.Map.V"/>
-				<c path="java.util.Map.V"/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":java.default"/></meta>
-			<overloads><replace public="1" set="method">
-	<f a="param1:param2">
-		<c path="java.util.Map.K"/>
-		<c path="java.util.Map.V"/>
-		<c path="java.util.Map.V"/>
-	</f>
-	<meta><m n=":java.default"/></meta>
-</replace></overloads>
-		</replace>
-		<computeIfAbsent public="1" set="method">
-			<f a="param1:param2">
-				<c path="java.util.Map.K"/>
-				<c path="java.util.function.Function">
-					<d/>
-					<c path="java.util.Map.V"/>
-				</c>
-				<c path="java.util.Map.V"/>
-			</f>
-			<meta><m n=":java.default"/></meta>
-		</computeIfAbsent>
-		<computeIfPresent public="1" set="method">
-			<f a="param1:param2">
-				<c path="java.util.Map.K"/>
-				<c path="java.util.function.BiFunction">
-					<d/>
-					<d/>
-					<c path="java.util.Map.V"/>
-				</c>
-				<c path="java.util.Map.V"/>
-			</f>
-			<meta><m n=":java.default"/></meta>
-		</computeIfPresent>
-		<compute public="1" set="method">
-			<f a="param1:param2">
-				<c path="java.util.Map.K"/>
-				<c path="java.util.function.BiFunction">
-					<d/>
-					<d/>
-					<c path="java.util.Map.V"/>
-				</c>
-				<c path="java.util.Map.V"/>
-			</f>
-			<meta><m n=":java.default"/></meta>
-		</compute>
-		<merge public="1" set="method">
-			<f a="param1:param2:param3">
-				<c path="java.util.Map.K"/>
-				<c path="java.util.Map.V"/>
-				<c path="java.util.function.BiFunction">
-					<d/>
-					<d/>
-					<c path="java.util.Map.V"/>
-				</c>
-				<c path="java.util.Map.V"/>
-			</f>
-			<meta><m n=":java.default"/></meta>
-		</merge>
-		<meta>
-			<m n=":native"><e>"java.util.Map"</e></m>
-			<m n=":libType"/>
-		</meta>
-	</class>
-	<class path="java.util.AbstractMap" params="K:V" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/AbstractMap.class" extern="1" abstract="1">
-		<implements path="java.util.Map">
-			<c path="java.util.AbstractMap.K"/>
-			<c path="java.util.AbstractMap.V"/>
-		</implements>
-		<size public="1" set="method"><f a=""><x path="Int"/></f></size>
-		<isEmpty public="1" set="method"><f a=""><x path="Bool"/></f></isEmpty>
-		<containsValue public="1" set="method"><f a="param1">
-	<d/>
-	<x path="Bool"/>
-</f></containsValue>
-		<containsKey public="1" set="method"><f a="param1">
-	<d/>
-	<x path="Bool"/>
-</f></containsKey>
-		<get public="1" set="method"><f a="param1">
-	<d/>
-	<c path="java.util.AbstractMap.V"/>
-</f></get>
-		<put public="1" set="method"><f a="param1:param2">
-	<c path="java.util.AbstractMap.K"/>
-	<c path="java.util.AbstractMap.V"/>
-	<c path="java.util.AbstractMap.V"/>
-</f></put>
-		<remove public="1" set="method"><f a="param1">
-	<d/>
-	<c path="java.util.AbstractMap.V"/>
-</f></remove>
-		<putAll public="1" set="method"><f a="param1">
-	<c path="java.util.Map">
-		<c path="java.util.AbstractMap.K"/>
-		<c path="java.util.AbstractMap.V"/>
-	</c>
-	<x path="Void"/>
-</f></putAll>
-		<clear public="1" set="method"><f a=""><x path="Void"/></f></clear>
-		<keySet public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.util.AbstractMap.K"/></c></f></keySet>
-		<values public="1" set="method"><f a=""><c path="java.util.Collection"><c path="java.util.AbstractMap.V"/></c></f></values>
-		<entrySet abstract="1" public="1" set="method"><f a=""><c path="java.util.Set"><c path="java.util.Map_Entry">
-	<c path="java.util.AbstractMap.K"/>
-	<c path="java.util.AbstractMap.V"/>
-</c></c></f></entrySet>
-		<equals public="1" set="method"><f a="param1">
-	<d/>
-	<x path="Bool"/>
-</f></equals>
-		<hashCode public="1" set="method"><f a=""><x path="Int"/></f></hashCode>
-		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
-		<clone public="1" set="method"><f a=""><d/></f></clone>
-		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
-		<meta>
-			<m n=":native"><e>"java.util.AbstractMap"</e></m>
-			<m n=":libType"/>
-		</meta>
-	</class>
-	<class path="java.lang.Cloneable" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Cloneable.class" extern="1" interface="1"><meta>
-	<m n=":directlyUsed"/>
-	<m n=":native"><e>"java.lang.Cloneable"</e></m>
-	<m n=":libType"/>
-</meta></class>
-	<class path="java.util.HashMap" params="K:V" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/util/HashMap.class" extern="1">
-		<extends path="java.util.AbstractMap">
-			<c path="java.util.HashMap.K"/>
-			<c path="java.util.HashMap.V"/>
-		</extends>
-		<implements path="java.io.Serializable"/>
-		<implements path="java.lang.Cloneable"/>
-		<implements path="java.util.Map">
-			<c path="java.util.HashMap.K"/>
-			<c path="java.util.HashMap.V"/>
-		</implements>
-		<hash final="1" public="1" set="method" static="1"><f a="param1">
-	<d/>
-	<x path="Int"/>
-</f></hash>
-		<comparableClassFor public="1" set="method" static="1"><f a="param1">
-	<d/>
-	<c path="java.lang.Class"><d/></c>
-</f></comparableClassFor>
-		<compareComparables public="1" set="method" static="1"><f a="param1:param2:param3">
-	<c path="java.lang.Class"><d/></c>
-	<d/>
-	<d/>
-	<x path="Int"/>
-</f></compareComparables>
-		<tableSizeFor final="1" public="1" set="method" static="1"><f a="param1">
-	<x path="Int"/>
-	<x path="Int"/>
-</f></tableSizeFor>
-		<DEFAULT_INITIAL_CAPACITY final="1" public="1" set="null" static="1"><x path="Int"/></DEFAULT_INITIAL_CAPACITY>
-		<MAXIMUM_CAPACITY final="1" public="1" set="null" static="1"><x path="Int"/></MAXIMUM_CAPACITY>
-		<DEFAULT_LOAD_FACTOR final="1" public="1" set="null" static="1"><x path="Single"/></DEFAULT_LOAD_FACTOR>
-		<TREEIFY_THRESHOLD final="1" public="1" set="null" static="1"><x path="Int"/></TREEIFY_THRESHOLD>
-		<UNTREEIFY_THRESHOLD final="1" public="1" set="null" static="1"><x path="Int"/></UNTREEIFY_THRESHOLD>
-		<MIN_TREEIFY_CAPACITY final="1" public="1" set="null" static="1"><x path="Int"/></MIN_TREEIFY_CAPACITY>
-		<putMapEntries final="1" public="1" set="method"><f a="param1:param2">
-	<c path="java.util.Map">
-		<c path="java.util.HashMap.K"/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-	<x path="Bool"/>
-	<x path="Void"/>
-</f></putMapEntries>
-		<size public="1" set="method" override="1"><f a=""><x path="Int"/></f></size>
-		<isEmpty public="1" set="method" override="1"><f a=""><x path="Bool"/></f></isEmpty>
-		<get public="1" set="method" override="1"><f a="param1">
-	<d/>
-	<c path="java.util.HashMap.V"/>
-</f></get>
-		<getNode final="1" public="1" set="method"><f a="param1:param2">
-	<x path="Int"/>
-	<d/>
-	<c path="java.util.HashMap_Node">
-		<c path="java.util.HashMap.K"/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-</f></getNode>
-		<containsKey public="1" set="method" override="1"><f a="param1">
-	<d/>
-	<x path="Bool"/>
-</f></containsKey>
-		<put public="1" set="method" override="1"><f a="param1:param2">
-	<c path="java.util.HashMap.K"/>
-	<c path="java.util.HashMap.V"/>
-	<c path="java.util.HashMap.V"/>
-</f></put>
-		<putVal final="1" public="1" set="method"><f a="param1:param2:param3:param4:param5">
-	<x path="Int"/>
-	<c path="java.util.HashMap.K"/>
-	<c path="java.util.HashMap.V"/>
-	<x path="Bool"/>
-	<x path="Bool"/>
-	<c path="java.util.HashMap.V"/>
-</f></putVal>
-		<resize final="1" public="1" set="method"><f a=""><c path="jvm.NativeArray"><c path="java.util.HashMap_Node">
-	<c path="java.util.HashMap.K"/>
-	<c path="java.util.HashMap.V"/>
-</c></c></f></resize>
-		<treeifyBin final="1" public="1" set="method"><f a="param1:param2">
-	<c path="jvm.NativeArray"><c path="java.util.HashMap_Node">
-	<c path="java.util.HashMap.K"/>
-	<c path="java.util.HashMap.V"/>
-</c></c>
-	<x path="Int"/>
-	<x path="Void"/>
-</f></treeifyBin>
-		<putAll public="1" set="method" override="1"><f a="param1">
-	<c path="java.util.Map">
-		<c path="java.util.HashMap.K"/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-	<x path="Void"/>
-</f></putAll>
-		<remove public="1" set="method" override="1">
-			<f a="param1">
-				<d/>
-				<c path="java.util.HashMap.V"/>
-			</f>
-			<overloads><remove public="1" set="method"><f a="param1:param2">
-	<d/>
-	<d/>
-	<x path="Bool"/>
-</f></remove></overloads>
-		</remove>
-		<removeNode final="1" public="1" set="method"><f a="param1:param2:param3:param4:param5">
-	<x path="Int"/>
-	<d/>
-	<d/>
-	<x path="Bool"/>
-	<x path="Bool"/>
-	<c path="java.util.HashMap_Node">
-		<c path="java.util.HashMap.K"/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-</f></removeNode>
-		<clear public="1" set="method" override="1"><f a=""><x path="Void"/></f></clear>
-		<containsValue public="1" set="method" override="1"><f a="param1">
-	<d/>
-	<x path="Bool"/>
-</f></containsValue>
-		<keySet public="1" set="method" override="1"><f a=""><c path="java.util.Set"><c path="java.util.HashMap.K"/></c></f></keySet>
-		<values public="1" set="method" override="1"><f a=""><c path="java.util.Collection"><c path="java.util.HashMap.V"/></c></f></values>
-		<entrySet public="1" set="method" override="1"><f a=""><c path="java.util.Set"><c path="java.util.Map_Entry">
-	<c path="java.util.HashMap.K"/>
-	<c path="java.util.HashMap.V"/>
-</c></c></f></entrySet>
-		<getOrDefault public="1" set="method"><f a="param1:param2">
-	<d/>
-	<c path="java.util.HashMap.V"/>
-	<c path="java.util.HashMap.V"/>
-</f></getOrDefault>
-		<putIfAbsent public="1" set="method"><f a="param1:param2">
-	<c path="java.util.HashMap.K"/>
-	<c path="java.util.HashMap.V"/>
-	<c path="java.util.HashMap.V"/>
-</f></putIfAbsent>
-		<replace public="1" set="method">
-			<f a="param1:param2:param3">
-				<c path="java.util.HashMap.K"/>
-				<c path="java.util.HashMap.V"/>
-				<c path="java.util.HashMap.V"/>
-				<x path="Bool"/>
-			</f>
-			<overloads><replace public="1" set="method"><f a="param1:param2">
-	<c path="java.util.HashMap.K"/>
-	<c path="java.util.HashMap.V"/>
-	<c path="java.util.HashMap.V"/>
-</f></replace></overloads>
-		</replace>
-		<computeIfAbsent public="1" set="method"><f a="param1:param2">
-	<c path="java.util.HashMap.K"/>
-	<c path="java.util.function.Function">
-		<d/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-	<c path="java.util.HashMap.V"/>
-</f></computeIfAbsent>
-		<computeIfPresent public="1" set="method"><f a="param1:param2">
-	<c path="java.util.HashMap.K"/>
-	<c path="java.util.function.BiFunction">
-		<d/>
-		<d/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-	<c path="java.util.HashMap.V"/>
-</f></computeIfPresent>
-		<compute public="1" set="method"><f a="param1:param2">
-	<c path="java.util.HashMap.K"/>
-	<c path="java.util.function.BiFunction">
-		<d/>
-		<d/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-	<c path="java.util.HashMap.V"/>
-</f></compute>
-		<merge public="1" set="method"><f a="param1:param2:param3">
-	<c path="java.util.HashMap.K"/>
-	<c path="java.util.HashMap.V"/>
-	<c path="java.util.function.BiFunction">
-		<d/>
-		<d/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-	<c path="java.util.HashMap.V"/>
-</f></merge>
-		<forEach public="1" set="method"><f a="param1">
-	<c path="java.util.function.BiConsumer">
-		<d/>
-		<d/>
-	</c>
-	<x path="Void"/>
-</f></forEach>
-		<replaceAll public="1" set="method"><f a="param1">
-	<c path="java.util.function.BiFunction">
-		<d/>
-		<d/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-	<x path="Void"/>
-</f></replaceAll>
-		<clone public="1" set="method" override="1"><f a=""><d/></f></clone>
-		<loadFactor final="1" public="1" set="method"><f a=""><x path="Single"/></f></loadFactor>
-		<capacity final="1" public="1" set="method"><f a=""><x path="Int"/></f></capacity>
-		<newNode public="1" set="method"><f a="param1:param2:param3:param4">
-	<x path="Int"/>
-	<c path="java.util.HashMap.K"/>
-	<c path="java.util.HashMap.V"/>
-	<c path="java.util.HashMap_Node">
-		<c path="java.util.HashMap.K"/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-	<c path="java.util.HashMap_Node">
-		<c path="java.util.HashMap.K"/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-</f></newNode>
-		<replacementNode public="1" set="method"><f a="param1:param2">
-	<c path="java.util.HashMap_Node">
-		<c path="java.util.HashMap.K"/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-	<c path="java.util.HashMap_Node">
-		<c path="java.util.HashMap.K"/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-	<c path="java.util.HashMap_Node">
-		<c path="java.util.HashMap.K"/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-</f></replacementNode>
-		<newTreeNode public="1" set="method"><f a="param1:param2:param3:param4">
-	<x path="Int"/>
-	<c path="java.util.HashMap.K"/>
-	<c path="java.util.HashMap.V"/>
-	<c path="java.util.HashMap_Node">
-		<c path="java.util.HashMap.K"/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-	<c path="java.util.HashMap_TreeNode">
-		<c path="java.util.HashMap.K"/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-</f></newTreeNode>
-		<replacementTreeNode public="1" set="method"><f a="param1:param2">
-	<c path="java.util.HashMap_Node">
-		<c path="java.util.HashMap.K"/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-	<c path="java.util.HashMap_Node">
-		<c path="java.util.HashMap.K"/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-	<c path="java.util.HashMap_TreeNode">
-		<c path="java.util.HashMap.K"/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-</f></replacementTreeNode>
-		<reinitialize public="1" set="method"><f a=""><x path="Void"/></f></reinitialize>
-		<afterNodeAccess public="1" set="method"><f a="param1">
-	<c path="java.util.HashMap_Node">
-		<c path="java.util.HashMap.K"/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-	<x path="Void"/>
-</f></afterNodeAccess>
-		<afterNodeInsertion public="1" set="method"><f a="param1">
-	<x path="Bool"/>
-	<x path="Void"/>
-</f></afterNodeInsertion>
-		<afterNodeRemoval public="1" set="method"><f a="param1">
-	<c path="java.util.HashMap_Node">
-		<c path="java.util.HashMap.K"/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-	<x path="Void"/>
-</f></afterNodeRemoval>
-		<internalWriteEntries public="1" set="method"><f a="param1">
-	<c path="java.io.ObjectOutputStream"/>
-	<x path="Void"/>
-</f></internalWriteEntries>
-		<table public="1"><c path="jvm.NativeArray"><c path="java.util.HashMap_Node">
-	<c path="java.util.HashMap.K"/>
-	<c path="java.util.HashMap.V"/>
-</c></c></table>
-		<modCount public="1"><x path="Int"/></modCount>
-		<threshold public="1"><x path="Int"/></threshold>
-		<new public="1" set="method">
-			<f a="param1:param2">
-				<x path="Int"/>
-				<x path="Single"/>
-				<x path="Void"/>
-			</f>
-			<overloads>
-				<new public="1" set="method"><f a="param1">
-	<c path="java.util.Map">
-		<c path="java.util.HashMap.K"/>
-		<c path="java.util.HashMap.V"/>
-	</c>
-	<x path="Void"/>
-</f></new>
-				<new public="1" set="method"><f a=""><x path="Void"/></f></new>
-				<new public="1" set="method"><f a="param1">
-	<x path="Int"/>
-	<x path="Void"/>
-</f></new>
-			</overloads>
-		</new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":native"><e>"java.util.HashMap"</e></m>
-			<m n=":libType"/>
-		</meta>
-	</class>
 	<class path="haxe.xml.Parser" params="" file="/home/runner/work/haxe/haxe/std/haxe/xml/Parser.hx">
 		<escapes expr="{
 	var h = new haxe.ds.StringMap();
@@ -37960,14 +38385,6 @@
 		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
 		<meta>
 			<m n=":native"><e>"java.io.Console$2"</e></m>
-			<m n=":libType"/>
-		</meta>
-	</class>
-	<class path="java.lang.Runnable" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Runnable.class" extern="1" interface="1">
-		<run public="1" set="method"><f a=""><x path="Void"/></f></run>
-		<meta>
-			<m n=":functionalInterface"/>
-			<m n=":native"><e>"java.lang.Runnable"</e></m>
 			<m n=":libType"/>
 		</meta>
 	</class>
@@ -47838,192 +48255,6 @@
 </f></new>
 		<meta>
 			<m n=":native"><e>"java.lang.System$1"</e></m>
-			<m n=":libType"/>
-		</meta>
-	</class>
-	<class path="java.lang.Thread" params="" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/Thread.class" extern="1">
-		<implements path="java.lang.Runnable"/>
-		<currentThread public="1" set="method" static="1"><f a=""><c path="java.lang.Thread"/></f></currentThread>
-		<yield public="1" set="method" static="1"><f a=""><x path="Void"/></f></yield>
-		<sleep public="1" set="method" static="1">
-			<f a="param1">
-				<x path="haxe.Int64"/>
-				<x path="Void"/>
-			</f>
-			<overloads><sleep public="1" set="method"><f a="param1:param2">
-	<x path="haxe.Int64"/>
-	<x path="Int"/>
-	<x path="Void"/>
-</f></sleep></overloads>
-		</sleep>
-		<interrupted public="1" set="method" static="1"><f a=""><x path="Bool"/></f></interrupted>
-		<activeCount public="1" set="method" static="1"><f a=""><x path="Int"/></f></activeCount>
-		<enumerate public="1" set="method" static="1"><f a="param1">
-	<c path="jvm.NativeArray"><c path="java.lang.Thread"/></c>
-	<x path="Int"/>
-</f></enumerate>
-		<dumpStack public="1" set="method" static="1"><f a=""><x path="Void"/></f></dumpStack>
-		<holdsLock public="1" set="method" static="1"><f a="param1">
-	<d/>
-	<x path="Bool"/>
-</f></holdsLock>
-		<getAllStackTraces public="1" set="method" static="1"><f a=""><c path="java.util.Map">
-	<c path="java.lang.Thread"/>
-	<c path="jvm.NativeArray"><c path="java.lang.StackTraceElement"/></c>
-</c></f></getAllStackTraces>
-		<setDefaultUncaughtExceptionHandler public="1" set="method" static="1"><f a="param1">
-	<c path="java.lang.Thread_UncaughtExceptionHandler"/>
-	<x path="Void"/>
-</f></setDefaultUncaughtExceptionHandler>
-		<getDefaultUncaughtExceptionHandler public="1" set="method" static="1"><f a=""><c path="java.lang.Thread_UncaughtExceptionHandler"/></f></getDefaultUncaughtExceptionHandler>
-		<processQueue public="1" set="method" static="1"><f a="param1:param2">
-	<c path="java.lang.ref.ReferenceQueue"><c path="java.lang.Class"><d/></c></c>
-	<c path="java.util.concurrent.ConcurrentMap">
-		<c path="java.lang.ref.WeakReference"><c path="java.lang.Class"><d/></c></c>
-		<d/>
-	</c>
-	<x path="Void"/>
-</f></processQueue>
-		<MIN_PRIORITY final="1" public="1" set="null" static="1"><x path="Int"/></MIN_PRIORITY>
-		<NORM_PRIORITY final="1" public="1" set="null" static="1"><x path="Int"/></NORM_PRIORITY>
-		<MAX_PRIORITY final="1" public="1" set="null" static="1"><x path="Int"/></MAX_PRIORITY>
-		<blockedOn public="1" set="method"><f a="param1">
-	<c path="java.sun.nio.ch.Interruptible"/>
-	<x path="Void"/>
-</f></blockedOn>
-		<clone public="1" set="method"><f a=""><d/></f></clone>
-		<start public="1" set="method"><f a=""><x path="Void"/></f></start>
-		<run public="1" set="method"><f a=""><x path="Void"/></f></run>
-		<stop final="1" public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":deprecated"/></meta>
-			<overloads><stop final="1" public="1" set="method">
-	<f a="param1">
-		<c path="java.lang.Throwable"/>
-		<x path="Void"/>
-	</f>
-	<meta><m n=":deprecated"/></meta>
-</stop></overloads>
-		</stop>
-		<interrupt public="1" set="method"><f a=""><x path="Void"/></f></interrupt>
-		<isInterrupted public="1" set="method"><f a=""><x path="Bool"/></f></isInterrupted>
-		<destroy public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":deprecated"/></meta>
-		</destroy>
-		<isAlive final="1" public="1" set="method"><f a=""><x path="Bool"/></f></isAlive>
-		<suspend final="1" public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":deprecated"/></meta>
-		</suspend>
-		<resume final="1" public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<meta><m n=":deprecated"/></meta>
-		</resume>
-		<setPriority final="1" public="1" set="method"><f a="param1">
-	<x path="Int"/>
-	<x path="Void"/>
-</f></setPriority>
-		<getPriority final="1" public="1" set="method"><f a=""><x path="Int"/></f></getPriority>
-		<setName final="1" public="1" set="method"><f a="param1">
-	<c path="String"/>
-	<x path="Void"/>
-</f></setName>
-		<getName final="1" public="1" set="method"><f a=""><c path="String"/></f></getName>
-		<getThreadGroup final="1" public="1" set="method"><f a=""><c path="java.lang.ThreadGroup"/></f></getThreadGroup>
-		<countStackFrames public="1" set="method">
-			<f a=""><x path="Int"/></f>
-			<meta><m n=":deprecated"/></meta>
-		</countStackFrames>
-		<join final="1" public="1" set="method">
-			<f a="param1">
-				<x path="haxe.Int64"/>
-				<x path="Void"/>
-			</f>
-			<overloads>
-				<join final="1" public="1" set="method"><f a=""><x path="Void"/></f></join>
-				<join final="1" public="1" set="method"><f a="param1:param2">
-	<x path="haxe.Int64"/>
-	<x path="Int"/>
-	<x path="Void"/>
-</f></join>
-			</overloads>
-		</join>
-		<setDaemon final="1" public="1" set="method"><f a="param1">
-	<x path="Bool"/>
-	<x path="Void"/>
-</f></setDaemon>
-		<isDaemon final="1" public="1" set="method"><f a=""><x path="Bool"/></f></isDaemon>
-		<checkAccess final="1" public="1" set="method"><f a=""><x path="Void"/></f></checkAccess>
-		<toString public="1" set="method"><f a=""><c path="String"/></f></toString>
-		<getContextClassLoader public="1" set="method"><f a=""><c path="java.lang.ClassLoader"/></f></getContextClassLoader>
-		<setContextClassLoader public="1" set="method"><f a="param1">
-	<c path="java.lang.ClassLoader"/>
-	<x path="Void"/>
-</f></setContextClassLoader>
-		<getStackTrace public="1" set="method"><f a=""><c path="jvm.NativeArray"><c path="java.lang.StackTraceElement"/></c></f></getStackTrace>
-		<getId public="1" set="method"><f a=""><x path="haxe.Int64"/></f></getId>
-		<getState public="1" set="method"><f a=""><e path="java.lang.Thread_State"/></f></getState>
-		<getUncaughtExceptionHandler public="1" set="method"><f a=""><c path="java.lang.Thread_UncaughtExceptionHandler"/></f></getUncaughtExceptionHandler>
-		<setUncaughtExceptionHandler public="1" set="method"><f a="param1">
-	<c path="java.lang.Thread_UncaughtExceptionHandler"/>
-	<x path="Void"/>
-</f></setUncaughtExceptionHandler>
-		<threadLocals public="1"><c path="java.lang.ThreadLocal_ThreadLocalMap"/></threadLocals>
-		<inheritableThreadLocals public="1"><c path="java.lang.ThreadLocal_ThreadLocalMap"/></inheritableThreadLocals>
-		<parkBlocker public="1"><d/></parkBlocker>
-		<threadLocalRandomSeed public="1"><x path="haxe.Int64"/></threadLocalRandomSeed>
-		<threadLocalRandomProbe public="1"><x path="Int"/></threadLocalRandomProbe>
-		<threadLocalRandomSecondarySeed public="1"><x path="Int"/></threadLocalRandomSecondarySeed>
-		<new public="1" set="method">
-			<f a=""><x path="Void"/></f>
-			<overloads>
-				<new public="1" set="method"><f a="param1:param2:param3:param4">
-	<c path="java.lang.ThreadGroup"/>
-	<c path="java.lang.Runnable"/>
-	<c path="String"/>
-	<x path="haxe.Int64"/>
-	<x path="Void"/>
-</f></new>
-				<new public="1" set="method"><f a="param1:param2:param3">
-	<c path="java.lang.ThreadGroup"/>
-	<c path="java.lang.Runnable"/>
-	<c path="String"/>
-	<x path="Void"/>
-</f></new>
-				<new public="1" set="method"><f a="param1:param2">
-	<c path="java.lang.Runnable"/>
-	<c path="String"/>
-	<x path="Void"/>
-</f></new>
-				<new public="1" set="method"><f a="param1:param2">
-	<c path="java.lang.ThreadGroup"/>
-	<c path="String"/>
-	<x path="Void"/>
-</f></new>
-				<new public="1" set="method"><f a="param1">
-	<c path="String"/>
-	<x path="Void"/>
-</f></new>
-				<new public="1" set="method"><f a="param1:param2">
-	<c path="java.lang.ThreadGroup"/>
-	<c path="java.lang.Runnable"/>
-	<x path="Void"/>
-</f></new>
-				<new public="1" set="method"><f a="param1:param2">
-	<c path="java.lang.Runnable"/>
-	<c path="java.security.AccessControlContext"/>
-	<x path="Void"/>
-</f></new>
-				<new public="1" set="method"><f a="param1">
-	<c path="java.lang.Runnable"/>
-	<x path="Void"/>
-</f></new>
-			</overloads>
-		</new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":native"><e>"java.lang.Thread"</e></m>
 			<m n=":libType"/>
 		</meta>
 	</class>
@@ -85042,65 +85273,6 @@
 			<m n=":nativeGen"/>
 		</meta>
 	</class>
-	<class path="sys.thread.Lock" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/sys/thread/Lock.hx">
-		<deque final="1" expr="new LinkedBlockingDeque&lt;String&gt;()" line="29">
-			<c path="java.util.concurrent.LinkedBlockingDeque"><c path="String"/></c>
-			<meta><m n=":value"><e><![CDATA[new LinkedBlockingDeque<String>()]]></e></m></meta>
-		</deque>
-		<wait public="1" set="method" line="33">
-			<f a="?timeout">
-				<x path="Float"/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Waits for the lock to be released, or `timeout` (in seconds)
-		to expire. Returns `true` if the lock is released and `false`
-		if a time-out occurs.</haxe_doc>
-		</wait>
-		<release public="1" set="method" line="40">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Releases the lock once.
-
-		The thread does not need to own the lock in order to release
-		it. Each call to `release` allows exactly one call to `wait`
-		to execute.</haxe_doc>
-		</release>
-		<new public="1" set="method" line="31">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Creates a new Lock which is initially locked.</haxe_doc>
-		</new>
-		<haxe_doc>A Lock allows blocking execution until it has been unlocked. It keeps track
-	of how often `release` has been called, and blocks exactly as many `wait`
-	calls.
-
-	The order of the `release` and `wait` calls is irrelevant. That is, a Lock
-	can be released before anyone waits for it. In that case, the `wait` call
-	will execute immediately.
-
-	Usage example:
-
-	```haxe
-	var lock = new Lock();
-	var elements = [1, 2, 3];
-	for (element in elements) {
-		// Create one thread per element
-		new Thread(function() {
-			trace(element);
-			Sys.sleep(1);
-			// Release once per thread = 3 times
-			lock.release();
-		});
-	}
-	for (_ in elements) {
-		// Wait 3 times
-		lock.wait();
-	}
-	trace("All threads finished");
-	```</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":coreApi"/>
-		</meta>
-	</class>
 	<class path="sys.thread.Semaphore" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/sys/thread/Semaphore.hx">
 		<native final="1"><c path="java.util.concurrent.Semaphore"/></native>
 		<acquire public="1" set="method" line="14">
@@ -85136,135 +85308,6 @@
 			<m n=":coreApi"/>
 			<m n=":native"><e>"haxe.java.vm.Semaphore"</e></m>
 		</meta>
-	</class>
-	<class path="sys.thread._ThreadImpl.ThreadImpl_Impl_" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/sys/thread/ThreadImpl.hx" private="1" module="sys.thread.ThreadImpl" final="1">
-		<toNative set="method" line="36" static="1"><f a="this">
-	<c path="java.lang.Thread"/>
-	<c path="java.lang.Thread"/>
-</f></toNative>
-		<current public="1" set="method" line="40" static="1"><f a=""><x path="sys.thread.ThreadImpl"/></f></current>
-		<create public="1" set="method" line="44" static="1"><f a="job">
-	<f a=""><x path="Void"/></f>
-	<x path="sys.thread.ThreadImpl"/>
-</f></create>
-		<setName public="1" set="method" line="48" static="1"><f a="t:name">
-	<x path="sys.thread.ThreadImpl"/>
-	<c path="String"/>
-	<x path="Void"/>
-</f></setName>
-		<getName public="1" set="method" line="52" static="1"><f a="t">
-	<x path="sys.thread.ThreadImpl"/>
-	<c path="String"/>
-</f></getName>
-		<meta><m n=":directlyUsed"/></meta>
-	</class>
-	<class path="sys.thread.Tls" params="T" file="/home/runner/work/haxe/haxe/std/jvm/_std/sys/thread/Tls.hx">
-		<t><c path="java.lang.ThreadLocal"><c path="sys.thread.Tls.T"/></c></t>
-		<value public="1" get="accessor" set="accessor"><c path="sys.thread.Tls.T"/></value>
-		<get_value get="inline" set="null" line="35"><f a=""><c path="sys.thread.Tls.T"/></f></get_value>
-		<set_value get="inline" set="null" line="39"><f a="v">
-	<c path="sys.thread.Tls.T"/>
-	<c path="sys.thread.Tls.T"/>
-</f></set_value>
-		<new public="1" set="method" line="31"><f a=""><x path="Void"/></f></new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":native"><e>"haxe.java.vm.Tls"</e></m>
-		</meta>
-	</class>
-	<class path="sys.thread.Thread" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/Thread.hx">
-		<threads static="1"><c path="Array"><c path="sys.thread.Thread"/></c></threads>
-		<mutex static="1"><c path="sys.thread.Mutex"/></mutex>
-		<mainThread static="1"><c path="sys.thread.Thread"/></mainThread>
-		<readMessage public="1" set="method" line="98" static="1"><f a="blocking">
-	<x path="Bool"/>
-	<x path="Null"><d/></x>
-</f></readMessage>
-		<currentTLS static="1"><c path="sys.thread.Tls"><c path="sys.thread.Thread"/></c></currentTLS>
-		<current public="1" set="method" line="115" static="1">
-			<f a=""><c path="sys.thread.Thread"/></f>
-			<haxe_doc>Returns the current thread.
-		If you are calling this function from a native thread that is not the main thread and was not created by `Thread.create`, this will return you
-		a native thread with a `null` EvenLoop and `isNative` set to true. You need to call `disposeNative()` on such value on thread termination.</haxe_doc>
-		</current>
-		<main public="1" get="inline" set="null" line="132" static="1">
-			<f a=""><c path="sys.thread.Thread"/></f>
-			<haxe_doc>Returns the main thread</haxe_doc>
-		</main>
-		<create public="1" set="method" line="140" static="1">
-			<f a="?name:job:?onExit:?onAbort">
-				<c path="String"/>
-				<f a=""><x path="Void"/></f>
-				<f a=""><x path="Void"/></f>
-				<f a="">
-					<c path="haxe.Exception"/>
-					<x path="Void"/>
-				</f>
-				<c path="sys.thread.Thread"/>
-			</f>
-			<haxe_doc>Creates a new thread that will execute the `job` function, then exit after all events are processed.
-		You can specify a custom exception handler `onAbort` or else `Thread.onAbort` will be called.</haxe_doc>
-		</create>
-		<getAll public="1" set="method" line="180" static="1">
-			<f a=""><c path="Array"><c path="sys.thread.Thread"/></c></f>
-			<haxe_doc>Returns a list of all currently running threads.
-		This excludes native threads which were created without Thread.create and have not been
-		registered with a call to Thread.current().</haxe_doc>
-		</getAll>
-		<hasBlocking set="method" line="206" static="1"><f a=""><x path="Bool"/></f></hasBlocking>
-		<impl><x path="sys.thread.ThreadImpl"/></impl>
-		<messages><c path="sys.thread.Deque"><d/></c></messages>
-		<events public="1" set="null">
-			<x path="Null"><c path="haxe.EventLoop"/></x>
-			<haxe_doc>The events loop of this thread.
-		If this is a native thread, the events will be null.</haxe_doc>
-		</events>
-		<isBlocking public="1" expr="true" line="47">
-			<x path="Bool"/>
-			<meta><m n=":value"><e>true</e></m></meta>
-			<haxe_doc>Tells if we needs to wait for the thread to terminate before we stop the main loop (default:true).</haxe_doc>
-		</isBlocking>
-		<name public="1" set="accessor">
-			<x path="Null"><c path="String"/></x>
-			<haxe_doc>Allows to query or change the name of the thread. On some platforms this might allow debugger to identify threads.</haxe_doc>
-		</name>
-		<isNative public="1" set="null">
-			<x path="Bool"/>
-			<haxe_doc>Tells if a thread is a native thread that is not managed by Haxe.
-		See `Thread.current` for details.</haxe_doc>
-		</isNative>
-		<set_name set="method" line="65"><f a="n">
-	<x path="Null"><c path="String"/></x>
-	<x path="Null"><c path="String"/></x>
-</f></set_name>
-		<toString public="1" set="method" line="71"><f a=""><c path="String"/></f></toString>
-		<sendMessage public="1" set="method" line="75"><f a="msg">
-	<d/>
-	<x path="Void"/>
-</f></sendMessage>
-		<disposeNative public="1" set="method" line="84"><f a=""><x path="Void"/></f></disposeNative>
-		<dispose set="method" line="90"><f a=""><x path="Void"/></f></dispose>
-		<onAbort public="1" set="dynamic" line="191">
-			<f a="e">
-				<c path="haxe.Exception"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>This function is called when an uncaught exception aborted a thread.
-		The error will be printed to stdout but this function can be redefined.</haxe_doc>
-		</onAbort>
-		<onExit public="1" set="dynamic" line="204">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>This function is called when the thread is exiting. In the case of an exception, it is called
-		after `onAbort`.
-
-		It is not guaranteed to be called if the thread is killed in a way that does not lead to
-		normal termination.</haxe_doc>
-		</onExit>
-		<new set="method" line="60"><f a="impl">
-	<x path="sys.thread.ThreadImpl"/>
-	<x path="Void"/>
-</f></new>
-		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<abstract path="sys.thread.ThreadImpl" params="" file="/home/runner/work/haxe/haxe/std/jvm/_std/sys/thread/ThreadImpl.hx">
 		<this><c path="java.lang.Thread"/></this>
