@@ -34409,9 +34409,9 @@
 		<new public="1" set="method" line="16"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="haxe.coro.SuspensionResult" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/SuspensionResult.hx">
-		<suspended final="1" public="1" set="null" expr="new SuspensionResult(Pending)" line="10" static="1">
-			<c path="haxe.coro.SuspensionResult"><c path="haxe.coro.BaseContinuation.T"/></c>
-			<meta><m n=":value"><e>new SuspensionResult(Pending)</e></m></meta>
+		<suspended final="1" public="1" set="null" expr="new SuspensionResult&lt;Any&gt;(Pending)" line="10" static="1">
+			<c path="haxe.coro.SuspensionResult"><x path="Any"/></c>
+			<meta><m n=":value"><e><![CDATA[new SuspensionResult<Any>(Pending)]]></e></m></meta>
 		</suspended>
 		<state public="1">
 			<x path="haxe.coro.SuspensionState"/>
@@ -34590,40 +34590,6 @@
 			<m n=":coreType"/>
 		</meta>
 	</abstract>
-	<class path="haxe.coro.ICancellableContinuation" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/ICancellableContinuation.hx" interface="1">
-		<extends path="haxe.coro.IContinuation"><c path="haxe.coro.ICancellableContinuation.T"/></extends>
-		<set_onCancellationRequested public="1" set="method">
-			<f a="value">
-				<f a="">
-					<c path="haxe.exceptions.CancellationException"/>
-					<x path="Void"/>
-				</f>
-				<f a="">
-					<c path="haxe.exceptions.CancellationException"/>
-					<x path="Void"/>
-				</f>
-			</f>
-			<meta>
-				<m n=":compilerGenerated"/>
-				<m n=":noCompletion"/>
-			</meta>
-		</set_onCancellationRequested>
-		<onCancellationRequested public="1" get="null" set="accessor">
-			<f a="">
-				<c path="haxe.exceptions.CancellationException"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>* Register a function to be invoked upon cancellation of the continuation.
-	 * If the continuation is already cancelled the function will be invoked immediately.
-	 * Attempting to set this property multiple times will result in an exception being raised.</haxe_doc>
-		</onCancellationRequested>
-		<haxe_doc>* Cancellable continuations are continuations which supports asynchronous cancellation.
- * Like standard continuations they can be explicitly resumed by the user, but unlike standard
- * continuations they will be automatically resumed with a `haxe.exceptions.CancellationException` when cancelled.
- *
- * This interface provides a callback property which if set will be invoked when cancellation is requested
- * allowing you to cleanup resources. The callback will only be invoked on cancellation, not resuming with a result or exception.</haxe_doc>
-	</class>
 	<class path="haxe.coro.ImmediateSuspensionResult" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/ImmediateSuspensionResult.hx">
 		<extends path="haxe.coro.SuspensionResult"><c path="haxe.coro.ImmediateSuspensionResult.T"/></extends>
 		<withResult public="1" params="T" set="method" line="18" static="1">
