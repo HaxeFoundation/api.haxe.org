@@ -10110,22 +10110,28 @@
 </class></impl>
 	</abstract>
 	<class path="lua.Table" params="A:B" file="/home/runner/work/haxe/haxe/std/lua/Table.hx" extern="1">
-		<create public="1" params="A:B" set="method" static="1"><f a="?arr:?hsh">
-	<c path="Array"><c path="create.B"/></c>
-	<d/>
-	<c path="lua.Table">
-		<c path="create.A"/>
-		<c path="create.B"/>
-	</c>
-</f></create>
-		<fromArray public="1" params="T" get="inline" set="null" line="37" static="1"><f a="arr">
-	<c path="Array"><c path="fromArray.T"/></c>
-	<c path="lua.Table">
-		<x path="Int"/>
-		<c path="fromArray.T"/>
-	</c>
-</f></fromArray>
-		<fromMap public="1" params="A:B" get="inline" set="null" line="45" static="1">
+		<create public="1" params="A:B" set="method" static="1">
+			<f a="?arr:?hsh">
+				<c path="Array"><c path="create.B"/></c>
+				<d/>
+				<c path="lua.Table">
+					<c path="create.A"/>
+					<c path="create.B"/>
+				</c>
+			</f>
+			<haxe_doc>Generate an inline lua table declaration from an array literal and/or an object literal argument.</haxe_doc>
+		</create>
+		<fromArray public="1" params="T" get="inline" set="null" line="43" static="1">
+			<f a="arr">
+				<c path="Array"><c path="fromArray.T"/></c>
+				<c path="lua.Table">
+					<x path="Int"/>
+					<c path="fromArray.T"/>
+				</c>
+			</f>
+			<haxe_doc>Convert the array `arr` into a lua table with lua-style indexing.</haxe_doc>
+		</fromArray>
+		<fromMap public="1" params="A:B" get="inline" set="null" line="51" static="1">
 			<f a="map">
 				<t path="Map">
 					<c path="fromMap.A"/>
@@ -10138,7 +10144,7 @@
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</fromMap>
-		<fromDynamic public="1" params="A:B" get="inline" set="null" line="53" static="1">
+		<fromDynamic public="1" params="A:B" get="inline" set="null" line="59" static="1">
 			<f a="dyn">
 				<d/>
 				<c path="lua.Table">
@@ -10148,7 +10154,7 @@
 			</f>
 			<meta><m n=":has_untyped"/></meta>
 		</fromDynamic>
-		<toMap public="1" params="A:B" get="inline" set="null" line="61" static="1"><f a="tbl">
+		<toMap public="1" params="A:B" get="inline" set="null" line="67" static="1"><f a="tbl">
 	<c path="lua.Table">
 		<c path="toMap.A"/>
 		<c path="toMap.B"/>
@@ -10158,7 +10164,7 @@
 		<c path="toMap.B"/>
 	</t>
 </f></toMap>
-		<toObject public="1" params="T" get="inline" set="null" line="73" static="1">
+		<toObject public="1" params="T" get="inline" set="null" line="79" static="1">
 			<f a="t">
 				<c path="lua.Table">
 					<c path="String"/>
@@ -10168,7 +10174,7 @@
 			</f>
 			<haxe_doc>Copies the table argument and converts it to an Object.</haxe_doc>
 		</toObject>
-		<toArray public="1" params="T" get="inline" set="null" line="78" static="1"><f a="tbl:?length">
+		<toArray public="1" params="T" get="inline" set="null" line="84" static="1"><f a="tbl:?length">
 	<c path="lua.Table">
 		<x path="Int"/>
 		<c path="toArray.T"/>
