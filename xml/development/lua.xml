@@ -10249,6 +10249,21 @@
 	<x path="Void"/>
 </f></remove></overloads>
 		</remove>
+		<iterator public="1" get="inline" set="null" line="92">
+			<f a=""><t path="Iterator"><c path="lua.Table.B"/></t></f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Returns an iterator over the values in the table.
+		Enables `for (v in table)` syntax.</haxe_doc>
+		</iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="110">
+			<f a=""><t path="KeyValueIterator">
+	<c path="lua.Table.A"/>
+	<c path="lua.Table.B"/>
+</t></f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc><![CDATA[Returns an iterator over the key-value pairs in the table.
+		Enables `for (k => v in table)` syntax.]]></haxe_doc>
+		</keyValueIterator>
 		<haxe_doc>This library provides generic functions for table manipulation.</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
@@ -37845,10 +37860,9 @@
 		<c path="pairsMap.A"/>
 		<c path="pairsMap.B"/>
 	</c>
-	<f a="::">
+	<f a=":">
 		<c path="pairsMap.A"/>
 		<c path="pairsMap.B"/>
-		<c path="pairsMap.C"/>
 		<c path="pairsMap.C"/>
 	</f>
 	<c path="lua.Table">
@@ -37977,6 +37991,116 @@
 	<d/>
 	<d/>
 </c></typedef>
+	<abstract path="lua.TableStruct" params="T" file="/home/runner/work/haxe/haxe/std/lua/TableStruct.hx">
+		<this><c path="lua.TableStruct.T"/></this>
+		<to>
+			<icast field="toAnyTable"><c path="lua.Table">
+	<d/>
+	<d/>
+</c></icast>
+			<icast field="toTable"><c path="lua.Table">
+	<c path="String"/>
+	<x path="Any"/>
+</c></icast>
+		</to>
+		<haxe_doc>A plain Lua table with typed field access.
+
+	Unlike Haxe anonymous structs, this creates tables without `__fields__` metadata,
+	making them suitable for passing to Lua APIs that expect plain tables.
+
+	Example:
+	```haxe
+	var opts = TableStruct.create({baz: 42, qux: "hello"});
+	opts.baz;  // 42 - typed field access works
+	opts.qux;  // "hello"
+
+	// Can be passed to APIs expecting AnyTable
+	function process(t:AnyTable):Void {}
+	process(opts);  // works via implicit conversion
+	```
+
+	Note: Haxe reflection (`Reflect.fields`, etc.) will not work on `TableStruct` values
+	since they lack the `__fields__` metadata that Haxe uses for reflection.</haxe_doc>
+		<meta><m n=":forward"/></meta>
+		<impl><class path="lua._TableStruct.TableStruct_Impl_" params="" file="/home/runner/work/haxe/haxe/std/lua/TableStruct.hx" private="1" module="lua.TableStruct" final="1">
+	<_hx_new get="inline" set="null" line="49" static="1">
+		<f a="v">
+			<c path="lua.TableStruct.T"/>
+			<x path="lua.TableStruct"><c path="lua.TableStruct.T"/></x>
+		</f>
+		<meta><m n=":noCompletion"/></meta>
+	</_hx_new>
+	<create public="1" params="T" get="inline" set="null" line="59" static="1">
+		<f a="obj">
+			<c path="create.T"/>
+			<x path="lua.TableStruct"><c path="create.T"/></x>
+		</f>
+		<meta><m n=":has_untyped"/></meta>
+		<haxe_doc>Creates a plain Lua table from an anonymous struct.
+
+		The resulting table will not have `__fields__` metadata, making it
+		compatible with Lua APIs that reject tables with extra fields.</haxe_doc>
+	</create>
+	<toAnyTable public="1" get="inline" set="null" line="67" static="1">
+		<f a="this">
+			<c path="lua.TableStruct.T"/>
+			<t path="lua.AnyTable"/>
+		</f>
+		<meta><m n=":to"/></meta>
+		<haxe_doc>Converts to `AnyTable` for use with APIs that accept any table type.</haxe_doc>
+	</toAnyTable>
+	<toTable public="1" get="inline" set="null" line="75" static="1">
+		<f a="this">
+			<c path="lua.TableStruct.T"/>
+			<c path="lua.Table">
+				<c path="String"/>
+				<x path="Any"/>
+			</c>
+		</f>
+		<meta><m n=":to"/></meta>
+		<haxe_doc><![CDATA[Converts to `Table<String, Any>` for use with generic table APIs.]]></haxe_doc>
+	</toTable>
+</class></impl>
+	</abstract>
+	<class path="lua._TableStruct.TableStruct_Impl_" params="" file="/home/runner/work/haxe/haxe/std/lua/TableStruct.hx" private="1" module="lua.TableStruct" final="1">
+		<_hx_new get="inline" set="null" line="49" static="1">
+			<f a="v">
+				<c path="lua.TableStruct.T"/>
+				<x path="lua.TableStruct"><c path="lua.TableStruct.T"/></x>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</_hx_new>
+		<create public="1" params="T" get="inline" set="null" line="59" static="1">
+			<f a="obj">
+				<c path="create.T"/>
+				<x path="lua.TableStruct"><c path="create.T"/></x>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Creates a plain Lua table from an anonymous struct.
+
+		The resulting table will not have `__fields__` metadata, making it
+		compatible with Lua APIs that reject tables with extra fields.</haxe_doc>
+		</create>
+		<toAnyTable public="1" get="inline" set="null" line="67" static="1">
+			<f a="this">
+				<c path="lua.TableStruct.T"/>
+				<t path="lua.AnyTable"/>
+			</f>
+			<meta><m n=":to"/></meta>
+			<haxe_doc>Converts to `AnyTable` for use with APIs that accept any table type.</haxe_doc>
+		</toAnyTable>
+		<toTable public="1" get="inline" set="null" line="75" static="1">
+			<f a="this">
+				<c path="lua.TableStruct.T"/>
+				<c path="lua.Table">
+					<c path="String"/>
+					<x path="Any"/>
+				</c>
+			</f>
+			<meta><m n=":to"/></meta>
+			<haxe_doc><![CDATA[Converts to `Table<String, Any>` for use with generic table APIs.]]></haxe_doc>
+		</toTable>
+	</class>
 	<typedef path="lua.Time" params="" file="/home/runner/work/haxe/haxe/std/lua/Time.hx"><x path="Float"/></typedef>
 	<class path="lua.lib.hxluasimdjson.Json" params="" file="/home/runner/work/haxe/haxe/std/lua/lib/hxluasimdjson/Json.hx" extern="1">
 		<parse public="1" set="method" static="1"><f a="str">
