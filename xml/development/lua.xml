@@ -9679,6 +9679,20 @@
 			<c path="haxe.coro.SuspensionResult"><x path="Any"/></c>
 			<meta><m n=":value"><e><![CDATA[new SuspensionResult<Any>(Pending)]]></e></m></meta>
 		</suspended>
+		<withResult public="1" params="T" set="method" line="42" static="1">
+			<f a="result">
+				<c path="withResult.T"/>
+				<c path="haxe.coro.SuspensionResult"><c path="withResult.T"/></c>
+			</f>
+			<haxe_doc>Creates a new `SuspensionResult` instance with result `result`.</haxe_doc>
+		</withResult>
+		<withError public="1" params="T" set="method" line="51" static="1">
+			<f a="error">
+				<c path="haxe.Exception"/>
+				<c path="haxe.coro.SuspensionResult"><x path="Any"/></c>
+			</f>
+			<haxe_doc>Creates a new `SuspensionResult` instance with error `error`.</haxe_doc>
+		</withError>
 		<state public="1">
 			<x path="haxe.coro.SuspensionState"/>
 			<haxe_doc>The current state of the suspension.</haxe_doc>
@@ -9852,30 +9866,6 @@
 			<m n=":coreType"/>
 		</meta>
 	</abstract>
-	<class path="haxe.coro.ImmediateSuspensionResult" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/ImmediateSuspensionResult.hx">
-		<extends path="haxe.coro.SuspensionResult"><c path="haxe.coro.ImmediateSuspensionResult.T"/></extends>
-		<withResult public="1" params="T" set="method" line="18" static="1">
-			<f a="result">
-				<c path="withResult.T"/>
-				<c path="haxe.coro.ImmediateSuspensionResult"><c path="withResult.T"/></c>
-			</f>
-			<haxe_doc>Creates a new `ImmediateSuspensionResult` instance with result `result`.</haxe_doc>
-		</withResult>
-		<withError public="1" params="T" set="method" line="25" static="1">
-			<f a="error">
-				<c path="withError.T"/>
-				<c path="haxe.coro.ImmediateSuspensionResult"><c path="withError.T"/></c>
-			</f>
-			<haxe_doc>Creates a new `ImmediateSuspensionResult` instance with error `error`.</haxe_doc>
-		</withError>
-		<toString public="1" set="method" line="29" override="1"><f a=""><c path="String"/></f></toString>
-		<new set="method" line="9"><f a="result:error">
-	<c path="haxe.coro.ImmediateSuspensionResult.T"/>
-	<c path="haxe.Exception"/>
-	<x path="Void"/>
-</f></new>
-		<haxe_doc>Represents a suspension result which immediately has either a result or an error value.</haxe_doc>
-	</class>
 	<typedef path="haxe.coro.Mutex" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/Mutex.hx"><c path="haxe.coro.StubMutex"/></typedef>
 	<abstract path="haxe.coro.SuspensionState" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/SuspensionState.hx">
 		<this><x path="Int"/></this>
@@ -10567,6 +10557,29 @@
 			</meta>
 		</fromClass>
 	</class>
+	<typedef path="haxe.coro.continuations.ContinuationLambda" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/continuations/FunctionContinuation.hx" module="haxe.coro.continuations.FunctionContinuation"><f a="result:error">
+	<c path="haxe.coro.continuations.ContinuationLambda.T"/>
+	<c path="haxe.Exception"/>
+	<x path="Void"/>
+</f></typedef>
+	<class path="haxe.coro.continuations.FunctionContinuation" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/continuations/FunctionContinuation.hx">
+		<implements path="haxe.coro.IContinuation"><c path="haxe.coro.continuations.FunctionContinuation.T"/></implements>
+		<context public="1" get="accessor" set="null"><x path="haxe.coro.context.Context"/></context>
+		<func final="1"><t path="haxe.coro.continuations.ContinuationLambda"><c path="haxe.coro.continuations.FunctionContinuation.T"/></t></func>
+		<get_context set="method" line="23"><f a=""><x path="haxe.coro.context.Context"/></f></get_context>
+		<resume public="1" set="method" line="27"><f a="result:error">
+	<c path="haxe.coro.continuations.FunctionContinuation.T"/>
+	<c path="haxe.Exception"/>
+	<x path="Void"/>
+</f></resume>
+		<new public="1" set="method" line="18"><f a="context:func">
+	<x path="haxe.coro.context.Context"/>
+	<t path="haxe.coro.continuations.ContinuationLambda"><c path="haxe.coro.continuations.FunctionContinuation.T"/></t>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>A simple `IContinuation` implementation that calls a user-provided callback
+	on completion.</haxe_doc>
+	</class>
 	<class path="haxe.coro.dispatchers.Dispatcher" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/dispatchers/Dispatcher.hx" abstract="1">
 		<implements path="haxe.coro.context.IElement"><c path="haxe.coro.dispatchers.Dispatcher"/></implements>
 		<key final="1" public="1" set="null" expr="new Key&lt;Dispatcher&gt;(&quot;Dispatcher&quot;)" line="13" static="1">
@@ -10597,6 +10610,26 @@
 		<haxe_doc>A dispatcher manages the distribution of executable code to executors,
 	allowing the asynchronous behavior of coroutines. Refer to the
 	`hxcoro.dispatchers` package in the `hxcoro` haxelib for conrete implementation.</haxe_doc>
+	</class>
+	<class path="haxe.coro.dispatchers.SelfDispatcher" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/dispatchers/SelfDispatcher.hx">
+		<extends path="haxe.coro.dispatchers.Dispatcher"/>
+		<s final="1"><c path="haxe.coro.schedulers.IScheduler"/></s>
+		<get_scheduler set="method" line="20" override="1"><f a=""><c path="haxe.coro.schedulers.IScheduler"/></f></get_scheduler>
+		<dispatch public="1" set="method" line="27" override="1">
+			<f a="obj">
+				<c path="haxe.coro.dispatchers.IDispatchObject"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>@see `Dispatcher.dispatch`</haxe_doc>
+		</dispatch>
+		<new public="1" set="method" line="16">
+			<f a="scheduler">
+				<c path="haxe.coro.schedulers.IScheduler"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new `SelfDispatcher`.</haxe_doc>
+		</new>
+		<haxe_doc>A dispatcher that dispatches to the current thread synchronously.</haxe_doc>
 	</class>
 	<class path="haxe.coro.schedulers.IScheduler" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/schedulers/IScheduler.hx" interface="1">
 		<schedule public="1" params="T" set="method">
@@ -10631,6 +10664,40 @@
 	 * This function is thread safe and allowed to be called multiple times.</haxe_doc>
 		</close>
 		<haxe_doc>* Handle representing a scheduled function.</haxe_doc>
+	</class>
+	<class path="haxe.coro.schedulers._ImmediateScheduler.ContinuationDispatchObject" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/schedulers/ImmediateScheduler.hx" private="1" module="haxe.coro.schedulers.ImmediateScheduler">
+		<implements path="haxe.coro.dispatchers.IDispatchObject"/>
+		<cont final="1" public="1"><c path="haxe.coro.IContinuation"><x path="Any"/></c></cont>
+		<onDispatch public="1" set="method" line="17"><f a=""><x path="Void"/></f></onDispatch>
+		<new public="1" set="method" line="13"><f a="cont">
+	<c path="haxe.coro.IContinuation"><x path="Any"/></c>
+	<x path="Void"/>
+</f></new>
+	</class>
+	<class path="haxe.coro.schedulers.ImmediateScheduler" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/schedulers/ImmediateScheduler.hx">
+		<implements path="haxe.coro.schedulers.ISchedulerHandle"/>
+		<implements path="haxe.coro.schedulers.IScheduler"/>
+		<schedule public="1" set="method" line="34">
+			<f a="ms:cont">
+				<x path="haxe.Int64"/>
+				<c path="haxe.coro.IContinuation"><x path="Any"/></c>
+				<c path="haxe.coro.schedulers.ImmediateScheduler"/>
+			</f>
+			<haxe_doc>Dispatches `cont` immediately, ignoring `ms`.</haxe_doc>
+		</schedule>
+		<now public="1" set="method" line="42">
+			<f a=""><x path="haxe.Int64"/></f>
+			<haxe_doc>Returns 0.</haxe_doc>
+		</now>
+		<close public="1" set="method" line="49">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Does nothing.</haxe_doc>
+		</close>
+		<new public="1" set="method" line="29">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a new `ImmediateScheduler` instance.</haxe_doc>
+		</new>
+		<haxe_doc>A scheduler that dispatches continuations immediately.</haxe_doc>
 	</class>
 	<class path="haxe.crypto.Adler32" params="" file="/home/runner/work/haxe/haxe/std/haxe/crypto/Adler32.hx">
 		<read public="1" set="method" line="60" static="1"><f a="i">
