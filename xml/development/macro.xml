@@ -21421,44 +21421,6 @@
 
 	@see `AsyncIterable`</haxe_doc>
 	</typedef>
-	<class path="haxe.coro.context.IElement" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/IElement.hx" interface="1">
-		<getKey public="1" set="method">
-			<f a=""><x path="haxe.coro.context.Key"><c path="haxe.coro.context.IElement.T"/></x></f>
-			<haxe_doc>Returns the `Key` of `this` context element.</haxe_doc>
-		</getKey>
-		<haxe_doc>Represents an element of `Context`. See `haxe.coro.dispatchers.Dispatcher` for a usage example.</haxe_doc>
-	</class>
-	<class path="haxe.coro.context.KeyImpl" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx" module="haxe.coro.context.Key">
-		<counter expr="0" line="4" static="1">
-			<x path="Int"/>
-			<meta><m n=":value"><e>0</e></m></meta>
-		</counter>
-		<counterMutex expr="new Mutex()" line="5" static="1">
-			<c path="sys.thread.Mutex"/>
-			<meta><m n=":value"><e>new Mutex()</e></m></meta>
-		</counterMutex>
-		<createNew public="1" params="T" set="method" line="15" static="1"><f a="name">
-	<c path="String"/>
-	<c path="haxe.coro.context.KeyImpl"><c path="createNew.T"/></c>
-</f></createNew>
-		<name final="1" public="1"><c path="String"/></name>
-		<id final="1" public="1"><x path="Int"/></id>
-		<new set="method" line="10"><f a="id:name">
-	<x path="Int"/>
-	<c path="String"/>
-	<x path="Void"/>
-</f></new>
-	</class>
-	<class path="haxe.coro.StackTraceManager" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/BaseContinuation.hx" module="haxe.coro.BaseContinuation">
-		<implements path="haxe.coro.context.IElement"><c path="haxe.coro.StackTraceManager"/></implements>
-		<key final="1" public="1" set="null" expr="new Key&lt;StackTraceManager&gt;(&quot;StackTraceManager&quot;)" line="12" static="1">
-			<x path="haxe.coro.context.Key"><c path="haxe.coro.StackTraceManager"/></x>
-			<meta><m n=":value"><e><![CDATA[new Key<StackTraceManager>("StackTraceManager")]]></e></m></meta>
-		</key>
-		<insertIndex public="1"><x path="Null"><x path="Int"/></x></insertIndex>
-		<getKey public="1" set="method" line="20"><f a=""><x path="haxe.coro.context.Key"><c path="haxe.coro.StackTraceManager"/></x></f></getKey>
-		<new public="1" set="method" line="16"><f a=""><x path="Void"/></f></new>
-	</class>
 	<class path="haxe.coro.SuspensionResult" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/SuspensionResult.hx">
 		<suspended final="1" public="1" set="null" expr="new SuspensionResult&lt;Any&gt;(Pending)" line="10" static="1">
 			<c path="haxe.coro.SuspensionResult"><x path="Any"/></c>
@@ -21571,8 +21533,8 @@
 			<haxe_doc>The current label of the internal state machine.</haxe_doc>
 		</gotoLabel>
 		<resumeResult><x path="Null"><c path="haxe.coro.SuspensionResult"><x path="Any"/></c></x></resumeResult>
-		<get_context get="inline" set="null" line="67"><f a=""><x path="haxe.coro.context.Context"/></f></get_context>
-		<resume final="1" public="1" set="method" line="74">
+		<get_context get="inline" set="null" line="52"><f a=""><x path="haxe.coro.context.Context"/></f></get_context>
+		<resume final="1" public="1" set="method" line="59">
 			<f a="result:error">
 				<x path="Any"/>
 				<c path="haxe.Exception"/>
@@ -21580,15 +21542,15 @@
 			</f>
 			<haxe_doc>@see `IContinuation.resume`</haxe_doc>
 		</resume>
-		<callerFrame public="1" set="method" line="99">
+		<callerFrame public="1" set="method" line="84">
 			<f a=""><x path="Null"><c path="haxe.coro.IStackFrame"/></x></f>
 			<haxe_doc>@see `IStackFrame.callerFrame`</haxe_doc>
 		</callerFrame>
-		<getStackItem public="1" set="method" line="110">
+		<getStackItem public="1" set="method" line="95">
 			<f a=""><x path="Null"><e path="haxe.StackItem"/></x></f>
 			<haxe_doc>@see `IStackFrame.callerFrame`</haxe_doc>
 		</getStackItem>
-		<setClassFuncStackItem set="method" line="118"><f a="cls:func:file:line:pos:pmin:pmax">
+		<setClassFuncStackItem set="method" line="103"><f a="cls:func:file:line:pos:pmin:pmax">
 	<c path="String"/>
 	<c path="String"/>
 	<c path="String"/>
@@ -21598,7 +21560,7 @@
 	<x path="Int"/>
 	<x path="Void"/>
 </f></setClassFuncStackItem>
-		<setLocalFuncStackItem set="method" line="127"><f a="id:file:line:pos:pmin:pmax">
+		<setLocalFuncStackItem set="method" line="112"><f a="id:file:line:pos:pmin:pmax">
 	<x path="Int"/>
 	<c path="String"/>
 	<x path="Int"/>
@@ -21607,15 +21569,15 @@
 	<x path="Int"/>
 	<x path="Void"/>
 </f></setLocalFuncStackItem>
-		<startException set="method" line="136"><f a="exception">
+		<startException set="method" line="121"><f a="exception">
 	<c path="haxe.Exception"/>
-	<x path="Void"/>
+	<c path="haxe.Exception"/>
 </f></startException>
-		<buildCallStack set="method" line="200"><f a=""><x path="Void"/></f></buildCallStack>
+		<buildCallStack set="method" line="129"><f a=""><x path="Void"/></f></buildCallStack>
 		<invokeResume abstract="1" set="method"><f a=""><c path="haxe.coro.SuspensionResult"><c path="haxe.coro.BaseContinuation.T"/></c></f></invokeResume>
-		<toString public="1" set="method" line="232" override="1"><f a=""><c path="String"/></f></toString>
-		<onDispatch public="1" set="method" line="236"><f a=""><x path="Void"/></f></onDispatch>
-		<new set="method" line="55">
+		<toString public="1" set="method" line="138" override="1"><f a=""><c path="String"/></f></toString>
+		<onDispatch public="1" set="method" line="142"><f a=""><x path="Void"/></f></onDispatch>
+		<new set="method" line="40">
 			<f a="completion:initialLabel">
 				<c path="haxe.coro.IContinuation"><x path="Any"/></c>
 				<x path="Int"/>
@@ -21738,6 +21700,18 @@
 	<x path="haxe.coro.SuspensionState"/>
 	<c path="String"/>
 </f></toString></class>
+	<class path="haxe.coro.Tls" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/Tls.hx">
+		<inner final="1"><c path="sys.thread.Tls"><c path="haxe.coro.Tls.T"/></c></inner>
+		<value public="1" get="accessor" set="accessor"><x path="Null"><c path="haxe.coro.Tls.T"/></x></value>
+		<get_value get="inline" set="null" line="17"><f a=""><x path="Null"><c path="haxe.coro.Tls.T"/></x></f></get_value>
+		<set_value get="inline" set="null" line="25"><f a="v">
+	<x path="Null"><c path="haxe.coro.Tls.T"/></x>
+	<x path="Null"><c path="haxe.coro.Tls.T"/></x>
+</f></set_value>
+		<new public="1" set="method" line="13"><f a=""><x path="Void"/></f></new>
+		<haxe_doc>Thread-local storage. On `target.threaded` targets, each thread has its own value.
+	On single-threaded targets this is a plain field.</haxe_doc>
+	</class>
 	<class path="haxe.coro.cancellation.ICancellationHandle" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/cancellation/ICancellationHandle.hx" interface="1">
 		<close public="1" set="method">
 			<f a=""><x path="Void"/></f>
@@ -21791,6 +21765,27 @@
 </f></onCancellationRequested>
 		<get_cancellationException public="1" set="method" line="21"><f a=""><x path="Null"><c path="haxe.exceptions.CancellationException"/></x></f></get_cancellationException>
 		<new public="1" set="method" line="16"><f a=""><x path="Void"/></f></new>
+	</class>
+	<class path="haxe.coro.context.KeyImpl" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx" module="haxe.coro.context.Key">
+		<counter expr="0" line="4" static="1">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</counter>
+		<counterMutex expr="new Mutex()" line="5" static="1">
+			<c path="sys.thread.Mutex"/>
+			<meta><m n=":value"><e>new Mutex()</e></m></meta>
+		</counterMutex>
+		<createNew public="1" params="T" set="method" line="15" static="1"><f a="name">
+	<c path="String"/>
+	<c path="haxe.coro.context.KeyImpl"><c path="createNew.T"/></c>
+</f></createNew>
+		<name final="1" public="1"><c path="String"/></name>
+		<id final="1" public="1"><x path="Int"/></id>
+		<new set="method" line="10"><f a="id:name">
+	<x path="Int"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
 	</class>
 	<class path="haxe.coro.cancellation.CancellationToken" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/cancellation/CancellationToken.hx">
 		<key final="1" public="1" set="null" expr="new Key&lt;ICancellationToken&gt;(&quot;CancellationToken&quot;)" line="27" static="1">
@@ -22114,6 +22109,60 @@
 	</toContext>
 </class></impl>
 	</abstract>
+	<class path="haxe.coro.context.IElement" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/IElement.hx" interface="1">
+		<getKey public="1" set="method">
+			<f a=""><x path="haxe.coro.context.Key"><c path="haxe.coro.context.IElement.T"/></x></f>
+			<haxe_doc>Returns the `Key` of `this` context element.</haxe_doc>
+		</getKey>
+		<haxe_doc>Represents an element of `Context`. See `haxe.coro.dispatchers.Dispatcher` for a usage example.</haxe_doc>
+	</class>
+	<class path="haxe.coro.context.ExceptionHandler" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/ExceptionHandler.hx" abstract="1">
+		<implements path="haxe.coro.context.IElement"><c path="haxe.coro.context.ExceptionHandler"/></implements>
+		<key final="1" public="1" set="null" expr="new Key&lt;ExceptionHandler&gt;(&quot;ExceptionHandler&quot;)" line="13" static="1">
+			<x path="haxe.coro.context.Key"><c path="haxe.coro.context.ExceptionHandler"/></x>
+			<meta><m n=":value"><e><![CDATA[new Key<ExceptionHandler>("ExceptionHandler")]]></e></m></meta>
+		</key>
+		<startException abstract="1" public="1" set="method">
+			<f a="cont:exception">
+				<c path="haxe.coro.BaseContinuation"><x path="Any"/></c>
+				<c path="haxe.Exception"/>
+				<c path="haxe.Exception"/>
+			</f>
+			<haxe_doc>Called when an exception is first encountered in a coroutine to process its stack trace.
+		Returns the (potentially modified) exception.</haxe_doc>
+		</startException>
+		<buildCallStack abstract="1" public="1" set="method">
+			<f a="cont">
+				<c path="haxe.coro.BaseContinuation"><x path="Any"/></c>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called as an exception propagates up the coroutine continuation chain, to insert each
+		continuation frame's stack item into the exception stack.</haxe_doc>
+		</buildCallStack>
+		<getKey public="1" set="method" line="27"><f a=""><x path="haxe.coro.context.Key"><c path="haxe.coro.context.ExceptionHandler"/></x></f></getKey>
+		<haxe_doc>An abstract context element that handles exception stack trace management for coroutines.
+	`BaseContinuation.startException` and `BaseContinuation.buildCallStack` delegate to this element.
+
+	The default implementation is `DefaultExceptionHandler`.</haxe_doc>
+	</class>
+	<class path="haxe.coro.context.DefaultExceptionHandler" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/ExceptionHandler.hx" module="haxe.coro.context.ExceptionHandler">
+		<extends path="haxe.coro.context.ExceptionHandler"/>
+		<startException public="1" set="method" line="46" override="1"><f a="cont:exception">
+	<c path="haxe.coro.BaseContinuation"><x path="Any"/></c>
+	<c path="haxe.Exception"/>
+	<c path="haxe.Exception"/>
+</f></startException>
+		<buildCallStack public="1" set="method" line="101" override="1"><f a="cont">
+	<c path="haxe.coro.BaseContinuation"><x path="Any"/></c>
+	<x path="Void"/>
+</f></buildCallStack>
+		<new public="1" set="method" line="44"><f a=""><x path="Void"/></f></new>
+		<haxe_doc>The default `ExceptionHandler` implementation, which reconstructs the coroutine call stack
+	from the continuation chain and inserts it into the exception's stack trace.
+
+	`insertIndex` is stored in thread-local storage, making this implementation safe for
+	concurrent use across multiple coroutines running on different threads.</haxe_doc>
+	</class>
 	<typedef path="haxe.coro.context._Key.WithKey" params="K" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx" private="1" module="haxe.coro.context.Key"><a><key final="1" set="null"><x path="haxe.coro.context.Key"><c path="haxe.coro.context._Key.WithKey.K"/></x></key></a></typedef>
 	<abstract path="haxe.coro.context.Key" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx">
 		<from><icast field="fromClass"><c path="fromClass.C"/></icast></from>
