@@ -21464,14 +21464,14 @@
 			<c path="haxe.coro.SuspensionResult"><x path="Any"/></c>
 			<meta><m n=":value"><e><![CDATA[new SuspensionResult<Any>(Pending)]]></e></m></meta>
 		</suspended>
-		<withResult public="1" params="T" set="method" line="42" static="1">
+		<withResult public="1" params="T" set="method" line="55" static="1">
 			<f a="result">
 				<c path="withResult.T"/>
 				<c path="haxe.coro.SuspensionResult"><c path="withResult.T"/></c>
 			</f>
 			<haxe_doc>Creates a new `SuspensionResult` instance with result `result`.</haxe_doc>
 		</withResult>
-		<withError public="1" params="T" set="method" line="51" static="1">
+		<withError public="1" params="T" set="method" line="64" static="1">
 			<f a="error">
 				<c path="haxe.Exception"/>
 				<c path="haxe.coro.SuspensionResult"><x path="Any"/></c>
@@ -21491,6 +21491,14 @@
 			<haxe_doc>The error value of the coroutine, is any.</haxe_doc>
 		</error>
 		<toString public="1" set="method" line="34"><f a=""><c path="String"/></f></toString>
+		<resolveTo public="1" set="method" line="42">
+			<f a="cont">
+				<c path="haxe.coro.IContinuation"><c path="haxe.coro.SuspensionResult.T"/></c>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>If this result is `Returned` or `Thrown`, resumes `cont` with the corresponding
+		result or error. If this result is `Pending`, this is a no-op.</haxe_doc>
+		</resolveTo>
 		<new public="1" set="method" line="15">
 			<f a="state">
 				<x path="haxe.coro.SuspensionState"/>
