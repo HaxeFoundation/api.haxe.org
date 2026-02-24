@@ -10348,6 +10348,35 @@
 		</store>
 		<meta><m n=":coreApi"/></meta>
 	</class>
+	<typedef path="haxe.coro.AsyncIterable" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/AsyncIterable.hx">
+		<a><iterator set="method"><f a=""><t path="haxe.coro.AsyncIterator"><c path="haxe.coro.AsyncIterable.T"/></t></f></iterator></a>
+		<haxe_doc>An `AsyncIterable` is a data structure which has an `iterator()` method
+	returning an `AsyncIterator`. This allows asynchronous data sources to be
+	used in `for` loops within coroutine contexts.
+
+	@see `AsyncIterator`</haxe_doc>
+	</typedef>
+	<typedef path="haxe.coro.AsyncIterator" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/AsyncIterator.hx">
+		<a>
+			<next set="method">
+				<f a=""><c path="haxe.coro.AsyncIterator.T"/></f>
+				<haxe_doc>Returns the current item of the `AsyncIterator` and advances to the next one.</haxe_doc>
+			</next>
+			<hasNext set="method">
+				<x path="haxe.coro.Coroutine"><f a=""><x path="Bool"/></f></x>
+				<meta><m n=":coroutine"/></meta>
+				<haxe_doc>Returns `false` if the iteration is complete, `true` otherwise.
+
+		This function is a coroutine and may suspend while waiting for the next
+		element to become available.</haxe_doc>
+			</hasNext>
+		</a>
+		<haxe_doc>An `AsyncIterator` is like `Iterator`, but `hasNext()` is a coroutine. This
+	allows iterating over asynchronous data sources such as channels or network
+	streams using `for` loops in coroutine contexts.
+
+	@see `AsyncIterable`</haxe_doc>
+	</typedef>
 	<class path="haxe.coro.context.IElement" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/IElement.hx" interface="1">
 		<getKey public="1" set="method">
 			<f a=""><x path="haxe.coro.context.Key"><c path="haxe.coro.context.IElement.T"/></x></f>
