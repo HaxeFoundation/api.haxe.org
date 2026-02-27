@@ -15580,7 +15580,7 @@
 	</class>
 	<class path="haxe.coro.context.ExceptionHandler" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/ExceptionHandler.hx" abstract="1">
 		<implements path="haxe.coro.context.IElement"><c path="haxe.coro.context.ExceptionHandler"/></implements>
-		<key final="1" public="1" set="null" expr="new Key&lt;ExceptionHandler&gt;(&quot;ExceptionHandler&quot;)" line="23" static="1">
+		<key final="1" public="1" set="null" expr="new Key&lt;ExceptionHandler&gt;(&quot;ExceptionHandler&quot;)" line="22" static="1">
 			<x path="haxe.coro.context.Key"><c path="haxe.coro.context.ExceptionHandler"/></x>
 			<meta><m n=":value"><e><![CDATA[new Key<ExceptionHandler>("ExceptionHandler")]]></e></m></meta>
 		</key>
@@ -15590,8 +15590,9 @@
 	<c path="haxe.coro.context.ISynchronousRun"/>
 </f></startSynchronousRun>
 		<startException abstract="1" public="1" set="method">
-			<f a="cont:exception">
-				<c path="haxe.coro.BaseContinuation"><x path="Any"/></c>
+			<f a="context:frame:exception">
+				<x path="haxe.coro.context.Context"/>
+				<c path="haxe.coro.IStackFrame"/>
 				<c path="haxe.Exception"/>
 				<c path="haxe.Exception"/>
 			</f>
@@ -15599,14 +15600,15 @@
 		Returns the (potentially modified) exception.</haxe_doc>
 		</startException>
 		<buildCallStack abstract="1" public="1" set="method">
-			<f a="cont">
-				<c path="haxe.coro.BaseContinuation"><x path="Any"/></c>
+			<f a="context:frame">
+				<x path="haxe.coro.context.Context"/>
+				<c path="haxe.coro.IStackFrame"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Called as an exception propagates up the coroutine continuation chain, to insert each
 		continuation frame's stack item into the exception stack.</haxe_doc>
 		</buildCallStack>
-		<getKey public="1" set="method" line="39"><f a=""><x path="haxe.coro.context.Key"><c path="haxe.coro.context.ExceptionHandler"/></x></f></getKey>
+		<getKey public="1" set="method" line="38"><f a=""><x path="haxe.coro.context.Key"><c path="haxe.coro.context.ExceptionHandler"/></x></f></getKey>
 		<haxe_doc>An abstract context element that handles exception stack trace management for coroutines.
 	`BaseContinuation.startException` and `BaseContinuation.buildCallStack` delegate to this element.
 
