@@ -6107,6 +6107,7 @@
 				<e>"local"</e>
 			</m>
 			<m n=":native"><e>"local"</e></m>
+			<m n=":coreApi"><e>check = Off</e></m>
 		</meta>
 	</class>
 	<class path="haxe.ds.IntMap" params="T" file="/home/runner/work/haxe/haxe/std/python/_std/haxe/ds/IntMap.hx">
@@ -6118,37 +6119,79 @@
 	<x path="Int"/>
 	<c path="haxe.ds.IntMap.T"/>
 </c></h>
-		<set public="1" set="method" line="35"><f a="key:value">
-	<x path="Int"/>
-	<c path="haxe.ds.IntMap.T"/>
-	<x path="Void"/>
-</f></set>
-		<get public="1" get="inline" set="null" line="39"><f a="key">
-	<x path="Int"/>
-	<x path="Null"><c path="haxe.ds.IntMap.T"/></x>
-</f></get>
-		<exists public="1" get="inline" set="null" line="43"><f a="key">
-	<x path="Int"/>
-	<x path="Bool"/>
-</f></exists>
-		<remove public="1" set="method" line="47"><f a="key">
-	<x path="Int"/>
-	<x path="Bool"/>
-</f></remove>
-		<keys public="1" set="method" line="54"><f a=""><t path="Iterator"><x path="Int"/></t></f></keys>
-		<iterator public="1" set="method" line="58"><f a=""><t path="Iterator"><c path="haxe.ds.IntMap.T"/></t></f></iterator>
+		<set public="1" set="method" line="35">
+			<f a="key:value">
+				<x path="Int"/>
+				<c path="haxe.ds.IntMap.T"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>See `Map.set`</haxe_doc>
+		</set>
+		<get public="1" get="inline" set="null" line="39">
+			<f a="key">
+				<x path="Int"/>
+				<x path="Null"><c path="haxe.ds.IntMap.T"/></x>
+			</f>
+			<haxe_doc>See `Map.get`</haxe_doc>
+		</get>
+		<exists public="1" get="inline" set="null" line="43">
+			<f a="key">
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>See `Map.exists`</haxe_doc>
+		</exists>
+		<remove public="1" set="method" line="47">
+			<f a="key">
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>See `Map.remove`</haxe_doc>
+		</remove>
+		<keys public="1" set="method" line="54">
+			<f a=""><t path="Iterator"><x path="Int"/></t></f>
+			<haxe_doc>See `Map.keys`
+
+		(java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
+		</keys>
+		<iterator public="1" set="method" line="58">
+			<f a=""><t path="Iterator"><c path="haxe.ds.IntMap.T"/></t></f>
+			<haxe_doc>See `Map.iterator`
+
+		(java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
+		</iterator>
 		<keyValueIterator public="1" get="inline" set="null" line="62">
 			<f a=""><t path="KeyValueIterator">
 	<x path="Int"/>
 	<c path="haxe.ds.IntMap.T"/>
 </t></f>
 			<meta><m n=":runtime"/></meta>
+			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
 		</keyValueIterator>
-		<copy public="1" set="method" line="66"><f a=""><c path="haxe.ds.IntMap"><c path="haxe.ds.IntMap.T"/></c></f></copy>
-		<toString public="1" set="method" line="73"><f a=""><c path="String"/></f></toString>
-		<clear public="1" get="inline" set="null" line="88"><f a=""><x path="Void"/></f></clear>
+		<copy public="1" set="method" line="66">
+			<f a=""><c path="haxe.ds.IntMap"><c path="haxe.ds.IntMap.T"/></c></f>
+			<haxe_doc>See `Map.copy`</haxe_doc>
+		</copy>
+		<toString public="1" set="method" line="73">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>See `Map.toString`</haxe_doc>
+		</toString>
+		<clear public="1" get="inline" set="null" line="88">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>See `Map.clear`</haxe_doc>
+		</clear>
 		<size public="1" get="inline" set="null" line="92"><f a=""><x path="Int"/></f></size>
-		<new public="1" set="method" line="31"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="31">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a new IntMap.</haxe_doc>
+		</new>
+		<haxe_doc>IntMap allows mapping of Int keys to arbitrary values.
+
+	See `Map` for documentation details.
+
+	@see https://haxe.org/manual/std-Map.html</haxe_doc>
 	</class>
 	<class path="python.Dict" params="K:V" file="/home/runner/work/haxe/haxe/std/python/Dict.hx" extern="1">
 		<length public="1" get="accessor" set="null"><x path="Int"/></length>
@@ -9537,20 +9580,47 @@
 		<haxe_doc>Helper for parsing to `Int64` instances.</haxe_doc>
 	</class>
 	<class path="haxe.Json" params="" file="/home/runner/work/haxe/haxe/std/python/_std/haxe/Json.hx">
-		<parse public="1" get="inline" set="null" line="28" static="1"><f a="text">
-	<c path="String"/>
-	<d/>
-</f></parse>
-		<stringify public="1" get="inline" set="null" line="32" static="1"><f a="value:?replacer:?space">
-	<d/>
-	<f a="key:value">
-		<d/>
-		<d/>
-		<d/>
-	</f>
-	<c path="String"/>
-	<c path="String"/>
-</f></stringify>
+		<parse public="1" get="inline" set="null" line="28" static="1">
+			<f a="text">
+				<c path="String"/>
+				<d/>
+			</f>
+			<haxe_doc><![CDATA[Parses given JSON-encoded `text` and returns the resulting object.
+
+		JSON objects are parsed into anonymous structures and JSON arrays
+		are parsed into `Array<Dynamic>`.
+
+		If given `text` is not valid JSON, an exception will be thrown.
+
+		@see https://haxe.org/manual/std-Json-parsing.html]]></haxe_doc>
+		</parse>
+		<stringify public="1" get="inline" set="null" line="32" static="1">
+			<f a="value:?replacer:?space">
+				<d/>
+				<f a="key:value">
+					<d/>
+					<d/>
+					<d/>
+				</f>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Encodes the given `value` and returns the resulting JSON string.
+
+		If `replacer` is given and is not null, it is used to retrieve the
+		actual object to be encoded. The `replacer` function takes two parameters,
+		the key and the value being encoded. Initial key value is an empty string.
+
+		If `space` is given and is not null, the result will be pretty-printed.
+		Successive levels will be indented by this string.
+
+		@see https://haxe.org/manual/std-Json-encoding.html</haxe_doc>
+		</stringify>
+		<haxe_doc>Cross-platform JSON API: it will automatically use the optimized native API if available.
+	Use `-D haxeJSON` to force usage of the Haxe implementation even if a native API is found:
+	This will provide extra encoding (but not decoding) features such as enums (replaced by their index) and StringMaps.
+
+	@see https://haxe.org/manual/std-Json.html</haxe_doc>
 	</class>
 	<class path="haxe.Log" params="" file="/home/runner/work/haxe/haxe/std/haxe/Log.hx">
 		<formatOutput public="1" set="method" line="33" static="1">
@@ -19544,40 +19614,85 @@
 	<c path="haxe.ds.ObjectMap.K"/>
 	<c path="haxe.ds.ObjectMap.V"/>
 </c></h>
-		<set public="1" set="method" line="34"><f a="key:value">
-	<c path="haxe.ds.ObjectMap.K"/>
-	<c path="haxe.ds.ObjectMap.V"/>
-	<x path="Void"/>
-</f></set>
-		<get public="1" get="inline" set="null" line="38"><f a="key">
-	<c path="haxe.ds.ObjectMap.K"/>
-	<x path="Null"><c path="haxe.ds.ObjectMap.V"/></x>
-</f></get>
-		<exists public="1" get="inline" set="null" line="42"><f a="key">
-	<c path="haxe.ds.ObjectMap.K"/>
-	<x path="Bool"/>
-</f></exists>
-		<remove public="1" set="method" line="46"><f a="key">
-	<c path="haxe.ds.ObjectMap.K"/>
-	<x path="Bool"/>
-</f></remove>
-		<keys public="1" set="method" line="53"><f a=""><t path="Iterator"><c path="haxe.ds.ObjectMap.K"/></t></f></keys>
-		<iterator public="1" set="method" line="57"><f a=""><t path="Iterator"><c path="haxe.ds.ObjectMap.V"/></t></f></iterator>
+		<set public="1" set="method" line="34">
+			<f a="key:value">
+				<c path="haxe.ds.ObjectMap.K"/>
+				<c path="haxe.ds.ObjectMap.V"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>See `Map.set`</haxe_doc>
+		</set>
+		<get public="1" get="inline" set="null" line="38">
+			<f a="key">
+				<c path="haxe.ds.ObjectMap.K"/>
+				<x path="Null"><c path="haxe.ds.ObjectMap.V"/></x>
+			</f>
+			<haxe_doc>See `Map.get`</haxe_doc>
+		</get>
+		<exists public="1" get="inline" set="null" line="42">
+			<f a="key">
+				<c path="haxe.ds.ObjectMap.K"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>See `Map.exists`</haxe_doc>
+		</exists>
+		<remove public="1" set="method" line="46">
+			<f a="key">
+				<c path="haxe.ds.ObjectMap.K"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>See `Map.remove`</haxe_doc>
+		</remove>
+		<keys public="1" set="method" line="53">
+			<f a=""><t path="Iterator"><c path="haxe.ds.ObjectMap.K"/></t></f>
+			<haxe_doc>See `Map.keys`
+
+		(java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
+		</keys>
+		<iterator public="1" set="method" line="57">
+			<f a=""><t path="Iterator"><c path="haxe.ds.ObjectMap.V"/></t></f>
+			<haxe_doc>See `Map.iterator`
+
+		(java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
+		</iterator>
 		<keyValueIterator public="1" get="inline" set="null" line="61">
 			<f a=""><t path="KeyValueIterator">
 	<c path="haxe.ds.ObjectMap.K"/>
 	<c path="haxe.ds.ObjectMap.V"/>
 </t></f>
 			<meta><m n=":runtime"/></meta>
+			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
 		</keyValueIterator>
-		<copy public="1" set="method" line="65"><f a=""><c path="haxe.ds.ObjectMap">
+		<copy public="1" set="method" line="65">
+			<f a=""><c path="haxe.ds.ObjectMap">
 	<c path="haxe.ds.ObjectMap.K"/>
 	<c path="haxe.ds.ObjectMap.V"/>
-</c></f></copy>
-		<toString public="1" set="method" line="72"><f a=""><c path="String"/></f></toString>
-		<clear public="1" get="inline" set="null" line="87"><f a=""><x path="Void"/></f></clear>
+</c></f>
+			<haxe_doc>See `Map.copy`</haxe_doc>
+		</copy>
+		<toString public="1" set="method" line="72">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>See `Map.toString`</haxe_doc>
+		</toString>
+		<clear public="1" get="inline" set="null" line="87">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>See `Map.clear`</haxe_doc>
+		</clear>
 		<size public="1" get="inline" set="null" line="91"><f a=""><x path="Int"/></f></size>
-		<new public="1" set="method" line="30"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="30">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a new ObjectMap.</haxe_doc>
+		</new>
+		<haxe_doc>ObjectMap allows mapping of object keys to arbitrary values.
+
+	On static targets, the keys are considered to be strong references. Refer
+	to `haxe.ds.WeakMap` for a weak reference version.
+
+	See `Map` for documentation details.
+
+	@see https://haxe.org/manual/std-Map.html</haxe_doc>
 	</class>
 	<enum path="haxe.ds.Option" params="T" file="/home/runner/work/haxe/haxe/std/haxe/ds/Option.hx">
 		<Some a="v"><c path="haxe.ds.Option.T"/></Some>
@@ -19692,37 +19807,79 @@
 	<c path="String"/>
 	<c path="haxe.ds.StringMap.T"/>
 </c></h>
-		<set public="1" get="inline" set="null" line="35"><f a="key:value">
-	<c path="String"/>
-	<c path="haxe.ds.StringMap.T"/>
-	<x path="Void"/>
-</f></set>
-		<get public="1" get="inline" set="null" line="39"><f a="key">
-	<c path="String"/>
-	<x path="Null"><c path="haxe.ds.StringMap.T"/></x>
-</f></get>
-		<exists public="1" get="inline" set="null" line="43"><f a="key">
-	<c path="String"/>
-	<x path="Bool"/>
-</f></exists>
-		<remove public="1" set="method" line="47"><f a="key">
-	<c path="String"/>
-	<x path="Bool"/>
-</f></remove>
-		<keys public="1" set="method" line="54"><f a=""><t path="Iterator"><c path="String"/></t></f></keys>
-		<iterator public="1" set="method" line="58"><f a=""><t path="Iterator"><c path="haxe.ds.StringMap.T"/></t></f></iterator>
+		<set public="1" get="inline" set="null" line="35">
+			<f a="key:value">
+				<c path="String"/>
+				<c path="haxe.ds.StringMap.T"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>See `Map.set`</haxe_doc>
+		</set>
+		<get public="1" get="inline" set="null" line="39">
+			<f a="key">
+				<c path="String"/>
+				<x path="Null"><c path="haxe.ds.StringMap.T"/></x>
+			</f>
+			<haxe_doc>See `Map.get`</haxe_doc>
+		</get>
+		<exists public="1" get="inline" set="null" line="43">
+			<f a="key">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>See `Map.exists`</haxe_doc>
+		</exists>
+		<remove public="1" set="method" line="47">
+			<f a="key">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>See `Map.remove`</haxe_doc>
+		</remove>
+		<keys public="1" set="method" line="54">
+			<f a=""><t path="Iterator"><c path="String"/></t></f>
+			<haxe_doc>See `Map.keys`
+
+		(java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
+		</keys>
+		<iterator public="1" set="method" line="58">
+			<f a=""><t path="Iterator"><c path="haxe.ds.StringMap.T"/></t></f>
+			<haxe_doc>See `Map.iterator`
+
+		(java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
+		</iterator>
 		<keyValueIterator public="1" get="inline" set="null" line="62">
 			<f a=""><t path="KeyValueIterator">
 	<c path="String"/>
 	<c path="haxe.ds.StringMap.T"/>
 </t></f>
 			<meta><m n=":runtime"/></meta>
+			<haxe_doc>See `Map.keyValueIterator`</haxe_doc>
 		</keyValueIterator>
-		<copy public="1" set="method" line="66"><f a=""><c path="haxe.ds.StringMap"><c path="haxe.ds.StringMap.T"/></c></f></copy>
-		<toString public="1" set="method" line="73"><f a=""><c path="String"/></f></toString>
-		<clear public="1" get="inline" set="null" line="89"><f a=""><x path="Void"/></f></clear>
+		<copy public="1" set="method" line="66">
+			<f a=""><c path="haxe.ds.StringMap"><c path="haxe.ds.StringMap.T"/></c></f>
+			<haxe_doc>See `Map.copy`</haxe_doc>
+		</copy>
+		<toString public="1" set="method" line="73">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>See `Map.toString`</haxe_doc>
+		</toString>
+		<clear public="1" get="inline" set="null" line="89">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>See `Map.clear`</haxe_doc>
+		</clear>
 		<size public="1" get="inline" set="null" line="93"><f a=""><x path="Int"/></f></size>
-		<new public="1" set="method" line="31"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="31">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a new StringMap.</haxe_doc>
+		</new>
+		<haxe_doc>StringMap allows mapping of String keys to arbitrary values.
+
+	See `Map` for documentation details.
+
+	@see https://haxe.org/manual/std-Map.html</haxe_doc>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<typedef path="haxe.ds._Vector.VectorData" params="T" file="/home/runner/work/haxe/haxe/std/haxe/ds/Vector.hx" private="1" module="haxe.ds.Vector"><c path="Array"><c path="haxe.ds._Vector.VectorData.T"/></c></typedef>
@@ -42389,6 +42546,7 @@
 	<c path="python.io.IFileInput"/>
 	<x path="Void"/>
 </f></new>
+		<haxe_doc>Use `sys.io.File.read` to create a `FileInput`.</haxe_doc>
 	</class>
 	<class path="sys.io.FileOutput" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/io/FileOutput.hx">
 		<extends path="haxe.io.Output"/>
@@ -42475,6 +42633,7 @@
 	<c path="python.io.IFileOutput"/>
 	<x path="Void"/>
 </f></new>
+		<haxe_doc>Use `sys.io.File.write` to create a `FileOutput`.</haxe_doc>
 	</class>
 	<enum path="sys.io.FileSeek" params="" file="/home/runner/work/haxe/haxe/std/sys/io/FileSeek.hx">
 		<SeekBegin/>
@@ -42483,26 +42642,64 @@
 		<meta><m n=":flatEnum"/></meta>
 	</enum>
 	<class path="sys.io.Process" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/io/Process.hx">
-		<stdout public="1" set="null"><c path="haxe.io.Input"/></stdout>
-		<stderr public="1" set="null"><c path="haxe.io.Input"/></stderr>
-		<stdin public="1" set="null"><c path="haxe.io.Output"/></stdin>
+		<stdout public="1" set="null">
+			<c path="haxe.io.Input"/>
+			<haxe_doc>Standard output. The output stream where a process writes its output data.</haxe_doc>
+		</stdout>
+		<stderr public="1" set="null">
+			<c path="haxe.io.Input"/>
+			<haxe_doc>Standard error. The output stream to output error messages or diagnostics.</haxe_doc>
+		</stderr>
+		<stdin public="1" set="null">
+			<c path="haxe.io.Output"/>
+			<haxe_doc>Standard input. The stream data going into a process.</haxe_doc>
+		</stdin>
 		<p><c path="python.lib.subprocess.Popen"/></p>
-		<getPid public="1" set="method" line="53"><f a=""><x path="Int"/></f></getPid>
+		<getPid public="1" set="method" line="53">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Return the process ID.</haxe_doc>
+		</getPid>
 		<exitCode public="1" set="method" line="57">
 			<f a="?block" v="true">
 				<x path="Bool"/>
 				<x path="Null"><x path="Int"/></x>
 			</f>
 			<meta><m n=":value"><e>{ block : true }</e></m></meta>
+			<haxe_doc>Query the exit code of the process.
+		If `block` is true or not specified, it will block until the process terminates.
+		If `block` is false, it will return either the process exit code if it's already terminated or null if it's still running.
+		If the process has already exited, return the exit code immediately.</haxe_doc>
 		</exitCode>
-		<close public="1" set="method" line="63"><f a=""><x path="Void"/></f></close>
-		<kill public="1" set="method" line="79"><f a=""><x path="Void"/></f></kill>
-		<new public="1" set="method" line="39"><f a="cmd:?args:?detached">
-	<c path="String"/>
-	<c path="Array"><c path="String"/></c>
-	<x path="Bool"/>
-	<x path="Void"/>
-</f></new>
+		<close public="1" set="method" line="63">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Close the process handle and release the associated resources.
+		All `Process` fields should not be used after `close()` is called.</haxe_doc>
+		</close>
+		<kill public="1" set="method" line="79">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Kill the process.</haxe_doc>
+		</kill>
+		<new public="1" set="method" line="39">
+			<f a="cmd:?args:?detached">
+				<c path="String"/>
+				<c path="Array"><c path="String"/></c>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Construct a `Process` object, which run the given command immediately.
+
+		Command arguments can be passed in two ways: 1. using `args`, 2. appending to `cmd` and leaving `args` as `null`.
+
+		 1. When using `args` to pass command arguments, each argument will be automatically quoted, and shell meta-characters will be escaped if needed.
+		`cmd` should be an executable name that can be located in the `PATH` environment variable, or a path to an executable.
+
+		 2. When `args` is not given or is `null`, command arguments can be appended to `cmd`. No automatic quoting/escaping will be performed. `cmd` should be formatted exactly as it would be when typed at the command line.
+		It can run executables, as well as shell commands that are not executables (e.g. on Windows: `dir`, `cd`, `echo` etc).
+
+		`detached` allows the created process to be standalone. You cannot communicate with it but you can look at its exit code. Not supported on php.
+
+		`close()` should be called when the `Process` is no longer used.</haxe_doc>
+		</new>
 	</class>
 	<class path="sys.net.Address" params="" file="/home/runner/work/haxe/haxe/std/sys/net/Address.hx">
 		<host public="1"><x path="Int"/></host>
@@ -42645,16 +42842,36 @@
 		<haxe_doc>A TCP socket class : allow you to both connect to a given server and exchange messages or start your own server and wait for connections.</haxe_doc>
 	</class>
 	<class path="sys.net.Host" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/net/Host.hx">
-		<localhost public="1" set="method" line="44" static="1"><f a=""><c path="String"/></f></localhost>
-		<host public="1" set="null"><c path="String"/></host>
-		<ip public="1" set="null"><x path="Int"/></ip>
+		<localhost public="1" set="method" line="44" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns the local computer host name</haxe_doc>
+		</localhost>
+		<host public="1" set="null">
+			<c path="String"/>
+			<haxe_doc>The provided host string.</haxe_doc>
+		</host>
+		<ip public="1" set="null">
+			<x path="Int"/>
+			<haxe_doc>The actual IP corresponding to the host.</haxe_doc>
+		</ip>
 		<name><c path="String"/></name>
-		<toString public="1" set="method" line="36"><f a=""><c path="String"/></f></toString>
-		<reverse public="1" set="method" line="40"><f a=""><c path="String"/></f></reverse>
-		<new public="1" set="method" line="31"><f a="name">
-	<c path="String"/>
-	<x path="Void"/>
-</f></new>
+		<toString public="1" set="method" line="36">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns the IP representation of the host</haxe_doc>
+		</toString>
+		<reverse public="1" set="method" line="40">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Perform a reverse-DNS query to resolve a host name from an IP.</haxe_doc>
+		</reverse>
+		<new public="1" set="method" line="31">
+			<f a="name">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new Host : the name can be an IP in the form "127.0.0.1" or an host name such as "google.com", in which case
+		the corresponding IP address is resolved using DNS. An exception occur if the host name could not be found.</haxe_doc>
+		</new>
+		<haxe_doc>A given IP host name.</haxe_doc>
 	</class>
 	<class path="sys.net._Socket.SocketInput" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/net/Socket.hx" private="1" module="sys.net.Socket">
 		<extends path="haxe.io.Input"/>
@@ -43065,19 +43282,43 @@
 	<class path="sys.thread.Deque" params="T" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Deque.hx">
 		<deque><c path="sys.thread._Deque.NativeDeque"><c path="sys.thread.Deque.T"/></c></deque>
 		<lock><c path="python.lib.threading.Condition"/></lock>
-		<add public="1" set="method" line="38"><f a="i">
-	<c path="sys.thread.Deque.T"/>
-	<x path="Void"/>
-</f></add>
-		<push public="1" set="method" line="45"><f a="i">
-	<c path="sys.thread.Deque.T"/>
-	<x path="Void"/>
-</f></push>
-		<pop public="1" set="method" line="52"><f a="block">
-	<x path="Bool"/>
-	<x path="Null"><c path="sys.thread.Deque.T"/></x>
-</f></pop>
-		<new public="1" set="method" line="33"><f a=""><x path="Void"/></f></new>
+		<add public="1" set="method" line="38">
+			<f a="i">
+				<c path="sys.thread.Deque.T"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Adds an element at the end of `this` Deque.
+
+		(Java,Jvm): throws `java.lang.NullPointerException` if `i` is `null`.</haxe_doc>
+		</add>
+		<push public="1" set="method" line="45">
+			<f a="i">
+				<c path="sys.thread.Deque.T"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Adds an element at the front of `this` Deque.
+
+		(Java,Jvm): throws `java.lang.NullPointerException` if `i` is `null`.</haxe_doc>
+		</push>
+		<pop public="1" set="method" line="52">
+			<f a="block">
+				<x path="Bool"/>
+				<x path="Null"><c path="sys.thread.Deque.T"/></x>
+			</f>
+			<haxe_doc>Tries to retrieve an element from the front of `this` Deque.
+
+		If an element is available, it is removed from the queue and returned.
+
+		If no element is available and `block` is `false`, `null` is returned.
+
+		Otherwise, execution blocks until an element is available and returns it.</haxe_doc>
+		</pop>
+		<new public="1" set="method" line="33">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Create a new Deque instance which is initially empty.</haxe_doc>
+		</new>
+		<haxe_doc>A Deque is an output-restricted double-ended queue with a `pop` method that can
+	block until an element is available. It is commonly used to synchronize threads.</haxe_doc>
 	</class>
 	<class path="sys.thread._Deque.NativeDeque" params="T" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Deque.hx" private="1" module="sys.thread.Deque" extern="1">
 		<append public="1" set="method"><f a="x">

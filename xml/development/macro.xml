@@ -22503,6 +22503,7 @@
 	<t path="haxe.io.BytesData"/>
 	<x path="Void"/>
 </f></new>
+		<meta><m n=":coreApi"><e>check = Off</e></m></meta>
 	</class>
 	<class path="haxe.crypto.Base64" params="" file="/home/runner/work/haxe/haxe/std/haxe/crypto/Base64.hx">
 		<CHARS public="1" set="null" expr="&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;" line="29" static="1">
@@ -33038,10 +33039,17 @@
 	<x path="Int"/>
 	<x path="Float"/>
 </f></i64ToDouble>
-		<doubleToI64 public="1" set="method" static="1"><f a="v">
-	<x path="Float"/>
-	<x path="haxe.Int64"/>
-</f></doubleToI64>
+		<doubleToI64 public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="haxe.Int64"/>
+			</f>
+			<haxe_doc>Returns an Int64 representing the bytes representation of the double precision IEEE float value.
+		WARNING : for performance reason, the same Int64 value might be reused every time. Copy its low/high values before calling again.
+		We still ensure that this is safe to use in a multithread environment</haxe_doc>
+		</doubleToI64>
+		<haxe_doc>Helper that converts between floating point and binary representation.
+	Always works in low-endian encoding.</haxe_doc>
 	</class>
 	<typedef path="haxe.io.Float32ArrayData" params="" file="/home/runner/work/haxe/haxe/std/haxe/io/Float32Array.hx" module="haxe.io.Float32Array"><t path="haxe.io.ArrayBufferViewData"/></typedef>
 	<abstract path="haxe.io.Float32Array" params="" file="/home/runner/work/haxe/haxe/std/haxe/io/Float32Array.hx">
@@ -49091,7 +49099,10 @@
 		<haxe_doc>A TCP socket class : allow you to both connect to a given server and exchange messages or start your own server and wait for connections.</haxe_doc>
 	</class>
 	<class path="sys.net.Host" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/sys/net/Host.hx">
-		<localhost public="1" set="method" static="1"><f a=""><c path="String"/></f></localhost>
+		<localhost public="1" set="method" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns the local computer host name</haxe_doc>
+		</localhost>
 		<hostReverse set="method" static="1"><f a="ip">
 	<x path="Int"/>
 	<c path="String"/>
@@ -49104,18 +49115,35 @@
 	<c path="String"/>
 	<x path="Int"/>
 </f></resolve>
-		<host public="1" set="null"><c path="String"/></host>
-		<ip public="1" set="null"><x path="Int"/></ip>
-		<toString public="1" set="method" line="34"><f a=""><c path="String"/></f></toString>
-		<reverse public="1" set="method" line="38"><f a=""><c path="String"/></f></reverse>
+		<host public="1" set="null">
+			<c path="String"/>
+			<haxe_doc>The provided host string.</haxe_doc>
+		</host>
+		<ip public="1" set="null">
+			<x path="Int"/>
+			<haxe_doc>The actual IP corresponding to the host.</haxe_doc>
+		</ip>
+		<toString public="1" set="method" line="34">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns the IP representation of the host</haxe_doc>
+		</toString>
+		<reverse public="1" set="method" line="38">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Perform a reverse-DNS query to resolve a host name from an IP.</haxe_doc>
+		</reverse>
 		<init set="method" line="42"><f a="ip">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></init>
-		<new public="1" set="method" line="29"><f a="name">
-	<c path="String"/>
-	<x path="Void"/>
-</f></new>
+		<new public="1" set="method" line="29">
+			<f a="name">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new Host : the name can be an IP in the form "127.0.0.1" or an host name such as "google.com", in which case
+		the corresponding IP address is resolved using DNS. An exception occur if the host name could not be found.</haxe_doc>
+		</new>
+		<haxe_doc>A given IP host name.</haxe_doc>
 	</class>
 	<class path="sys.net._Socket.SocketOutput" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/sys/net/Socket.hx" private="1" module="sys.net.Socket">
 		<extends path="haxe.io.Output"/>
