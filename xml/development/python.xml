@@ -6098,8 +6098,26 @@
 	<close set="method"><f a=""><x path="Void"/></f></close>
 	<allowsReentrancy final="1" set="null"><x path="Bool"/></allowsReentrancy>
 </a></typedef>
-	<class path="sys.thread.Tls" params="T" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Tls.hx" extern="1">
-		<value public="1"><x path="Null"><c path="sys.thread.Tls.T"/></x></value>
+	<class path="sys.thread.Tls" params="T" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Tls.hx">
+		<native final="1"><c path="sys.thread.NativeTls"><x path="Null"><c path="sys.thread.Tls.T"/></x></c></native>
+		<value public="1" get="accessor" set="accessor"><x path="Null"><c path="sys.thread.Tls.T"/></x></value>
+		<get_value set="method" line="42"><f a=""><x path="Null"><c path="sys.thread.Tls.T"/></x></f></get_value>
+		<set_value set="method" line="50"><f a="v">
+	<c path="sys.thread.Tls.T"/>
+	<x path="Null"><c path="sys.thread.Tls.T"/></x>
+</f></set_value>
+		<new public="1" set="method" line="37">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates thread local storage. This is placeholder that can store
+		a value that will be different depending on the local thread.
+
+		It is good practice to set the value to `null` when the thread exits.
+		Otherwise, it might not be garbage-collected on some targets.</haxe_doc>
+		</new>
+		<haxe_doc>A thread-local storage to store per-thread values.</haxe_doc>
+	</class>
+	<class path="sys.thread.NativeTls" params="T" file="/home/runner/work/haxe/haxe/std/python/_std/sys/thread/Tls.hx" module="sys.thread.Tls" extern="1">
+		<value public="1"><x path="Null"><c path="sys.thread.NativeTls.T"/></x></value>
 		<new public="1" set="method"><f a=""><x path="Void"/></f></new>
 		<meta>
 			<m n=":pythonImport">
@@ -6107,7 +6125,6 @@
 				<e>"local"</e>
 			</m>
 			<m n=":native"><e>"local"</e></m>
-			<m n=":coreApi"><e>check = Off</e></m>
 		</meta>
 	</class>
 	<class path="haxe.ds.IntMap" params="T" file="/home/runner/work/haxe/haxe/std/python/_std/haxe/ds/IntMap.hx">
@@ -6284,7 +6301,9 @@
 		</new>
 		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
 	to access some resource. The main difference with a lock is
-	that a mutex must always be released by the owner thread.</haxe_doc>
+	that a mutex must always be released by the owner thread.
+
+	On targets that don't support threads this class is a stub.</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="python.lib.threading.RLock" params="" file="/home/runner/work/haxe/haxe/std/python/lib/threading/RLock.hx" extern="1">
@@ -11097,7 +11116,6 @@
 			<m n=":coreType"/>
 		</meta>
 	</abstract>
-	<typedef path="haxe.coro.Mutex" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/Mutex.hx"><c path="sys.thread.Mutex"/></typedef>
 	<abstract path="haxe.coro.SuspensionState" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/SuspensionState.hx">
 		<this><x path="Int"/></this>
 		<haxe_doc>The state of a coroutine.</haxe_doc>
@@ -11176,18 +11194,6 @@
 	<x path="haxe.coro.SuspensionState"/>
 	<c path="String"/>
 </f></toString></class>
-	<class path="haxe.coro.Tls" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/Tls.hx">
-		<inner final="1"><c path="sys.thread.Tls"><c path="haxe.coro.Tls.T"/></c></inner>
-		<value public="1" get="accessor" set="accessor"><x path="Null"><c path="haxe.coro.Tls.T"/></x></value>
-		<get_value get="inline" set="null" line="17"><f a=""><x path="Null"><c path="haxe.coro.Tls.T"/></x></f></get_value>
-		<set_value get="inline" set="null" line="25"><f a="v">
-	<x path="Null"><c path="haxe.coro.Tls.T"/></x>
-	<x path="Null"><c path="haxe.coro.Tls.T"/></x>
-</f></set_value>
-		<new public="1" set="method" line="13"><f a=""><x path="Void"/></f></new>
-		<haxe_doc>Thread-local storage. On `target.threaded` targets, each thread has its own value.
-	On single-threaded targets this is a plain field.</haxe_doc>
-	</class>
 	<class path="haxe.coro.cancellation.ICancellationHandle" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/cancellation/ICancellationHandle.hx" interface="1">
 		<close public="1" set="method">
 			<f a=""><x path="Void"/></f>
@@ -11247,9 +11253,9 @@
 			<x path="Int"/>
 			<meta><m n=":value"><e>0</e></m></meta>
 		</counter>
-		<counterMutex expr="new Mutex()" line="5" static="1">
+		<counterMutex expr="new sys.thread.Mutex()" line="5" static="1">
 			<c path="sys.thread.Mutex"/>
-			<meta><m n=":value"><e>new Mutex()</e></m></meta>
+			<meta><m n=":value"><e>new sys.thread.Mutex()</e></m></meta>
 		</counterMutex>
 		<createNew public="1" params="T" set="method" line="15" static="1"><f a="name">
 	<c path="String"/>

@@ -34623,37 +34623,6 @@
 			<m n=":coreType"/>
 		</meta>
 	</abstract>
-	<typedef path="haxe.coro.Mutex" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/Mutex.hx"><c path="haxe.coro.StubMutex"/></typedef>
-	<class path="haxe.coro.StubMutex" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/Mutex.hx" module="haxe.coro.Mutex">
-		<acquire public="1" set="method" line="26">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>This is a stub version.
-		The current thread acquire the mutex or wait if not available.
-		The same thread can acquire several times the same mutex but
-		must release it as many times it has been acquired.</haxe_doc>
-		</acquire>
-		<tryAcquire public="1" set="method" line="33">
-			<f a=""><x path="Bool"/></f>
-			<haxe_doc>This is a stub version.
-		Try to acquire the mutex, returns true if acquire or false
-		if it's already locked by another thread.</haxe_doc>
-		</tryAcquire>
-		<release public="1" set="method" line="43">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>This is a stub version.
-		Release a mutex that has been acquired by the current thread.
-		The behavior is undefined if the current thread does not own
-		the mutex.</haxe_doc>
-		</release>
-		<new public="1" set="method" line="18">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Creates a stub mutex on non threaded target.</haxe_doc>
-		</new>
-		<haxe_doc>This is a stub version.
-	Creates a mutex, which can be used to acquire a temporary lock
-	to access some resource. The main difference with a lock is
-	that a mutex must always be released by the owner thread.</haxe_doc>
-	</class>
 	<abstract path="haxe.coro.SuspensionState" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/SuspensionState.hx">
 		<this><x path="Int"/></this>
 		<haxe_doc>The state of a coroutine.</haxe_doc>
@@ -34732,12 +34701,6 @@
 	<x path="haxe.coro.SuspensionState"/>
 	<c path="String"/>
 </f></toString></class>
-	<class path="haxe.coro.Tls" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/Tls.hx">
-		<value public="1"><x path="Null"><c path="haxe.coro.Tls.T"/></x></value>
-		<new public="1" set="method" line="38"><f a=""><x path="Void"/></f></new>
-		<haxe_doc>Thread-local storage. On `target.threaded` targets, each thread has its own value.
-	On single-threaded targets this is a plain field.</haxe_doc>
-	</class>
 	<class path="haxe.coro.cancellation.ICancellationHandle" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/cancellation/ICancellationHandle.hx" interface="1">
 		<close public="1" set="method">
 			<f a=""><x path="Void"/></f>
@@ -34792,14 +34755,43 @@
 		<get_cancellationException public="1" set="method" line="21"><f a=""><x path="Null"><c path="haxe.exceptions.CancellationException"/></x></f></get_cancellationException>
 		<new public="1" set="method" line="16"><f a=""><x path="Void"/></f></new>
 	</class>
+	<class path="sys.thread.Mutex" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/Mutex.hx">
+		<acquire public="1" set="method" line="44">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>The current thread acquire the mutex or wait if not available.
+		The same thread can acquire several times the same mutex but
+		must release it as many times it has been acquired.</haxe_doc>
+		</acquire>
+		<tryAcquire public="1" set="method" line="50">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>Try to acquire the mutex, returns true if acquire or false
+		if it's already locked by another thread.</haxe_doc>
+		</tryAcquire>
+		<release public="1" set="method" line="59">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Release a mutex that has been acquired by the current thread.
+		The behavior is undefined if the current thread does not own
+		the mutex.</haxe_doc>
+		</release>
+		<new public="1" set="method" line="37">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a mutex.</haxe_doc>
+		</new>
+		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
+	to access some resource. The main difference with a lock is
+	that a mutex must always be released by the owner thread.
+
+	On targets that don't support threads this class is a stub.</haxe_doc>
+		<meta><m n=":noPackageRestrict"/></meta>
+	</class>
 	<class path="haxe.coro.context.KeyImpl" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx" module="haxe.coro.context.Key">
 		<counter expr="0" line="4" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>0</e></m></meta>
 		</counter>
-		<counterMutex expr="new Mutex()" line="5" static="1">
-			<c path="haxe.coro.StubMutex"/>
-			<meta><m n=":value"><e>new Mutex()</e></m></meta>
+		<counterMutex expr="new sys.thread.Mutex()" line="5" static="1">
+			<c path="sys.thread.Mutex"/>
+			<meta><m n=":value"><e>new sys.thread.Mutex()</e></m></meta>
 		</counterMutex>
 		<createNew public="1" params="T" set="method" line="15" static="1"><f a="name">
 	<c path="String"/>

@@ -6824,7 +6824,9 @@
 		</new>
 		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
 	to access some resource. The main difference with a lock is
-	that a mutex must always be released by the owner thread.</haxe_doc>
+	that a mutex must always be released by the owner thread.
+
+	On targets that don't support threads this class is a stub.</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
 	<class path="sys.thread.Lock" params="" file="/home/runner/work/haxe/haxe/std/neko/_std/sys/thread/Lock.hx">
@@ -11432,7 +11434,6 @@
 			<m n=":coreType"/>
 		</meta>
 	</abstract>
-	<typedef path="haxe.coro.Mutex" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/Mutex.hx"><c path="sys.thread.Mutex"/></typedef>
 	<abstract path="haxe.coro.SuspensionState" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/SuspensionState.hx">
 		<this><x path="Int"/></this>
 		<haxe_doc>The state of a coroutine.</haxe_doc>
@@ -11511,18 +11512,6 @@
 	<x path="haxe.coro.SuspensionState"/>
 	<c path="String"/>
 </f></toString></class>
-	<class path="haxe.coro.Tls" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/Tls.hx">
-		<inner final="1"><c path="sys.thread.Tls"><c path="haxe.coro.Tls.T"/></c></inner>
-		<value public="1" get="accessor" set="accessor"><x path="Null"><c path="haxe.coro.Tls.T"/></x></value>
-		<get_value get="inline" set="null" line="17"><f a=""><x path="Null"><c path="haxe.coro.Tls.T"/></x></f></get_value>
-		<set_value get="inline" set="null" line="25"><f a="v">
-	<x path="Null"><c path="haxe.coro.Tls.T"/></x>
-	<x path="Null"><c path="haxe.coro.Tls.T"/></x>
-</f></set_value>
-		<new public="1" set="method" line="13"><f a=""><x path="Void"/></f></new>
-		<haxe_doc>Thread-local storage. On `target.threaded` targets, each thread has its own value.
-	On single-threaded targets this is a plain field.</haxe_doc>
-	</class>
 	<class path="haxe.coro.cancellation.ICancellationHandle" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/cancellation/ICancellationHandle.hx" interface="1">
 		<close public="1" set="method">
 			<f a=""><x path="Void"/></f>
@@ -11582,9 +11571,9 @@
 			<x path="Int"/>
 			<meta><m n=":value"><e>0</e></m></meta>
 		</counter>
-		<counterMutex expr="new Mutex()" line="5" static="1">
+		<counterMutex expr="new sys.thread.Mutex()" line="5" static="1">
 			<c path="sys.thread.Mutex"/>
-			<meta><m n=":value"><e>new Mutex()</e></m></meta>
+			<meta><m n=":value"><e>new sys.thread.Mutex()</e></m></meta>
 		</counterMutex>
 		<createNew public="1" params="T" set="method" line="15" static="1"><f a="name">
 	<c path="String"/>
