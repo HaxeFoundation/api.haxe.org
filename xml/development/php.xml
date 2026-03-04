@@ -10704,7 +10704,7 @@
 			<x path="Float"/>
 			<meta><m n=":value"><e>Math.NEGATIVE_INFINITY</e></m></meta>
 		</nextRun>
-		<delay public="1" set="method" line="39">
+		<delay public="1" set="method" line="40">
 			<f a="t:?fromLastRun" v=":false">
 				<x path="Null"><x path="Float"/></x>
 				<x path="Bool"/>
@@ -10714,22 +10714,22 @@
 			<haxe_doc>Delay the execution of the event for the given time, in seconds.
 		If t is null, the event will be run at next event loop.</haxe_doc>
 		</delay>
-		<stop public="1" set="method" line="46">
+		<stop public="1" set="method" line="47">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Stop this event from repeating.</haxe_doc>
 		</stop>
-		<start public="1" set="method" line="53">
+		<start public="1" set="method" line="54">
 			<f a="callb">
 				<f a=""><x path="Void"/></f>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Start the event with the given callback function.</haxe_doc>
 		</start>
-		<isStopped public="1" set="method" line="61">
+		<isStopped public="1" set="method" line="62">
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>Tells if the event has been stopped.</haxe_doc>
 		</isStopped>
-		<new set="method" line="30"><f a="loop:p">
+		<new set="method" line="31"><f a="loop:p">
 	<c path="haxe.EventLoop"/>
 	<x path="Int"/>
 	<x path="Void"/>
@@ -10751,22 +10751,21 @@
 			<haxe_doc>This is the current thread event loop. For platforms that doesn't support threads
 		it is the same as `main`.</haxe_doc>
 		</current>
-		<hasRunningThreads public="1" set="method" line="432" static="1">
+		<hasRunningThreads public="1" set="method" line="446" static="1">
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>Tells if we currently have blocking unfinished threads.</haxe_doc>
 		</hasRunningThreads>
-		<addTask public="1" set="method" line="466" static="1">
+		<addTask public="1" set="method" line="483" static="1">
 			<f a="f:?blocking" v=":true">
 				<f a=""><x path="Void"/></f>
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":value"><e>{ blocking : true }</e></m></meta>
-			<haxe_doc>Add a task to be run either on another thread or as part of the main event loop if the
-		platform does not support threads.</haxe_doc>
+			<haxe_doc>Adds `f` as a thread task on the main thread.</haxe_doc>
 		</addTask>
-		<get_current set="method" line="489" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_current>
-		<get_main set="method" line="499" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_main>
+		<get_current set="method" line="522" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_current>
+		<get_main set="method" line="532" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_main>
 		<events><c path="haxe.Event"/></events>
 		<queue><c path="haxe.Event"/></queue>
 		<inLoop><x path="Bool"/></inLoop>
@@ -10780,33 +10779,33 @@
 			<x path="Bool"/>
 			<meta><m n=":value"><e>false</e></m></meta>
 		</inNative>
-		<dispose public="1" set="method" line="125">
+		<dispose public="1" set="method" line="128">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>This should be called after you are finished with a custom event loop.
 		It is already automatically called for threads loops.</haxe_doc>
 		</dispose>
-		<loop public="1" set="method" line="133">
+		<loop public="1" set="method" line="136">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Runs until all the blocking events have been stopped.
 		If this is called on the main thread, also wait for all blocking threads to finish.</haxe_doc>
 		</loop>
-		<promise public="1" set="method" line="151">
+		<promise public="1" set="method" line="165">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Promise a possible future event addition. This will prevent the `loop()` from terminating until the matching number of `deliver()` calls have been made.</haxe_doc>
 		</promise>
-		<deliver public="1" set="method" line="160">
+		<deliver public="1" set="method" line="174">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Deliver after a `promise()`. This will throw an exception if more `deliver()` calls has been made than corresponding `promise()` calls.</haxe_doc>
 		</deliver>
-		<wakeup get="inline" set="null" line="172"><f a=""><x path="Void"/></f></wakeup>
-		<wait get="inline" set="null" line="178"><f a="time">
+		<wakeup get="inline" set="null" line="186"><f a=""><x path="Void"/></f></wakeup>
+		<wait get="inline" set="null" line="192"><f a="time">
 	<x path="Float"/>
 	<x path="Void"/>
 </f></wait>
-		<lock get="inline" set="null" line="186"><f a=""><x path="Void"/></f></lock>
-		<unlock get="inline" set="null" line="192"><f a=""><x path="Void"/></f></unlock>
-		<checkThread set="method" line="198"><f a=""><x path="Void"/></f></checkThread>
-		<loopOnce public="1" set="method" line="209">
+		<lock get="inline" set="null" line="200"><f a=""><x path="Void"/></f></lock>
+		<unlock get="inline" set="null" line="206"><f a=""><x path="Void"/></f></unlock>
+		<checkThread set="method" line="212"><f a=""><x path="Void"/></f></checkThread>
+		<loopOnce public="1" set="method" line="223">
 			<f a="?threadCheck" v="true">
 				<x path="Bool"/>
 				<x path="Void"/>
@@ -10816,7 +10815,7 @@
 		By default, an event loop from a thread can only be triggered from this thread.
 		You can set `threadCheck` to false in the rare cases you might want otherwise.</haxe_doc>
 		</loopOnce>
-		<add public="1" set="method" line="252">
+		<add public="1" set="method" line="266">
 			<f a="callb:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -10825,7 +10824,7 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a callback to be run at each loop of the event loop.</haxe_doc>
 		</add>
-		<addAsync public="1" set="method" line="263">
+		<addAsync public="1" set="method" line="277">
 			<f a="?priority" v="0">
 				<x path="Int"/>
 				<c path="haxe.Event"/>
@@ -10835,7 +10834,7 @@
 		This is useful if you wish to hold a reference of another thread Event loop
 		before it runs.</haxe_doc>
 		</addAsync>
-		<addTimer public="1" set="method" line="270">
+		<addTimer public="1" set="method" line="284">
 			<f a="callb:delay:?priority" v="::0">
 				<f a=""><x path="Void"/></f>
 				<x path="Float"/>
@@ -10845,7 +10844,7 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a callback to be run every `delay` seconds until stopped</haxe_doc>
 		</addTimer>
-		<repeat public="1" set="method" line="277">
+		<repeat public="1" set="method" line="291">
 			<f a="callb:delay">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -10856,7 +10855,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</repeat>
-		<cancel public="1" set="method" line="281">
+		<cancel public="1" set="method" line="295">
 			<f a="e">
 				<c path="haxe.Event"/>
 				<x path="Void"/>
@@ -10866,7 +10865,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</cancel>
-		<run public="1" set="method" line="288">
+		<run public="1" set="method" line="302">
 			<f a="callb:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -10875,17 +10874,18 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a function to be run once at next loop of the event loop.</haxe_doc>
 		</run>
-		<start set="method" line="294"><f a="e">
+		<start set="method" line="308"><f a="e">
 	<c path="haxe.Event"/>
 	<x path="Void"/>
 </f></start>
-		<stop set="method" line="311"><f a="e">
+		<stop set="method" line="325"><f a="e">
 	<c path="haxe.Event"/>
 	<x path="Void"/>
 </f></stop>
-		<getNextTick set="method" line="340"><f a=""><x path="Float"/></f></getNextTick>
-		<sortEvents set="method" line="362"><f a=""><x path="Void"/></f></sortEvents>
-		<hasEvents public="1" set="method" line="444">
+		<getNextTick set="method" line="354"><f a=""><x path="Float"/></f></getNextTick>
+		<sortEvents set="method" line="376"><f a=""><x path="Void"/></f></sortEvents>
+		<hasRunningThreadTasks set="method" line="450"><f a=""><x path="Bool"/></f></hasRunningThreadTasks>
+		<hasEvents public="1" set="method" line="462">
 			<f a="?blocking" v="true">
 				<x path="Bool"/>
 				<x path="Bool"/>
@@ -10894,7 +10894,17 @@
 			<haxe_doc>Tells if the event loop has remaining events.
 		If blocking is set to true, only check if it has remaining blocking events.</haxe_doc>
 		</hasEvents>
-		<new public="1" set="method" line="114"><f a=""><x path="Void"/></f></new>
+		<addThreadTask public="1" set="method" line="491">
+			<f a="f:?blocking" v=":true">
+				<f a=""><x path="Void"/></f>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ blocking : true }</e></m></meta>
+			<haxe_doc>Add a task to be run either on another thread or as part of this event loop if the
+		platform does not support threads.</haxe_doc>
+		</addThreadTask>
+		<new public="1" set="method" line="116"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>Handles async events for all threads</haxe_doc>
 		<meta><m n=":access"><e>haxe.Event</e></m></meta>
 	</class>
@@ -14766,6 +14776,197 @@
 	throw new ValueException("Terrible error");
 	```</haxe_doc>
 		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="haxe.atomic._AtomicInt.AtomicIntValue" params="" file="/home/runner/work/haxe/haxe/std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt">
+		<value public="1"><x path="Int"/></value>
+		<new public="1" set="method" line="141"><f a="value">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></new>
+	</class>
+	<typedef path="haxe.atomic._AtomicInt.AtomicIntData" params="" file="/home/runner/work/haxe/haxe/std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt"><c path="haxe.atomic._AtomicInt.AtomicIntValue"/></typedef>
+	<abstract path="haxe.atomic.AtomicInt" params="" file="/home/runner/work/haxe/haxe/std/haxe/atomic/AtomicInt.hx">
+		<this><t path="haxe.atomic._AtomicInt.AtomicIntData"/></this>
+		<haxe_doc>Atomic integer.
+	(js) The Atomics and SharedArrayBuffer objects need to be available. Errors will be thrown if this is not the case.</haxe_doc>
+		<impl><class path="haxe.atomic._AtomicInt.AtomicInt_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt" final="1">
+	<_hx_new public="1" set="method" line="153" static="1">
+		<f a="value">
+			<x path="Int"/>
+			<x path="haxe.atomic.AtomicInt"/>
+		</f>
+		<meta><m n=":noCompletion"/></meta>
+	</_hx_new>
+	<add public="1" set="method" line="161" static="1">
+		<f a="this:b">
+			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Atomically adds `b` to `a`.
+		Returns the original value of `a`.</haxe_doc>
+	</add>
+	<sub public="1" set="method" line="171" static="1">
+		<f a="this:b">
+			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Atomically subtracts `b` from `a`.
+		Returns the original value of `a`.</haxe_doc>
+	</sub>
+	<and public="1" set="method" line="181" static="1">
+		<f a="this:b">
+			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Atomically computes the bitwise and of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
+	</and>
+	<or public="1" set="method" line="191" static="1">
+		<f a="this:b">
+			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Atomically computes the bitwise or of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
+	</or>
+	<xor public="1" set="method" line="201" static="1">
+		<f a="this:b">
+			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Atomically computes the bitwise xor of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
+	</xor>
+	<compareExchange public="1" set="method" line="211" static="1">
+		<f a="this:expected:replacement">
+			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+			<x path="Int"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
+		Returns the original value of `a`.</haxe_doc>
+	</compareExchange>
+	<exchange public="1" set="method" line="223" static="1">
+		<f a="this:value">
+			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Atomically exchanges `a` with `value`.
+		Returns the original value of `a`.</haxe_doc>
+	</exchange>
+	<load public="1" set="method" line="232" static="1">
+		<f a="this">
+			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
+	</load>
+	<store public="1" set="method" line="240" static="1">
+		<f a="this:value">
+			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+			<x path="Int"/>
+			<x path="Int"/>
+		</f>
+		<haxe_doc>Atomically stores `value` into `a`.
+		Returns the value that has been stored.</haxe_doc>
+	</store>
+</class></impl>
+	</abstract>
+	<class path="haxe.atomic._AtomicInt.AtomicInt_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt" final="1">
+		<_hx_new public="1" set="method" line="153" static="1">
+			<f a="value">
+				<x path="Int"/>
+				<x path="haxe.atomic.AtomicInt"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</_hx_new>
+		<add public="1" set="method" line="161" static="1">
+			<f a="this:b">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically adds `b` to `a`.
+		Returns the original value of `a`.</haxe_doc>
+		</add>
+		<sub public="1" set="method" line="171" static="1">
+			<f a="this:b">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically subtracts `b` from `a`.
+		Returns the original value of `a`.</haxe_doc>
+		</sub>
+		<and public="1" set="method" line="181" static="1">
+			<f a="this:b">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically computes the bitwise and of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
+		</and>
+		<or public="1" set="method" line="191" static="1">
+			<f a="this:b">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically computes the bitwise or of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
+		</or>
+		<xor public="1" set="method" line="201" static="1">
+			<f a="this:b">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically computes the bitwise xor of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
+		</xor>
+		<compareExchange public="1" set="method" line="211" static="1">
+			<f a="this:expected:replacement">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
+		Returns the original value of `a`.</haxe_doc>
+		</compareExchange>
+		<exchange public="1" set="method" line="223" static="1">
+			<f a="this:value">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically exchanges `a` with `value`.
+		Returns the original value of `a`.</haxe_doc>
+		</exchange>
+		<load public="1" set="method" line="232" static="1">
+			<f a="this">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
+		</load>
+		<store public="1" set="method" line="240" static="1">
+			<f a="this:value">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically stores `value` into `a`.
+		Returns the value that has been stored.</haxe_doc>
+		</store>
 	</class>
 	<typedef path="haxe.coro.AsyncIterable" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/AsyncIterable.hx">
 		<a><iterator set="method"><f a=""><t path="haxe.coro.AsyncIterator"><c path="haxe.coro.AsyncIterable.T"/></t></f></iterator></a>

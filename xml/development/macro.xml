@@ -16794,7 +16794,7 @@
 			<x path="Float"/>
 			<meta><m n=":value"><e>Math.NEGATIVE_INFINITY</e></m></meta>
 		</nextRun>
-		<delay public="1" set="method" line="39">
+		<delay public="1" set="method" line="40">
 			<f a="t:?fromLastRun" v=":false">
 				<x path="Null"><x path="Float"/></x>
 				<x path="Bool"/>
@@ -16804,22 +16804,22 @@
 			<haxe_doc>Delay the execution of the event for the given time, in seconds.
 		If t is null, the event will be run at next event loop.</haxe_doc>
 		</delay>
-		<stop public="1" set="method" line="46">
+		<stop public="1" set="method" line="47">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Stop this event from repeating.</haxe_doc>
 		</stop>
-		<start public="1" set="method" line="53">
+		<start public="1" set="method" line="54">
 			<f a="callb">
 				<f a=""><x path="Void"/></f>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Start the event with the given callback function.</haxe_doc>
 		</start>
-		<isStopped public="1" set="method" line="61">
+		<isStopped public="1" set="method" line="62">
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>Tells if the event has been stopped.</haxe_doc>
 		</isStopped>
-		<new set="method" line="30"><f a="loop:p">
+		<new set="method" line="31"><f a="loop:p">
 	<c path="haxe.EventLoop"/>
 	<x path="Int"/>
 	<x path="Void"/>
@@ -17011,6 +17011,95 @@
 	trace("All threads finished");
 	```</haxe_doc>
 	</class>
+	<class path="haxe.atomic._AtomicInt.AtomicInt_Impl_" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt" extern="1" final="1">
+		<_hx_new public="1" set="method" static="1">
+			<f a="value">
+				<x path="Int"/>
+				<x path="haxe.atomic.AtomicInt"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</_hx_new>
+		<add public="1" set="method" static="1">
+			<f a="this:b">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically adds `b` to `a`.
+		Returns the original value of `a`.</haxe_doc>
+		</add>
+		<sub public="1" set="method" static="1">
+			<f a="this:b">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically subtracts `b` from `a`.
+		Returns the original value of `a`.</haxe_doc>
+		</sub>
+		<and public="1" set="method" static="1">
+			<f a="this:b">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically computes the bitwise and of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
+		</and>
+		<or public="1" set="method" static="1">
+			<f a="this:b">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically computes the bitwise or of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
+		</or>
+		<xor public="1" set="method" static="1">
+			<f a="this:b">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically computes the bitwise xor of `a` and `b` and stores it in `a`.
+		Returns the original value of `a`.</haxe_doc>
+		</xor>
+		<compareExchange public="1" set="method" static="1">
+			<f a="this:expected:replacement">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
+		Returns the original value of `a`.</haxe_doc>
+		</compareExchange>
+		<exchange public="1" set="method" static="1">
+			<f a="this:value">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically exchanges `a` with `value`.
+		Returns the original value of `a`.</haxe_doc>
+		</exchange>
+		<load public="1" set="method" static="1">
+			<f a="this">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
+		</load>
+		<store public="1" set="method" static="1">
+			<f a="this:value">
+				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Atomically stores `value` into `a`.
+		Returns the value that has been stored.</haxe_doc>
+		</store>
+	</class>
 	<class path="sys.thread._ThreadImpl.ThreadImpl_Impl_" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/sys/thread/ThreadImpl.hx" private="1" module="sys.thread.ThreadImpl" final="1">
 		<current public="1" get="inline" set="null" line="29" static="1"><f a=""><x path="sys.thread.ThreadImpl"/></f></current>
 		<create public="1" get="inline" set="null" line="33" static="1"><f a="job">
@@ -17048,40 +17137,63 @@
 		</neq>
 	</class>
 	<class path="sys.thread.ThreadCallbackManager" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/ThreadCallback.hx" module="sys.thread.ThreadCallback">
-		<onStartCallback><x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a=""><x path="Void"/></f></c></x></onStartCallback>
-		<onJobDoneCallback><x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a=""><x path="Void"/></f></c></x></onJobDoneCallback>
-		<onExitCallback><x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a=""><x path="Void"/></f></c></x></onExitCallback>
-		<onAbortCallback><x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a="">
+		<collectCallbacks params="F" set="method" line="140" static="1"><f a="local:global">
+	<x path="Null"><c path="sys.thread.ThreadCallbackStack"><c path="collectCallbacks.F"/></c></x>
+	<x path="Null"><c path="sys.thread.ThreadCallbackStack"><c path="collectCallbacks.F"/></c></x>
+	<c path="Array"><c path="sys.thread.ThreadCallback"><c path="collectCallbacks.F"/></c></c>
+</f></collectCallbacks>
+		<iterateCallbacks params="F" set="method" line="153" static="1"><f a="callbacks:f">
+	<c path="Array"><c path="sys.thread.ThreadCallback"><c path="iterateCallbacks.F"/></c></c>
+	<f a="">
+		<c path="sys.thread.ThreadCallback"><c path="iterateCallbacks.F"/></c>
+		<x path="Void"/>
+	</f>
+	<x path="Void"/>
+</f></iterateCallbacks>
+		<invokeCallbacks public="1" set="method" line="171" static="1"><f a="local:global">
+	<x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a=""><x path="Void"/></f></c></x>
+	<x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a=""><x path="Void"/></f></c></x>
+	<x path="Void"/>
+</f></invokeCallbacks>
+		<invokeCallbacksArg public="1" params="Arg" set="method" line="176" static="1"><f a="local:global:e">
+	<x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a="">
+	<c path="invokeCallbacksArg.Arg"/>
+	<x path="Void"/>
+</f></c></x>
+	<x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a="">
+	<c path="invokeCallbacksArg.Arg"/>
+	<x path="Void"/>
+</f></c></x>
+	<c path="invokeCallbacksArg.Arg"/>
+	<x path="Void"/>
+</f></invokeCallbacksArg>
+		<onStartCallback public="1"><x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a=""><x path="Void"/></f></c></x></onStartCallback>
+		<onJobDoneCallback public="1"><x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a=""><x path="Void"/></f></c></x></onJobDoneCallback>
+		<onExitCallback public="1"><x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a=""><x path="Void"/></f></c></x></onExitCallback>
+		<onAbortCallback public="1"><x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a="">
 	<c path="haxe.Exception"/>
 	<x path="Void"/>
 </f></c></x></onAbortCallback>
-		<callOnStart public="1" set="method" line="119"><f a=""><x path="Void"/></f></callOnStart>
-		<callOnJobDone public="1" set="method" line="123"><f a=""><x path="Void"/></f></callOnJobDone>
-		<callOnExit public="1" set="method" line="127"><f a=""><x path="Void"/></f></callOnExit>
-		<callOnAbort public="1" set="method" line="131"><f a="e">
-	<c path="haxe.Exception"/>
-	<x path="Void"/>
-</f></callOnAbort>
-		<onStart public="1" set="method" line="135"><f a="f">
+		<onStart public="1" set="method" line="120"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<c path="sys.thread.IThreadCallbackHandle"/>
 </f></onStart>
-		<onJobDone public="1" set="method" line="140"><f a="f">
+		<onJobDone public="1" set="method" line="125"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<c path="sys.thread.IThreadCallbackHandle"/>
 </f></onJobDone>
-		<onExit public="1" set="method" line="145"><f a="f">
+		<onExit public="1" set="method" line="130"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<c path="sys.thread.IThreadCallbackHandle"/>
 </f></onExit>
-		<onAbort public="1" set="method" line="150"><f a="f">
+		<onAbort public="1" set="method" line="135"><f a="f">
 	<f a="">
 		<c path="haxe.Exception"/>
 		<x path="Void"/>
 	</f>
 	<c path="sys.thread.IThreadCallbackHandle"/>
 </f></onAbort>
-		<new public="1" set="method" line="117"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="118"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="sys.thread.Thread" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/Thread.hx">
 		<threads static="1"><c path="Array"><c path="sys.thread.Thread"/></c></threads>
@@ -17089,27 +17201,27 @@
 		<mainThread static="1"><c path="sys.thread.Thread"/></mainThread>
 		<idCounter static="1"><x path="Int"/></idCounter>
 		<globalCallbacks static="1"><c path="sys.thread.ThreadCallbackManager"/></globalCallbacks>
-		<readMessage public="1" set="method" line="130" static="1"><f a="blocking">
+		<readMessage public="1" set="method" line="125" static="1"><f a="blocking">
 	<x path="Bool"/>
 	<x path="Null"><d/></x>
 </f></readMessage>
 		<currentTLS static="1"><c path="sys.thread.Tls"><c path="sys.thread.Thread"/></c></currentTLS>
-		<current public="1" set="method" line="147" static="1">
+		<current public="1" set="method" line="142" static="1">
 			<f a=""><c path="sys.thread.Thread"/></f>
 			<haxe_doc>Returns the current thread.
 		If you are calling this function from a native thread that is not the main thread and was not created by `Thread.create`, this will return you
 		a native thread with a `null` EvenLoop and `isNative` set to true. You need to call `disposeNative()` on such value on thread termination.</haxe_doc>
 		</current>
-		<main public="1" get="inline" set="null" line="164" static="1">
+		<main public="1" get="inline" set="null" line="159" static="1">
 			<f a=""><c path="sys.thread.Thread"/></f>
 			<haxe_doc>Returns the main thread</haxe_doc>
 		</main>
-		<installCallbacks set="method" line="168" static="1"><f a="host:callbacks">
+		<installCallbacks set="method" line="163" static="1"><f a="host:callbacks">
 	<c path="sys.thread.ThreadCallbackManager"/>
 	<t path="sys.thread.ThreadCallbacks"/>
 	<c path="sys.thread.IThreadCallbackHandle"/>
 </f></installCallbacks>
-		<create public="1" set="method" line="192" static="1">
+		<create public="1" set="method" line="187" static="1">
 			<f a="?name:job:?callbacks">
 				<c path="String"/>
 				<f a=""><x path="Void"/></f>
@@ -17119,13 +17231,13 @@
 			<haxe_doc>Creates a new thread that will execute the `job` function, then exit after all events are processed.
 		You can specify a custom exception handler `onAbort` or else `Thread.onAbort` will be called.</haxe_doc>
 		</create>
-		<getAll public="1" set="method" line="246" static="1">
+		<getAll public="1" set="method" line="237" static="1">
 			<f a=""><c path="Array"><c path="sys.thread.Thread"/></c></f>
 			<haxe_doc>Returns a list of all currently running threads.
 		This excludes native threads which were created without Thread.create and have not been
 		registered with a call to Thread.current().</haxe_doc>
 		</getAll>
-		<addCallbacks public="1" set="method" line="260" static="1">
+		<addCallbacks public="1" set="method" line="251" static="1">
 			<f a="callbacks">
 				<t path="sys.thread.ThreadCallbacks"/>
 				<c path="sys.thread.IThreadCallbackHandle"/>
@@ -17136,14 +17248,13 @@
 		Unlike callbacks passed to `Thread.create`, closing the returned handle prevents the
 		callbacks from being called even for threads that are already running.</haxe_doc>
 		</addCallbacks>
-		<addCurrentCallbacks public="1" set="method" line="268" static="1">
+		<addCurrentCallbacks public="1" set="method" line="259" static="1">
 			<f a="callbacks">
 				<t path="sys.thread.CurrentThreadCallbacks"/>
 				<c path="sys.thread.IThreadCallbackHandle"/>
 			</f>
 			<haxe_doc>Registers `callbacks` to be called for the current thread.</haxe_doc>
 		</addCurrentCallbacks>
-		<hasBlocking set="method" line="294" static="1"><f a=""><x path="Bool"/></f></hasBlocking>
 		<events public="1" get="accessor" set="null">
 			<x path="Null"><c path="haxe.EventLoop"/></x>
 			<meta><m n=":deprecated"><e>"Use haxe.EventLoop.getThreadLoop(thread) instead"</e></m></meta>
@@ -17156,11 +17267,6 @@
 		<impl><x path="sys.thread.ThreadImpl"/></impl>
 		<messages><c path="sys.thread.Deque"><d/></c></messages>
 		<callbacks final="1"><c path="sys.thread.ThreadCallbackManager"/></callbacks>
-		<isBlocking public="1" expr="true">
-			<x path="Bool"/>
-			<meta><m n=":value"><e>true</e></m></meta>
-			<haxe_doc>Tells if we needs to wait for the thread to terminate before we stop the main loop (default:true).</haxe_doc>
-		</isBlocking>
 		<name public="1" set="accessor">
 			<x path="Null"><c path="String"/></x>
 			<haxe_doc>Allows to query or change the name of the thread. On some platforms this might allow debugger to identify threads.</haxe_doc>
@@ -17170,18 +17276,18 @@
 			<haxe_doc>Tells if a thread is a native thread that is not managed by Haxe.
 		See `Thread.current` for details.</haxe_doc>
 		</isNative>
-		<set_name set="method" line="98"><f a="n">
+		<set_name set="method" line="93"><f a="n">
 	<x path="Null"><c path="String"/></x>
 	<x path="Null"><c path="String"/></x>
 </f></set_name>
-		<toString public="1" set="method" line="104"><f a=""><c path="String"/></f></toString>
-		<sendMessage public="1" set="method" line="108"><f a="msg">
+		<toString public="1" set="method" line="99"><f a=""><c path="String"/></f></toString>
+		<sendMessage public="1" set="method" line="103"><f a="msg">
 	<d/>
 	<x path="Void"/>
 </f></sendMessage>
-		<disposeNative public="1" set="method" line="117"><f a=""><x path="Void"/></f></disposeNative>
-		<dispose set="method" line="123"><f a=""><x path="Void"/></f></dispose>
-		<onAbort set="method" line="288">
+		<disposeNative public="1" set="method" line="112"><f a=""><x path="Void"/></f></disposeNative>
+		<dispose set="method" line="118"><f a=""><x path="Void"/></f></dispose>
+		<onAbort set="method" line="279">
 			<f a="e">
 				<c path="haxe.Exception"/>
 				<x path="Void"/>
@@ -17195,7 +17301,7 @@
 		It is generally good practice to call any previously existing callback
 		from functions assigned to this.</haxe_doc>
 		</onAbort>
-		<new set="method" line="91"><f a="impl">
+		<new set="method" line="86"><f a="impl">
 	<x path="sys.thread.ThreadImpl"/>
 	<x path="Void"/>
 </f></new>
@@ -17222,9 +17328,9 @@
 		<implements path="sys.thread.IThreadCallbackHandle"/>
 		<handles final="1"><c path="Array"><c path="sys.thread.IThreadCallbackHandle"/></c></handles>
 		<isClosed public="1" get="accessor" set="null"><x path="Bool"/></isClosed>
-		<get_isClosed set="method" line="165"><f a=""><x path="Bool"/></f></get_isClosed>
-		<close public="1" set="method" line="171"><f a=""><x path="Void"/></f></close>
-		<new public="1" set="method" line="159"><f a="handles">
+		<get_isClosed set="method" line="191"><f a=""><x path="Bool"/></f></get_isClosed>
+		<close public="1" set="method" line="197"><f a=""><x path="Void"/></f></close>
+		<new public="1" set="method" line="185"><f a="handles">
 	<c path="Array"><c path="sys.thread.IThreadCallbackHandle"/></c>
 	<x path="Void"/>
 </f></new>
@@ -17242,21 +17348,20 @@
 		<eventsTls static="1"><c path="sys.thread.Tls"><c path="haxe.EventLoop"/></c></eventsTls>
 		<threadsToEventLoops static="1"><c path="haxe.ds.IntMap"><c path="haxe.EventLoop"/></c></threadsToEventLoops>
 		<threadsToEventLoopsMutex static="1"><c path="sys.thread.Mutex"/></threadsToEventLoopsMutex>
-		<hasRunningThreads public="1" set="method" line="432" static="1">
+		<hasRunningThreads public="1" set="method" line="446" static="1">
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>Tells if we currently have blocking unfinished threads.</haxe_doc>
 		</hasRunningThreads>
-		<addTask public="1" set="method" line="466" static="1">
+		<addTask public="1" set="method" line="483" static="1">
 			<f a="f:?blocking" v=":true">
 				<f a=""><x path="Void"/></f>
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":value"><e>{ blocking : true }</e></m></meta>
-			<haxe_doc>Add a task to be run either on another thread or as part of the main event loop if the
-		platform does not support threads.</haxe_doc>
+			<haxe_doc>Adds `f` as a thread task on the main thread.</haxe_doc>
 		</addTask>
-		<getThreadLoop public="1" set="method" line="480" static="1">
+		<getThreadLoop public="1" set="method" line="513" static="1">
 			<f a="thread">
 				<c path="sys.thread.Thread"/>
 				<x path="Null"><c path="haxe.EventLoop"/></x>
@@ -17264,8 +17369,8 @@
 			<haxe_doc>Returns the instance of `EventLoop` associated with `thread`, or `null` if no such
 		instance exists for the given thread.</haxe_doc>
 		</getThreadLoop>
-		<get_current set="method" line="489" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_current>
-		<get_main set="method" line="499" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_main>
+		<get_current set="method" line="522" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_current>
+		<get_main set="method" line="532" static="1"><f a=""><c path="haxe.EventLoop"/></f></get_main>
 		<events><c path="haxe.Event"/></events>
 		<queue><c path="haxe.Event"/></queue>
 		<inLoop><x path="Bool"/></inLoop>
@@ -17276,6 +17381,7 @@
 		</promiseCount>
 		<mutex><c path="sys.thread.Mutex"/></mutex>
 		<lockTime><c path="sys.thread.Lock"/></lockTime>
+		<numPendingThreadTasks final="1"><x path="haxe.atomic.AtomicInt"/></numPendingThreadTasks>
 		<thread public="1">
 			<c path="sys.thread.Thread"/>
 			<haxe_doc>The reference thread for this loop. If set, the loop can only be run within this thread.</haxe_doc>
@@ -17285,33 +17391,33 @@
 			<x path="Bool"/>
 			<meta><m n=":value"><e>false</e></m></meta>
 		</inNative>
-		<dispose public="1" set="method" line="125">
+		<dispose public="1" set="method" line="128">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>This should be called after you are finished with a custom event loop.
 		It is already automatically called for threads loops.</haxe_doc>
 		</dispose>
-		<loop public="1" set="method" line="133">
+		<loop public="1" set="method" line="136">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Runs until all the blocking events have been stopped.
 		If this is called on the main thread, also wait for all blocking threads to finish.</haxe_doc>
 		</loop>
-		<promise public="1" set="method" line="151">
+		<promise public="1" set="method" line="165">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Promise a possible future event addition. This will prevent the `loop()` from terminating until the matching number of `deliver()` calls have been made.</haxe_doc>
 		</promise>
-		<deliver public="1" set="method" line="160">
+		<deliver public="1" set="method" line="174">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Deliver after a `promise()`. This will throw an exception if more `deliver()` calls has been made than corresponding `promise()` calls.</haxe_doc>
 		</deliver>
-		<wakeup get="inline" set="null" line="172"><f a=""><x path="Void"/></f></wakeup>
-		<wait get="inline" set="null" line="178"><f a="time">
+		<wakeup get="inline" set="null" line="186"><f a=""><x path="Void"/></f></wakeup>
+		<wait get="inline" set="null" line="192"><f a="time">
 	<x path="Float"/>
 	<x path="Void"/>
 </f></wait>
-		<lock get="inline" set="null" line="186"><f a=""><x path="Void"/></f></lock>
-		<unlock get="inline" set="null" line="192"><f a=""><x path="Void"/></f></unlock>
-		<checkThread set="method" line="198"><f a=""><x path="Void"/></f></checkThread>
-		<loopOnce public="1" set="method" line="209">
+		<lock get="inline" set="null" line="200"><f a=""><x path="Void"/></f></lock>
+		<unlock get="inline" set="null" line="206"><f a=""><x path="Void"/></f></unlock>
+		<checkThread set="method" line="212"><f a=""><x path="Void"/></f></checkThread>
+		<loopOnce public="1" set="method" line="223">
 			<f a="?threadCheck" v="true">
 				<x path="Bool"/>
 				<x path="Void"/>
@@ -17321,7 +17427,7 @@
 		By default, an event loop from a thread can only be triggered from this thread.
 		You can set `threadCheck` to false in the rare cases you might want otherwise.</haxe_doc>
 		</loopOnce>
-		<add public="1" set="method" line="252">
+		<add public="1" set="method" line="266">
 			<f a="callb:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -17330,7 +17436,7 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a callback to be run at each loop of the event loop.</haxe_doc>
 		</add>
-		<addAsync public="1" set="method" line="263">
+		<addAsync public="1" set="method" line="277">
 			<f a="?priority" v="0">
 				<x path="Int"/>
 				<c path="haxe.Event"/>
@@ -17340,7 +17446,7 @@
 		This is useful if you wish to hold a reference of another thread Event loop
 		before it runs.</haxe_doc>
 		</addAsync>
-		<addTimer public="1" set="method" line="270">
+		<addTimer public="1" set="method" line="284">
 			<f a="callb:delay:?priority" v="::0">
 				<f a=""><x path="Void"/></f>
 				<x path="Float"/>
@@ -17350,7 +17456,7 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a callback to be run every `delay` seconds until stopped</haxe_doc>
 		</addTimer>
-		<repeat public="1" set="method" line="277">
+		<repeat public="1" set="method" line="291">
 			<f a="callb:delay">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -17361,7 +17467,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</repeat>
-		<cancel public="1" set="method" line="281">
+		<cancel public="1" set="method" line="295">
 			<f a="e">
 				<c path="haxe.Event"/>
 				<x path="Void"/>
@@ -17371,7 +17477,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</cancel>
-		<run public="1" set="method" line="288">
+		<run public="1" set="method" line="302">
 			<f a="callb:?priority" v=":0">
 				<f a=""><x path="Void"/></f>
 				<x path="Int"/>
@@ -17380,17 +17486,18 @@
 			<meta><m n=":value"><e>{ priority : 0 }</e></m></meta>
 			<haxe_doc>Add a function to be run once at next loop of the event loop.</haxe_doc>
 		</run>
-		<start set="method" line="294"><f a="e">
+		<start set="method" line="308"><f a="e">
 	<c path="haxe.Event"/>
 	<x path="Void"/>
 </f></start>
-		<stop set="method" line="311"><f a="e">
+		<stop set="method" line="325"><f a="e">
 	<c path="haxe.Event"/>
 	<x path="Void"/>
 </f></stop>
-		<getNextTick set="method" line="340"><f a=""><x path="Float"/></f></getNextTick>
-		<sortEvents set="method" line="362"><f a=""><x path="Void"/></f></sortEvents>
-		<hasEvents public="1" set="method" line="444">
+		<getNextTick set="method" line="354"><f a=""><x path="Float"/></f></getNextTick>
+		<sortEvents set="method" line="376"><f a=""><x path="Void"/></f></sortEvents>
+		<hasRunningThreadTasks set="method" line="450"><f a=""><x path="Bool"/></f></hasRunningThreadTasks>
+		<hasEvents public="1" set="method" line="462">
 			<f a="?blocking" v="true">
 				<x path="Bool"/>
 				<x path="Bool"/>
@@ -17399,7 +17506,17 @@
 			<haxe_doc>Tells if the event loop has remaining events.
 		If blocking is set to true, only check if it has remaining blocking events.</haxe_doc>
 		</hasEvents>
-		<new public="1" set="method" line="114"><f a=""><x path="Void"/></f></new>
+		<addThreadTask public="1" set="method" line="491">
+			<f a="f:?blocking" v=":true">
+				<f a=""><x path="Void"/></f>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ blocking : true }</e></m></meta>
+			<haxe_doc>Add a task to be run either on another thread or as part of this event loop if the
+		platform does not support threads.</haxe_doc>
+		</addThreadTask>
+		<new public="1" set="method" line="116"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>Handles async events for all threads</haxe_doc>
 		<meta><m n=":access"><e>haxe.Event</e></m></meta>
 	</class>
@@ -21215,95 +21332,6 @@
 	</store>
 </class></impl>
 	</abstract>
-	<class path="haxe.atomic._AtomicInt.AtomicInt_Impl_" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt" extern="1" final="1">
-		<_hx_new public="1" set="method" static="1">
-			<f a="value">
-				<x path="Int"/>
-				<x path="haxe.atomic.AtomicInt"/>
-			</f>
-			<meta><m n=":noCompletion"/></meta>
-		</_hx_new>
-		<add public="1" set="method" static="1">
-			<f a="this:b">
-				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Atomically adds `b` to `a`.
-		Returns the original value of `a`.</haxe_doc>
-		</add>
-		<sub public="1" set="method" static="1">
-			<f a="this:b">
-				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Atomically subtracts `b` from `a`.
-		Returns the original value of `a`.</haxe_doc>
-		</sub>
-		<and public="1" set="method" static="1">
-			<f a="this:b">
-				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Atomically computes the bitwise and of `a` and `b` and stores it in `a`.
-		Returns the original value of `a`.</haxe_doc>
-		</and>
-		<or public="1" set="method" static="1">
-			<f a="this:b">
-				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Atomically computes the bitwise or of `a` and `b` and stores it in `a`.
-		Returns the original value of `a`.</haxe_doc>
-		</or>
-		<xor public="1" set="method" static="1">
-			<f a="this:b">
-				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Atomically computes the bitwise xor of `a` and `b` and stores it in `a`.
-		Returns the original value of `a`.</haxe_doc>
-		</xor>
-		<compareExchange public="1" set="method" static="1">
-			<f a="this:expected:replacement">
-				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
-		Returns the original value of `a`.</haxe_doc>
-		</compareExchange>
-		<exchange public="1" set="method" static="1">
-			<f a="this:value">
-				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Atomically exchanges `a` with `value`.
-		Returns the original value of `a`.</haxe_doc>
-		</exchange>
-		<load public="1" set="method" static="1">
-			<f a="this">
-				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
-		</load>
-		<store public="1" set="method" static="1">
-			<f a="this:value">
-				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Atomically stores `value` into `a`.
-		Returns the value that has been stored.</haxe_doc>
-		</store>
-	</class>
 	<typedef path="haxe.atomic._AtomicObject.AtomicObjectData" params="T" file="/home/runner/work/haxe/haxe/std/eval/_std/haxe/atomic/AtomicObject.hx" private="1" module="haxe.atomic.AtomicObject"><x path="Any"/></typedef>
 	<abstract path="haxe.atomic.AtomicObject" params="T" file="/home/runner/work/haxe/haxe/std/eval/_std/haxe/atomic/AtomicObject.hx">
 		<this><t path="haxe.atomic._AtomicObject.AtomicObjectData"><c path="haxe.atomic.AtomicObject.T"/></t></this>
@@ -50361,38 +50389,38 @@
 		<haxe_doc>Called when the thread is exiting, after `onAbort` if applicable. If this callback throws,
 		the exception is forwarded to the default abort handler, ignoring any assigned `onAbort`.</haxe_doc>
 	</typedef>
-	<class path="sys.thread._ThreadCallback.ThreadCallback" params="F" file="/home/runner/work/haxe/haxe/std/sys/thread/ThreadCallback.hx" private="1" module="sys.thread.ThreadCallback">
+	<class path="sys.thread.ThreadCallback" params="F" file="/home/runner/work/haxe/haxe/std/sys/thread/ThreadCallback.hx">
 		<implements path="sys.thread.IThreadCallbackHandle"/>
-		<callback final="1" public="1"><c path="sys.thread._ThreadCallback.ThreadCallback.F"/></callback>
-		<next public="1"><x path="Null"><c path="sys.thread._ThreadCallback.ThreadCallback"><c path="sys.thread._ThreadCallback.ThreadCallback.F"/></c></x></next>
-		<prev public="1"><x path="Null"><c path="sys.thread._ThreadCallback.ThreadCallback"><c path="sys.thread._ThreadCallback.ThreadCallback.F"/></c></x></prev>
+		<callback final="1" public="1"><c path="sys.thread.ThreadCallback.F"/></callback>
+		<next public="1"><x path="Null"><c path="sys.thread.ThreadCallback"><c path="sys.thread.ThreadCallback.F"/></c></x></next>
+		<prev public="1"><x path="Null"><c path="sys.thread.ThreadCallback"><c path="sys.thread.ThreadCallback.F"/></c></x></prev>
 		<isClosed public="1" get="accessor" set="null"><x path="Bool"/></isClosed>
-		<host final="1"><c path="sys.thread.ThreadCallbackStack"><c path="sys.thread._ThreadCallback.ThreadCallback.F"/></c></host>
-		<get_isClosed set="method" line="53"><f a=""><x path="Bool"/></f></get_isClosed>
-		<close public="1" set="method" line="57"><f a=""><x path="Void"/></f></close>
-		<new public="1" set="method" line="44"><f a="host:callback:?prev">
-	<c path="sys.thread.ThreadCallbackStack"><c path="sys.thread._ThreadCallback.ThreadCallback.F"/></c>
-	<c path="sys.thread._ThreadCallback.ThreadCallback.F"/>
-	<c path="sys.thread._ThreadCallback.ThreadCallback"><c path="sys.thread._ThreadCallback.ThreadCallback.F"/></c>
+		<host final="1"><c path="sys.thread.ThreadCallbackStack"><c path="sys.thread.ThreadCallback.F"/></c></host>
+		<get_isClosed set="method" line="54"><f a=""><x path="Bool"/></f></get_isClosed>
+		<close public="1" set="method" line="58"><f a=""><x path="Void"/></f></close>
+		<new public="1" set="method" line="45"><f a="host:callback:?prev">
+	<c path="sys.thread.ThreadCallbackStack"><c path="sys.thread.ThreadCallback.F"/></c>
+	<c path="sys.thread.ThreadCallback.F"/>
+	<c path="sys.thread.ThreadCallback"><c path="sys.thread.ThreadCallback.F"/></c>
 	<x path="Void"/>
 </f></new>
 	</class>
 	<class path="sys.thread.ThreadCallbackStack" params="F" file="/home/runner/work/haxe/haxe/std/sys/thread/ThreadCallback.hx" module="sys.thread.ThreadCallback">
-		<top><x path="Null"><c path="sys.thread._ThreadCallback.ThreadCallback"><c path="sys.thread.ThreadCallbackStack.F"/></c></x></top>
-		<add public="1" set="method" line="80"><f a="f">
+		<top><x path="Null"><c path="sys.thread.ThreadCallback"><c path="sys.thread.ThreadCallbackStack.F"/></c></x></top>
+		<add public="1" set="method" line="81"><f a="f">
 	<c path="sys.thread.ThreadCallbackStack.F"/>
-	<x path="Null"><c path="sys.thread._ThreadCallback.ThreadCallback"><c path="sys.thread.ThreadCallbackStack.F"/></c></x>
+	<x path="Null"><c path="sys.thread.ThreadCallback"><c path="sys.thread.ThreadCallbackStack.F"/></c></x>
 </f></add>
-		<foreach public="1" set="method" line="86"><f a="f">
+		<foreach public="1" set="method" line="87"><f a="f">
 	<f a="">
-		<c path="sys.thread.ThreadCallbackStack.F"/>
+		<c path="sys.thread.ThreadCallback"><c path="sys.thread.ThreadCallbackStack.F"/></c>
 		<x path="Void"/>
 	</f>
 	<x path="Void"/>
 </f></foreach>
-		<new public="1" set="method" line="78"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="79"><f a=""><x path="Void"/></f></new>
 	</class>
-	<class path="sys.thread._ThreadCallback.ThreadCallback_Fields_" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/ThreadCallback.hx" private="1" module="sys.thread.ThreadCallback" final="1"><withMutex public="1" params="T" set="method" line="29" static="1"><f a="f">
+	<class path="sys.thread._ThreadCallback.ThreadCallback_Fields_" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/ThreadCallback.hx" private="1" module="sys.thread.ThreadCallback" final="1"><withMutex public="1" params="T" set="method" line="30" static="1"><f a="f">
 	<f a=""><c path="withMutex.T"/></f>
 	<c path="withMutex.T"/>
 </f></withMutex></class>
