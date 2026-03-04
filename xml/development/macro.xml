@@ -21033,8 +21033,6 @@
 	<typedef path="haxe.atomic._AtomicBool.AtomicBoolData" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/haxe/atomic/AtomicBool.hx" private="1" module="haxe.atomic.AtomicBool"><x path="Any"/></typedef>
 	<abstract path="haxe.atomic.AtomicBool" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/haxe/atomic/AtomicBool.hx">
 		<this><t path="haxe.atomic._AtomicBool.AtomicBoolData"/></this>
-		<haxe_doc>Atomic boolean.
-	(js) The Atomics and SharedArrayBuffer objects need to be available. Errors will be thrown if this is not the case.</haxe_doc>
 		<impl><class path="haxe.atomic._AtomicBool.AtomicBool_Impl_" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/haxe/atomic/AtomicBool.hx" private="1" module="haxe.atomic.AtomicBool" extern="1" final="1">
 	<_hx_new public="1" set="method" static="1">
 		<f a="value">
@@ -21127,8 +21125,6 @@
 	<typedef path="haxe.atomic._AtomicInt.AtomicIntData" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt"><x path="Any"/></typedef>
 	<abstract path="haxe.atomic.AtomicInt" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/haxe/atomic/AtomicInt.hx">
 		<this><t path="haxe.atomic._AtomicInt.AtomicIntData"/></this>
-		<haxe_doc>Atomic integer.
-	(js) The Atomics and SharedArrayBuffer objects need to be available. Errors will be thrown if this is not the case.</haxe_doc>
 		<impl><class path="haxe.atomic._AtomicInt.AtomicInt_Impl_" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt" extern="1" final="1">
 	<_hx_new public="1" set="method" static="1">
 		<f a="value">
@@ -21311,8 +21307,6 @@
 	<typedef path="haxe.atomic._AtomicObject.AtomicObjectData" params="T" file="/home/runner/work/haxe/haxe/std/eval/_std/haxe/atomic/AtomicObject.hx" private="1" module="haxe.atomic.AtomicObject"><x path="Any"/></typedef>
 	<abstract path="haxe.atomic.AtomicObject" params="T" file="/home/runner/work/haxe/haxe/std/eval/_std/haxe/atomic/AtomicObject.hx">
 		<this><t path="haxe.atomic._AtomicObject.AtomicObjectData"><c path="haxe.atomic.AtomicObject.T"/></t></this>
-		<haxe_doc>Atomic object. Use with care, this does not magically make it thread-safe to mutate objects.
-	Not supported on JavaScript.</haxe_doc>
 		<impl><class path="haxe.atomic._AtomicObject.AtomicObject_Impl_" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/haxe/atomic/AtomicObject.hx" private="1" module="haxe.atomic.AtomicObject" extern="1" final="1">
 	<_hx_new public="1" set="method" static="1">
 		<f a="value">
@@ -21328,8 +21322,11 @@
 			<c path="haxe.atomic.AtomicObject.T"/>
 			<c path="haxe.atomic.AtomicObject.T"/>
 		</f>
-		<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal.
-		Returns the original value of `a`.</haxe_doc>
+		<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
+		Returns the original value of `a`.
+
+		Note that comparison is done by reference, and not by value.
+		While this is expected for most objects, this might give unexpected behaviour for strings.</haxe_doc>
 	</compareExchange>
 	<exchange public="1" set="method" static="1">
 		<f a="this:value">
@@ -21373,8 +21370,11 @@
 				<c path="haxe.atomic.AtomicObject.T"/>
 				<c path="haxe.atomic.AtomicObject.T"/>
 			</f>
-			<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal.
-		Returns the original value of `a`.</haxe_doc>
+			<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
+		Returns the original value of `a`.
+
+		Note that comparison is done by reference, and not by value.
+		While this is expected for most objects, this might give unexpected behaviour for strings.</haxe_doc>
 		</compareExchange>
 		<exchange public="1" set="method" static="1">
 			<f a="this:value">
