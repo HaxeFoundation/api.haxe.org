@@ -7024,12 +7024,12 @@
 </f></setName>
 	</class>
 	<class path="sys.thread.ThreadCallbackManager" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/ThreadCallback.hx" module="sys.thread.ThreadCallback">
-		<collectCallbacks params="F" set="method" line="140" static="1"><f a="local:global">
+		<collectCallbacks params="F" set="method" line="146" static="1"><f a="local:global">
 	<x path="Null"><c path="sys.thread.ThreadCallbackStack"><c path="collectCallbacks.F"/></c></x>
 	<x path="Null"><c path="sys.thread.ThreadCallbackStack"><c path="collectCallbacks.F"/></c></x>
 	<c path="Array"><c path="sys.thread.ThreadCallback"><c path="collectCallbacks.F"/></c></c>
 </f></collectCallbacks>
-		<iterateCallbacks params="F" set="method" line="153" static="1"><f a="callbacks:f">
+		<iterateCallbacks params="F" set="method" line="159" static="1"><f a="callbacks:f">
 	<c path="Array"><c path="sys.thread.ThreadCallback"><c path="iterateCallbacks.F"/></c></c>
 	<f a="">
 		<c path="sys.thread.ThreadCallback"><c path="iterateCallbacks.F"/></c>
@@ -7037,12 +7037,12 @@
 	</f>
 	<x path="Void"/>
 </f></iterateCallbacks>
-		<invokeCallbacks public="1" set="method" line="171" static="1"><f a="local:global">
+		<invokeCallbacks public="1" set="method" line="177" static="1"><f a="local:global">
 	<x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a=""><x path="Void"/></f></c></x>
 	<x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a=""><x path="Void"/></f></c></x>
 	<x path="Void"/>
 </f></invokeCallbacks>
-		<invokeCallbacksArg public="1" params="Arg" set="method" line="176" static="1"><f a="local:global:e">
+		<invokeCallbacksArg public="1" params="Arg" set="method" line="182" static="1"><f a="local:global:e">
 	<x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a="">
 	<c path="invokeCallbacksArg.Arg"/>
 	<x path="Void"/>
@@ -7054,6 +7054,7 @@
 	<c path="invokeCallbacksArg.Arg"/>
 	<x path="Void"/>
 </f></invokeCallbacksArg>
+		<onCreateCallback public="1"><x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a=""><x path="Void"/></f></c></x></onCreateCallback>
 		<onStartCallback public="1"><x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a=""><x path="Void"/></f></c></x></onStartCallback>
 		<onJobDoneCallback public="1"><x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a=""><x path="Void"/></f></c></x></onJobDoneCallback>
 		<onExitCallback public="1"><x path="Null"><c path="sys.thread.ThreadCallbackStack"><f a=""><x path="Void"/></f></c></x></onExitCallback>
@@ -7061,26 +7062,30 @@
 	<c path="haxe.Exception"/>
 	<x path="Void"/>
 </f></c></x></onAbortCallback>
-		<onStart public="1" set="method" line="120"><f a="f">
+		<onCreate public="1" set="method" line="121"><f a="f">
+	<f a=""><x path="Void"/></f>
+	<c path="sys.thread.IThreadCallbackHandle"/>
+</f></onCreate>
+		<onStart public="1" set="method" line="126"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<c path="sys.thread.IThreadCallbackHandle"/>
 </f></onStart>
-		<onJobDone public="1" set="method" line="125"><f a="f">
+		<onJobDone public="1" set="method" line="131"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<c path="sys.thread.IThreadCallbackHandle"/>
 </f></onJobDone>
-		<onExit public="1" set="method" line="130"><f a="f">
+		<onExit public="1" set="method" line="136"><f a="f">
 	<f a=""><x path="Void"/></f>
 	<c path="sys.thread.IThreadCallbackHandle"/>
 </f></onExit>
-		<onAbort public="1" set="method" line="135"><f a="f">
+		<onAbort public="1" set="method" line="141"><f a="f">
 	<f a="">
 		<c path="haxe.Exception"/>
 		<x path="Void"/>
 	</f>
 	<c path="sys.thread.IThreadCallbackHandle"/>
 </f></onAbort>
-		<new public="1" set="method" line="118"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="119"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="sys.thread.Thread" params="" file="/home/runner/work/haxe/haxe/std/sys/thread/Thread.hx">
 		<threads static="1"><c path="Array"><c path="sys.thread.Thread"/></c></threads>
@@ -7088,27 +7093,27 @@
 		<mainThread static="1"><c path="sys.thread.Thread"/></mainThread>
 		<idCounter static="1"><x path="Int"/></idCounter>
 		<globalCallbacks static="1"><c path="sys.thread.ThreadCallbackManager"/></globalCallbacks>
-		<readMessage public="1" set="method" line="125" static="1"><f a="blocking">
+		<readMessage public="1" set="method" line="131" static="1"><f a="blocking">
 	<x path="Bool"/>
 	<x path="Null"><d/></x>
 </f></readMessage>
 		<currentTLS static="1"><c path="sys.thread.Tls"><c path="sys.thread.Thread"/></c></currentTLS>
-		<current public="1" set="method" line="142" static="1">
+		<current public="1" set="method" line="148" static="1">
 			<f a=""><c path="sys.thread.Thread"/></f>
 			<haxe_doc>Returns the current thread.
 		If you are calling this function from a native thread that is not the main thread and was not created by `Thread.create`, this will return you
 		a native thread with a `null` EvenLoop and `isNative` set to true. You need to call `disposeNative()` on such value on thread termination.</haxe_doc>
 		</current>
-		<main public="1" get="inline" set="null" line="159" static="1">
+		<main public="1" get="inline" set="null" line="165" static="1">
 			<f a=""><c path="sys.thread.Thread"/></f>
 			<haxe_doc>Returns the main thread</haxe_doc>
 		</main>
-		<installCallbacks set="method" line="163" static="1"><f a="host:callbacks">
+		<installCallbacks set="method" line="169" static="1"><f a="host:callbacks">
 	<c path="sys.thread.ThreadCallbackManager"/>
 	<t path="sys.thread.ThreadCallbacks"/>
 	<c path="sys.thread.IThreadCallbackHandle"/>
 </f></installCallbacks>
-		<create public="1" set="method" line="187" static="1">
+		<create public="1" set="method" line="196" static="1">
 			<f a="?name:job:?callbacks">
 				<c path="String"/>
 				<f a=""><x path="Void"/></f>
@@ -7118,13 +7123,13 @@
 			<haxe_doc>Creates a new thread that will execute the `job` function, then exit after all events are processed.
 		You can specify a custom exception handler `onAbort` or else `Thread.onAbort` will be called.</haxe_doc>
 		</create>
-		<getAll public="1" set="method" line="248" static="1">
+		<getAll public="1" set="method" line="258" static="1">
 			<f a=""><c path="Array"><c path="sys.thread.Thread"/></c></f>
 			<haxe_doc>Returns a list of all currently running threads.
 		This excludes native threads which were created without Thread.create and have not been
 		registered with a call to Thread.current().</haxe_doc>
 		</getAll>
-		<addCallbacks public="1" set="method" line="262" static="1">
+		<addCallbacks public="1" set="method" line="272" static="1">
 			<f a="callbacks">
 				<t path="sys.thread.ThreadCallbacks"/>
 				<c path="sys.thread.IThreadCallbackHandle"/>
@@ -7135,7 +7140,7 @@
 		Unlike callbacks passed to `Thread.create`, closing the returned handle prevents the
 		callbacks from being called even for threads that are already running.</haxe_doc>
 		</addCallbacks>
-		<addCurrentCallbacks public="1" set="method" line="270" static="1">
+		<addCurrentCallbacks public="1" set="method" line="280" static="1">
 			<f a="callbacks">
 				<t path="sys.thread.CurrentThreadCallbacks"/>
 				<c path="sys.thread.IThreadCallbackHandle"/>
@@ -7146,7 +7151,7 @@
 			<x path="Null"><c path="haxe.EventLoop"/></x>
 			<meta><m n=":deprecated"><e>"Use haxe.EventLoop.getThreadLoop(thread) instead"</e></m></meta>
 		</events>
-		<get_events get="inline" set="null" line="66">
+		<get_events get="inline" set="null" line="72">
 			<f a=""><x path="Null"><c path="haxe.EventLoop"/></x></f>
 			<meta><m n=":deprecated"><e>"Use haxe.EventLoop.getThreadLoop(thread) instead"</e></m></meta>
 		</get_events>
@@ -7163,18 +7168,18 @@
 			<haxe_doc>Tells if a thread is a native thread that is not managed by Haxe.
 		See `Thread.current` for details.</haxe_doc>
 		</isNative>
-		<set_name set="method" line="93"><f a="n">
+		<set_name set="method" line="99"><f a="n">
 	<x path="Null"><c path="String"/></x>
 	<x path="Null"><c path="String"/></x>
 </f></set_name>
-		<toString public="1" set="method" line="99"><f a=""><c path="String"/></f></toString>
-		<sendMessage public="1" set="method" line="103"><f a="msg">
+		<toString public="1" set="method" line="105"><f a=""><c path="String"/></f></toString>
+		<sendMessage public="1" set="method" line="109"><f a="msg">
 	<d/>
 	<x path="Void"/>
 </f></sendMessage>
-		<disposeNative public="1" set="method" line="112"><f a=""><x path="Void"/></f></disposeNative>
-		<dispose set="method" line="118"><f a=""><x path="Void"/></f></dispose>
-		<onAbort set="method" line="290">
+		<disposeNative public="1" set="method" line="118"><f a=""><x path="Void"/></f></disposeNative>
+		<dispose set="method" line="124"><f a=""><x path="Void"/></f></dispose>
+		<onAbort set="method" line="300">
 			<f a="e">
 				<c path="haxe.Exception"/>
 				<x path="Void"/>
@@ -7188,7 +7193,7 @@
 		It is generally good practice to call any previously existing callback
 		from functions assigned to this.</haxe_doc>
 		</onAbort>
-		<new set="method" line="86"><f a="impl">
+		<new set="method" line="92"><f a="impl">
 	<x path="sys.thread.ThreadImpl"/>
 	<x path="Void"/>
 </f></new>
@@ -7215,9 +7220,9 @@
 		<implements path="sys.thread.IThreadCallbackHandle"/>
 		<handles final="1"><c path="Array"><c path="sys.thread.IThreadCallbackHandle"/></c></handles>
 		<isClosed public="1" get="accessor" set="null"><x path="Bool"/></isClosed>
-		<get_isClosed set="method" line="191"><f a=""><x path="Bool"/></f></get_isClosed>
-		<close public="1" set="method" line="197"><f a=""><x path="Void"/></f></close>
-		<new public="1" set="method" line="185"><f a="handles">
+		<get_isClosed set="method" line="197"><f a=""><x path="Bool"/></f></get_isClosed>
+		<close public="1" set="method" line="203"><f a=""><x path="Void"/></f></close>
+		<new public="1" set="method" line="191"><f a="handles">
 	<c path="Array"><c path="sys.thread.IThreadCallbackHandle"/></c>
 	<x path="Void"/>
 </f></new>
@@ -40933,6 +40938,10 @@
 				<x path="Null"><f a=""><x path="Void"/></f></x>
 				<meta><m n=":optional"/></meta>
 			</onExit>
+			<onCreate>
+				<x path="Null"><f a=""><x path="Void"/></f></x>
+				<meta><m n=":optional"/></meta>
+			</onCreate>
 			<onAbort>
 				<x path="Null"><f a="">
 	<c path="haxe.Exception"/>
