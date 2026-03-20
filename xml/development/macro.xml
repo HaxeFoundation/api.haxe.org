@@ -2593,7 +2593,7 @@
 		If `digits` is specified, the resulting String is padded with "0" until
 		its `length` equals `digits`.</haxe_doc>
 		</hex>
-		<fastCodeAt public="1" set="method" line="457" static="1">
+		<fastCodeAt public="1" set="method" line="451" static="1">
 			<f a="s:index">
 				<c path="String"/>
 				<x path="Int"/>
@@ -2613,7 +2613,7 @@
 		This operation is not guaranteed to work if `s` contains the `\0`
 		character.</haxe_doc>
 		</fastCodeAt>
-		<unsafeCodeAt public="1" set="method" line="494" static="1">
+		<unsafeCodeAt public="1" set="method" line="488" static="1">
 			<f a="s:index">
 				<c path="String"/>
 				<x path="Int"/>
@@ -2630,7 +2630,7 @@
 		This operation is not guaranteed to work if `s` contains the `\0`
 		character.</haxe_doc>
 		</unsafeCodeAt>
-		<iterator public="1" get="inline" set="null" line="527" static="1">
+		<iterator public="1" get="inline" set="null" line="521" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="haxe.iterators.StringIterator"/>
@@ -2641,7 +2641,7 @@
 		internal encoding of strings in different runtimes.
 		For the consistent cross-platform UTF8 char codes see `haxe.iterators.StringIteratorUnicode`.</haxe_doc>
 		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="538" static="1">
+		<keyValueIterator public="1" get="inline" set="null" line="532" static="1">
 			<f a="s">
 				<c path="String"/>
 				<c path="haxe.iterators.StringKeyValueIterator"/>
@@ -2652,7 +2652,7 @@
 		internal encoding of strings in different of runtimes.
 		For the consistent cross-platform UTF8 char codes see `haxe.iterators.StringKeyValueIteratorUnicode`.</haxe_doc>
 		</keyValueIterator>
-		<isEof public="1" get="inline" set="null" line="545" static="1">
+		<isEof public="1" get="inline" set="null" line="539" static="1">
 			<f a="c">
 				<x path="Int"/>
 				<x path="Bool"/>
@@ -2660,7 +2660,7 @@
 			<meta><m n=":noUsing"/></meta>
 			<haxe_doc>Tells if `c` represents the end-of-file (EOF) character.</haxe_doc>
 		</isEof>
-		<quoteUnixArg public="1" set="method" line="566" static="1">
+		<quoteUnixArg public="1" set="method" line="560" static="1">
 			<f a="argument">
 				<c path="String"/>
 				<c path="String"/>
@@ -2673,7 +2673,7 @@
 		on Unix.
 		The input will be quoted, or escaped if necessary.</haxe_doc>
 		</quoteUnixArg>
-		<winMetaCharacters public="1" expr="cast haxe.SysTools.winMetaCharacters" line="575" static="1">
+		<winMetaCharacters public="1" expr="cast haxe.SysTools.winMetaCharacters" line="569" static="1">
 			<c path="Array"><x path="Int"/></c>
 			<meta>
 				<m n=":value"><e>cast haxe.SysTools.winMetaCharacters</e></m>
@@ -2682,7 +2682,7 @@
 			</meta>
 			<haxe_doc>Character codes of the characters that will be escaped by `quoteWinArg(_, true)`.</haxe_doc>
 		</winMetaCharacters>
-		<quoteWinArg public="1" set="method" line="592" static="1">
+		<quoteWinArg public="1" set="method" line="586" static="1">
 			<f a="argument:escapeMetaCharacters">
 				<c path="String"/>
 				<x path="Bool"/>
@@ -22559,7 +22559,7 @@
 </f></setUInt16>
 		<getInt32 public="1" set="method"><f a="pos">
 	<x path="Int"/>
-	<x path="Int"/>
+	<x path="haxe.Int32"/>
 </f></getInt32>
 		<getInt64 public="1" set="method"><f a="pos">
 	<x path="Int"/>
@@ -22567,7 +22567,7 @@
 </f></getInt64>
 		<setInt32 public="1" set="method"><f a="pos:v">
 	<x path="Int"/>
-	<x path="Int"/>
+	<x path="haxe.Int32"/>
 	<x path="Void"/>
 </f></setInt32>
 		<setInt64 public="1" set="method"><f a="pos:v">
@@ -33019,11 +33019,11 @@
 
 		If `true`, big-endian is used, otherwise `little-endian` is used.</haxe_doc>
 		</bigEndian>
-		<readByte public="1" set="method" line="47">
+		<readByte public="1" set="method" line="49">
 			<f a=""><x path="Int"/></f>
 			<haxe_doc>Read and return one byte.</haxe_doc>
 		</readByte>
-		<readBytes public="1" set="method" line="62">
+		<readBytes public="1" set="method" line="64">
 			<f a="s:pos:len">
 				<c path="haxe.io.Bytes"/>
 				<x path="Int"/>
@@ -33036,17 +33036,17 @@
 
 		See `readFullBytes` that tries to read the exact amount of specified bytes.</haxe_doc>
 		</readBytes>
-		<close public="1" set="method" line="90">
+		<close public="1" set="method" line="92">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Close the input source.
 
 		Behaviour while reading after calling this method is unspecified.</haxe_doc>
 		</close>
-		<set_bigEndian set="method" line="92"><f a="b">
+		<set_bigEndian set="method" line="94"><f a="b">
 	<x path="Bool"/>
 	<x path="Bool"/>
 </f></set_bigEndian>
-		<readAll public="1" set="method" line="104">
+		<readAll public="1" set="method" line="106">
 			<f a="?bufsize">
 				<x path="Int"/>
 				<c path="haxe.io.Bytes"/>
@@ -33056,7 +33056,7 @@
 		The `bufsize` optional argument specifies the size of chunks by
 		which data is read. Its default value is target-specific.</haxe_doc>
 		</readAll>
-		<readFullBytes public="1" set="method" line="130">
+		<readFullBytes public="1" set="method" line="132">
 			<f a="s:pos:len">
 				<c path="haxe.io.Bytes"/>
 				<x path="Int"/>
@@ -33067,14 +33067,14 @@
 
 		Unlike `readBytes`, this method tries to read the exact `len` amount of bytes.</haxe_doc>
 		</readFullBytes>
-		<read public="1" set="method" line="143">
+		<read public="1" set="method" line="145">
 			<f a="nbytes">
 				<x path="Int"/>
 				<c path="haxe.io.Bytes"/>
 			</f>
 			<haxe_doc>Read and return `nbytes` bytes.</haxe_doc>
 		</read>
-		<readUntil public="1" set="method" line="161">
+		<readUntil public="1" set="method" line="163">
 			<f a="end">
 				<x path="Int"/>
 				<c path="String"/>
@@ -33083,59 +33083,59 @@
 
 		The final character is not included in the resulting string.</haxe_doc>
 		</readUntil>
-		<readLine public="1" set="method" line="174">
+		<readLine public="1" set="method" line="176">
 			<f a=""><c path="String"/></f>
 			<haxe_doc>Read a line of text separated by CR and/or LF bytes.
 
 		The CR/LF characters are not included in the resulting string.</haxe_doc>
 		</readLine>
-		<readFloat public="1" set="method" line="197">
+		<readFloat public="1" set="method" line="199">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Read a 32-bit floating point number.
 
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</readFloat>
-		<readDouble public="1" set="method" line="206">
+		<readDouble public="1" set="method" line="208">
 			<f a=""><x path="Float"/></f>
 			<haxe_doc>Read a 64-bit double-precision floating point number.
 
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</readDouble>
-		<readInt8 public="1" set="method" line="215">
+		<readInt8 public="1" set="method" line="217">
 			<f a=""><x path="Int"/></f>
 			<haxe_doc>Read a 8-bit signed integer.</haxe_doc>
 		</readInt8>
-		<readInt16 public="1" set="method" line="227">
+		<readInt16 public="1" set="method" line="229">
 			<f a=""><x path="Int"/></f>
 			<haxe_doc>Read a 16-bit signed integer.
 
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</readInt16>
-		<readUInt16 public="1" set="method" line="241">
+		<readUInt16 public="1" set="method" line="243">
 			<f a=""><x path="Int"/></f>
 			<haxe_doc>Read a 16-bit unsigned integer.
 
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</readUInt16>
-		<readInt24 public="1" set="method" line="252">
+		<readInt24 public="1" set="method" line="254">
 			<f a=""><x path="Int"/></f>
 			<haxe_doc>Read a 24-bit signed integer.
 
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</readInt24>
-		<readUInt24 public="1" set="method" line="267">
+		<readUInt24 public="1" set="method" line="269">
 			<f a=""><x path="Int"/></f>
 			<haxe_doc>Read a 24-bit unsigned integer.
 
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</readUInt24>
-		<readInt32 public="1" set="method" line="279">
-			<f a=""><x path="Int"/></f>
+		<readInt32 public="1" set="method" line="281">
+			<f a=""><x path="haxe.Int32"/></f>
 			<haxe_doc>Read a 32-bit signed integer.
 
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</readInt32>
-		<readString public="1" set="method" line="302">
+		<readString public="1" set="method" line="304">
 			<f a="len:?encoding">
 				<x path="Int"/>
 				<e path="haxe.io.Encoding"/>
@@ -33194,7 +33194,7 @@
 	<x path="Void"/>
 </f></addString>
 		<addInt32 public="1" set="method"><f a="v">
-	<x path="Int"/>
+	<x path="haxe.Int32"/>
 	<x path="Void"/>
 </f></addInt32>
 		<addInt64 public="1" set="method"><f a="v">
@@ -33282,20 +33282,20 @@
 			<x path="Int"/>
 			<haxe_doc>The length of the stream in bytes.</haxe_doc>
 		</length>
-		<get_position get="inline" set="null" line="67"><f a=""><x path="Int"/></f></get_position>
-		<get_length get="inline" set="null" line="75"><f a=""><x path="Int"/></f></get_length>
-		<set_position set="method" line="83"><f a="p">
+		<get_position get="inline" set="null" line="69"><f a=""><x path="Int"/></f></get_position>
+		<get_length get="inline" set="null" line="77"><f a=""><x path="Int"/></f></get_length>
+		<set_position set="method" line="85"><f a="p">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></set_position>
-		<readByte public="1" set="method" line="96" override="1"><f a=""><x path="Int"/></f></readByte>
-		<readBytes public="1" set="method" line="119" override="1"><f a="buf:pos:len">
+		<readByte public="1" set="method" line="98" override="1"><f a=""><x path="Int"/></f></readByte>
+		<readBytes public="1" set="method" line="121" override="1"><f a="buf:pos:len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Int"/>
 </f></readBytes>
-		<new public="1" set="method" line="39"><f a="b:?pos:?len">
+		<new public="1" set="method" line="41"><f a="b:?pos:?len">
 	<c path="haxe.io.Bytes"/>
 	<x path="Int"/>
 	<x path="Int"/>
@@ -33309,14 +33309,14 @@
 
 		If `true`, big-endian is used, otherwise `little-endian` is used.</haxe_doc>
 		</bigEndian>
-		<writeByte public="1" set="method" line="46">
+		<writeByte public="1" set="method" line="48">
 			<f a="c">
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Write one byte.</haxe_doc>
 		</writeByte>
-		<writeBytes public="1" set="method" line="57">
+		<writeBytes public="1" set="method" line="59">
 			<f a="s:pos:len">
 				<c path="haxe.io.Bytes"/>
 				<x path="Int"/>
@@ -33330,28 +33330,28 @@
 
 		See `writeFullBytes` that tries to write the exact amount of specified bytes.</haxe_doc>
 		</writeBytes>
-		<flush public="1" set="method" line="85">
+		<flush public="1" set="method" line="87">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Flush any buffered data.</haxe_doc>
 		</flush>
-		<close public="1" set="method" line="92">
+		<close public="1" set="method" line="94">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Close the output.
 
 		Behaviour while writing after calling this method is unspecified.</haxe_doc>
 		</close>
-		<set_bigEndian set="method" line="94"><f a="b">
+		<set_bigEndian set="method" line="96"><f a="b">
 	<x path="Bool"/>
 	<x path="Bool"/>
 </f></set_bigEndian>
-		<write public="1" set="method" line="103">
+		<write public="1" set="method" line="105">
 			<f a="s">
 				<c path="haxe.io.Bytes"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Write all bytes stored in `s`.</haxe_doc>
 		</write>
-		<writeFullBytes public="1" set="method" line="120">
+		<writeFullBytes public="1" set="method" line="122">
 			<f a="s:pos:len">
 				<c path="haxe.io.Bytes"/>
 				<x path="Int"/>
@@ -33362,7 +33362,7 @@
 
 		Unlike `writeBytes`, this method tries to write the exact `len` amount of bytes.</haxe_doc>
 		</writeFullBytes>
-		<writeFloat public="1" set="method" line="133">
+		<writeFloat public="1" set="method" line="135">
 			<f a="x">
 				<x path="Float"/>
 				<x path="Void"/>
@@ -33371,7 +33371,7 @@
 
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</writeFloat>
-		<writeDouble public="1" set="method" line="142">
+		<writeDouble public="1" set="method" line="144">
 			<f a="x">
 				<x path="Float"/>
 				<x path="Void"/>
@@ -33380,14 +33380,14 @@
 
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</writeDouble>
-		<writeInt8 public="1" set="method" line="156">
+		<writeInt8 public="1" set="method" line="158">
 			<f a="x">
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Write `x` as 8-bit signed integer.</haxe_doc>
 		</writeInt8>
-		<writeInt16 public="1" set="method" line="167">
+		<writeInt16 public="1" set="method" line="169">
 			<f a="x">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -33396,7 +33396,7 @@
 
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</writeInt16>
-		<writeUInt16 public="1" set="method" line="178">
+		<writeUInt16 public="1" set="method" line="180">
 			<f a="x">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -33405,7 +33405,7 @@
 
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</writeUInt16>
-		<writeInt24 public="1" set="method" line="195">
+		<writeInt24 public="1" set="method" line="197">
 			<f a="x">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -33414,7 +33414,7 @@
 
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</writeInt24>
-		<writeUInt24 public="1" set="method" line="206">
+		<writeUInt24 public="1" set="method" line="208">
 			<f a="x">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -33423,16 +33423,16 @@
 
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</writeUInt24>
-		<writeInt32 public="1" set="method" line="225">
+		<writeInt32 public="1" set="method" line="227">
 			<f a="x">
-				<x path="Int"/>
+				<x path="haxe.Int32"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Write `x` as 32-bit signed integer.
 
 		Endianness is specified by the `bigEndian` property.</haxe_doc>
 		</writeInt32>
-		<prepare public="1" set="method" line="246">
+		<prepare public="1" set="method" line="248">
 			<f a="nbytes">
 				<x path="Int"/>
 				<x path="Void"/>
@@ -33443,7 +33443,7 @@
 		on this information, or simply ignore it. This is not a mandatory call
 		but a tip and is only used in some specific cases.</haxe_doc>
 		</prepare>
-		<writeInput public="1" set="method" line="254">
+		<writeInput public="1" set="method" line="256">
 			<f a="i:?bufsize">
 				<c path="haxe.io.Input"/>
 				<x path="Int"/>
@@ -33454,7 +33454,7 @@
 		The `bufsize` optional argument specifies the size of chunks by
 		which data is read and written. Its default value is 4096.</haxe_doc>
 		</writeInput>
-		<writeString public="1" set="method" line="278">
+		<writeString public="1" set="method" line="280">
 			<f a="s:?encoding">
 				<c path="String"/>
 				<e path="haxe.io.Encoding"/>
@@ -33507,16 +33507,16 @@
 	</class>
 	<class path="haxe.io.FPHelper" params="" file="/home/runner/work/haxe/haxe/std/eval/_std/haxe/io/FPHelper.hx" extern="1">
 		<i32ToFloat public="1" set="method" static="1"><f a="i">
-	<x path="Int"/>
+	<x path="haxe.Int32"/>
 	<x path="Float"/>
 </f></i32ToFloat>
 		<floatToI32 public="1" set="method" static="1"><f a="f">
 	<x path="Float"/>
-	<x path="Int"/>
+	<x path="haxe.Int32"/>
 </f></floatToI32>
 		<i64ToDouble public="1" set="method" static="1"><f a="low:high">
-	<x path="Int"/>
-	<x path="Int"/>
+	<x path="haxe.Int32"/>
+	<x path="haxe.Int32"/>
 	<x path="Float"/>
 </f></i64ToDouble>
 		<doubleToI64 public="1" set="method" static="1">
