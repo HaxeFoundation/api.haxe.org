@@ -10776,36 +10776,6 @@
 		<get_cancellationException public="1" set="method" line="21"><f a=""><x path="Null"><c path="haxe.exceptions.CancellationException"/></x></f></get_cancellationException>
 		<new public="1" set="method" line="16"><f a=""><x path="Void"/></f></new>
 	</class>
-	<class path="sys.thread.Mutex" params="" file="/home/runner/work/haxe/haxe/std/js/_std/sys/thread/Mutex.hx">
-		<_state final="1"><c path="js.lib.Int32Array"/></_state>
-		<acquire public="1" set="method" line="36">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>The current thread acquire the mutex or wait if not available.
-		The same thread can acquire several times the same mutex but
-		must release it as many times it has been acquired.</haxe_doc>
-		</acquire>
-		<tryAcquire public="1" set="method" line="46">
-			<f a=""><x path="Bool"/></f>
-			<haxe_doc>Try to acquire the mutex, returns true if acquire or false
-		if it's already locked by another thread.</haxe_doc>
-		</tryAcquire>
-		<release public="1" set="method" line="50">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Release a mutex that has been acquired by the current thread.
-		The behavior is undefined if the current thread does not own
-		the mutex.</haxe_doc>
-		</release>
-		<new public="1" set="method" line="32">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Creates a mutex.</haxe_doc>
-		</new>
-		<haxe_doc>Creates a mutex, which can be used to acquire a temporary lock
-	to access some resource. The main difference with a lock is
-	that a mutex must always be released by the owner thread.
-
-	On targets that don't support threads this class is a stub.</haxe_doc>
-		<meta><m n=":noPackageRestrict"/></meta>
-	</class>
 	<class path="js.lib.ArrayBufferView" params="" file="/home/runner/work/haxe/haxe/std/js/lib/ArrayBufferView.hx" extern="1" interface="1">
 		<buffer final="1" public="1"><c path="js.lib.ArrayBuffer"/></buffer>
 		<byteOffset final="1" public="1"><x path="Int"/></byteOffset>
@@ -11582,25 +11552,155 @@
 		<meta><m n=":native"><e>"SharedArrayBuffer"</e></m></meta>
 	</class>
 	<class path="haxe.coro.context.KeyImpl" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx" module="haxe.coro.context.Key">
-		<counter expr="0" line="4" static="1">
-			<x path="Int"/>
-			<meta><m n=":value"><e>0</e></m></meta>
+		<counter expr="new haxe.atomic.AtomicInt(0)" line="4" static="1">
+			<x path="haxe.atomic.AtomicInt"/>
+			<meta><m n=":value"><e>new haxe.atomic.AtomicInt(0)</e></m></meta>
 		</counter>
-		<counterMutex expr="new sys.thread.Mutex()" line="5" static="1">
-			<c path="sys.thread.Mutex"/>
-			<meta><m n=":value"><e>new sys.thread.Mutex()</e></m></meta>
-		</counterMutex>
-		<createNew public="1" params="T" set="method" line="15" static="1"><f a="name">
+		<createNew public="1" params="T" set="method" line="14" static="1"><f a="name">
 	<c path="String"/>
 	<c path="haxe.coro.context.KeyImpl"><c path="createNew.T"/></c>
 </f></createNew>
 		<name final="1" public="1"><c path="String"/></name>
 		<id final="1" public="1"><x path="Int"/></id>
-		<new set="method" line="10"><f a="id:name">
+		<new set="method" line="9"><f a="id:name">
 	<x path="Int"/>
 	<c path="String"/>
 	<x path="Void"/>
 </f></new>
+	</class>
+	<class path="js.lib.Atomics" params="" file="/home/runner/work/haxe/haxe/std/js/lib/Atomics.hx" extern="1">
+		<add public="1" set="method" static="1">
+			<f a="typedArray:index:value">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Adds the provided value to the existing value at the specified index of the array.
+		Returns the old value at that index.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</add>
+		<and public="1" set="method" static="1">
+			<f a="typedArray:index:value">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Computes a bitwise AND on the value at the specified index of the array with the provided value.
+		Returns the old value at that index.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</and>
+		<compareExchange public="1" set="method" static="1">
+			<f a="typedArray:index:expectedValue:replacementValue">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Stores a value at the specified index of the array, if it equals a value.
+		Returns the old value.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</compareExchange>
+		<exchange public="1" set="method" static="1">
+			<f a="typedArray:index:value">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Stores a value at the specified index of the array.
+		Returns the old value.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</exchange>
+		<isLockFree public="1" set="method" static="1">
+			<f a="size">
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>An optimization primitive that can be used to determine whether to use locks or atomic operations.
+		Returns `true` if an atomic operation on arrays of the given element size will be implemented using a hardware atomic operation (as opposed to a lock). Experts only.</haxe_doc>
+		</isLockFree>
+		<load public="1" set="method" static="1">
+			<f a="typedArray:index">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the value at the specified index of the array.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</load>
+		<notify public="1" set="method" static="1">
+			<f a="typedArray:index:?count">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Notifies agents that are waiting on the specified index of the array.
+		Returns the number of agents that were notified.</haxe_doc>
+		</notify>
+		<or public="1" set="method" static="1">
+			<f a="typedArray:index:value">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Computes a bitwise OR on the value at the specified index of the array with the provided value.
+		Returns the old value at that index.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</or>
+		<store public="1" set="method" static="1">
+			<f a="typedArray:index:value">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Stores a value at the specified index of the array.
+		Returns the value.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</store>
+		<sub public="1" set="method" static="1">
+			<f a="typedArray:index:value">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Subtracts a value at the specified index of the array.
+		Returns the old value at that index.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</sub>
+		<wait public="1" set="method" static="1">
+			<f a="typedArray:index:value:?timeout">
+				<c path="js.lib.Int32Array"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="js.lib.WaitValue"/>
+			</f>
+			<haxe_doc>Verifies that the specified index of the array still contains a value and sleeps awaiting or times out.
+		Returns either "ok", "not-equal", or "timed-out". If waiting is not allowed in the calling agent then it throws an Error exception.
+		Most browsers will not allow wait() on the browser's main thread.)</haxe_doc>
+		</wait>
+		<xor public="1" set="method" static="1">
+			<f a="typedArray:index:value">
+				<t path="js.lib._Atomics.IntTypedArray"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Computes a bitwise XOR on the value at the specified index of the array with the provided value.
+		Returns the old value at that index.
+		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
+		</xor>
+		<haxe_doc>The Atomics object provides atomic operations as static methods. They are used with SharedArrayBuffer and ArrayBuffer objects.
+
+	Documentation [Atomics](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics/contributors.txt), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"Atomics"</e></m></meta>
 	</class>
 	<class path="haxe.coro.cancellation.CancellationToken" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/cancellation/CancellationToken.hx">
 		<key final="1" public="1" set="null" expr="new Key&lt;ICancellationToken&gt;(&quot;CancellationToken&quot;)" line="27" static="1">
@@ -11988,7 +12088,7 @@
 			<m n=":forward.statics"/>
 		</meta>
 		<impl><class path="haxe.coro.context._Key.Key_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx" private="1" module="haxe.coro.context.Key" extern="1" final="1">
-	<_hx_new public="1" get="inline" set="null" line="36" static="1">
+	<_hx_new public="1" get="inline" set="null" line="33" static="1">
 		<f a="name">
 			<c path="String"/>
 			<x path="haxe.coro.context.Key"><c path="haxe.coro.context.Key.T"/></x>
@@ -11996,7 +12096,7 @@
 		<meta><m n=":noCompletion"/></meta>
 		<haxe_doc>Creates a new key with a given `name`. The name is purely descriptive.</haxe_doc>
 	</_hx_new>
-	<fromClass public="1" params="K:C" get="inline" set="null" line="41" static="1">
+	<fromClass public="1" params="K:C" get="inline" set="null" line="38" static="1">
 		<f a="c">
 			<c path="fromClass.C"/>
 			<x path="haxe.coro.context.Key"><c path="fromClass.K"/></x>
@@ -12009,7 +12109,7 @@
 </class></impl>
 	</abstract>
 	<class path="haxe.coro.context._Key.Key_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Key.hx" private="1" module="haxe.coro.context.Key" extern="1" final="1">
-		<_hx_new public="1" get="inline" set="null" line="36" static="1">
+		<_hx_new public="1" get="inline" set="null" line="33" static="1">
 			<f a="name">
 				<c path="String"/>
 				<x path="haxe.coro.context.Key"><c path="haxe.coro.context.Key.T"/></x>
@@ -12017,7 +12117,7 @@
 			<meta><m n=":noCompletion"/></meta>
 			<haxe_doc>Creates a new key with a given `name`. The name is purely descriptive.</haxe_doc>
 		</_hx_new>
-		<fromClass public="1" params="K:C" get="inline" set="null" line="41" static="1">
+		<fromClass public="1" params="K:C" get="inline" set="null" line="38" static="1">
 			<f a="c">
 				<c path="fromClass.C"/>
 				<x path="haxe.coro.context.Key"><c path="fromClass.K"/></x>
@@ -86177,140 +86277,6 @@
 		</t>
 	</t>
 </t></typedef>
-	<class path="js.lib.Atomics" params="" file="/home/runner/work/haxe/haxe/std/js/lib/Atomics.hx" extern="1">
-		<add public="1" set="method" static="1">
-			<f a="typedArray:index:value">
-				<t path="js.lib._Atomics.IntTypedArray"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Adds the provided value to the existing value at the specified index of the array.
-		Returns the old value at that index.
-		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
-		</add>
-		<and public="1" set="method" static="1">
-			<f a="typedArray:index:value">
-				<t path="js.lib._Atomics.IntTypedArray"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Computes a bitwise AND on the value at the specified index of the array with the provided value.
-		Returns the old value at that index.
-		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
-		</and>
-		<compareExchange public="1" set="method" static="1">
-			<f a="typedArray:index:expectedValue:replacementValue">
-				<t path="js.lib._Atomics.IntTypedArray"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Stores a value at the specified index of the array, if it equals a value.
-		Returns the old value.
-		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
-		</compareExchange>
-		<exchange public="1" set="method" static="1">
-			<f a="typedArray:index:value">
-				<t path="js.lib._Atomics.IntTypedArray"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Stores a value at the specified index of the array.
-		Returns the old value.
-		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
-		</exchange>
-		<isLockFree public="1" set="method" static="1">
-			<f a="size">
-				<x path="Int"/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>An optimization primitive that can be used to determine whether to use locks or atomic operations.
-		Returns `true` if an atomic operation on arrays of the given element size will be implemented using a hardware atomic operation (as opposed to a lock). Experts only.</haxe_doc>
-		</isLockFree>
-		<load public="1" set="method" static="1">
-			<f a="typedArray:index">
-				<t path="js.lib._Atomics.IntTypedArray"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Returns the value at the specified index of the array.
-		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
-		</load>
-		<notify public="1" set="method" static="1">
-			<f a="typedArray:index:?count">
-				<t path="js.lib._Atomics.IntTypedArray"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Notifies agents that are waiting on the specified index of the array.
-		Returns the number of agents that were notified.</haxe_doc>
-		</notify>
-		<or public="1" set="method" static="1">
-			<f a="typedArray:index:value">
-				<t path="js.lib._Atomics.IntTypedArray"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Computes a bitwise OR on the value at the specified index of the array with the provided value.
-		Returns the old value at that index.
-		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
-		</or>
-		<store public="1" set="method" static="1">
-			<f a="typedArray:index:value">
-				<t path="js.lib._Atomics.IntTypedArray"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Stores a value at the specified index of the array.
-		Returns the value.
-		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
-		</store>
-		<sub public="1" set="method" static="1">
-			<f a="typedArray:index:value">
-				<t path="js.lib._Atomics.IntTypedArray"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Subtracts a value at the specified index of the array.
-		Returns the old value at that index.
-		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
-		</sub>
-		<wait public="1" set="method" static="1">
-			<f a="typedArray:index:value:?timeout">
-				<c path="js.lib.Int32Array"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="js.lib.WaitValue"/>
-			</f>
-			<haxe_doc>Verifies that the specified index of the array still contains a value and sleeps awaiting or times out.
-		Returns either "ok", "not-equal", or "timed-out". If waiting is not allowed in the calling agent then it throws an Error exception.
-		Most browsers will not allow wait() on the browser's main thread.)</haxe_doc>
-		</wait>
-		<xor public="1" set="method" static="1">
-			<f a="typedArray:index:value">
-				<t path="js.lib._Atomics.IntTypedArray"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Computes a bitwise XOR on the value at the specified index of the array with the provided value.
-		Returns the old value at that index.
-		This atomic operation guarantees that no other write happens until the modified value is written back.</haxe_doc>
-		</xor>
-		<haxe_doc>The Atomics object provides atomic operations as static methods. They are used with SharedArrayBuffer and ArrayBuffer objects.
-
-	Documentation [Atomics](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics/contributors.txt), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
-		<meta><m n=":native"><e>"Atomics"</e></m></meta>
-	</class>
 	<abstract path="js.lib.WaitValue" params="" file="/home/runner/work/haxe/haxe/std/js/lib/Atomics.hx" module="js.lib.Atomics">
 		<this><c path="String"/></this>
 		<meta><m n=":enum"/></meta>
