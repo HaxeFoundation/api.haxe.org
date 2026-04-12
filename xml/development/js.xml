@@ -5594,7 +5594,50 @@
 	```]]></haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
+	<class path="haxe.GcFinalizer" params="T" file="/home/runner/work/haxe/haxe/std/js/_std/haxe/GcFinalizer.hx">
+		<h><c path="js.lib.FinalizationRegistry"><c path="haxe.GcFinalizer.T"/></c></h>
+		<register public="1" get="inline" set="null" line="33">
+			<f a="target:heldValue">
+				<a/>
+				<c path="haxe.GcFinalizer.T"/>
+				<c path="haxe.IHandle"/>
+			</f>
+			<haxe_doc>Registers `target` for clean-up. When `target` is garbage-collected,
+		the callback will be invoked with `heldValue`.
+
+		Returns an `IHandle` handle. Calling `close()` on the handle
+		cancels the registration, preventing the callback from firing.</haxe_doc>
+		</register>
+		<new public="1" get="inline" set="null" line="29">
+			<f a="callback">
+				<f a="">
+					<c path="haxe.GcFinalizer.T"/>
+					<x path="Void"/>
+				</f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new `GcFinalizer` with the given cleanup `callback`.
+		The callback will be invoked with the held value when a registered
+		target object is garbage-collected.</haxe_doc>
+		</new>
+		<haxe_doc>A GC finalizer registry that invokes a callback when a watched object
+	is garbage-collected. Modeled after JavaScript's `FinalizationRegistry`.
+
+	The callback receives a held value (not the collected object itself),
+	which is safe because the object may already be in an invalid state.
+
+	Not all targets support GC finalizers. On unsupported targets, the
+	constructor throws `NotImplementedException`.</haxe_doc>
+		<meta><m n=":coreApi"/></meta>
+	</class>
 	<typedef path="haxe.Http" params="" file="/home/runner/work/haxe/haxe/std/haxe/Http.hx"><c path="haxe.http.HttpJs"/></typedef>
+	<class path="haxe.IHandle" params="" file="/home/runner/work/haxe/haxe/std/haxe/IHandle.hx" interface="1">
+		<close public="1" set="method"><f a=""><x path="Void"/></f></close>
+		<haxe_doc>A general-purpose interface for handles that can be released
+	by calling `close()`. Used by `GcFinalizer` to return cancellation
+	handles, and intended for thread callback handles, coroutine
+	scheduler handles, and similar patterns.</haxe_doc>
+	</class>
 	<abstract path="haxe.Int32" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int32.hx">
 		<from><icast><x path="Int"/></icast></from>
 		<this><x path="Int"/></this>
@@ -86421,6 +86464,42 @@
 	<x path="Void"/>
 </f></new>
 		<meta><m n=":native"><e>"URIError"</e></m></meta>
+	</class>
+	<class path="js.lib.FinalizationRegistry" params="T" file="/home/runner/work/haxe/haxe/std/js/lib/FinalizationRegistry.hx" extern="1">
+		<register public="1" set="method">
+			<f a="target:heldValue:?unregisterToken">
+				<a/>
+				<c path="js.lib.FinalizationRegistry.T"/>
+				<a/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Registers a target object with the registry, associating it with a held value
+		and an optional unregister token.</haxe_doc>
+		</register>
+		<unregister public="1" set="method">
+			<f a="unregisterToken">
+				<a/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Unregisters any registrations associated with the given unregister token.
+		Returns `true` if at least one registration was removed.</haxe_doc>
+		</unregister>
+		<new public="1" set="method">
+			<f a="cleanupCallback">
+				<f a="">
+					<c path="js.lib.FinalizationRegistry.T"/>
+					<x path="Void"/>
+				</f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new `FinalizationRegistry` with the given cleanup callback.</haxe_doc>
+		</new>
+		<haxe_doc>A `FinalizationRegistry` object lets you request a callback when a value is garbage-collected.
+
+	Documentation [FinalizationRegistry](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry) by
+	[Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry/contributors.txt),
+	licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
+		<meta><m n=":native"><e>"FinalizationRegistry"</e></m></meta>
 	</class>
 	<class path="js.lib.Float32Array" params="" file="/home/runner/work/haxe/haxe/std/js/lib/Float32Array.hx" extern="1">
 		<implements path="js.lib.ArrayBufferView"/>

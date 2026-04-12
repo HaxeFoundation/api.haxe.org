@@ -29733,6 +29733,40 @@
 			<m n=":coreApi"/>
 		</meta>
 	</class>
+	<class path="haxe.GcFinalizer" params="T" file="/home/runner/work/haxe/haxe/std/haxe/GcFinalizer.hx">
+		<register public="1" set="method" line="52">
+			<f a="target:heldValue">
+				<a/>
+				<c path="haxe.GcFinalizer.T"/>
+				<c path="haxe.IHandle"/>
+			</f>
+			<haxe_doc>Registers `target` for clean-up. When `target` is garbage-collected,
+		the callback will be invoked with `heldValue`.
+
+		Returns an `IHandle` handle. Calling `close()` on the handle
+		cancels the registration, preventing the callback from firing.</haxe_doc>
+		</register>
+		<new public="1" set="method" line="41">
+			<f a="callback">
+				<f a="">
+					<c path="haxe.GcFinalizer.T"/>
+					<x path="Void"/>
+				</f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new `GcFinalizer` with the given cleanup `callback`.
+		The callback will be invoked with the held value when a registered
+		target object is garbage-collected.</haxe_doc>
+		</new>
+		<haxe_doc>A GC finalizer registry that invokes a callback when a watched object
+	is garbage-collected. Modeled after JavaScript's `FinalizationRegistry`.
+
+	The callback receives a held value (not the collected object itself),
+	which is safe because the object may already be in an invalid state.
+
+	Not all targets support GC finalizers. On unsupported targets, the
+	constructor throws `NotImplementedException`.</haxe_doc>
+	</class>
 	<typedef path="haxe.Http" params="" file="/home/runner/work/haxe/haxe/std/flash/_std/haxe/Http.hx"><c path="haxe.HttpFlash"/></typedef>
 	<class path="haxe.http.HttpBase" params="" file="/home/runner/work/haxe/haxe/std/haxe/http/HttpBase.hx">
 		<url public="1">
@@ -29931,6 +29965,13 @@
 	<c path="String"/>
 	<x path="Void"/>
 </f></new>
+	</class>
+	<class path="haxe.IHandle" params="" file="/home/runner/work/haxe/haxe/std/haxe/IHandle.hx" interface="1">
+		<close public="1" set="method"><f a=""><x path="Void"/></f></close>
+		<haxe_doc>A general-purpose interface for handles that can be released
+	by calling `close()`. Used by `GcFinalizer` to return cancellation
+	handles, and intended for thread callback handles, coroutine
+	scheduler handles, and similar patterns.</haxe_doc>
 	</class>
 	<abstract path="haxe.Int32" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int32.hx">
 		<from><icast><x path="Int"/></icast></from>

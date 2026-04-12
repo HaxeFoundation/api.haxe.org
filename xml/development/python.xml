@@ -6569,7 +6569,53 @@
 	```]]></haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
+	<class path="haxe.GcFinalizer" params="T" file="/home/runner/work/haxe/haxe/std/python/_std/haxe/GcFinalizer.hx">
+		<callback><f a="">
+	<c path="haxe.GcFinalizer.T"/>
+	<x path="Void"/>
+</f></callback>
+		<register public="1" set="method" line="35">
+			<f a="target:heldValue">
+				<a/>
+				<c path="haxe.GcFinalizer.T"/>
+				<c path="haxe.IHandle"/>
+			</f>
+			<haxe_doc>Registers `target` for clean-up. When `target` is garbage-collected,
+		the callback will be invoked with `heldValue`.
+
+		Returns an `IHandle` handle. Calling `close()` on the handle
+		cancels the registration, preventing the callback from firing.</haxe_doc>
+		</register>
+		<new public="1" set="method" line="31">
+			<f a="callback">
+				<f a="">
+					<c path="haxe.GcFinalizer.T"/>
+					<x path="Void"/>
+				</f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new `GcFinalizer` with the given cleanup `callback`.
+		The callback will be invoked with the held value when a registered
+		target object is garbage-collected.</haxe_doc>
+		</new>
+		<haxe_doc>A GC finalizer registry that invokes a callback when a watched object
+	is garbage-collected. Modeled after JavaScript's `FinalizationRegistry`.
+
+	The callback receives a held value (not the collected object itself),
+	which is safe because the object may already be in an invalid state.
+
+	Not all targets support GC finalizers. On unsupported targets, the
+	constructor throws `NotImplementedException`.</haxe_doc>
+		<meta><m n=":coreApi"/></meta>
+	</class>
 	<typedef path="haxe.Http" params="" file="/home/runner/work/haxe/haxe/std/haxe/Http.hx"><c path="sys.Http"/></typedef>
+	<class path="haxe.IHandle" params="" file="/home/runner/work/haxe/haxe/std/haxe/IHandle.hx" interface="1">
+		<close public="1" set="method"><f a=""><x path="Void"/></f></close>
+		<haxe_doc>A general-purpose interface for handles that can be released
+	by calling `close()`. Used by `GcFinalizer` to return cancellation
+	handles, and intended for thread callback handles, coroutine
+	scheduler handles, and similar patterns.</haxe_doc>
+	</class>
 	<abstract path="haxe.Int32" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int32.hx">
 		<from><icast><x path="Int"/></icast></from>
 		<this><x path="Int"/></this>
@@ -38910,6 +38956,30 @@
 		<meta><m n=":pythonImport">
 	<e>"tty"</e>
 	<e>ignoreError = true</e>
+</m></meta>
+	</class>
+	<class path="python.lib.Weakref" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Weakref.hx" extern="1">
+		<ref public="1" params="T" set="method" static="1"><f a="object">
+	<c path="ref.T"/>
+	<c path="python.lib.WeakrefCallable"><c path="ref.T"/></c>
+</f></ref>
+		<meta><m n=":pythonImport"><e>"weakref"</e></m></meta>
+	</class>
+	<class path="python.lib.WeakrefCallable" params="T" file="/home/runner/work/haxe/haxe/std/python/lib/Weakref.hx" module="python.lib.Weakref" extern="1"><call public="1" set="method">
+	<f a=""><x path="Null"><c path="python.lib.WeakrefCallable.T"/></x></f>
+	<meta><m n=":selfCall"/></meta>
+</call></class>
+	<class path="python.lib.PythonFinalizer" params="" file="/home/runner/work/haxe/haxe/std/python/lib/Weakref.hx" module="python.lib.Weakref" extern="1">
+		<detach public="1" set="method"><f a=""><x path="Bool"/></f></detach>
+		<new public="1" set="method"><f a="obj:func:held">
+	<a/>
+	<d/>
+	<d/>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":pythonImport">
+	<e>"weakref"</e>
+	<e>"finalize"</e>
 </m></meta>
 	</class>
 	<class path="python.lib.codecs.ICodec" params="" file="/home/runner/work/haxe/haxe/std/python/lib/codecs/Codec.hx" module="python.lib.codecs.Codec" extern="1" interface="1">

@@ -7111,6 +7111,125 @@
 			<m n=":coreApi"/>
 		</meta>
 	</class>
+	<class path="java.lang.ref.Reference" params="T" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/ref/Reference.class" extern="1" abstract="1">
+		<get public="1" set="method"><f a=""><c path="java.lang.ref.Reference.T"/></f></get>
+		<clear public="1" set="method"><f a=""><x path="Void"/></f></clear>
+		<isEnqueued public="1" set="method"><f a=""><x path="Bool"/></f></isEnqueued>
+		<enqueue public="1" set="method"><f a=""><x path="Bool"/></f></enqueue>
+		<queue public="1"><c path="java.lang.ref.ReferenceQueue"><d/></c></queue>
+		<next public="1"><c path="java.lang.ref.Reference"><d/></c></next>
+		<new public="1" set="method">
+			<f a="param1">
+				<c path="java.lang.ref.Reference.T"/>
+				<x path="Void"/>
+			</f>
+			<overloads><new public="1" set="method"><f a="param1:param2">
+	<c path="java.lang.ref.Reference.T"/>
+	<c path="java.lang.ref.ReferenceQueue"><d/></c>
+	<x path="Void"/>
+</f></new></overloads>
+		</new>
+		<meta>
+			<m n=":native"><e>"java.lang.ref.Reference"</e></m>
+			<m n=":libType"/>
+		</meta>
+	</class>
+	<class path="java.lang.ref.WeakReference" params="T" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/ref/WeakReference.class" extern="1">
+		<extends path="java.lang.ref.Reference"><c path="java.lang.ref.WeakReference.T"/></extends>
+		<new public="1" set="method">
+			<f a="param1">
+				<c path="java.lang.ref.WeakReference.T"/>
+				<x path="Void"/>
+			</f>
+			<overloads><new public="1" set="method"><f a="param1:param2">
+	<c path="java.lang.ref.WeakReference.T"/>
+	<c path="java.lang.ref.ReferenceQueue"><d/></c>
+	<x path="Void"/>
+</f></new></overloads>
+		</new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"java.lang.ref.WeakReference"</e></m>
+			<m n=":libType"/>
+		</meta>
+	</class>
+	<class path="haxe._GcFinalizer.Registration" params="T" file="/home/runner/work/haxe/haxe/std/jvm/_std/haxe/GcFinalizer.hx" private="1" module="haxe.GcFinalizer">
+		<extends path="java.lang.ref.WeakReference"><d/></extends>
+		<heldValue public="1"><x path="Null"><c path="haxe._GcFinalizer.Registration.T"/></x></heldValue>
+		<callback public="1"><x path="Null"><f a="">
+	<c path="haxe._GcFinalizer.Registration.T"/>
+	<x path="Void"/>
+</f></x></callback>
+		<cancelled public="1"><x path="haxe.atomic.AtomicBool"/></cancelled>
+		<new public="1" set="method" line="34"><f a="target:heldValue:callback:queue">
+	<d/>
+	<c path="haxe._GcFinalizer.Registration.T"/>
+	<f a="">
+		<c path="haxe._GcFinalizer.Registration.T"/>
+		<x path="Void"/>
+	</f>
+	<c path="java.lang.ref.ReferenceQueue"><d/></c>
+	<x path="Void"/>
+</f></new>
+	</class>
+	<class path="haxe.IHandle" params="" file="/home/runner/work/haxe/haxe/std/haxe/IHandle.hx" interface="1">
+		<close public="1" set="method"><f a=""><x path="Void"/></f></close>
+		<haxe_doc>A general-purpose interface for handles that can be released
+	by calling `close()`. Used by `GcFinalizer` to return cancellation
+	handles, and intended for thread callback handles, coroutine
+	scheduler handles, and similar patterns.</haxe_doc>
+	</class>
+	<class path="haxe._GcFinalizer.Handle" params="T" file="/home/runner/work/haxe/haxe/std/jvm/_std/haxe/GcFinalizer.hx" private="1" module="haxe.GcFinalizer">
+		<implements path="haxe.IHandle"/>
+		<reg><c path="haxe._GcFinalizer.Registration"><c path="haxe._GcFinalizer.Handle.T"/></c></reg>
+		<close public="1" set="method" line="49"><f a=""><x path="Void"/></f></close>
+		<new public="1" set="method" line="45"><f a="reg">
+	<c path="haxe._GcFinalizer.Registration"><c path="haxe._GcFinalizer.Handle.T"/></c>
+	<x path="Void"/>
+</f></new>
+	</class>
+	<class path="haxe.GcFinalizer" params="T" file="/home/runner/work/haxe/haxe/std/jvm/_std/haxe/GcFinalizer.hx">
+		<callback><f a="">
+	<c path="haxe.GcFinalizer.T"/>
+	<x path="Void"/>
+</f></callback>
+		<queue><c path="java.lang.ref.ReferenceQueue"><d/></c></queue>
+		<allRegs><c path="Array"><c path="haxe._GcFinalizer.Registration"><c path="haxe.GcFinalizer.T"/></c></c></allRegs>
+		<pollQueue set="method" line="69"><f a=""><x path="Void"/></f></pollQueue>
+		<register public="1" set="method" line="82">
+			<f a="target:heldValue">
+				<a/>
+				<c path="haxe.GcFinalizer.T"/>
+				<c path="haxe.IHandle"/>
+			</f>
+			<haxe_doc>Registers `target` for clean-up. When `target` is garbage-collected,
+		the callback will be invoked with `heldValue`.
+
+		Returns an `IHandle` handle. Calling `close()` on the handle
+		cancels the registration, preventing the callback from firing.</haxe_doc>
+		</register>
+		<new public="1" set="method" line="63">
+			<f a="callback">
+				<f a="">
+					<c path="haxe.GcFinalizer.T"/>
+					<x path="Void"/>
+				</f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new `GcFinalizer` with the given cleanup `callback`.
+		The callback will be invoked with the held value when a registered
+		target object is garbage-collected.</haxe_doc>
+		</new>
+		<haxe_doc>A GC finalizer registry that invokes a callback when a watched object
+	is garbage-collected. Modeled after JavaScript's `FinalizationRegistry`.
+
+	The callback receives a held value (not the collected object itself),
+	which is safe because the object may already be in an invalid state.
+
+	Not all targets support GC finalizers. On unsupported targets, the
+	constructor throws `NotImplementedException`.</haxe_doc>
+		<meta><m n=":coreApi"/></meta>
+	</class>
 	<typedef path="haxe.Http" params="" file="/home/runner/work/haxe/haxe/std/haxe/Http.hx"><c path="sys.Http"/></typedef>
 	<abstract path="haxe.Int32" params="" file="/home/runner/work/haxe/haxe/std/haxe/Int32.hx">
 		<from><icast><x path="Int"/></icast></from>
@@ -21898,48 +22017,6 @@
 
 	@see https://haxe.org/manual/std-Map.html</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
-	</class>
-	<class path="java.lang.ref.Reference" params="T" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/ref/Reference.class" extern="1" abstract="1">
-		<get public="1" set="method"><f a=""><c path="java.lang.ref.Reference.T"/></f></get>
-		<clear public="1" set="method"><f a=""><x path="Void"/></f></clear>
-		<isEnqueued public="1" set="method"><f a=""><x path="Bool"/></f></isEnqueued>
-		<enqueue public="1" set="method"><f a=""><x path="Bool"/></f></enqueue>
-		<queue public="1"><c path="java.lang.ref.ReferenceQueue"><d/></c></queue>
-		<next public="1"><c path="java.lang.ref.Reference"><d/></c></next>
-		<new public="1" set="method">
-			<f a="param1">
-				<c path="java.lang.ref.Reference.T"/>
-				<x path="Void"/>
-			</f>
-			<overloads><new public="1" set="method"><f a="param1:param2">
-	<c path="java.lang.ref.Reference.T"/>
-	<c path="java.lang.ref.ReferenceQueue"><d/></c>
-	<x path="Void"/>
-</f></new></overloads>
-		</new>
-		<meta>
-			<m n=":native"><e>"java.lang.ref.Reference"</e></m>
-			<m n=":libType"/>
-		</meta>
-	</class>
-	<class path="java.lang.ref.WeakReference" params="T" file="/home/runner/work/haxe/haxe/extra/.haxelib/hxjava/git/lib/hxjava-std.jar@java/lang/ref/WeakReference.class" extern="1">
-		<extends path="java.lang.ref.Reference"><c path="java.lang.ref.WeakReference.T"/></extends>
-		<new public="1" set="method">
-			<f a="param1">
-				<c path="java.lang.ref.WeakReference.T"/>
-				<x path="Void"/>
-			</f>
-			<overloads><new public="1" set="method"><f a="param1:param2">
-	<c path="java.lang.ref.WeakReference.T"/>
-	<c path="java.lang.ref.ReferenceQueue"><d/></c>
-	<x path="Void"/>
-</f></new></overloads>
-		</new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":native"><e>"java.lang.ref.WeakReference"</e></m>
-			<m n=":libType"/>
-		</meta>
 	</class>
 	<class path="haxe.ds._WeakMap.Entry" params="K:V" file="/home/runner/work/haxe/haxe/std/jvm/_std/haxe/ds/WeakMap.hx" private="1" module="haxe.ds.WeakMap">
 		<extends path="java.lang.ref.WeakReference"><c path="haxe.ds._WeakMap.Entry.K"/></extends>
