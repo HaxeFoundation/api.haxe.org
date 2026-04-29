@@ -41032,7 +41032,7 @@
 	</class>
 	<class path="hl.uv.Fs" params="" file="/home/runner/work/haxe/haxe/std/hl/uv/Fs.hx">
 		<extends path="hl.uv.Handle"/>
-		<fs_start_wrap set="method" line="44" static="1"><f a="loop:cb:path">
+		<fs_start_wrap set="method" line="75" static="1"><f a="loop:cb:path">
 	<x path="hl.uv.Loop"/>
 	<f a="">
 		<x path="Int"/>
@@ -41041,20 +41041,50 @@
 	<x path="hl.Bytes"/>
 	<t path="hl.uv.HandleData"/>
 </f></fs_start_wrap>
-		<fs_stop_wrap set="method" line="48" static="1"><f a="handle">
+		<fs_start_wrap_ex set="method" line="81" static="1">
+			<f a="loop:cb:path:recursive">
+				<x path="hl.uv.Loop"/>
+				<f a=":">
+					<x path="hl.Bytes"/>
+					<x path="Int"/>
+					<x path="Void"/>
+				</f>
+				<x path="hl.Bytes"/>
+				<x path="Bool"/>
+				<t path="hl.uv.HandleData"/>
+			</f>
+			<meta><m n=":hlNative">
+	<e>"?uv"</e>
+	<e>"fs_start_wrap_ex"</e>
+</m></meta>
+		</fs_start_wrap_ex>
+		<fs_stop_wrap set="method" line="86" static="1"><f a="handle">
 	<t path="hl.uv.HandleData"/>
 	<x path="Bool"/>
 </f></fs_stop_wrap>
-		<stop public="1" set="method" line="38"><f a=""><x path="Void"/></f></stop>
-		<new public="1" set="method" line="32"><f a="?loop:path:onContentChanged">
-	<x path="hl.uv.Loop"/>
-	<c path="String"/>
-	<f a="">
-		<x path="hl.uv.Event"/>
-		<x path="Void"/>
-	</f>
-	<x path="Void"/>
-</f></new>
+		<contentChangedPath public="1">
+			<x path="Null"><c path="String"/></x>
+			<haxe_doc>Contains the path of the file that has changed when onContentChanged
+		is called, or null if either the path is the watched folder, or if
+		there was an error retrieving the path</haxe_doc>
+		</contentChangedPath>
+		<stop public="1" set="method" line="69"><f a=""><x path="Void"/></f></stop>
+		<new public="1" set="method" line="46">
+			<f a="?loop:path:onContentChanged:?recursive" v=":::false">
+				<x path="hl.uv.Loop"/>
+				<c path="String"/>
+				<f a="events">
+					<x path="hl.uv.Event"/>
+					<x path="Void"/>
+				</f>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ recursive : false }</e></m></meta>
+			<haxe_doc>Raise an exception if the file couldn't be watched.
+		If `recursive` is true and the current OS is not Windows or Mac, watching the file will also fail (because libUv doesn't support
+		recursive filewatches on non Windows/Mac platforms)</haxe_doc>
+		</new>
 		<meta><m n=":hlNative"><e>"uv"</e></m></meta>
 	</class>
 	<typedef path="hl.uv.HandleData" params="" file="/home/runner/work/haxe/haxe/std/hl/uv/HandleData.hx"><c path="hl.Abstract"><c path="Suv_handle"/></c></typedef>
