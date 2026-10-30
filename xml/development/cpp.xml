@@ -12672,19 +12672,80 @@
 			<m n=":cpp.ManagedType"><e>{ namespace : ["hx", "thread"], flags : [StandardNaming] }</e></m>
 		</meta>
 	</class>
-	<class path="haxe.atomic._AtomicInt.Data" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt" final="1">
-		<value public="1">
-			<x path="Int"/>
+	<class path="haxe.atomic._AtomicInt.AtomicIntImpl" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt" extern="1">
+		<fetchAdd public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
 			<meta><m n=":keep"/></meta>
-		</value>
-		<new public="1" set="method" line="5">
+		</fetchAdd>
+		<fetchSub public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</fetchSub>
+		<fetchAnd public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</fetchAnd>
+		<fetchOr public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</fetchOr>
+		<fetchXor public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</fetchXor>
+		<load public="1" set="method">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":keep"/></meta>
+		</load>
+		<store public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</store>
+		<exchange public="1" set="method">
+			<f a="value">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</exchange>
+		<compareExchange public="1" set="method">
+			<f a="expected:replacement">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</compareExchange>
+		<new public="1" set="method">
 			<f a="value">
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</new>
-		<meta><m n=":directlyUsed"/></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":include"><e>"hx/atomic/AtomicInt.hpp"</e></m>
+			<m n=":cpp.ManagedType"><e>{ type : "AtomicInt", namespace : ["hx", "atomic"], flags : [StandardNaming] }</e></m>
+		</meta>
 	</class>
 	<class path="sys.thread._ThreadImpl.NativeThread" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/sys/thread/ThreadImpl.hx" private="1" module="sys.thread.ThreadImpl" extern="1">
 		<create public="1" set="method" static="1"><f a="job">
@@ -19113,11 +19174,11 @@
 		Returns the value that has been stored.</haxe_doc>
 		</store>
 	</class>
-	<typedef path="haxe.atomic._AtomicInt.AtomicIntData" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt"><c path="haxe.atomic._AtomicInt.Data"/></typedef>
+	<typedef path="haxe.atomic._AtomicInt.AtomicIntData" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt"><c path="haxe.atomic._AtomicInt.AtomicIntImpl"/></typedef>
 	<abstract path="haxe.atomic.AtomicInt" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicInt.hx">
 		<this><t path="haxe.atomic._AtomicInt.AtomicIntData"/></this>
 		<impl><class path="haxe.atomic._AtomicInt.AtomicInt_Impl_" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt" final="1">
-	<_hx_new public="1" get="inline" set="null" line="37" static="1">
+	<_hx_new public="1" get="inline" set="null" line="46" static="1">
 		<f a="value">
 			<x path="Int"/>
 			<x path="haxe.atomic.AtomicInt"/>
@@ -19127,126 +19188,99 @@
 			<m n=":noCompletion"/>
 		</meta>
 	</_hx_new>
-	<add public="1" get="inline" set="null" line="41" static="1">
+	<add public="1" get="inline" set="null" line="50" static="1">
 		<f a="this:b">
 			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
-		<meta>
-			<m n=":has_untyped"/>
-			<m n=":keep"/>
-		</meta>
+		<meta><m n=":keep"/></meta>
 		<haxe_doc>Atomically adds `b` to `a`.
 		Returns the original value of `a`.</haxe_doc>
 	</add>
-	<sub public="1" get="inline" set="null" line="45" static="1">
+	<sub public="1" get="inline" set="null" line="54" static="1">
 		<f a="this:b">
 			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
-		<meta>
-			<m n=":has_untyped"/>
-			<m n=":keep"/>
-		</meta>
+		<meta><m n=":keep"/></meta>
 		<haxe_doc>Atomically subtracts `b` from `a`.
 		Returns the original value of `a`.</haxe_doc>
 	</sub>
-	<and public="1" get="inline" set="null" line="49" static="1">
+	<and public="1" get="inline" set="null" line="58" static="1">
 		<f a="this:b">
 			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
-		<meta>
-			<m n=":has_untyped"/>
-			<m n=":keep"/>
-		</meta>
+		<meta><m n=":keep"/></meta>
 		<haxe_doc>Atomically computes the bitwise and of `a` and `b` and stores it in `a`.
 		Returns the original value of `a`.</haxe_doc>
 	</and>
-	<or public="1" get="inline" set="null" line="53" static="1">
+	<or public="1" get="inline" set="null" line="62" static="1">
 		<f a="this:b">
 			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
-		<meta>
-			<m n=":has_untyped"/>
-			<m n=":keep"/>
-		</meta>
+		<meta><m n=":keep"/></meta>
 		<haxe_doc>Atomically computes the bitwise or of `a` and `b` and stores it in `a`.
 		Returns the original value of `a`.</haxe_doc>
 	</or>
-	<xor public="1" get="inline" set="null" line="57" static="1">
+	<xor public="1" get="inline" set="null" line="66" static="1">
 		<f a="this:b">
 			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
-		<meta>
-			<m n=":has_untyped"/>
-			<m n=":keep"/>
-		</meta>
+		<meta><m n=":keep"/></meta>
 		<haxe_doc>Atomically computes the bitwise xor of `a` and `b` and stores it in `a`.
 		Returns the original value of `a`.</haxe_doc>
 	</xor>
-	<compareExchange public="1" get="inline" set="null" line="61" static="1">
+	<compareExchange public="1" get="inline" set="null" line="70" static="1">
 		<f a="this:expected:replacement">
 			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 			<x path="Int"/>
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
-		<meta>
-			<m n=":has_untyped"/>
-			<m n=":keep"/>
-		</meta>
+		<meta><m n=":keep"/></meta>
 		<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
 		Returns the original value of `a`.</haxe_doc>
 	</compareExchange>
-	<exchange public="1" get="inline" set="null" line="65" static="1">
+	<exchange public="1" get="inline" set="null" line="74" static="1">
 		<f a="this:value">
 			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
-		<meta>
-			<m n=":has_untyped"/>
-			<m n=":keep"/>
-		</meta>
+		<meta><m n=":keep"/></meta>
 		<haxe_doc>Atomically exchanges `a` with `value`.
 		Returns the original value of `a`.</haxe_doc>
 	</exchange>
-	<load public="1" get="inline" set="null" line="69" static="1">
+	<load public="1" get="inline" set="null" line="78" static="1">
 		<f a="this">
 			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 			<x path="Int"/>
 		</f>
-		<meta>
-			<m n=":has_untyped"/>
-			<m n=":keep"/>
-		</meta>
+		<meta><m n=":keep"/></meta>
 		<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
 	</load>
-	<store public="1" get="inline" set="null" line="73" static="1">
+	<store public="1" get="inline" set="null" line="82" static="1">
 		<f a="this:value">
 			<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 			<x path="Int"/>
 			<x path="Int"/>
 		</f>
-		<meta>
-			<m n=":has_untyped"/>
-			<m n=":keep"/>
-		</meta>
+		<meta><m n=":keep"/></meta>
 		<haxe_doc>Atomically stores `value` into `a`.
 		Returns the value that has been stored.</haxe_doc>
 	</store>
 </class></impl>
 	</abstract>
 	<class path="haxe.atomic._AtomicInt.AtomicInt_Impl_" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt" final="1">
-		<_hx_new public="1" get="inline" set="null" line="37" static="1">
+		<_hx_new public="1" get="inline" set="null" line="46" static="1">
 			<f a="value">
 				<x path="Int"/>
 				<x path="haxe.atomic.AtomicInt"/>
@@ -19256,257 +19290,244 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</_hx_new>
-		<add public="1" get="inline" set="null" line="41" static="1">
+		<add public="1" get="inline" set="null" line="50" static="1">
 			<f a="this:b">
 				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Atomically adds `b` to `a`.
 		Returns the original value of `a`.</haxe_doc>
 		</add>
-		<sub public="1" get="inline" set="null" line="45" static="1">
+		<sub public="1" get="inline" set="null" line="54" static="1">
 			<f a="this:b">
 				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Atomically subtracts `b` from `a`.
 		Returns the original value of `a`.</haxe_doc>
 		</sub>
-		<and public="1" get="inline" set="null" line="49" static="1">
+		<and public="1" get="inline" set="null" line="58" static="1">
 			<f a="this:b">
 				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Atomically computes the bitwise and of `a` and `b` and stores it in `a`.
 		Returns the original value of `a`.</haxe_doc>
 		</and>
-		<or public="1" get="inline" set="null" line="53" static="1">
+		<or public="1" get="inline" set="null" line="62" static="1">
 			<f a="this:b">
 				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Atomically computes the bitwise or of `a` and `b` and stores it in `a`.
 		Returns the original value of `a`.</haxe_doc>
 		</or>
-		<xor public="1" get="inline" set="null" line="57" static="1">
+		<xor public="1" get="inline" set="null" line="66" static="1">
 			<f a="this:b">
 				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Atomically computes the bitwise xor of `a` and `b` and stores it in `a`.
 		Returns the original value of `a`.</haxe_doc>
 		</xor>
-		<compareExchange public="1" get="inline" set="null" line="61" static="1">
+		<compareExchange public="1" get="inline" set="null" line="70" static="1">
 			<f a="this:expected:replacement">
 				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
 		Returns the original value of `a`.</haxe_doc>
 		</compareExchange>
-		<exchange public="1" get="inline" set="null" line="65" static="1">
+		<exchange public="1" get="inline" set="null" line="74" static="1">
 			<f a="this:value">
 				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Atomically exchanges `a` with `value`.
 		Returns the original value of `a`.</haxe_doc>
 		</exchange>
-		<load public="1" get="inline" set="null" line="69" static="1">
+		<load public="1" get="inline" set="null" line="78" static="1">
 			<f a="this">
 				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 				<x path="Int"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
 		</load>
-		<store public="1" get="inline" set="null" line="73" static="1">
+		<store public="1" get="inline" set="null" line="82" static="1">
 			<f a="this:value">
 				<t path="haxe.atomic._AtomicInt.AtomicIntData"/>
 				<x path="Int"/>
 				<x path="Int"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Atomically stores `value` into `a`.
 		Returns the value that has been stored.</haxe_doc>
 		</store>
 	</class>
-	<typedef path="haxe.atomic._AtomicObject.AtomicObjectData" params="T" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicObject.hx" private="1" module="haxe.atomic.AtomicObject"><d/></typedef>
+	<class path="haxe.atomic._AtomicObject.AtomicObjectImpl" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicObject.hx" private="1" module="haxe.atomic.AtomicObject" extern="1">
+		<load public="1" set="method">
+			<f a=""><d/></f>
+			<meta><m n=":keep"/></meta>
+		</load>
+		<store public="1" set="method">
+			<f a="value">
+				<d/>
+				<d/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</store>
+		<exchange public="1" set="method">
+			<f a="value">
+				<d/>
+				<d/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</exchange>
+		<compareExchange public="1" set="method">
+			<f a="expected:replacement">
+				<d/>
+				<d/>
+				<d/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</compareExchange>
+		<new public="1" set="method">
+			<f a="value">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":keep"/></meta>
+		</new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":include"><e>"hx/atomic/AtomicObject.hpp"</e></m>
+			<m n=":cpp.ManagedType"><e>{ type : "AtomicObject", namespace : ["hx", "atomic"], flags : [StandardNaming] }</e></m>
+		</meta>
+	</class>
+	<typedef path="haxe.atomic._AtomicObject.AtomicObjectData" params="T" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicObject.hx" private="1" module="haxe.atomic.AtomicObject"><c path="haxe.atomic._AtomicObject.AtomicObjectImpl"/></typedef>
 	<abstract path="haxe.atomic.AtomicObject" params="T" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicObject.hx">
 		<this><t path="haxe.atomic._AtomicObject.AtomicObjectData"><c path="haxe.atomic.AtomicObject.T"/></t></this>
 		<impl><class path="haxe.atomic._AtomicObject.AtomicObject_Impl_" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicObject.hx" private="1" module="haxe.atomic.AtomicObject" final="1">
-	<_hx_new public="1" get="inline" set="null" line="20" static="1">
+	<_hx_new public="1" get="inline" set="null" line="31" static="1">
 		<f a="value">
 			<c path="haxe.atomic.AtomicObject.T"/>
 			<x path="haxe.atomic.AtomicObject"><c path="haxe.atomic.AtomicObject.T"/></x>
 		</f>
 		<meta>
-			<m n=":has_untyped"/>
 			<m n=":keep"/>
 			<m n=":noCompletion"/>
 		</meta>
 	</_hx_new>
-	<compareExchange public="1" get="inline" set="null" line="24" static="1">
+	<compareExchange public="1" get="inline" set="null" line="35" static="1">
 		<f a="this:expected:replacement">
 			<t path="haxe.atomic._AtomicObject.AtomicObjectData"><c path="haxe.atomic.AtomicObject.T"/></t>
 			<c path="haxe.atomic.AtomicObject.T"/>
 			<c path="haxe.atomic.AtomicObject.T"/>
 			<c path="haxe.atomic.AtomicObject.T"/>
 		</f>
-		<meta>
-			<m n=":has_untyped"/>
-			<m n=":keep"/>
-		</meta>
+		<meta><m n=":keep"/></meta>
 		<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
 		Returns the original value of `a`.
 
 		Note that comparison is done by reference, and not by value.
 		While this is expected for most objects, this might give unexpected behaviour for strings.</haxe_doc>
 	</compareExchange>
-	<exchange public="1" get="inline" set="null" line="28" static="1">
+	<exchange public="1" get="inline" set="null" line="39" static="1">
 		<f a="this:value">
 			<t path="haxe.atomic._AtomicObject.AtomicObjectData"><c path="haxe.atomic.AtomicObject.T"/></t>
 			<c path="haxe.atomic.AtomicObject.T"/>
 			<c path="haxe.atomic.AtomicObject.T"/>
 		</f>
-		<meta>
-			<m n=":has_untyped"/>
-			<m n=":keep"/>
-		</meta>
+		<meta><m n=":keep"/></meta>
 		<haxe_doc>Atomically exchanges `a` with `value`.
 		Returns the original value of `a`.</haxe_doc>
 	</exchange>
-	<load public="1" get="inline" set="null" line="32" static="1">
+	<load public="1" get="inline" set="null" line="43" static="1">
 		<f a="this">
 			<t path="haxe.atomic._AtomicObject.AtomicObjectData"><c path="haxe.atomic.AtomicObject.T"/></t>
 			<c path="haxe.atomic.AtomicObject.T"/>
 		</f>
-		<meta>
-			<m n=":has_untyped"/>
-			<m n=":keep"/>
-		</meta>
+		<meta><m n=":keep"/></meta>
 		<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
 	</load>
-	<store public="1" get="inline" set="null" line="36" static="1">
+	<store public="1" get="inline" set="null" line="47" static="1">
 		<f a="this:value">
 			<t path="haxe.atomic._AtomicObject.AtomicObjectData"><c path="haxe.atomic.AtomicObject.T"/></t>
 			<c path="haxe.atomic.AtomicObject.T"/>
 			<c path="haxe.atomic.AtomicObject.T"/>
 		</f>
-		<meta>
-			<m n=":has_untyped"/>
-			<m n=":keep"/>
-		</meta>
+		<meta><m n=":keep"/></meta>
 		<haxe_doc>Atomically stores `value` into `a`.
 		Returns the value that has been stored.</haxe_doc>
 	</store>
 </class></impl>
 	</abstract>
 	<class path="haxe.atomic._AtomicObject.AtomicObject_Impl_" params="" file="/home/runner/work/haxe/haxe/std/cpp/_std/haxe/atomic/AtomicObject.hx" private="1" module="haxe.atomic.AtomicObject" final="1">
-		<_hx_new public="1" get="inline" set="null" line="20" static="1">
+		<_hx_new public="1" get="inline" set="null" line="31" static="1">
 			<f a="value">
 				<c path="haxe.atomic.AtomicObject.T"/>
 				<x path="haxe.atomic.AtomicObject"><c path="haxe.atomic.AtomicObject.T"/></x>
 			</f>
 			<meta>
-				<m n=":has_untyped"/>
 				<m n=":keep"/>
 				<m n=":noCompletion"/>
 			</meta>
 		</_hx_new>
-		<compareExchange public="1" get="inline" set="null" line="24" static="1">
+		<compareExchange public="1" get="inline" set="null" line="35" static="1">
 			<f a="this:expected:replacement">
 				<t path="haxe.atomic._AtomicObject.AtomicObjectData"><c path="haxe.atomic.AtomicObject.T"/></t>
 				<c path="haxe.atomic.AtomicObject.T"/>
 				<c path="haxe.atomic.AtomicObject.T"/>
 				<c path="haxe.atomic.AtomicObject.T"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Atomically compares the value of `a` with `expected` and replaces `a` with `replacement` if they are equal..
 		Returns the original value of `a`.
 
 		Note that comparison is done by reference, and not by value.
 		While this is expected for most objects, this might give unexpected behaviour for strings.</haxe_doc>
 		</compareExchange>
-		<exchange public="1" get="inline" set="null" line="28" static="1">
+		<exchange public="1" get="inline" set="null" line="39" static="1">
 			<f a="this:value">
 				<t path="haxe.atomic._AtomicObject.AtomicObjectData"><c path="haxe.atomic.AtomicObject.T"/></t>
 				<c path="haxe.atomic.AtomicObject.T"/>
 				<c path="haxe.atomic.AtomicObject.T"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Atomically exchanges `a` with `value`.
 		Returns the original value of `a`.</haxe_doc>
 		</exchange>
-		<load public="1" get="inline" set="null" line="32" static="1">
+		<load public="1" get="inline" set="null" line="43" static="1">
 			<f a="this">
 				<t path="haxe.atomic._AtomicObject.AtomicObjectData"><c path="haxe.atomic.AtomicObject.T"/></t>
 				<c path="haxe.atomic.AtomicObject.T"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Atomically fetches the value of `a`.</haxe_doc>
 		</load>
-		<store public="1" get="inline" set="null" line="36" static="1">
+		<store public="1" get="inline" set="null" line="47" static="1">
 			<f a="this:value">
 				<t path="haxe.atomic._AtomicObject.AtomicObjectData"><c path="haxe.atomic.AtomicObject.T"/></t>
 				<c path="haxe.atomic.AtomicObject.T"/>
 				<c path="haxe.atomic.AtomicObject.T"/>
 			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Atomically stores `value` into `a`.
 		Returns the value that has been stored.</haxe_doc>
 		</store>
@@ -20452,14 +20473,21 @@
 		<haxe_doc>A scheduler that dispatches continuations immediately.</haxe_doc>
 	</class>
 	<class path="haxe.crypto.Adler32" params="" file="/home/runner/work/haxe/haxe/std/haxe/crypto/Adler32.hx">
-		<read public="1" set="method" line="60" static="1">
+		<BLOCK get="inline" set="null" expr="3800" line="42" static="1">
+			<x path="Int"/>
+			<meta>
+				<m n=":value"><e>3800</e></m>
+				<m n=":keep"/>
+			</meta>
+		</BLOCK>
+		<read public="1" set="method" line="70" static="1">
 			<f a="i">
 				<c path="haxe.io.Input"/>
 				<c path="haxe.crypto.Adler32"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</read>
-		<make public="1" set="method" line="71" static="1">
+		<make public="1" set="method" line="81" static="1">
 			<f a="b">
 				<c path="haxe.io.Bytes"/>
 				<x path="Int"/>
@@ -20474,11 +20502,11 @@
 			<x path="Int"/>
 			<meta><m n=":keep"/></meta>
 		</a2>
-		<get public="1" set="method" line="37">
+		<get public="1" get="inline" set="null" line="37">
 			<f a=""><x path="Int"/></f>
 			<meta><m n=":keep"/></meta>
 		</get>
-		<update public="1" set="method" line="41">
+		<update public="1" set="method" line="44">
 			<f a="b:pos:len">
 				<c path="haxe.io.Bytes"/>
 				<x path="Int"/>
@@ -20487,14 +20515,14 @@
 			</f>
 			<meta><m n=":keep"/></meta>
 		</update>
-		<equals public="1" set="method" line="52">
+		<equals public="1" set="method" line="62">
 			<f a="a">
 				<c path="haxe.crypto.Adler32"/>
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":keep"/></meta>
 		</equals>
-		<toString public="1" set="method" line="56">
+		<toString public="1" set="method" line="66">
 			<f a=""><c path="String"/></f>
 			<meta><m n=":keep"/></meta>
 		</toString>
