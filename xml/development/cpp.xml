@@ -726,17 +726,31 @@
 			<c path="Array"><c path="String"/></c>
 			<meta><m n=":value"><e>["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]</e></m></meta>
 		</MONTH_NAMES>
-		<__format_get set="method" line="44" static="1"><f a="d:e">
-	<c path="Date"/>
-	<c path="String"/>
-	<c path="String"/>
-</f></__format_get>
-		<__format set="method" line="105" static="1"><f a="d:f">
+		<__format_pad get="inline" set="null" line="44" static="1">
+			<f a="v:p:?c:?l" v="::&quot;0&quot;:2">
+				<x path="Int"/>
+				<x path="Bool"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":value"><e>{ l : 2, c : "0" }</e></m></meta>
+		</__format_pad>
+		<__format_get set="method" line="48" static="1">
+			<f a="d:e:?p" v="::false">
+				<c path="Date"/>
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":value"><e>{ p : false }</e></m></meta>
+		</__format_get>
+		<__format set="method" line="111" static="1"><f a="d:f">
 	<c path="Date"/>
 	<c path="String"/>
 	<c path="String"/>
 </f></__format>
-		<format public="1" set="method" line="144" static="1">
+		<format public="1" set="method" line="158" static="1">
 			<f a="d:f">
 				<c path="Date"/>
 				<c path="String"/>
@@ -762,7 +776,7 @@
 		// 2016-07-08
 		```</haxe_doc>
 		</format>
-		<delta public="1" get="inline" set="null" line="160" static="1">
+		<delta public="1" get="inline" set="null" line="174" static="1">
 			<f a="d:t">
 				<c path="Date"/>
 				<x path="Float"/>
@@ -773,11 +787,11 @@
 		This is a convenience function for calling
 		`Date.fromTime(d.getTime() + t)`.</haxe_doc>
 		</delta>
-		<DAYS_OF_MONTH expr="[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]" line="164" static="1">
+		<DAYS_OF_MONTH expr="[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]" line="178" static="1">
 			<c path="Array"><x path="Int"/></c>
 			<meta><m n=":value"><e>[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]</e></m></meta>
 		</DAYS_OF_MONTH>
-		<getMonthDays public="1" set="method" line="171" static="1">
+		<getMonthDays public="1" set="method" line="185" static="1">
 			<f a="d">
 				<c path="Date"/>
 				<x path="Int"/>
@@ -786,35 +800,44 @@
 
 		This method handles leap years.</haxe_doc>
 		</getMonthDays>
-		<seconds public="1" get="inline" set="null" line="185" static="1">
+		<getDayOfYear public="1" set="method" line="201" static="1">
+			<f a="d">
+				<c path="Date"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the day of the year of Date `d`, starting with 1 for January 1st.
+
+		This method handles leap years.</haxe_doc>
+		</getDayOfYear>
+		<seconds public="1" get="inline" set="null" line="215" static="1">
 			<f a="n">
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
 			<haxe_doc>Converts a number of seconds to a timestamp.</haxe_doc>
 		</seconds>
-		<minutes public="1" get="inline" set="null" line="192" static="1">
+		<minutes public="1" get="inline" set="null" line="222" static="1">
 			<f a="n">
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
 			<haxe_doc>Converts a number of minutes to a timestamp.</haxe_doc>
 		</minutes>
-		<hours public="1" get="inline" set="null" line="199" static="1">
+		<hours public="1" get="inline" set="null" line="229" static="1">
 			<f a="n">
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
 			<haxe_doc>Converts a number of hours to a timestamp.</haxe_doc>
 		</hours>
-		<days public="1" get="inline" set="null" line="206" static="1">
+		<days public="1" get="inline" set="null" line="236" static="1">
 			<f a="n">
 				<x path="Float"/>
 				<x path="Float"/>
 			</f>
 			<haxe_doc>Converts a number of days to a timestamp.</haxe_doc>
 		</days>
-		<parse public="1" set="method" line="213" static="1">
+		<parse public="1" set="method" line="243" static="1">
 			<f a="t">
 				<x path="Float"/>
 				<a>
@@ -827,7 +850,7 @@
 			</f>
 			<haxe_doc>Separate a date-time into several components</haxe_doc>
 		</parse>
-		<make public="1" set="method" line="235" static="1">
+		<make public="1" set="method" line="265" static="1">
 			<f a="o">
 				<a>
 					<seconds><x path="Int"/></seconds>
@@ -840,7 +863,7 @@
 			</f>
 			<haxe_doc>Build a date-time from several components</haxe_doc>
 		</make>
-		<makeUtc public="1" set="method" line="243" static="1">
+		<makeUtc public="1" set="method" line="273" static="1">
 			<f a="year:month:day:hour:min:sec">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -972,9 +995,13 @@
 		`this.matchSub`, and then operates on the String of that operation.
 
 		The index `n` corresponds to the n-th set of parentheses in the pattern
-		of `this` EReg. If no such sub-group exists, the result is unspecified.
+		of `this` EReg. If `n` equals 0, the whole matched substring is returned.
 
-		If `n` equals 0, the whole matched substring is returned.</haxe_doc>
+		If the sub-group `n` was defined in the pattern but did not participate
+		in the match, `null` is returned.
+
+		If no sub-group with index `n` exists in the pattern, the result is
+		unspecified.</haxe_doc>
 		</matched>
 		<matchedLeft public="1" set="method" line="50">
 			<f a=""><c path="String"/></f>
@@ -12261,6 +12288,7 @@
 	<x path="Int"/>
 	<x path="Void"/>
 </f></new>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<typedef path="haxe._EventLoop.NativeEventLoop" params="" file="/home/runner/work/haxe/haxe/std/haxe/EventLoop.hx" private="1" module="haxe.EventLoop"><a>
 	<run set="method"><f a=""><x path="Void"/></f></run>
@@ -16893,7 +16921,10 @@
 		</formatOutput>
 		<haxe_doc>Log primarily provides the `trace()` method, which is invoked upon a call to
 	`trace()` in Haxe code.</haxe_doc>
-		<meta><m n=":coreApi"/></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
 	<typedef path="haxe.MainEvent" params="" file="/home/runner/work/haxe/haxe/std/haxe/MainLoop.hx" module="haxe.MainLoop"><c path="haxe.Event"/></typedef>
 	<class path="haxe.MainLoop" params="" file="/home/runner/work/haxe/haxe/std/haxe/MainLoop.hx">
@@ -17713,6 +17744,7 @@
 				<x path="Int"/>
 				<c path="haxe.Timer"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Invokes `f` after `time_ms` milliseconds.
 
 		This is a convenience function for creating a new Timer instance with
@@ -17727,6 +17759,7 @@
 				<t path="haxe.PosInfos"/>
 				<c path="measure.T"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Measures the time it takes to execute `f`, in seconds with fractions.
 
 		This is a convenience function for calculating the difference between
@@ -17739,7 +17772,10 @@
 		</measure>
 		<stamp public="1" get="inline" set="null" line="162" static="1">
 			<f a=""><x path="Float"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>Returns a timestamp, in seconds with fractions.
 
 		The value itself might differ depending on platforms, only differences
@@ -17747,14 +17783,21 @@
 		</stamp>
 		<milliseconds public="1" get="inline" set="null" line="190" static="1">
 			<f a=""><x path="haxe.Int64"/></f>
-			<meta><m n=":has_untyped"/></meta>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
 			<haxe_doc>* Returns a monotonically increasing timestamp with millisecond resolution.
 	 *
 	 * The precision and epoch of the timer is platform defined.</haxe_doc>
 		</milliseconds>
-		<event><c path="haxe.Event"/></event>
+		<event>
+			<c path="haxe.Event"/>
+			<meta><m n=":keep"/></meta>
+		</event>
 		<stop public="1" set="method" line="86">
 			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Stops `this` Timer.
 
 		After calling this method, no additional invocations of `this.run`
@@ -17764,6 +17807,7 @@
 		</stop>
 		<run public="1" set="dynamic" line="118">
 			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>This method is invoked repeatedly on `this` Timer.
 
 		It can be overridden in a subclass, or rebound directly to a custom
@@ -17782,6 +17826,7 @@
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
+			<meta><m n=":keep"/></meta>
 			<haxe_doc>Creates a new timer that will run every `time_ms` milliseconds.
 
 		After creating the Timer instance, it calls `this.run` repeatedly,
@@ -27998,6 +28043,13 @@
 	<c path="haxe.ds.HashMap.K"/>
 	<c path="haxe.ds.HashMap.V"/>
 </c></this>
+		<to>
+			<icast><t path="Iterable"><c path="haxe.ds.HashMap.V"/></t></icast>
+			<icast><t path="KeyValueIterable">
+	<c path="haxe.ds.HashMap.K"/>
+	<c path="haxe.ds.HashMap.V"/>
+</t></icast>
+		</to>
 		<haxe_doc>HashMap allows mapping of hashable objects to arbitrary values.
 
 	See `Map` for documentation details.
@@ -28293,6 +28345,17 @@
 			<c path="haxe.ds.IntMap"><c path="haxe.ds._HashMap.HashMapData.V"/></c>
 			<meta><m n=":keep"/></meta>
 		</values>
+		<iterator public="1" get="inline" set="null" line="128">
+			<f a=""><t path="Iterator"><c path="haxe.ds._HashMap.HashMapData.V"/></t></f>
+			<meta><m n=":keep"/></meta>
+		</iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="132">
+			<f a=""><c path="haxe.iterators.HashMapKeyValueIterator">
+	<c path="haxe.ds._HashMap.HashMapData.K"/>
+	<c path="haxe.ds._HashMap.HashMapData.V"/>
+</c></f>
+			<meta><m n=":keep"/></meta>
+		</keyValueIterator>
 		<new public="1" get="inline" set="null" line="123">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
