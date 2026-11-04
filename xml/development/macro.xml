@@ -46366,7 +46366,10 @@
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
-			<haxe_doc>Bind the socket to the given host/port so it can afterwards listen for connections there.</haxe_doc>
+			<haxe_doc>Bind the socket to the given host/port so it can afterwards listen for connections there.
+
+		On platforms other than Windows, the socket is bound with `SO_REUSEADDR` enabled,
+		so a port can be bound again while connections from a previous socket on it are still timing out.</haxe_doc>
 		</bind>
 		<accept public="1" set="method" line="150">
 			<f a=""><c path="sys.net.Socket"/></f>

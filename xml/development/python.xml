@@ -40095,7 +40095,7 @@
 		<meta><m n=":pythonImport"><e>"xml.etree.ElementTree"</e></m></meta>
 	</class>
 	<class path="sys.net.Socket" params="" file="/home/runner/work/haxe/haxe/std/python/_std/sys/net/Socket.hx">
-		<select public="1" set="method" line="212" static="1">
+		<select public="1" set="method" line="215" static="1">
 			<f a="read:write:others:?timeout">
 				<c path="Array"><c path="sys.net.Socket"/></c>
 				<c path="Array"><c path="sys.net.Socket"/></c>
@@ -40184,52 +40184,55 @@
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
-			<haxe_doc>Bind the socket to the given host/port so it can afterwards listen for connections there.</haxe_doc>
+			<haxe_doc>Bind the socket to the given host/port so it can afterwards listen for connections there.
+
+		On platforms other than Windows, the socket is bound with `SO_REUSEADDR` enabled,
+		so a port can be bound again while connections from a previous socket on it are still timing out.</haxe_doc>
 		</bind>
-		<accept public="1" set="method" line="173">
+		<accept public="1" set="method" line="176">
 			<f a=""><c path="sys.net.Socket"/></f>
 			<haxe_doc>Accept a new connected client. This will return a connected socket on which you can read/write some data.</haxe_doc>
 		</accept>
-		<peer public="1" set="method" line="182">
+		<peer public="1" set="method" line="185">
 			<f a=""><a>
 	<port><x path="Int"/></port>
 	<host><c path="sys.net.Host"/></host>
 </a></f>
 			<haxe_doc>Return the information about the other side of a connected socket.</haxe_doc>
 		</peer>
-		<host public="1" set="method" line="187">
+		<host public="1" set="method" line="190">
 			<f a=""><a>
 	<port><x path="Int"/></port>
 	<host><c path="sys.net.Host"/></host>
 </a></f>
 			<haxe_doc>Return the information about our side of a connected socket.</haxe_doc>
 		</host>
-		<setTimeout public="1" set="method" line="192">
+		<setTimeout public="1" set="method" line="195">
 			<f a="timeout">
 				<x path="Float"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Gives a timeout (in seconds) after which blocking socket operations (such as reading and writing) will abort and throw an exception.</haxe_doc>
 		</setTimeout>
-		<waitForRead public="1" set="method" line="196">
+		<waitForRead public="1" set="method" line="199">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Block until some data is available for read on the socket.</haxe_doc>
 		</waitForRead>
-		<setBlocking public="1" set="method" line="200">
+		<setBlocking public="1" set="method" line="203">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Change the blocking mode of the socket. A blocking socket is the default behavior. A non-blocking socket will abort blocking operations immediately by throwing a haxe.io.Error.Blocked value.</haxe_doc>
 		</setBlocking>
-		<setFastSend public="1" set="method" line="204">
+		<setFastSend public="1" set="method" line="207">
 			<f a="b">
 				<x path="Bool"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>Allows the socket to immediately send the data when written to its output : this will cause less ping but might increase the number of packets / data size, especially when doing a lot of small writes.</haxe_doc>
 		</setFastSend>
-		<fileno set="method" line="209">
+		<fileno set="method" line="212">
 			<f a=""><x path="Int"/></f>
 			<meta><m n=":keep"/></meta>
 		</fileno>
