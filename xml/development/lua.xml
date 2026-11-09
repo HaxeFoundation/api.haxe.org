@@ -820,7 +820,7 @@
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="String"/>
+				<c path="lua.lib.lrexlib.RexGSubResult"/>
 			</f>
 			<haxe_doc>This function searches for all matches of the pattern `patt` in the string
 		`subj` and replaces them according to the parameters `repl` and `n`.</haxe_doc>
@@ -876,7 +876,7 @@
 				<c path="String"/>
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="lua.lib.luautf8.StringSub"/>
+				<c path="String"/>
 			</f>
 			<haxe_doc>Returns the substring of `str` that starts at `start` and continues until `end`;
 		`start` and `end` can be negative. If `end` is absent, then it is assumed to be
@@ -920,7 +920,7 @@
 				<c path="String"/>
 				<c path="String"/>
 				<x path="Int"/>
-				<c path="String"/>
+				<c path="lua.lib.luautf8.StringGSub"/>
 			</f>
 			<haxe_doc></haxe_doc>
 			<overloads>
@@ -933,7 +933,7 @@
 							<x path="Void"/>
 						</f>
 						<x path="Int"/>
-						<c path="String"/>
+						<c path="lua.lib.luautf8.StringGSub"/>
 					</f>
 					<haxe_doc></haxe_doc>
 				</gsub>
@@ -946,7 +946,7 @@
 							<c path="String"/>
 						</f>
 						<x path="Int"/>
-						<c path="String"/>
+						<c path="lua.lib.luautf8.StringGSub"/>
 					</f>
 					<haxe_doc></haxe_doc>
 				</gsub>
@@ -1786,7 +1786,7 @@
 		<modf public="1" set="method" static="1">
 			<f a="x">
 				<x path="Float"/>
-				<x path="Float"/>
+				<c path="lua.MathModfResult"/>
 			</f>
 			<haxe_doc>Returns two numbers, the integral part of x and the fractional part of x.</haxe_doc>
 		</modf>
@@ -2247,8 +2247,13 @@
 	@see https://haxe.org/manual/std-reflection.html</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
+	<class path="_Std.ParseIntPatternResult" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/Std.hx" private="1" module="Std" extern="1">
+		<sign public="1"><c path="String"/></sign>
+		<numString public="1"><c path="String"/></numString>
+		<meta><m n=":multiReturn"/></meta>
+	</class>
 	<class path="Std" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/Std.hx">
-		<is public="1" get="inline" set="null" line="29" static="1">
+		<is public="1" get="inline" set="null" line="35" static="1">
 			<f a="v:t">
 				<d/>
 				<d/>
@@ -2261,7 +2266,7 @@
 
 		If `t` is a class or interface with `@:generic` meta, the result is `false`.</haxe_doc>
 		</is>
-		<isOfType public="1" get="inline" set="null" line="33" static="1">
+		<isOfType public="1" get="inline" set="null" line="39" static="1">
 			<f a="v:t">
 				<d/>
 				<d/>
@@ -2272,7 +2277,7 @@
 
 		If `t` is a class or interface with `@:generic` meta, the result is `false`.</haxe_doc>
 		</isOfType>
-		<downcast public="1" params="T:S" get="inline" set="null" line="37" static="1">
+		<downcast public="1" params="T:S" get="inline" set="null" line="43" static="1">
 			<f a="value:c">
 				<c path="downcast.T"/>
 				<x path="Class"><c path="downcast.S"/></x>
@@ -2294,7 +2299,7 @@
 		If `value` is null, the result is null. If `c` is null, the result is
 		unspecified.</haxe_doc>
 		</downcast>
-		<instance public="1" params="T:S" get="inline" set="null" line="42" static="1">
+		<instance public="1" params="T:S" get="inline" set="null" line="48" static="1">
 			<f a="value:c">
 				<c path="instance.T"/>
 				<x path="Class"><c path="instance.S"/></x>
@@ -2302,7 +2307,7 @@
 			</f>
 			<meta><m n=":deprecated"><e>"Std.instance() is deprecated. Use Std.downcast() instead."</e></m></meta>
 		</instance>
-		<string public="1" set="method" line="47" static="1">
+		<string public="1" set="method" line="53" static="1">
 			<f a="s">
 				<d/>
 				<c path="String"/>
@@ -2328,7 +2333,7 @@
 
 		If s is null, "null" is returned.</haxe_doc>
 		</string>
-		<int public="1" set="method" line="51" static="1">
+		<int public="1" set="method" line="57" static="1">
 			<f a="x">
 				<x path="Float"/>
 				<x path="Int"/>
@@ -2337,7 +2342,7 @@
 
 		If `x` is outside of the signed Int32 range, or is `NaN`, `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`, the result is unspecified.</haxe_doc>
 		</int>
-		<parseInt public="1" set="method" line="58" static="1">
+		<parseInt public="1" set="method" line="64" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Null"><x path="Int"/></x>
@@ -2364,7 +2369,7 @@
 		If `x` starts with a hexadecimal prefix which is not followed by at least one valid hexadecimal
 		digit, the result is unspecified.</haxe_doc>
 		</parseInt>
-		<parseFloat public="1" set="method" line="75" static="1">
+		<parseFloat public="1" set="method" line="79" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Float"/>
@@ -2379,7 +2384,7 @@
 		It may also end with `e` or `E` followed by optional minus or plus sign and a sequence of
 		digits (defines exponent to base 10).</haxe_doc>
 		</parseFloat>
-		<random public="1" set="method" line="96" static="1">
+		<random public="1" set="method" line="100" static="1">
 			<f a="x">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -11282,7 +11287,7 @@
 				<c path="String"/>
 				<x path="Int"/>
 				<x path="Int"/>
-				<c path="lua.StringSub"/>
+				<c path="String"/>
 			</f>
 			<haxe_doc>Returns the substring of `str` that starts at `start` and continues until `end`;
 		`start` and `end` can be negative. If `end` is absent, then it is assumed to be
@@ -11356,9 +11361,12 @@
 				<c path="String"/>
 				<c path="String"/>
 				<x path="Int"/>
-				<c path="String"/>
+				<c path="lua.StringGSub"/>
 			</f>
-			<haxe_doc></haxe_doc>
+			<haxe_doc>Returns a copy of s in which all (or the first n, if given) occurrences of
+		the pattern have been replaced by a replacement string specified by repl,
+		which can be a string, a table, or a function. gsub also returns, as its second
+		value, the total number of matches that occurred.</haxe_doc>
 			<overloads>
 				<gsub public="1" set="method">
 					<f a="str:pattern:replace:?n">
@@ -11369,9 +11377,12 @@
 							<x path="Void"/>
 						</f>
 						<x path="Int"/>
-						<c path="String"/>
+						<c path="lua.StringGSub"/>
 					</f>
-					<haxe_doc></haxe_doc>
+					<haxe_doc>Returns a copy of s in which all (or the first n, if given) occurrences of
+		the pattern have been replaced by a replacement string specified by repl,
+		which can be a string, a table, or a function. gsub also returns, as its second
+		value, the total number of matches that occurred.</haxe_doc>
 				</gsub>
 				<gsub public="1" set="method">
 					<f a="str:pattern:replace:?n">
@@ -11382,9 +11393,12 @@
 							<c path="String"/>
 						</f>
 						<x path="Int"/>
-						<c path="String"/>
+						<c path="lua.StringGSub"/>
 					</f>
-					<haxe_doc></haxe_doc>
+					<haxe_doc>Returns a copy of s in which all (or the first n, if given) occurrences of
+		the pattern have been replaced by a replacement string specified by repl,
+		which can be a string, a table, or a function. gsub also returns, as its second
+		value, the total number of matches that occurred.</haxe_doc>
 				</gsub>
 			</overloads>
 		</gsub>
@@ -35797,6 +35811,11 @@
 		<haxe_doc>The return value of `Math.frexp`.</haxe_doc>
 		<meta><m n=":multiReturn"/></meta>
 	</class>
+	<class path="lua.MathModfResult" params="" file="/home/runner/work/haxe/haxe/std/lua/Math.hx" module="lua.Math" extern="1">
+		<integer public="1"><x path="Float"/></integer>
+		<fraction public="1"><x path="Float"/></fraction>
+		<meta><m n=":multiReturn"/></meta>
+	</class>
 	<abstract path="lua.NativeIterator" params="T" file="/home/runner/work/haxe/haxe/std/lua/NativeIterator.hx">
 		<from><icast field="fromF"><f a=""><c path="fromF.T"/></f></icast></from>
 		<this><f a=""><c path="lua.NativeIterator.T"/></f></this>
@@ -35877,8 +35896,8 @@
 		<end public="1"><x path="Int"/></end>
 		<meta><m n=":multiReturn"/></meta>
 	</class>
-	<class path="lua.StringSub" params="" file="/home/runner/work/haxe/haxe/std/lua/NativeStringTools.hx" module="lua.NativeStringTools" extern="1">
-		<match public="1"><c path="String"/></match>
+	<class path="lua.StringGSub" params="" file="/home/runner/work/haxe/haxe/std/lua/NativeStringTools.hx" module="lua.NativeStringTools" extern="1">
+		<replaced public="1"><c path="String"/></replaced>
 		<count public="1"><x path="Int"/></count>
 		<meta><m n=":multiReturn"/></meta>
 	</class>
@@ -36387,6 +36406,12 @@
 </f></parse>
 		<meta><m n=":luaRequire"><e>"hxsimdjson"</e></m></meta>
 	</class>
+	<class path="lua.lib.lrexlib.RexGSubResult" params="" file="/home/runner/work/haxe/haxe/std/lua/lib/lrexlib/Rex.hx" module="lua.lib.lrexlib.Rex" extern="1">
+		<replaced public="1"><c path="String"/></replaced>
+		<matches public="1"><x path="Int"/></matches>
+		<substitutions public="1"><x path="Int"/></substitutions>
+		<meta><m n=":multiReturn"/></meta>
+	</class>
 	<class path="lua.lib.luasec.Ssl" params="" file="/home/runner/work/haxe/haxe/std/lua/lib/luasec/Ssl.hx" extern="1">
 		<wrap public="1" set="method" static="1"><f a="sock:params">
 	<c path="lua.lib.luasocket.Socket"/>
@@ -36828,8 +36853,8 @@
 		<end public="1"><x path="Int"/></end>
 		<meta><m n=":multiReturn"/></meta>
 	</class>
-	<class path="lua.lib.luautf8.StringSub" params="" file="/home/runner/work/haxe/haxe/std/lua/lib/luautf8/Utf8.hx" module="lua.lib.luautf8.Utf8" extern="1">
-		<match public="1"><c path="String"/></match>
+	<class path="lua.lib.luautf8.StringGSub" params="" file="/home/runner/work/haxe/haxe/std/lua/lib/luautf8/Utf8.hx" module="lua.lib.luautf8.Utf8" extern="1">
+		<replaced public="1"><c path="String"/></replaced>
 		<count public="1"><x path="Int"/></count>
 		<meta><m n=":multiReturn"/></meta>
 	</class>
