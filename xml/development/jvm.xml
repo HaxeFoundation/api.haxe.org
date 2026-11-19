@@ -9852,7 +9852,7 @@
 			<meta><m n=":value"><e>"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:"</e></m></meta>
 		</BASE64>
 		<BASE64_CODES expr="null" line="79" static="1">
-			<x path="Null"><x path="haxe.ds.Vector"><x path="Null"><x path="Int"/></x></x></x>
+			<x path="Null"><x path="haxe.ds.Vector"><x path="Int"/></x></x>
 			<meta><m n=":value"><e>null</e></m></meta>
 		</BASE64_CODES>
 		<run public="1" set="method" line="604" static="1">
@@ -10092,6 +10092,41 @@
 			<m n=":native"><e>"haxe.jvm.CompiledPattern"</e></m>
 		</meta>
 	</class>
+	<class path="jvm.NativeArray" params="T" file="/home/runner/work/haxe/haxe/std/jvm/NativeArray.hx" extern="1">
+		<make public="1" params="T" set="method" static="1">
+			<f a="elements">
+				<t path="haxe.extern.Rest"><c path="make.T"/></t>
+				<c path="jvm.NativeArray"><c path="make.T"/></c>
+			</f>
+			<haxe_doc>Creates a new array with the specified elements.
+
+		Usage:
+		```haxe
+		var elements = NativeArray.make(1,2,3,4,5,6);
+		```</haxe_doc>
+		</make>
+		<ofArray public="1" params="T" get="inline" set="null" line="41" static="1"><f a="arr">
+	<c path="Array"><c path="ofArray.T"/></c>
+	<c path="jvm.NativeArray"><c path="ofArray.T"/></c>
+</f></ofArray>
+		<toArray public="1" params="T" get="inline" set="null" line="49"><f a=""><c path="Array"><c path="jvm.NativeArray.T"/></c></f></toArray>
+		<length public="1" set="null">
+			<x path="Int"/>
+			<haxe_doc>The length of the array</haxe_doc>
+		</length>
+		<new public="1" set="method">
+			<f a="len">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Allocates a new array with size `len`</haxe_doc>
+		</new>
+		<haxe_doc>Represents a java fixed-size Array (`T[]`)</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":nativeGen"/>
+		</meta>
+	</class>
 	<class path="haxe.iterators.ArrayIterator" params="T" file="/home/runner/work/haxe/haxe/std/haxe/iterators/ArrayIterator.hx">
 		<array final="1"><c path="Array"><c path="haxe.iterators.ArrayIterator.T"/></c></array>
 		<current expr="0" line="30">
@@ -10147,10 +10182,10 @@
 			<haxe_doc>Global replacements which are used across all `Template` instances. This
 		has lower priority than the context argument of `execute()`.</haxe_doc>
 		</globals>
-		<hxKeepArrayIterator expr="[].iterator()" line="71" static="1">
-			<c path="haxe.iterators.ArrayIterator"><x path="Any"/></c>
+		<hxKeepArrayIterator expr="new Array&lt;Dynamic&gt;().iterator()" line="71" static="1">
+			<c path="haxe.iterators.ArrayIterator"><d/></c>
 			<meta>
-				<m n=":value"><e>[].iterator()</e></m>
+				<m n=":value"><e><![CDATA[new Array<Dynamic>().iterator()]]></e></m>
 				<m n=":ifFeature"><e>"haxe.Template.run"</e></m>
 			</meta>
 		</hxKeepArrayIterator>
@@ -11797,7 +11832,7 @@
 		<withError public="1" params="T" set="method" line="64" static="1">
 			<f a="error">
 				<c path="haxe.Exception"/>
-				<c path="haxe.coro.SuspensionResult"><x path="Any"/></c>
+				<c path="haxe.coro.SuspensionResult"><c path="withError.T"/></c>
 			</f>
 			<haxe_doc>Creates a new `SuspensionResult` instance with error `error`.</haxe_doc>
 		</withError>
@@ -12277,41 +12312,6 @@
 	</create>
 </class></impl>
 	</abstract>
-	<class path="jvm.NativeArray" params="T" file="/home/runner/work/haxe/haxe/std/jvm/NativeArray.hx" extern="1">
-		<make public="1" params="T" set="method" static="1">
-			<f a="elements">
-				<t path="haxe.extern.Rest"><c path="make.T"/></t>
-				<c path="jvm.NativeArray"><c path="make.T"/></c>
-			</f>
-			<haxe_doc>Creates a new array with the specified elements.
-
-		Usage:
-		```haxe
-		var elements = NativeArray.make(1,2,3,4,5,6);
-		```</haxe_doc>
-		</make>
-		<ofArray public="1" params="T" get="inline" set="null" line="41" static="1"><f a="arr">
-	<c path="Array"><c path="ofArray.T"/></c>
-	<c path="jvm.NativeArray"><c path="ofArray.T"/></c>
-</f></ofArray>
-		<toArray public="1" params="T" get="inline" set="null" line="49"><f a=""><c path="Array"><c path="jvm.NativeArray.T"/></c></f></toArray>
-		<length public="1" set="null">
-			<x path="Int"/>
-			<haxe_doc>The length of the array</haxe_doc>
-		</length>
-		<new public="1" set="method">
-			<f a="len">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Allocates a new array with size `len`</haxe_doc>
-		</new>
-		<haxe_doc>Represents a java fixed-size Array (`T[]`)</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":nativeGen"/>
-		</meta>
-	</class>
 	<class path="haxe.coro.context._Context.AdjustableContext_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Context.hx" private="1" module="haxe.coro.context.Context" final="1">
 		<_hx_new public="1" get="inline" set="null" line="97" static="1">
 			<f a="tree">
@@ -80493,7 +80493,7 @@
 			<meta><m n=":overload"/></meta>
 		</equals>
 		<_hx_getParameters public="1" set="method" line="38">
-			<f a=""><c path="jvm.NativeArray"><x path="Any"/></c></f>
+			<f a=""><c path="jvm.NativeArray"><d/></c></f>
 			<meta><m n=":jvm.synthetic"/></meta>
 		</_hx_getParameters>
 		<toString public="1" set="method" line="43" override="1">
@@ -82613,7 +82613,7 @@
 				</a>
 				<f a="">
 					<x path="Null"><c path="sys.net.AsyncSocket"/></x>
-					<x path="Any"/>
+					<x path="Void"/>
 				</f>
 				<c path="sys.net.AsyncSocket"/>
 			</f>
