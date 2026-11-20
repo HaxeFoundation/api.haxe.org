@@ -847,6 +847,1713 @@
 		</exec>
 		<meta><m n=":luaRequire"><e>"rex_pcre2"</e></m></meta>
 	</class>
+	<class path="haxe.Exception" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/haxe/Exception.hx">
+		<caught set="method" line="17" static="1"><f a="value">
+	<x path="Any"/>
+	<c path="haxe.Exception"/>
+</f></caught>
+		<thrown set="method" line="25" static="1"><f a="value">
+	<x path="Any"/>
+	<x path="Any"/>
+</f></thrown>
+		<message public="1" get="accessor" set="null">
+			<c path="String"/>
+			<haxe_doc>Exception message.</haxe_doc>
+		</message>
+		<stack public="1" get="accessor" set="accessor">
+			<x path="haxe.CallStack"/>
+			<haxe_doc>The call stack at the moment of the exception creation.</haxe_doc>
+		</stack>
+		<previous public="1" get="accessor" set="null">
+			<x path="Null"><c path="haxe.Exception"/></x>
+			<haxe_doc>Contains an exception, which was passed to `previous` constructor argument.</haxe_doc>
+		</previous>
+		<native public="1" get="accessor" set="null">
+			<x path="Any"/>
+			<haxe_doc>Native exception, which caused this exception.</haxe_doc>
+		</native>
+		<__exceptionMessage>
+			<c path="String"/>
+			<meta><m n=":noCompletion"/></meta>
+		</__exceptionMessage>
+		<__exceptionStack>
+			<x path="Null"><x path="haxe.CallStack"/></x>
+			<meta><m n=":noCompletion"/></meta>
+		</__exceptionStack>
+		<__nativeStack>
+			<c path="Array"><c path="String"/></c>
+			<meta><m n=":noCompletion"/></meta>
+		</__nativeStack>
+		<__skipStack expr="0">
+			<x path="Int"/>
+			<meta>
+				<m n=":value"><e>0</e></m>
+				<m n=":noCompletion"/>
+				<m n=":ifFeature"><e>"haxe.Exception.get_stack"</e></m>
+			</meta>
+		</__skipStack>
+		<__nativeException>
+			<x path="Any"/>
+			<meta><m n=":noCompletion"/></meta>
+		</__nativeException>
+		<__previousException>
+			<x path="Null"><c path="haxe.Exception"/></x>
+			<meta><m n=":noCompletion"/></meta>
+		</__previousException>
+		<unwrap set="method" line="48"><f a=""><x path="Any"/></f></unwrap>
+		<toString public="1" set="method" line="53">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":keep"/></meta>
+			<haxe_doc>Returns exception message.</haxe_doc>
+		</toString>
+		<details public="1" set="method" line="57">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Detailed exception description.
+
+		Includes message, stack and the chain of previous exceptions (if set).</haxe_doc>
+		</details>
+		<__shiftStack get="inline" set="null" line="63">
+			<f a=""><x path="Void"/></f>
+			<meta>
+				<m n=":noCompletion"/>
+				<m n=":ifFeature"><e>"haxe.Exception.get_stack"</e></m>
+			</meta>
+		</__shiftStack>
+		<get_message set="method" line="67"><f a=""><c path="String"/></f></get_message>
+		<get_previous set="method" line="71"><f a=""><x path="Null"><c path="haxe.Exception"/></x></f></get_previous>
+		<get_native final="1" set="method" line="75"><f a=""><x path="Any"/></f></get_native>
+		<get_stack set="method" line="79"><f a=""><x path="haxe.CallStack"/></f></get_stack>
+		<set_stack set="method" line="87"><f a="stack">
+	<x path="haxe.CallStack"/>
+	<x path="haxe.CallStack"/>
+</f></set_stack>
+		<new public="1" set="method" line="35">
+			<f a="message:?previous:?native">
+				<c path="String"/>
+				<c path="haxe.Exception"/>
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Create a new Exception instance.
+
+		The `previous` argument could be used for exception chaining.
+
+		The `native` argument is for internal usage only.
+		There is no need to provide `native` argument manually and no need to keep it
+		upon extending `haxe.Exception` unless you know what you're doing.</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[Base class for exceptions.
+
+	If this class (or derivatives) is used to catch an exception, then
+	`haxe.CallStack.exceptionStack()` will not return a stack for the exception
+	caught. Use `haxe.Exception.stack` property instead:
+	```haxe
+	try {
+		throwSomething();
+	} catch(e:Exception) {
+		trace(e.stack);
+	}
+	```
+
+	Custom exceptions should extend this class:
+	```haxe
+	class MyException extends haxe.Exception {}
+	//...
+	throw new MyException('terrible exception');
+	```
+
+	`haxe.Exception` is also a wildcard type to catch any exception:
+	```haxe
+	try {
+		throw 'Catch me!';
+	} catch(e:haxe.Exception) {
+		trace(e.message); // Output: Catch me!
+	}
+	```
+
+	To rethrow an exception just throw it again.
+	Haxe will try to rethrow an original native exception whenever possible.
+	```haxe
+	try {
+		var a:Array<Int> = null;
+		a.push(1); // generates target-specific null-pointer exception
+	} catch(e:haxe.Exception) {
+		throw e; // rethrows native exception instead of haxe.Exception
+	}
+	```]]></haxe_doc>
+		<meta><m n=":coreApi"/></meta>
+	</class>
+	<class path="lua.Syntax" params="" file="/home/runner/work/haxe/haxe/std/lua/Syntax.hx" extern="1">
+		<code public="1" set="method" static="1">
+			<f a="code:args">
+				<c path="String"/>
+				<t path="haxe.extern.Rest"><d/></t>
+				<d/>
+			</f>
+			<haxe_doc>Inject `code` directly into generated source.
+
+		`code` must be a string constant.
+
+		Additional `args` are supported to provide code interpolation, for example:
+		```haxe
+		Syntax.code("print({0}, {1})", "hi", 42);
+		```
+		will generate
+		```lua
+		print("hi", 42)
+		```
+
+		Emits a compilation error if the count of `args` does not match the count of placeholders in `code`.</haxe_doc>
+		</code>
+		<plainCode public="1" set="method" static="1">
+			<f a="code">
+				<c path="String"/>
+				<d/>
+			</f>
+			<haxe_doc>Inject `code` directly into generated source.
+		The same as `lua.Syntax.code` except this one does not provide code interpolation.</haxe_doc>
+		</plainCode>
+		<haxe_doc>Generate Lua syntax not directly supported by Haxe.
+	Use only at low-level when specific target-specific code-generation is required.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":noClosure"/>
+		</meta>
+	</class>
+	<class path="lua.NativeStringTools" params="" file="/home/runner/work/haxe/haxe/std/lua/NativeStringTools.hx" extern="1">
+		<len public="1" set="method" static="1">
+			<f a="str">
+				<c path="String"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Receives a string and returns its length. The empty string `""` has
+		length `0`. Embedded zeros are counted, so `"a\000bc\000"` has length `5`.</haxe_doc>
+		</len>
+		<char public="1" set="method" static="1">
+			<f a="codes">
+				<t path="haxe.extern.Rest"><x path="Int"/></t>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Receives zero or more integers. Returns a string with length equal to the
+		number of arguments, in which each character has the internal numerical
+		code equal to its corresponding argument.
+		Note that numerical codes are not necessarily portable across platforms.</haxe_doc>
+		</char>
+		<sub public="1" set="method" static="1">
+			<f a="str:start:?end">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns the substring of `str` that starts at `start` and continues until `end`;
+		`start` and `end` can be negative. If `end` is absent, then it is assumed to be
+		equal to `-1` (which is the same as the string length).
+		In particular, the call `sub(str,1,end)` returns a prefix of `str`
+		with length `end`, and `sub(str, -end)` returns a suffix of `str` with
+		length `start`.</haxe_doc>
+		</sub>
+		<find public="1" set="method" static="1">
+			<f a="str:target:?start:?plain">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+				<c path="lua.StringFind"/>
+			</f>
+			<haxe_doc>Looks for the first match of pattern in the string `str`.
+		If it finds a match, then `find` returns the indices of `str` where this
+		occurrence starts and ends.
+
+		@param target If the target has captures, then in a successful match the
+			   captured values are also returned, after the two indices.
+		@param start specifies where to start the search; its default value is `1`
+			   and can be negative.
+		@param plain turns off the pattern matching facilities, so the function does
+			   a plain "find substring" operation, with no characters in pattern
+			   being considered "magic". Note that if plain is given, then `start` must be given as well.</haxe_doc>
+		</find>
+		<byte public="1" set="method" static="1">
+			<f a="str:?index">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the internal numerical codes of the characters `str[index]`.
+		Note that numerical codes are not necessarily portable across platforms.</haxe_doc>
+		</byte>
+		<format public="1" set="method" static="1">
+			<f a="str:?e1:?e2:?e3:?e4">
+				<c path="String"/>
+				<d/>
+				<d/>
+				<d/>
+				<d/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a formatted version of its variable number of arguments following
+		the description given in its first argument (which must be a string).
+		The format string follows the same rules as the printf family of standard C
+		functions. The only differences are that the options/modifiers
+		`*`, `l`, `L`, `n`, `p`, and `h` are not supported and that there is an
+		extra option, `q`. The `q` option formats a string in a form suitable to be
+		safely read back by the Lua interpreter: the string is written between
+		double quotes, and all double quotes, newlines, embedded zeros,
+		and backslashes in the string are correctly escaped when written.
+		For instance, the call
+		   `string.format('%q', 'a string with "quotes" and \n new line')`
+		will produce the string:
+		`"a string with \"quotes\" and \
+			  new line"`
+
+		The options `c`, `d` `E`, `e`, `f`, `g`, `G`, `i`, `o`, `u, `X-, and `x` all
+		expect a number as argument, whereas `q` and `s` expect a string.
+
+		This function does not accept string values containing embedded zeros,
+		except as arguments to the `q` option.</haxe_doc>
+		</format>
+		<gsub public="1" set="method" static="1">
+			<f a="str:pattern:replace:?n">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<c path="lua.StringGSub"/>
+			</f>
+			<haxe_doc>Returns a copy of s in which all (or the first n, if given) occurrences of
+		the pattern have been replaced by a replacement string specified by repl,
+		which can be a string, a table, or a function. gsub also returns, as its second
+		value, the total number of matches that occurred.</haxe_doc>
+			<overloads>
+				<gsub public="1" set="method">
+					<f a="str:pattern:replace:?n">
+						<c path="String"/>
+						<c path="String"/>
+						<f a="">
+							<c path="String"/>
+							<x path="Void"/>
+						</f>
+						<x path="Int"/>
+						<c path="lua.StringGSub"/>
+					</f>
+					<haxe_doc>Returns a copy of s in which all (or the first n, if given) occurrences of
+		the pattern have been replaced by a replacement string specified by repl,
+		which can be a string, a table, or a function. gsub also returns, as its second
+		value, the total number of matches that occurred.</haxe_doc>
+				</gsub>
+				<gsub public="1" set="method">
+					<f a="str:pattern:replace:?n">
+						<c path="String"/>
+						<c path="String"/>
+						<f a="">
+							<c path="String"/>
+							<c path="String"/>
+						</f>
+						<x path="Int"/>
+						<c path="lua.StringGSub"/>
+					</f>
+					<haxe_doc>Returns a copy of s in which all (or the first n, if given) occurrences of
+		the pattern have been replaced by a replacement string specified by repl,
+		which can be a string, a table, or a function. gsub also returns, as its second
+		value, the total number of matches that occurred.</haxe_doc>
+				</gsub>
+			</overloads>
+		</gsub>
+		<gmatch public="1" set="method" static="1">
+			<f a="str:pattern">
+				<c path="String"/>
+				<c path="String"/>
+				<f a=""><c path="String"/></f>
+			</f>
+			<haxe_doc>Returns an iterator function that, each time it is called, returns the next
+		captures from pattern over string `str`. If `pattern` specifies no captures,
+		then the whole match is produced in each call.</haxe_doc>
+			<overloads><gmatch public="1" set="method">
+	<f a="str:pattern:match:?n">
+		<c path="String"/>
+		<c path="String"/>
+		<f a=""><c path="String"/></f>
+		<x path="Int"/>
+		<f a="">
+			<c path="String"/>
+			<x path="Void"/>
+		</f>
+	</f>
+	<haxe_doc>Returns an iterator function that, each time it is called, returns the next
+		captures from pattern over string `str`. If `pattern` specifies no captures,
+		then the whole match is produced in each call.</haxe_doc>
+</gmatch></overloads>
+		</gmatch>
+		<match public="1" set="method" static="1">
+			<f a="str:pattern:?n">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Looks for the first match of pattern in the string s. If it finds one,
+		then match returns the captures from the pattern; otherwise it returns `null`.
+		If pattern specifies no captures, then the whole match is returned.
+		The optional argument `n` specifies where to start the search;
+		its default value is `1` and can be negative.</haxe_doc>
+		</match>
+		<upper public="1" set="method" static="1">
+			<f a="str">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Receives a string and returns a copy of this string with all lowercase
+		letters changed to uppercase. All other characters are left unchanged.
+		The definition of what a lowercase letter is depends on the current locale.</haxe_doc>
+		</upper>
+		<lower public="1" set="method" static="1">
+			<f a="str">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Receives a string and returns a copy of this string with all uppercase
+		letters changed to lowercase. All other characters are left unchanged.
+		The definition of what an uppercase letter is depends on the current locale.</haxe_doc>
+		</lower>
+		<dump public="1" set="method" static="1">
+			<f a="d">
+				<d/>
+				<d/>
+			</f>
+			<haxe_doc>Returns a string containing a binary representation of the given function,
+		so that a later loadstring on this string returns a copy of the function.
+		function must be a Lua function without upvalues.</haxe_doc>
+		</dump>
+		<rep public="1" set="method" static="1">
+			<f a="s:n:?sep">
+				<c path="String"/>
+				<x path="Int"/>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a string that is the concatenation of n copies of
+        the string s separated by the string sep. The default value
+        for sep is the empty string (that is, no separator).
+        Returns the empty string if n is not positive.  (Note that
+        it is very easy to exhaust the memory of your machine with
+        a single call to this function.)</haxe_doc>
+		</rep>
+		<haxe_doc>These are all externs for the base Lua "string" class, which functions
+	as an additional set of string tools.
+
+	Note that all relevant indexes are "1" based.</haxe_doc>
+		<meta><m n=":native"><e>"_G.string"</e></m></meta>
+	</class>
+	<class path="lua.Boot" params="" file="/home/runner/work/haxe/haxe/std/lua/Boot.hx">
+		<_ static="1"><d/></_>
+		<_fid expr="0" line="31" static="1">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</_fid>
+		<Max_Int32 expr="2147483647" line="33" static="1">
+			<x path="Int"/>
+			<meta><m n=":value"><e>2147483647</e></m></meta>
+		</Max_Int32>
+		<Min_Int32 expr="-2147483648" line="34" static="1">
+			<x path="Int"/>
+			<meta><m n=":value"><e>-2147483648</e></m></meta>
+		</Min_Int32>
+		<MAXSTACKSIZE public="1" set="null" expr="1000" line="38" static="1">
+			<x path="Int"/>
+			<meta><m n=":value"><e>1000</e></m></meta>
+		</MAXSTACKSIZE>
+		<platformBigEndian public="1" expr="NativeStringTools.byte(NativeStringTools.dump(function() { }), 7) &gt; 0" line="40" static="1">
+			<x path="Bool"/>
+			<meta><m n=":value"><e><![CDATA[NativeStringTools.byte(NativeStringTools.dump(function() { }), 7) > 0]]></e></m></meta>
+		</platformBigEndian>
+		<hiddenFields expr="Syntax.code(&quot;{__id__=true, hx__closures=true, super=true, prototype=true, __fields__=true, __ifields__=true, __class__=true, __properties__=true}&quot;)" line="42" static="1">
+			<c path="lua.Table">
+				<c path="String"/>
+				<x path="Bool"/>
+			</c>
+			<meta><m n=":value"><e>Syntax.code("{__id__=true, hx__closures=true, super=true, prototype=true, __fields__=true, __ifields__=true, __class__=true, __properties__=true}")</e></m></meta>
+		</hiddenFields>
+		<__unhtml set="method" line="45" static="1"><f a="s">
+	<c path="String"/>
+	<c path="String"/>
+</f></__unhtml>
+		<isClass public="1" get="inline" set="null" line="50" static="1">
+			<f a="o">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Indicates if the given object is a class.</haxe_doc>
+		</isClass>
+		<isEnum public="1" get="inline" set="null" line="60" static="1">
+			<f a="e">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Indicates if the given object is a enum.</haxe_doc>
+		</isEnum>
+		<getClass public="1" get="inline" set="null" line="71" static="1">
+			<f a="o">
+				<d/>
+				<x path="Class"><d/></x>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Returns the class of a given object, and defines the getClass feature
+		for the given class.</haxe_doc>
+		</getClass>
+		<__instanceof set="method" line="89" static="1">
+			<f a="o:cl">
+				<d/>
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":ifFeature"><e>"typed_catch"</e></m>
+			</meta>
+			<haxe_doc>Indicates if the given object is an instance of the given Type</haxe_doc>
+		</__instanceof>
+		<isArray set="method" line="130" static="1">
+			<f a="o">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</isArray>
+		<inheritsFrom set="method" line="138" static="1">
+			<f a="o:cl">
+				<d/>
+				<x path="Class"><d/></x>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Indicates if the given object inherits from the given class</haxe_doc>
+		</inheritsFrom>
+		<__cast set="method" line="148" static="1">
+			<f a="o:t">
+				<d/>
+				<d/>
+				<d/>
+			</f>
+			<meta><m n=":ifFeature"><e>"typed_cast"</e></m></meta>
+		</__cast>
+		<defArray public="1" params="T" get="inline" set="null" line="160" static="1">
+			<f a="tab:?length">
+				<c path="lua.Table">
+					<x path="Int"/>
+					<c path="defArray.T"/>
+				</c>
+				<x path="Int"/>
+				<c path="Array"><c path="defArray.T"/></c>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Define an array from the given table.
+		Converts from 1-indexed Lua table to 0-indexed Haxe array.</haxe_doc>
+		</defArray>
+		<tableToObject public="1" params="T" get="inline" set="null" line="180" static="1">
+			<f a="t">
+				<c path="lua.Table">
+					<c path="String"/>
+					<c path="tableToObject.T"/>
+				</c>
+				<d><c path="tableToObject.T"/></d>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Create a Haxe object from the given table structure</haxe_doc>
+		</tableToObject>
+		<dateStr public="1" set="method" line="187" static="1">
+			<f a="date">
+				<c path="Date"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Get Date object as string representation</haxe_doc>
+		</dateStr>
+		<clampInt32 public="1" get="inline" set="null" line="200" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>A 32 bit clamp function for numbers</haxe_doc>
+		</clampInt32>
+		<strDate public="1" set="method" line="207" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="Date"/>
+			</f>
+			<haxe_doc>Create a standard date object from a lua string representation</haxe_doc>
+		</strDate>
+		<extendsOrImplements public="1" set="method" line="228" static="1">
+			<f a="cl1:cl2">
+				<x path="Class"><d/></x>
+				<x path="Class"><d/></x>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Helper method to determine if class cl1 extends, implements, or otherwise equals cl2</haxe_doc>
+		</extendsOrImplements>
+		<shellEscapeCmd public="1" set="method" line="248" static="1">
+			<f a="cmd:?args">
+				<c path="String"/>
+				<c path="Array"><c path="String"/></c>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a shell escaped version of "cmd" along with any args</haxe_doc>
+		</shellEscapeCmd>
+		<tempFile public="1" set="method" line="266" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns a temp file path that can be used for reading and writing</haxe_doc>
+		</tempFile>
+		<os_patterns get="accessor" static="1"><t path="Map">
+	<c path="String"/>
+	<c path="Array"><c path="String"/></c>
+</t></os_patterns>
+		<get_os_patterns set="method" line="276" static="1"><f a=""><t path="Map">
+	<c path="String"/>
+	<c path="Array"><c path="String"/></c>
+</t></f></get_os_patterns>
+		<systemName public="1" set="method" line="289" static="1">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":has_untyped"/></meta>
+		</systemName>
+		<meta><m n=":dox"><e>hide</e></m></meta>
+	</class>
+	<class path="lua.Lua" params="" file="/home/runner/work/haxe/haxe/std/lua/Lua.hx" extern="1">
+		<_VERSION public="1" static="1">
+			<c path="String"/>
+			<haxe_doc>A global variable that holds a string containing the current interpreter
+		version.</haxe_doc>
+		</_VERSION>
+		<arg public="1" static="1"><c path="lua.Table">
+	<x path="Int"/>
+	<c path="String"/>
+</c></arg>
+		<getmetatable public="1" set="method" static="1">
+			<f a="tbl">
+				<c path="lua.Table">
+					<d/>
+					<d/>
+				</c>
+				<c path="lua.Table">
+					<d/>
+					<d/>
+				</c>
+			</f>
+			<haxe_doc>Pushes onto the stack the metatable in the registry.</haxe_doc>
+		</getmetatable>
+		<setmetatable public="1" set="method" static="1">
+			<f a="tbl:mtbl">
+				<c path="lua.Table">
+					<d/>
+					<d/>
+				</c>
+				<c path="lua.Table">
+					<d/>
+					<d/>
+				</c>
+				<c path="lua.Table">
+					<d/>
+					<d/>
+				</c>
+			</f>
+			<haxe_doc>Pops a table from the stack and sets it as the new metatable for the value
+		at the given acceptable index.</haxe_doc>
+		</setmetatable>
+		<setfenv public="1" set="method" static="1">
+			<f a="i:tbl">
+				<x path="Int"/>
+				<c path="lua.Table">
+					<d/>
+					<d/>
+				</c>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Pops a table from the stack and sets it as the new environment for the value
+		at the given index. If the value at the given index is neither a function nor
+		a thread nor a userdata, lua_setfenv returns `0`.
+		Otherwise it returns `1`.</haxe_doc>
+		</setfenv>
+		<next public="1" params="K:V" set="method" static="1">
+			<f a="k:?i">
+				<c path="lua.Table">
+					<c path="next.K"/>
+					<c path="next.V"/>
+				</c>
+				<c path="next.K"/>
+				<c path="lua.NextResult">
+					<c path="next.K"/>
+					<c path="next.V"/>
+				</c>
+			</f>
+			<haxe_doc>Allows a program to traverse all fields of a table.
+		Its first argument is a table and its second argument is an index in this
+		table. `next` returns the next index of the table and its associated value.
+		When `i` is `null`, `next` returns an initial index and its associated value.
+		When called with the last index, or with `null` in an empty table, `next`
+		returns `null`.  In particular, you can use `next(t)` to check whether a
+		table is empty.
+
+		The order in which the indices are enumerated is not specified, even for
+		numeric indices. (To traverse a table in numeric order, use a numerical for
+		or the `ipairs` function).
+
+		The behavior of next is undefined if, during the traversal, any value
+		to a non-existent field in the table is assigned. Existing fields may
+		however be modified. In particular, existing fields may be cleared.</haxe_doc>
+		</next>
+		<tostring public="1" set="method" static="1">
+			<f a="v">
+				<d/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Receives an argument of any type and converts it to a string in a reasonable
+		format.
+
+		For complete control of how numbers are converted, use`NativeStringTools.format`.</haxe_doc>
+		</tostring>
+		<ipairs public="1" params="K:V" set="method" static="1"><f a="t">
+	<c path="lua.Table">
+		<c path="ipairs.K"/>
+		<c path="ipairs.V"/>
+	</c>
+	<c path="lua.IPairsResult">
+		<c path="ipairs.K"/>
+		<c path="ipairs.V"/>
+	</c>
+</f></ipairs>
+		<pairs public="1" params="K:V" set="method" static="1"><f a="t">
+	<c path="lua.Table">
+		<c path="pairs.K"/>
+		<c path="pairs.V"/>
+	</c>
+	<c path="lua.PairsResult">
+		<c path="pairs.K"/>
+		<c path="pairs.V"/>
+	</c>
+</f></pairs>
+		<require public="1" set="method" static="1"><f a="module">
+	<c path="String"/>
+	<d/>
+</f></require>
+		<tonumber public="1" set="method" static="1">
+			<f a="str:?base">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Converts the Lua value at the given acceptable base to `Int`.
+		The Lua value must be a number or a string convertible to a number,
+		otherwise `tonumber` returns `0`.</haxe_doc>
+		</tonumber>
+		<type public="1" set="method" static="1">
+			<f a="v">
+				<d/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns the Lua type of its only argument as a string.
+		The possible results of this function are:
+
+		* `"nil"` (a string, not the Lua value nil),
+		* `"number"`
+		* `"string"`
+		* `"boolean"`
+		* `"table"`
+		* `"function"`
+		* `"thread"`
+		* `"userdata"`</haxe_doc>
+		</type>
+		<print public="1" set="method" static="1">
+			<f a="v">
+				<t path="haxe.extern.Rest"><d/></t>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Receives any number of arguments, and prints their values to stdout,
+		using the tostring function to convert them to strings.
+		`print` is not intended for formatted output, but only as a quick way to show
+		a value, typically for debugging.
+
+		For complete control of how numbers are converted, use `NativeStringTools.format`.</haxe_doc>
+		</print>
+		<select public="1" set="method" static="1">
+			<f a="n:rest">
+				<d/>
+				<t path="haxe.extern.Rest"><d/></t>
+				<d/>
+			</f>
+			<haxe_doc>If `n` is a number, returns all arguments after argument number `n`.
+		Otherwise, `n` must be the string `"#"`, and select returns the total
+		number of extra arguments it received.</haxe_doc>
+		</select>
+		<rawget public="1" params="K:V" set="method" static="1">
+			<f a="t:k">
+				<c path="lua.Table">
+					<c path="rawget.K"/>
+					<c path="rawget.V"/>
+				</c>
+				<c path="rawget.K"/>
+				<c path="rawget.V"/>
+			</f>
+			<haxe_doc>Gets the real value of `table[index]`, without invoking any metamethod.</haxe_doc>
+		</rawget>
+		<rawset public="1" params="K:V" set="method" static="1">
+			<f a="t:k:v">
+				<c path="lua.Table">
+					<c path="rawset.K"/>
+					<c path="rawset.V"/>
+				</c>
+				<c path="rawset.K"/>
+				<c path="rawset.V"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the real value of `table[index]` to value, without invoking any metamethod.</haxe_doc>
+		</rawset>
+		<collectgarbage public="1" set="method" static="1">
+			<f a="opt:?arg">
+				<x path="lua.CollectGarbageOption"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>This function is a generic interface to the garbage collector.
+		It performs different functions according to its first argument.</haxe_doc>
+		</collectgarbage>
+		<assert public="1" params="T" set="method" static="1">
+			<f a="v:?message">
+				<c path="assert.T"/>
+				<c path="String"/>
+				<c path="assert.T"/>
+			</f>
+			<haxe_doc>Issues an error when the value of its argument `v` is `false` (i.e., `null`
+		or `false`) otherwise, returns all its arguments. message is an error message.
+		when absent, it defaults to "assertion failed!"</haxe_doc>
+		</assert>
+		<dofile public="1" set="method" static="1">
+			<f a="filename">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Loads and runs the given file.</haxe_doc>
+		</dofile>
+		<error public="1" set="method" static="1">
+			<f a="message:?level">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Generates a Lua error. The error message (which can actually be a Lua value
+		of any type) must be on the stack top. This function does a long jump,
+		and therefore never returns.</haxe_doc>
+		</error>
+		<pcall public="1" set="method" static="1">
+			<f a="f:rest">
+				<x path="haxe.Function"/>
+				<t path="haxe.extern.Rest"><d/></t>
+				<c path="lua.PCallResult"/>
+			</f>
+			<haxe_doc>Calls a function in protected mode.</haxe_doc>
+		</pcall>
+		<rawequal public="1" set="method" static="1">
+			<f a="v1:v2">
+				<d/>
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Returns `true` if the two values in acceptable indices `v1` and `v2` are
+		primitively equal (that is, without calling metamethods).
+		Otherwise returns `false`.
+		Also returns `false` if any of the indices are non valid.</haxe_doc>
+		</rawequal>
+		<xpcall public="1" set="method" static="1">
+			<f a="f:msgh:rest">
+				<x path="haxe.Function"/>
+				<x path="haxe.Function"/>
+				<t path="haxe.extern.Rest"><d/></t>
+				<c path="lua.PCallResult"/>
+			</f>
+			<haxe_doc>This function is similar to pcall, except that you can set a new error
+		handler.</haxe_doc>
+		</xpcall>
+		<loadfile public="1" set="method" static="1">
+			<f a="filename">
+				<c path="String"/>
+				<c path="lua.LoadResult"/>
+			</f>
+			<haxe_doc>Loads the chunk from file filename or from the standard input if no filename
+		is given.</haxe_doc>
+		</loadfile>
+		<load public="1" set="method" static="1">
+			<f a="code">
+				<x path="haxe.extern.EitherType">
+					<c path="String"/>
+					<f a=""><c path="String"/></f>
+				</x>
+				<c path="lua.LoadResult"/>
+			</f>
+			<haxe_doc>Loads the chunk from given string.</haxe_doc>
+		</load>
+		<haxe_doc>These are all global static methods within Lua.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"_G"</e></m>
+		</meta>
+	</class>
+	<abstract path="Bool" params="" file="/home/runner/work/haxe/haxe/std/StdTypes.hx" module="StdTypes">
+		<this><x path="Bool"/></this>
+		<haxe_doc><![CDATA[The standard Boolean type, which can either be `true` or `false`.
+
+	On static targets, `null` cannot be assigned to `Bool`. If this is necessary,
+	`Null<Bool>` can be used instead.
+
+	@see https://haxe.org/manual/types-bool.html
+	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
+		<meta>
+			<m n=":coreType"/>
+			<m n=":notNull"/>
+			<m n=":runtimeValue"/>
+		</meta>
+	</abstract>
+	<abstract path="Dynamic" params="T" file="/home/runner/work/haxe/haxe/std/StdTypes.hx" module="StdTypes">
+		<this><x path="Dynamic"><c path="Dynamic.T"/></x></this>
+		<haxe_doc>`Dynamic` is a special type which is compatible with all other types.
+
+	Use of `Dynamic` should be minimized as it prevents several compiler
+	checks and optimizations. See `Any` type for a safer alternative for
+	representing values of any type.
+
+	@see https://haxe.org/manual/types-dynamic.html</haxe_doc>
+		<meta>
+			<m n=":coreType"/>
+			<m n=":runtimeValue"/>
+		</meta>
+	</abstract>
+	<abstract path="Float" params="" file="/home/runner/work/haxe/haxe/std/StdTypes.hx" module="StdTypes">
+		<this><x path="Float"/></this>
+		<haxe_doc><![CDATA[The standard `Float` type, this is a double-precision IEEE 64bit float.
+
+	On static targets, `null` cannot be assigned to Float. If this is necessary,
+	`Null<Float>` can be used instead.
+
+	`Std.int` converts a `Float` to an `Int`, rounded towards 0.
+	`Std.parseFloat` converts a `String` to a `Float`.
+
+	@see https://haxe.org/manual/types-basic-types.html
+	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
+		<meta>
+			<m n=":coreType"/>
+			<m n=":notNull"/>
+			<m n=":runtimeValue"/>
+		</meta>
+	</abstract>
+	<abstract path="Int" params="" file="/home/runner/work/haxe/haxe/std/StdTypes.hx" module="StdTypes">
+		<this><x path="Int"/></this>
+		<to><icast><x path="Float"/></icast></to>
+		<haxe_doc><![CDATA[The standard `Int` type. Its precision depends on the platform.
+
+	On static targets, `null` cannot be assigned to `Int`. If this is necessary,
+	`Null<Int>` can be used instead.
+
+	`Std.int` converts a `Float` to an `Int`, rounded towards 0.
+	`Std.parseInt` converts a `String` to an `Int`.
+
+	@see https://haxe.org/manual/types-basic-types.html
+	@see https://haxe.org/manual/std-math-integer-math.html
+	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
+		<meta>
+			<m n=":coreType"/>
+			<m n=":notNull"/>
+			<m n=":runtimeValue"/>
+		</meta>
+	</abstract>
+	<class path="String" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/String.hx">
+		<__oldindex static="1"><f a=":">
+	<c path="String"/>
+	<c path="String"/>
+	<d/>
+</f></__oldindex>
+		<__index set="method" line="42" static="1">
+			<f a="s:k">
+				<d/>
+				<d/>
+				<d/>
+			</f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
+		</__index>
+		<indexOfEmpty set="method" line="79" static="1"><f a="s:startIndex">
+	<c path="String"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></indexOfEmpty>
+		<fromCharCode public="1" get="inline" set="null" line="173" static="1">
+			<f a="code">
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns the String corresponding to the character code `code`.
+
+		If `code` is negative or has another invalid value, the result is
+		unspecified.</haxe_doc>
+		</fromCharCode>
+		<length public="1" set="null">
+			<x path="Int"/>
+			<haxe_doc>The number of characters in `this` String.</haxe_doc>
+		</length>
+		<toUpperCase public="1" get="inline" set="null" line="59">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns a String where all characters of `this` String are upper case.</haxe_doc>
+		</toUpperCase>
+		<toLowerCase public="1" get="inline" set="null" line="62">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns a String where all characters of `this` String are lower case.</haxe_doc>
+		</toLowerCase>
+		<indexOf public="1" set="method" line="64">
+			<f a="str:?startIndex">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc><![CDATA[Returns the position of the leftmost occurrence of `str` within `this` String.
+
+		If `str` is the empty String `""`, then:
+			* If `startIndex` is not specified or < 0, 0 is returned.
+			* If `startIndex >= this.length`, `this.length` is returned.
+			* Otherwise, `startIndex` is returned,
+
+		Otherwise, if `startIndex` is not specified or < 0, it is treated as 0.
+
+		If `startIndex >= this.length`, -1 is returned.
+
+		Otherwise the search is performed within the substring of `this` String starting
+		at `startIndex`. If `str` is found, the position of its first character in `this`
+		String relative to position 0 is returned.
+
+		If `str` cannot be found, -1 is returned.
+
+		If `str` is null, the result is unspecified.]]></haxe_doc>
+		</indexOf>
+		<lastIndexOf public="1" set="method" line="87">
+			<f a="str:?startIndex">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the position of the rightmost occurrence of `str` within `this`
+		String.
+
+		If `startIndex` is given, the search is performed within the substring
+		of `this` String from 0 to `startIndex + str.length`. Otherwise the search
+		is performed within `this` String. In either case, the returned position
+		is relative to the beginning of `this` String.
+
+		If `startIndex` is negative, the result is unspecified.
+
+		If `str` cannot be found, -1 is returned.
+
+		If `str` is null, the result is unspecified.</haxe_doc>
+		</lastIndexOf>
+		<split public="1" set="method" line="109">
+			<f a="delimiter">
+				<c path="String"/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>Splits `this` String at each occurrence of `delimiter`.
+
+		If `this` String is the empty String `""`, the result is not consistent
+		across targets and may either be `[]` (on Js, Cpp) or `[""]`.
+
+		If `delimiter` is the empty String `""`, `this` String is split into an
+		Array of `this.length` elements, where the elements correspond to the
+		characters of `this` String.
+
+		If `delimiter` is not found within `this` String, the result is an Array
+		with one element, which equals `this` String.
+
+		If `delimiter` is null, the result is unspecified.
+
+		Otherwise, `this` String is split into parts at each occurrence of
+		`delimiter`. If `this` String starts (or ends) with `delimiter`, the
+		result `Array` contains a leading (or trailing) empty String `""` element.
+		Two subsequent delimiters also result in an empty String `""` element.</haxe_doc>
+		</split>
+		<toString public="1" get="inline" set="null" line="134">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns the String itself.</haxe_doc>
+		</toString>
+		<substring public="1" set="method" line="138">
+			<f a="startIndex:?endIndex">
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns the part of `this` String from `startIndex` to but not including `endIndex`.
+
+		If `startIndex` or `endIndex` are negative, 0 is used instead.
+
+		If `startIndex` exceeds `endIndex`, they are swapped.
+
+		If the (possibly swapped) `endIndex` is omitted or exceeds
+		`this.length`, `this.length` is used instead.
+
+		If the (possibly swapped) `startIndex` exceeds `this.length`, the empty
+		String `""` is returned.</haxe_doc>
+		</substring>
+		<charAt public="1" get="inline" set="null" line="153">
+			<f a="index">
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns the character at position `index` of `this` String.
+
+		If `index` is negative or exceeds `this.length`, the empty String `""`
+		is returned.</haxe_doc>
+		</charAt>
+		<charCodeAt public="1" get="inline" set="null" line="157">
+			<f a="index">
+				<x path="Int"/>
+				<x path="Null"><x path="Int"/></x>
+			</f>
+			<haxe_doc>Returns the character code at position `index` of `this` String.
+
+		If `index` is negative or exceeds `this.length`, `null` is returned.
+
+		To obtain the character code of a single character, `"x".code` can be
+		used instead to inline the character code at compile time. Note that
+		this only works on String literals of length 1.</haxe_doc>
+		</charCodeAt>
+		<substr public="1" set="method" line="161">
+			<f a="pos:?len">
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns `len` characters of `this` String, starting at position `pos`.
+
+		If `len` is omitted, all characters from position `pos` to the end of
+		`this` String are included.
+		```haxe
+		"abcde".substr(3) // de
+		```
+
+		If `pos` is negative, its value is calculated from the end of `this`
+		String by `this.length + pos`. If this yields a negative value, 0 is
+		used instead.
+		```haxe
+		"abcde".substr(-2) // de
+		```
+
+		If `len` is positive, up to `len` characters from the calculated position
+		to the end of `this` String are included.
+		```haxe
+		"abcde".substr(1, 2) // bc
+		```
+
+		If `len` is negative, all characters from the calculated position to the end
+		of `this` String, except the last `abs(len)` characters, are included.
+		```haxe
+		"abcde".substr(0, -2) // abc
+		"abcde".substr(1, -2) // bc
+		```
+
+		If the calculated position + `len` exceeds `this.length`, the characters
+		from that position to the end of `this` String are returned.</haxe_doc>
+		</substr>
+		<new public="1" get="inline" set="null" line="39">
+			<f a="string">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Creates a copy from a given String.</haxe_doc>
+		</new>
+		<haxe_doc>The basic String class.
+
+	A Haxe String is immutable, it is not possible to modify individual
+	characters. No method of this class changes the state of `this` String.
+
+	Strings can be constructed using the String literal syntax `"string value"`.
+
+	String can be concatenated by using the `+` operator. If an operand is not a
+	String, it is passed through `Std.string()` first.
+
+	@see https://haxe.org/manual/std-String.html</haxe_doc>
+		<meta><m n=":coreApi"/></meta>
+	</class>
+	<class path="lua.Table" params="A:B" file="/home/runner/work/haxe/haxe/std/lua/Table.hx" extern="1">
+		<create public="1" params="A:B" set="method" static="1">
+			<f a="?arr:?hsh">
+				<c path="Array"><c path="create.B"/></c>
+				<d/>
+				<c path="lua.Table">
+					<c path="create.A"/>
+					<c path="create.B"/>
+				</c>
+			</f>
+			<meta><m n=":native"><e>"create_literal"</e></m></meta>
+			<haxe_doc>Generate an inline lua table declaration from an array literal and/or an object literal argument.</haxe_doc>
+		</create>
+		<createEmpty public="1" params="A:B" set="method" static="1">
+			<f a="nseq:nrec">
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="lua.Table">
+					<c path="createEmpty.A"/>
+					<c path="createEmpty.B"/>
+				</c>
+			</f>
+			<meta><m n=":native"><e>"new"</e></m></meta>
+		</createEmpty>
+		<fromArray public="1" params="T" get="inline" set="null" line="61" static="1">
+			<f a="arr">
+				<c path="Array"><c path="fromArray.T"/></c>
+				<c path="lua.Table">
+					<x path="Int"/>
+					<c path="fromArray.T"/>
+				</c>
+			</f>
+			<haxe_doc>Convert the array `arr` into a lua table with lua-style indexing.</haxe_doc>
+		</fromArray>
+		<fromMap public="1" params="A:B" get="inline" set="null" line="69" static="1">
+			<f a="map">
+				<t path="Map">
+					<c path="fromMap.A"/>
+					<c path="fromMap.B"/>
+				</t>
+				<c path="lua.Table">
+					<c path="fromMap.A"/>
+					<c path="fromMap.B"/>
+				</c>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</fromMap>
+		<fromDynamic public="1" params="A:B" get="inline" set="null" line="77" static="1">
+			<f a="dyn">
+				<d/>
+				<c path="lua.Table">
+					<c path="fromDynamic.A"/>
+					<c path="fromDynamic.B"/>
+				</c>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</fromDynamic>
+		<toMap public="1" params="A:B" get="inline" set="null" line="85" static="1"><f a="tbl">
+	<c path="lua.Table">
+		<c path="toMap.A"/>
+		<c path="toMap.B"/>
+	</c>
+	<t path="Map">
+		<c path="toMap.A"/>
+		<c path="toMap.B"/>
+	</t>
+</f></toMap>
+		<toObject public="1" params="T" get="inline" set="null" line="97" static="1">
+			<f a="t">
+				<c path="lua.Table">
+					<c path="String"/>
+					<c path="toObject.T"/>
+				</c>
+				<d><c path="toObject.T"/></d>
+			</f>
+			<haxe_doc>Copies the table argument and converts it to an Object.</haxe_doc>
+		</toObject>
+		<toArray public="1" params="T" get="inline" set="null" line="102" static="1"><f a="tbl:?length">
+	<c path="lua.Table">
+		<x path="Int"/>
+		<c path="toArray.T"/>
+	</c>
+	<x path="Int"/>
+	<c path="Array"><c path="toArray.T"/></c>
+</f></toArray>
+		<concat public="1" params="A:B" set="method" static="1">
+			<f a="table:?sep:?i:?j">
+				<c path="lua.Table">
+					<c path="concat.A"/>
+					<c path="concat.B"/>
+				</c>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<overloads><concat public="1" params="A:B" set="method"><f a="table">
+	<c path="lua.Table">
+		<c path="concat.A"/>
+		<c path="concat.B"/>
+	</c>
+	<x path="Void"/>
+</f></concat></overloads>
+		</concat>
+		<sort public="1" params="A:B" set="method" static="1"><f a="table:?order">
+	<c path="lua.Table">
+		<c path="sort.A"/>
+		<c path="sort.B"/>
+	</c>
+	<f a=":">
+		<c path="sort.A"/>
+		<c path="sort.A"/>
+		<x path="Bool"/>
+	</f>
+	<x path="Void"/>
+</f></sort>
+		<insert public="1" params="B" set="method" static="1">
+			<f a="table:pos:value">
+				<c path="lua.Table">
+					<x path="Int"/>
+					<c path="insert.B"/>
+				</c>
+				<x path="Int"/>
+				<c path="insert.B"/>
+				<x path="Void"/>
+			</f>
+			<overloads><insert public="1" params="B" set="method"><f a="table:value">
+	<c path="lua.Table">
+		<x path="Int"/>
+		<c path="insert.B"/>
+	</c>
+	<c path="insert.B"/>
+	<x path="Void"/>
+</f></insert></overloads>
+		</insert>
+		<remove public="1" params="B" set="method" static="1">
+			<f a="table:?pos">
+				<c path="lua.Table">
+					<x path="Int"/>
+					<c path="remove.B"/>
+				</c>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<overloads><remove public="1" params="B" set="method"><f a="table">
+	<c path="lua.Table">
+		<x path="Int"/>
+		<c path="remove.B"/>
+	</c>
+	<x path="Void"/>
+</f></remove></overloads>
+		</remove>
+		<iterator public="1" get="inline" set="null" line="110">
+			<f a=""><t path="Iterator"><c path="lua.Table.B"/></t></f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Returns an iterator over the values in the table.
+		Enables `for (v in table)` syntax.</haxe_doc>
+		</iterator>
+		<keyValueIterator public="1" get="inline" set="null" line="128">
+			<f a=""><t path="KeyValueIterator">
+	<c path="lua.Table.A"/>
+	<c path="lua.Table.B"/>
+</t></f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc><![CDATA[Returns an iterator over the key-value pairs in the table.
+		Enables `for (k => v in table)` syntax.]]></haxe_doc>
+		</keyValueIterator>
+		<haxe_doc>This library provides generic functions for table manipulation.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"_G.table"</e></m>
+		</meta>
+	</class>
+	<class path="lua.Thread" params="" file="/home/runner/work/haxe/haxe/std/lua/Thread.hx"><haxe_doc>The sole purpose of this extern is to provide a concrete type for
+	basic reflection purposes.</haxe_doc></class>
+	<class path="lua.UserData" params="" file="/home/runner/work/haxe/haxe/std/lua/UserData.hx"/>
+	<class path="lua.TableTools" params="" file="/home/runner/work/haxe/haxe/std/lua/TableTools.hx" extern="1">
+		<pack public="1" params="T" set="method" static="1"><f a="args">
+	<t path="haxe.extern.Rest"><c path="pack.T"/></t>
+	<c path="lua.Table">
+		<x path="Int"/>
+		<c path="pack.T"/>
+	</c>
+</f></pack>
+		<unpack public="1" params="Int:V" set="method" static="1"><f a="args:?min:?max">
+	<c path="lua.Table">
+		<c path="unpack.Int"/>
+		<c path="unpack.V"/>
+	</c>
+	<c path="unpack.Int"/>
+	<c path="unpack.Int"/>
+	<d/>
+</f></unpack>
+		<maxn public="1" set="method" static="1"><f a="t">
+	<t path="lua.AnyTable"/>
+	<x path="Int"/>
+</f></maxn>
+		<haxe_doc>This library is an extern for a polyfill library of common lua table
+    methods.</haxe_doc>
+		<meta><m n=":native"><e>"_hx_table"</e></m></meta>
+	</class>
+	<abstract path="Enum" params="T" file="/home/runner/work/haxe/haxe/std/Enum.hx">
+		<this><x path="Enum"><c path="Enum.T"/></x></this>
+		<haxe_doc>An abstract type that represents an Enum type.
+
+	The corresponding enum instance type is `EnumValue`.
+
+	See `Type` for the Haxe Reflection API.
+
+	@see https://haxe.org/manual/types-enum-instance.html</haxe_doc>
+		<meta>
+			<m n=":coreType"/>
+			<m n=":runtimeValue"/>
+		</meta>
+	</abstract>
+	<class path="haxe.ValueException" params="" file="/home/runner/work/haxe/haxe/std/haxe/ValueException.hx">
+		<extends path="haxe.Exception"/>
+		<value public="1" set="null">
+			<x path="Any"/>
+			<haxe_doc>Thrown value.</haxe_doc>
+		</value>
+		<unwrap set="method" line="35" override="1">
+			<f a=""><x path="Any"/></f>
+			<haxe_doc>Extract an originally thrown value.
+
+		This method must return the same value on subsequent calls.
+		Used internally for catching non-native exceptions.
+		Do _not_ override unless you know what you are doing.</haxe_doc>
+		</unwrap>
+		<new public="1" set="method" line="23"><f a="value:?previous:?native">
+	<x path="Any"/>
+	<c path="haxe.Exception"/>
+	<x path="Any"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>An exception containing arbitrary value.
+
+	This class is automatically used for throwing values, which don't extend `haxe.Exception`
+	or native exception type.
+	For example:
+	```haxe
+	throw "Terrible error";
+	```
+	will be compiled to
+	```haxe
+	throw new ValueException("Terrible error");
+	```</haxe_doc>
+	</class>
+	<class path="Std" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/Std.hx">
+		<is public="1" get="inline" set="null" line="35" static="1">
+			<f a="v:t">
+				<d/>
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":deprecated"><e>"Std.is is deprecated. Use Std.isOfType instead."</e></m></meta>
+			<haxe_doc>DEPRECATED. Use `Std.isOfType(v, t)` instead.
+
+		Tells if a value `v` is of the type `t`. Returns `false` if `v` or `t` are null.
+
+		If `t` is a class or interface with `@:generic` meta, the result is `false`.</haxe_doc>
+		</is>
+		<isOfType public="1" get="inline" set="null" line="39" static="1">
+			<f a="v:t">
+				<d/>
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Tells if a value `v` is of the type `t`. Returns `false` if `v` or `t` are null.
+
+		If `t` is a class or interface with `@:generic` meta, the result is `false`.</haxe_doc>
+		</isOfType>
+		<downcast public="1" params="T:S" get="inline" set="null" line="43" static="1">
+			<f a="value:c">
+				<c path="downcast.T"/>
+				<x path="Class"><c path="downcast.S"/></x>
+				<x path="Null"><c path="downcast.S"/></x>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Checks if object `value` is an instance of class or interface `c`.
+
+		Compiles only if the type specified by `c` can be assigned to the type
+		of `value`.
+
+		This method checks if a downcast is possible. That is, if the runtime
+		type of `value` is assignable to the type specified by `c`, `value` is
+		returned. Otherwise null is returned.
+
+		This method is not guaranteed to work with core types such as `String`,
+		`Array` and `Date`.
+
+		If `value` is null, the result is null. If `c` is null, the result is
+		unspecified.</haxe_doc>
+		</downcast>
+		<instance public="1" params="T:S" get="inline" set="null" line="48" static="1">
+			<f a="value:c">
+				<c path="instance.T"/>
+				<x path="Class"><c path="instance.S"/></x>
+				<x path="Null"><c path="instance.S"/></x>
+			</f>
+			<meta><m n=":deprecated"><e>"Std.instance() is deprecated. Use Std.downcast() instead."</e></m></meta>
+		</instance>
+		<string public="1" set="method" line="53" static="1">
+			<f a="s">
+				<d/>
+				<c path="String"/>
+			</f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":keep"/>
+			</meta>
+			<haxe_doc>Converts any value to a String.
+
+		If `s` is of `String`, `Int`, `Float` or `Bool`, its value is returned.
+
+		If `s` is an instance of a class and that class or one of its parent classes has
+		a `toString` method, that method is called. If no such method is present, the result
+		is unspecified.
+
+		If `s` is an enum constructor without argument, the constructor's name is returned. If
+		arguments exists, the constructor's name followed by the String representations of
+		the arguments is returned.
+
+		If `s` is a structure, the field names along with their values are returned. The field order
+		and the operator separating field names and values are unspecified.
+
+		If s is null, "null" is returned.</haxe_doc>
+		</string>
+		<int public="1" set="method" line="57" static="1">
+			<f a="x">
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Converts a `Float` to an `Int`, rounded towards 0.
+
+		If `x` is outside of the signed Int32 range, or is `NaN`, `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`, the result is unspecified.</haxe_doc>
+		</int>
+		<parseInt public="1" set="method" line="64" static="1">
+			<f a="x">
+				<c path="String"/>
+				<x path="Null"><x path="Int"/></x>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Converts a `String` to an `Int`.
+
+		Leading whitespaces are ignored.
+
+		`x` may optionally start with a + or - to denote a positive or negative value respectively.
+
+		If the optional sign is followed 0x or 0X, hexadecimal notation is recognized where the following
+		digits may contain 0-9 and A-F. Both the prefix and digits are case insensitive.
+
+		Otherwise `x` is read as decimal number with 0-9 being allowed characters. Octal and binary
+		notations are not supported.
+
+		Parsing continues until an invalid character is detected, in which case the result up to
+		that point is returned. Scientific notation is not supported. That is `Std.parseInt('10e2')` produces `10`.
+
+		If `x` is `null`, the result is `null`.
+		If `x` cannot be parsed as integer or is empty, the result is `null`.
+
+		If `x` starts with a hexadecimal prefix which is not followed by at least one valid hexadecimal
+		digit, the result is unspecified.</haxe_doc>
+		</parseInt>
+		<parseFloat public="1" set="method" line="79" static="1">
+			<f a="x">
+				<c path="String"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Converts a `String` to a `Float`.
+
+		The parsing rules for `parseInt` apply here as well, with the exception of invalid input
+		resulting in a `NaN` value instead of `null`. Also, hexadecimal support is **not** specified.
+
+		Additionally, decimal notation may contain a single `.` to denote the start of the fractions.
+
+		It may also end with `e` or `E` followed by optional minus or plus sign and a sequence of
+		digits (defines exponent to base 10).</haxe_doc>
+		</parseFloat>
+		<random public="1" set="method" line="100" static="1">
+			<f a="x">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc><![CDATA[Return a random integer between 0 included and `x` excluded.
+
+		If `x <= 1`, the result is always 0.]]></haxe_doc>
+		</random>
+		<haxe_doc>The Std class provides standard methods for manipulating basic types.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":keepInit"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<class path="haxe.NativeStackTrace" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/haxe/NativeStackTrace.hx">
+		<saveStack public="1" get="inline" set="null" line="14" static="1">
+			<f a="exception">
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":ifFeature"><e>"haxe.NativeStackTrace.exceptionStack"</e></m></meta>
+		</saveStack>
+		<callStack public="1" set="method" line="17" static="1"><f a=""><t path="haxe._NativeStackTrace.NativeTrace"/></f></callStack>
+		<exceptionStack public="1" set="method" line="24" static="1"><f a=""><t path="haxe._NativeStackTrace.NativeTrace"/></f></exceptionStack>
+		<toHaxe public="1" set="method" line="28" static="1">
+			<f a="nativeStackTrace:?skip" v=":0">
+				<t path="haxe._NativeStackTrace.NativeTrace"/>
+				<x path="Int"/>
+				<c path="Array"><e path="haxe.StackItem"/></c>
+			</f>
+			<meta><m n=":value"><e>{ skip : 0 }</e></m></meta>
+		</toHaxe>
+		<haxe_doc>Do not use manually.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":dox"><e>hide</e></m>
+			<m n=":noCompletion"/>
+		</meta>
+	</class>
+	<class path="lua.Debug" params="" file="/home/runner/work/haxe/haxe/std/lua/Debug.hx" extern="1">
+		<getlocal public="1" set="method" static="1">
+			<f a="stackLevel:idx">
+				<x path="Int"/>
+				<x path="Int"/>
+				<d/>
+			</f>
+			<haxe_doc>This function returns the name and the value of the local variable with
+		index local of the function at level level of the stack.</haxe_doc>
+		</getlocal>
+		<setlocal public="1" set="method" static="1">
+			<f a="stackLevel:varName:value">
+				<x path="Int"/>
+				<c path="String"/>
+				<d/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>This function assigns the value value to the local variable with index
+		local of the function at level level of the stack.
+		Call `getinfo` to check whether the level is valid.</haxe_doc>
+		</setlocal>
+		<getinfo public="1" set="method" static="1">
+			<f a="stackLevel">
+				<x path="Int"/>
+				<t path="lua.DebugInfo"/>
+			</f>
+			<haxe_doc>Returns a table with information about a function.</haxe_doc>
+		</getinfo>
+		<sethook public="1" set="method" static="1">
+			<f a="?fun:?monitor">
+				<x path="haxe.Function"/>
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the given function as a hook.
+		When called without arguments, `Debug.sethook` turns off the hook.</haxe_doc>
+		</sethook>
+		<debug public="1" set="method" static="1">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Enters an interactive mode with the user, running each string that the user enters.
+		Using simple commands and other debug facilities, the user can inspect
+		global and local variables, change their values, evaluate expressions,
+		and so on. A line containing only the word `cont` finishes this function,
+		so that the caller continues its execution.
+
+		Note that commands for `Debug.debug` are not lexically nested within any
+		function, and so have no direct access to local variables.</haxe_doc>
+		</debug>
+		<gethook public="1" set="method" static="1">
+			<f a="thread">
+				<c path="lua.Thread"/>
+				<x path="haxe.Function"/>
+			</f>
+			<haxe_doc>Returns the current hook settings of the thread, as three values:
+		the current hook function, the current hook mask, and the current hook count
+		(as set by the `Debug.sethook` function).</haxe_doc>
+		</gethook>
+		<getregistry public="1" set="method" static="1">
+			<f a=""><t path="lua.AnyTable"/></f>
+			<haxe_doc>Returns the registry table.</haxe_doc>
+		</getregistry>
+		<getmetatable public="1" set="method" static="1">
+			<f a="value">
+				<t path="lua.AnyTable"/>
+				<t path="lua.AnyTable"/>
+			</f>
+			<haxe_doc>Returns the metatable of the given `value` or `null` if it does not have a metatable.</haxe_doc>
+		</getmetatable>
+		<setmetatable public="1" set="method" static="1">
+			<f a="value:table">
+				<t path="lua.AnyTable"/>
+				<t path="lua.AnyTable"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the metatable for the given `value` to the given `table` (can be `null`).</haxe_doc>
+		</setmetatable>
+		<getupvalue public="1" set="method" static="1">
+			<f a="f:up">
+				<x path="haxe.Function"/>
+				<x path="Int"/>
+				<d/>
+			</f>
+			<haxe_doc>This function returns the name and the value of the upvalue with index `up`
+		of the function `f`. The function returns `null` if there is no upvalue with
+		the given index.</haxe_doc>
+		</getupvalue>
+		<setupvalue public="1" set="method" static="1">
+			<f a="f:up:val">
+				<x path="haxe.Function"/>
+				<x path="Int"/>
+				<d/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>This function assigns the value value to the upvalue with index up of
+		the function `f`. The function returns `null` if there is no upvalue with
+		the given index. Otherwise, it returns the name of the upvalue.</haxe_doc>
+		</setupvalue>
+		<getuservalue public="1" set="method" static="1">
+			<f a="val">
+				<d/>
+				<d/>
+			</f>
+			<haxe_doc>Returns the Lua value associated to `val`.
+		If `val` is not a `UserData`, returns `null`.</haxe_doc>
+		</getuservalue>
+		<setuservalue public="1" set="method" static="1">
+			<f a="udata:val">
+				<d/>
+				<d/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the given value as the Lua value associated to the given udata.
+		`udata` must be a full `UserData`.</haxe_doc>
+		</setuservalue>
+		<traceback public="1" set="method" static="1">
+			<f a="?thread:?message:?level">
+				<c path="lua.Thread"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a string with a traceback of the call stack.
+		@param message (optional) is appended at the beginning of the traceback.
+		@param level (optional) tells at which level to start the traceback.
+			   default is `1`, the function calling traceback.</haxe_doc>
+		</traceback>
+		<upvalueid public="1" set="method" static="1">
+			<f a="f:n">
+				<x path="haxe.Function"/>
+				<x path="Int"/>
+				<d/>
+			</f>
+			<haxe_doc>Returns a unique identifier (as a light userdata) for the upvalue numbered
+		`n` from the given function `f`.</haxe_doc>
+		</upvalueid>
+		<upvaluejoin public="1" set="method" static="1">
+			<f a="f1:n1:f2:n2">
+				<x path="haxe.Function"/>
+				<x path="Int"/>
+				<x path="haxe.Function"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Make the `n1`-th upvalue of the Lua closure `f1` refer to the `n2`-th
+		upvalue of the Lua closure `f2`.</haxe_doc>
+		</upvaluejoin>
+		<haxe_doc>Externs for the "debug" class for Haxe lua</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"debug"</e></m>
+		</meta>
+	</class>
 	<class path="lua.lib.luautf8.Utf8" params="" file="/home/runner/work/haxe/haxe/std/lua/lib/luautf8/Utf8.hx" extern="1">
 		<len public="1" set="method" static="1">
 			<f a="str:?start:?end:?lax">
@@ -1255,20 +2962,6 @@
 	<https://haxe.org/manual/std-regex.html>]]></haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
-	<abstract path="Enum" params="T" file="/home/runner/work/haxe/haxe/std/Enum.hx">
-		<this><x path="Enum"><c path="Enum.T"/></x></this>
-		<haxe_doc>An abstract type that represents an Enum type.
-
-	The corresponding enum instance type is `EnumValue`.
-
-	See `Type` for the Haxe Reflection API.
-
-	@see https://haxe.org/manual/types-enum-instance.html</haxe_doc>
-		<meta>
-			<m n=":coreType"/>
-			<m n=":runtimeValue"/>
-		</meta>
-	</abstract>
 	<abstract path="EnumValue" params="" file="/home/runner/work/haxe/haxe/std/EnumValue.hx">
 		<this><x path="EnumValue"/></this>
 		<haxe_doc>An abstract type that represents any enum value.
@@ -2252,199 +3945,12 @@
 		<numString public="1"><c path="String"/></numString>
 		<meta><m n=":multiReturn"/></meta>
 	</class>
-	<class path="Std" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/Std.hx">
-		<is public="1" get="inline" set="null" line="35" static="1">
-			<f a="v:t">
-				<d/>
-				<d/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":deprecated"><e>"Std.is is deprecated. Use Std.isOfType instead."</e></m></meta>
-			<haxe_doc>DEPRECATED. Use `Std.isOfType(v, t)` instead.
-
-		Tells if a value `v` is of the type `t`. Returns `false` if `v` or `t` are null.
-
-		If `t` is a class or interface with `@:generic` meta, the result is `false`.</haxe_doc>
-		</is>
-		<isOfType public="1" get="inline" set="null" line="39" static="1">
-			<f a="v:t">
-				<d/>
-				<d/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Tells if a value `v` is of the type `t`. Returns `false` if `v` or `t` are null.
-
-		If `t` is a class or interface with `@:generic` meta, the result is `false`.</haxe_doc>
-		</isOfType>
-		<downcast public="1" params="T:S" get="inline" set="null" line="43" static="1">
-			<f a="value:c">
-				<c path="downcast.T"/>
-				<x path="Class"><c path="downcast.S"/></x>
-				<x path="Null"><c path="downcast.S"/></x>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Checks if object `value` is an instance of class or interface `c`.
-
-		Compiles only if the type specified by `c` can be assigned to the type
-		of `value`.
-
-		This method checks if a downcast is possible. That is, if the runtime
-		type of `value` is assignable to the type specified by `c`, `value` is
-		returned. Otherwise null is returned.
-
-		This method is not guaranteed to work with core types such as `String`,
-		`Array` and `Date`.
-
-		If `value` is null, the result is null. If `c` is null, the result is
-		unspecified.</haxe_doc>
-		</downcast>
-		<instance public="1" params="T:S" get="inline" set="null" line="48" static="1">
-			<f a="value:c">
-				<c path="instance.T"/>
-				<x path="Class"><c path="instance.S"/></x>
-				<x path="Null"><c path="instance.S"/></x>
-			</f>
-			<meta><m n=":deprecated"><e>"Std.instance() is deprecated. Use Std.downcast() instead."</e></m></meta>
-		</instance>
-		<string public="1" set="method" line="53" static="1">
-			<f a="s">
-				<d/>
-				<c path="String"/>
-			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
-			<haxe_doc>Converts any value to a String.
-
-		If `s` is of `String`, `Int`, `Float` or `Bool`, its value is returned.
-
-		If `s` is an instance of a class and that class or one of its parent classes has
-		a `toString` method, that method is called. If no such method is present, the result
-		is unspecified.
-
-		If `s` is an enum constructor without argument, the constructor's name is returned. If
-		arguments exists, the constructor's name followed by the String representations of
-		the arguments is returned.
-
-		If `s` is a structure, the field names along with their values are returned. The field order
-		and the operator separating field names and values are unspecified.
-
-		If s is null, "null" is returned.</haxe_doc>
-		</string>
-		<int public="1" set="method" line="57" static="1">
-			<f a="x">
-				<x path="Float"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Converts a `Float` to an `Int`, rounded towards 0.
-
-		If `x` is outside of the signed Int32 range, or is `NaN`, `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`, the result is unspecified.</haxe_doc>
-		</int>
-		<parseInt public="1" set="method" line="64" static="1">
-			<f a="x">
-				<c path="String"/>
-				<x path="Null"><x path="Int"/></x>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Converts a `String` to an `Int`.
-
-		Leading whitespaces are ignored.
-
-		`x` may optionally start with a + or - to denote a positive or negative value respectively.
-
-		If the optional sign is followed 0x or 0X, hexadecimal notation is recognized where the following
-		digits may contain 0-9 and A-F. Both the prefix and digits are case insensitive.
-
-		Otherwise `x` is read as decimal number with 0-9 being allowed characters. Octal and binary
-		notations are not supported.
-
-		Parsing continues until an invalid character is detected, in which case the result up to
-		that point is returned. Scientific notation is not supported. That is `Std.parseInt('10e2')` produces `10`.
-
-		If `x` is `null`, the result is `null`.
-		If `x` cannot be parsed as integer or is empty, the result is `null`.
-
-		If `x` starts with a hexadecimal prefix which is not followed by at least one valid hexadecimal
-		digit, the result is unspecified.</haxe_doc>
-		</parseInt>
-		<parseFloat public="1" set="method" line="79" static="1">
-			<f a="x">
-				<c path="String"/>
-				<x path="Float"/>
-			</f>
-			<haxe_doc>Converts a `String` to a `Float`.
-
-		The parsing rules for `parseInt` apply here as well, with the exception of invalid input
-		resulting in a `NaN` value instead of `null`. Also, hexadecimal support is **not** specified.
-
-		Additionally, decimal notation may contain a single `.` to denote the start of the fractions.
-
-		It may also end with `e` or `E` followed by optional minus or plus sign and a sequence of
-		digits (defines exponent to base 10).</haxe_doc>
-		</parseFloat>
-		<random public="1" set="method" line="100" static="1">
-			<f a="x">
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc><![CDATA[Return a random integer between 0 included and `x` excluded.
-
-		If `x <= 1`, the result is always 0.]]></haxe_doc>
-		</random>
-		<haxe_doc>The Std class provides standard methods for manipulating basic types.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":keepInit"/>
-			<m n=":coreApi"/>
-		</meta>
-	</class>
 	<abstract path="Void" params="" file="/home/runner/work/haxe/haxe/std/StdTypes.hx" module="StdTypes">
 		<this><x path="Void"/></this>
 		<haxe_doc>The standard `Void` type. Only `null` values can be of the type `Void`.
 
 	@see https://haxe.org/manual/types-void.html</haxe_doc>
 		<meta><m n=":coreType"/></meta>
-	</abstract>
-	<abstract path="Float" params="" file="/home/runner/work/haxe/haxe/std/StdTypes.hx" module="StdTypes">
-		<this><x path="Float"/></this>
-		<haxe_doc><![CDATA[The standard `Float` type, this is a double-precision IEEE 64bit float.
-
-	On static targets, `null` cannot be assigned to Float. If this is necessary,
-	`Null<Float>` can be used instead.
-
-	`Std.int` converts a `Float` to an `Int`, rounded towards 0.
-	`Std.parseFloat` converts a `String` to a `Float`.
-
-	@see https://haxe.org/manual/types-basic-types.html
-	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
-		<meta>
-			<m n=":coreType"/>
-			<m n=":notNull"/>
-			<m n=":runtimeValue"/>
-		</meta>
-	</abstract>
-	<abstract path="Int" params="" file="/home/runner/work/haxe/haxe/std/StdTypes.hx" module="StdTypes">
-		<this><x path="Int"/></this>
-		<to><icast><x path="Float"/></icast></to>
-		<haxe_doc><![CDATA[The standard `Int` type. Its precision depends on the platform.
-
-	On static targets, `null` cannot be assigned to `Int`. If this is necessary,
-	`Null<Int>` can be used instead.
-
-	`Std.int` converts a `Float` to an `Int`, rounded towards 0.
-	`Std.parseInt` converts a `String` to an `Int`.
-
-	@see https://haxe.org/manual/types-basic-types.html
-	@see https://haxe.org/manual/std-math-integer-math.html
-	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
-		<meta>
-			<m n=":coreType"/>
-			<m n=":notNull"/>
-			<m n=":runtimeValue"/>
-		</meta>
 	</abstract>
 	<abstract path="Null" params="T" file="/home/runner/work/haxe/haxe/std/StdTypes.hx" module="StdTypes">
 		<from><icast><c path="Null.T"/></icast></from>
@@ -2462,35 +3968,6 @@
 		<meta>
 			<m n=":forward"/>
 			<m n=":coreType"/>
-		</meta>
-	</abstract>
-	<abstract path="Bool" params="" file="/home/runner/work/haxe/haxe/std/StdTypes.hx" module="StdTypes">
-		<this><x path="Bool"/></this>
-		<haxe_doc><![CDATA[The standard Boolean type, which can either be `true` or `false`.
-
-	On static targets, `null` cannot be assigned to `Bool`. If this is necessary,
-	`Null<Bool>` can be used instead.
-
-	@see https://haxe.org/manual/types-bool.html
-	@see https://haxe.org/manual/types-nullability.html]]></haxe_doc>
-		<meta>
-			<m n=":coreType"/>
-			<m n=":notNull"/>
-			<m n=":runtimeValue"/>
-		</meta>
-	</abstract>
-	<abstract path="Dynamic" params="T" file="/home/runner/work/haxe/haxe/std/StdTypes.hx" module="StdTypes">
-		<this><x path="Dynamic"><c path="Dynamic.T"/></x></this>
-		<haxe_doc>`Dynamic` is a special type which is compatible with all other types.
-
-	Use of `Dynamic` should be minimized as it prevents several compiler
-	checks and optimizations. See `Any` type for a safer alternative for
-	representing values of any type.
-
-	@see https://haxe.org/manual/types-dynamic.html</haxe_doc>
-		<meta>
-			<m n=":coreType"/>
-			<m n=":runtimeValue"/>
 		</meta>
 	</abstract>
 	<typedef path="Iterator" params="T" file="/home/runner/work/haxe/haxe/std/StdTypes.hx" module="StdTypes">
@@ -2554,222 +4031,6 @@
 
 	@see https://haxe.org/manual/types-abstract-array-access.html</haxe_doc></class>
 	<typedef path="_String.BaseString" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/String.hx" private="1" module="String"><c path="lua.lib.luautf8.Utf8"/></typedef>
-	<class path="String" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/String.hx">
-		<__oldindex static="1"><f a=":">
-	<c path="String"/>
-	<c path="String"/>
-	<d/>
-</f></__oldindex>
-		<__index set="method" line="42" static="1">
-			<f a="s:k">
-				<d/>
-				<d/>
-				<d/>
-			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":keep"/>
-			</meta>
-		</__index>
-		<indexOfEmpty set="method" line="79" static="1"><f a="s:startIndex">
-	<c path="String"/>
-	<x path="Int"/>
-	<x path="Int"/>
-</f></indexOfEmpty>
-		<fromCharCode public="1" get="inline" set="null" line="173" static="1">
-			<f a="code">
-				<x path="Int"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns the String corresponding to the character code `code`.
-
-		If `code` is negative or has another invalid value, the result is
-		unspecified.</haxe_doc>
-		</fromCharCode>
-		<length public="1" set="null">
-			<x path="Int"/>
-			<haxe_doc>The number of characters in `this` String.</haxe_doc>
-		</length>
-		<toUpperCase public="1" get="inline" set="null" line="59">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>Returns a String where all characters of `this` String are upper case.</haxe_doc>
-		</toUpperCase>
-		<toLowerCase public="1" get="inline" set="null" line="62">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>Returns a String where all characters of `this` String are lower case.</haxe_doc>
-		</toLowerCase>
-		<indexOf public="1" set="method" line="64">
-			<f a="str:?startIndex">
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc><![CDATA[Returns the position of the leftmost occurrence of `str` within `this` String.
-
-		If `str` is the empty String `""`, then:
-			* If `startIndex` is not specified or < 0, 0 is returned.
-			* If `startIndex >= this.length`, `this.length` is returned.
-			* Otherwise, `startIndex` is returned,
-
-		Otherwise, if `startIndex` is not specified or < 0, it is treated as 0.
-
-		If `startIndex >= this.length`, -1 is returned.
-
-		Otherwise the search is performed within the substring of `this` String starting
-		at `startIndex`. If `str` is found, the position of its first character in `this`
-		String relative to position 0 is returned.
-
-		If `str` cannot be found, -1 is returned.
-
-		If `str` is null, the result is unspecified.]]></haxe_doc>
-		</indexOf>
-		<lastIndexOf public="1" set="method" line="87">
-			<f a="str:?startIndex">
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Returns the position of the rightmost occurrence of `str` within `this`
-		String.
-
-		If `startIndex` is given, the search is performed within the substring
-		of `this` String from 0 to `startIndex + str.length`. Otherwise the search
-		is performed within `this` String. In either case, the returned position
-		is relative to the beginning of `this` String.
-
-		If `startIndex` is negative, the result is unspecified.
-
-		If `str` cannot be found, -1 is returned.
-
-		If `str` is null, the result is unspecified.</haxe_doc>
-		</lastIndexOf>
-		<split public="1" set="method" line="109">
-			<f a="delimiter">
-				<c path="String"/>
-				<c path="Array"><c path="String"/></c>
-			</f>
-			<haxe_doc>Splits `this` String at each occurrence of `delimiter`.
-
-		If `this` String is the empty String `""`, the result is not consistent
-		across targets and may either be `[]` (on Js, Cpp) or `[""]`.
-
-		If `delimiter` is the empty String `""`, `this` String is split into an
-		Array of `this.length` elements, where the elements correspond to the
-		characters of `this` String.
-
-		If `delimiter` is not found within `this` String, the result is an Array
-		with one element, which equals `this` String.
-
-		If `delimiter` is null, the result is unspecified.
-
-		Otherwise, `this` String is split into parts at each occurrence of
-		`delimiter`. If `this` String starts (or ends) with `delimiter`, the
-		result `Array` contains a leading (or trailing) empty String `""` element.
-		Two subsequent delimiters also result in an empty String `""` element.</haxe_doc>
-		</split>
-		<toString public="1" get="inline" set="null" line="134">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>Returns the String itself.</haxe_doc>
-		</toString>
-		<substring public="1" set="method" line="138">
-			<f a="startIndex:?endIndex">
-				<x path="Int"/>
-				<x path="Int"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns the part of `this` String from `startIndex` to but not including `endIndex`.
-
-		If `startIndex` or `endIndex` are negative, 0 is used instead.
-
-		If `startIndex` exceeds `endIndex`, they are swapped.
-
-		If the (possibly swapped) `endIndex` is omitted or exceeds
-		`this.length`, `this.length` is used instead.
-
-		If the (possibly swapped) `startIndex` exceeds `this.length`, the empty
-		String `""` is returned.</haxe_doc>
-		</substring>
-		<charAt public="1" get="inline" set="null" line="153">
-			<f a="index">
-				<x path="Int"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns the character at position `index` of `this` String.
-
-		If `index` is negative or exceeds `this.length`, the empty String `""`
-		is returned.</haxe_doc>
-		</charAt>
-		<charCodeAt public="1" get="inline" set="null" line="157">
-			<f a="index">
-				<x path="Int"/>
-				<x path="Null"><x path="Int"/></x>
-			</f>
-			<haxe_doc>Returns the character code at position `index` of `this` String.
-
-		If `index` is negative or exceeds `this.length`, `null` is returned.
-
-		To obtain the character code of a single character, `"x".code` can be
-		used instead to inline the character code at compile time. Note that
-		this only works on String literals of length 1.</haxe_doc>
-		</charCodeAt>
-		<substr public="1" set="method" line="161">
-			<f a="pos:?len">
-				<x path="Int"/>
-				<x path="Int"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns `len` characters of `this` String, starting at position `pos`.
-
-		If `len` is omitted, all characters from position `pos` to the end of
-		`this` String are included.
-		```haxe
-		"abcde".substr(3) // de
-		```
-
-		If `pos` is negative, its value is calculated from the end of `this`
-		String by `this.length + pos`. If this yields a negative value, 0 is
-		used instead.
-		```haxe
-		"abcde".substr(-2) // de
-		```
-
-		If `len` is positive, up to `len` characters from the calculated position
-		to the end of `this` String are included.
-		```haxe
-		"abcde".substr(1, 2) // bc
-		```
-
-		If `len` is negative, all characters from the calculated position to the end
-		of `this` String, except the last `abs(len)` characters, are included.
-		```haxe
-		"abcde".substr(0, -2) // abc
-		"abcde".substr(1, -2) // bc
-		```
-
-		If the calculated position + `len` exceeds `this.length`, the characters
-		from that position to the end of `this` String are returned.</haxe_doc>
-		</substr>
-		<new public="1" get="inline" set="null" line="39">
-			<f a="string">
-				<c path="String"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Creates a copy from a given String.</haxe_doc>
-		</new>
-		<haxe_doc>The basic String class.
-
-	A Haxe String is immutable, it is not possible to modify individual
-	characters. No method of this class changes the state of `this` String.
-
-	Strings can be constructed using the String literal syntax `"string value"`.
-
-	String can be concatenated by using the `+` operator. If an operand is not a
-	String, it is passed through `Std.string()` first.
-
-	@see https://haxe.org/manual/std-String.html</haxe_doc>
-		<meta><m n=":coreApi"/></meta>
-	</class>
 	<class path="StringBuf" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/StringBuf.hx">
 		<b><c path="lua.Table">
 	<x path="Int"/>
@@ -5391,142 +6652,6 @@
 		<haxe_doc>Handles async events for all threads</haxe_doc>
 		<meta><m n=":access"><e>haxe.Event</e></m></meta>
 	</class>
-	<class path="haxe.Exception" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/haxe/Exception.hx">
-		<caught set="method" line="17" static="1"><f a="value">
-	<x path="Any"/>
-	<c path="haxe.Exception"/>
-</f></caught>
-		<thrown set="method" line="25" static="1"><f a="value">
-	<x path="Any"/>
-	<x path="Any"/>
-</f></thrown>
-		<message public="1" get="accessor" set="null">
-			<c path="String"/>
-			<haxe_doc>Exception message.</haxe_doc>
-		</message>
-		<stack public="1" get="accessor" set="accessor">
-			<x path="haxe.CallStack"/>
-			<haxe_doc>The call stack at the moment of the exception creation.</haxe_doc>
-		</stack>
-		<previous public="1" get="accessor" set="null">
-			<x path="Null"><c path="haxe.Exception"/></x>
-			<haxe_doc>Contains an exception, which was passed to `previous` constructor argument.</haxe_doc>
-		</previous>
-		<native public="1" get="accessor" set="null">
-			<x path="Any"/>
-			<haxe_doc>Native exception, which caused this exception.</haxe_doc>
-		</native>
-		<__exceptionMessage>
-			<c path="String"/>
-			<meta><m n=":noCompletion"/></meta>
-		</__exceptionMessage>
-		<__exceptionStack>
-			<x path="Null"><x path="haxe.CallStack"/></x>
-			<meta><m n=":noCompletion"/></meta>
-		</__exceptionStack>
-		<__nativeStack>
-			<c path="Array"><c path="String"/></c>
-			<meta><m n=":noCompletion"/></meta>
-		</__nativeStack>
-		<__skipStack expr="0">
-			<x path="Int"/>
-			<meta>
-				<m n=":value"><e>0</e></m>
-				<m n=":noCompletion"/>
-				<m n=":ifFeature"><e>"haxe.Exception.get_stack"</e></m>
-			</meta>
-		</__skipStack>
-		<__nativeException>
-			<x path="Any"/>
-			<meta><m n=":noCompletion"/></meta>
-		</__nativeException>
-		<__previousException>
-			<x path="Null"><c path="haxe.Exception"/></x>
-			<meta><m n=":noCompletion"/></meta>
-		</__previousException>
-		<unwrap set="method" line="48"><f a=""><x path="Any"/></f></unwrap>
-		<toString public="1" set="method" line="53">
-			<f a=""><c path="String"/></f>
-			<meta><m n=":keep"/></meta>
-			<haxe_doc>Returns exception message.</haxe_doc>
-		</toString>
-		<details public="1" set="method" line="57">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>Detailed exception description.
-
-		Includes message, stack and the chain of previous exceptions (if set).</haxe_doc>
-		</details>
-		<__shiftStack get="inline" set="null" line="63">
-			<f a=""><x path="Void"/></f>
-			<meta>
-				<m n=":noCompletion"/>
-				<m n=":ifFeature"><e>"haxe.Exception.get_stack"</e></m>
-			</meta>
-		</__shiftStack>
-		<get_message set="method" line="67"><f a=""><c path="String"/></f></get_message>
-		<get_previous set="method" line="71"><f a=""><x path="Null"><c path="haxe.Exception"/></x></f></get_previous>
-		<get_native final="1" set="method" line="75"><f a=""><x path="Any"/></f></get_native>
-		<get_stack set="method" line="79"><f a=""><x path="haxe.CallStack"/></f></get_stack>
-		<set_stack set="method" line="87"><f a="stack">
-	<x path="haxe.CallStack"/>
-	<x path="haxe.CallStack"/>
-</f></set_stack>
-		<new public="1" set="method" line="35">
-			<f a="message:?previous:?native">
-				<c path="String"/>
-				<c path="haxe.Exception"/>
-				<x path="Any"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Create a new Exception instance.
-
-		The `previous` argument could be used for exception chaining.
-
-		The `native` argument is for internal usage only.
-		There is no need to provide `native` argument manually and no need to keep it
-		upon extending `haxe.Exception` unless you know what you're doing.</haxe_doc>
-		</new>
-		<haxe_doc><![CDATA[Base class for exceptions.
-
-	If this class (or derivatives) is used to catch an exception, then
-	`haxe.CallStack.exceptionStack()` will not return a stack for the exception
-	caught. Use `haxe.Exception.stack` property instead:
-	```haxe
-	try {
-		throwSomething();
-	} catch(e:Exception) {
-		trace(e.stack);
-	}
-	```
-
-	Custom exceptions should extend this class:
-	```haxe
-	class MyException extends haxe.Exception {}
-	//...
-	throw new MyException('terrible exception');
-	```
-
-	`haxe.Exception` is also a wildcard type to catch any exception:
-	```haxe
-	try {
-		throw 'Catch me!';
-	} catch(e:haxe.Exception) {
-		trace(e.message); // Output: Catch me!
-	}
-	```
-
-	To rethrow an exception just throw it again.
-	Haxe will try to rethrow an original native exception whenever possible.
-	```haxe
-	try {
-		var a:Array<Int> = null;
-		a.push(1); // generates target-specific null-pointer exception
-	} catch(e:haxe.Exception) {
-		throw e; // rethrows native exception instead of haxe.Exception
-	}
-	```]]></haxe_doc>
-		<meta><m n=":coreApi"/></meta>
-	</class>
 	<class path="haxe.GcFinalizer" params="T" file="/home/runner/work/haxe/haxe/std/lua/_std/haxe/GcFinalizer.hx">
 		<callback><f a="">
 	<c path="haxe.GcFinalizer.T"/>
@@ -7970,31 +9095,6 @@
 		<haxe_doc>This class exists for backward compatibility. You should use haxe.EventLoop instead.</haxe_doc>
 	</class>
 	<typedef path="haxe._NativeStackTrace.NativeTrace" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/haxe/NativeStackTrace.hx" private="1" module="haxe.NativeStackTrace"><c path="Array"><c path="String"/></c></typedef>
-	<class path="haxe.NativeStackTrace" params="" file="/home/runner/work/haxe/haxe/std/lua/_std/haxe/NativeStackTrace.hx">
-		<saveStack public="1" get="inline" set="null" line="14" static="1">
-			<f a="exception">
-				<x path="Any"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":ifFeature"><e>"haxe.NativeStackTrace.exceptionStack"</e></m></meta>
-		</saveStack>
-		<callStack public="1" set="method" line="17" static="1"><f a=""><t path="haxe._NativeStackTrace.NativeTrace"/></f></callStack>
-		<exceptionStack public="1" set="method" line="24" static="1"><f a=""><t path="haxe._NativeStackTrace.NativeTrace"/></f></exceptionStack>
-		<toHaxe public="1" set="method" line="28" static="1">
-			<f a="nativeStackTrace:?skip" v=":0">
-				<t path="haxe._NativeStackTrace.NativeTrace"/>
-				<x path="Int"/>
-				<c path="Array"><e path="haxe.StackItem"/></c>
-			</f>
-			<meta><m n=":value"><e>{ skip : 0 }</e></m></meta>
-		</toHaxe>
-		<haxe_doc>Do not use manually.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":dox"><e>hide</e></m>
-			<m n=":noCompletion"/>
-		</meta>
-	</class>
 	<typedef path="haxe.PosInfos" params="" file="/home/runner/work/haxe/haxe/std/haxe/PosInfos.hx">
 		<a>
 			<methodName><c path="String"/></methodName>
@@ -9636,39 +10736,6 @@
 	can use this cross-platform API to perform operations on such strings.</haxe_doc>
 		<meta><m n=":deprecated"><e>"haxe.Utf8 is deprecated. Use UnicodeString instead."</e></m></meta>
 	</class>
-	<class path="haxe.ValueException" params="" file="/home/runner/work/haxe/haxe/std/haxe/ValueException.hx">
-		<extends path="haxe.Exception"/>
-		<value public="1" set="null">
-			<x path="Any"/>
-			<haxe_doc>Thrown value.</haxe_doc>
-		</value>
-		<unwrap set="method" line="35" override="1">
-			<f a=""><x path="Any"/></f>
-			<haxe_doc>Extract an originally thrown value.
-
-		This method must return the same value on subsequent calls.
-		Used internally for catching non-native exceptions.
-		Do _not_ override unless you know what you are doing.</haxe_doc>
-		</unwrap>
-		<new public="1" set="method" line="23"><f a="value:?previous:?native">
-	<x path="Any"/>
-	<c path="haxe.Exception"/>
-	<x path="Any"/>
-	<x path="Void"/>
-</f></new>
-		<haxe_doc>An exception containing arbitrary value.
-
-	This class is automatically used for throwing values, which don't extend `haxe.Exception`
-	or native exception type.
-	For example:
-	```haxe
-	throw "Terrible error";
-	```
-	will be compiled to
-	```haxe
-	throw new ValueException("Terrible error");
-	```</haxe_doc>
-	</class>
 	<class path="haxe.atomic._AtomicInt.AtomicIntValue" params="" file="/home/runner/work/haxe/haxe/std/haxe/atomic/AtomicInt.hx" private="1" module="haxe.atomic.AtomicInt">
 		<value public="1"><x path="Int"/></value>
 		<new public="1" set="method" line="141"><f a="value">
@@ -10384,179 +11451,6 @@
 	</create>
 </class></impl>
 	</abstract>
-	<class path="lua.Table" params="A:B" file="/home/runner/work/haxe/haxe/std/lua/Table.hx" extern="1">
-		<create public="1" params="A:B" set="method" static="1">
-			<f a="?arr:?hsh">
-				<c path="Array"><c path="create.B"/></c>
-				<d/>
-				<c path="lua.Table">
-					<c path="create.A"/>
-					<c path="create.B"/>
-				</c>
-			</f>
-			<meta><m n=":native"><e>"create_literal"</e></m></meta>
-			<haxe_doc>Generate an inline lua table declaration from an array literal and/or an object literal argument.</haxe_doc>
-		</create>
-		<createEmpty public="1" params="A:B" set="method" static="1">
-			<f a="nseq:nrec">
-				<x path="Int"/>
-				<x path="Int"/>
-				<c path="lua.Table">
-					<c path="createEmpty.A"/>
-					<c path="createEmpty.B"/>
-				</c>
-			</f>
-			<meta><m n=":native"><e>"new"</e></m></meta>
-		</createEmpty>
-		<fromArray public="1" params="T" get="inline" set="null" line="61" static="1">
-			<f a="arr">
-				<c path="Array"><c path="fromArray.T"/></c>
-				<c path="lua.Table">
-					<x path="Int"/>
-					<c path="fromArray.T"/>
-				</c>
-			</f>
-			<haxe_doc>Convert the array `arr` into a lua table with lua-style indexing.</haxe_doc>
-		</fromArray>
-		<fromMap public="1" params="A:B" get="inline" set="null" line="69" static="1">
-			<f a="map">
-				<t path="Map">
-					<c path="fromMap.A"/>
-					<c path="fromMap.B"/>
-				</t>
-				<c path="lua.Table">
-					<c path="fromMap.A"/>
-					<c path="fromMap.B"/>
-				</c>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</fromMap>
-		<fromDynamic public="1" params="A:B" get="inline" set="null" line="77" static="1">
-			<f a="dyn">
-				<d/>
-				<c path="lua.Table">
-					<c path="fromDynamic.A"/>
-					<c path="fromDynamic.B"/>
-				</c>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</fromDynamic>
-		<toMap public="1" params="A:B" get="inline" set="null" line="85" static="1"><f a="tbl">
-	<c path="lua.Table">
-		<c path="toMap.A"/>
-		<c path="toMap.B"/>
-	</c>
-	<t path="Map">
-		<c path="toMap.A"/>
-		<c path="toMap.B"/>
-	</t>
-</f></toMap>
-		<toObject public="1" params="T" get="inline" set="null" line="97" static="1">
-			<f a="t">
-				<c path="lua.Table">
-					<c path="String"/>
-					<c path="toObject.T"/>
-				</c>
-				<d><c path="toObject.T"/></d>
-			</f>
-			<haxe_doc>Copies the table argument and converts it to an Object.</haxe_doc>
-		</toObject>
-		<toArray public="1" params="T" get="inline" set="null" line="102" static="1"><f a="tbl:?length">
-	<c path="lua.Table">
-		<x path="Int"/>
-		<c path="toArray.T"/>
-	</c>
-	<x path="Int"/>
-	<c path="Array"><c path="toArray.T"/></c>
-</f></toArray>
-		<concat public="1" params="A:B" set="method" static="1">
-			<f a="table:?sep:?i:?j">
-				<c path="lua.Table">
-					<c path="concat.A"/>
-					<c path="concat.B"/>
-				</c>
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<c path="String"/>
-			</f>
-			<overloads><concat public="1" params="A:B" set="method"><f a="table">
-	<c path="lua.Table">
-		<c path="concat.A"/>
-		<c path="concat.B"/>
-	</c>
-	<x path="Void"/>
-</f></concat></overloads>
-		</concat>
-		<sort public="1" params="A:B" set="method" static="1"><f a="table:?order">
-	<c path="lua.Table">
-		<c path="sort.A"/>
-		<c path="sort.B"/>
-	</c>
-	<f a=":">
-		<c path="sort.A"/>
-		<c path="sort.A"/>
-		<x path="Bool"/>
-	</f>
-	<x path="Void"/>
-</f></sort>
-		<insert public="1" params="B" set="method" static="1">
-			<f a="table:pos:value">
-				<c path="lua.Table">
-					<x path="Int"/>
-					<c path="insert.B"/>
-				</c>
-				<x path="Int"/>
-				<c path="insert.B"/>
-				<x path="Void"/>
-			</f>
-			<overloads><insert public="1" params="B" set="method"><f a="table:value">
-	<c path="lua.Table">
-		<x path="Int"/>
-		<c path="insert.B"/>
-	</c>
-	<c path="insert.B"/>
-	<x path="Void"/>
-</f></insert></overloads>
-		</insert>
-		<remove public="1" params="B" set="method" static="1">
-			<f a="table:?pos">
-				<c path="lua.Table">
-					<x path="Int"/>
-					<c path="remove.B"/>
-				</c>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<overloads><remove public="1" params="B" set="method"><f a="table">
-	<c path="lua.Table">
-		<x path="Int"/>
-		<c path="remove.B"/>
-	</c>
-	<x path="Void"/>
-</f></remove></overloads>
-		</remove>
-		<iterator public="1" get="inline" set="null" line="110">
-			<f a=""><t path="Iterator"><c path="lua.Table.B"/></t></f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Returns an iterator over the values in the table.
-		Enables `for (v in table)` syntax.</haxe_doc>
-		</iterator>
-		<keyValueIterator public="1" get="inline" set="null" line="128">
-			<f a=""><t path="KeyValueIterator">
-	<c path="lua.Table.A"/>
-	<c path="lua.Table.B"/>
-</t></f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc><![CDATA[Returns an iterator over the key-value pairs in the table.
-		Enables `for (k => v in table)` syntax.]]></haxe_doc>
-		</keyValueIterator>
-		<haxe_doc>This library provides generic functions for table manipulation.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":native"><e>"_G.table"</e></m>
-		</meta>
-	</class>
 	<class path="haxe.coro.context._Context.AdjustableContext_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Context.hx" private="1" module="haxe.coro.context.Context" final="1">
 		<_hx_new public="1" get="inline" set="null" line="97" static="1">
 			<f a="tree">
@@ -10615,47 +11509,6 @@
 			</f>
 			<meta><m n=":to"/></meta>
 		</toContext>
-	</class>
-	<class path="haxe.iterators.RestIterator" params="T" file="/home/runner/work/haxe/haxe/std/haxe/iterators/RestIterator.hx">
-		<args final="1"><x path="haxe.Rest"><c path="haxe.iterators.RestIterator.T"/></x></args>
-		<current expr="0">
-			<x path="Int"/>
-			<meta><m n=":value"><e>0</e></m></meta>
-		</current>
-		<hasNext public="1" get="inline" set="null" line="12"><f a=""><x path="Bool"/></f></hasNext>
-		<next public="1" get="inline" set="null" line="16"><f a=""><c path="haxe.iterators.RestIterator.T"/></f></next>
-		<new get="inline" set="null" line="8">
-			<f a="args">
-				<x path="Any"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":allow"><e>haxe.Rest</e></m></meta>
-		</new>
-	</class>
-	<class path="lua.TableTools" params="" file="/home/runner/work/haxe/haxe/std/lua/TableTools.hx" extern="1">
-		<pack public="1" params="T" set="method" static="1"><f a="args">
-	<t path="haxe.extern.Rest"><c path="pack.T"/></t>
-	<c path="lua.Table">
-		<x path="Int"/>
-		<c path="pack.T"/>
-	</c>
-</f></pack>
-		<unpack public="1" params="Int:V" set="method" static="1"><f a="args:?min:?max">
-	<c path="lua.Table">
-		<c path="unpack.Int"/>
-		<c path="unpack.V"/>
-	</c>
-	<c path="unpack.Int"/>
-	<c path="unpack.Int"/>
-	<d/>
-</f></unpack>
-		<maxn public="1" set="method" static="1"><f a="t">
-	<t path="lua.AnyTable"/>
-	<x path="Int"/>
-</f></maxn>
-		<haxe_doc>This library is an extern for a polyfill library of common lua table
-    methods.</haxe_doc>
-		<meta><m n=":native"><e>"_hx_table"</e></m></meta>
 	</class>
 	<class path="haxe.coro.context._Context.Context_Impl_" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/Context.hx" private="1" module="haxe.coro.context.Context" final="1">
 		<empty final="1" public="1" set="null" expr="Context.create()" line="15" static="1">
@@ -11266,230 +12119,6 @@
 	<t path="haxe.io.BytesData"/>
 	<x path="Void"/>
 </f></new>
-	</class>
-	<class path="lua.NativeStringTools" params="" file="/home/runner/work/haxe/haxe/std/lua/NativeStringTools.hx" extern="1">
-		<len public="1" set="method" static="1">
-			<f a="str">
-				<c path="String"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Receives a string and returns its length. The empty string `""` has
-		length `0`. Embedded zeros are counted, so `"a\000bc\000"` has length `5`.</haxe_doc>
-		</len>
-		<char public="1" set="method" static="1">
-			<f a="codes">
-				<t path="haxe.extern.Rest"><x path="Int"/></t>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Receives zero or more integers. Returns a string with length equal to the
-		number of arguments, in which each character has the internal numerical
-		code equal to its corresponding argument.
-		Note that numerical codes are not necessarily portable across platforms.</haxe_doc>
-		</char>
-		<sub public="1" set="method" static="1">
-			<f a="str:start:?end">
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns the substring of `str` that starts at `start` and continues until `end`;
-		`start` and `end` can be negative. If `end` is absent, then it is assumed to be
-		equal to `-1` (which is the same as the string length).
-		In particular, the call `sub(str,1,end)` returns a prefix of `str`
-		with length `end`, and `sub(str, -end)` returns a suffix of `str` with
-		length `start`.</haxe_doc>
-		</sub>
-		<find public="1" set="method" static="1">
-			<f a="str:target:?start:?plain">
-				<c path="String"/>
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="Bool"/>
-				<c path="lua.StringFind"/>
-			</f>
-			<haxe_doc>Looks for the first match of pattern in the string `str`.
-		If it finds a match, then `find` returns the indices of `str` where this
-		occurrence starts and ends.
-
-		@param target If the target has captures, then in a successful match the
-			   captured values are also returned, after the two indices.
-		@param start specifies where to start the search; its default value is `1`
-			   and can be negative.
-		@param plain turns off the pattern matching facilities, so the function does
-			   a plain "find substring" operation, with no characters in pattern
-			   being considered "magic". Note that if plain is given, then `start` must be given as well.</haxe_doc>
-		</find>
-		<byte public="1" set="method" static="1">
-			<f a="str:?index">
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Returns the internal numerical codes of the characters `str[index]`.
-		Note that numerical codes are not necessarily portable across platforms.</haxe_doc>
-		</byte>
-		<format public="1" set="method" static="1">
-			<f a="str:?e1:?e2:?e3:?e4">
-				<c path="String"/>
-				<d/>
-				<d/>
-				<d/>
-				<d/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns a formatted version of its variable number of arguments following
-		the description given in its first argument (which must be a string).
-		The format string follows the same rules as the printf family of standard C
-		functions. The only differences are that the options/modifiers
-		`*`, `l`, `L`, `n`, `p`, and `h` are not supported and that there is an
-		extra option, `q`. The `q` option formats a string in a form suitable to be
-		safely read back by the Lua interpreter: the string is written between
-		double quotes, and all double quotes, newlines, embedded zeros,
-		and backslashes in the string are correctly escaped when written.
-		For instance, the call
-		   `string.format('%q', 'a string with "quotes" and \n new line')`
-		will produce the string:
-		`"a string with \"quotes\" and \
-			  new line"`
-
-		The options `c`, `d` `E`, `e`, `f`, `g`, `G`, `i`, `o`, `u, `X-, and `x` all
-		expect a number as argument, whereas `q` and `s` expect a string.
-
-		This function does not accept string values containing embedded zeros,
-		except as arguments to the `q` option.</haxe_doc>
-		</format>
-		<gsub public="1" set="method" static="1">
-			<f a="str:pattern:replace:?n">
-				<c path="String"/>
-				<c path="String"/>
-				<c path="String"/>
-				<x path="Int"/>
-				<c path="lua.StringGSub"/>
-			</f>
-			<haxe_doc>Returns a copy of s in which all (or the first n, if given) occurrences of
-		the pattern have been replaced by a replacement string specified by repl,
-		which can be a string, a table, or a function. gsub also returns, as its second
-		value, the total number of matches that occurred.</haxe_doc>
-			<overloads>
-				<gsub public="1" set="method">
-					<f a="str:pattern:replace:?n">
-						<c path="String"/>
-						<c path="String"/>
-						<f a="">
-							<c path="String"/>
-							<x path="Void"/>
-						</f>
-						<x path="Int"/>
-						<c path="lua.StringGSub"/>
-					</f>
-					<haxe_doc>Returns a copy of s in which all (or the first n, if given) occurrences of
-		the pattern have been replaced by a replacement string specified by repl,
-		which can be a string, a table, or a function. gsub also returns, as its second
-		value, the total number of matches that occurred.</haxe_doc>
-				</gsub>
-				<gsub public="1" set="method">
-					<f a="str:pattern:replace:?n">
-						<c path="String"/>
-						<c path="String"/>
-						<f a="">
-							<c path="String"/>
-							<c path="String"/>
-						</f>
-						<x path="Int"/>
-						<c path="lua.StringGSub"/>
-					</f>
-					<haxe_doc>Returns a copy of s in which all (or the first n, if given) occurrences of
-		the pattern have been replaced by a replacement string specified by repl,
-		which can be a string, a table, or a function. gsub also returns, as its second
-		value, the total number of matches that occurred.</haxe_doc>
-				</gsub>
-			</overloads>
-		</gsub>
-		<gmatch public="1" set="method" static="1">
-			<f a="str:pattern">
-				<c path="String"/>
-				<c path="String"/>
-				<f a=""><c path="String"/></f>
-			</f>
-			<haxe_doc>Returns an iterator function that, each time it is called, returns the next
-		captures from pattern over string `str`. If `pattern` specifies no captures,
-		then the whole match is produced in each call.</haxe_doc>
-			<overloads><gmatch public="1" set="method">
-	<f a="str:pattern:match:?n">
-		<c path="String"/>
-		<c path="String"/>
-		<f a=""><c path="String"/></f>
-		<x path="Int"/>
-		<f a="">
-			<c path="String"/>
-			<x path="Void"/>
-		</f>
-	</f>
-	<haxe_doc>Returns an iterator function that, each time it is called, returns the next
-		captures from pattern over string `str`. If `pattern` specifies no captures,
-		then the whole match is produced in each call.</haxe_doc>
-</gmatch></overloads>
-		</gmatch>
-		<match public="1" set="method" static="1">
-			<f a="str:pattern:?n">
-				<c path="String"/>
-				<c path="String"/>
-				<x path="Int"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Looks for the first match of pattern in the string s. If it finds one,
-		then match returns the captures from the pattern; otherwise it returns `null`.
-		If pattern specifies no captures, then the whole match is returned.
-		The optional argument `n` specifies where to start the search;
-		its default value is `1` and can be negative.</haxe_doc>
-		</match>
-		<upper public="1" set="method" static="1">
-			<f a="str">
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Receives a string and returns a copy of this string with all lowercase
-		letters changed to uppercase. All other characters are left unchanged.
-		The definition of what a lowercase letter is depends on the current locale.</haxe_doc>
-		</upper>
-		<lower public="1" set="method" static="1">
-			<f a="str">
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Receives a string and returns a copy of this string with all uppercase
-		letters changed to lowercase. All other characters are left unchanged.
-		The definition of what an uppercase letter is depends on the current locale.</haxe_doc>
-		</lower>
-		<dump public="1" set="method" static="1">
-			<f a="d">
-				<d/>
-				<d/>
-			</f>
-			<haxe_doc>Returns a string containing a binary representation of the given function,
-		so that a later loadstring on this string returns a copy of the function.
-		function must be a Lua function without upvalues.</haxe_doc>
-		</dump>
-		<rep public="1" set="method" static="1">
-			<f a="s:n:?sep">
-				<c path="String"/>
-				<x path="Int"/>
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns a string that is the concatenation of n copies of
-        the string s separated by the string sep. The default value
-        for sep is the empty string (that is, no separator).
-        Returns the empty string if n is not positive.  (Note that
-        it is very easy to exhaust the memory of your machine with
-        a single call to this function.)</haxe_doc>
-		</rep>
-		<haxe_doc>These are all externs for the base Lua "string" class, which functions
-	as an additional set of string tools.
-
-	Note that all relevant indexes are "1" based.</haxe_doc>
-		<meta><m n=":native"><e>"_G.string"</e></m></meta>
 	</class>
 	<class path="haxe.crypto.Base64" params="" file="/home/runner/work/haxe/haxe/std/haxe/crypto/Base64.hx">
 		<CHARS public="1" set="null" expr="&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;" line="29" static="1">
@@ -29003,6 +29632,22 @@
 	<e>"dynamic_read.keyValueIterator"</e>
 </m></meta>
 	</class>
+	<class path="haxe.iterators.RestIterator" params="T" file="/home/runner/work/haxe/haxe/std/haxe/iterators/RestIterator.hx">
+		<args final="1"><x path="haxe.Rest"><c path="haxe.iterators.RestIterator.T"/></x></args>
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<hasNext public="1" get="inline" set="null" line="12"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="16"><f a=""><c path="haxe.iterators.RestIterator.T"/></f></next>
+		<new get="inline" set="null" line="8">
+			<f a="args">
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":allow"><e>haxe.Rest</e></m></meta>
+		</new>
+	</class>
 	<class path="haxe.iterators.RestKeyValueIterator" params="T" file="/home/runner/work/haxe/haxe/std/haxe/iterators/RestKeyValueIterator.hx">
 		<args final="1"><x path="haxe.Rest"><c path="haxe.iterators.RestKeyValueIterator.T"/></x></args>
 		<current expr="0">
@@ -34418,220 +35063,6 @@
 		<haxe_doc>Externs for the "bit" class that is required for Haxe lua</haxe_doc>
 		<meta><m n=":native"><e>"_hx_bit"</e></m></meta>
 	</class>
-	<class path="lua.Syntax" params="" file="/home/runner/work/haxe/haxe/std/lua/Syntax.hx" extern="1">
-		<code public="1" set="method" static="1">
-			<f a="code:args">
-				<c path="String"/>
-				<t path="haxe.extern.Rest"><d/></t>
-				<d/>
-			</f>
-			<haxe_doc>Inject `code` directly into generated source.
-
-		`code` must be a string constant.
-
-		Additional `args` are supported to provide code interpolation, for example:
-		```haxe
-		Syntax.code("print({0}, {1})", "hi", 42);
-		```
-		will generate
-		```lua
-		print("hi", 42)
-		```
-
-		Emits a compilation error if the count of `args` does not match the count of placeholders in `code`.</haxe_doc>
-		</code>
-		<plainCode public="1" set="method" static="1">
-			<f a="code">
-				<c path="String"/>
-				<d/>
-			</f>
-			<haxe_doc>Inject `code` directly into generated source.
-		The same as `lua.Syntax.code` except this one does not provide code interpolation.</haxe_doc>
-		</plainCode>
-		<haxe_doc>Generate Lua syntax not directly supported by Haxe.
-	Use only at low-level when specific target-specific code-generation is required.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":noClosure"/>
-		</meta>
-	</class>
-	<class path="lua.Boot" params="" file="/home/runner/work/haxe/haxe/std/lua/Boot.hx">
-		<_ static="1"><d/></_>
-		<_fid expr="0" line="31" static="1">
-			<x path="Int"/>
-			<meta><m n=":value"><e>0</e></m></meta>
-		</_fid>
-		<Max_Int32 expr="2147483647" line="33" static="1">
-			<x path="Int"/>
-			<meta><m n=":value"><e>2147483647</e></m></meta>
-		</Max_Int32>
-		<Min_Int32 expr="-2147483648" line="34" static="1">
-			<x path="Int"/>
-			<meta><m n=":value"><e>-2147483648</e></m></meta>
-		</Min_Int32>
-		<MAXSTACKSIZE public="1" set="null" expr="1000" line="38" static="1">
-			<x path="Int"/>
-			<meta><m n=":value"><e>1000</e></m></meta>
-		</MAXSTACKSIZE>
-		<platformBigEndian public="1" expr="NativeStringTools.byte(NativeStringTools.dump(function() { }), 7) &gt; 0" line="40" static="1">
-			<x path="Bool"/>
-			<meta><m n=":value"><e><![CDATA[NativeStringTools.byte(NativeStringTools.dump(function() { }), 7) > 0]]></e></m></meta>
-		</platformBigEndian>
-		<hiddenFields expr="Syntax.code(&quot;{__id__=true, hx__closures=true, super=true, prototype=true, __fields__=true, __ifields__=true, __class__=true, __properties__=true}&quot;)" line="42" static="1">
-			<c path="lua.Table">
-				<c path="String"/>
-				<x path="Bool"/>
-			</c>
-			<meta><m n=":value"><e>Syntax.code("{__id__=true, hx__closures=true, super=true, prototype=true, __fields__=true, __ifields__=true, __class__=true, __properties__=true}")</e></m></meta>
-		</hiddenFields>
-		<__unhtml set="method" line="45" static="1"><f a="s">
-	<c path="String"/>
-	<c path="String"/>
-</f></__unhtml>
-		<isClass public="1" get="inline" set="null" line="50" static="1">
-			<f a="o">
-				<d/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Indicates if the given object is a class.</haxe_doc>
-		</isClass>
-		<isEnum public="1" get="inline" set="null" line="60" static="1">
-			<f a="e">
-				<d/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Indicates if the given object is a enum.</haxe_doc>
-		</isEnum>
-		<getClass public="1" get="inline" set="null" line="71" static="1">
-			<f a="o">
-				<d/>
-				<x path="Class"><d/></x>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Returns the class of a given object, and defines the getClass feature
-		for the given class.</haxe_doc>
-		</getClass>
-		<__instanceof set="method" line="89" static="1">
-			<f a="o:cl">
-				<d/>
-				<d/>
-				<x path="Bool"/>
-			</f>
-			<meta>
-				<m n=":has_untyped"/>
-				<m n=":ifFeature"><e>"typed_catch"</e></m>
-			</meta>
-			<haxe_doc>Indicates if the given object is an instance of the given Type</haxe_doc>
-		</__instanceof>
-		<isArray set="method" line="130" static="1">
-			<f a="o">
-				<d/>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-		</isArray>
-		<inheritsFrom set="method" line="138" static="1">
-			<f a="o:cl">
-				<d/>
-				<x path="Class"><d/></x>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Indicates if the given object inherits from the given class</haxe_doc>
-		</inheritsFrom>
-		<__cast set="method" line="148" static="1">
-			<f a="o:t">
-				<d/>
-				<d/>
-				<d/>
-			</f>
-			<meta><m n=":ifFeature"><e>"typed_cast"</e></m></meta>
-		</__cast>
-		<defArray public="1" params="T" get="inline" set="null" line="160" static="1">
-			<f a="tab:?length">
-				<c path="lua.Table">
-					<x path="Int"/>
-					<c path="defArray.T"/>
-				</c>
-				<x path="Int"/>
-				<c path="Array"><c path="defArray.T"/></c>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Define an array from the given table.
-		Converts from 1-indexed Lua table to 0-indexed Haxe array.</haxe_doc>
-		</defArray>
-		<tableToObject public="1" params="T" get="inline" set="null" line="180" static="1">
-			<f a="t">
-				<c path="lua.Table">
-					<c path="String"/>
-					<c path="tableToObject.T"/>
-				</c>
-				<d><c path="tableToObject.T"/></d>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Create a Haxe object from the given table structure</haxe_doc>
-		</tableToObject>
-		<dateStr public="1" set="method" line="187" static="1">
-			<f a="date">
-				<c path="Date"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Get Date object as string representation</haxe_doc>
-		</dateStr>
-		<clampInt32 public="1" get="inline" set="null" line="200" static="1">
-			<f a="x">
-				<x path="Float"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>A 32 bit clamp function for numbers</haxe_doc>
-		</clampInt32>
-		<strDate public="1" set="method" line="207" static="1">
-			<f a="s">
-				<c path="String"/>
-				<c path="Date"/>
-			</f>
-			<haxe_doc>Create a standard date object from a lua string representation</haxe_doc>
-		</strDate>
-		<extendsOrImplements public="1" set="method" line="228" static="1">
-			<f a="cl1:cl2">
-				<x path="Class"><d/></x>
-				<x path="Class"><d/></x>
-				<x path="Bool"/>
-			</f>
-			<meta><m n=":has_untyped"/></meta>
-			<haxe_doc>Helper method to determine if class cl1 extends, implements, or otherwise equals cl2</haxe_doc>
-		</extendsOrImplements>
-		<shellEscapeCmd public="1" set="method" line="248" static="1">
-			<f a="cmd:?args">
-				<c path="String"/>
-				<c path="Array"><c path="String"/></c>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns a shell escaped version of "cmd" along with any args</haxe_doc>
-		</shellEscapeCmd>
-		<tempFile public="1" set="method" line="266" static="1">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>Returns a temp file path that can be used for reading and writing</haxe_doc>
-		</tempFile>
-		<os_patterns get="accessor" static="1"><t path="Map">
-	<c path="String"/>
-	<c path="Array"><c path="String"/></c>
-</t></os_patterns>
-		<get_os_patterns set="method" line="276" static="1"><f a=""><t path="Map">
-	<c path="String"/>
-	<c path="Array"><c path="String"/></c>
-</t></f></get_os_patterns>
-		<systemName public="1" set="method" line="289" static="1">
-			<f a=""><c path="String"/></f>
-			<meta><m n=":has_untyped"/></meta>
-		</systemName>
-		<meta><m n=":dox"><e>hide</e></m></meta>
-	</class>
-	<class path="lua.Thread" params="" file="/home/runner/work/haxe/haxe/std/lua/Thread.hx"><haxe_doc>The sole purpose of this extern is to provide a concrete type for
-	basic reflection purposes.</haxe_doc></class>
 	<class path="lua.Coroutine" params="T" file="/home/runner/work/haxe/haxe/std/lua/Coroutine.hx" extern="1">
 		<extends path="lua.Thread"/>
 		<create public="1" params="T" set="method" static="1">
@@ -34791,158 +35222,6 @@
 		<status public="1"><x path="Bool"/></status>
 		<meta><m n=":multiReturn"/></meta>
 	</class>
-	<class path="lua.Debug" params="" file="/home/runner/work/haxe/haxe/std/lua/Debug.hx" extern="1">
-		<getlocal public="1" set="method" static="1">
-			<f a="stackLevel:idx">
-				<x path="Int"/>
-				<x path="Int"/>
-				<d/>
-			</f>
-			<haxe_doc>This function returns the name and the value of the local variable with
-		index local of the function at level level of the stack.</haxe_doc>
-		</getlocal>
-		<setlocal public="1" set="method" static="1">
-			<f a="stackLevel:varName:value">
-				<x path="Int"/>
-				<c path="String"/>
-				<d/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>This function assigns the value value to the local variable with index
-		local of the function at level level of the stack.
-		Call `getinfo` to check whether the level is valid.</haxe_doc>
-		</setlocal>
-		<getinfo public="1" set="method" static="1">
-			<f a="stackLevel">
-				<x path="Int"/>
-				<t path="lua.DebugInfo"/>
-			</f>
-			<haxe_doc>Returns a table with information about a function.</haxe_doc>
-		</getinfo>
-		<sethook public="1" set="method" static="1">
-			<f a="?fun:?monitor">
-				<x path="haxe.Function"/>
-				<c path="String"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the given function as a hook.
-		When called without arguments, `Debug.sethook` turns off the hook.</haxe_doc>
-		</sethook>
-		<debug public="1" set="method" static="1">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Enters an interactive mode with the user, running each string that the user enters.
-		Using simple commands and other debug facilities, the user can inspect
-		global and local variables, change their values, evaluate expressions,
-		and so on. A line containing only the word `cont` finishes this function,
-		so that the caller continues its execution.
-
-		Note that commands for `Debug.debug` are not lexically nested within any
-		function, and so have no direct access to local variables.</haxe_doc>
-		</debug>
-		<gethook public="1" set="method" static="1">
-			<f a="thread">
-				<c path="lua.Thread"/>
-				<x path="haxe.Function"/>
-			</f>
-			<haxe_doc>Returns the current hook settings of the thread, as three values:
-		the current hook function, the current hook mask, and the current hook count
-		(as set by the `Debug.sethook` function).</haxe_doc>
-		</gethook>
-		<getregistry public="1" set="method" static="1">
-			<f a=""><t path="lua.AnyTable"/></f>
-			<haxe_doc>Returns the registry table.</haxe_doc>
-		</getregistry>
-		<getmetatable public="1" set="method" static="1">
-			<f a="value">
-				<t path="lua.AnyTable"/>
-				<t path="lua.AnyTable"/>
-			</f>
-			<haxe_doc>Returns the metatable of the given `value` or `null` if it does not have a metatable.</haxe_doc>
-		</getmetatable>
-		<setmetatable public="1" set="method" static="1">
-			<f a="value:table">
-				<t path="lua.AnyTable"/>
-				<t path="lua.AnyTable"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the metatable for the given `value` to the given `table` (can be `null`).</haxe_doc>
-		</setmetatable>
-		<getupvalue public="1" set="method" static="1">
-			<f a="f:up">
-				<x path="haxe.Function"/>
-				<x path="Int"/>
-				<d/>
-			</f>
-			<haxe_doc>This function returns the name and the value of the upvalue with index `up`
-		of the function `f`. The function returns `null` if there is no upvalue with
-		the given index.</haxe_doc>
-		</getupvalue>
-		<setupvalue public="1" set="method" static="1">
-			<f a="f:up:val">
-				<x path="haxe.Function"/>
-				<x path="Int"/>
-				<d/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>This function assigns the value value to the upvalue with index up of
-		the function `f`. The function returns `null` if there is no upvalue with
-		the given index. Otherwise, it returns the name of the upvalue.</haxe_doc>
-		</setupvalue>
-		<getuservalue public="1" set="method" static="1">
-			<f a="val">
-				<d/>
-				<d/>
-			</f>
-			<haxe_doc>Returns the Lua value associated to `val`.
-		If `val` is not a `UserData`, returns `null`.</haxe_doc>
-		</getuservalue>
-		<setuservalue public="1" set="method" static="1">
-			<f a="udata:val">
-				<d/>
-				<d/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the given value as the Lua value associated to the given udata.
-		`udata` must be a full `UserData`.</haxe_doc>
-		</setuservalue>
-		<traceback public="1" set="method" static="1">
-			<f a="?thread:?message:?level">
-				<c path="lua.Thread"/>
-				<c path="String"/>
-				<x path="Int"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns a string with a traceback of the call stack.
-		@param message (optional) is appended at the beginning of the traceback.
-		@param level (optional) tells at which level to start the traceback.
-			   default is `1`, the function calling traceback.</haxe_doc>
-		</traceback>
-		<upvalueid public="1" set="method" static="1">
-			<f a="f:n">
-				<x path="haxe.Function"/>
-				<x path="Int"/>
-				<d/>
-			</f>
-			<haxe_doc>Returns a unique identifier (as a light userdata) for the upvalue numbered
-		`n` from the given function `f`.</haxe_doc>
-		</upvalueid>
-		<upvaluejoin public="1" set="method" static="1">
-			<f a="f1:n1:f2:n2">
-				<x path="haxe.Function"/>
-				<x path="Int"/>
-				<x path="haxe.Function"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Make the `n1`-th upvalue of the Lua closure `f1` refer to the `n2`-th
-		upvalue of the Lua closure `f2`.</haxe_doc>
-		</upvaluejoin>
-		<haxe_doc>Externs for the "debug" class for Haxe lua</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":native"><e>"debug"</e></m>
-		</meta>
-	</class>
 	<typedef path="lua.DebugInfo" params="" file="/home/runner/work/haxe/haxe/std/lua/Debug.hx" module="lua.Debug">
 		<a>
 			<what><c path="String"/></what>
@@ -34961,7 +35240,6 @@
 		</a>
 		<haxe_doc>A enumerator that describes the output of `Debug.getinfo()`.</haxe_doc>
 	</typedef>
-	<class path="lua.UserData" params="" file="/home/runner/work/haxe/haxe/std/lua/UserData.hx"/>
 	<class path="lua.FileHandle" params="" file="/home/runner/work/haxe/haxe/std/lua/FileHandle.hx" extern="1">
 		<extends path="lua.UserData"/>
 		<flush public="1" set="method"><f a=""><x path="Void"/></f></flush>
@@ -35354,284 +35632,6 @@
 			</meta>
 		</Time>
 		<meta><m n=":enum"/></meta>
-	</class>
-	<class path="lua.Lua" params="" file="/home/runner/work/haxe/haxe/std/lua/Lua.hx" extern="1">
-		<_VERSION public="1" static="1">
-			<c path="String"/>
-			<haxe_doc>A global variable that holds a string containing the current interpreter
-		version.</haxe_doc>
-		</_VERSION>
-		<arg public="1" static="1"><c path="lua.Table">
-	<x path="Int"/>
-	<c path="String"/>
-</c></arg>
-		<getmetatable public="1" set="method" static="1">
-			<f a="tbl">
-				<c path="lua.Table">
-					<d/>
-					<d/>
-				</c>
-				<c path="lua.Table">
-					<d/>
-					<d/>
-				</c>
-			</f>
-			<haxe_doc>Pushes onto the stack the metatable in the registry.</haxe_doc>
-		</getmetatable>
-		<setmetatable public="1" set="method" static="1">
-			<f a="tbl:mtbl">
-				<c path="lua.Table">
-					<d/>
-					<d/>
-				</c>
-				<c path="lua.Table">
-					<d/>
-					<d/>
-				</c>
-				<c path="lua.Table">
-					<d/>
-					<d/>
-				</c>
-			</f>
-			<haxe_doc>Pops a table from the stack and sets it as the new metatable for the value
-		at the given acceptable index.</haxe_doc>
-		</setmetatable>
-		<setfenv public="1" set="method" static="1">
-			<f a="i:tbl">
-				<x path="Int"/>
-				<c path="lua.Table">
-					<d/>
-					<d/>
-				</c>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Pops a table from the stack and sets it as the new environment for the value
-		at the given index. If the value at the given index is neither a function nor
-		a thread nor a userdata, lua_setfenv returns `0`.
-		Otherwise it returns `1`.</haxe_doc>
-		</setfenv>
-		<next public="1" params="K:V" set="method" static="1">
-			<f a="k:?i">
-				<c path="lua.Table">
-					<c path="next.K"/>
-					<c path="next.V"/>
-				</c>
-				<c path="next.K"/>
-				<c path="lua.NextResult">
-					<c path="next.K"/>
-					<c path="next.V"/>
-				</c>
-			</f>
-			<haxe_doc>Allows a program to traverse all fields of a table.
-		Its first argument is a table and its second argument is an index in this
-		table. `next` returns the next index of the table and its associated value.
-		When `i` is `null`, `next` returns an initial index and its associated value.
-		When called with the last index, or with `null` in an empty table, `next`
-		returns `null`.  In particular, you can use `next(t)` to check whether a
-		table is empty.
-
-		The order in which the indices are enumerated is not specified, even for
-		numeric indices. (To traverse a table in numeric order, use a numerical for
-		or the `ipairs` function).
-
-		The behavior of next is undefined if, during the traversal, any value
-		to a non-existent field in the table is assigned. Existing fields may
-		however be modified. In particular, existing fields may be cleared.</haxe_doc>
-		</next>
-		<tostring public="1" set="method" static="1">
-			<f a="v">
-				<d/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Receives an argument of any type and converts it to a string in a reasonable
-		format.
-
-		For complete control of how numbers are converted, use`NativeStringTools.format`.</haxe_doc>
-		</tostring>
-		<ipairs public="1" params="K:V" set="method" static="1"><f a="t">
-	<c path="lua.Table">
-		<c path="ipairs.K"/>
-		<c path="ipairs.V"/>
-	</c>
-	<c path="lua.IPairsResult">
-		<c path="ipairs.K"/>
-		<c path="ipairs.V"/>
-	</c>
-</f></ipairs>
-		<pairs public="1" params="K:V" set="method" static="1"><f a="t">
-	<c path="lua.Table">
-		<c path="pairs.K"/>
-		<c path="pairs.V"/>
-	</c>
-	<c path="lua.PairsResult">
-		<c path="pairs.K"/>
-		<c path="pairs.V"/>
-	</c>
-</f></pairs>
-		<require public="1" set="method" static="1"><f a="module">
-	<c path="String"/>
-	<d/>
-</f></require>
-		<tonumber public="1" set="method" static="1">
-			<f a="str:?base">
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>Converts the Lua value at the given acceptable base to `Int`.
-		The Lua value must be a number or a string convertible to a number,
-		otherwise `tonumber` returns `0`.</haxe_doc>
-		</tonumber>
-		<type public="1" set="method" static="1">
-			<f a="v">
-				<d/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>Returns the Lua type of its only argument as a string.
-		The possible results of this function are:
-
-		* `"nil"` (a string, not the Lua value nil),
-		* `"number"`
-		* `"string"`
-		* `"boolean"`
-		* `"table"`
-		* `"function"`
-		* `"thread"`
-		* `"userdata"`</haxe_doc>
-		</type>
-		<print public="1" set="method" static="1">
-			<f a="v">
-				<t path="haxe.extern.Rest"><d/></t>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Receives any number of arguments, and prints their values to stdout,
-		using the tostring function to convert them to strings.
-		`print` is not intended for formatted output, but only as a quick way to show
-		a value, typically for debugging.
-
-		For complete control of how numbers are converted, use `NativeStringTools.format`.</haxe_doc>
-		</print>
-		<select public="1" set="method" static="1">
-			<f a="n:rest">
-				<d/>
-				<t path="haxe.extern.Rest"><d/></t>
-				<d/>
-			</f>
-			<haxe_doc>If `n` is a number, returns all arguments after argument number `n`.
-		Otherwise, `n` must be the string `"#"`, and select returns the total
-		number of extra arguments it received.</haxe_doc>
-		</select>
-		<rawget public="1" params="K:V" set="method" static="1">
-			<f a="t:k">
-				<c path="lua.Table">
-					<c path="rawget.K"/>
-					<c path="rawget.V"/>
-				</c>
-				<c path="rawget.K"/>
-				<c path="rawget.V"/>
-			</f>
-			<haxe_doc>Gets the real value of `table[index]`, without invoking any metamethod.</haxe_doc>
-		</rawget>
-		<rawset public="1" params="K:V" set="method" static="1">
-			<f a="t:k:v">
-				<c path="lua.Table">
-					<c path="rawset.K"/>
-					<c path="rawset.V"/>
-				</c>
-				<c path="rawset.K"/>
-				<c path="rawset.V"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Sets the real value of `table[index]` to value, without invoking any metamethod.</haxe_doc>
-		</rawset>
-		<collectgarbage public="1" set="method" static="1">
-			<f a="opt:?arg">
-				<x path="lua.CollectGarbageOption"/>
-				<x path="Int"/>
-				<x path="Int"/>
-			</f>
-			<haxe_doc>This function is a generic interface to the garbage collector.
-		It performs different functions according to its first argument.</haxe_doc>
-		</collectgarbage>
-		<assert public="1" params="T" set="method" static="1">
-			<f a="v:?message">
-				<c path="assert.T"/>
-				<c path="String"/>
-				<c path="assert.T"/>
-			</f>
-			<haxe_doc>Issues an error when the value of its argument `v` is `false` (i.e., `null`
-		or `false`) otherwise, returns all its arguments. message is an error message.
-		when absent, it defaults to "assertion failed!"</haxe_doc>
-		</assert>
-		<dofile public="1" set="method" static="1">
-			<f a="filename">
-				<c path="String"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Loads and runs the given file.</haxe_doc>
-		</dofile>
-		<error public="1" set="method" static="1">
-			<f a="message:?level">
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Generates a Lua error. The error message (which can actually be a Lua value
-		of any type) must be on the stack top. This function does a long jump,
-		and therefore never returns.</haxe_doc>
-		</error>
-		<pcall public="1" set="method" static="1">
-			<f a="f:rest">
-				<x path="haxe.Function"/>
-				<t path="haxe.extern.Rest"><d/></t>
-				<c path="lua.PCallResult"/>
-			</f>
-			<haxe_doc>Calls a function in protected mode.</haxe_doc>
-		</pcall>
-		<rawequal public="1" set="method" static="1">
-			<f a="v1:v2">
-				<d/>
-				<d/>
-				<x path="Bool"/>
-			</f>
-			<haxe_doc>Returns `true` if the two values in acceptable indices `v1` and `v2` are
-		primitively equal (that is, without calling metamethods).
-		Otherwise returns `false`.
-		Also returns `false` if any of the indices are non valid.</haxe_doc>
-		</rawequal>
-		<xpcall public="1" set="method" static="1">
-			<f a="f:msgh:rest">
-				<x path="haxe.Function"/>
-				<x path="haxe.Function"/>
-				<t path="haxe.extern.Rest"><d/></t>
-				<c path="lua.PCallResult"/>
-			</f>
-			<haxe_doc>This function is similar to pcall, except that you can set a new error
-		handler.</haxe_doc>
-		</xpcall>
-		<loadfile public="1" set="method" static="1">
-			<f a="filename">
-				<c path="String"/>
-				<c path="lua.LoadResult"/>
-			</f>
-			<haxe_doc>Loads the chunk from file filename or from the standard input if no filename
-		is given.</haxe_doc>
-		</loadfile>
-		<load public="1" set="method" static="1">
-			<f a="code">
-				<x path="haxe.extern.EitherType">
-					<c path="String"/>
-					<f a=""><c path="String"/></f>
-				</x>
-				<c path="lua.LoadResult"/>
-			</f>
-			<haxe_doc>Loads the chunk from given string.</haxe_doc>
-		</load>
-		<haxe_doc>These are all global static methods within Lua.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":native"><e>"_G"</e></m>
-		</meta>
 	</class>
 	<abstract path="lua.CollectGarbageOption" params="" file="/home/runner/work/haxe/haxe/std/lua/Lua.hx" module="lua.Lua">
 		<this><c path="String"/></this>
