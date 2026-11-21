@@ -14845,6 +14845,10 @@
 		<haxe_doc>This interface is internally used to manage coroutine call stacks. `getStackItem` only returns stack items with `-D coro.stack-traces`.</haxe_doc>
 	</class>
 	<class path="haxe.coro.IContinuation" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/IContinuation.hx" interface="1">
+		<context public="1" get="accessor" set="null">
+			<x path="haxe.coro.context.Context"/>
+			<haxe_doc>The immutable context of this object.</haxe_doc>
+		</context>
 		<get_context public="1" set="method">
 			<f a=""><x path="haxe.coro.context.Context"/></f>
 			<meta>
@@ -14852,10 +14856,6 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</get_context>
-		<context public="1" get="accessor" set="null">
-			<x path="haxe.coro.context.Context"/>
-			<haxe_doc>The immutable context of this object.</haxe_doc>
-		</context>
 		<resume public="1" set="method">
 			<f a="result:error">
 				<x path="Null"><c path="haxe.coro.IContinuation.T"/></x>
@@ -15062,6 +15062,7 @@
 		<new public="1" set="method" line="7"><f a=""><x path="Void"/></f></new>
 	</class>
 	<class path="haxe.coro.cancellation.ICancellationToken" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/cancellation/ICancellationToken.hx" interface="1">
+		<cancellationException public="1" get="accessor" set="null"><x path="Null"><c path="haxe.exceptions.CancellationException"/></x></cancellationException>
 		<get_cancellationException public="1" set="method">
 			<f a=""><x path="Null"><c path="haxe.exceptions.CancellationException"/></x></f>
 			<meta>
@@ -15069,7 +15070,6 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</get_cancellationException>
-		<cancellationException public="1" get="accessor" set="null"><x path="Null"><c path="haxe.exceptions.CancellationException"/></x></cancellationException>
 		<onCancellationRequested public="1" set="method">
 			<f a="handle">
 				<c path="haxe.coro.cancellation.ICancellationCallback"/>
@@ -15134,6 +15134,7 @@
 	<x path="Void"/>
 </f></onCancellation></class>
 	<class path="haxe.coro.context.ISynchronousRun" params="" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/CallStackHandler.hx" module="haxe.coro.context.CallStackHandler" interface="1">
+		<context public="1" get="accessor" set="null"><x path="haxe.coro.context.Context"/></context>
 		<get_context public="1" set="method">
 			<f a=""><x path="haxe.coro.context.Context"/></f>
 			<meta>
@@ -15141,7 +15142,6 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</get_context>
-		<context public="1" get="accessor" set="null"><x path="haxe.coro.context.Context"/></context>
 		<complete public="1" set="method"><f a=""><x path="Void"/></f></complete>
 	</class>
 	<class path="haxe.coro.context.IElement" params="T" file="/home/runner/work/haxe/haxe/std/haxe/coro/context/IElement.hx" interface="1">
